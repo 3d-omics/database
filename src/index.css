@@ -1,13 +1,26 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  .main_header {
+    @apply text-2xl font-bold font-jakarta
+  }
+  .pagination_btn {
+    @apply border rounded p-1 disabled:opacity-30 enabled:hover:bg-gray-100
+  }
+  .page_padding {
+    @apply px-12 py-7 max-lg:px-8 max-md:px-6 max-sm:px-4
+  }
+  .link {
+    @apply underline hover:text-mustard
+  }
+
+
+
+  
 }
