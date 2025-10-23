@@ -17,3 +17,5 @@ export const defaultPhylumColor = "#999999";
 
 export const getPhylumColor = (phylum: string): string =>
   phylumColors[phylum] || defaultPhylumColor;
+
+

@@ -302,7 +302,9 @@ const Home = () => {
             </div>
           </div>
 
+
           <FontAwesomeIcon icon={faCaretDown} />
+
 
           <div className='max-lg:clip-arrow max-lg:-mt-14'>
             <Link to={"/animal-specimen"}>
@@ -319,9 +321,11 @@ const Home = () => {
             </Link>
           </div>
 
+
           <FontAwesomeIcon icon={faCaretDown} />
 
-          <div className='max-lg:clip-arrow max-lg:-mt-14'>
+
+          {/* <div className='max-lg:clip-arrow max-lg:-mt-14'>
             <Link to={"/macrosample"}>
               <li className='bg-texture'>
                 <div>
@@ -334,9 +338,48 @@ const Home = () => {
                 </div>
               </li>
             </Link>
+          </div> */}
+          <div>
+            <div className='max-lg:clip-arrow max-lg:-mt-14'>
+              <Link to={"/macrosample"}>
+                <li className='bg-texture  h-full flex flex-col'>
+                  <div>
+                    <h2>Macrosample</h2>
+                    <p>
+                      <span>832</span>&nbsp;records
+                      <br />
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                  </div>
+                </li>
+              </Link>
+            </div>
+
+
+            <div className="flex items-center max-lg:hidden">
+              <FontAwesomeIcon icon={faCaretRight} className="!w-6" /> {/* !w-6 is for safari browser */}
+            </div>
+
+
+            <div className='max-lg:clip-arrow max-lg:-mt-14 '>
+              <Link to={"/macrosample-composition"}>
+                <li className='bg-diagonal  h-full flex flex-col'>
+                  <div className='max-lg:px-8'>
+                    <h2>
+                      Genome Composition
+                      <span className='hidden max-lg:inline font-light text-sm'>
+                        &nbsp;(Macrosample)</span>
+                    </h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo nulla, dictum quis facilisis ac. </p>
+                  </div>
+                </li>
+              </Link>
+            </div>
           </div>
 
+
           <FontAwesomeIcon icon={faCaretDown} />
+
 
           <div>
             <div className='max-lg:clip-arrow max-lg:-mt-14'>
@@ -374,7 +417,9 @@ const Home = () => {
             </div>
           </div>
 
+
           <FontAwesomeIcon icon={faCaretDown} />
+
 
           <div className='max-lg:clip-arrow max-lg:-mt-14'>
             <Link to={"/cryosection"}>
@@ -391,10 +436,11 @@ const Home = () => {
             </Link>
           </div>
 
+
           <FontAwesomeIcon icon={faCaretDown} />
 
-          <div>
 
+          <div>
             <div className='max-lg:clip-arrow max-lg:-mt-14'>
               <Link to={"/microsample"}>
                 <li className='bg-texture h-full flex flex-col'>
@@ -427,8 +473,8 @@ const Home = () => {
                 </li>
               </Link>
             </div>
-
           </div>
+
 
         </ul>
       </div >

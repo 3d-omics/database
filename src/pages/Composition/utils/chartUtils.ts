@@ -1,6 +1,4 @@
-import { colorScheme } from 'pages/Composition/files/taxonomy-color-scheme';
-
-export const flattenedcolorScheme = (() => {
+export const flattenedcolorScheme = (colorScheme:Record<string, any>) => {
   const result: Record<string, string> = {};
   function traverse(obj: Record<string, any>): void {
     for (const key in obj) {
@@ -18,7 +16,7 @@ export const flattenedcolorScheme = (() => {
   }
   traverse(colorScheme);
   return result;
-})();
+}
 
 
 
@@ -50,25 +48,3 @@ export const dynamicXAxisPlugin = {
 
   },
 }
-
-// export const dynamicXAxisPlugin = {
-//   id: 'dynamicXAxisPlugin',
-//   beforeUpdate(chart: any) {
-//     const xAxis = chart.scales['x'];
-//     if (!xAxis) return;
-//     const tickCount = xAxis.ticks.length || chart.data.labels.length;
-//     const pixelsPerTick = xAxis.width / tickCount;
-//     const needsRotation = pixelsPerTick < 30;
-//     const xTickOptions = chart.options.scales.x.ticks;
-//     if (
-//       xTickOptions.minRotation !== (needsRotation ? 90 : 0) ||
-//       xTickOptions.font?.size !== (needsRotation ? 8 : 12)
-//     ) {
-//       xTickOptions.minRotation = needsRotation ? 90 : 0;
-//       xTickOptions.font = {
-//         ...xTickOptions.font,
-//         size: needsRotation ? 8 : 12,
-//       };
-//     }
-//   },
-// };

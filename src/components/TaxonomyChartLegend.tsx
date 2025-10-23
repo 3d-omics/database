@@ -1,25 +1,42 @@
 import { useState, useEffect } from "react";
-import { colorScheme } from "../files/taxonomy-color-scheme";
 
-const TaxonomyGraphLegend = ({ selectedTaxonomicLevel }: { selectedTaxonomicLevel: string }) => {
-  interface TaxonomyNode {
-    color: string;
-    classes?: Record<string, TaxonomyNode>;
-    orders?: Record<string, TaxonomyNode>;
-    families?: Record<string, TaxonomyNode>;
-    genus?: Record<string, TaxonomyNode>;
-    species?: Record<string, TaxonomyNode>;
-  }
+interface TaxonomyNode {
+  color: string;
+  classes?: Record<string, TaxonomyNode>;
+  orders?: Record<string, TaxonomyNode>;
+  families?: Record<string, TaxonomyNode>;
+  genus?: Record<string, TaxonomyNode>;
+  species?: Record<string, TaxonomyNode>;
+}
 
-  interface LegendNodeProps {
-    name: string;
-    data: TaxonomyNode;
-    level: number;
-    parentLevel: string;
-  }
+interface LegendNodeProps {
+  name: string;
+  data: TaxonomyNode;
+  level: number;
+  parentLevel: string;
+}
+const TaxonomyChartLegend = ({ selectedTaxonomicLevel, experimentId }: {
+  selectedTaxonomicLevel: string,
+  experimentId: string
+}) => {
 
   const taxonomicLevels = ["class", "order", "family", "genus", "species"]
   const [expandedNodes, setExpandedNodes] = useState<Set<string>>(new Set())
+
+  
+  // ===== Get color scheme file for the experiment ====
+  const colorSchemeFiles = import.meta.glob('../config/colorScheme/*.ts', {
+    eager: true,
+  });
+  const colorSchemeModule =
+    colorSchemeFiles[`../config/colorScheme/taxonomy-color-scheme-${experimentId}.ts`];
+
+  if (!colorSchemeModule) {
+    throw new Error(`Color scheme for experiment ${experimentId} not found`);
+  }
+  const colorScheme = (colorSchemeModule && (colorSchemeModule as any).colorScheme) ? (colorSchemeModule as any).colorScheme : {};
+  
+// =====================================================
 
   useEffect(() => {
     const newExpandedNodes = new Set<string>();
@@ -42,9 +59,7 @@ const TaxonomyGraphLegend = ({ selectedTaxonomicLevel }: { selectedTaxonomicLeve
 
     return (
       <div className="ml-1.5">
-        <div
-          className="flex items-center h-[18px]"
-        >
+        <div className="flex items-center h-[18px]">
           <div
             className="w-3 h-full mr-1 "
             style={{ backgroundColor: data.color }}
@@ -87,11 +102,11 @@ const TaxonomyGraphLegend = ({ selectedTaxonomicLevel }: { selectedTaxonomicLeve
     ">
       <div className="space-y-2">
         {Object.entries(colorScheme).map(([name, data]) => (
-          <LegendNode key={name} name={name} data={data} level={0} parentLevel="phylum" />
+          <LegendNode key={name} name={name} data={data as TaxonomyNode} level={0} parentLevel="phylum" />
         ))}
       </div>
     </div>
   );
 };
 
-export default TaxonomyGraphLegend;
+export default TaxonomyChartLegend;

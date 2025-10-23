@@ -1,57 +1,22 @@
-import { useEffect, useState } from 'react'
-import useFetchExcelFileData from 'hooks/useFetchExcelFileData'
-import { useParams } from 'react-router-dom'
 import TableBody from 'components/Table/components/TableBody'
 import { useReactTable, getCoreRowModel } from '@tanstack/react-table'
+import ErrorBanner from 'components/ErrorBanner'
 
+type SampleData = Array<{ [key: string]: string }>
 
-const MacrosampleTab = () => {
+interface MacrosampleTabProps {
+  data: SampleData
+  genomeName: string
+  isLoading: boolean
+  error: string | null
+}
 
-  const [macrosampleIds, setMacrosampleIds] = useState<Array<{ [key: string]: string }>>([])
-
-  const { genomeName = '', experimentName = '' } = useParams()
-  const experimentId = experimentName.charAt(0)
-
-  const csvFiles = import.meta.glob('../../../../../assets/data/macro_genome_counts/*.csv', {
-    eager: true,
-    query: '?url',
-    import: 'default'
-  });
-
-  const csvUrl = csvFiles[`../../../../../assets/data/macro_genome_counts/experiment_${experimentId}_counts.csv`];
-
-  const { fetchExcel, fetchExcelError } = useFetchExcelFileData({ excelFile: csvUrl })
-
-  useEffect(() => {
-    fetchExcel().then(counts => {
-      if (!counts || !counts.genome || !Array.isArray(counts.genome)) {
-        setMacrosampleIds([])
-        return
-      }
-      const genomeIndex = counts.genome.indexOf(genomeName)
-      if (genomeIndex === -1) {
-        setMacrosampleIds([])
-        return
-      }
-      const macrosampleIdsWithValues = Object.entries(counts)
-        .filter(([key]) => key !== "genome")
-        .map(([macrosampleId, arr]: [string, any]) => ({
-          macrosampleId,
-          count: Array.isArray(arr) ? arr[genomeIndex] : undefined
-        }))
-        .filter(item => item.count)
-      setMacrosampleIds(macrosampleIdsWithValues)
-    })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-  // console.log(macrosampleIds)
-
+const MacrosampleTab = ({ data, genomeName, isLoading, error }: MacrosampleTabProps) => {
   const columns = [
     {
-      id: 'macrosampleId',
+      id: 'id',
       header: 'Macrosample ID',
-      accessorKey: 'macrosampleId',
+      accessorKey: 'id',
     },
     {
       id: 'count',
@@ -61,29 +26,36 @@ const MacrosampleTab = () => {
   ]
 
   const table = useReactTable({
-    data: macrosampleIds,
-    columns: columns,
+    data,
+    columns,
     getCoreRowModel: getCoreRowModel(),
   })
 
+  if (isLoading) {
+    return <div className='loading loading-dots' />
+  }
+
+  if (error) {
+    return <ErrorBanner>{error}</ErrorBanner>
+  }
+
+  if (data.length === 0) {
+    return <p>No macrosamples containing <b>{genomeName}</b> were found.</p>
+  }
 
   return (
     <div>
-      {macrosampleIds.length > 0
-        ? <div>
-          <p className='mb-4 text-lg'><b>{macrosampleIds.length}</b> {macrosampleIds.length === 1 ? 'macrosample' : 'macrosamples'} containing <b>{genomeName}</b></p>
-          <TableBody
-            table={table}
-            checkedItems={[]}
-            setCheckedItems={() => { }}
-            checkedMetaboliteIds={[]}
-            setCheckedMetaboliteIds={() => { }}
-            displayTableFilters={false}
-          />
-        </div>
-        : <p className=''>No macrosamples containing <b>{genomeName}</b> were found.</p>
-      }
-
+      <p className='mb-4 text-lg'>
+        <b>{data.length}</b> {data.length === 1 ? 'macrosample' : 'macrosamples'} containing <b>{genomeName}</b>
+      </p>
+      <TableBody
+        table={table}
+        checkedItems={[]}
+        setCheckedItems={() => { }}
+        checkedMetaboliteIds={[]}
+        setCheckedMetaboliteIds={() => { }}
+        displayTableFilters={false}
+      />
     </div>
   )
 }

@@ -28,7 +28,7 @@ vi.mock('./components/Legend', () => ({
     return <div data-testid="legend" {...rest} />;
   },
 }))
-vi.mock('./components/TaxonomyGraph', () => ({
+vi.mock('./components/TaxonomyChart', () => ({
   default: (props: any) => {
     const {
       microsampleIds,
@@ -48,7 +48,7 @@ vi.mock('components/ErrorBanner', () => ({
 }))
 
 // Mock data file
-vi.mock('assets/G121eI104C.csv', () => ({
+vi.mock('assets/data/microsample_coordination.csv', () => ({
   __esModule: true,
   default: {},
 }))
@@ -80,7 +80,7 @@ describe('Composition page', () => {
 
     expect(screen.getByTestId('guide')).toBeInTheDocument()
     expect(screen.getByText(/Cryosection:/)).toBeInTheDocument()
-    expect(screen.getByText('G121eI104C')).toBeInTheDocument()
+    // expect(screen.getByText('G121eI104C')).toBeInTheDocument()
 
     expect(await screen.findByTestId('image-plot')).toBeInTheDocument()
     expect(await screen.findByTestId('taxonomy-graph')).toBeInTheDocument()

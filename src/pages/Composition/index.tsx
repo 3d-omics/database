@@ -1,15 +1,15 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect } from 'react'
 import ImagePlot from './components/ImagePlot'
-import Legend from './components/Legend'
+import TaxonomyChartLegend from 'components/TaxonomyChartLegend'
 import useFetchExcelFileData from 'hooks/useFetchExcelFileData'
-import TaxonomyGraph from './components/TaxonomyGraph'
+import TaxonomyChart from './components/TaxonomyChart'
 import ErrorBanner from 'components/ErrorBanner'
 import Guide from './components/Guide'
 import { useParams } from 'react-router-dom'
-import { airtableConfig } from 'config/airtable'
-import useGetFirst100Data from 'hooks/useGetFirst100Data'
 import microsample_coordination from 'assets/data/microsample_coordination.csv'
 import BreadCrumbs from 'components/BreadCrumbs'
+import useValidateParams from 'hooks/useValidateParams'
+import ParamsValidator from 'components/ParamsValidator'
 
 const Composition = () => {
 
@@ -24,6 +24,14 @@ const Composition = () => {
   const [microsampleIds, setMicrosampleIds] = useState<string[]>([])
   const [selectedMicrosampleIds, setSelectedMicrosampleIds] = useState<string[]>([])
   const [selectedTaxonomicLevel, setSelectedTaxonomicLevel] = useState('phylum')
+
+
+  const { validating, notFound } = useValidateParams({
+    tableType: 'cryosectionImage',
+    filterId: 'ID',
+    filterValue: cryosection
+  })
+
 
   // ================ fetching from csv file =========================
 
@@ -50,82 +58,61 @@ const Composition = () => {
     )
   }
 
-  // =================== fetching from airtable ==============================
-
-  // const { microsamplesWithCoordinationBaseId, microsamplesWithCoordinationTableId, microsamplesWithCoordinationViewId } = airtableConfig
-  // const { first100Data, first100Loading, first100Error, allData, allLoading, allError, } = useGetFirst100Data({
-  //   AIRTABLE_BASE_ID: microsamplesWithCoordinationBaseId,
-  //   AIRTABLE_TABLE_ID: microsamplesWithCoordinationTableId,
-  //   AIRTABLE_VIEW_ID: microsamplesWithCoordinationViewId,
-  // })
-
-  // const tempAllData = useMemo(
-  //   () => allData.filter((d) => d.fields.cryosection_text === cryosection).map((d) => d.fields),
-  //   [allData, cryosection]
-  // )
-
-  // useEffect(() => {
-  //   if (tempAllData.length > 0) {
-  //     setYcoord(tempAllData.map((sample) => sample.Ycoordpixel))
-  //     setXcoord(tempAllData.map((sample) => sample.Xcoordpixel))
-  //     setSize(tempAllData.map((sample) => sample.size))
-  //     setShape(tempAllData.map((sample) => sample.shape))
-  //     setMicrosampleIds(tempAllData.map((sample) => sample.ID))
-  //   }
-  // }, [tempAllData])
-
-  // if (allLoading) { return <div className='loading loading-dots loading-xs min-h-dvh' data-testid='loading' /> }
 
 
-  //=======================================================================
 
   return (
-    <div className='px-4 max-w-screen'>
-      <Guide />
+    <ParamsValidator validating={validating} notFound={notFound} >
+      <div className='px-4 max-w-screen'>
+        <Guide />
 
-      <section className='pt-4 pb-2 max-xl:pb-6 -mb-6'>
-        <BreadCrumbs
-          items={[
-            { label: 'Home', link: '/' },
-            { label: 'Genome Compositions', link: '/composition' },
-            { label: cryosection }
-          ]}
-        />
-
-        <header>
-          <span className='font-thin text-xl'>Cryosection:&nbsp;</span>
-          <span className='main_header'>{cryosection}</span>
-        </header>
-      </section>
-
-      <div className='flex min-h-[calc(100vh-123px)] items-start max-xl:flex-col max-xl:gap-12 max-xl:h-fit max-xl:items-center'>
-
-        <div className='w-[35%] aspect-square my-auto max-xl:w-[60%] max-lg:w-[70%] max-md:w-[80%] max-sm:w-[100%] image-plot'>
-          <ImagePlot
-            cryosection={cryosection}
-            setSelectedMicrosampleIds={setSelectedMicrosampleIds}
-            microsampleIds={microsampleIds}
-            xcoord={xcoord}
-            ycoord={ycoord}
-            size={size}
-            shape={shape}
-          />
-        </div>
-
-        <div className='w-[65%] flex max-xl:w-full max-xl:pb-8 max-md:flex-col max-md:gap-12'>
-          <TaxonomyGraph
-            cryosection={cryosection}
-            microsampleIds={selectedMicrosampleIds.length > 0 ? selectedMicrosampleIds : microsampleIds}
-            selectedTaxonomicLevel={selectedTaxonomicLevel}
-            setSelectedTaxonomicLevel={setSelectedTaxonomicLevel}
+        <section className='pt-4 pb-2 max-xl:pb-6 -mb-6'>
+          <BreadCrumbs
+            items={[
+              { label: 'Home', link: '/' },
+              { label: 'Genome Compositions', link: '/composition' },
+              { label: cryosection }
+            ]}
           />
 
-          <Legend selectedTaxonomicLevel={selectedTaxonomicLevel} />
+          <header>
+            <span className='font-thin text-xl'>Cryosection:&nbsp;</span>
+            <span className='main_header'>{cryosection}</span>
+          </header>
+        </section>
+
+        <div className='flex min-h-[calc(100vh-123px)] items-start max-xl:flex-col max-xl:gap-12 max-xl:h-fit max-xl:items-center'>
+
+          <div className='w-[35%] aspect-square my-auto max-xl:w-[60%] max-lg:w-[70%] max-md:w-[80%] max-sm:w-[100%] image-plot'>
+            <ImagePlot
+              cryosection={cryosection}
+              setSelectedMicrosampleIds={setSelectedMicrosampleIds}
+              microsampleIds={microsampleIds}
+              xcoord={xcoord}
+              ycoord={ycoord}
+              size={size}
+              shape={shape}
+            />
+          </div>
+
+          <div className='w-[65%] flex max-xl:w-full max-xl:pb-8 max-md:flex-col max-md:gap-12'>
+            <TaxonomyChart
+              cryosection={cryosection}
+              microsampleIds={selectedMicrosampleIds.length > 0 ? selectedMicrosampleIds : microsampleIds}
+              selectedTaxonomicLevel={selectedTaxonomicLevel}
+              setSelectedTaxonomicLevel={setSelectedTaxonomicLevel}
+            />
+
+            <TaxonomyChartLegend
+              selectedTaxonomicLevel={selectedTaxonomicLevel}
+              experimentId='G'
+            />
+          </div>
+
         </div>
 
       </div>
-
-    </div>
+    </ParamsValidator>
   )
 }
 

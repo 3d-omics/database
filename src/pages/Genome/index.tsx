@@ -8,13 +8,15 @@ import useFetchExcelFileData from 'hooks/useFetchExcelFileData'
 import ErrorBanner from 'components/ErrorBanner'
 import BreadCrumbs from 'components/BreadCrumbs'
 import NotFound from 'pages/NotFound'
-import Loading from 'components/Loading'
+import useValidateParams from 'hooks/useValidateParams'
+import ParamsValidator from 'components/ParamsValidator'
 
 
 const Genome = () => {
   const [selectedTab, setSelectedTab] = useState('Genome details')
   const [genomeData, setGenomeData] = useState<GenomeData | null>(null)
   const [loading, setLoading] = useState(true)
+
 
   const { genomeName = '', experimentName = '' } = useParams()
   const experimentId = experimentName.charAt(0)
@@ -26,6 +28,12 @@ const Genome = () => {
   });
   const csvUrl = csvFiles[`../../assets/data/genome_metadata/experiment_${experimentId}_metadata.csv`];
   const { fetchExcel, fetchExcelError } = useFetchExcelFileData({ excelFile: csvUrl })
+
+  const { validating, notFound } = useValidateParams({
+    tableType: 'animalTrialExperiment',
+    filterId: 'Name',
+    filterValue: experimentName
+  })
 
 
   useEffect(() => {
@@ -63,43 +71,45 @@ const Genome = () => {
 
   if (loading) {
     return null
-    // return <Loading />
   }
 
   if (genomeData === null) {
     return <NotFound />
   }
 
+
   return (
-    <div className='page_padding pt-7 min-h-screen'>
+    <ParamsValidator validating={validating} notFound={notFound} >
+      <div className='page_padding pt-7 min-h-screen'>
 
-      <BreadCrumbs
-        items={[
-          { label: 'Home', link: '/' },
-          { label: 'Genome Catalogues', link: '/genome-catalogues' },
-          { label: experimentName, link: `/genome-catalogues/${encodeURIComponent(experimentName)}` },
-          { label: genomeName }
-        ]}
-      />
+        <BreadCrumbs
+          items={[
+            { label: 'Home', link: '/' },
+            { label: 'Genome Catalogues', link: '/genome-catalogues' },
+            { label: experimentName, link: `/genome-catalogues/${encodeURIComponent(experimentName)}` },
+            { label: genomeName }
+          ]}
+        />
 
-      <header className='main_header max-sm:mb-1.5 pb-7'>{genomeName}</header>
+        <header className='main_header max-sm:mb-1.5 pb-7'>{genomeName}</header>
 
-      <Tabs
-        selectedTab={selectedTab}
-        setSelectedTab={setSelectedTab}
-        tabs={['Genome details', 'Samples containing this genome']}
-      />
+        <Tabs
+          selectedTab={selectedTab}
+          setSelectedTab={setSelectedTab}
+          tabs={['Genome details', 'Samples containing this genome']}
+        />
 
-      <div className='h-6'></div>
+        <div className='h-6'></div>
 
-      {fetchExcelError && <ErrorBanner>{fetchExcelError}</ErrorBanner>}
-      {genomeData &&
-        <main>
-          {selectedTab === 'Genome details' && <Details genomeData={genomeData} />}
-          {selectedTab === 'Samples containing this genome' && <SamplesContainingThisGenome genomeName={genomeName} />}
-        </main>
-      }
-    </div>
+        {fetchExcelError && <ErrorBanner>{fetchExcelError}</ErrorBanner>}
+        {genomeData &&
+          <main>
+            {selectedTab === 'Genome details' && <Details genomeData={genomeData} />}
+            {selectedTab === 'Samples containing this genome' && <SamplesContainingThisGenome genomeName={genomeName} />}
+          </main>
+        }
+      </div>
+    </ParamsValidator>
   )
 }
 

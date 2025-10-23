@@ -14,11 +14,13 @@ import NotFound from 'pages/NotFound'
 import Footer from 'components/Footer'
 import Metabolomics from 'pages/Metabolomics'
 import GenomeCatalogue from 'pages/GenomeCatalogue'
-import Overview from 'pages/AnimalTrialOverview'
+import AnimalTrialOverview from 'pages/AnimalTrialOverview'
 import Genome from 'pages/Genome'
 import GenomeCatalogueList from 'pages/GenomeCatalogueList'
 import CompositionList from 'pages/CompositionList'
 import Composition from 'pages/Composition'
+import MacrosampleTaxonomyChart from 'pages/MacrosampleComposition'
+import MacrosampleCompositionList from 'pages/MacrosampleCompositionList'
 
 function App() {
 
@@ -83,6 +85,9 @@ function App() {
           <Route path="/cryosection" element={<Cryosection />} />
           <Route path="/microsample" element={<Microsample />} />
 
+          <Route path="/macrosample-composition" element={<MacrosampleCompositionList />} />
+          <Route path="/macrosample-composition/:experimentName" element={<MacrosampleTaxonomyChart />} />
+
           <Route path="/metabolomics" element={<Metabolomics />} />
 
           <Route path="/composition" element={<CompositionList />} />
@@ -92,7 +97,7 @@ function App() {
           <Route path="/genome-catalogues/:experimentName" element={<GenomeCatalogue />} />
           <Route path="/genome-catalogues/:experimentName/:genomeName" element={<Genome />} />
 
-          <Route path="/animal-trial-experiment/:experimentName" element={<Overview />} />
+          <Route path="/animal-trial-experiment/:experimentName" element={<AnimalTrialOverview />} />
 
           {/* <Route path="/search" element={<GlobalSearchResult />} /> */}
           <Route path="*" element={<NotFound />} />

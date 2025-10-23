@@ -5,12 +5,10 @@ import ErrorBanner from 'components/ErrorBanner'
 import PhyloCircosPlot from './components/PhyloCircosPlot'
 import { useParams } from 'react-router-dom'
 import BreadCrumbs from 'components/BreadCrumbs'
-import { airtableConfig } from 'config/airtable'
-import Loading from 'components/Loading'
-import NotFound from 'pages/NotFound'
-import useGetFirst100Data from 'hooks/useGetFirst100Data'
+import useValidateParams from 'hooks/useValidateParams'
+import ParamsValidator from 'components/ParamsValidator'
 
-function GenomeCatalogue() {
+const GenomeCatalogue = () => {
 
   const { experimentName = '' } = useParams()
   const experimentId = experimentName.charAt(0)
@@ -177,59 +175,47 @@ function GenomeCatalogue() {
   }, [])
 
 
-
-  // For page 404 if the user mistypes the Animal Trial/Experiment name that does not exist
-  const { animalTrialExperimentBaseId, animalTrialExperimentTableId, animalTrialExperimentViewId } = airtableConfig
-  const { allData: data, allLoading: loading, allError: error, hasFetchedAllData } = useGetFirst100Data({
-    AIRTABLE_BASE_ID: animalTrialExperimentBaseId,
-    AIRTABLE_TABLE_ID: animalTrialExperimentTableId,
-    AIRTABLE_VIEW_ID: animalTrialExperimentViewId,
-    filterWith: [{ id: 'Name', value: experimentName }]
+  const { validating, notFound } = useValidateParams({
+    tableType: 'animalTrialExperiment',
+    filterId: 'Name',
+    filterValue: experimentName
   })
-  if (loading) {
-    return <div className='h-[calc(100dvh-var(--navbar-height))]' data-testid='loading-dots-wrapper'><Loading /></div>
-  }
-  if (hasFetchedAllData && !loading && Array.isArray(data) && data.length === 0 && error == null) {
-    return <NotFound />
-  }
-
-
-
 
 
   return (
-    <div className='min-h-screen'>
+    <ParamsValidator validating={validating} notFound={notFound} >
+      <div className='min-h-screen'>
 
-      <section className='page_padding pt-7'>
+        <section className='page_padding pt-7'>
 
-        <BreadCrumbs
-          items={[
-            { label: 'Home', link: '/' },
-            { label: 'Genome Catalogues', link: '/genome-catalogues' },
-            { label: experimentName },
-          ]}
-        />
+          <BreadCrumbs
+            items={[
+              { label: 'Home', link: '/' },
+              { label: 'Genome Catalogues', link: '/genome-catalogues' },
+              { label: experimentName },
+            ]}
+          />
 
-        <header className='main_header mb-3'>{experimentName}&nbsp;MAG Catalogue</header>
+          <header className='main_header mb-3'>{experimentName}&nbsp;MAG Catalogue</header>
 
-        {fetchExcelError
-          ? <div className='mt-4'><ErrorBanner>{fetchExcelError}</ErrorBanner></div>
-          : <PhyloCircosPlot phyloData={dataForPhylo} circosData={dataForCircos} />
+          {fetchExcelError
+            ? <div className='mt-4'><ErrorBanner>{fetchExcelError}</ErrorBanner></div>
+            : <PhyloCircosPlot phyloData={dataForPhylo} circosData={dataForCircos} />
+          }
+        </section>
+
+        {!fetchExcelError &&
+          <Table
+            allError={fetchExcelError}
+            metaData={Object.fromEntries(
+              Object.entries(metaData)
+                .map(([key, arr]) => [key, arr.slice().reverse()])
+            )}
+            experimentName={experimentName}
+          />
         }
-      </section>
-
-      {!fetchExcelError &&
-        <Table
-          allError={fetchExcelError}
-          metaData={Object.fromEntries(
-            Object.entries(metaData)
-              .map(([key, arr]) => [key, arr.slice().reverse()])
-
-          )}
-          experimentName={experimentName}
-        />
-      }
-    </div>
+      </div>
+    </ParamsValidator>
   )
 }
 

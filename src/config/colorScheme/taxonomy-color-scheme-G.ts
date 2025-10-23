@@ -1096,7 +1096,7 @@ export const colorScheme = {
   },
 
 
-  // ================== Bacteroidota ======================== // 紫
+  // ================== Bacteroidota ======================== // purple
   'Bacteroidota': {
     color: "#8000FF",
     class: {
@@ -1124,7 +1124,7 @@ export const colorScheme = {
     }
   },
 
-  // ================== Pseudomonadota ======================== //　フューシャ
+  // ================== Pseudomonadota ======================== //　fuchsia
   'Pseudomonadota': {
     color: "#CC00FF",
     class: {
@@ -1171,7 +1171,7 @@ export const colorScheme = {
   },
 
 
-  // ================== Verrucomicrobiota ======================== // ピンク
+  // ================== Verrucomicrobiota ======================== // pink
   'Verrucomicrobiota': {
     color: "#FF00E6",
     class: {

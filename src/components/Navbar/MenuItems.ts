@@ -6,8 +6,18 @@ export const menus = [
       { location: '/genome-catalogues', title: 'Genome Catalogues' },
     ]
   },
+
   { location: '/animal-specimen', title: 'Animal Specimen' },
-  { location: '/macrosample', title: 'Macrosample' },
+
+  // { location: '/macrosample', title: 'Macrosample' },
+  {
+    sectionTitle: 'Macrosample',
+    subMenus: [
+      { location: '/macrosample', title: 'Macrosample' },
+      { location: '/macrosample-composition', title: 'Genome Composition' },
+    ]
+  },
+
   {
     sectionTitle: 'Intestinal Section Sample',
     subMenus: [
@@ -15,7 +25,9 @@ export const menus = [
       { location: '/metabolomics', title: 'Metabolomics' },
     ]
   },
+
   { location: '/cryosection', title: 'Cryosection' },
+
   {
     sectionTitle: 'Microsample',
     subMenus: [
