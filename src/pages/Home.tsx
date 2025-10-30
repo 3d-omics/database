@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUpRightFromSquare, faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons'
-import tablesData from 'assets/data/airtable/_index.json'
+import tablesData from 'assets/data/airtable/_metadata.json'
 
 const Home = () => {
 
