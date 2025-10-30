@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     svgr(),
   ],
-  // base: '/database/',
+  base: '/database/',
   resolve: {
     alias: {
       src: "/src",
