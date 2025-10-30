@@ -40,7 +40,7 @@
     "cy:open": "cypress open",
     "test": "vitest",
     "generate-data": "tsx src/scripts/generate-data.ts",
-    "generate-data:watch": "tsx src/scripts/generate-data.ts && echo '\nData fetched! Files saved to src/assets/data/airtable/'",
+    "generate-data:watch": "tsx src/scripts/generate-data.ts && echo '\nData fetched! Files saved to src/assets/data/airtable/'"
   },
   "eslintConfig": {
     "extends": [
