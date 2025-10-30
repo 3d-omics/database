@@ -17,6 +17,7 @@
 .env.development.local
 .env.test.locald
 .env.production.local
+.env
 
 npm-debug.log*
 yarn-debug.log*
@@ -26,3 +27,13 @@ yarn-error.log*
 .qodo
 
 /cypress
+
+
+# Generated JSON data
+src/assets/data/airtable/*.json
+src/assets/data/genome_metadata_json/
+src/assets/data/macro_genome_counts_json/
+src/assets/data/microsample_counts_json/
+
+# Keep the airtable directory structure
+!src/assets/data/airtable/.gitkeep

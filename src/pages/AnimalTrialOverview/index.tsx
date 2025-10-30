@@ -1,48 +1,53 @@
-import { useState, useEffect, useRef } from 'react'
-import { useParams, Navigate } from 'react-router-dom'
+import { useState, useMemo } from 'react'
+import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import AnimalSpecimenTab from './components/AnimalSpecimenTab'
 import MacrosampleTab from './components/MacrosampleTab'
 import MicrosampleTab from './components/MicrosampleTab'
 import Tabs from 'components/Tabs'
-import useGetFirst100Data from 'hooks/useGetFirst100Data'
-import ErrorBanner from 'components/ErrorBanner'
-import { airtableConfig } from 'config/airtable'
 import BreadCrumbs from 'components/BreadCrumbs'
-import Loading from 'components/Loading'
-import NotFound from 'pages/NotFound'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
+import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 
+interface AnimalTrialExperiment {
+  id: string
+  createdTime: string
+  fields: {
+    ID: string
+    Name: string
+    StartDate: string
+    EndDate: string
+    Type?: string
+    [key: string]: any
+  }
+}
 
 const AnimalTrialOverview = () => {
-
   const { experimentName = '' } = useParams()
-
   const [selectedTab, setSelectedTab] = useState('Animal Specimen')
 
-  const { animalTrialExperimentBaseId, animalTrialExperimentTableId, animalTrialExperimentViewId } = airtableConfig
-
+  // Validate that the experiment exists
   const { validating, notFound } = useValidateParams({
     tableType: 'animalTrialExperiment',
     filterId: 'Name',
     filterValue: experimentName
   })
 
-  const { allData: data, allLoading: loading, allError: error } = useGetFirst100Data({
-    AIRTABLE_BASE_ID: animalTrialExperimentBaseId,
-    AIRTABLE_TABLE_ID: animalTrialExperimentTableId,
-    AIRTABLE_VIEW_ID: animalTrialExperimentViewId,
-    filterWith: [{ id: 'Name', value: experimentName }]
-  })
+  // Filter data to find the specific experiment
+  const data = useMemo(() => {
+    return (animalTrialExperimentData as AnimalTrialExperiment[]).filter((record) => {
+      const name = record.fields.Name
+      return name && String(name).toLowerCase() === experimentName.toLowerCase()
+    })
+  }, [experimentName])
 
+  const experiment = data[0] // Get the first (and should be only) match
 
   return (
     <ParamsValidator validating={validating} notFound={notFound}>
       <div className='min-h-screen'>
-        {error && <div className='page_padding'><ErrorBanner>{error}</ErrorBanner></div>}
-        {loading && <Loading />}
-        {data &&
+        {experiment && (
           <>
             <section className='page_padding'>
               <BreadCrumbs
@@ -66,15 +71,15 @@ const AnimalTrialOverview = () => {
               <div className='flex gap-4 text-sm text-gray-500 pb-8 font-thin [&>span]:flex [&>span]:gap-1'>
                 <span>
                   Experiment ID:&nbsp;
-                  <b>{data[0]?.fields.ID}</b>
+                  <b>{experiment.fields.ID}</b>
                 </span>
                 <span>
                   Start date:&nbsp;
-                  <b>{data[0]?.fields.StartDate}</b>
+                  <b>{experiment.fields.StartDate}</b>
                 </span>
                 <span>
                   End date:&nbsp;
-                  <b>{data[0]?.fields.EndDate}</b>
+                  <b>{experiment.fields.EndDate}</b>
                 </span>
               </div>
 
@@ -86,16 +91,17 @@ const AnimalTrialOverview = () => {
             </section>
 
             <main className='-mt-7'>
-              {selectedTab === 'Animal Specimen' && <AnimalSpecimenTab experimentId={data[0]?.fields.ID} />}
-              {selectedTab === 'Macrosample' && <MacrosampleTab experimentId={data[0]?.fields.ID} />}
-              {selectedTab === 'Microsample' && <MicrosampleTab experimentId={data[0]?.fields.ID} />}
+              {selectedTab === 'Animal Specimen' && <AnimalSpecimenTab experimentId={experiment.fields.ID} />}
+              {selectedTab === 'Macrosample' && <MacrosampleTab experimentId={experiment.fields.ID} />}
+              {selectedTab === 'Microsample' && <MicrosampleTab experimentId={experiment.fields.ID} />}
             </main>
           </>
-        }
+        )}
       </div>
     </ParamsValidator>
   )
 }
 
-
 export default AnimalTrialOverview
+
+

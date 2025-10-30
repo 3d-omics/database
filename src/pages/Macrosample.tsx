@@ -1,8 +1,10 @@
 import { useMemo } from 'react'
-import useGetFirst100Data from 'hooks/useGetFirst100Data'
 import { ColumnDef } from '@tanstack/react-table'
 import TableView from 'components/TableView'
-import { airtableConfig } from 'config/airtable'
+import CrossReferenceTooltip from 'components/CrossReferenceTooltip'
+import macrosampleData from 'assets/data/airtable/macrosample.json'
+import animalSpecimenData from 'assets/data/airtable/animalspecimen.json'
+
 
 export type TData = {
   id: string
@@ -17,27 +19,42 @@ const Macrosample = ({ displayTableHeader, displayTableFilters, displayTableBody
   displayTableHeader?: boolean
   displayTableFilters?: boolean
   displayTableBody?: boolean
-  filterWith?: { id: string; value: string | number, condition?: string }[]
+  filterWith?: { id: keyof TData['fields']; value: string | number; condition?: 'startsWith' | 'equals' }[];
 }) => {
 
-  const { macrosampleBaseId, macrosampleTableId, macrosampleViewId } = airtableConfig
+  const data = macrosampleData as unknown as TData[];
 
-  const { first100Data, first100Loading, first100Error, allData, allLoading, allError, } = useGetFirst100Data({
-    AIRTABLE_BASE_ID: macrosampleBaseId,
-    AIRTABLE_TABLE_ID: macrosampleTableId,
-    AIRTABLE_VIEW_ID: macrosampleViewId,
-    filterWith,
-  })
+  // for cross reference tooltip
+    const specimenLookup = useMemo(() => {
+      return (animalSpecimenData as any[]).map((record) => record.fields);
+    }, []);
 
-  const data = useMemo(() => {
-    if (allData.length !== 0 && !allLoading) {
-      return allData
-    } else {
-      return first100Data
+  const filteredData = useMemo(() => {
+    if (!filterWith || filterWith.length === 0) {
+      return data;
     }
-  }, [allData, first100Data, allLoading])
 
-  // console.log(allData.map((d) => d.fields))
+    return (data).filter((record) => {
+      return filterWith.every((filter) => {
+        const fieldValue = record.fields[filter.id];
+
+        if (fieldValue === undefined || fieldValue === null) return false;
+
+        const values = Array.isArray(fieldValue) ? fieldValue : [fieldValue];
+        const searchValue = String(filter.value).toLowerCase();
+
+        if (filter.condition === 'startsWith') {
+          return values.some((val) =>
+            String(val).toLowerCase().startsWith(searchValue)
+          );
+        } else {
+          return values.some((val) =>
+            String(val).toLowerCase() === searchValue
+          );
+        }
+      });
+    });
+  }, [filterWith]);
 
   const columns = useMemo<ColumnDef<TData>[]>(() => [
     {
@@ -49,19 +66,30 @@ const Macrosample = ({ displayTableHeader, displayTableFilters, displayTableBody
       id: 'ExperimentalUnitIndexedLibrary',
       header: 'Animal Specimen ID',
       accessorFn: (row) => row.fields.ExperimentalUnitIndexedLibrary?.[0],
+      cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => (
+        <CrossReferenceTooltip
+          value={cell.getValue() as string}
+          data={specimenLookup}
+          fieldsName={[
+            { key: 'ID', value: 'ID' },
+            { key: 'Treatment', value: 'Treatment_flat' },
+            { key: 'Treatment name', value: 'TreatmentName' },
+            { key: 'Pen', value: 'Pen' },
+            { key: 'Slaughtering day count', value: 'SlaughteringDayCount' },
+            { key: 'Slaughtering date', value: 'SlaughteringDate' },
+            { key: 'Weight', value: 'Weight' },
+          ]}
+        />
+      ),
     },
-  ], [data])
+  ], [filteredData, specimenLookup])
 
 
 
   return (
     <TableView<TData>
-      data={data}
+      data={filteredData}
       columns={columns}
-      first100Loading={first100Loading}
-      allLoading={allLoading}
-      first100Error={first100Error}
-      allError={allError}
       pageTitle={'Macrosample'}
       displayTableHeader={displayTableHeader}
       displayTableFilters={displayTableFilters}

@@ -10,19 +10,6 @@ import Logo from 'src/assets/images/3domics-logo.png'
 const Navbar = () => {
 
   const location = useLocation().pathname
-
-  // const [searchOpen, setSearchOpen] = useState(false)
-  // const [globalFilterKeyword, setGlobalFilterKeyword] = useState<string>('')
-  // const navigate = useNavigate()
-
-  // const handleSearch = () => {
-  //   navigate(`/search?keyword=${globalFilterKeyword.trim()}`)
-  // }
-
-  // const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-  //   if (e.key === 'Enter') handleSearch()
-  // }
-
   const navbarRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -81,51 +68,6 @@ const Navbar = () => {
               )
           ))}
         </ul>
-
-
-        {/* ⬇️ For search across different tables, but does NOT include metabolites nor genomes */}
-        {/* <div className={`duration-300 ${searchOpen ? 'w-[200px]' : 'w-0'}`}>
-          {searchOpen
-            ? <label className='border-b-1.5 flex'>
-              <input
-                type="text"
-                placeholder="Search..."
-                className='bg-transparent outline-none text-xs py-0.5 px-1 w-full'
-                onChange={(e) => setGlobalFilterKeyword(e.target.value)}
-                onKeyDown={handleKeyDown}
-              />
-            </label>
-            : <div className='border-b-1.5 w-full mt-5'></div>
-          }
-        </div>
-
-        {searchOpen
-          ? (
-            <>
-              <button className='btn btn-sm btn-ghost btn-circle'
-                onClick={handleSearch}
-              >
-                <FontAwesomeIcon icon={faMagnifyingGlass} data-cy='search-icon-when-open' data-testid='perform-search-icon' title="search" />
-              </button>
-              <button className='btn btn-sm btn-ghost btn-circle' title='close search box'>
-                <FontAwesomeIcon
-                  icon={faCircleXmark}
-                  onClick={() => {
-                    setGlobalFilterKeyword('')
-                    setSearchOpen(false)
-                  }}
-                  data-cy='close-search-input'
-                  data-testid='close-search-input-icon'
-                />
-              </button>
-            </>
-          ) : (
-            <button className='btn btn-sm btn-ghost btn-circle' onClick={() => setSearchOpen(true)}>
-              <FontAwesomeIcon icon={faMagnifyingGlass} data-cy='search-icon-when-closed' data-testid='open-search-input-icon' title="open search input" />
-            </button>
-          )
-        } */}
-
 
       </div>
 

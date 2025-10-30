@@ -1,9 +1,8 @@
 import { useMemo } from 'react'
 import { ColumnDef } from '@tanstack/react-table'
-import useGetFirst100Data from 'hooks/useGetFirst100Data'
 import { Link } from 'react-router-dom'
 import TableView from 'components/TableView'
-import { airtableConfig } from 'config/airtable'
+import microsampleData from 'assets/data/airtable/microsample.json'
 
 
 export type TData = {
@@ -31,40 +30,46 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
   displayTableHeader?: boolean
   displayTableFilters?: boolean
   displayTableBody?: boolean
-  filterWith?: { id: string; value: string | number, condition?: string }[]
+  filterWith?: { id: keyof TData['fields']; value: string | number, condition?: string }[]
 }) => {
 
-  const { microsampleBaseId, microsampleTableId, microsampleViewId } = airtableConfig
+  const data = microsampleData as unknown as TData[];
 
-  const { first100Data, first100Loading, first100Error, allData, allLoading, allError, } = useGetFirst100Data({
-    AIRTABLE_BASE_ID: microsampleBaseId,
-    AIRTABLE_TABLE_ID: microsampleTableId,
-    AIRTABLE_VIEW_ID: microsampleViewId,
-    filterWith,
-  })
-
-  const data = useMemo(() => {
-    if (allData.length !== 0 && !allLoading) {
-      return allData
-    } else {
-      return first100Data
+  const filteredData = useMemo(() => {
+    if (!filterWith || filterWith.length === 0) {
+      return data;
     }
-  }, [allData, first100Data, allLoading])
 
-  // console.log(data.map((data) => data.fields))
+    return (data).filter((record) => {
+      return filterWith.every((filter) => {
+        const fieldValue = record.fields[filter.id];
+
+        if (fieldValue === undefined || fieldValue === null) return false;
+
+        const values = Array.isArray(fieldValue) ? fieldValue : [fieldValue];
+        const searchValue = String(filter.value).toLowerCase();
+
+        if (filter.condition === 'startsWith') {
+          return values.some((val) =>
+            String(val).toLowerCase().startsWith(searchValue)
+          );
+        } else {
+          return values.some((val) =>
+            String(val).toLowerCase() === searchValue
+          );
+        }
+      });
+    });
+  }, [filterWith]);
+
+
+
 
   const columns = useMemo<ColumnDef<TData>[]>(() => [
     {
       id: 'Code',
       header: 'Code',
       accessorFn: (row) => row.fields.Code,
-      // // to see the index
-      //  cell: ({ cell, row }: { cell: { getValue: () => any }, row: any }) => {
-      //   return <>
-      //     <p>{cell.getValue() || 'unknown'}</p>
-      //     <p>{row.index}</p>
-      //   </>
-      // },
     },
     {
       id: 'LMBatch_flat',
@@ -72,7 +77,7 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       accessorFn: (row) => row.fields.LMBatch_flat,
       meta: {
         filterVariant: 'select' as const,
-        uniqueValues: Array.from(new Set(data.map((row) => row.fields.LMBatch_flat))),
+        uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.LMBatch_flat))),
       },
     },
     {
@@ -82,7 +87,7 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       // === for dropdown filter ===
       // meta: {
       //   filterVariant: 'select' as const,
-      //   uniqueValues: Array.from(new Set(data.map((row) => row.fields.Cryosection_flat))),
+      //   uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Cryosection_flat))),
       // },
       // === for cell with link to cryosection-view ===
       // cell: (props: any) => (
@@ -95,7 +100,7 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       accessorFn: (row) => row.fields.CollectionMethod?.[0],
       meta: {
         filterVariant: 'select' as const,
-        uniqueValues: Array.from(new Set(data.map((row) => row.fields.CollectionMethod?.[0]))),
+        uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.CollectionMethod?.[0]))),
       },
     },
     {
@@ -104,7 +109,7 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       accessorFn: (row) => row.fields.Researcher,
       meta: {
         filterVariant: 'select' as const,
-        uniqueValues: Array.from(new Set(data.map((row) => row.fields.Researcher))),
+        uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Researcher))),
       },
     },
     {
@@ -119,7 +124,7 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       accessorFn: (row) => row.fields.Shape,
       meta: {
         filterVariant: 'select' as const,
-        uniqueValues: Array.from(new Set(data.map((row) => row.fields.Shape))),
+        uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Shape))),
       },
     },
     {
@@ -157,17 +162,13 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
         </Link>
       ),
     },
-  ], [data])
+  ], [filteredData])
 
 
   return (
     <TableView<TData>
-      data={data}
+      data={filteredData}
       columns={columns}
-      first100Loading={first100Loading}
-      allLoading={allLoading}
-      first100Error={first100Error}
-      allError={allError}
       pageTitle={'Microsample'}
       displayTableHeader={displayTableHeader}
       displayTableFilters={displayTableFilters}

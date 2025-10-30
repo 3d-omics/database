@@ -1,33 +1,75 @@
-# 3d'omics Database
+# Admin Guide: Updating Site Data
 
-## How to run locally
+## 📊 When to Update Data
 
-Follow these steps to run the project locally with Vite:
-
-1. **Clone and install**
-
-   ```bash
-   git clone https://github.com/3d-omics/database.git
-   cd database
-   npm install
-    ```
-
-2. **Add environment variable**
-
-- Create a `.env` file in the root of the project.
-- Add the Airtable API key to the `.env` file. For Vite, environment variables must start with VITE_ to be exposed to the frontend:
-
-    ```bash
-    VITE_AIRTABLE_API_KEY=airtable_api_key_here
-    ```
+Update the site whenever you:
+- Add new records to Airtable
+- Modify existing Airtable data
+- Update CSV files (genome metadata, sample counts)
 
 
-3. **Run**
+## 🔧 How to Update + Deploy
 
-    ```bash
-    npm run dev
-    ```
+### Step 1: Update Data Locally
 
-  Open http://localhost:5173 (or the port shown in your terminal) to see the project running.
+```bash
+# Navigate to project directory
+cd your-project-folder
 
+# Fetch fresh data from Airtable and regenerate JSON files
+npm run generate-data
+```
 
+This regenerates all 102 JSON files:
+- 9 Airtable tables
+- 14 genome metadata files
+- 14 macro genome count files
+- 69 microsample count files
+
+### Step 2: Test Locally (Optional)
+
+```bash
+# Run development server to verify
+npm run dev
+```
+
+Visit `http://localhost:5173` to check the updated data.
+
+### Step 3: Deploy
+
+```bash
+# Build for production
+npm run build
+
+# Commit and push (triggers auto-deployment)
+git add .
+git commit -m "Update data from Airtable"
+git push origin main
+```
+
+## 📝 Quick Reference
+
+| Task | Command |
+|------|---------|
+| Fetch fresh Airtable data | `npm run generate-data` |
+| Test locally | `npm run dev` |
+| Build for production | `npm run build` |
+| Deploy | `git push origin main` |
+| Quick refresh (no local changes) | `git commit --allow-empty -m "Refresh" && git push` |
+
+## ⚠️ Important Notes
+
+### CSV File Changes
+If you update CSV files in `src/assets/data/`:
+1. Commit the CSV changes: `git add src/assets/data/ && git commit -m "Update CSV data"`
+2. Push: `git push origin main`
+3. GitHub Actions will regenerate JSON files automatically
+
+### Generated Files
+**NEVER manually edit these folders:**
+- `src/assets/data/airtable/`
+- `src/assets/data/genome_metadata_json/`
+- `src/assets/data/macro_genome_counts_json/`
+- `src/assets/data/microsample_counts_json/`
+
+They are auto-generated and will be overwritten.

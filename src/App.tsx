@@ -10,15 +10,14 @@ import Cryosection from 'pages/Cryosection'
 import Microsample from 'pages/Microsample'
 import Home from 'pages/Home'
 import NotFound from 'pages/NotFound'
-// import GlobalSearchResult from 'pages/GlobalSearchResult'
 import Footer from 'components/Footer'
 import Metabolomics from 'pages/Metabolomics'
 import GenomeCatalogue from 'pages/GenomeCatalogue'
 import AnimalTrialOverview from 'pages/AnimalTrialOverview'
 import Genome from 'pages/Genome'
 import GenomeCatalogueList from 'pages/GenomeCatalogueList'
-import CompositionList from 'pages/CompositionList'
-import Composition from 'pages/Composition'
+import MicrosampleCompositionList from 'pages/MicrosampleCompositionList'
+import MicrosampleComposition from 'pages/MicrosampleComposition'
 import MacrosampleTaxonomyChart from 'pages/MacrosampleComposition'
 import MacrosampleCompositionList from 'pages/MacrosampleCompositionList'
 
@@ -41,12 +40,14 @@ function App() {
       if (pathname === "/") title = "Home"
       else if (pathname === "/animal-trial-experiment") title = "Animal Trial/Experiment"
       else if (pathname === "/animal-specimen") title = "Animal Specimen"
+      else if (pathname === "/macrosample") title = "Macrosample"
       else if (pathname === "/intestinal-section-sample") title = "Intestinal Section Sample"
       else if (pathname === "/cryosection") title = "Cryosection"
       else if (pathname === "/microsample") title = "Microsample"
 
       else if (pathname === "/metabolomics") title = "Metabolomics"
-      else if (pathname === "/composition") title = "Genome Composition"
+      else if (pathname === "/microsample-composition") title = "Genome Composition"
+      else if (pathname === "/macrosample-composition") title = "Genome Composition"
       else if (pathname === "/genome-catalogues") title = "Genome Catalogue List"
 
       else {
@@ -85,21 +86,20 @@ function App() {
           <Route path="/cryosection" element={<Cryosection />} />
           <Route path="/microsample" element={<Microsample />} />
 
-          <Route path="/macrosample-composition" element={<MacrosampleCompositionList />} />
-          <Route path="/macrosample-composition/:experimentName" element={<MacrosampleTaxonomyChart />} />
-
-          <Route path="/metabolomics" element={<Metabolomics />} />
-
-          <Route path="/composition" element={<CompositionList />} />
-          <Route path="/composition/:cryosection" element={<Composition />} />
+          <Route path="/animal-trial-experiment/:experimentName" element={<AnimalTrialOverview />} />
 
           <Route path="/genome-catalogues" element={<GenomeCatalogueList />} />
           <Route path="/genome-catalogues/:experimentName" element={<GenomeCatalogue />} />
           <Route path="/genome-catalogues/:experimentName/:genomeName" element={<Genome />} />
 
-          <Route path="/animal-trial-experiment/:experimentName" element={<AnimalTrialOverview />} />
+          <Route path="/macrosample-composition" element={<MacrosampleCompositionList />} />
+          <Route path="/macrosample-composition/:experimentName" element={<MacrosampleTaxonomyChart />} />
 
-          {/* <Route path="/search" element={<GlobalSearchResult />} /> */}
+          <Route path="/metabolomics" element={<Metabolomics />} />
+
+          <Route path="/microsample-composition" element={<MicrosampleCompositionList />} />
+          <Route path="/microsample-composition/:cryosection" element={<MicrosampleComposition />} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

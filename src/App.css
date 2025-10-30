@@ -16,8 +16,10 @@
 }
 
 :root {
-  --navbar-height: 67px; /* Default height, can be overridden */
-  --footer-height: 224px; /* Default height, can be overridden */
+  --navbar-height: 67px;
+  /* Default height, can be overridden */
+  --footer-height: 224px;
+  /* Default height, can be overridden */
 }
 
 .bg-texture {
@@ -37,4 +39,3 @@
 .circos-tooltip {
   padding: 0px !important;
 }
-

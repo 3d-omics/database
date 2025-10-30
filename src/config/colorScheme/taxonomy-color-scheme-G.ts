@@ -121,7 +121,7 @@ export const colorScheme = {
                     color: "#C89985",
                     species: {
                       'Merdibacter merdigallinarum': { color: "#C7A89C" },
-                      'Merdibacter': { color: "#C7B7B0" }
+                      // 'Merdibacter': { color: "#C7B7B0" }
                       // 'Merdibacter (unspecified species)': { color: "#" }
                     }
                   }
@@ -425,7 +425,7 @@ export const colorScheme = {
                   'Gallispira': {
                     color: "#2C93C7",
                     species: {
-                      'Gallispira': { color: "#5FAFD7" }
+                      // 'Gallispira': { color: "#5FAFD7" }
                       // 'Gallispira (unspecified species)': { color: "#" }
                     }
                   },
@@ -471,7 +471,7 @@ export const colorScheme = {
                     species: {
                       'Blautia ornithocaccae': { color: "#AACCFF" },
                       'Blautia stercorigallinarum': { color: "#C6DDFF" },
-                      'Blautia ': { color: "#E3EEFF" }
+                      // 'Blautia ': { color: "#E3EEFF" }
                       // 'Blautia (unspecified species)': { color: "#" }
                     }
                   },
@@ -479,7 +479,7 @@ export const colorScheme = {
                     color: "#98B6E4",
                     species: {
                       'Blautia_A intestinavium': { color: "#B1C5E4" },
-                      'Blautia_A': { color: "#C9D4E3" }
+                      // 'Blautia_A': { color: "#C9D4E3" }
                       // 'Blautia_A (unspecified species)': { color: "#" }
                     }
                   },
@@ -507,7 +507,7 @@ export const colorScheme = {
                     species: {
                       'Choladocola avistercoris': { color: "#85A0C8" },
                       'Choladocola sp944381625': { color: "#9CADC7" },
-                      'Choladocola': { color: "#B0B9C7" }
+                      // 'Choladocola': { color: "#B0B9C7" }
                       // 'Choladocola (unspecified species) (2 entries)': { color: "#" }
                     }
                   },
@@ -591,8 +591,10 @@ export const colorScheme = {
                       'Mediterraneibacter sp900761655': { color: "#427B94" },
                       'Mediterraneibacter sp944381495': { color: "#527F93" },
                       'Mediterraneibacter vanvlietii': { color: "#618392" },
-                      'Mediterraneibacter': { color: "#708790" }
-                      // 'Mediterraneibacter (unspecified species) (4 entries)': { color: "#" }
+
+                      // 'Mediterraneibacter': { color: "#006B99" },
+                      // 'Mediterraneibacter': { color: "#708790" }
+                      // 'unspecified species': { color: "#006B99" }
                     }
                   },
                   'Merdimonas': {
@@ -695,7 +697,7 @@ export const colorScheme = {
                     color: "#65E5BE",
                     species: {
                       'Eubacterium_R faecavium': { color: "#7FE4C6" },
-                      'Eubacterium_R': { color: "#98E4CD" }
+                      // 'Eubacterium_R': { color: "#98E4CD" }
                       // 'Eubacterium_R (unspecified species)': { color: "#" }
                     }
                   },
@@ -727,7 +729,7 @@ export const colorScheme = {
                     color: "#85C8B4",
                     species: {
                       'Onthovicinus excrementipullorum': { color: "#9CC7B9" },
-                      'Onthovicinus': { color: "#B0C7C0" }
+                      // 'Onthovicinus': { color: "#B0C7C0" }
                       // 'Onthovicinus (unspecified species)': { color: "#" }
                     }
                   },
@@ -758,7 +760,8 @@ export const colorScheme = {
                   'UMGS856': {
                     color: "#00996B",
                     species: {
-                      'UMGS856': { color: "#11986F" } // 'UMGS856 (unspecified species)': { color: "#" }
+                      // 'UMGS856': { color: "#11986F" } 
+                      // 'UMGS856 (unspecified species)': { color: "#" }
                     }
                   },
                   '': {
@@ -805,7 +808,7 @@ export const colorScheme = {
                   'CAJFPI01': {
                     color: "#39FF4D",
                     species: {
-                      'CAJFPI01': { color: "#55FF66" } 
+                      // 'CAJFPI01': { color: "#55FF66" } 
                       // 'CAJFPI01 (unspecified species)': { color: "#" }
                     }
                   },
@@ -861,7 +864,7 @@ export const colorScheme = {
                       'Intestinimonas pullistercoris': { color: "#3BB046" },
                       'Intestinimonas stercoravium': { color: "#4EAF58" },
                       'Intestinimonas timonensis': { color: "#60AE68" },
-                      'Intestinimonas': { color: "#73AD79" }
+                      // 'Intestinimonas': { color: "#73AD79" }
                       //  'Intestinimonas (unspecified species)': { color: "#" }
                     }
                   },
@@ -872,7 +875,7 @@ export const colorScheme = {
                       'Lawsonibacter pullicola': { color: "#22972D" },
                       'Lawsonibacter sp019424865': { color: "#32953C" },
                       'Lawsonibacter sp900545895': { color: "#42944A" },
-                      'Lawsonibacter': { color: "#529358" }
+                      // 'Lawsonibacter': { color: "#529358" }
                       // 'Lawsonibacter (unspecified species) (2 entries)': { color: "#" }
                     }
                   },
@@ -880,7 +883,7 @@ export const colorScheme = {
                     color: "#65E572",
                     species: {
                       'Pelethomonas intestinigallinarum': { color: "#7FE489" },
-                      'Pelethomonas': { color: "#98E4A0" }
+                      // 'Pelethomonas': { color: "#98E4A0" }
                       // 'Pelethomonas (unspecified species)': { color: "#" }
                     }
                   },
@@ -1033,7 +1036,7 @@ export const colorScheme = {
                     species: {
                       'CAG-269 sp904419095': { color: "#9CC96F" },
                       'CAG-269 sp904419495': { color: "#A7C885" },
-                      'CAG-269': { color: "#B1C79C" }
+                      // 'CAG-269': { color: "#B1C79C" }
                       // 'CAG-269 (unspecified species)': { color: "#" }
                     }
                   },
@@ -1043,7 +1046,7 @@ export const colorScheme = {
                       'CAG-273 sp017886645': { color: "#8EFF1C" },
                       'CAG-273 sp944390395': { color: "#9CFF39" },
                       'CAG-273 sp944392105': { color: "#AAFF55" },
-                      'CAG-273': { color: "#B8FF71" }
+                      // 'CAG-273': { color: "#B8FF71" }
                       //  'CAG-273 (unspecified species) (2 entries)': { color: "#" }
                     }
                   },
@@ -1076,7 +1079,7 @@ export const colorScheme = {
                   'Ornithomonoglobus_A': {
                     color: "#E8FF8E",
                     species: {
-                      'Ornithomonoglobus_A': { color: "#EEFFAA" },
+                      // 'Ornithomonoglobus_A': { color: "#EEFFAA" },
                       // 'Ornithomonoglobus_A (unspecified species)': { color: "#" },
                     }
                   },

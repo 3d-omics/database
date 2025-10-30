@@ -10,7 +10,6 @@ export type GenomeData = {
   completeness: number,
   contamination: number,
   length: number,
-  // N50: number,
   domain: string,
   class: string,
   order: string,
@@ -32,7 +31,6 @@ const GenomeCatalogueTable = ({ metaData, allError, experimentName }: {
     completeness: Number(metaData.completeness[i]),
     contamination: Number(metaData.contamination[i]),
     length: Number(metaData.length[i]),
-    // N50: Number(metaData.N50[i]),
     domain: String(metaData.domain[i]),
     class: String(metaData.class[i]),
     order: String(metaData.order[i]),
@@ -126,10 +124,6 @@ const GenomeCatalogueTable = ({ metaData, allError, experimentName }: {
     <TableView
       data={data}
       columns={columns}
-      first100Loading={false}
-      allLoading={false}
-      first100Error={null}
-      allError={allError}
       pageTitle={'Genome Metadata'}
     />
   )

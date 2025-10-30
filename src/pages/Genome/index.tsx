@@ -1,33 +1,19 @@
-import { useState, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import Details from './components/Details'
 import SamplesContainingThisGenome from './components/SamplesContainingThisGenome'
 import Tabs from 'components/Tabs'
 import type { GenomeData } from 'pages/GenomeCatalogue/components/Table'
-import useFetchExcelFileData from 'hooks/useFetchExcelFileData'
-import ErrorBanner from 'components/ErrorBanner'
 import BreadCrumbs from 'components/BreadCrumbs'
 import NotFound from 'pages/NotFound'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
-
+import { useGenomeJsonFile } from 'hooks/useJsonData'
 
 const Genome = () => {
   const [selectedTab, setSelectedTab] = useState('Genome details')
-  const [genomeData, setGenomeData] = useState<GenomeData | null>(null)
-  const [loading, setLoading] = useState(true)
-
-
   const { genomeName = '', experimentName = '' } = useParams()
   const experimentId = experimentName.charAt(0)
-
-  const csvFiles = import.meta.glob('../../assets/data/genome_metadata/*.csv', {
-    eager: true,
-    query: '?url',
-    import: 'default'
-  });
-  const csvUrl = csvFiles[`../../assets/data/genome_metadata/experiment_${experimentId}_metadata.csv`];
-  const { fetchExcel, fetchExcelError } = useFetchExcelFileData({ excelFile: csvUrl })
 
   const { validating, notFound } = useValidateParams({
     tableType: 'animalTrialExperiment',
@@ -35,53 +21,54 @@ const Genome = () => {
     filterValue: experimentName
   })
 
+  // Load genome metadata using the helper hook
+  const genomeMetadata = useGenomeJsonFile(
+    'genome_metadata',
+    `experiment_${experimentId}_metadata`
+  )
 
-  useEffect(() => {
-    setLoading(true)
-    Promise.all([fetchExcel()]).then(([meta]) => {
-      if (meta && genomeName) {
-        const idx = meta.genome.findIndex((g: string) => g === genomeName)
-        if (idx !== -1) {
-          const genomeDataForIndex: Partial<GenomeData> = {}
-          Object.keys(meta).forEach((key) => {
-            let value = meta[key][idx]
-            if (
-              ['phylum', 'domain', 'class', 'order', 'family', 'genus', 'species'].includes(key)
-              && typeof value === 'string'
-            ) {
-              if (value.length <= 3) {
-                value = 'unknown'
-              } else {
-                value = value.slice(3)
-              }
-            }
-            genomeDataForIndex[key as keyof GenomeData] = value
-          })
-          setGenomeData(genomeDataForIndex as GenomeData)
+  // Extract specific genome data
+  const genomeData = useMemo(() => {
+    if (!genomeMetadata || !genomeName) return null
+
+    const idx = genomeMetadata.genome?.findIndex((g: string) => g === genomeName)
+    
+    if (idx === -1 || idx === undefined) return null
+
+    const data: Partial<GenomeData> = {}
+    
+    Object.keys(genomeMetadata).forEach((key) => {
+      let value = genomeMetadata[key][idx]
+      
+      // Clean taxonomy fields
+      if (
+        ['phylum', 'domain', 'class', 'order', 'family', 'genus', 'species'].includes(key) &&
+        typeof value === 'string'
+      ) {
+        if (value.length <= 3) {
+          value = 'unknown'
         } else {
-          setGenomeData(null)
+          value = value.slice(3)
         }
-      } else {
-        setGenomeData(null)
       }
-      setLoading(false)
+      
+      data[key as keyof GenomeData] = value
     })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
-  if (loading) {
-    return null
+    return data as GenomeData
+  }, [genomeMetadata, genomeName])
+
+  if (!genomeMetadata) {
+    return <NotFound />
   }
 
   if (genomeData === null) {
     return <NotFound />
   }
 
-
   return (
-    <ParamsValidator validating={validating} notFound={notFound} >
+    <ParamsValidator validating={validating} notFound={notFound}>
       <div className='page_padding pt-7 min-h-screen'>
-
         <BreadCrumbs
           items={[
             { label: 'Home', link: '/' },
@@ -101,16 +88,17 @@ const Genome = () => {
 
         <div className='h-6'></div>
 
-        {fetchExcelError && <ErrorBanner>{fetchExcelError}</ErrorBanner>}
-        {genomeData &&
-          <main>
-            {selectedTab === 'Genome details' && <Details genomeData={genomeData} />}
-            {selectedTab === 'Samples containing this genome' && <SamplesContainingThisGenome genomeName={genomeName} />}
-          </main>
-        }
+        <main>
+          {selectedTab === 'Genome details' && <Details genomeData={genomeData} />}
+          {selectedTab === 'Samples containing this genome' && (
+            <SamplesContainingThisGenome genomeName={genomeName} />
+          )}
+        </main>
       </div>
     </ParamsValidator>
   )
 }
 
 export default Genome
+
+

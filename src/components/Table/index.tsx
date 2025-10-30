@@ -16,10 +16,9 @@ type SortingState = {
   desc: boolean
 }[]
 
-const Table = <TData,>({ data, columns, loading, pageTitle, displayTableHeader = true, displayTableFilters = true, displayTableBody = true }: {
+const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, displayTableFilters = true, displayTableBody = true }: {
   data: TData[],
   columns: ColumnDef<TData>[],
-  loading: boolean,
   pageTitle: string,
   displayTableHeader?: boolean
   displayTableFilters?: boolean
@@ -100,14 +99,12 @@ const Table = <TData,>({ data, columns, loading, pageTitle, displayTableHeader =
           No results match for this search criteria
         </div>
       ) : (
-        <Pagination table={table} loading={loading} />
+        <Pagination table={table} />
       )}
     </div>
   )
 }
 
 export default Table
-
-
 
 

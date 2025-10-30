@@ -12,6 +12,7 @@
     "@types/lodash": "^4.17.15",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "airtable": "^0.12.2",
     "axios": "^1.7.2",
     "chart.js": "^4.4.8",
     "circos": "^2.1.0",
@@ -20,6 +21,7 @@
     "jstat": "^1.9.6",
     "lodash": "^4.17.21",
     "mathjs": "^14.3.1",
+    "papaparse": "^5.5.3",
     "plotly.js": "^2.35.3",
     "react": "^18.3.1",
     "react-chartjs-2": "^5.3.0",
@@ -36,7 +38,10 @@
     "build": "vite build",
     "preview": "vite preview",
     "cy:open": "cypress open",
-    "test": "vitest"
+    "test": "vitest",
+    "generate-data": "tsx src/scripts/generate-data.ts",
+    "generate-data:watch": "tsx src/scripts/generate-data.ts && echo '\nData fetched! Files saved to src/assets/data/airtable/'",
+    "prebuild": "npm run generate-data"
   },
   "eslintConfig": {
     "extends": [
@@ -64,7 +69,8 @@
     "@types/d3": "^7.4.3",
     "@types/jest": "^29.5.14",
     "@types/js-cookie": "^3.0.6",
-    "@types/node": "^22.15.16",
+    "@types/node": "^22.18.13",
+    "@types/papaparse": "^5.3.16",
     "@types/plotly.js": "^2.35.2",
     "@types/react-plotly.js": "^2.6.3",
     "@vitejs/plugin-react": "^4.4.1",
@@ -78,6 +84,7 @@
     "tailwindcss": "^3.4.17",
     "ts-jest": "^29.3.4",
     "ts-node": "^10.9.2",
+    "tsx": "^4.20.6",
     "typescript": "^5.8.3",
     "vite": "^6.3.5",
     "vite-plugin-svgr": "^4.3.0",

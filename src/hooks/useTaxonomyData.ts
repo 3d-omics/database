@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react'
-import useFetchExcelFileData from 'hooks/useFetchExcelFileData'
+import { useMemo } from 'react'
 
 export interface TaxonomyData {
   [key: string]: string[]
@@ -14,8 +13,8 @@ export interface TaxonomyData {
 }
 
 interface UseTaxonomyDataParams {
-  metadataFile: string
-  countsFile: string
+  metadataFile: Record<string, any[]> | null  
+  countsFile: Record<string, any[]> | null    
   sampleIds: string[]
 }
 
@@ -32,75 +31,65 @@ export const useTaxonomyData = ({
   sampleIds
 }: UseTaxonomyDataParams): UseTaxonomyDataReturn => {
 
-  const [genomeCounts, setGenomeCounts] = useState<number[][] | null>(null)
-  const [taxonomyData, setTaxonomyData] = useState<TaxonomyData>({
-    domain: [],
-    phylum: [],
-    class: [],
-    order: [],
-    family: [],
-    genus: [],
-    species: [],
-    genome: [],
-  })
-  // const [sampleIds, setSampleIds] = useState<string[]>([])
-
-
-  const { fetchExcel: fetchGenomeMetadata, fetchExcelError: fetchGenomeMetadataError } =
-    useFetchExcelFileData({ excelFile: metadataFile })
-  const { fetchExcel: fetchGenomeCounts, fetchExcelError: fetchGenomeCountsError } =
-    useFetchExcelFileData({ excelFile: countsFile })
-
-  useEffect(() => {
-    if (sampleIds.length === 0) return
-
-    Promise.all([fetchGenomeMetadata(), fetchGenomeCounts()]).then(([meta, counts]) => {
-      if (meta) {
-        setTaxonomyData({
-          domain: meta.domain || [],
-          phylum: meta.phylum || [],
-          class: meta.class || [],
-          order: meta.order || [],
-          family: meta.family || [],
-          genus: meta.genus || [],
-          species: meta.species || [],
-          genome: meta.genome || [],
-        })
+  // Extract taxonomy data from metadata
+  const taxonomyData = useMemo<TaxonomyData>(() => {
+    if (!metadataFile) {
+      return {
+        domain: [],
+        phylum: [],
+        class: [],
+        order: [],
+        family: [],
+        genus: [],
+        species: [],
+        genome: [],
       }
+    }
 
-      if (counts) {
-        // console.log(counts)
-        // set sampleIds
-        // setSampleIds(Object.keys(counts).filter(key => key === 'genome'))
-        // console.log('sample ids====>>>',Object.keys(counts).filter(key => key !== 'genome'))
+    return {
+      domain: metadataFile.domain || [],
+      phylum: metadataFile.phylum || [],
+      class: metadataFile.class || [],
+      order: metadataFile.order || [],
+      family: metadataFile.family || [],
+      genus: metadataFile.genus || [],
+      species: metadataFile.species || [],
+      genome: metadataFile.genome || [],
+    }
+  }, [metadataFile])
 
-        // Calculate totals for each sample
-        const total = Object.keys(counts).reduce((acc: any, key: string) => {
-          acc[key] = counts[key].reduce((sum: number, value: any) =>
-            sum + (parseFloat(value) || 0), 0)
-          return acc
-        }, {})
+  // Calculate normalized genome counts
+  const genomeCounts = useMemo<number[][] | null>(() => {
+    if (!countsFile || !metadataFile || sampleIds.length === 0) {
+      return null
+    }
 
-        // Get the order of genomes from metadata
-        const genomeOrder = meta?.genome || []
+    // Calculate totals for each sample
+    const total = Object.keys(countsFile).reduce((acc: any, key: string) => {
+      if (key === 'genome') return acc
+      acc[key] = countsFile[key].reduce((sum: number, value: any) =>
+        sum + (parseFloat(value) || 0), 0)
+      return acc
+    }, {})
 
-        // Normalize counts by sample totals
-        const normalizedCounts = sampleIds.map((id: string) => {
-          const sampleCounts = counts[id] || []
-          const totalSample = total[id] || 1
+    // Get the order of genomes from metadata
+    const genomeOrder = metadataFile.genome || []
 
-          // Reorder sampleCounts to match genomeOrder
-          return genomeOrder.map((genome: string) => {
-            const genomeIdx = (counts.genome || []).indexOf(genome)
-            const value = genomeIdx !== -1 ? sampleCounts[genomeIdx] : 0
-            return (parseFloat(value) || 0) / totalSample
-          })
-        })
+    // Normalize counts by sample totals
+    const normalizedCounts = sampleIds.map((id: string) => {
+      const sampleCounts = countsFile[id] || []
+      const totalSample = total[id] || 1
 
-        setGenomeCounts(normalizedCounts)
-      }
+      // Reorder sampleCounts to match genomeOrder
+      return genomeOrder.map((genome: string) => {
+        const genomeIdx = (countsFile.genome || []).indexOf(genome)
+        const value = genomeIdx !== -1 ? sampleCounts[genomeIdx] : 0
+        return (parseFloat(value) || 0) / totalSample
+      })
     })
-  }, [sampleIds, metadataFile, countsFile ])
+
+    return normalizedCounts
+  }, [countsFile, metadataFile, sampleIds])
 
   const isDataReady =
     sampleIds.length > 0 &&
@@ -108,9 +97,9 @@ export const useTaxonomyData = ({
     genomeCounts !== null &&
     genomeCounts.length > 0
 
-  const fetchError = [fetchGenomeMetadataError, fetchGenomeCountsError]
-    .filter(Boolean)
-    .join(' ') || null
+  const fetchError = !metadataFile || !countsFile 
+    ? 'Failed to load taxonomy data' 
+    : null
 
   return {
     taxonomyData,
@@ -119,3 +108,7 @@ export const useTaxonomyData = ({
     fetchError
   }
 }
+
+
+
+

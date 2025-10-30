@@ -1,9 +1,8 @@
 import { useMemo } from 'react'
-import { ColumnDef, CellContext } from '@tanstack/react-table'
-import useGetFirst100Data from 'hooks/useGetFirst100Data'
+import { ColumnDef } from '@tanstack/react-table'
 import TableView from 'components/TableView'
 import { Link } from 'react-router-dom'
-import { airtableConfig } from 'config/airtable'
+import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 
 type TData = {
   id: string
@@ -19,23 +18,7 @@ type TData = {
 
 const AnimalTrialExperiment = () => {
 
-  const { animalTrialExperimentBaseId, animalTrialExperimentTableId, animalTrialExperimentViewId } = airtableConfig
-
-  const { first100Data, first100Loading, first100Error, allData, allLoading, allError, } = useGetFirst100Data({
-    AIRTABLE_BASE_ID: animalTrialExperimentBaseId,
-    AIRTABLE_TABLE_ID: animalTrialExperimentTableId,
-    AIRTABLE_VIEW_ID: animalTrialExperimentViewId,
-  })
-
-  const data = useMemo(() => {
-    if (allData.length !== 0 && !allLoading) {
-      return allData
-    } else {
-      return first100Data
-    }
-  }, [allData, first100Data, allLoading])
-
-  // console.log(data.map((data)=> data.fields))
+  const data = animalTrialExperimentData as unknown as TData[]
 
   const columns = useMemo<ColumnDef<TData>[]>(() => [
     {
@@ -101,10 +84,6 @@ const AnimalTrialExperiment = () => {
     <TableView<TData>
       data={data}
       columns={columns}
-      first100Loading={first100Loading}
-      allLoading={allLoading}
-      first100Error={first100Error}
-      allError={allError}
       pageTitle={'Animal Trial/Experiment'}
     />
   )

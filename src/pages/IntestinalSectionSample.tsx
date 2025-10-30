@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
 import CrossReferenceTooltip from 'components/CrossReferenceTooltip'
 import { ColumnDef } from '@tanstack/react-table'
-import useGetFirst100Data from 'hooks/useGetFirst100Data'
 import TableView from 'components/TableView'
 import useMetaboliteExcelFileData from 'hooks/useMetaboliteExcelFileData'
-import { airtableConfig } from 'config/airtable'
+import intestinalSectionSampleData from 'assets/data/airtable/intestinalsectionsample.json'
+import animalSpecimenData from 'assets/data/airtable/animalspecimen.json'
 
 
 type TData = {
@@ -26,24 +26,13 @@ type TData = {
 const IntestinalSectionSample = () => {
 
   const { listOfSampleIdsThatHaveMetaboliteData = [], fetchMetaboliteError } = useMetaboliteExcelFileData()
-  const { intestinalSectionSampleBaseId, intestinalSectionSampleTableId, intestinalSectionSampleViewId, animalSpecimenBaseId, animalSpecimenTableId } = airtableConfig
 
-  const { first100Data, first100Loading, first100Error, allData, allLoading, allError } = useGetFirst100Data({
-    AIRTABLE_BASE_ID: intestinalSectionSampleBaseId,
-    AIRTABLE_TABLE_ID: intestinalSectionSampleTableId,
-    AIRTABLE_VIEW_ID: intestinalSectionSampleViewId,
-  })
+  const data = intestinalSectionSampleData as unknown as TData[]
 
-  const data = useMemo(() => {
-    if (allData.length !== 0 && !allLoading) {
-      return allData
-    } else {
-      return first100Data
-    }
-  }, [allData, first100Data, allLoading])
-
-  // console.log(data.map((data)=> data.fields))
-
+  // for cross reference tooltip
+  const specimenLookup = useMemo(() => {
+    return (animalSpecimenData as any[]).map((record) => record.fields);
+  }, []);
 
   const columns = useMemo<ColumnDef<TData>[]>(() => [
     {
@@ -57,10 +46,8 @@ const IntestinalSectionSample = () => {
       accessorFn: (row) => row.fields.Individual,
       cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => (
         <CrossReferenceTooltip
-          AIRTABLE_BASE_ID={animalSpecimenBaseId}
-          AIRTABLE_TABLE_ID={animalSpecimenTableId}
-          RECORD_ID={row.original.fields.ExperimentalUnit_Series}
           value={cell.getValue() as string}
+          data={specimenLookup}
           fieldsName={[
             { key: 'ID', value: 'ID' },
             { key: 'Treatment', value: 'Treatment_flat' },
@@ -129,7 +116,7 @@ const IntestinalSectionSample = () => {
         uniqueValues: ['Yes', 'No'],
       }
     },
-  ], [data, listOfSampleIdsThatHaveMetaboliteData])
+  ], [data, listOfSampleIdsThatHaveMetaboliteData, specimenLookup])
 
 
 
@@ -138,10 +125,6 @@ const IntestinalSectionSample = () => {
     <TableView<TData>
       data={data}
       columns={columns}
-      first100Loading={first100Loading}
-      allLoading={allLoading}
-      first100Error={first100Error}
-      allError={allError}
       fetchMetaboliteError={fetchMetaboliteError}
       pageTitle={'Intestinal Section Sample'}
     />

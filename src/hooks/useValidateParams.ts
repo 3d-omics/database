@@ -1,46 +1,55 @@
-import useGetFirst100Data from 'hooks/useGetFirst100Data'
-import { airtableConfig } from 'config/airtable'
+import { useMemo } from 'react';
+import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json';
+import cryosectionImageData from 'assets/data/airtable/cryosectionimage.json';
 
-export default function useValidateParams({ tableType, filterId, filterValue }: {
-  tableType: 'animalTrialExperiment' | 'cryosectionImage',
-  filterId: string,
-  filterValue: string
+interface AirtableRecord {
+  id: string;
+  createdTime: string;
+  fields: Record<string, any>;
+}
+
+export default function useValidateParams({ 
+  tableType, 
+  filterId, 
+  filterValue 
+}: {
+  tableType: 'animalTrialExperiment' | 'cryosectionImage';
+  filterId: string;
+  filterValue: string;
 }) {
+  
+  // Get the appropriate dataset
+  const dataset = useMemo(() => {
+    const dataMap = {
+      animalTrialExperiment: animalTrialExperimentData as AirtableRecord[],
+      cryosectionImage: cryosectionImageData as AirtableRecord[],
+    };
+    return dataMap[tableType];
+  }, [tableType]);
 
-  const configMap = {
-    animalTrialExperiment: {
-      baseId: airtableConfig.animalTrialExperimentBaseId,
-      tableId: airtableConfig.animalTrialExperimentTableId,
-      viewId: airtableConfig.animalTrialExperimentViewId,
-    },
-    cryosectionImage: {
-      baseId: airtableConfig.cryosectionImageBaseId,
-      tableId: airtableConfig.cryosectionImageTableId,
-      viewId: airtableConfig.cryosectionImageViewId,
-    },
-  }
+  // Filter the data
+  const filteredData = useMemo(() => {
+    return dataset.filter((record) => {
+      const fieldValue = record.fields[filterId];
+      
+      if (fieldValue === undefined || fieldValue === null) return false;
 
-  const { baseId, tableId, viewId } = configMap[tableType]
+      const values = Array.isArray(fieldValue) ? fieldValue : [fieldValue];
+      const searchValue = String(filterValue).toLowerCase();
 
-  const { first100Data, first100Loading, first100Error, hasFetchedAllData } = useGetFirst100Data({
-    AIRTABLE_BASE_ID: baseId,
-    AIRTABLE_TABLE_ID: tableId,
-    AIRTABLE_VIEW_ID: viewId,
-    filterWith: [{ id: filterId, value: filterValue }]
-  })
+      // Exact match (case-insensitive)
+      return values.some((val) => 
+        String(val).toLowerCase() === searchValue
+      );
+    });
+  }, [dataset, filterId, filterValue]);
 
-  const isNotFound =
-    hasFetchedAllData &&
-    !first100Loading &&
-    Array.isArray(first100Data) &&
-    first100Data.length === 0 &&
-    !first100Error
+  const isNotFound = filteredData.length === 0;
 
   return {
-    data: first100Data,
-    validating: first100Loading || !hasFetchedAllData,
-    error: first100Error,
-    notFound: isNotFound
-  }
-
+    data: filteredData,
+    validating: false,  // No validation needed - data is instant
+    error: null,         // No errors with static data
+    notFound: isNotFound,
+  };
 }

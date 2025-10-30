@@ -7,6 +7,7 @@ export default defineConfig({
     react(),
     svgr(),
   ],
+  // base: '/database/',
   resolve: {
     alias: {
       src: "/src",
@@ -18,6 +19,7 @@ export default defineConfig({
       tests: "/src/tests",
       config: "/src/config",
       data: "/src/data",
+      utils: "/src/utils",
     },
   },
   assetsInclude: ['**/*.xlsx', '**/*.csv', '**/*.tsv'],

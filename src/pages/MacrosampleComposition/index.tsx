@@ -5,6 +5,7 @@ import BreadCrumbs from 'components/BreadCrumbs'
 import { useParams } from 'react-router-dom'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
+import ErrorBanner from 'components/ErrorBanner'
 
 const MacrosampleComposition = () => {
 
@@ -34,19 +35,23 @@ const MacrosampleComposition = () => {
           <header className='main_header mb-4'>Macrosample Genome composition for: {experimentName}</header>
         </section>
 
-        <div className='flex min-h-[calc(100vh-300px)] justify-between gap-10 items-start
-        max-xl:flex-col max-xl:items-start max-xl:gap-12 max-xl:h-fit max-xl:mb-12'>
-          <TaxonomyChart
-            experimentId={experimentId}
-            selectedTaxonomicLevel={selectedTaxonomicLevel}
-            setSelectedTaxonomicLevel={setSelectedTaxonomicLevel}
-          />
-
-          <TaxonomyChartLegend
-            selectedTaxonomicLevel={selectedTaxonomicLevel}
-            experimentId={experimentId}
-          />
-        </div>
+        {(experimentId === 'G' || experimentId === 'H')
+          ? <div className='flex min-h-[calc(100vh-300px)] justify-between gap-10 items-start
+              max-xl:flex-col max-xl:items-start max-xl:gap-12 max-xl:h-fit max-xl:mb-12'>
+            <TaxonomyChart
+              experimentId={experimentId}
+              selectedTaxonomicLevel={selectedTaxonomicLevel}
+              setSelectedTaxonomicLevel={setSelectedTaxonomicLevel}
+            />
+            <TaxonomyChartLegend
+              selectedTaxonomicLevel={selectedTaxonomicLevel}
+              experimentId={experimentId}
+            />
+          </div>
+          : <div className='h-[calc(100vh-300px)]'>
+            <ErrorBanner>No sufficient data for this experiment is provided yet</ErrorBanner>
+            </div>
+        }
 
       </div>
     </ParamsValidator>

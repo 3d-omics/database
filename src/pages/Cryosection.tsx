@@ -1,10 +1,7 @@
 import { useMemo } from 'react'
 import { ColumnDef } from '@tanstack/react-table';
-import useGetFirst100Data from 'hooks/useGetFirst100Data';
-import { CellContext } from '@tanstack/react-table';
-import { Link } from 'react-router-dom';
 import TableView from 'components/TableView';
-import { airtableConfig } from 'config/airtable'
+import cryosectionData from 'assets/data/airtable/cryosection.json'
 
 export type TData = {
   id: string
@@ -48,37 +45,13 @@ export type TData = {
 
 const Cryosection = () => {
 
-  const { cryosectionBaseId, cryosectionTableId, cryosectionViewId } = airtableConfig
-
-  const { first100Data, first100Loading, first100Error, allData, allLoading, allError, } = useGetFirst100Data({
-    AIRTABLE_BASE_ID: cryosectionBaseId,
-    AIRTABLE_TABLE_ID: cryosectionTableId,
-    AIRTABLE_VIEW_ID: cryosectionViewId,
-  })
-
-  const data = useMemo(() => {
-    if (allData.length !== 0 && !allLoading) {
-      return allData
-    } else {
-      return first100Data
-    }
-  }, [allData, first100Data, allLoading])
-
-  // console.log(data.map((data)=> data.fields))
-
+  const data = cryosectionData as unknown as TData[]
 
   const columns = useMemo<ColumnDef<TData>[]>(() => [
     {
       id: 'ID',
       header: 'ID',
       accessorFn: (row) => row.fields.ID,
-      // // to see the index
-      //  cell: ({ cell, row }: { cell: { getValue: () => any }, row: any }) => {
-      //   return <>
-      //     <p>{cell.getValue() || 'unknown'}</p>
-      //     <p>{row.index}</p>
-      //   </>
-      // },
     },
     {
       id: 'Slide_flat',
@@ -98,6 +71,7 @@ const Cryosection = () => {
       id: 'Position',
       header: 'Position',
       accessorFn: (row) => row.fields.Position,
+      filterFn: 'equals',
       meta: {
         filterVariant: 'select' as const,
         uniqueValues: Array.from(new Set(data.map((row) => row.fields.Position))),
@@ -116,13 +90,10 @@ const Cryosection = () => {
     <TableView<TData>
       data={data}
       columns={columns}
-      first100Loading={first100Loading}
-      allLoading={allLoading}
-      first100Error={first100Error}
-      allError={allError}
       pageTitle={'Cryosection'}
     />
   )
 }
 
 export default Cryosection
+
