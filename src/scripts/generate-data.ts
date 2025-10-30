@@ -5,7 +5,7 @@ import Papa from 'papaparse';
 import { airtableConfig } from 'config/airtable';
 
 // const base = new Airtable({ apiKey: process.env.VITE_AIRTABLE_API_KEY })
-//   .base(process.env.VITE_AIRTABLE_BASE_ID!);
+  // .base(process.env.VITE_AIRTABLE_BASE_ID!);
 
 const {
   animalTrialExperimentBaseId, animalTrialExperimentTableId, animalTrialExperimentViewId,
