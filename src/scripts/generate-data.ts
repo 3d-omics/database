@@ -248,6 +248,17 @@ async function fetchAllData(): Promise<void> {
   console.log('╔════════════════════════════════════════════╗');
   console.log('║   DATA GENERATION SCRIPT                   ║');
   console.log('╚════════════════════════════════════════════╝');
+
+
+
+
+   // 👇 ADD THIS DEBUG LINE
+  console.log('API Key exists:', !!process.env.VITE_AIRTABLE_API_KEY);
+  console.log('API Key length:', process.env.VITE_AIRTABLE_API_KEY?.length || 0);
+  
+  
+
+
   
   try {
     // Step 1: Fetch Airtable data
