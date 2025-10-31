@@ -10,6 +10,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter
+      basename="/database"
       future={{
         v7_startTransition: true,
         v7_relativeSplatPath: true
