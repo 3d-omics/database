@@ -74,7 +74,7 @@ function App() {
 
   return (
     <Wrapper>
-      <div className="text-custom_black font-inter">
+      <div className="text-custom_black bg-white font-inter">
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
