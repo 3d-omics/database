@@ -4,7 +4,6 @@ import Table from '.'
 import { ColumnDef } from '@tanstack/react-table'
 import { formatIdForDisplay } from './components/TableFilters/utils/filterUtils'
 import { fireEvent } from '@testing-library/react'
-import { access } from 'fs'
 
 
 const createMockColumn = (
@@ -177,7 +176,6 @@ const renderTableWithData = () => {
     <Table
       data={dataProp}
       columns={columnsProp}
-      loading={false}
       pageTitle={pageTitle}
     />
   )
@@ -239,7 +237,6 @@ describe('components > Table', () => {
           ...columnsProp,
           createMockColumn('Metabolite', 'Metabolite')
         ]}
-        loading={false}
         pageTitle={pageTitle}
       />
     )
@@ -258,13 +255,11 @@ describe('components > Table', () => {
 
 
 
-  // Shows "No results match for this search criteria" message when filteredData is empty
   it('should show no results message and no pagination when filteredData is empty', () => {
     render(
       <Table
         data={[]}
         columns={columnsProp}
-        loading={false}
         pageTitle={pageTitle}
       />
     )
@@ -281,7 +276,6 @@ describe('components > Table', () => {
         <Table
           data={[]}
           columns={columnsProp}
-          loading={false}
           pageTitle={pageTitle}
         />
       )
@@ -307,7 +301,6 @@ describe('components > Table', () => {
             }
           }]}
           columns={columnsProp}
-          loading={false}
           pageTitle={pageTitle}
         />
       )
@@ -321,7 +314,7 @@ describe('components > Table', () => {
 
   it('should manage pagination state correctly when data changes', () => {
     const initialData = Array.from({ length: 250 }, (_, i) => ({ fields: { ID: i + 1, Name: `Item ${i + 1}`, Type: null, StartDate: null, EndDate: null } }))
-    render(<Table data={initialData} columns={columnsProp} loading={false} pageTitle={pageTitle} />)
+    render(<Table data={initialData} columns={columnsProp} pageTitle={pageTitle} />)
     expect(screen.getByText('250')).toBeInTheDocument()
     expect(screen.getByText(/records/i)).toBeInTheDocument()
     expect(screen.getByText(/page/i)).toBeInTheDocument()
@@ -443,7 +436,7 @@ describe('components > Table', () => {
     const data = [{ "fields": { "ID": "A", "Metabolite": "Yes" } },
     { "fields": { "ID": "B", "Metabolite": "No" } }]
     const columns = [createMockColumn('Metabolite', 'Metabolite Data', { enableSorting: false })]
-    render(<Table data={data} columns={columns} loading={false} pageTitle="Test Table" />)
+    render(<Table data={data} columns={columns} pageTitle="Test Table" />)
 
     // Initially, CompareSamplesButton should not be in the document
     expect(screen.queryByTestId('compare-metabolite-samples-button')).not.toBeInTheDocument()

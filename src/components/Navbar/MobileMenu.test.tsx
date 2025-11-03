@@ -45,7 +45,6 @@ describe('components > MobileMenu', () => {
 
 
 
-  // Menu items from the 'menus' array render properly
   it('should render all menu items from the menus array', () => {
     renderMobileMenu()
     expect(screen.queryByText(/animal trial\/experiment/i)).not.toBeInTheDocument() // Check if menu items are not rendered before opening the menu
@@ -62,7 +61,8 @@ describe('components > MobileMenu', () => {
     expect(screen.getByText(/metabolomics/i)).toHaveAttribute('href', '/metabolomics')
     expect(screen.getByText(/cryosection/i)).toHaveAttribute('href', '/cryosection')
     expect(screen.getByText(/microsample/i)).toHaveAttribute('href', '/microsample')
-    expect(screen.getByText(/genome composition/i)).toHaveAttribute('href', '/composition')
+    expect(screen.getAllByText(/genome composition/i)[0]).toHaveAttribute('href', '/macrosample-composition')
+    expect(screen.getAllByText(/genome composition/i)[1]).toHaveAttribute('href', '/microsample-composition')
   })
 
 

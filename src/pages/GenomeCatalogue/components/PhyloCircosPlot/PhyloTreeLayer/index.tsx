@@ -115,7 +115,7 @@ const PhyloTreeLayer = ({ data, width, height }: { data: any, width: number, hei
     const leafNodeSelection = node.filter(d => !d.children)
     leafNodeSelection
       .append('a')
-      .attr('xlink:href', d => `/genome-catalogues/${encodeURIComponent(experimentName)}/${encodeURIComponent(d.data.name)}`)
+      .attr('xlink:href', d => `/database/genome-catalogues/${encodeURIComponent(experimentName)}/${encodeURIComponent(d.data.name)}`)
       // .attr('target', '_blank')
       .append('text')
       .attr('dy', '0.3em')

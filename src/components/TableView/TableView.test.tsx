@@ -163,72 +163,72 @@ const dataProp = [
 
 describe('components > TableView', () => {
 
-  it('shows Loading component when first100Loading is true', () => {
-    render(
-      <TableView
-        first100Loading={true}
-        allLoading={false}
-        first100Error={null}
-        allError={null}
-        columns={columnsProp}
-        data={[]}
-        pageTitle="Animal Trial Experiment"
-      />
-    )
-    expect(screen.getByTestId('loading-dots')).toBeInTheDocument()
-  })
+  // it('shows Loading component when first100Loading is true', () => {
+  //   render(
+  //     <TableView
+  //       first100Loading={true}
+  //       allLoading={false}
+  //       first100Error={null}
+  //       allError={null}
+  //       columns={columnsProp}
+  //       data={[]}
+  //       pageTitle="Animal Trial Experiment"
+  //     />
+  //   )
+  //   expect(screen.getByTestId('loading-dots')).toBeInTheDocument()
+  // })
 
 
-  it('shows LoadingRemainingData when first100Loading is false and allLoading is true', () => {
-    render(
-      <TableView
-        first100Loading={false}
-        allLoading={true}
-        first100Error={null}
-        allError={null}
-        columns={columnsProp}
-        data={[]}
-        pageTitle="Animal Trial Experiment"
-      />
-    )
-    expect(screen.getByText(/loading remaining data/i)).toBeInTheDocument()
-  })
-
-
-
-  it('shows ErrorBanner for first100Error', () => {
-    render(
-      <TableView
-        first100Loading={false}
-        allLoading={false}
-        first100Error="Request failed with status code 404"
-        allError={null}
-        columns={columnsProp}
-        data={[]}
-        pageTitle="Animal Trial Experiment"
-      />
-    )
-    expect(screen.getByText(/error! something went wrong. please try again./i)).toBeInTheDocument()
-    expect(screen.getByText(/request failed with status code 404/i)).toBeInTheDocument()
-  })
+  // it('shows LoadingRemainingData when first100Loading is false and allLoading is true', () => {
+  //   render(
+  //     <TableView
+  //       first100Loading={false}
+  //       allLoading={true}
+  //       first100Error={null}
+  //       allError={null}
+  //       columns={columnsProp}
+  //       data={[]}
+  //       pageTitle="Animal Trial Experiment"
+  //     />
+  //   )
+  //   expect(screen.getByText(/loading remaining data/i)).toBeInTheDocument()
+  // })
 
 
 
-  it('shows ErrorBanner for allError if first100Error is null', () => {
-    render(
-      <TableView
-        first100Loading={false}
-        allLoading={false}
-        first100Error={null}
-        allError="Request failed with status code 404"
-        columns={columnsProp}
-        data={[]}
-        pageTitle="Animal Trial Experiment"
-      />
-    )
-    expect(screen.getByText(/error! something went wrong. please try again./i)).toBeInTheDocument()
-    expect(screen.getByText(/request failed with status code 404/i)).toBeInTheDocument()
-  })
+  // it('shows ErrorBanner for first100Error', () => {
+  //   render(
+  //     <TableView
+  //       first100Loading={false}
+  //       allLoading={false}
+  //       first100Error="Request failed with status code 404"
+  //       allError={null}
+  //       columns={columnsProp}
+  //       data={[]}
+  //       pageTitle="Animal Trial Experiment"
+  //     />
+  //   )
+  //   expect(screen.getByText(/error! something went wrong. please try again./i)).toBeInTheDocument()
+  //   expect(screen.getByText(/request failed with status code 404/i)).toBeInTheDocument()
+  // })
+
+
+
+  // it('shows ErrorBanner for allError if first100Error is null', () => {
+  //   render(
+  //     <TableView
+  //       first100Loading={false}
+  //       allLoading={false}
+  //       first100Error={null}
+  //       allError="Request failed with status code 404"
+  //       columns={columnsProp}
+  //       data={[]}
+  //       pageTitle="Animal Trial Experiment"
+  //     />
+  //   )
+  //   expect(screen.getByText(/error! something went wrong. please try again./i)).toBeInTheDocument()
+  //   expect(screen.getByText(/request failed with status code 404/i)).toBeInTheDocument()
+  // })
 
 
 
@@ -238,10 +238,6 @@ describe('components > TableView', () => {
   it('shows ErrorBanner when fetchMetaboliteError is present', () => {
     render(
       <TableView
-        first100Loading={false}
-        allLoading={false}
-        first100Error={null}
-        allError={null}
         fetchMetaboliteError="Something went wrong"
         columns={columnsProp}
         data={[]}
@@ -259,10 +255,6 @@ describe('components > TableView', () => {
   it('shows Table component when data is present', () => {
     render(
       <TableView
-        first100Loading={false}
-        allLoading={false}
-        first100Error={null}
-        allError={null}
         columns={columnsProp}
         data={dataProp}
         pageTitle="Animal Trial Experiment"
@@ -279,10 +271,6 @@ describe('components > TableView', () => {
   it('does not show Table when data is empty', () => {
     render(
       <TableView
-        first100Loading={false}
-        allLoading={false}
-        first100Error={null}
-        allError={null}
         columns={columnsProp}
         data={[]}
         pageTitle="Animal Trial Experiment"

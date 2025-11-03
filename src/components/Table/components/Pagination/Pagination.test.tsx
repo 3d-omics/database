@@ -44,14 +44,6 @@ describe('components > Table > Pagination', () => {
   })
 
 
-  it('should show loading spinner when loading is true', () => {
-    const { mockTable } = renderPagination(0)
-    render(<Pagination table={mockTable} loading={true} />)
-    expect(screen.getByTestId('loading-dots')).toBeInTheDocument()
-  })
-
-
-
   it('should call firstPage and go to top when clicking "<<"', async () => {
     vi.spyOn(window, 'scrollTo').mockImplementation(() => { })
     vi.spyOn(document, 'getElementById').mockImplementation(() => ({

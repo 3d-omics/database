@@ -36,6 +36,8 @@ const Pagination: React.FC<PaginationProps> = ({ table }) => {
     }
   };
 
+  console.log('pagination===>', table.getState())
+
   return (
     <section className="py-8 flex justify-center absolute bottom-0 left-0 right-0">
       <div className="flex items-center gap-2">
@@ -83,6 +85,7 @@ const Pagination: React.FC<PaginationProps> = ({ table }) => {
           <div>Page</div>
           <strong>
             {table.getState().pagination.pageIndex + 1} of{' '}
+            {table.getPageCount().toLocaleString()}
           </strong>
         </span>
       </div>

@@ -41,7 +41,8 @@ describe('components > Navbar', () => {
   it('should render the logo and navigation links correctly', () => {
     renderNavbar()
     expect(screen.getByAltText("3d'omics logo")).toBeInTheDocument()
-    // expect(screen.getByText(/animal trial\/experiment/i)).toBeInTheDocument()
+    const experimentElements = screen.getAllByText('Animal Trial/Experiment')
+    expect(experimentElements).toHaveLength(2)
     expect(screen.getByText(/animal specimen/i)).toBeInTheDocument()
     expect(screen.getByText(/cryosection/i)).toBeInTheDocument()
     const intestinalElements = screen.getAllByText(/intestinal section sample/i)
@@ -49,7 +50,8 @@ describe('components > Navbar', () => {
     const microsampleElements = screen.getAllByText(/microsample/i)
     expect(microsampleElements).toHaveLength(2) // One section title, one submenu item
     expect(screen.getByText(/metabolomics/i)).toBeInTheDocument()
-    expect(screen.getByText(/genome composition/i)).toBeInTheDocument()
+    const genomeCompositionElements = screen.getAllByText(/genome composition/i)
+    expect(genomeCompositionElements).toHaveLength(2) // One for macrosample, one for microsample
   })
 
 

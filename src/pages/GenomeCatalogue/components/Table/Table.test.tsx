@@ -11,7 +11,6 @@ describe('GenomeCatalogue page > Table component', () => {
     completeness: [99.49, 99.98],
     contamination: [0.17, 0.35],
     length: [1791036, 2144878],
-    N50: [79551, 2136170],
     domain: ['Bacteria', 'Bacteria'],
     phylum: ['Bacillota_A', 'Actinomycetota'],
     class: ['Clostridia', 'Actinomycetia'],
@@ -51,7 +50,6 @@ describe('GenomeCatalogue page > Table component', () => {
     expect(screen.getByText('Completeness')).toBeInTheDocument()
     expect(screen.getByText('Contamination')).toBeInTheDocument()
     expect(screen.getByText('Size')).toBeInTheDocument()
-    expect(screen.getByText('N50')).toBeInTheDocument()
   })
 
 
@@ -89,12 +87,10 @@ describe('GenomeCatalogue page > Table component', () => {
   })
 
 
-  it('renders length and N50 values', () => {
+  it('renders length values', () => {
     renderGenomeCatalogueTable()
     expect(screen.getByText('1791036')).toBeInTheDocument()
     expect(screen.getByText('2144878')).toBeInTheDocument()
-    expect(screen.getByText('79551')).toBeInTheDocument()
-    expect(screen.getByText('2136170')).toBeInTheDocument()
   })
 
 
