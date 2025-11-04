@@ -55,8 +55,6 @@ const MicrosampleComposition = () => {
   const { xcoord, ycoord, size, shape, microsampleIds } = coordinationData
 
 
-  console.log(coordinationData)
-
   return (
     <ParamsValidator validating={validating} notFound={notFound} >
       <div className='px-4 max-w-screen'>
