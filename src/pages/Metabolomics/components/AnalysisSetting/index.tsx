@@ -64,8 +64,8 @@ const AnalysisSettings = ({ compareBetween, setCompareBetween, group1, setGroup1
                   </>
                   :
                   <>
-                    <option value="LEBV">Low Estimated Breeding Value?</option>
-                    <option value="HEBV">High Estimated Breeding Value?</option>
+                    <option value="LEBV">LEBV</option>
+                    <option value="HEBV">HEBV</option>
                   </>
               }
             </select>
@@ -91,8 +91,8 @@ const AnalysisSettings = ({ compareBetween, setCompareBetween, group1, setGroup1
                   </>
                   :
                   <>
-                    <option value="LEBV">Low Estimated Breeding Value?</option>
-                    <option value="HEBV">High Estimated Breeding Value?</option>
+                    <option value="LEBV">LEBV</option>
+                    <option value="HEBV">HEBV</option>
                   </>
               }
             </select>

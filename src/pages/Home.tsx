@@ -131,8 +131,9 @@ const Home = () => {
                 <li className='bg-texture  h-full flex flex-col'>
                   <div>
                     <h2>Macrosample</h2>
+                    {/* <h2>Intestinal&nbsp;Section&nbsp;Sample</h2> */}
                     <p>
-                      <span>{tables.filter((table) => table.name === 'Macrosample')[0].recordCount}</span>&nbsp;records
+                      <span>{tables.filter((table) => table.name === 'IntestinalSectionSample')[0].recordCount}</span>&nbsp;records
                       <br />
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     </p>
@@ -140,7 +141,6 @@ const Home = () => {
                 </li>
               </Link>
             </div>
-
 
             <div className="flex items-center max-lg:hidden">
               <FontAwesomeIcon icon={faCaretRight} className="!w-6" /> {/* !w-6 is for safari browser */}
@@ -161,33 +161,8 @@ const Home = () => {
                 </li>
               </Link>
             </div>
-          </div>
 
-
-          <FontAwesomeIcon icon={faCaretDown} />
-
-
-          <div>
-            <div className='max-lg:clip-arrow max-lg:-mt-14'>
-              <Link to={"/intestinal-section-sample"}>
-                <li className='bg-texture  h-full flex flex-col'>
-                  <div>
-                    <h2>Intestinal&nbsp;Section&nbsp;Sample</h2>
-                    <p>
-                      <span>{tables.filter((table) => table.name === 'IntestinalSectionSample')[0].recordCount}</span>&nbsp;records
-                      <br />
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
-                  </div>
-                </li>
-              </Link>
-            </div>
-
-            <div className="flex items-center max-lg:hidden">
-              <FontAwesomeIcon icon={faCaretRight} className="!w-6" /> {/* !w-6 is for safari browser */}
-            </div>
-
-            <div className='max-lg:clip-arrow max-lg:-mt-14 '>
+            {/* <div className='max-lg:clip-arrow max-lg:-mt-14 '>
               <Link to={"/metabolomics"}>
                 <li className='bg-diagonal  h-full flex flex-col'>
                   <div className='max-lg:px-8'>
@@ -200,7 +175,7 @@ const Home = () => {
                   </div>
                 </li>
               </Link>
-            </div>
+            </div> */}
           </div>
 
 

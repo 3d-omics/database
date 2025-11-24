@@ -1,4 +1,4 @@
-import Macrosample from 'pages/Macrosample'
+import Macrosample from 'pages/old_Macrosample'
 const MacrosampleTab = ({ experimentId }: { experimentId: string }) => {
   return (
     <Macrosample

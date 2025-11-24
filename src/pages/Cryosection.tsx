@@ -2,6 +2,8 @@ import { useMemo } from 'react'
 import { ColumnDef } from '@tanstack/react-table';
 import TableView from 'components/TableView';
 import cryosectionData from 'assets/data/airtable/cryosection.json'
+import cryosectionImageData from 'assets/data/airtable/cryosectionimage.json'
+import { Link } from 'react-router-dom'
 
 export type TData = {
   id: string
@@ -12,6 +14,7 @@ export type TData = {
     Slide_flat: string
     Position: string
     SlideDate: string
+    "Microsample number": number
     IntestinalSection?: string[]
     Microsample?: string[]
     SlideImage?: {
@@ -52,6 +55,12 @@ const Cryosection = () => {
       id: 'ID',
       header: 'ID',
       accessorFn: (row) => row.fields.ID,
+      cell: (props: any) => (
+        cryosectionImageData.find(cryosection => cryosection.fields.ID === props.getValue()) ?
+          <Link to={`/microsample-composition/${props.getValue()}`} className='link'>{props.getValue()}</Link>
+          :
+          <>{props.getValue()}</>
+      )
     },
     {
       id: 'Slide_flat',
@@ -62,10 +71,6 @@ const Cryosection = () => {
       //   filterVariant: 'select' as const,
       //   uniqueValues: Array.from(new Set(data.map((row) => row.fields.Slide_flat))),
       // },
-      // === for cell with link to cryosection-view ===
-      // cell: (props: any) => (
-      //   <Link to={`/cryosection-view?cryosectionSlide=${props.getValue()}`} className='link'>{props.getValue()}</Link>
-      // )
     },
     {
       id: 'Position',
@@ -81,6 +86,12 @@ const Cryosection = () => {
       id: 'SlideDate',
       header: 'Slide Date',
       accessorFn: (row) => row.fields.SlideDate,
+      enableColumnFilter: false,
+    },
+    {
+      id: 'Microsample number',
+      header: 'Microsample number',
+      accessorFn: (row) => row.fields["Microsample number"],
       enableColumnFilter: false,
     },
   ], [data])

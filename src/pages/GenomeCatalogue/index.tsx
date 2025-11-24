@@ -209,7 +209,6 @@ const GenomeCatalogue = () => {
 
         {!hasError && (
           <Table
-            allError={null}
             metaData={reversedMetaData}
             experimentName={experimentName}
           />

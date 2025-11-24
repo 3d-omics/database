@@ -19,9 +19,8 @@ export type GenomeData = {
 }
 
 
-const GenomeCatalogueTable = ({ metaData, allError, experimentName }: {
+const GenomeCatalogueTable = ({ metaData, experimentName }: {
   metaData: Record<string, (string | number)[]>,
-  allError: string | null,
   experimentName: string,
 }) => {
 
@@ -79,21 +78,6 @@ const GenomeCatalogueTable = ({ metaData, allError, experimentName }: {
         </div>
       ),
     },
-    // {
-    //   id: 'taxonomy',
-    //   header: 'Taxonomy',
-    //   accessorFn: (row) => row.species,
-    //   filterFn: 'equals',
-    //   meta: {
-    //     filterVariant: 'select' as const,
-    //     uniqueValues: Array.from(new Set(data.map((row) => row.species))),
-    //   },
-    //   cell: ({ cell, row }: { cell: { getValue: () => any }, row: { original: GenomeData } }) => (
-    //     <div className="tooltip tooltip-bottom" data-tip={`${row.original.domain || ''} > ${row.original.class || ''} > ${row.original.order || ''} > ${row.original.family || ''} > ${row.original.genus || ''} > ${cell.getValue() || 'unknown'}`}>
-    //       <span className="underline">{cell.getValue() || 'unknown'}</span>
-    //     </div>
-    //   ),
-    // },
     {
       id: 'completeness',
       header: 'Completeness',
@@ -112,12 +96,6 @@ const GenomeCatalogueTable = ({ metaData, allError, experimentName }: {
       accessorFn: (row) => row.length,
       enableColumnFilter: false,
     },
-    // {
-    //   id: 'N50',
-    //   header: 'N50',
-    //   accessorFn: (row) => row.N50,
-    //   enableColumnFilter: false,
-    // },
   ], [metaData])
 
   return (

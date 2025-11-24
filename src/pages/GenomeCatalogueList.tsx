@@ -10,7 +10,6 @@ const GenomeCatalogueList = () => {
 
       <header className='main_header mb-4'>List of Genome Catalogues</header>
 
-
       <ul className='space-y-4'>
         {animalTrialExperimentData.map((experiment) => (
           <li key={experiment.id}>

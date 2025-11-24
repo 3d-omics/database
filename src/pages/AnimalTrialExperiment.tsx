@@ -13,6 +13,8 @@ type TData = {
     Type: string
     StartDate?: string
     EndDate?: string
+    'Bioproject accession'?: string
+    'Bioproject link'?: string
   }
 }
 
@@ -60,6 +62,21 @@ const AnimalTrialExperiment = () => {
       header: 'End Date',
       accessorFn: (row) => row.fields.EndDate,
       enableColumnFilter: false,
+    },
+    {
+      id: 'Bioproject Accession',
+      header: 'Bioproject Accession',
+      accessorFn: (row) => row.fields['Bioproject accession'],
+      cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
+        const bioprojectLink = row.original.fields['Bioproject link'];
+        return bioprojectLink ? (
+          <Link to={bioprojectLink} target="_blank" rel="noopener noreferrer" className='link'>
+            {cell.getValue() as string}
+          </Link>
+        ) : (
+          <></>
+        );
+      }
     },
     {
       id: 'MAGCatalogue',

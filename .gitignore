@@ -26,8 +26,6 @@ yarn-error.log*
 .env
 .qodo
 
-/cypress
-
 
 # Generated JSON data
 src/assets/data/airtable/*.json

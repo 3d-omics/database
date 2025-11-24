@@ -278,15 +278,15 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
               {currentlyDisplayedPlot.group1 === 3 && 'Low protein diet'}
               {currentlyDisplayedPlot.group1 === 'T1' && 'Control diet + no mannan'}
               {currentlyDisplayedPlot.group1 === 'T2' && 'Mannan'}
-              {currentlyDisplayedPlot.group1 === 'LEBV' && 'Low Estimated Breeding Value'}
-              {currentlyDisplayedPlot.group1 === 'HEBV' && 'High Estimated Breeding Value'}
+              {currentlyDisplayedPlot.group1 === 'LEBV' && 'LEBV'}
+              {currentlyDisplayedPlot.group1 === 'HEBV' && 'HEBV'}
               ,&nbsp;
               {currentlyDisplayedPlot.group2 === 1 && 'High protein diet'}
               {currentlyDisplayedPlot.group2 === 3 && 'Low protein diet'}
               {currentlyDisplayedPlot.group2 === 'T1' && 'Control diet + no mannan'}
               {currentlyDisplayedPlot.group2 === 'T2' && 'Mannan'}
-              {currentlyDisplayedPlot.group2 === 'LEBV' && 'Low Estimated Breeding Value'}
-              {currentlyDisplayedPlot.group2 === 'HEBV' && 'High Estimated Breeding Value'}
+              {currentlyDisplayedPlot.group2 === 'LEBV' && 'LEBV'}
+              {currentlyDisplayedPlot.group2 === 'HEBV' && 'HEBV'}
               )
             </p>
           </header>

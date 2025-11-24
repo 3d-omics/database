@@ -4,8 +4,8 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import AnimalTrialExperiment from 'pages/AnimalTrialExperiment'
 import Nav from 'components/Navbar'
 import AnimalSpecimen from 'pages/AnimalSpecimen'
-import Macrosample from 'pages/Macrosample'
-import IntestinalSectionSample from 'pages/IntestinalSectionSample'
+import Macrosample from 'pages/old_Macrosample'
+import IntestinalSectionSample from 'pages/Macrosample'
 import Cryosection from 'pages/Cryosection'
 import Microsample from 'pages/Microsample'
 import Home from 'pages/Home'
@@ -41,13 +41,12 @@ function App() {
       else if (pathname === "/animal-trial-experiment") title = "Animal Trial/Experiment"
       else if (pathname === "/animal-specimen") title = "Animal Specimen"
       else if (pathname === "/macrosample") title = "Macrosample"
-      else if (pathname === "/intestinal-section-sample") title = "Intestinal Section Sample"
       else if (pathname === "/cryosection") title = "Cryosection"
       else if (pathname === "/microsample") title = "Microsample"
 
       else if (pathname === "/metabolomics") title = "Metabolomics"
-      else if (pathname === "/microsample-composition") title = "Genome Composition"
-      else if (pathname === "/macrosample-composition") title = "Genome Composition"
+      else if (pathname === "/microsample-composition") title = "Microsample Genome Composition"
+      else if (pathname === "/macrosample-composition") title = "Macrosample Genome Composition"
       else if (pathname === "/genome-catalogues") title = "Genome Catalogue List"
 
       else {
@@ -62,6 +61,16 @@ function App() {
             const catalogueMatch = pathname.match(/^\/genome-catalogues\/([^/]+)$/)
             if (catalogueMatch) {
               title = decodeURIComponent(catalogueMatch[1])
+            } else { // Match /macrosample-composition/:experimentName
+              const macroCompMatch = pathname.match(/^\/macrosample-composition\/([^/]+)$/)
+              if (macroCompMatch) {
+                title = decodeURIComponent(macroCompMatch[1])
+              } else { // Match /microsample-composition/:cryosection
+                const microCompMatch = pathname.match(/^\/microsample-composition\/([^/]+)$/)
+                if (microCompMatch) {
+                  title = decodeURIComponent(microCompMatch[1])
+                }
+              }
             }
           }
         }
@@ -81,8 +90,7 @@ function App() {
 
           <Route path="/animal-trial-experiment" element={<AnimalTrialExperiment />} />
           <Route path="/animal-specimen" element={<AnimalSpecimen />} />
-          <Route path="/macrosample" element={<Macrosample />} />
-          <Route path="/intestinal-section-sample" element={<IntestinalSectionSample />} />
+          <Route path="/macrosample" element={<IntestinalSectionSample />} />
           <Route path="/cryosection" element={<Cryosection />} />
           <Route path="/microsample" element={<Microsample />} />
 

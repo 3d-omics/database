@@ -5,6 +5,8 @@ import cryosectionImageData from 'assets/data/airtable/cryosectionimage.json'
 
 const MicrosampleCompositionList = () => {
 
+  console.log(cryosectionImageData.map(cryosection => cryosection.fields))
+
   return (
     <div className='page_padding pt-7 min-h-[calc(100dvh-(var(--navbar-height)+var(--footer-height)))]'>
       <header className='main_header mb-6'>List of Cryosections with Genome Composition Image + Bar stack plot</header>

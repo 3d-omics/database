@@ -2,7 +2,6 @@ import React, { useState, Dispatch, SetStateAction } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import MetaboliteHeatmapComparison from 'components/MetabolitePlots/Heatmap'
-import MetaboliteSpectrum from 'components/MetabolitePlots/Spectrum'
 import SingleMetaboliteBarPlot from 'components/MetabolitePlots/Bar'
 
 const CompareSamplesButton = ({ samples, setSamples }: { samples: string[], setSamples: Dispatch<SetStateAction<string[]>> }) => {
@@ -46,9 +45,6 @@ const CompareSamplesButton = ({ samples, setSamples }: { samples: string[], setS
                 >
                   <line x1="2" y1="92" x2="90" y2="92" stroke="white" strokeWidth="4" />
                   <line x1="4" y1="90" x2="4" y2="10" stroke="white" strokeWidth="4" />
-                  {/* ⬇️for line chart⬇️ */}
-                  {/* <polyline points="10,80 20,80  30,70   40,80  50,75  60,80  70,20   80,80   90,75" fill="none" stroke="white" strokeWidth="4" /> */}
-                  {/* ⬇️for bar chart⬇️ */}
                   <line x1="20" y1="90" x2="20" y2="40" stroke="white" strokeWidth="10" />
                   <line x1="35" y1="90" x2="35" y2="60" stroke="white" strokeWidth="10" />
                   <line x1="50" y1="90" x2="50" y2="30" stroke="white" strokeWidth="10" />
@@ -118,9 +114,6 @@ const CompareSamplesButton = ({ samples, setSamples }: { samples: string[], setS
 
               <main className='overflow-auto'>
                 {displayedPlot === 'spectra' && <SingleMetaboliteBarPlot id={samples} />}
-                {displayedPlot === 'spectra' && <div className='h-10'></div>}   {/* ←Spacer for bar plot and spectrum plot*/}
-                {displayedPlot === 'spectra' && <MetaboliteSpectrum id={samples} />}
-
                 {displayedPlot === 'heatmap' && <MetaboliteHeatmapComparison ids={samples} />}
               </main>
 

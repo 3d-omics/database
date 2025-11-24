@@ -20,7 +20,7 @@ const renderPagination = (pageIndex: number) => {
     setPageIndex: vi.fn(),
     setPageSize: vi.fn()
   }
-  render(<Pagination table={mockTable} loading={false} />)
+  render(<Pagination table={mockTable} />)
   return { mockTable }
 }
 
@@ -73,7 +73,7 @@ describe('components > Table > Pagination', () => {
       setPageIndex: vi.fn(),
       setPageSize: vi.fn()
     }
-    render(<Pagination table={mockTable} loading={false} />)
+    render(<Pagination table={mockTable} />)
     expect(screen.getByRole('button', { name: '<' })).toBeDisabled()
   })
 
@@ -94,7 +94,7 @@ describe('components > Table > Pagination', () => {
       setPageIndex: vi.fn(),
       setPageSize: vi.fn()
     }
-    render(<Pagination table={mockTable} loading={false} />)
+    render(<Pagination table={mockTable} />)
     expect(screen.getByRole('button', { name: '>' })).toBeDisabled()
   })
 

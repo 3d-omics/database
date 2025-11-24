@@ -1,24 +1,27 @@
-import { useMemo } from 'react';
-import CrossReferenceTooltip from 'components/CrossReferenceTooltip';
-import { ColumnDef } from '@tanstack/react-table';
-import TableView from 'components/TableView';
-import animalSpecimenData from 'assets/data/airtable/animalspecimen.json';
-import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json';
+import { useMemo } from 'react'
+import CrossReferenceTooltip from 'components/CrossReferenceTooltip'
+import { ColumnDef } from '@tanstack/react-table'
+import TableView from 'components/TableView'
+import animalSpecimenData from 'assets/data/airtable/animalspecimen.json'
+import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
+import { Link } from 'react-router-dom'
 
 type TData = {
-  id: string;
-  createdTime: string;
+  id: string
+  createdTime: string
   fields: {
-    ID: string;
-    Experiment: string;
-    Experiment_flat: string;
-    Treatment: string;
-    Treatment_flat: string;
-    TreatmentName: string;
-    Pen: string;
-    SlaughteringDayCount: number;
-    SlaughteringDate: string;
-    Weight: number;
+    ID: string
+    Experiment: string
+    Experiment_flat: string
+    Treatment: string
+    Treatment_flat: string
+    TreatmentName: string
+    Pen: string
+    SlaughteringDayCount: number
+    SlaughteringDate: string
+    Weight: number
+    'Biosample accession'?: string
+    'Biosample link'?: string
   };
 };
 
@@ -28,46 +31,46 @@ const AnimalSpecimen = ({
   displayTableBody,
   filterWith = [],
 }: {
-  displayTableHeader?: boolean;
-  displayTableFilters?: boolean;
-  displayTableBody?: boolean;
-  filterWith?: { id: keyof TData['fields']; value: string | number; condition?: 'startsWith' | 'equals' }[];
+  displayTableHeader?: boolean
+  displayTableFilters?: boolean
+  displayTableBody?: boolean
+  filterWith?: { id: keyof TData['fields']; value: string | number; condition?: 'startsWith' | 'equals' }[]
 }) => {
 
-  const data = animalSpecimenData as unknown as TData[];
+  const data = animalSpecimenData as unknown as TData[]
 
   // for cross reference tooltip
   const experimentLookup = useMemo(() => {
-    return (animalTrialExperimentData as any[]).map((record) => record.fields);
-  }, []);
+    return (animalTrialExperimentData as any[]).map((record) => record.fields)
+  }, [])
 
 
   const filteredData = useMemo(() => {
     if (!filterWith || filterWith.length === 0) {
-      return data;
+      return data
     }
 
     return (data).filter((record) => {
       return filterWith.every((filter) => {
-        const fieldValue = record.fields[filter.id];
+        const fieldValue = record.fields[filter.id]
 
-        if (fieldValue === undefined || fieldValue === null) return false;
+        if (fieldValue === undefined || fieldValue === null) return false
 
-        const values = Array.isArray(fieldValue) ? fieldValue : [fieldValue];
-        const searchValue = String(filter.value).toLowerCase();
+        const values = Array.isArray(fieldValue) ? fieldValue : [fieldValue]
+        const searchValue = String(filter.value).toLowerCase()
 
         if (filter.condition === 'startsWith') {
           return values.some((val) =>
             String(val).toLowerCase().startsWith(searchValue)
-          );
+          )
         } else {
           return values.some((val) =>
             String(val).toLowerCase() === searchValue
-          );
+          )
         }
-      });
-    });
-  }, [filterWith]);
+      })
+    })
+  }, [filterWith])
 
 
   const columns = useMemo<ColumnDef<TData>[]>(
@@ -150,6 +153,21 @@ const AnimalSpecimen = ({
         header: 'Weight',
         accessorFn: (row) => row.fields.Weight,
         enableColumnFilter: false,
+      },
+      {
+        id: 'Biosample Accession',
+        header: 'Biosample Accession',
+        accessorFn: (row) => row.fields['Biosample accession'],
+        cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
+          const biosampleLink = row.original.fields['Biosample link'];
+          return biosampleLink ? (
+            <Link to={biosampleLink} target="_blank" rel="noopener noreferrer" className='link'>
+              {cell.getValue() as string}
+            </Link>
+          ) : (
+            <></>
+          );
+        }
       },
     ],
     [filteredData, experimentLookup]

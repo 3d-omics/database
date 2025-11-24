@@ -3,6 +3,7 @@ import { ColumnDef } from '@tanstack/react-table'
 import { Link } from 'react-router-dom'
 import TableView from 'components/TableView'
 import microsampleData from 'assets/data/airtable/microsample.json'
+import cryosectionImageData from 'assets/data/airtable/cryosectionimage.json'
 
 
 export type TData = {
@@ -23,6 +24,8 @@ export type TData = {
     Size: number
     IntestinalSection?: string
     Number?: string
+    'ENA accession'?: string
+    'ENA link'?: string
   }
 }
 
@@ -34,6 +37,7 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
 }) => {
 
   const data = microsampleData as unknown as TData[];
+  console.log(data)
 
   const filteredData = useMemo(() => {
     if (!filterWith || filterWith.length === 0) {
@@ -89,10 +93,12 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       //   filterVariant: 'select' as const,
       //   uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Cryosection_flat))),
       // },
-      // === for cell with link to cryosection-view ===
-      // cell: (props: any) => (
-      //   <Link to={`/microsample-view?cryosectionSlide=${props.getValue().slice(0, -1)}`} className='link'>{props.getValue()}</Link>
-      // )
+      cell: (props: any) => (
+        cryosectionImageData.find(cryosection => cryosection.fields.ID === props.getValue()) ?
+          <Link to={`/microsample-composition/${props.getValue()}`} className='link'>{props.getValue()}</Link>
+          :
+          <>{props.getValue()}</>
+      )
     },
     {
       id: 'CollectionMethod',
@@ -145,22 +151,20 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       accessorFn: (row) => row.fields.Size,
       enableColumnFilter: false,
     },
-
-    // ==================== ENA Accession Column ===========================
     {
-      id: 'Number', // change "Number" to ENA Accession Code column id when the column is ready
-      header: 'ENA Accession Code',
-      accessorFn: (row) => row.fields.Number, // change "Number" to ENA Accession Code id column when the column is ready
-      cell: ({ cell }: { cell: { getValue: () => any } }) => (
-        <Link
-          to={`https://www.ebi.ac.uk/ena/browser/view/${cell.getValue()}`}
-          className='link'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          {cell.getValue()}
-        </Link>
-      ),
+      id: 'ENA Accession',
+      header: 'ENA Accession',
+      accessorFn: (row) => row.fields['ENA accession'],
+      cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
+        const enaLink = row.original.fields['ENA link'];
+        return enaLink ? (
+          <Link to={enaLink} target="_blank" rel="noopener noreferrer" className='link'>
+            {cell.getValue() as string}
+          </Link>
+        ) : (
+          <></>
+        );
+      }
     },
   ], [filteredData])
 

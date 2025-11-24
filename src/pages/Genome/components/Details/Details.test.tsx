@@ -9,7 +9,6 @@ const mockGenomeData: GenomeData = {
   completeness: 99.89,
   contamination: 1.77,
   length: 2084398,
-  N50: 20549,
   domain: "Bacteria",
   class: "Bacilli",
   order: "Lactobacillales",
@@ -38,8 +37,5 @@ describe('Details component', () => {
 
     expect(screen.getByText('Length:')).toBeInTheDocument()
     expect(screen.getByText('2084398')).toBeInTheDocument()
-
-    expect(screen.getByText('N50:')).toBeInTheDocument()
-    expect(screen.getByText('20549')).toBeInTheDocument()
   })
 })

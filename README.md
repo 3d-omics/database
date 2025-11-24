@@ -11,7 +11,6 @@ Update the site whenever you:
 ## 🔧 How to Update + Deploy
 
 ### Step 1: Update Data Locally
-
 ```bash
 # Navigate to project directory
 cd your-project-folder
@@ -27,7 +26,6 @@ This regenerates all 102 JSON files:
 - 69 microsample count files
 
 ### Step 2: Test Locally (Optional)
-
 ```bash
 # Run development server to verify
 npm run dev
@@ -36,7 +34,6 @@ npm run dev
 Visit `http://localhost:5173` to check the updated data.
 
 ### Step 3: Deploy
-
 ```bash
 # Build for production
 npm run build
@@ -47,12 +44,22 @@ git commit -m "Update data from Airtable"
 git push origin main
 ```
 
+## 🧪 Running Tests
+
+Run unit and integration tests whenever you modify frontend code:
+```bash
+npm run test
+```
+
+**Note:** Tests verify code logic, not data content. You don't need to run tests when only Airtable data changes—the build process will validate that data loads correctly.
+
 ## 📝 Quick Reference
 
 | Task | Command |
 |------|---------|
 | Fetch fresh Airtable data | `npm run generate-data` |
 | Test locally | `npm run dev` |
+| Run tests (code changes) | `npm run test` |
 | Build for production | `npm run build` |
 | Deploy | `git push origin main` |
 | Quick refresh (no local changes) | `git commit --allow-empty -m "Refresh" && git push` |

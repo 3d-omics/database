@@ -3,7 +3,7 @@
     "baseUrl": "src",
     "target": "ESNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "types": ["vite/client", "cypress"],
+    "types": ["vite/client"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,

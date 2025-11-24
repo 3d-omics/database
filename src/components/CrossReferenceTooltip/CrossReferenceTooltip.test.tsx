@@ -1,5 +1,4 @@
 import { render, fireEvent, screen } from '@testing-library/react'
-import { vi } from 'vitest'
 import CrossReferenceTooltip from './index'
 
 const mockData = [
@@ -52,6 +51,8 @@ describe('components > CrossReferenceTooltip', () => {
     expect(dateElements.length).toBeGreaterThanOrEqual(2)
   })
 
+
+  
   it('should display "Record not found" message when data is null', () => {
     render(<CrossReferenceTooltip {...props} data={null} />)
     
@@ -61,16 +62,7 @@ describe('components > CrossReferenceTooltip', () => {
     expect(screen.getByText('Record not found')).toBeInTheDocument()
   })
 
-  // it('should display "Record not found" when value does not match any record', () => {
-  //   render(<CrossReferenceTooltip {...props} value="Z" />)
-    
-  //   const icon = screen.getByTestId('cross-reference-icon')
-  //   fireEvent.mouseEnter(icon)
-    
-  //   // This will likely cause an error in your current component
-  //   // You may want to add a check in the component for this case
-  //   // For now, the test reflects the current behavior
-  // })
+
 
   it('should hide tooltip on mouse leave', () => {
     render(<CrossReferenceTooltip {...props} />)
@@ -87,8 +79,10 @@ describe('components > CrossReferenceTooltip', () => {
     expect(screen.queryByText('Preliminary sampling trial')).not.toBeInTheDocument()
   })
 
+
+
   it('should display correct data for different values', () => {
-    const { rerender } = render(<CrossReferenceTooltip {...props} value="B" />)
+    render(<CrossReferenceTooltip {...props} value="B" />)
     
     const icon = screen.getByTestId('cross-reference-icon')
     fireEvent.mouseEnter(icon)

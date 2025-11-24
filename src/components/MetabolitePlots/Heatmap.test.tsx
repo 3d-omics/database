@@ -2,7 +2,6 @@ import { render, screen } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import MetaboliteHeatmapComparison from './Heatmap'
 import useMetaboliteExcelFileData from 'hooks/useMetaboliteExcelFileData'
-import Plot from 'react-plotly.js'
 
 
 // Mock Plotly so we can test props easily

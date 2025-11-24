@@ -33,7 +33,6 @@ describe('GenomeCatalogue page > Table component', () => {
       >
         <Table
           metaData={mockMetaData}
-          allError={null}
           experimentName={experimentName}
           {...props}
         />
@@ -92,15 +91,6 @@ describe('GenomeCatalogue page > Table component', () => {
     expect(screen.getByText('1791036')).toBeInTheDocument()
     expect(screen.getByText('2144878')).toBeInTheDocument()
   })
-
-
-
-
-  it('shows error message if allError is provided', () => {
-    renderGenomeCatalogueTable({ allError: 'Failed to load data' })
-    expect(screen.getByText(/failed to load data/i)).toBeInTheDocument()
-  })
-
 
 
 

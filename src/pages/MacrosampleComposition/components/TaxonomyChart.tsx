@@ -126,7 +126,7 @@ const MacrosampleTaxonomyChart = ({
   if (isInitializing || !isDataReady) {
     return (
       <div className='grow max-xl:min-w-full'>
-        <div className="animate-pulse flex flex-col mb-16">
+        <div className="animate-pulse flex flex-col mb-16" data-testid='loading-skeleton'>
           <div className="h-6 bg-gray-200 rounded w-[30%] mb-4"></div>
           <div className="h-[70vh] bg-gray-200 rounded w-full"></div>
         </div>
