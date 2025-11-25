@@ -3,6 +3,7 @@ import type { PhyloData, CircosData } from '..'
 import * as d3 from 'd3'
 import { getPhylumColor } from '../phylum-color-scheme'
 
+
 const CircosLayer = ({
   phyloData,
   circosData,
@@ -16,6 +17,7 @@ const CircosLayer = ({
 }) => {
   const groupRef = useRef<SVGGElement | null>(null)
 
+  
   useEffect(() => {
     if (!groupRef.current || !phyloData || !circosData) return
 
@@ -130,7 +132,6 @@ const CircosLayer = ({
           .attr('fill',
             metric.key === 'phylum'
               ? getPhylumColor(colorValue as string) // special color by string
-              // ? phylumColor(colorValue as string) // special color by string
               : metric.key === 'completeness'
                 ? colorScales.completeness(colorValue as number)
                 : colorScales[metric.key as keyof typeof colorScales](colorValue as number)

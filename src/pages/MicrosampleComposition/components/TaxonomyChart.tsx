@@ -22,7 +22,8 @@ const MicrosampleTaxonomyChart = ({
   setSelectedTaxonomicLevel: React.Dispatch<React.SetStateAction<string>>
   experimentId: string 
 }) => {
-  const taxonomicLevels = ["phylum", "class", "order", "family", "genus", "species"]
+  const taxonomicLevels = ["phylum", "class", "order"]
+  // const taxonomicLevels = ["phylum", "class", "order", "family", "genus", "species"]
   const [isInitializing, setIsInitializing] = useState(true)
   const [isChangingLevel, setIsChangingLevel] = useState(false)
 
@@ -67,7 +68,8 @@ const MicrosampleTaxonomyChart = ({
       )
       
       const colorSchemeModule = 
-        colorSchemeFiles[`/src/config/colorScheme/taxonomy-color-scheme-${experimentId}.ts`]
+        // colorSchemeFiles[`/src/config/colorScheme/taxonomy-color-scheme-${experimentId}.ts`]
+    colorSchemeFiles[`/src/config/colorScheme/taxonomy-color-scheme.ts`];
 
       if (!colorSchemeModule) {
         console.warn(`Color scheme for experiment ${experimentId} not found, using default`)

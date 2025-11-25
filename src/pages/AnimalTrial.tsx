@@ -18,7 +18,7 @@ type TData = {
   }
 }
 
-const AnimalTrialExperiment = () => {
+const AnimalTrial = () => {
 
   const data = animalTrialExperimentData as unknown as TData[]
 
@@ -34,7 +34,7 @@ const AnimalTrialExperiment = () => {
       accessorFn: (row) => row.fields.Name,
       cell: (props: any) => (
         <Link
-          to={`/animal-trial-experiment/${encodeURIComponent(props.row.original.fields.Name)}`}
+          to={`/animal-trial/${encodeURIComponent(props.row.original.fields.Name)}`}
           className='link'
         >
           {props.getValue()}
@@ -86,7 +86,7 @@ const AnimalTrialExperiment = () => {
       cell: (props: any) => {
         return (
           <Link
-            to={`/genome-catalogues/${encodeURIComponent(props.row.original.fields.Name)}`}
+            to={`/mag-catalogues/${encodeURIComponent(props.row.original.fields.Name)}`}
             className='link'
           >
             View MAG Catalogue
@@ -101,9 +101,9 @@ const AnimalTrialExperiment = () => {
     <TableView<TData>
       data={data}
       columns={columns}
-      pageTitle={'Animal Trial/Experiment'}
+      pageTitle={'Animal Trial'}
     />
   )
 }
 
-export default AnimalTrialExperiment
+export default AnimalTrial

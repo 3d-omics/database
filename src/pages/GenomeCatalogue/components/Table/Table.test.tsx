@@ -58,7 +58,7 @@ describe('GenomeCatalogue page > Table component', () => {
     const genomeLink = screen.getByRole('link', { name: 'D300418' })
     expect(genomeLink).toHaveAttribute(
       'href',
-      `/genome-catalogues/${encodeURIComponent(experimentName)}/D300418`
+      `/mag-catalogues/${encodeURIComponent(experimentName)}/D300418`
     )
   })
 

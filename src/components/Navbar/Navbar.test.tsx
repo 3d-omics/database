@@ -41,16 +41,14 @@ describe('components > Navbar', () => {
   it('should render the logo and navigation links correctly', () => {
     renderNavbar()
     expect(screen.getByAltText("3d'omics logo")).toBeInTheDocument()
-    const experimentElements = screen.getAllByText('Animal Trial/Experiment')
+    const experimentElements = screen.getAllByText('Animal Trial')
     expect(experimentElements).toHaveLength(2)
     expect(screen.getByText(/animal specimen/i)).toBeInTheDocument()
     expect(screen.getByText(/cryosection/i)).toBeInTheDocument()
-    const intestinalElements = screen.getAllByText(/intestinal section sample/i)
-    expect(intestinalElements).toHaveLength(2) // One section title, one submenu item
     const microsampleElements = screen.getAllByText(/microsample/i)
     expect(microsampleElements).toHaveLength(2) // One section title, one submenu item
     expect(screen.getByText(/metabolomics/i)).toBeInTheDocument()
-    const genomeCompositionElements = screen.getAllByText(/genome composition/i)
+    const genomeCompositionElements = screen.getAllByText(/metagenomics/i)
     expect(genomeCompositionElements).toHaveLength(2) // One for macrosample, one for microsample
   })
 
@@ -79,12 +77,14 @@ describe('components > Navbar', () => {
 
   it('should display dropdown menus on hover for items with submenus', async () => {
     renderNavbar()
-    const parentMenu = screen.getByTestId('parentmenu-intestinal-section-sample')
+    const parentMenu = screen.getByTestId('parentmenu-macrosample')
     fireEvent.mouseOver(parentMenu)
-    const submenu = await screen.findByTestId('submenu-intestinal-section-sample')
+    const submenu = await screen.findByTestId('submenu-macrosample')
     const submenu2 = await screen.findByTestId('submenu-metabolomics')
+    // const submenu3 = await screen.findByTestId('submenu-genome-composition')
     expect(submenu).toBeVisible()
     expect(submenu2).toBeVisible()
+    // expect(submenu3).toBeVisible()
   })
 
 

@@ -21,9 +21,9 @@ npm run generate-data
 
 This regenerates all 102 JSON files:
 - 9 Airtable tables
-- 14 genome metadata files
-- 14 macro genome count files
-- 69 microsample count files
+- 6 genome metadata files
+- 6 macro genome count files
+- 83 microsample count files
 
 ### Step 2: Test Locally (Optional)
 ```bash

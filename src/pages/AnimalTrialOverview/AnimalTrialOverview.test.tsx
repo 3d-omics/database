@@ -15,19 +15,19 @@ vi.mock('react-router-dom', async () => {
 })
 
 // Mock child tab components
-vi.mock('./components/AnimalSpecimenTab', () => ({
+vi.mock('./AnimalSpecimenTab', () => ({
   default: ({ experimentId }: { experimentId: string }) => (
     <div data-testid="animal-specimen-tab">Animal Specimen Tab - {experimentId}</div>
   ),
 }))
 
-vi.mock('./components/MacrosampleTab', () => ({
+vi.mock('components/MacrosampleTab', () => ({
   default: ({ experimentId }: { experimentId: string }) => (
     <div data-testid="macrosample-tab">Macrosample Tab - {experimentId}</div>
   ),
 }))
 
-vi.mock('./components/MicrosampleTab', () => ({
+vi.mock('components/MicrosampleTab', () => ({
   default: ({ experimentId }: { experimentId: string }) => (
     <div data-testid="microsample-tab">Microsample Tab - {experimentId}</div>
   ),
@@ -177,7 +177,7 @@ describe('AnimalTrialOverview', () => {
 
     const breadcrumbs = screen.getByTestId('breadcrumbs')
     expect(breadcrumbs).toHaveTextContent(
-      'Home > Animal Trial/Experiment > B - Proof-of-principle chicken trial A'
+      'Home > Animal Trial > B - Proof-of-principle chicken trial A'
     )
   })
 
@@ -187,7 +187,7 @@ describe('AnimalTrialOverview', () => {
     const magLink = screen.getByText('view MAG Catalogue')
     expect(magLink).toHaveAttribute(
       'href',
-      '/genome-catalogues/B%20-%20Proof-of-principle%20chicken%20trial%20A'
+      '/mag-catalogues/B%20-%20Proof-of-principle%20chicken%20trial%20A'
     )
   })
 

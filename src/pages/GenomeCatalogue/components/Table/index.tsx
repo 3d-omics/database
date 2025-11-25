@@ -46,7 +46,7 @@ const GenomeCatalogueTable = ({ metaData, experimentName }: {
       accessorFn: (row) => row.genome,
       cell: ({ cell, row }: { cell: { getValue: () => any }, row: { original: GenomeData } }) => (
         <Link
-          to={`/genome-catalogues/${encodeURIComponent(experimentName)}/${encodeURIComponent(cell.getValue())}`}
+          to={`/mag-catalogues/${encodeURIComponent(experimentName)}/${encodeURIComponent(cell.getValue())}`}
           className="link"
         >
           <span>{cell.getValue() || 'unknown'}</span>

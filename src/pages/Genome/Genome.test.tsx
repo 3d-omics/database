@@ -118,7 +118,7 @@ describe('Genome page', () => {
     render(<Genome />)
 
     expect(
-      screen.getByText(/Breadcrumbs: Home > Genome Catalogues > A_Experiment > Genome_123/i)
+      screen.getByText(/Breadcrumbs: Home > MAG Catalogues > A_Experiment > Genome_123/i)
     ).toBeInTheDocument()
   })
 

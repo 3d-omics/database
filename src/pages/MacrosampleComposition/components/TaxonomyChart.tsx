@@ -42,7 +42,8 @@ const MacrosampleTaxonomyChart = ({
       )
 
       const colorSchemeModule =
-        colorSchemeFiles[`/src/config/colorScheme/taxonomy-color-scheme-${experimentId}.ts`]
+        // colorSchemeFiles[`/src/config/colorScheme/taxonomy-color-scheme-${experimentId}.ts`]
+        colorSchemeFiles[`/src/config/colorScheme/taxonomy-color-scheme.ts`]
 
       if (!colorSchemeModule) {
         console.warn(`Color scheme for experiment ${experimentId} not found, using default`)

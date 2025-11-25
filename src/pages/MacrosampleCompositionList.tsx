@@ -7,7 +7,7 @@ const MacrosampleCompositionList = () => {
 
   return (
     <div className='page_padding pt-7 min-h-[calc(100dvh-(var(--navbar-height)+var(--footer-height)))]'>
-      <header className='main_header mb-4'>List of Macrosample Composition</header>
+      <header className='main_header mb-4'>Macrosample Community Composition</header>
         <ul className='space-y-4'>
           {animalTrialExperimentData.map((experiment) => (
             <li key={experiment.id}>

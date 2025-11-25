@@ -117,7 +117,7 @@ const PhyloTreeLayer = ({ data, width, height }: { data: any, width: number, hei
       .append('a')
       .attr('font-size', '8px')
       // .attr('line-height', '8px')
-      .attr('xlink:href', d => `/database/genome-catalogues/${encodeURIComponent(experimentName)}/${encodeURIComponent(d.data.name)}`)
+      .attr('xlink:href', d => `/database/mag-catalogues/${encodeURIComponent(experimentName)}/${encodeURIComponent(d.data.name)}`)
       // .attr('target', '_blank')
       .append('text')
       .attr('dy', '0.3em')

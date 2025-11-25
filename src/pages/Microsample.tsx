@@ -37,7 +37,7 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
 }) => {
 
   const data = microsampleData as unknown as TData[];
-  console.log(data)
+  // console.log(data)
 
   const filteredData = useMemo(() => {
     if (!filterWith || filterWith.length === 0) {
@@ -77,7 +77,7 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
     },
     {
       id: 'LMBatch_flat',
-      header: 'LMBatch',
+      header: 'Batch',
       accessorFn: (row) => row.fields.LMBatch_flat,
       meta: {
         filterVariant: 'select' as const,
@@ -110,44 +110,26 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       },
     },
     {
-      id: 'Researcher',
-      header: 'Researcher',
-      accessorFn: (row) => row.fields.Researcher,
-      meta: {
-        filterVariant: 'select' as const,
-        uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Researcher))),
-      },
-    },
-    {
       id: 'Date',
       header: 'Date',
       accessorFn: (row) => row.fields.Date,
       enableColumnFilter: false,
     },
     {
-      id: 'Shape',
-      header: 'Shape',
-      accessorFn: (row) => row.fields.Shape,
-      meta: {
-        filterVariant: 'select' as const,
-        uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Shape))),
-      },
-    },
-    {
       id: 'Xcoord',
-      header: 'Xcoord',
+      header: 'Xcoord (µm)',
       accessorFn: (row) => row.fields.Xcoord,
       enableColumnFilter: false,
     },
     {
       id: 'Ycoord',
-      header: 'Ycoord',
+      header: 'Ycoord (µm)',
       accessorFn: (row) => row.fields.Ycoord,
       enableColumnFilter: false,
     },
     {
       id: 'Size',
-      header: 'Size',
+      header: 'Size (µm²)',
       accessorFn: (row) => row.fields.Size,
       enableColumnFilter: false,
     },

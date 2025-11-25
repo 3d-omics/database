@@ -28,14 +28,14 @@ const MacrosampleComposition = () => {
           <BreadCrumbs
             items={[
               { label: 'Home', link: '/' },
-              { label: 'Macrosamples Composition List', link: '/macrosample-composition' },
+              { label: 'Macrosamples Community Composition', link: '/macrosample-composition' },
               { label: experimentName },
             ]}
           />
-          <header className='main_header mb-4'>Macrosample Genome composition for: {experimentName}</header>
+          <header className='main_header mb-4'>Macrosample Community Composition: {experimentName}</header>
         </section>
 
-        {(experimentId === 'G' || experimentId === 'H')
+        {experimentId !== 'M'
           ? <div className='flex min-h-[calc(100vh-300px)] justify-between gap-10 items-start
               max-xl:flex-col max-xl:items-start max-xl:gap-12 max-xl:h-fit max-xl:mb-12'>
             <TaxonomyChart

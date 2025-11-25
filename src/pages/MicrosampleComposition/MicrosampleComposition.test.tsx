@@ -165,7 +165,7 @@ describe('MicrosampleComposition page', () => {
 
     // Check breadcrumbs
     expect(screen.getByTestId('breadcrumbs')).toHaveTextContent(
-      'Home > Genome Compositions > G121eI104C'
+      'Home > Microsample Community Composition > G121eI104C'
     )
 
     // Check main components are rendered
@@ -300,7 +300,7 @@ describe('MicrosampleComposition page', () => {
     render(<MicrosampleComposition />)
 
     const breadcrumbs = screen.getByTestId('breadcrumbs')
-    expect(breadcrumbs).toHaveTextContent('Home > Genome Compositions > G121eI104C')
+    expect(breadcrumbs).toHaveTextContent('Home > Microsample Community Composition > G121eI104C')
   })
 
   it('handles undefined cryosection param', () => {

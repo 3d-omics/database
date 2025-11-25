@@ -64,7 +64,7 @@ describe('MacrosampleComposition', () => {
 
     render(<MacrosampleComposition />)
 
-    expect(screen.getByText(/Macrosample Genome composition for: G_experiment/)).toBeInTheDocument()
+    expect(screen.getByText(/Macrosample Community Composition: G_experiment/)).toBeInTheDocument()
     expect(screen.getByTestId('taxonomy-chart')).toBeInTheDocument()
     expect(screen.getByTestId('legend')).toBeInTheDocument()
   })

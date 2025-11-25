@@ -17,7 +17,8 @@ type TData = {
     ExperimentalUnit_Series: string
     Individual: string
     Code: string
-    Type: string
+    'Sample type': string
+    'Data type': string
     Description: string
     Container: string
     Preservative: string
@@ -28,17 +29,57 @@ type TData = {
   }
 }
 
-const Macrosample = () => {
+const Macrosample = (
+  {
+    displayTableHeader,
+    displayTableFilters,
+    displayTableBody,
+    filterWith = [],
+  }: {
+    displayTableHeader?: boolean
+    displayTableFilters?: boolean
+    displayTableBody?: boolean
+    filterWith?: { id: keyof TData['fields']; value: string | number; condition?: 'startsWith' | 'equals' }[]
+  }) => {
 
   const { listOfSampleIdsThatHaveMetaboliteData = [], fetchMetaboliteError } = useMetaboliteExcelFileData()
 
   const data = intestinalSectionSampleData as unknown as TData[]
+  // console.log(data.map((d) => d.fields))
 
 
   // for cross reference tooltip
   const specimenLookup = useMemo(() => {
     return (animalSpecimenData as any[]).map((record) => record.fields);
   }, []);
+
+  
+   const filteredData = useMemo(() => {
+      if (!filterWith || filterWith.length === 0) {
+        return data
+      }
+  
+      return (data).filter((record) => {
+        return filterWith.every((filter) => {
+          const fieldValue = record.fields[filter.id]
+  
+          if (fieldValue === undefined || fieldValue === null) return false
+  
+          const values = Array.isArray(fieldValue) ? fieldValue : [fieldValue]
+          const searchValue = String(filter.value).toLowerCase()
+  
+          if (filter.condition === 'startsWith') {
+            return values.some((val) =>
+              String(val).toLowerCase().startsWith(searchValue)
+            )
+          } else {
+            return values.some((val) =>
+              String(val).toLowerCase() === searchValue
+            )
+          }
+        })
+      })
+    }, [filterWith])
 
   const columns = useMemo<ColumnDef<TData>[]>(() => [
     {
@@ -48,7 +89,7 @@ const Macrosample = () => {
     },
     {
       id: 'Individual',
-      header: 'Experimental Unit Series',
+      header: 'Animal Specimen',
       accessorFn: (row) => row.fields.Individual,
       cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => (
         <CrossReferenceTooltip
@@ -72,17 +113,27 @@ const Macrosample = () => {
       accessorFn: (row) => row.fields.Code,
       meta: {
         filterVariant: 'select' as const,
-        uniqueValues: Array.from(new Set(data.map((row) => row.fields.Code))),
+        uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Code))),
       },
     },
     {
-      id: 'Type',
-      header: 'Type',
-      accessorFn: (row) => row.fields.Type,
+      id: 'Sample type',
+      header: 'Sample Type',
+      accessorFn: (row) => row.fields['Sample type'],
       filterFn: 'equals',
       meta: {
         filterVariant: 'select' as const,
-        uniqueValues: Array.from(new Set(data.map((row) => row.fields.Type))),
+        uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields['Sample type']))),
+      },
+    },
+    {
+      id: 'Data type',
+      header: 'Data Type',
+      accessorFn: (row) => row.fields['Data type'],
+      filterFn: 'equals',
+      meta: {
+        filterVariant: 'select' as const,
+        uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields['Data type']))),
       },
     },
     {
@@ -91,7 +142,7 @@ const Macrosample = () => {
       accessorFn: (row) => row.fields.Description,
       meta: {
         filterVariant: 'select' as const,
-        uniqueValues: Array.from(new Set(data.map((row) => row.fields.Description))),
+        uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Description))),
       },
     },
     {
@@ -100,7 +151,7 @@ const Macrosample = () => {
       accessorFn: (row) => row.fields.Container,
       meta: {
         filterVariant: 'select' as const,
-        uniqueValues: Array.from(new Set(data.map((row) => row.fields.Container))),
+        uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Container))),
       },
     },
     {
@@ -109,7 +160,7 @@ const Macrosample = () => {
       accessorFn: (row) => row.fields.Preservative,
       meta: {
         filterVariant: 'select' as const,
-        uniqueValues: Array.from(new Set(data.map((row) => row.fields.Preservative))),
+        uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Preservative))),
       },
     },
     {
@@ -142,28 +193,30 @@ const Macrosample = () => {
         );
       }
     },
-    // ⬇️ Put this back when the Macrosample airtable has added sample that have metabolite data
-    // {
-    //   id: 'Metabolite',
-    //   header: 'Metabolite Data',
-    //   accessorFn: (row) => listOfSampleIdsThatHaveMetaboliteData.includes(row.fields.ID) ? 'Yes' : 'No',
-    //   enableSorting: false,
-    //   meta: {
-    //     filterVariant: 'select' as const,
-    //     uniqueValues: ['Yes', 'No'],
-    //   }
-    // },
-  ], [data, listOfSampleIdsThatHaveMetaboliteData, specimenLookup])
+    {
+      id: 'Metabolite',
+      header: 'Metabolite Data',
+      accessorFn: (row) => listOfSampleIdsThatHaveMetaboliteData.includes(row.fields.ID) ? 'Yes' : 'No',
+      enableSorting: false,
+      meta: {
+        filterVariant: 'select' as const,
+        uniqueValues: ['Yes', 'No'],
+      }
+    },
+  ], [filteredData, listOfSampleIdsThatHaveMetaboliteData, specimenLookup])
 
 
 
 
   return (
     <TableView<TData>
-      data={data}
+      data={filteredData}
       columns={columns}
       fetchMetaboliteError={fetchMetaboliteError}
       pageTitle={'Macrosample'}
+      displayTableHeader={displayTableHeader}
+      displayTableFilters={displayTableFilters}
+      displayTableBody={displayTableBody}
     />
   )
 }

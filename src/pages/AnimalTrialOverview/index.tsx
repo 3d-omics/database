@@ -1,9 +1,9 @@
 import { useState, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import AnimalSpecimenTab from './components/AnimalSpecimenTab'
-import MacrosampleTab from './components/MacrosampleTab'
-import MicrosampleTab from './components/MicrosampleTab'
+import AnimalSpecimenTab from './AnimalSpecimenTab'
+import MacrosampleTab from 'components/MacrosampleTab'
+import MicrosampleTab from 'components/MicrosampleTab'
 import Tabs from 'components/Tabs'
 import BreadCrumbs from 'components/BreadCrumbs'
 import useValidateParams from 'hooks/useValidateParams'
@@ -53,7 +53,7 @@ const AnimalTrialOverview = () => {
               <BreadCrumbs
                 items={[
                   { label: 'Home', link: '/' },
-                  { label: 'Animal Trial/Experiment', link: '/animal-trial-experiment' },
+                  { label: 'Animal Trial', link: '/animal-trial' },
                   { label: experimentName }
                 ]}
               />
@@ -61,7 +61,7 @@ const AnimalTrialOverview = () => {
               <div className='flex items-end gap-4 mb-3'>
                 <header className='main_header'>{experimentName}</header>
                 <Link
-                  to={`/genome-catalogues/${encodeURIComponent(experimentName)}`}
+                  to={`/mag-catalogues/${encodeURIComponent(experimentName)}`}
                   className="link"
                 >
                   view MAG Catalogue
@@ -92,8 +92,8 @@ const AnimalTrialOverview = () => {
 
             <main className='-mt-7'>
               {selectedTab === 'Animal Specimen' && <AnimalSpecimenTab experimentId={experiment.fields.ID} />}
-              {selectedTab === 'Macrosample' && <MacrosampleTab experimentId={experiment.fields.ID} />}
-              {selectedTab === 'Microsample' && <MicrosampleTab experimentId={experiment.fields.ID} />}
+              {selectedTab === 'Macrosample' && <MacrosampleTab id={experiment.fields.ID} />}
+              {selectedTab === 'Microsample' && <MicrosampleTab id={experiment.fields.ID} />}
             </main>
           </>
         )}

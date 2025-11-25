@@ -135,7 +135,7 @@ describe('GenomeCatalogue page', () => {
 
     // Breadcrumbs
     expect(screen.getByTestId('breadcrumbs')).toHaveTextContent(
-      'Home > Genome Catalogues > A_test-experiment'
+      'Home > MAG Catalogues > A_test-experiment'
     )
 
     // Child components rendered
@@ -270,7 +270,7 @@ describe('GenomeCatalogue page', () => {
     renderGenomeCatalogue()
 
     const breadcrumbs = screen.getByTestId('breadcrumbs')
-    expect(breadcrumbs).toHaveTextContent('Home > Genome Catalogues > A_test-experiment')
+    expect(breadcrumbs).toHaveTextContent('Home > MAG Catalogues > A_test-experiment')
   })
 
   test('displays experiment name in header', () => {

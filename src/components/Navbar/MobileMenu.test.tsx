@@ -47,22 +47,19 @@ describe('components > MobileMenu', () => {
 
   it('should render all menu items from the menus array', () => {
     renderMobileMenu()
-    expect(screen.queryByText(/animal trial\/experiment/i)).not.toBeInTheDocument() // Check if menu items are not rendered before opening the menu
+    expect(screen.queryByText(/animal trial/i)).not.toBeInTheDocument() // Check if menu items are not rendered before opening the menu
     expect(screen.queryByText(/animal specimen/i)).not.toBeInTheDocument()
-    expect(screen.queryByText(/intestinal section sample/i)).not.toBeInTheDocument()
     fireEvent.click(screen.getByTestId('hamburger-menu')) // Open the menu
-    expect(screen.getByText(/animal trial\/experiment/i)).toBeInTheDocument() // Check if menu items are rendered
+    expect(screen.getByText(/animal trial/i)).toBeInTheDocument() // Check if menu items are rendered
     expect(screen.getByText(/animal specimen/i)).toBeInTheDocument()
-    expect(screen.getByText(/intestinal section sample/i)).toBeInTheDocument()
     expect(screen.getByText(/home/i)).toHaveAttribute('href', '/') // Check if links have correct hrefs
-    expect(screen.getByText(/animal trial\/experiment/i)).toHaveAttribute('href', '/animal-trial-experiment')
+    expect(screen.getByText(/animal trial/i)).toHaveAttribute('href', '/animal-trial')
     expect(screen.getByText(/animal specimen/i)).toHaveAttribute('href', '/animal-specimen')
-    expect(screen.getByText(/intestinal section sample/i)).toHaveAttribute('href', '/intestinal-section-sample')
     expect(screen.getByText(/metabolomics/i)).toHaveAttribute('href', '/metabolomics')
     expect(screen.getByText(/cryosection/i)).toHaveAttribute('href', '/cryosection')
     expect(screen.getByText(/microsample/i)).toHaveAttribute('href', '/microsample')
-    expect(screen.getAllByText(/genome composition/i)[0]).toHaveAttribute('href', '/macrosample-composition')
-    expect(screen.getAllByText(/genome composition/i)[1]).toHaveAttribute('href', '/microsample-composition')
+    expect(screen.getAllByText(/metagenomics/i)[0]).toHaveAttribute('href', '/macrosample-composition')
+    expect(screen.getAllByText(/metagenomics/i)[1]).toHaveAttribute('href', '/microsample-composition')
   })
 
 
@@ -72,7 +69,7 @@ describe('components > MobileMenu', () => {
     renderMobileMenu()
     fireEvent.click(screen.getByTestId('hamburger-menu')) // Open the menu
     expect(screen.getByText(/animal specimen/i)).toHaveClass('text-mustard')
-    expect(screen.getByText(/animal trial\/experiment/i)).not.toHaveClass('text-mustard')
+    expect(screen.getByText(/animal trial/i)).not.toHaveClass('text-mustard')
   })
 
 

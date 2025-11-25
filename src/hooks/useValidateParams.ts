@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json';
+import animalSpecimenData from 'assets/data/airtable/animalspecimen.json';
 import cryosectionImageData from 'assets/data/airtable/cryosectionimage.json';
 
 interface AirtableRecord {
@@ -13,7 +14,7 @@ export default function useValidateParams({
   filterId, 
   filterValue 
 }: {
-  tableType: 'animalTrialExperiment' | 'cryosectionImage';
+  tableType: 'animalTrialExperiment' | 'cryosectionImage' | 'animalSpecimen';
   filterId: string;
   filterValue: string;
 }) {
@@ -22,6 +23,7 @@ export default function useValidateParams({
   const dataset = useMemo(() => {
     const dataMap = {
       animalTrialExperiment: animalTrialExperimentData as AirtableRecord[],
+      animalSpecimen: animalSpecimenData as AirtableRecord[],
       cryosectionImage: cryosectionImageData as AirtableRecord[],
     };
     return dataMap[tableType];

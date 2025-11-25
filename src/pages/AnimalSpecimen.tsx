@@ -79,6 +79,14 @@ const AnimalSpecimen = ({
         id: 'ID',
         header: 'ID',
         accessorFn: (row) => row.fields.ID,
+        cell: (props: any) => (
+          <Link
+            to={`/animal-specimen/${encodeURIComponent(props.row.original.fields.ID)}`}
+            className='link'
+          >
+            {props.getValue()}
+          </Link>
+        )
       },
       {
         id: 'Experiment_flat',
@@ -155,7 +163,7 @@ const AnimalSpecimen = ({
         enableColumnFilter: false,
       },
       {
-        id: 'Biosample Accession',
+        id: 'Biosample accession',
         header: 'Biosample Accession',
         accessorFn: (row) => row.fields['Biosample accession'],
         cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {

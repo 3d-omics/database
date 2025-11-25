@@ -63,7 +63,7 @@ const MicrosampleComposition = () => {
           <BreadCrumbs
             items={[
               { label: 'Home', link: '/' },
-              { label: 'Genome Compositions', link: '/microsample-composition' },
+              { label: 'Microsample Community Composition', link: '/microsample-composition' },
               { label: cryosection }
             ]}
           />
@@ -89,7 +89,7 @@ const MicrosampleComposition = () => {
           </div>
 
           {
-            experimentId !== 'G'
+            experimentId === 'M'
               ? <div className='w-[65%] ml-12 mt-24'><ErrorBanner>No sufficient data for this experiment is provided yet</ErrorBanner></div>
               : <div className='w-[65%] flex max-xl:w-full max-xl:pb-8 max-md:flex-col max-md:gap-12'>
                 <TaxonomyChart

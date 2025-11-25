@@ -193,7 +193,7 @@ const GenomeCatalogue = () => {
           <BreadCrumbs
             items={[
               { label: 'Home', link: '/' },
-              { label: 'Genome Catalogues', link: '/genome-catalogues' },
+              { label: 'MAG Catalogues', link: '/mag-catalogues' },
               { label: experimentName },
             ]}
           />
