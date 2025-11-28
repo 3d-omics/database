@@ -15,7 +15,7 @@ const MicrosampleCompositionList = () => {
           {cryosectionImageData.map((cryosection) => (
             <li key={cryosection.fields.ID}>
               <Link
-                to={`/microsample-composition/${cryosection.fields.ID}`}
+                to={`/microsample-compositions/${cryosection.fields.ID}`}
                 className='group flex items-center justify-between gap-4 px-4 py-3 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition bg-white hover:bg-gray-50'
               >
                 <span className='text-lg font-medium group-hover:text-mustard group-hover:underline'>

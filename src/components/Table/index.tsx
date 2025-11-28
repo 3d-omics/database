@@ -16,13 +16,14 @@ type SortingState = {
   desc: boolean
 }[]
 
-const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, displayTableFilters = true, displayTableBody = true }: {
+const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, displayTableFilters = true, displayTableBody = true, tableDescription }: {
   data: TData[],
   columns: ColumnDef<TData>[],
   pageTitle: string,
   displayTableHeader?: boolean
   displayTableFilters?: boolean
   displayTableBody?: boolean
+  tableDescription?: string
 }) => {
   const [pagination, setPagination] = useState({ pageIndex: 0, pageSize: 100, })
   const [globalFilter, setGlobalFilter] = useState<string | undefined>(undefined)
@@ -66,6 +67,13 @@ const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, di
           filteredAndSortedData={filteredAndSortedData}
           columns={columns}
         />
+      }
+
+
+      {tableDescription &&
+        <div className='mb-8 text-sm text-custom_light_black max-w-3xl'>
+          {tableDescription}
+        </div>
       }
 
       {displayTableFilters &&

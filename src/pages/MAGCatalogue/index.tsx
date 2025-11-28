@@ -8,6 +8,8 @@ import ParamsValidator from 'components/ParamsValidator'
 import { useGenomeJsonFile } from 'hooks/useJsonData'
 import ErrorBanner from 'components/ErrorBanner'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
+import experimentsWithGenomeInfo from 'assets/data/airtable/experimentswithgenomeinfo.json'
+import { Link } from 'react-router-dom'
 
 const MAGCatalogue = () => {
   const { experimentName = '' } = useParams()
@@ -18,6 +20,16 @@ const MAGCatalogue = () => {
     filterId: 'Name',
     filterValue: experimentName
   })
+
+  const trialDoiAndLink = useMemo(() => {
+    const info = experimentsWithGenomeInfo.find(
+      (record) => record.fields.ID === experimentId
+    )
+    return {
+      doi: info?.fields.doi || null,
+      link: info?.fields.link || null
+    }
+  }, [experimentId])
 
   // Filter data to find the specific experiment
   const data = useMemo(() => {
@@ -203,7 +215,7 @@ const MAGCatalogue = () => {
         <section className='page_padding pt-7'>
           <BreadCrumbs
             items={[
-              { label: 'Home', link: '/' },
+              { label: 'Data Portal Home', link: '/' },
               { label: 'MAG Catalogues', link: '/mag-catalogues' },
               { label: experimentName },
             ]}
@@ -229,6 +241,25 @@ const MAGCatalogue = () => {
               <b>{experiment['MAG catalogue - New species (%)']}%</b>
             </span>
           </div>
+
+          {(trialDoiAndLink.link || trialDoiAndLink.doi) &&
+            <div className='flex gap-4 text-sm text-gray-500 mb-3 font-thin [&>span]:flex [&>span]:gap-1'>
+              {trialDoiAndLink.link &&
+                <span>
+                  Link:&nbsp;
+                  <Link to={trialDoiAndLink.link} target="_blank" rel="noopener noreferrer" className="link">
+                    <b>{trialDoiAndLink.link}</b>
+                  </Link>
+                </span>
+              }
+              {trialDoiAndLink.doi &&
+                <span>
+                  DOI:&nbsp;
+                  <b>{trialDoiAndLink.doi}</b>
+                </span>
+              }
+            </div>
+          }
 
           <div className='mb-8'>
             {experiment['MAG catalogue description']?.split('\n').map((line: string, index: number) => (

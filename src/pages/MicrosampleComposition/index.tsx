@@ -62,8 +62,8 @@ const MicrosampleComposition = () => {
         <section className='pt-4 pb-2 max-xl:pb-6 -mb-6'>
           <BreadCrumbs
             items={[
-              { label: 'Home', link: '/' },
-              { label: 'Microsample Community Composition', link: '/microsample-composition' },
+              { label: 'Data Portal Home', link: '/' },
+              { label: 'Microsample Community Composition', link: '/microsample-compositions' },
               { label: cryosection }
             ]}
           />

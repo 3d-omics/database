@@ -1,4 +1,4 @@
-import Microsample from 'pages/Microsample'
+import Microsample from 'pages/Microsamples'
 
 const MicrosampleTab = ({ id }: { id: string }) => {
   return (
@@ -7,7 +7,6 @@ const MicrosampleTab = ({ id }: { id: string }) => {
       displayTableFilters={false}
       displayTableBody={true}
       filterWith={[{ id: 'Code', value: id, condition: 'startsWith' }]}
-    // filterWith={[{id: 'Code', value: experimentId, condition: 'startsWith'}]}
     />
   )
 }

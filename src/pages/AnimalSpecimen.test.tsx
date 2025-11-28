@@ -8,7 +8,7 @@
 
 import { render, screen } from '@testing-library/react'
 import { vi } from 'vitest'
-import AnimalSpecimen from 'pages/AnimalSpecimen'
+import AnimalSpecimen from 'pages/AnimalSpecimens'
 
 // Mock CrossReferenceTooltip component
 vi.mock('components/CrossReferenceTooltip', () => ({

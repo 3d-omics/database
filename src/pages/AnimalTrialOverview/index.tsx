@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import AnimalSpecimenTab from './AnimalSpecimenTab'
 import MacrosampleTab from 'components/MacrosampleTab'
+import CryosectionTab from 'components/CryosectionTab'
 import MicrosampleTab from 'components/MicrosampleTab'
 import Tabs from 'components/Tabs'
 import BreadCrumbs from 'components/BreadCrumbs'
@@ -25,7 +26,7 @@ interface AnimalTrialExperiment {
 
 const AnimalTrialOverview = () => {
   const { experimentName = '' } = useParams()
-  const [selectedTab, setSelectedTab] = useState('Animal Specimen')
+  const [selectedTab, setSelectedTab] = useState('Animal Specimens')
 
   // Validate that the experiment exists
   const { validating, notFound } = useValidateParams({
@@ -52,8 +53,8 @@ const AnimalTrialOverview = () => {
             <section className='page_padding'>
               <BreadCrumbs
                 items={[
-                  { label: 'Home', link: '/' },
-                  { label: 'Animal Trial', link: '/animal-trial' },
+                  { label: 'Data Portal Home', link: '/' },
+                  { label: 'Animal Trial', link: '/animal-trials' },
                   { label: experimentName }
                 ]}
               />
@@ -98,14 +99,15 @@ const AnimalTrialOverview = () => {
               <Tabs
                 selectedTab={selectedTab}
                 setSelectedTab={setSelectedTab}
-                tabs={['Animal Specimen', 'Macrosample', 'Microsample']}
+                tabs={['Animal Specimens', 'Macrosamples', 'Cryosections', 'Microsamples']}
               />
             </section>
 
             <main className='-mt-7'>
-              {selectedTab === 'Animal Specimen' && <AnimalSpecimenTab experimentId={experiment.fields.ID} />}
-              {selectedTab === 'Macrosample' && <MacrosampleTab id={experiment.fields.ID} />}
-              {selectedTab === 'Microsample' && <MicrosampleTab id={experiment.fields.ID} />}
+              {selectedTab === 'Animal Specimens' && <AnimalSpecimenTab experimentId={experiment.fields.ID} />}
+              {selectedTab === 'Macrosamples' && <MacrosampleTab id={experiment.fields.ID} />}
+              {selectedTab === 'Cryosections' && <CryosectionTab id={experiment.fields.ID} />}
+              {selectedTab === 'Microsamples' && <MicrosampleTab id={experiment.fields.ID} />}
             </main>
           </>
         )}

@@ -47,45 +47,55 @@ const Macrosample = (
   const data = intestinalSectionSampleData as unknown as TData[]
   // console.log(data.map((d) => d.fields))
 
+  const tableDescription = "In 3D'omics we sampled two main types of samples: macrosamples, conventional-sized samples manually obtained from the animals, such as tissue sections, faeces and digesta samples, and microsamples, collected through laser microdissection for micro-scale spatial analyses. Macrosamples contain samples employed for direct nucleic acid and mass spectrometry analysis, as well as samples employed for downstream processing to obtain microsamples."
+
 
   // for cross reference tooltip
   const specimenLookup = useMemo(() => {
     return (animalSpecimenData as any[]).map((record) => record.fields);
   }, []);
 
-  
-   const filteredData = useMemo(() => {
-      if (!filterWith || filterWith.length === 0) {
-        return data
-      }
-  
-      return (data).filter((record) => {
-        return filterWith.every((filter) => {
-          const fieldValue = record.fields[filter.id]
-  
-          if (fieldValue === undefined || fieldValue === null) return false
-  
-          const values = Array.isArray(fieldValue) ? fieldValue : [fieldValue]
-          const searchValue = String(filter.value).toLowerCase()
-  
-          if (filter.condition === 'startsWith') {
-            return values.some((val) =>
-              String(val).toLowerCase().startsWith(searchValue)
-            )
-          } else {
-            return values.some((val) =>
-              String(val).toLowerCase() === searchValue
-            )
-          }
-        })
+
+  const filteredData = useMemo(() => {
+    if (!filterWith || filterWith.length === 0) {
+      return data
+    }
+
+    return (data).filter((record) => {
+      return filterWith.every((filter) => {
+        const fieldValue = record.fields[filter.id]
+
+        if (fieldValue === undefined || fieldValue === null) return false
+
+        const values = Array.isArray(fieldValue) ? fieldValue : [fieldValue]
+        const searchValue = String(filter.value).toLowerCase()
+
+        if (filter.condition === 'startsWith') {
+          return values.some((val) =>
+            String(val).toLowerCase().startsWith(searchValue)
+          )
+        } else {
+          return values.some((val) =>
+            String(val).toLowerCase() === searchValue
+          )
+        }
       })
-    }, [filterWith])
+    })
+  }, [filterWith])
 
   const columns = useMemo<ColumnDef<TData>[]>(() => [
     {
       id: 'ID',
       header: 'ID',
       accessorFn: (row) => row.fields.ID,
+      cell: (props: any) => (
+        <Link
+          to={`/macrosamples/${encodeURIComponent(props.row.original.fields.ID)}`}
+          className='link'
+        >
+          {props.getValue()}
+        </Link>
+      )
     },
     {
       id: 'Individual',
@@ -217,6 +227,7 @@ const Macrosample = (
       displayTableHeader={displayTableHeader}
       displayTableFilters={displayTableFilters}
       displayTableBody={displayTableBody}
+      tableDescription={tableDescription}
     />
   )
 }

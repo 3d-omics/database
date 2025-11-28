@@ -46,7 +46,7 @@ module.exports = {
         }
       },
       animation: {
-        typing: "typing 2s steps(40) 1 alternate, blink 1"
+        typing: "typing 2s steps(20) 1 alternate, blink 1"
         // typing: "typing 2s steps(40) infinite alternate, blink 0.7s infinite"
       }
     },

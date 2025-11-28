@@ -14,6 +14,7 @@ export type TData = {
     Slide_flat: string
     Position: string
     SlideDate: string
+    Macrosample: string
     "Microsample number": number
     IntestinalSection?: string[]
     Microsample?: string[]
@@ -46,20 +47,67 @@ export type TData = {
   }
 }
 
-const Cryosection = () => {
+const Cryosection = ({
+  displayTableHeader,
+  displayTableFilters,
+  displayTableBody,
+  filterWith = [],
+}: {
+  displayTableHeader?: boolean
+  displayTableFilters?: boolean
+  displayTableBody?: boolean
+  filterWith?: { id: keyof TData['fields']; value: string | number; condition?: 'startsWith' | 'equals' }[]
+}) => {
 
   const data = cryosectionData as unknown as TData[]
+
+  const tableDescription = ""
+
+  const filteredData = useMemo(() => {
+    if (!filterWith || filterWith.length === 0) {
+      return data
+    }
+
+    return (data).filter((record) => {
+      return filterWith.every((filter) => {
+        const fieldValue = record.fields[filter.id]
+
+        if (fieldValue === undefined || fieldValue === null) return false
+
+        const values = Array.isArray(fieldValue) ? fieldValue : [fieldValue]
+        const searchValue = String(filter.value).toLowerCase()
+
+        if (filter.condition === 'startsWith') {
+          return values.some((val) =>
+            String(val).toLowerCase().startsWith(searchValue)
+          )
+        } else {
+          return values.some((val) =>
+            String(val).toLowerCase() === searchValue
+          )
+        }
+      })
+    })
+  }, [filterWith])
 
   const columns = useMemo<ColumnDef<TData>[]>(() => [
     {
       id: 'ID',
       header: 'ID',
       accessorFn: (row) => row.fields.ID,
+      // cell: (props: any) => (
+      //   cryosectionImageData.find(cryosection => cryosection.fields.ID === props.getValue()) ?
+      //     <Link to={`/microsample-compositions/${props.getValue()}`} className='link'>{props.getValue()}</Link>
+      //     :
+      //     <>{props.getValue()}</>
+      // )
       cell: (props: any) => (
-        cryosectionImageData.find(cryosection => cryosection.fields.ID === props.getValue()) ?
-          <Link to={`/microsample-composition/${props.getValue()}`} className='link'>{props.getValue()}</Link>
-          :
-          <>{props.getValue()}</>
+        <Link
+          to={`/cryosections/${encodeURIComponent(props.row.original.fields.ID)}`}
+          className='link'
+        >
+          {props.getValue()}
+        </Link>
       )
     },
     {
@@ -79,8 +127,13 @@ const Cryosection = () => {
       filterFn: 'equals',
       meta: {
         filterVariant: 'select' as const,
-        uniqueValues: Array.from(new Set(data.map((row) => row.fields.Position))),
+        uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Position))),
       },
+    },
+    {
+      id: 'Macrosample',
+      header: 'Macrosample',
+      accessorFn: (row) => row.fields.Macrosample,
     },
     {
       id: 'SlideDate',
@@ -94,14 +147,18 @@ const Cryosection = () => {
       accessorFn: (row) => row.fields["Microsample number"],
       enableColumnFilter: false,
     },
-  ], [data])
+  ], [filteredData])
 
 
   return (
     <TableView<TData>
-      data={data}
+      data={filteredData}
       columns={columns}
       pageTitle={'Cryosection'}
+      tableDescription={tableDescription}
+      displayTableHeader={displayTableHeader}
+      displayTableFilters={displayTableFilters}
+      displayTableBody={displayTableBody}
     />
   )
 }

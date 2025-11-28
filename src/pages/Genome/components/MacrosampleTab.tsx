@@ -21,7 +21,7 @@ const MacrosampleTab = ({ data, genomeName, isLoading, error }: MacrosampleTabPr
     },
     {
       id: 'count',
-      header: 'Count',
+      header: 'Genome coverage',
       accessorKey: 'count',
     },
     {

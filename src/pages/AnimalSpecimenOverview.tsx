@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import BreadCrumbs from 'components/BreadCrumbs'
 import animalSpecimenData from 'assets/data/airtable/animalspecimen.json'
 import MacrosampleTab from 'components/MacrosampleTab'
+import CryosectionTab from 'components/CryosectionTab'
 import MicrosampleTab from 'components/MicrosampleTab'
 import Tabs from 'components/Tabs'
 import useValidateParams from 'hooks/useValidateParams'
@@ -12,7 +13,7 @@ import ParamsValidator from 'components/ParamsValidator'
 const AnimalSpecimenOverview = () => {
 
   const { specimenName = '' } = useParams()
-  const [selectedTab, setSelectedTab] = useState('Macrosample')
+  const [selectedTab, setSelectedTab] = useState('Macrosamples')
 
   // Validate that the specimen exists
   const { validating, notFound } = useValidateParams({
@@ -39,8 +40,8 @@ const AnimalSpecimenOverview = () => {
             <section className='page_padding'>
               <BreadCrumbs
                 items={[
-                  { label: 'Home', link: '/' },
-                  { label: 'Animal Specimen', link: '/animal-specimen' },
+                  { label: 'Data Portal Home', link: '/' },
+                  { label: 'Animal Specimen', link: '/animal-specimens' },
                   { label: specimenName }
                 ]}
               />
@@ -97,14 +98,15 @@ const AnimalSpecimenOverview = () => {
               <Tabs
                 selectedTab={selectedTab}
                 setSelectedTab={setSelectedTab}
-                tabs={['Macrosample', 'Microsample']}
+                tabs={['Macrosamples','Cryosections', 'Microsamples']}
               />
             </section>
 
 
             <main className='-mt-7'>
-              {selectedTab === 'Macrosample' && <MacrosampleTab id={specimen.fields.ID} />}
-              {selectedTab === 'Microsample' && <MicrosampleTab id={specimen.fields.ID} />}
+              {selectedTab === 'Macrosamples' && <MacrosampleTab id={specimen.fields.ID} />}
+              {selectedTab === 'Cryosections' && <CryosectionTab id={specimen.fields.ID} />}
+              {selectedTab === 'Microsamples' && <MicrosampleTab id={specimen.fields.ID} />}
             </main>
           </>
         )}

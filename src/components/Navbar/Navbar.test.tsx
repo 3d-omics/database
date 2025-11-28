@@ -43,9 +43,9 @@ describe('components > Navbar', () => {
     expect(screen.getByAltText("3D'omics logo")).toBeInTheDocument()
     const experimentElements = screen.getAllByText('Animal Trial')
     expect(experimentElements).toHaveLength(2)
-    expect(screen.getByText(/animal specimen/i)).toBeInTheDocument()
-    expect(screen.getByText(/cryosection/i)).toBeInTheDocument()
-    const microsampleElements = screen.getAllByText(/microsample/i)
+    expect(screen.getByText(/animal specimens/i)).toBeInTheDocument()
+    expect(screen.getByText(/cryosections/i)).toBeInTheDocument()
+    const microsampleElements = screen.getAllByText(/microsampless/i)
     expect(microsampleElements).toHaveLength(2) // One section title, one submenu item
     expect(screen.getByText(/metabolomics/i)).toBeInTheDocument()
     const genomeCompositionElements = screen.getAllByText(/metagenomics/i)
@@ -54,9 +54,9 @@ describe('components > Navbar', () => {
 
 
   it('should highlight menu item based on current location', () => {
-    mockUseLocation.mockReturnValue({ pathname: '/animal-specimen' })
+    mockUseLocation.mockReturnValue({ pathname: '/animal-specimens' })
     renderNavbar()
-    const highlightedMenuItem = screen.getByTestId('parentmenu-animal-specimen')
+    const highlightedMenuItem = screen.getByTestId('parentmenu-animal-specimens')
     expect(highlightedMenuItem).toHaveClass('text-mustard')
     const notHighlightedMenuItem = screen.getByTestId('parentmenu-cryosection')
     expect(notHighlightedMenuItem).not.toHaveClass('text-mustard')

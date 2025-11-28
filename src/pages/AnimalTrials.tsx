@@ -3,6 +3,7 @@ import { ColumnDef } from '@tanstack/react-table'
 import TableView from 'components/TableView'
 import { Link } from 'react-router-dom'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
+import { table } from 'console'
 
 type TData = {
   id: string
@@ -22,6 +23,9 @@ const AnimalTrial = () => {
 
   const data = animalTrialExperimentData as unknown as TData[]
 
+  const tableDescription = "The data and metadata generated in 3D'omics derived from multiple animal experiments conducted on chickens, turkeys and pigs. Poultry trials aimed at addressing the effects of the interactions between the microbiota and diverse pathogens in the performance of chickens and turkeys, while the swine trials explored the effect of diverse nutritional variations in the performance of young and adult pigs."
+
+
   const columns = useMemo<ColumnDef<TData>[]>(() => [
     {
       id: 'ID',
@@ -34,7 +38,7 @@ const AnimalTrial = () => {
       accessorFn: (row) => row.fields.Name,
       cell: (props: any) => (
         <Link
-          to={`/animal-trial/${encodeURIComponent(props.row.original.fields.Name)}`}
+          to={`/animal-trials/${encodeURIComponent(props.row.original.fields.Name)}`}
           className='link'
         >
           {props.getValue()}
@@ -102,6 +106,7 @@ const AnimalTrial = () => {
       data={data}
       columns={columns}
       pageTitle={'Animal Trial'}
+      tableDescription={tableDescription}
     />
   )
 }

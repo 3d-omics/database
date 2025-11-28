@@ -39,6 +39,8 @@ const AnimalSpecimen = ({
 
   const data = animalSpecimenData as unknown as TData[]
 
+  const tableDescription = "The experimental units of 3D'omics studies were the animal individuals from which performance analytics and molecular data were obtained. These animals were assigned to different treatments and housed in separate pens or isolators depending on the experiment. All the individual animals were euthanised at the end of the trial to obtain intestinal samples for microbiota analyses and the rest of samples for complementary analyses."
+
   // for cross reference tooltip
   const experimentLookup = useMemo(() => {
     return (animalTrialExperimentData as any[]).map((record) => record.fields)
@@ -81,7 +83,7 @@ const AnimalSpecimen = ({
         accessorFn: (row) => row.fields.ID,
         cell: (props: any) => (
           <Link
-            to={`/animal-specimen/${encodeURIComponent(props.row.original.fields.ID)}`}
+            to={`/animal-specimens/${encodeURIComponent(props.row.original.fields.ID)}`}
             className='link'
           >
             {props.getValue()}
@@ -186,6 +188,7 @@ const AnimalSpecimen = ({
       data={filteredData}
       columns={columns}
       pageTitle={'Animal Specimen'}
+      tableDescription={tableDescription}
       displayTableHeader={displayTableHeader}
       displayTableFilters={displayTableFilters}
       displayTableBody={displayTableBody}

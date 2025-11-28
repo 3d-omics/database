@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import MacrosampleTab from '../../MacrosampleTab'
+import MacrosampleTab from './MacrosampleTab'
 
 describe('Genome page > SamplesContainingThisGenome > MacrosampleTab', () => {
   const mockData = [

@@ -29,7 +29,11 @@ const Navbar = () => {
       ref={navbarRef}
     >
       <div className="flex-1">
-        <Link to={'/'} className="btn btn-ghost text-xl max-lg:px-2"> 
+        <Link
+          to={"http://www.3domics.eu"}
+          target='_blank'
+          className="btn btn-ghost text-xl max-lg:px-2"
+        >
           <img src={Logo} alt="3D'omics logo" className="h-10 object-contain" data-cy='3domics-logo' />
         </Link>
       </div>

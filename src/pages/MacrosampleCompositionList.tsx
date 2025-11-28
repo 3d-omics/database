@@ -12,7 +12,7 @@ const MacrosampleCompositionList = () => {
         {animalTrialExperimentData.map((experiment) => (
           <li key={experiment.id}>
             <Link
-              to={`/macrosample-composition/${encodeURIComponent(experiment.fields.Name)}`}
+              to={`/macrosample-compositions/${encodeURIComponent(experiment.fields.Name)}`}
               className='group flex items-center justify-between gap-4 px-4 py-3 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition bg-white hover:bg-gray-50'
             >
               <div>

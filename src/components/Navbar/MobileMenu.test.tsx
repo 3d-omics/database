@@ -53,19 +53,19 @@ describe('components > MobileMenu', () => {
     expect(screen.getByText(/animal trial/i)).toBeInTheDocument() // Check if menu items are rendered
     expect(screen.getByText(/animal specimen/i)).toBeInTheDocument()
     expect(screen.getByText(/home/i)).toHaveAttribute('href', '/') // Check if links have correct hrefs
-    expect(screen.getByText(/animal trial/i)).toHaveAttribute('href', '/animal-trial')
-    expect(screen.getByText(/animal specimen/i)).toHaveAttribute('href', '/animal-specimen')
+    expect(screen.getByText(/animal trial/i)).toHaveAttribute('href', '/animal-trials')
+    expect(screen.getByText(/animal specimen/i)).toHaveAttribute('href', '/animal-specimens')
     expect(screen.getByText(/metabolomics/i)).toHaveAttribute('href', '/metabolomics')
-    expect(screen.getByText(/cryosection/i)).toHaveAttribute('href', '/cryosection')
-    expect(screen.getByText(/microsample/i)).toHaveAttribute('href', '/microsample')
-    expect(screen.getAllByText(/metagenomics/i)[0]).toHaveAttribute('href', '/macrosample-composition')
-    expect(screen.getAllByText(/metagenomics/i)[1]).toHaveAttribute('href', '/microsample-composition')
+    expect(screen.getByText(/cryosections/i)).toHaveAttribute('href', '/cryosections')
+    expect(screen.getByText(/microsamples/i)).toHaveAttribute('href', '/microsamples')
+    expect(screen.getAllByText(/metagenomics/i)[0]).toHaveAttribute('href', '/macrosample-compositions')
+    expect(screen.getAllByText(/metagenomics/i)[1]).toHaveAttribute('href', '/microsample-compositions')
   })
 
 
 
   it('should highlight the current location with mustard text color', () => {
-    mockUseLocation.mockReturnValue({ pathname: '/animal-specimen' })
+    mockUseLocation.mockReturnValue({ pathname: '/animal-specimens' })
     renderMobileMenu()
     fireEvent.click(screen.getByTestId('hamburger-menu')) // Open the menu
     expect(screen.getByText(/animal specimen/i)).toHaveClass('text-mustard')

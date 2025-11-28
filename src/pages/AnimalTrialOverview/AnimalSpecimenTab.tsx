@@ -1,4 +1,4 @@
-import AnimalSpecimen from 'pages/AnimalSpecimen'
+import AnimalSpecimen from 'pages/AnimalSpecimens'
 
 const AnimalSpecimenTab = ({experimentId}: {experimentId: string}) => {
   return (

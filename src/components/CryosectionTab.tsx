@@ -1,7 +1,8 @@
-import Macrosample from 'pages/Macrosamples'
-const MacrosampleTab = ({ id }: { id: string }) => {
+import Cryosection from 'pages/Cryosections'
+
+const CryosectionTab = ({ id }: { id: string }) => {
   return (
-    <Macrosample
+    <Cryosection
       displayTableHeader={true}
       displayTableFilters={false}
       displayTableBody={true}
@@ -10,4 +11,4 @@ const MacrosampleTab = ({ id }: { id: string }) => {
   )
 }
 
-export default MacrosampleTab
+export default CryosectionTab

@@ -11,10 +11,9 @@ import MicrosampleTab from './components/MicrosampleTab'
 import { useGenomeJsonFile, useAllMicrosampleCounts } from 'hooks/useJsonData'
 import macrosampleData from 'assets/data/airtable/macrosample.json'
 import microsamplesWithCoordinationData from 'assets/data/airtable/microsampleswithcoordination.json'
-import { useTaxonomyData } from 'hooks/useTaxonomyData'
 
 
-type SampleData = Array<{ 
+type SampleData = Array<{
   id: string
   count: any
   [key: string]: string | null | any
@@ -81,7 +80,32 @@ const Genome = () => {
   const allMicrosampleCounts = useAllMicrosampleCounts()
 
 
-  // Helper function to process counts
+
+  // Helper function to process counts ____ORIGINAL AMOUNT
+  // const processCounts = (
+  //   counts: Record<string, any[]> | null,
+  //   genomeName: string
+  // ): SampleData => {
+  //   if (!counts || !counts.genome || !Array.isArray(counts.genome)) {
+  //     return []
+  //   }
+
+  //   const genomeIndex = counts.genome.indexOf(genomeName)
+  //   if (genomeIndex === -1) {
+  //     return []
+  //   }
+
+  //   return Object.entries(counts)
+  //     .filter(([key]) => key !== 'genome')
+  //     .map(([id, arr]) => ({
+  //       id,
+  //       count: Array.isArray(arr) ? arr[genomeIndex] : undefined,
+  //     }))
+  //     .filter(item => item.count)
+  // }
+
+
+  // Helper function to process counts ___RELATIVE ABUNDANCE VERSION
   const processCounts = (
     counts: Record<string, any[]> | null,
     genomeName: string
@@ -98,7 +122,7 @@ const Genome = () => {
     // Calculate totals for each sample
     const totals = Object.entries(counts).reduce((acc: Record<string, number>, [key, arr]) => {
       if (key === 'genome') return acc
-      acc[key] = Array.isArray(arr) 
+      acc[key] = Array.isArray(arr)
         ? arr.reduce((sum: number, value: any) => sum + (parseFloat(value) || 0), 0)
         : 0
       return acc
@@ -114,12 +138,15 @@ const Genome = () => {
 
         return {
           id,
-          count: countValue,
-          relativeAmount,
+          // count: countValue,
+          // relativeAmount,
+          count: relativeAmount
         }
       })
       .filter(item => item.count > 0)
   }
+
+
 
 
 
@@ -143,12 +170,6 @@ const Genome = () => {
       }
     })
   }, [macrosampleIds])
-
-
-
-
-
-
 
 
 
@@ -210,7 +231,7 @@ const Genome = () => {
       <div className='page_padding pt-7 min-h-screen'>
         <BreadCrumbs
           items={[
-            { label: 'Home', link: '/' },
+            { label: 'Data Portal Home', link: '/' },
             { label: 'MAG Catalogues', link: '/mag-catalogues' },
             { label: experimentName, link: `/mag-catalogues/${encodeURIComponent(experimentName)}` },
             { label: genomeName }

@@ -27,8 +27,8 @@ const MacrosampleComposition = () => {
         <section className='pt-4 pb-12 max-xl:pb-6 -mb-6'>
           <BreadCrumbs
             items={[
-              { label: 'Home', link: '/' },
-              { label: 'Macrosamples Community Composition', link: '/macrosample-composition' },
+              { label: 'Data Portal Home', link: '/' },
+              { label: 'Macrosamples Community Composition', link: '/macrosample-compositions' },
               { label: experimentName },
             ]}
           />

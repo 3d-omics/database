@@ -37,7 +37,9 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
 }) => {
 
   const data = microsampleData as unknown as TData[];
-  // console.log(data)
+
+  const tableDescription = ""
+
 
   const filteredData = useMemo(() => {
     if (!filterWith || filterWith.length === 0) {
@@ -95,7 +97,7 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       // },
       cell: (props: any) => (
         cryosectionImageData.find(cryosection => cryosection.fields.ID === props.getValue()) ?
-          <Link to={`/microsample-composition/${props.getValue()}`} className='link'>{props.getValue()}</Link>
+          <Link to={`/microsample-compositions/${props.getValue()}`} className='link'>{props.getValue()}</Link>
           :
           <>{props.getValue()}</>
       )
@@ -156,6 +158,7 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       data={filteredData}
       columns={columns}
       pageTitle={'Microsample'}
+      tableDescription={tableDescription}
       displayTableHeader={displayTableHeader}
       displayTableFilters={displayTableFilters}
       displayTableBody={displayTableBody}

@@ -1,31 +1,22 @@
 export const menus = [
+  { location: '/', title: 'Data Portal Home' },
+  { location: '/animal-trials', title: 'Animal Trials' },
+  { location: '/mag-catalogues', title: 'MAG Catalogues' },
+  { location: '/animal-specimens', title: 'Animal Specimens' },
   {
-    sectionTitle: 'Animal Trial',
+    sectionTitle: 'Macrosamples',
     subMenus: [
-      { location: '/animal-trial', title: 'Animal Trial' },
-      { location: '/mag-catalogues', title: 'MAG Catalogues' },
-    ]
-  },
-
-  { location: '/animal-specimen', title: 'Animal Specimen' },
-
-  {
-    sectionTitle: 'Macrosample',
-    subMenus: [
-      { location: '/macrosample', title: 'Macrosample' },
-      { location: '/macrosample-composition', title: 'Metagenomics' },
+      { location: '/macrosamples', title: 'Macrosamples' },
+      { location: '/macrosample-compositions', title: 'Metagenomics' },
       { location: '/metabolomics', title: 'Metabolomics' },
     ]
   },
-
-
-  { location: '/cryosection', title: 'Cryosection' },
-
+  { location: '/cryosections', title: 'Cryosections' },
   {
-    sectionTitle: 'Microsample',
+    sectionTitle: 'Microsamples',
     subMenus: [
-      { location: '/microsample', title: 'Microsample' },
-      { location: '/microsample-composition', title: 'Metagenomics' },
+      { location: '/microsamples', title: 'Microsamples' },
+      { location: '/microsample-compositions', title: 'Metagenomics' },
     ]
   }
 ]

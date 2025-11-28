@@ -23,7 +23,7 @@ const MicrosampleTab = ({ data, genomeName, isLoading, error }: MicrosampleTabPr
     },
     {
       id: 'count',
-      header: 'Count',
+      header: 'Genome coverage',
       accessorKey: 'count',
     },
     {
