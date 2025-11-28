@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 
-const GenomeCatalogueList = () => {
+const MAGCatalogueList = () => {
 
   return (
     <div className='page_padding pt-7 min-h-[calc(100dvh-(var(--navbar-height)+var(--footer-height)))]'>
@@ -31,4 +31,4 @@ const GenomeCatalogueList = () => {
   )
 }
 
-export default GenomeCatalogueList
+export default MAGCatalogueList

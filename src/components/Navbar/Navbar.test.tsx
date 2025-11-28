@@ -40,7 +40,7 @@ describe('components > Navbar', () => {
 
   it('should render the logo and navigation links correctly', () => {
     renderNavbar()
-    expect(screen.getByAltText("3d'omics logo")).toBeInTheDocument()
+    expect(screen.getByAltText("3D'omics logo")).toBeInTheDocument()
     const experimentElements = screen.getAllByText('Animal Trial')
     expect(experimentElements).toHaveLength(2)
     expect(screen.getByText(/animal specimen/i)).toBeInTheDocument()

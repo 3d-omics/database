@@ -19,7 +19,7 @@ export type GenomeData = {
 }
 
 
-const GenomeCatalogueTable = ({ metaData, experimentName }: {
+const MAGCatalogueTable = ({ metaData, experimentName }: {
   metaData: Record<string, (string | number)[]>,
   experimentName: string,
 }) => {
@@ -107,4 +107,4 @@ const GenomeCatalogueTable = ({ metaData, experimentName }: {
   )
 }
 
-export default GenomeCatalogueTable
+export default MAGCatalogueTable

@@ -88,23 +88,19 @@ const MicrosampleComposition = () => {
             />
           </div>
 
-          {
-            experimentId === 'M'
-              ? <div className='w-[65%] ml-12 mt-24'><ErrorBanner>No sufficient data for this experiment is provided yet</ErrorBanner></div>
-              : <div className='w-[65%] flex max-xl:w-full max-xl:pb-8 max-md:flex-col max-md:gap-12'>
-                <TaxonomyChart
-                  cryosection={cryosection}
-                  microsampleIds={selectedMicrosampleIds.length > 0 ? selectedMicrosampleIds : microsampleIds}
-                  selectedTaxonomicLevel={selectedTaxonomicLevel}
-                  setSelectedTaxonomicLevel={setSelectedTaxonomicLevel}
-                  experimentId={experimentId}
-                />
-                <TaxonomyChartLegend
-                  selectedTaxonomicLevel={selectedTaxonomicLevel}
-                  experimentId={experimentId}
-                />
-              </div>
-          }
+          <div className='w-[65%] flex max-xl:w-full max-xl:pb-8 max-md:flex-col max-md:gap-12'>
+            <TaxonomyChart
+              cryosection={cryosection}
+              microsampleIds={selectedMicrosampleIds.length > 0 ? selectedMicrosampleIds : microsampleIds}
+              selectedTaxonomicLevel={selectedTaxonomicLevel}
+              setSelectedTaxonomicLevel={setSelectedTaxonomicLevel}
+              experimentId={experimentId}
+            />
+            <TaxonomyChartLegend
+              selectedTaxonomicLevel={selectedTaxonomicLevel}
+              experimentId={experimentId}
+            />
+          </div>
 
         </div>
 

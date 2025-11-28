@@ -46,7 +46,7 @@ export function useGenomeJsonFile(
 }
 
 /**
- * Load ALL microsample counts files (all 65 files)
+ * Load ALL microsample counts files (all 83 files)
  */
 export function useAllMicrosampleCounts() {
   return useMemo(() => {

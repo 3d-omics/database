@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { vi } from 'vitest'
-import GenomeCatalogue from 'pages/GenomeCatalogue'
+import MAGCatalogue from 'pages/MAGCatalogue'
 import TestRouter from 'tests/setup/test-utils'
 
 // ----------------- MOCKS -----------------
@@ -63,15 +63,15 @@ vi.mock('components/ErrorBanner', () => ({
   ),
 }))
 
-const renderGenomeCatalogue = () => {
+const renderMAGCatalogue = () => {
   render(
     <TestRouter>
-      <GenomeCatalogue />
+      <MAGCatalogue />
     </TestRouter>
   )
 }
 
-describe('GenomeCatalogue page', () => {
+describe('MAGCatalogue page', () => {
   beforeEach(() => {
     vi.clearAllMocks()
 
@@ -104,7 +104,7 @@ describe('GenomeCatalogue page', () => {
       notFound: false,
     })
 
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
     expect(screen.getByTestId('loading-dots-wrapper')).toBeInTheDocument()
   })
 
@@ -114,7 +114,7 @@ describe('GenomeCatalogue page', () => {
       notFound: true,
     })
 
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
     expect(screen.getByTestId('not-found')).toBeInTheDocument()
     expect(screen.getByText('404 Not Found')).toBeInTheDocument()
   })
@@ -122,13 +122,13 @@ describe('GenomeCatalogue page', () => {
   test('renders ErrorBanner when genome metadata fails to load', () => {
     mockUseGenomeJsonFile.mockReturnValue(null)
 
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
     expect(screen.getByTestId('error-banner')).toBeInTheDocument()
     expect(screen.getByText('Failed to load genome metadata')).toBeInTheDocument()
   })
 
   test('renders PhyloCircosPlot and Table on success', () => {
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
 
     // Header text check
     expect(screen.getByText('A_test-experiment MAG Catalogue')).toBeInTheDocument()
@@ -158,7 +158,7 @@ describe('GenomeCatalogue page', () => {
       species: [],
     })
 
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
 
     // Should still render components without crashing
     expect(screen.getByTestId('phylo-circos-plot')).toBeInTheDocument()
@@ -168,14 +168,14 @@ describe('GenomeCatalogue page', () => {
   test('extracts experiment ID correctly from experimentName', () => {
     mockUseParams.mockReturnValue({ experimentName: 'B_another-experiment' })
 
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
 
     // Should use 'B' as experimentId for loading data
     expect(screen.getByText('B_another-experiment MAG Catalogue')).toBeInTheDocument()
   })
 
   test('processes and sorts metadata by phylum', () => {
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
 
     // PhyloCircosPlot should receive processed data
     const phyloPlot = screen.getByTestId('phylo-circos-plot')
@@ -188,7 +188,7 @@ describe('GenomeCatalogue page', () => {
   })
 
   test('removes taxonomy prefixes correctly', () => {
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
 
     // The component should process and remove prefixes like 'p__', 'd__', etc.
     // This is tested implicitly through the rendering without errors
@@ -196,7 +196,7 @@ describe('GenomeCatalogue page', () => {
   })
 
   test('builds hierarchical data for phylogenetic tree', () => {
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
 
     const phyloPlot = screen.getByTestId('phylo-circos-plot')
     // Should have 2 phyla based on the mock data
@@ -204,7 +204,7 @@ describe('GenomeCatalogue page', () => {
   })
 
   test('builds circos data correctly', () => {
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
 
     const phyloPlot = screen.getByTestId('phylo-circos-plot')
     // Should have 2 genomes in circos data
@@ -212,7 +212,7 @@ describe('GenomeCatalogue page', () => {
   })
 
   test('reverses metadata for table display', () => {
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
 
     const table = screen.getByTestId('genome-table')
     expect(table).toHaveTextContent('A_test-experiment')
@@ -222,7 +222,7 @@ describe('GenomeCatalogue page', () => {
   test('does not render Table when there is an error', () => {
     mockUseGenomeJsonFile.mockReturnValue(null)
 
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
 
     expect(screen.getByTestId('error-banner')).toBeInTheDocument()
     expect(screen.queryByTestId('genome-table')).not.toBeInTheDocument()
@@ -244,14 +244,14 @@ describe('GenomeCatalogue page', () => {
       species: ['s__Escherichia_coli', 's__Lactobacillus_acidophilus', 's__Actinomyces_israelii'],
     })
 
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
 
     // Should filter out null genomes in circos data
     expect(screen.getByTestId('phylo-circos-plot')).toBeInTheDocument()
   })
 
   test('passes correct props to PhyloCircosPlot', () => {
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
 
     const phyloPlot = screen.getByTestId('phylo-circos-plot')
     expect(phyloPlot).toHaveTextContent('2 phyla')
@@ -259,7 +259,7 @@ describe('GenomeCatalogue page', () => {
   })
 
   test('passes correct props to Table', () => {
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
 
     const table = screen.getByTestId('genome-table')
     expect(table).toHaveTextContent('A_test-experiment')
@@ -267,7 +267,7 @@ describe('GenomeCatalogue page', () => {
   })
 
   test('renders breadcrumbs with correct hierarchy', () => {
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
 
     const breadcrumbs = screen.getByTestId('breadcrumbs')
     expect(breadcrumbs).toHaveTextContent('Home > MAG Catalogues > A_test-experiment')
@@ -276,7 +276,7 @@ describe('GenomeCatalogue page', () => {
   test('displays experiment name in header', () => {
     mockUseParams.mockReturnValue({ experimentName: 'C_custom-experiment' })
 
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
 
     expect(screen.getByText('C_custom-experiment MAG Catalogue')).toBeInTheDocument()
   })
@@ -296,7 +296,7 @@ describe('GenomeCatalogue page', () => {
       species: ['s__Escherichia_coli'],
     })
 
-    renderGenomeCatalogue()
+    renderMAGCatalogue()
 
     // Should still render, but phylo tree may be empty
     expect(screen.getByTestId('phylo-circos-plot')).toBeInTheDocument()

@@ -78,18 +78,6 @@ describe('MacrosampleComposition', () => {
     expect(screen.getByTestId('legend')).toBeInTheDocument()
   })
 
-  it('shows error banner for non-G/H experiments', () => {
-    mockUseParams.mockReturnValue({ experimentName: 'A_experiment' })
-
-    render(<MacrosampleComposition />)
-
-    expect(screen.getByTestId('error-banner')).toHaveTextContent(
-      'No sufficient data for this experiment is provided yet'
-    )
-    expect(screen.queryByTestId('taxonomy-chart')).not.toBeInTheDocument()
-    expect(screen.queryByTestId('legend')).not.toBeInTheDocument()
-  })
-
   it('passes correct props to child components', () => {
     mockUseParams.mockReturnValue({ experimentName: 'G_experiment' })
 

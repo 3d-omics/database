@@ -23,7 +23,7 @@ vi.mock('./CircosLayer', () => ({
 }))
 
 
-describe('GenomeCatalogue page > PhyloCircosPlot component', () => {
+describe('MAGCatalogue page > PhyloCircosPlot component', () => {
   const phyloData: PhyloData = {
     name: 'root',
     children: [

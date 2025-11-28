@@ -35,23 +35,18 @@ const MacrosampleComposition = () => {
           <header className='main_header mb-4'>Macrosample Community Composition: {experimentName}</header>
         </section>
 
-        {experimentId !== 'M'
-          ? <div className='flex min-h-[calc(100vh-300px)] justify-between gap-10 items-start
+        <div className='flex min-h-[calc(100vh-300px)] justify-between gap-10 items-start
               max-xl:flex-col max-xl:items-start max-xl:gap-12 max-xl:h-fit max-xl:mb-12'>
-            <TaxonomyChart
-              experimentId={experimentId}
-              selectedTaxonomicLevel={selectedTaxonomicLevel}
-              setSelectedTaxonomicLevel={setSelectedTaxonomicLevel}
-            />
-            <TaxonomyChartLegend
-              selectedTaxonomicLevel={selectedTaxonomicLevel}
-              experimentId={experimentId}
-            />
-          </div>
-          : <div className='h-[calc(100vh-300px)]'>
-            <ErrorBanner>No sufficient data for this experiment is provided yet</ErrorBanner>
-            </div>
-        }
+          <TaxonomyChart
+            experimentId={experimentId}
+            selectedTaxonomicLevel={selectedTaxonomicLevel}
+            setSelectedTaxonomicLevel={setSelectedTaxonomicLevel}
+          />
+          <TaxonomyChartLegend
+            selectedTaxonomicLevel={selectedTaxonomicLevel}
+            experimentId={experimentId}
+          />
+        </div>
 
       </div>
     </ParamsValidator>

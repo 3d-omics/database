@@ -7,8 +7,9 @@ import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
 import { useGenomeJsonFile } from 'hooks/useJsonData'
 import ErrorBanner from 'components/ErrorBanner'
+import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 
-const GenomeCatalogue = () => {
+const MAGCatalogue = () => {
   const { experimentName = '' } = useParams()
   const experimentId = experimentName.charAt(0)
 
@@ -17,6 +18,16 @@ const GenomeCatalogue = () => {
     filterId: 'Name',
     filterValue: experimentName
   })
+
+  // Filter data to find the specific experiment
+  const data = useMemo(() => {
+    return (animalTrialExperimentData).filter((record) => {
+      const name = record.fields.Name
+      return name && String(name).toLowerCase() === experimentName.toLowerCase()
+    })
+  }, [experimentName])
+
+  const experiment = data[0].fields
 
   // Load genome metadata using the helper hook
   const rawMetaData = useGenomeJsonFile(
@@ -200,6 +211,31 @@ const GenomeCatalogue = () => {
 
           <header className='main_header mb-3'>{experimentName}&nbsp;MAG Catalogue</header>
 
+          <div className='flex gap-4 text-sm text-gray-500 mb-3 font-thin [&>span]:flex [&>span]:gap-1'>
+            <span>
+              Number of MAGs:&nbsp;
+              <b>{experiment['MAG catalogue - Number of MAGs']}</b>
+            </span>
+            <span>
+              Average completeness:&nbsp;
+              <b>{experiment['MAG catalogue - Average completeness (%)']}%</b>
+            </span>
+            <span>
+              Average contamination:&nbsp;
+              <b>{experiment['MAG catalogue - Average contamination (%)']}%</b>
+            </span>
+            <span>
+              New species:&nbsp;
+              <b>{experiment['MAG catalogue - New species (%)']}%</b>
+            </span>
+          </div>
+
+          <div className='mb-8'>
+            {experiment['MAG catalogue description']?.split('\n').map((line: string, index: number) => (
+              <span key={index} className='text-sm text-gray-500'>{line}<br /></span>
+            ))}
+          </div>
+
           {hasError ? (
             <ErrorBanner>Failed to load genome metadata</ErrorBanner>
           ) : (
@@ -218,4 +254,4 @@ const GenomeCatalogue = () => {
   )
 }
 
-export default GenomeCatalogue
+export default MAGCatalogue

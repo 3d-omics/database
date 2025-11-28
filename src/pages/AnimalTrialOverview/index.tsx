@@ -68,7 +68,7 @@ const AnimalTrialOverview = () => {
                 </Link>
               </div>
 
-              <div className='flex gap-4 text-sm text-gray-500 pb-8 font-thin [&>span]:flex [&>span]:gap-1'>
+              <div className='flex gap-4 text-sm text-gray-500 mb-3 font-thin [&>span]:flex [&>span]:gap-1'>
                 <span>
                   Experiment ID:&nbsp;
                   <b>{experiment.fields.ID}</b>
@@ -81,6 +81,18 @@ const AnimalTrialOverview = () => {
                   End date:&nbsp;
                   <b>{experiment.fields.EndDate}</b>
                 </span>
+                <span>
+                  Bioproject Accession:&nbsp;
+                  <Link to={experiment.fields['Bioproject link']} className='link' target='_blank' rel='noopener noreferrer'>
+                    <b>{experiment.fields['Bioproject accession']}</b>
+                  </Link>
+                </span>
+              </div>
+
+              <div className='mb-8'>
+                {experiment.fields['Trial description']?.split('\n').map((line: string, index: number) => (
+                  <span key={index} className='text-sm text-gray-500'>{line}<br /></span>
+                ))}
               </div>
 
               <Tabs

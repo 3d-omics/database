@@ -90,6 +90,7 @@ const MicrosampleTaxonomyChart = ({
     sampleIds: microsampleIds
   })
 
+
   // ===== Generate chart data and options =====
   const { chartData, options } = useTaxonomyChart({
     sampleIds: microsampleIds,

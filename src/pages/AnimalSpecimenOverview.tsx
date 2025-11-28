@@ -47,8 +47,8 @@ const AnimalSpecimenOverview = () => {
 
               <header className='main_header mb-3'>{specimenName}</header>
 
-              <div className='flex gap-6 text-sm text-gray-500 pb-8 font-thin [&>span]:flex [&>span]:gap-1'>
-                <div className='flex flex-col'>
+              <div className='flex gap-7 text-sm text-gray-500 pb-8 font-thin [&>span]:flex [&>span]:gap-1'>
+                <div className='flex flex-col gap-0.5'>
                   <span>
                     Experiment ID:&nbsp;
                     <b>{specimen.fields.ID}</b>
@@ -61,6 +61,9 @@ const AnimalSpecimenOverview = () => {
                     Treatment:&nbsp;
                     <b>{specimen.fields.Treatment_flat}</b>
                   </span>
+                </div>
+
+                <div className='flex flex-col gap-0.5'>
                   <span>
                     Treatment Name:&nbsp;
                     <b>{specimen.fields.TreatmentName}</b>
@@ -69,13 +72,13 @@ const AnimalSpecimenOverview = () => {
                     Pen:&nbsp;
                     <b>{specimen.fields.Pen}</b>
                   </span>
-                </div>
-
-                <div className='flex flex-col'>
                   <span>
                     Slaughtering Day Count:&nbsp;
                     <b>{specimen.fields.SlaughteringDayCount}</b>
                   </span>
+                </div>
+
+                <div className='flex flex-col gap-0.5'>
                   <span>
                     SlaughteringDate:&nbsp;
                     <b>{specimen.fields.SlaughteringDate}</b>
@@ -99,7 +102,7 @@ const AnimalSpecimenOverview = () => {
             </section>
 
 
-            <main>
+            <main className='-mt-7'>
               {selectedTab === 'Macrosample' && <MacrosampleTab id={specimen.fields.ID} />}
               {selectedTab === 'Microsample' && <MicrosampleTab id={specimen.fields.ID} />}
             </main>

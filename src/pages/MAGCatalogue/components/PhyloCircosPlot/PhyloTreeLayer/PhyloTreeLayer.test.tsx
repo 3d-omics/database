@@ -11,7 +11,7 @@ vi.mock('react-router-dom', async () => {
   }
 })
 
-describe('GenomeCatalogue page > PhyloCircosPlot > PhyloTreeLayer component', () => {
+describe('MAGCatalogue page > PhyloCircosPlot > PhyloTreeLayer component', () => {
   const mockData = {
     name: 'root',
     children: [

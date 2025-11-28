@@ -74,7 +74,7 @@ const mockCircosData2 = {
   }
 }
 
-describe('GenomeCatalogue page > PhyloCircosPlot > CircosLayer component', () => {
+describe('MAGCatalogue page > PhyloCircosPlot > CircosLayer component', () => {
 
   it('renders an SVG group element', () => {
     render(

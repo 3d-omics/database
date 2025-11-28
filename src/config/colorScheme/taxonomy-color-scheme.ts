@@ -3,18 +3,21 @@ export const colorScheme = {
     color: "#C7243A",
     class: {
       'Actinomycetia': {
-        color: "#C7243A",
+        color: "#D04255",
         order: {
           'Actinomycetales': {
             color: "#DA6272"
+          },
+          'Mycobacteriales': {
+            color: "#E38692" 
           }
         }
       },
       'Coriobacteriia': {
-        color: "#E38692",
+        color: "#ECACB5",
         order: {
           'Coriobacteriales': {
-            color: "#ECACB5"
+            color: "#F6D4D8"
           }
         }
       }
@@ -420,13 +423,13 @@ export const colorScheme = {
   },
   //======================================
   'Thermoplasmatota': {
-    color: "#FF0055",
+    color: "#374151",
     class: {
       'Thermoplasmata': {
-        color: "#FF2A71",
+        color: "#4b5563",
         order: {
           'Methanomassiliicoccales': {
-            color: "#FF558E"
+            color: "#6b7280"
           }
         }
       }

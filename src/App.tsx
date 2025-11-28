@@ -12,10 +12,10 @@ import Home from 'pages/Home'
 import NotFound from 'pages/NotFound'
 import Footer from 'components/Footer'
 import Metabolomics from 'pages/Metabolomics'
-import GenomeCatalogue from 'pages/GenomeCatalogue'
+import MAGCatalogue from 'pages/MAGCatalogue'
 import AnimalTrialOverview from 'pages/AnimalTrialOverview'
 import Genome from 'pages/Genome'
-import GenomeCatalogueList from 'pages/GenomeCatalogueList'
+import MAGCatalogueList from 'pages/MAGCatalogueList'
 import MicrosampleCompositionList from 'pages/MicrosampleCompositionList'
 import MicrosampleComposition from 'pages/MicrosampleComposition'
 import MacrosampleTaxonomyChart from 'pages/MacrosampleComposition'
@@ -35,7 +35,7 @@ function App() {
 
   const location = useLocation()
   useEffect(() => {
-    const BASE_TITLE = "3d'omics Data Portal"
+    const BASE_TITLE = "3D'omics Data Portal"
     const getTitle = (pathname: string) => {
       let title = ""
       if (pathname === "/") title = "Home"
@@ -98,8 +98,8 @@ function App() {
           <Route path="/animal-trial/:experimentName" element={<AnimalTrialOverview />} />
           <Route path="/animal-specimen/:specimenName" element={<AnimalSpecimenOverview />} />
 
-          <Route path="/mag-catalogues" element={<GenomeCatalogueList />} />
-          <Route path="/mag-catalogues/:experimentName" element={<GenomeCatalogue />} />
+          <Route path="/mag-catalogues" element={<MAGCatalogueList />} />
+          <Route path="/mag-catalogues/:experimentName" element={<MAGCatalogue />} />
           <Route path="/mag-catalogues/:experimentName/:genomeName" element={<Genome />} />
 
           <Route path="/macrosample-composition" element={<MacrosampleCompositionList />} />

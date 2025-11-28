@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 
 
-describe('GenomeCatalogue page > Table component', () => {
+describe('MAGCatalogue page > Table component', () => {
   const mockMetaData = {
     genome: ['D300418', 'GEXTRA'],
     completeness: [99.49, 99.98],
@@ -23,7 +23,7 @@ describe('GenomeCatalogue page > Table component', () => {
   const experimentName = 'TestExperiment'
 
 
-  const renderGenomeCatalogueTable = (props = {}) =>
+  const renderMAGCatalogueTable = (props = {}) =>
     render(
       <BrowserRouter
         future={{
@@ -41,7 +41,7 @@ describe('GenomeCatalogue page > Table component', () => {
 
 
   it('renders table with correct page title and columns', () => {
-    renderGenomeCatalogueTable()
+    renderMAGCatalogueTable()
     expect(screen.getByText('Genome Metadata')).toBeInTheDocument()
     expect(screen.getByText('Genome')).toBeInTheDocument()
     expect(screen.getByText('Phylum')).toBeInTheDocument()
@@ -54,7 +54,7 @@ describe('GenomeCatalogue page > Table component', () => {
 
 
   it('renders genome values as links with correct href', () => {
-    renderGenomeCatalogueTable()
+    renderMAGCatalogueTable()
     const genomeLink = screen.getByRole('link', { name: 'D300418' })
     expect(genomeLink).toHaveAttribute(
       'href',
@@ -65,7 +65,7 @@ describe('GenomeCatalogue page > Table component', () => {
 
 
   it('renders taxonomy cell with tooltip and correct species', async () => {
-    renderGenomeCatalogueTable()
+    renderMAGCatalogueTable()
     const taxonomyCell = screen.getAllByText('Faeciplasma gallinarum')[1] // 0 would be the one inside the dropdown filter
     expect(taxonomyCell).toBeInTheDocument()
     const tooltip = screen.getAllByTestId('taxonomy-tooltip')[0] // get the first one (the cell with "Faeciplasma gallinarum")
@@ -78,7 +78,7 @@ describe('GenomeCatalogue page > Table component', () => {
 
 
   it('renders completeness and contamination with %', () => {
-    renderGenomeCatalogueTable()
+    renderMAGCatalogueTable()
     expect(screen.getByText('99.49%')).toBeInTheDocument()
     expect(screen.getByText('0.17%')).toBeInTheDocument()
     expect(screen.getByText('99.98%')).toBeInTheDocument()
@@ -87,7 +87,7 @@ describe('GenomeCatalogue page > Table component', () => {
 
 
   it('renders length values', () => {
-    renderGenomeCatalogueTable()
+    renderMAGCatalogueTable()
     expect(screen.getByText('1791036')).toBeInTheDocument()
     expect(screen.getByText('2144878')).toBeInTheDocument()
   })
@@ -98,7 +98,7 @@ describe('GenomeCatalogue page > Table component', () => {
     const emptyMetaData = Object.fromEntries(
       Object.keys(mockMetaData).map((k) => [k, []])
     )
-    renderGenomeCatalogueTable({ metaData: emptyMetaData })
+    renderMAGCatalogueTable({ metaData: emptyMetaData })
     expect(screen.getByText('No data was found.')).toBeInTheDocument()
   })
 })

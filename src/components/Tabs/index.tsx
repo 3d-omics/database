@@ -8,7 +8,7 @@ const Tabs = ({
   tabs: string[]
 }) => {
   return (
-      <div className="border-b-2 border-gray-200 relative mt-8" data-testid="tabs">
+      <div className="border-b-2 border-gray-200 relative mt-16" data-testid="tabs">
         <ul role="tablist" className="tabs tabs-bordered w-fit absolute -bottom-0.5 gap-2">
           {tabs.map((tab) => (
             <li role="tab"

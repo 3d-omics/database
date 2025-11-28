@@ -181,6 +181,7 @@ const TaxonomyChartLegend = ({ selectedTaxonomicLevel, experimentId }: {
       max-md:w-[calc(100%-80px)] max-md:mx-10
     ">
       <div className="space-y-2">
+        {/* {Object.entries(colorScheme).map(([name, data]) => ( */}
         {Object.entries(filteredColorScheme).map(([name, data]) => (
           <LegendNode key={name} name={name} data={data as TaxonomyNode} level={0} parentLevel="phylum" />
         ))}

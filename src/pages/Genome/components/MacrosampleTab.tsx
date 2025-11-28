@@ -1,32 +1,48 @@
 import TableBody from 'components/Table/components/TableBody'
-import { useReactTable, getCoreRowModel } from '@tanstack/react-table'
+import { useReactTable, getCoreRowModel, CellContext } from '@tanstack/react-table'
 import ErrorBanner from 'components/ErrorBanner'
+import { Link } from 'react-router-dom'
 
 type SampleData = Array<{ [key: string]: string }>
 
-interface MicrosampleTabProps {
-  data: SampleData | null
+interface MacrosampleTabProps {
+  data: SampleData
   genomeName: string
   isLoading: boolean
   error: string | null
 }
 
-const MicrosampleTab = ({ data, genomeName, isLoading, error }: MicrosampleTabProps) => {
+const MacrosampleTab = ({ data, genomeName, isLoading, error }: MacrosampleTabProps) => {
   const columns = [
     {
       id: 'id',
-      header: 'Microsample ID',
+      header: 'Macrosample ID',
       accessorKey: 'id',
     },
     {
       id: 'count',
       header: 'Count',
       accessorKey: 'count',
+    },
+    {
+      id: 'run_accession',
+      header: 'ENA link',
+      accessorKey: 'run_accession',
+      cell: ({ cell, row }: CellContext<{ [key: string]: string }, string>) => (
+        <Link
+          to={row.original.enaLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className='link'
+        >
+          {cell.getValue()}
+        </Link>
+      )
     }
   ]
 
   const table = useReactTable({
-    data: data ?? [],
+    data,
     columns,
     getCoreRowModel: getCoreRowModel(),
   })
@@ -39,14 +55,14 @@ const MicrosampleTab = ({ data, genomeName, isLoading, error }: MicrosampleTabPr
     return <ErrorBanner>{error}</ErrorBanner>
   }
 
-  if (!data || data.length === 0) {
-    return <p>No microsamples containing <b>{genomeName}</b> were found.</p>
+  if (data.length === 0) {
+    return <p>No macrosamples containing <b>{genomeName}</b> were found.</p>
   }
 
   return (
     <div>
       <p className='mb-4 text-lg'>
-        <b>{data.length}</b> {data.length === 1 ? 'microsample' : 'microsamples'} containing <b>{genomeName}</b>
+        <b>{data.length}</b> {data.length === 1 ? 'macrosample' : 'macrosamples'} containing <b>{genomeName}</b>
       </p>
       <TableBody
         table={table}
@@ -60,4 +76,4 @@ const MicrosampleTab = ({ data, genomeName, isLoading, error }: MicrosampleTabPr
   )
 }
 
-export default MicrosampleTab
+export default MacrosampleTab
