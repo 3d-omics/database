@@ -38,7 +38,7 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
 
   const data = microsampleData as unknown as TData[];
 
-  const tableDescription = ""
+  const tableDescription = "Microsamples are microscopic tissue/digesta samples collected from thin intestinal cross-cuts (cryosections) using laser capture microdissection. Each microsample typically covers a volume of about 50,000 μm3, which usually encompass between 100 and 2000 bacterial cells. Microsamples are spatially referenced, enabling analysis of microbial community variation across space within the gut."
 
 
   const filteredData = useMemo(() => {

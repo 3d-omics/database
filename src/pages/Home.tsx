@@ -92,10 +92,11 @@ const Home = () => {
 
         {/* <p className='mt-4 max-[400px]:text-sm'> */}
         <p className='text-sm max-w-[62rem] max-sm:text-xs max-[400px]:text-2xs text-center'>
-          Welcome to the 3D'omics Data Portal. This website provides access to all the molecular data
-          and associated metadata generated in the H2020 project 3D'omics (2021-2025).
+          Welcome to the 3D'omics Data Portal.<br/>
+          This website provides access to all the molecular data
+          and associated metadata generated in the H2020 project 3D'omics (2021-2025). 
           The project aimed to develop, optimise and implement new molecular approaches to identify
-          biomolecular interactions at the micro-scale in the context of animal production.
+          biomolecular interactions at the micro-scale in the context of animal production.<br/>
           The Data Portal contains hierarchically organised information, from experimental trials to
           microsamples.
         </p>
@@ -203,7 +204,7 @@ const Home = () => {
                       <span className='hidden max-lg:inline font-light text-sm'>
                         &nbsp;(Animal Trial)</span>
                     </h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo nulla, dictum quis facilisis ac. </p>
+                    <p>Metagenome-assembled genome catalogues reconstructed for each trial</p>
                   </div>
                 </li>
               </Link>
@@ -268,7 +269,7 @@ const Home = () => {
                           <span className='hidden max-lg:inline font-light text-sm'>
                             &nbsp;(Macrosample)</span>
                         </h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo nulla, dictum quis facilisis ac. </p>
+                        <p>Community compositions profiled from macro-scale conventional samples</p>
                       </div>
                     </li>
                   </Link>
@@ -288,7 +289,7 @@ const Home = () => {
                           <span className='hidden max-lg:inline font-light text-sm'>
                             &nbsp;(Intestinal Section Sample)</span>
                         </h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo nulla, dictum quis facilisis ac. </p>
+                        <p>Metabolite landscapes profiled from macro-scale conventional samples</p>
                       </div>
                     </li>
                   </Link>
@@ -354,7 +355,7 @@ const Home = () => {
                       Metagenomics
                       <span className='hidden max-lg:inline font-light text-sm'>&nbsp;(Microsample)</span>
                     </h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo nulla, dictum quis facilisis ac. </p>
+                    <p>Community compositions profiled from micro-scale spatial samples</p>
                   </div>
                 </li>
               </Link>

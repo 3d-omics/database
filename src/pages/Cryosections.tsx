@@ -61,7 +61,7 @@ const Cryosection = ({
 
   const data = cryosectionData as unknown as TData[]
 
-  const tableDescription = ""
+  const tableDescription = "Cryosections are thin intestinal cross-cuts containing intestinal tissue of the animal hosts as well as intestinal contents collected from intestinal segments using a cryostat. In 3D’omics cryosections were employed for generating luminal and host metabolomic data, as well as producing microsamples for micro-scale spatial metagenomics using laser capture microdissection."
 
   const filteredData = useMemo(() => {
     if (!filterWith || filterWith.length === 0) {
