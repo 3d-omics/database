@@ -1,8 +1,5 @@
-import { useState, useRef, useEffect, KeyboardEvent } from 'react'
+import { useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMagnifyingGlass, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
-import { useNavigate } from 'react-router-dom'
 import MobileMenu from './MobileMenu'
 import { menus } from './MenuItems'
 import Logo from 'src/assets/images/3domics-logo.png'
@@ -28,13 +25,20 @@ const Navbar = () => {
       data-testid='desktop-navbar'
       ref={navbarRef}
     >
-      <div className="flex-1">
+      <div className="flex-1 flex">
         <Link
           to={"http://www.3domics.eu"}
           target='_blank'
           className="btn btn-ghost text-xl max-lg:px-2"
         >
           <img src={Logo} alt="3D'omics logo" className="h-10 object-contain" data-cy='3domics-logo' />
+        </Link>
+        <Link
+          to={"/"}
+          className={`hover:text-mustard ${location === '/' && 'text-mustard'} btn btn-ghost px-2 text-[15px]`}
+
+        >
+          Data Portal Home
         </Link>
       </div>
 

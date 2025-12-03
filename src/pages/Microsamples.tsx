@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import TableView from 'components/TableView'
 import microsampleData from 'assets/data/airtable/microsample.json'
 import cryosectionImageData from 'assets/data/airtable/cryosectionimage.json'
+import cryosectionData from 'assets/data/airtable/cryosection.json'
 
 
 export type TData = {
@@ -95,11 +96,17 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       //   filterVariant: 'select' as const,
       //   uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Cryosection_flat))),
       // },
+      // ==== for link to microsample composition page ===
+      // cell: (props: any) => (
+      //   cryosectionImageData.find(cryosection => cryosection.fields.ID === props.getValue()) 
+      //      ?  <Link to={`/microsample-compositions/${props.getValue()}`} className='link'>{props.getValue()}</Link>
+      //      :  <>{props.getValue()}</>
+      // )
+      // ==== for link to cryosection overview page ===
       cell: (props: any) => (
-        cryosectionImageData.find(cryosection => cryosection.fields.ID === props.getValue()) ?
-          <Link to={`/microsample-compositions/${props.getValue()}`} className='link'>{props.getValue()}</Link>
-          :
-          <>{props.getValue()}</>
+        cryosectionData.find(cryosection => cryosection.fields.ID === props.getValue())
+          ? <Link to={`/cryosections/${props.getValue()}`} className='link'>{props.getValue()}</Link>
+          : <>{props.getValue()}</>
       )
     },
     {

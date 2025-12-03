@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowUpRightFromSquare, faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons'
+import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons'
 import tablesData from 'assets/data/airtable/_metadata.json'
 import pigImage from 'assets/images/pig.png'
 import chickenImage from 'assets/images/chicken.png'
@@ -8,6 +9,18 @@ import turkeyImage from 'assets/images/turkey.png'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 
 const Home = () => {
+
+  console.log('Mine')
+  const [data, setData] = useState<any>(null)
+  console.log(data?.Cryosections)
+  console.log(data?.Cryosections ? Object.keys(data.Cryosections).length : 0)
+
+  useEffect(() => {
+    fetch('/database/experiment-hierarchy.json')
+      .then(response => response.json())
+      .then(data => setData(data))
+      .catch(error => console.error('Error loading schema:', error));
+  }, []);
 
   const tables = tablesData.tables
 
@@ -91,12 +104,12 @@ const Home = () => {
         </h1> */}
 
         {/* <p className='mt-4 max-[400px]:text-sm'> */}
-        <p className='text-sm max-w-[62rem] max-sm:text-xs max-[400px]:text-2xs text-center'>
-          Welcome to the 3D'omics Data Portal.<br/>
+        <p className='text-sm max-w-4xl max-sm:text-xs max-[400px]:text-2xs text-center'>
+          Welcome to the 3D'omics Data Portal.<br />
           This website provides access to all the molecular data
-          and associated metadata generated in the H2020 project 3D'omics (2021-2025). 
+          and associated metadata generated in the H2020 project 3D'omics (2021-2025).
           The project aimed to develop, optimise and implement new molecular approaches to identify
-          biomolecular interactions at the micro-scale in the context of animal production.<br/>
+          biomolecular interactions at the micro-scale in the context of animal production.
           The Data Portal contains hierarchically organised information, from experimental trials to
           microsamples.
         </p>
@@ -116,7 +129,7 @@ const Home = () => {
       <div className='h-16 max-lg:h-1.5'></div>
 
       {/* /////////////////////////////////////////////////////////////////////////////////////////// */}
-      <main className='mb-20'>
+      <main className='mb-16'>
         <ul className='flex flex-wrap px-4 justify-center bg-neutral-50 bg-texture
         max-xl:grid max-xl:grid-cols-3
         max-lg:grid-cols-2
@@ -158,7 +171,7 @@ const Home = () => {
 
       <div className='pb-20 flex justify-center max-lg:pb-2'>
         <ul className='flex flex-col gap-2 
-          [&_li]:bg-neutral-100 [&_li]:w-[32rem] [&_li]:p-5
+          [&_li]:bg-neutral-100 [&_li]:w-[32rem] [&_li]:p-5 [&_li]:justify-center
             max-xl:[&_li]:w-[30rem]
             max-lg:[&_li]:h-[240px] max-lg:[&_li]:w-[calc(100vw-20px)]
             max-lg:[&_li]:flex max-lg:[&_li]:justify-center max-lg:[&_li]:items-center
@@ -171,7 +184,7 @@ const Home = () => {
             max-lg:[&_svg]:hidden
           [&>div]:flex [&>div]:items-stretch [&>div]:gap-6
             max-lg:[&>div]:flex-col max-lg:[&>div]:gap-2
-          [&_li_p]:text-sm
+          [&_li_p]:text-[13px]
           [&_li_p>span]:font-bold
         '>
 
@@ -197,7 +210,7 @@ const Home = () => {
 
             <div className='max-lg:clip-arrow max-lg:-mt-14 flex-1'>
               <Link to={"/mag-catalogues"}>
-                <li className='bg-diagonal  h-full flex flex-col'>
+                <li className='bg-diagonal h-full flex flex-col'>
                   <div className='max-lg:px-8'>
                     <h2>
                       MAG Catalogues
@@ -365,6 +378,16 @@ const Home = () => {
 
         </ul>
       </div >
+
+
+      <div className='flex justify-center mb-20 mt-8'>
+        <Link
+          to={"/database-schema"}
+          className='px-6 py-3 bg-texture hover:text-mustard main_header text-xl bg-neutral-100 hover:bg-neutral-200'
+        >
+          Download Database Schema
+        </Link>
+      </div>
 
     </div >
   )

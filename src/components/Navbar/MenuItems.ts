@@ -1,5 +1,5 @@
 export const menus = [
-  { location: '/', title: 'Data Portal Home' },
+  // { location: '/', title: 'Data Portal Home' },
   { location: '/animal-trials', title: 'Animal Trials' },
   { location: '/mag-catalogues', title: 'MAG Catalogues' },
   { location: '/animal-specimens', title: 'Animal Specimens' },

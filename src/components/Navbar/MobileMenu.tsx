@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
 import SocialIcons from '../SocialIcons'
 import { menus } from './MenuItems'
+import Logo from 'src/assets/images/3domics-logo.png'
 
 const MobileMenu = () => {
 
@@ -39,13 +40,26 @@ const MobileMenu = () => {
             >
               <ul className='[&>li]:border-b'>
 
+                <li className='!border-b-0'>
+                  <Link
+                    to="http://www.3domics.eu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileMenuOpened(false)}
+                    className='font-semibold btn btn-ghost w-fit cursor-pointer mx-2 mb-2'
+                  >
+                    {/* 3D'omics Home */}
+                    <img src={Logo} alt="3D'omics logo" className="h-8 object-contain" data-cy='3domics-logo' />
+                  </Link>
+                </li>
+
                 <li>
                   <Link
                     to="/"
                     onClick={() => setMobileMenuOpened(false)}
-                    className={`block text-lg py-3 pl-6 font-semibold hover:bg-burgundy ${location === '/' ? 'text-mustard' : 'hover:text-white'} max-sm:text-base`}
+                    className={`block text-lg py-3 pl-6 font-semibold whitespace-nowrap hover:bg-burgundy ${location === "/" ? 'text-mustard' : 'hover:text-white'} max-sm:text-base`}
                   >
-                    Home
+                    Data Portal Home
                   </Link>
                 </li>
 

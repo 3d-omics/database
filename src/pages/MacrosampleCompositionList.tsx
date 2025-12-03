@@ -8,6 +8,11 @@ const MacrosampleCompositionList = () => {
   return (
     <div className='page_padding pt-7 min-h-[calc(100dvh-(var(--navbar-height)+var(--footer-height)))]'>
       <header className='main_header mb-4'>Macrosample Community Composition</header>
+
+      <p className='page_description'>
+        DNA sequencing reads produced from the macro-scale conventional samples representing each individual animal were mapped against the reference genome catalogue to generate quantitative representations of microbial communities.
+      </p>
+
       <ul className='space-y-4'>
         {animalTrialExperimentData.map((experiment) => (
           <li key={experiment.id}>

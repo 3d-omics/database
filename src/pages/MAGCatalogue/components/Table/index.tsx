@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import TableView from 'components/TableView'
-import { ColumnDef } from '@tanstack/react-table'
+import { ColumnDef, CellContext } from '@tanstack/react-table'
 import { Link } from 'react-router-dom'
 
 
@@ -83,12 +83,64 @@ const MAGCatalogueTable = ({ metaData, experimentName }: {
       header: 'Completeness',
       accessorFn: (row) => `${row.completeness}%`,
       enableColumnFilter: false,
+      cell: ({ cell, row }: { cell: { getValue: () => any }, row: { original: GenomeData } }) => (
+        <span className='flex'>
+          <div
+            className='w-3 mr-1'
+            style={{
+              backgroundColor: (() => {
+                const contaminations = data.map(d => d.contamination);
+                const min = Math.min(...contaminations);
+                const max = Math.max(...contaminations);
+                const value = row.original.contamination;
+
+                // Normalize value between 0 and 1
+                const normalized = max === min ? 0 : (value - min) / (max - min);
+
+                // Interpolate between #d1f4ba (low) and #f4baba (high)
+                const r = Math.round(209 + (244 - 209) * normalized);
+                const g = Math.round(244 - (244 - 186) * normalized);
+                const b = Math.round(186 + (186 - 186) * normalized);
+
+                return `rgb(${r}, ${g}, ${b})`;
+              })()
+            }}
+          />
+          {cell.getValue()}
+        </span>
+      ),
     },
     {
       id: 'contamination',
       header: 'Contamination',
       accessorFn: (row) => `${row.contamination}%`,
       enableColumnFilter: false,
+      cell: ({ cell, row }: { cell: { getValue: () => any }, row: { original: GenomeData } }) => (
+        <span className='flex'>
+          <div
+            className='w-3 mr-1'
+            style={{
+              backgroundColor: (() => {
+                const contaminations = data.map(d => d.contamination);
+                const min = Math.min(...contaminations);
+                const max = Math.max(...contaminations);
+                const value = row.original.contamination;
+
+                // Normalize value between 0 and 1
+                const normalized = max === min ? 0 : (value - min) / (max - min);
+
+                // Interpolate between #d1f4ba (low) and #f4baba (high)
+                const r = Math.round(209 + (244 - 209) * normalized);
+                const g = Math.round(244 - (244 - 186) * normalized);
+                const b = Math.round(186 + (186 - 186) * normalized);
+
+                return `rgb(${r}, ${g}, ${b})`;
+              })()
+            }}
+          />
+          {cell.getValue()}
+        </span>
+      ),
     },
     {
       id: 'length',

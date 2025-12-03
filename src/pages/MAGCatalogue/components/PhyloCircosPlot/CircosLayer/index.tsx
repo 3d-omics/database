@@ -50,7 +50,7 @@ const CircosLayer = ({
     const colorScales = {
       completeness: d3.scaleLinear<string>()
         .domain([0, 17])
-        .range(['#d1f4ba', '#f4baba']), // Light green to dark green
+        .range(['#d1f4ba', '#f4baba']), // Light green to pink
 
       length: d3.scaleSequential<string>(d3.interpolatePRGn)
         .domain([0, metrics[2].maxValue]),
@@ -77,7 +77,6 @@ const CircosLayer = ({
 
 
       // Equal angular position
-      // const nodeAngle = (i / totalLeaves) * 2 * Math.PI
       const nodeAngle = (i / totalLeaves) * availableAngle + gapRadians / 2
 
       const leafData = circosData[leafName]

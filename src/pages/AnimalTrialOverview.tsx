@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import AnimalSpecimenTab from './AnimalSpecimenTab'
+import AnimalSpecimenTab from '../components/AnimalSpecimenTab'
 import MacrosampleTab from 'components/MacrosampleTab'
 import CryosectionTab from 'components/CryosectionTab'
 import MicrosampleTab from 'components/MicrosampleTab'
@@ -90,9 +90,9 @@ const AnimalTrialOverview = () => {
                 </span>
               </div>
 
-              <div className='mb-8'>
+              <div className='mb-8 page_description'>
                 {experiment.fields['Trial description']?.split('\n').map((line: string, index: number) => (
-                  <span key={index} className='text-sm text-gray-500'>{line}<br /></span>
+                  <span key={index} className=''>{line}<br /></span>
                 ))}
               </div>
 

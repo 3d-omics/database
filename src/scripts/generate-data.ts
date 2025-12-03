@@ -4,9 +4,6 @@ import path from 'path';
 import Papa from 'papaparse';
 import { airtableConfig } from 'config/airtable';
 
-// const base = new Airtable({ apiKey: process.env.VITE_AIRTABLE_API_KEY })
-  // .base(process.env.VITE_AIRTABLE_BASE_ID!);
-
 const {
   animalTrialExperimentBaseId, animalTrialExperimentTableId, animalTrialExperimentViewId,
   animalSpecimenBaseId, animalSpecimenTableId, animalSpecimenViewId,
@@ -233,9 +230,367 @@ async function convertCsvFolder(
 async function convertAllCsvs(): Promise<void> {
   console.log('\n📊 CONVERTING CSV FILES TO JSON...\n');
   
-  await convertCsvFolder('genome_metadata', 'genome metadata files (14 files)');
-  await convertCsvFolder('macro_genome_counts', 'macro genome counts files (14 files)');
-  await convertCsvFolder('microsample_counts', 'microsample counts files (65 files)');
+  await convertCsvFolder('genome_metadata', 'genome metadata files (6 files)');
+  await convertCsvFolder('macro_genome_counts', 'macro genome counts files (6 files)');
+  await convertCsvFolder('microsample_counts', 'microsample counts files (83 files)');
+}
+
+// ============================================
+// PART 3: Build Experiment Hierarchy
+// ============================================
+
+// Helper function to extract first element if array
+function extractValue(value: any): any {
+  if (Array.isArray(value) && value.length > 0) {
+    return value[0];
+  }
+  return value;
+}
+
+interface ExperimentHierarchy {
+  Projects: Record<string, {
+    Name: string;
+    'Bioproject accession': string;
+    'Start date': string;
+    'End date': string;
+    'Experiment IDs': string[];
+  }>;
+  Experiments: Record<string, Record<string, any>>;
+  Individuals: Record<string, Record<string, any>>;
+  Macrosamples: Record<string, Record<string, any>>;
+  Cryosections: Record<string, Record<string, any>>;
+  Microsamples: Record<string, Record<string, any>>;
+}
+
+async function buildExperimentHierarchy(): Promise<void> {
+  console.log('\n🏗️  BUILDING EXPERIMENT HIERARCHY...\n');
+  
+  const dataDir = path.join(process.cwd(), 'src', 'assets', 'data', 'airtable');
+  
+  // Load all required JSON files
+  const loadJsonFile = (filename: string): AirtableRecord[] => {
+    const filePath = path.join(dataDir, filename);
+    if (!fs.existsSync(filePath)) {
+      console.log(`⚠️  File not found: ${filename}`);
+      return [];
+    }
+    const content = fs.readFileSync(filePath, 'utf-8');
+    return JSON.parse(content);
+  };
+
+  const experiments_records = loadJsonFile('animaltrialexperiment.json');
+  const specimens = loadJsonFile('animalspecimen.json');
+  const macrosamples_records = loadJsonFile('intestinalsectionsample.json');
+  const cryosections_records = loadJsonFile('cryosection.json');
+  const microsamples_records = loadJsonFile('microsample.json');
+
+  // Initialize hierarchy structure
+  const hierarchy: ExperimentHierarchy = {
+    Projects: {},
+    Experiments: {},
+    Individuals: {},
+    Macrosamples: {},
+    Cryosections: {},
+    Microsamples: {},
+  };
+
+  // Build experiment record ID to experiment ID mapping
+  const experimentRecordToId: Record<string, string> = {};
+  const experimentIds: string[] = [];
+
+  experiments_records.forEach(record => {
+    const fields = record.fields;
+    const experimentId = fields['ID'];
+    const name = fields['Name'];
+    const bioproject = fields['Bioproject accession'];
+    const startDate = fields['StartDate'];
+    const endDate = fields['EndDate'];
+    const experimentRecordId = record.id;
+    
+    // Skip if missing required fields
+    if (!experimentId || !name || !bioproject) return;
+
+    // Map record ID to experiment ID
+    if (experimentRecordId) {
+      experimentRecordToId[experimentRecordId] = experimentId;
+    }
+
+    experimentIds.push(experimentId);
+
+    // Build experiment data (NOTE: ID is NOT stored in the value, only as key)
+    const experimentData: Record<string, any> = {
+      'Name': name,
+      'Bioproject accession': bioproject,
+    };
+
+    // Add optional date fields
+    if (startDate) {
+      experimentData['Start date'] = startDate;
+    }
+    if (endDate) {
+      experimentData['End date'] = endDate;
+    }
+
+    hierarchy.Experiments[experimentId] = experimentData;
+  });
+
+  // Group specimens by experiment
+  const specimensByExperiment: Record<string, string[]> = {};
+
+  specimens.forEach(specimen => {
+    const fields = specimen.fields;
+    const specimenId = fields['ID'];
+    const biosample = fields['Biosample accession'];
+    const linkedExperiments = fields['Experiment'] || [];
+    const treatmentCode = fields['Treatment_flat'];
+    const weight = fields['Weight'];
+    const sex = fields['Sex'];
+    const speciesScientific = fields['species_scientific'];
+    const speciesCommon = fields['species_common'];
+    const taxid = fields['taxid'];
+    const lifestage = fields['lifestage'];
+    
+    if (!specimenId || !biosample || !linkedExperiments || !Array.isArray(linkedExperiments)) return;
+
+    // Build individual data
+    const individualData: Record<string, any> = {
+      'Biosample accession': biosample,
+    };
+
+    // Add optional fields, extracting from arrays when needed
+    if (treatmentCode) {
+      individualData['Treatment'] = extractValue(treatmentCode);
+    }
+
+    if (weight !== null && weight !== undefined) {
+      individualData['Weight'] = weight;
+    }
+
+    if (sex) {
+      individualData['Sex'] = extractValue(sex);
+    }
+
+    if (speciesScientific) {
+      individualData['Species (scientific name)'] = extractValue(speciesScientific);
+    }
+
+    if (speciesCommon) {
+      individualData['Species (common name)'] = extractValue(speciesCommon);
+    }
+
+    if (taxid) {
+      individualData['Species (taxid)'] = extractValue(taxid);
+    }
+
+    if (lifestage) {
+      individualData['Lifestage'] = extractValue(lifestage);
+    }
+
+    hierarchy.Individuals[specimenId] = individualData;
+
+    // Link specimens to experiments
+    linkedExperiments.forEach((expRecordId: string) => {
+      const experimentId = experimentRecordToId[expRecordId];
+      if (!experimentId) return;
+
+      if (!specimensByExperiment[experimentId]) {
+        specimensByExperiment[experimentId] = [];
+      }
+      specimensByExperiment[experimentId].push(specimenId);
+    });
+  });
+
+  // Add individual IDs to experiments
+  Object.keys(specimensByExperiment).forEach(experimentId => {
+    if (hierarchy.Experiments[experimentId]) {
+      hierarchy.Experiments[experimentId]['Individual IDs'] = specimensByExperiment[experimentId];
+    }
+  });
+
+  // Group macrosamples by individual
+  const macrosamplesByIndividual: Record<string, string[]> = {};
+
+  macrosamples_records.forEach(sample => {
+    const fields = sample.fields;
+    const sampleId = fields['ID'];
+    const individualId = fields['Individual'];
+    const sampleType = fields['Sample type'];
+    const enaAccession = fields['ENA accession'];
+    const metabolightsAccession = fields['Metabolights accession'];
+    
+    if (!sampleId || !individualId) return;
+
+    const sampleData: Record<string, any> = {};
+
+    if (sampleType) {
+      sampleData['Sample type'] = sampleType;
+    }
+
+    if (enaAccession) {
+      const enaValue = extractValue(enaAccession);
+      if (enaValue) {
+        sampleData['ENA accession'] = enaValue;
+      }
+    }
+
+    if (metabolightsAccession) {
+      sampleData['Metabolights accession'] = metabolightsAccession;
+    }
+
+    hierarchy.Macrosamples[sampleId] = sampleData;
+
+    if (!macrosamplesByIndividual[individualId]) {
+      macrosamplesByIndividual[individualId] = [];
+    }
+    macrosamplesByIndividual[individualId].push(sampleId);
+  });
+
+  // Add macrosample IDs to individuals
+  Object.keys(macrosamplesByIndividual).forEach(individualId => {
+    if (hierarchy.Individuals[individualId]) {
+      hierarchy.Individuals[individualId]['Macrosample IDs'] = macrosamplesByIndividual[individualId];
+    }
+  });
+
+  // Group cryosections by prefix (first 6 characters of ID)
+  const cryosectionsByPrefix: Record<string, string[]> = {};
+  const cryosectionMicrosamples: Record<string, string[]> = {};
+
+  cryosections_records.forEach(cryo => {
+    const fields = cryo.fields;
+    const cryoId = fields['ID'];
+    const dateValue = fields['SlideDate'];
+    
+    if (!cryoId) return;
+
+    const cryoData: Record<string, any> = {};
+
+    if (dateValue) {
+      cryoData['Date'] = extractValue(dateValue);
+    }
+
+    hierarchy.Cryosections[cryoId] = cryoData;
+
+    // Get first 6 characters as prefix
+    const prefix = cryoId.length >= 6 ? cryoId.substring(0, 6) : cryoId;
+    if (!cryosectionsByPrefix[prefix]) {
+      cryosectionsByPrefix[prefix] = [];
+    }
+    cryosectionsByPrefix[prefix].push(cryoId);
+  });
+
+  // Group microsamples by macrosample
+  const microsamplesByMacrosample: Record<string, string[]> = {};
+
+  microsamples_records.forEach(micro => {
+    const fields = micro.fields;
+    const code = fields['Code'];
+    const dateValue = fields['Date'];
+    const xCoord = fields['Xcoord'];
+    const yCoord = fields['Ycoord'];
+    const size = fields['Size'];
+    const batch = fields['LMBatch_flat'];
+    const enaAccession = fields['ENA accession'];
+    const sampleType = fields['Sample_type'];
+    
+    if (!code) return;
+
+    const microsampleData: Record<string, any> = {};
+
+    if (dateValue) {
+      microsampleData['Date'] = dateValue;
+    }
+
+    if (xCoord !== null && xCoord !== undefined) {
+      microsampleData['Xcoord'] = xCoord;
+    }
+
+    if (yCoord !== null && yCoord !== undefined) {
+      microsampleData['Ycoord'] = yCoord;
+    }
+
+    if (size !== null && size !== undefined) {
+      microsampleData['Size'] = size;
+    }
+
+    if (batch) {
+      microsampleData['Batch'] = extractValue(batch);
+    }
+
+    if (enaAccession) {
+      microsampleData['ENA accession'] = extractValue(enaAccession);
+    }
+
+    if (sampleType) {
+      microsampleData['Sample type'] = extractValue(sampleType);
+    }
+
+    // Get macrosample ID from first 6 characters of code (KEY DIFFERENCE!)
+    const macrosampleId = code.length >= 6 ? code.substring(0, 6) : code;
+
+    // Only add if macrosample exists
+    if (hierarchy.Macrosamples[macrosampleId]) {
+      microsampleData['Macrosample ID'] = macrosampleId;
+      
+      if (!microsamplesByMacrosample[macrosampleId]) {
+        microsamplesByMacrosample[macrosampleId] = [];
+      }
+      microsamplesByMacrosample[macrosampleId].push(code);
+    }
+
+    // Link to cryosections via prefix
+    const cryoIds = cryosectionsByPrefix[macrosampleId];
+    if (cryoIds) {
+      cryoIds.forEach(cryoId => {
+        if (!cryosectionMicrosamples[cryoId]) {
+          cryosectionMicrosamples[cryoId] = [];
+        }
+        cryosectionMicrosamples[cryoId].push(code);
+      });
+    }
+
+    hierarchy.Microsamples[code] = microsampleData;
+  });
+
+  // Add microsample IDs to cryosections
+  Object.keys(cryosectionMicrosamples).forEach(cryoId => {
+    if (hierarchy.Cryosections[cryoId]) {
+      hierarchy.Cryosections[cryoId]['Microsample IDs'] = cryosectionMicrosamples[cryoId];
+    }
+  });
+
+  // Add microsample IDs to macrosamples
+  Object.keys(microsamplesByMacrosample).forEach(macrosampleId => {
+    if (hierarchy.Macrosamples[macrosampleId]) {
+      hierarchy.Macrosamples[macrosampleId]['Microsample IDs'] = microsamplesByMacrosample[macrosampleId];
+    }
+  });
+
+  // Add project metadata (3D'omics project)
+  hierarchy.Projects["3D'omics"] = {
+    Name: "3D'omics",
+    'Bioproject accession': 'PRJEB86267',
+    'Start date': '2021-09-01',
+    'End date': '2025-12-31',
+    'Experiment IDs': experimentIds,
+  };
+
+  // Save to public folder
+  const publicDir = path.join(process.cwd(), 'public');
+  if (!fs.existsSync(publicDir)) {
+    fs.mkdirSync(publicDir, { recursive: true });
+  }
+
+  const outputPath = path.join(publicDir, 'experiment-hierarchy.json');
+  fs.writeFileSync(outputPath, JSON.stringify(hierarchy, null, 2));
+
+  console.log(`✅ Experiment hierarchy saved to public/experiment-hierarchy.json`);
+  console.log(`   - ${Object.keys(hierarchy.Projects).length} Projects`);
+  console.log(`   - ${Object.keys(hierarchy.Experiments).length} Experiments`);
+  console.log(`   - ${Object.keys(hierarchy.Individuals).length} Individuals`);
+  console.log(`   - ${Object.keys(hierarchy.Macrosamples).length} Macrosamples`);
+  console.log(`   - ${Object.keys(hierarchy.Cryosections).length} Cryosections`);
+  console.log(`   - ${Object.keys(hierarchy.Microsamples).length} Microsamples`);
 }
 
 // ============================================
@@ -256,6 +611,9 @@ async function fetchAllData(): Promise<void> {
     
     // Step 2: Convert CSV files to JSON
     await convertAllCsvs();
+    
+    // Step 3: Build experiment hierarchy
+    await buildExperimentHierarchy();
     
     const duration = ((Date.now() - startTime) / 1000).toFixed(2);
     console.log('\n╔════════════════════════════════════════════╗');

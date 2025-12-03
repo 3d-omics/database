@@ -23,6 +23,7 @@ import AnimalSpecimenOverview from 'pages/AnimalSpecimenOverview'
 import AnimalTrialOverview from 'pages/AnimalTrialOverview'
 import MacrosampleOverview from 'pages/MacrosampleOverview'
 import CryosectionOverview from 'pages/CryosectionOverview'
+import DownloadDatabaseSchema from 'pages/DownloadDatabaseSchema'
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
       else if (pathname === "/microsample-compositions") title = "Microsample Community Composition"
       else if (pathname === "/macrosample-compositions") title = "Macrosample Community Composition"
       else if (pathname === "/mag-catalogues") title = "MAG Catalogue List"
+      else if (pathname === "/database-schema") title = "Download Database Schema"
 
       else {
         const experimentMatch = pathname.match(/^\/animal-trials\/([^/]+)$/)
@@ -113,6 +115,8 @@ function App() {
 
           <Route path="/microsample-compositions" element={<MicrosampleCompositionList />} />
           <Route path="/microsample-compositions/:cryosection" element={<MicrosampleComposition />} />
+
+          <Route path="/database-schema" element={<DownloadDatabaseSchema />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

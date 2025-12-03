@@ -71,9 +71,9 @@ const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, di
 
 
       {tableDescription &&
-        <div className='mb-8 text-sm text-custom_light_black max-w-3xl'>
+        <p className='page_description'>
           {tableDescription}
-        </div>
+        </p>
       }
 
       {displayTableFilters &&

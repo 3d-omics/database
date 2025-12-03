@@ -41,6 +41,8 @@ const MAGCatalogue = () => {
 
   const experiment = data[0].fields
 
+  console.log(experiment)
+
   // Load genome metadata using the helper hook
   const rawMetaData = useGenomeJsonFile(
     'genome_metadata',
@@ -230,10 +232,12 @@ const MAGCatalogue = () => {
             </span>
             <span>
               Average completeness:&nbsp;
+              {/* <div className='w-3 bg-teal-200'></div> */}
               <b>{experiment['MAG catalogue - Average completeness (%)']}%</b>
             </span>
             <span>
               Average contamination:&nbsp;
+              {/* <div className='w-3 bg-teal-200'></div> */}
               <b>{experiment['MAG catalogue - Average contamination (%)']}%</b>
             </span>
             <span>
