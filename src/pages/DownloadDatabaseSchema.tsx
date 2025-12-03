@@ -1,20 +1,33 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 
 const DownloadDatabaseSchema = () => {
 
-  console.log('Antton')
-  const [data, setData] = useState<any>(null)
-  console.log(data?.Cryosections)
-  console.log(data?.Cryosections ? Object.keys(data.Cryosections).length : 0)
+  // console.log('Expected output:')
+  // const [data, setData] = useState<any>(null)
+  // console.log(data?.Cryosections)
+  // console.log(data?.Cryosections ? Object.keys(data.Cryosections).length : 0)
 
 
-  useEffect(() => {
-    fetch('/database/experiment_hierarchy.json')
-      .then(response => response.json())
-      .then(data => setData(data))
-      .catch(error => console.error('Error loading schema:', error));
-  }, []);
+  // useEffect(() => {
+  //   fetch('/database/experiment_hierarchy.json')
+  //     .then(response => response.json())
+  //     .then(data => setData(data))
+  //     .catch(error => console.error('Error loading schema:', error));
+  // }, []);
 
+  // =======================================
+
+  // console.log('What we have now:')
+  // const [data, setData] = useState<any>(null)
+  // console.log(data?.Cryosections)
+  // console.log(data?.Cryosections ? Object.keys(data.Cryosections).length : 0)
+
+  // useEffect(() => {
+  //   fetch('/database/experiment-hierarchy.json')
+  //     .then(response => response.json())
+  //     .then(data => setData(data))
+  //     .catch(error => console.error('Error loading schema:', error));
+  // }, []);
 
   return (
     <div className='page_padding min-h-[calc(100dvh-(var(--navbar-height)+var(--footer-height)))] flex flex-col'>
@@ -26,7 +39,7 @@ const DownloadDatabaseSchema = () => {
           className='px-6 py-3 bg-texture hover:text-mustard main_header text-3xl bg-neutral-100 hover:bg-neutral-200'
           onClick={() => {
             const link = document.createElement('a');
-            link.href = '/database/experiment_hierarchy.json';
+            link.href = '/database/experiment-hierarchy.json';
             link.download = '3domics_data_schema.json';
             link.click();
           }}

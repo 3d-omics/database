@@ -44,7 +44,7 @@ const MAGCatalogueList = () => {
                 </div>
 
                 {(link || doi) &&
-                  <div className='flex gap-4 text-xs text-gray-500 font-thin [&>span]:flex [&>span]:gap-1 mt-1'>
+                  <div className='flex gap-4 text-xs text-gray-500 font-thin [&>span]:flex [&>span]:gap-1 mt-2'>
                     {link &&
                       <span>
                         Link:&nbsp;

@@ -265,9 +265,9 @@ const MAGCatalogue = () => {
             </div>
           }
 
-          <div className='mb-8'>
+          <div className='mb-8 page_description'>
             {experiment['MAG catalogue description']?.split('\n').map((line: string, index: number) => (
-              <span key={index} className='text-sm text-gray-500'>{line}<br /></span>
+              <span key={index}>{line}<br /></span>
             ))}
           </div>
 

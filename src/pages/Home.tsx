@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons'
@@ -9,18 +8,6 @@ import turkeyImage from 'assets/images/turkey.png'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 
 const Home = () => {
-
-  console.log('Mine')
-  const [data, setData] = useState<any>(null)
-  console.log(data?.Cryosections)
-  console.log(data?.Cryosections ? Object.keys(data.Cryosections).length : 0)
-
-  useEffect(() => {
-    fetch('/database/experiment-hierarchy.json')
-      .then(response => response.json())
-      .then(data => setData(data))
-      .catch(error => console.error('Error loading schema:', error));
-  }, []);
 
   const tables = tablesData.tables
 
