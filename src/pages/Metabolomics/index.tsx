@@ -18,6 +18,8 @@ const Metabolomics = () => {
     compareBetween === 'Diet' ? setGroup2('3') : setGroup2('HEBV')
   }, [compareBetween])
 
+
+
   return (
     <div className='px-4 pt-4 pb-4 flex flex-col overflow-auto'>
 
@@ -28,7 +30,6 @@ const Metabolomics = () => {
       <p className='page_description'>
         Metabolic landscapes of the intestine were produced for each animal specimen using intestinal content and tissue samples. Here, you can visualise differences between different contrasting groups across various experiments.
       </p>
-
 
       <main className='rounded-md flex gap-4 bg-white min-h-[calc(100vh-(var(--navbar-height)+70px))] max-h-[calc(100vh-(var(--navbar-height)))]
         max-xl:flex-col max-xl:border-none max-xl:h-full max-xl:max-h-none

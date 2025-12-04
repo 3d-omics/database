@@ -97,10 +97,10 @@ const MAGCatalogueTable = ({ metaData, experimentName }: {
                 // Normalize value between 0 and 1
                 const normalized = max === min ? 0 : (value - min) / (max - min);
 
-                // Interpolate between #d1f4ba (low) and #f4baba (high)
-                const r = Math.round(209 + (244 - 209) * normalized);
-                const g = Math.round(244 - (244 - 186) * normalized);
-                const b = Math.round(186 + (186 - 186) * normalized);
+                // Interpolate between #fff5ea (low) and #7f2804 (high)
+                const r = Math.round(255 + (127 - 255) * normalized);
+                const g = Math.round(245 + (40 - 245) * normalized);
+                const b = Math.round(234 + (4 - 234) * normalized);
 
                 return `rgb(${r}, ${g}, ${b})`;
               })()
@@ -129,10 +129,10 @@ const MAGCatalogueTable = ({ metaData, experimentName }: {
                 // Normalize value between 0 and 1
                 const normalized = max === min ? 0 : (value - min) / (max - min);
 
-                // Interpolate between #d1f4ba (low) and #f4baba (high)
-                const r = Math.round(209 + (244 - 209) * normalized);
-                const g = Math.round(244 - (244 - 186) * normalized);
-                const b = Math.round(186 + (186 - 186) * normalized);
+                // Interpolate between #fff5ea (low) and #7f2804 (high)
+                const r = Math.round(255 + (127 - 255) * normalized);
+                const g = Math.round(245 + (40 - 245) * normalized);
+                const b = Math.round(234 + (4 - 234) * normalized);
 
                 return `rgb(${r}, ${g}, ${b})`;
               })()

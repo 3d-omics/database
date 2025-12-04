@@ -25,22 +25,34 @@ const MacrosampleCompositionList = () => {
                   {experiment.fields.Name}
                 </h1>
                 <div className='flex gap-4 text-xs text-gray-500 font-extralight [&>span]:flex [&>span]:gap-1 max-md:flex-col max-md:gap-0'>
-                  <span>
-                    Number of MAGs:&nbsp;
-                    <b>{experiment.fields['MAG catalogue - Number of MAGs']}</b>
-                  </span>
-                  <span>
-                    Average completeness:&nbsp;
-                    <b>{experiment.fields['MAG catalogue - Average completeness (%)']}%</b>
-                  </span>
-                  <span>
-                    Average contamination:&nbsp;
-                    <b>{experiment.fields['MAG catalogue - Average contamination (%)']}%</b>
-                  </span>
-                  <span>
-                    New species:&nbsp;
-                    <b>{experiment.fields['MAG catalogue - New species (%)']}%</b>
-                  </span>
+                  {
+                    experiment.fields['MAG catalogue - Number of MAGs'] &&
+                    <span>
+                      Number of MAGs:&nbsp;
+                      <b>{experiment.fields['MAG catalogue - Number of MAGs']}</b>
+                    </span>
+                  }
+                  {
+                    experiment.fields['MAG catalogue - Average completeness (%)'] &&
+                    <span>
+                      Average completeness:&nbsp;
+                      <b>{experiment.fields['MAG catalogue - Average completeness (%)']}%</b>
+                    </span>
+                  }
+                  {
+                    experiment.fields['MAG catalogue - Average contamination (%)'] &&
+                    <span>
+                      Average contamination:&nbsp;
+                      <b>{experiment.fields['MAG catalogue - Average contamination (%)']}%</b>
+                    </span>
+                  }
+                  {
+                    experiment.fields['MAG catalogue - New species (%)'] &&
+                    <span>
+                      New species:&nbsp;
+                      <b>{experiment.fields['MAG catalogue - New species (%)']}%</b>
+                    </span>
+                  }
                 </div>
               </div>
               <FontAwesomeIcon icon={faArrowRight} className='w-5 h-5 group-hover:text-mustard group-hover:translate-x-1 transition-transform' />

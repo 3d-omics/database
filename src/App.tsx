@@ -4,14 +4,14 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import AnimalTrial from 'pages/AnimalTrials'
 import Nav from 'components/Navbar'
 import AnimalSpecimen from 'pages/AnimalSpecimens'
-// import Macrosample from 'pages/old_Macrosample'
-import IntestinalSectionSample from 'pages/Macrosamples'
+import Macrosample from 'pages/Macrosamples'
 import Cryosection from 'pages/Cryosections'
 import Microsample from 'pages/Microsamples'
 import Home from 'pages/Home'
 import NotFound from 'pages/NotFound'
 import Footer from 'components/Footer'
-import Metabolomics from 'pages/Metabolomics'
+import Metabolomics from 'pages/Metabolomics_new'
+// import Metabolomics from 'pages/Metabolomics'
 import MAGCatalogue from 'pages/MAGCatalogue'
 import Genome from 'pages/Genome'
 import MAGCatalogueList from 'pages/MAGCatalogueList'
@@ -24,6 +24,7 @@ import AnimalTrialOverview from 'pages/AnimalTrialOverview'
 import MacrosampleOverview from 'pages/MacrosampleOverview'
 import CryosectionOverview from 'pages/CryosectionOverview'
 import DownloadDatabaseSchema from 'pages/DownloadDatabaseSchema'
+import MetabolomicsList from 'pages/MetabolomicsList'
 
 function App() {
 
@@ -95,7 +96,7 @@ function App() {
 
           <Route path="/animal-trials" element={<AnimalTrial />} />
           <Route path="/animal-specimens" element={<AnimalSpecimen />} />
-          <Route path="/macrosamples" element={<IntestinalSectionSample />} />
+          <Route path="/macrosamples" element={<Macrosample />} />
           <Route path="/cryosections" element={<Cryosection />} />
           <Route path="/microsamples" element={<Microsample />} />
 
@@ -111,7 +112,8 @@ function App() {
           <Route path="/macrosample-compositions" element={<MacrosampleCompositionList />} />
           <Route path="/macrosample-compositions/:experimentName" element={<MacrosampleTaxonomyChart />} />
 
-          <Route path="/metabolomics" element={<Metabolomics />} />
+          <Route path="/metabolomics" element={<MetabolomicsList />} />
+          <Route path="/metabolomics/:experimentName" element={<Metabolomics />} />
 
           <Route path="/microsample-compositions" element={<MicrosampleCompositionList />} />
           <Route path="/microsample-compositions/:cryosection" element={<MicrosampleComposition />} />

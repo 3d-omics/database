@@ -17,7 +17,7 @@ const CircosLayer = ({
 }) => {
   const groupRef = useRef<SVGGElement | null>(null)
 
-  
+
   useEffect(() => {
     if (!groupRef.current || !phyloData || !circosData) return
 
@@ -37,9 +37,9 @@ const CircosLayer = ({
     const circosInnerRadius = Math.min(width, height) / 2 - circosWidth - 20
 
     const metrics = [
-      { key: 'phylum', label: 'Phylum', color: '#efefef', maxValue: 1 },
-      { key: 'completeness', label: 'Genome Quality', color: '#2E8B57', maxValue: 100 },
-      { key: 'length', label: 'Genome Size', color: '#4169E1', maxValue: 100 }
+      { key: 'phylum', label: 'Phylum', maxValue: 1 },
+      { key: 'completeness', label: 'Genome Quality', maxValue: 100 },
+      { key: 'length', label: 'Genome Size', maxValue: 100 }
     ]
 
     // Calculate max value for length dynamically
@@ -48,11 +48,13 @@ const CircosLayer = ({
 
     // ✅ Add dynamic color scales for each metric:
     const colorScales = {
-      completeness: d3.scaleLinear<string>()
-        .domain([0, 17])
-        .range(['#d1f4ba', '#f4baba']), // Light green to pink
+      completeness: d3.scaleSequential<string>(d3.interpolateOranges)
+      .domain([0, 17]),
+      // completeness: d3.scaleLinear<string>()
+      //   .domain([0, 17])
+      //   .range(['#d1f4ba', '#f4baba']), // Light green to pink
 
-      length: d3.scaleSequential<string>(d3.interpolatePRGn)
+      length: d3.scaleSequential<string>(d3.interpolateOranges)
         .domain([0, metrics[2].maxValue]),
     }
 

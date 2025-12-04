@@ -2,11 +2,12 @@ import { useState, useEffect } from "react"
 import * as XLSX from "xlsx"
 import Plot from "react-plotly.js"
 import { log10, log2 } from "mathjs"
-import excelFile from "assets/data/swine_metabolomics.xlsx"
+import swineDataExcel from "assets/data/swine_metabolomics.xlsx"
+import salmonellaDataExcel from "assets/data/salmonella_metabolomics.xlsx"
 import { Layout, Config } from 'plotly.js'
 import jStat from "jstat"
 
-const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExecuteCreatePlot, calculatedData, setCalculatedData, pValueThreshold, foldChangeThreshold, setPValueThreshold, setFoldChangeThreshold }: {
+const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExecuteCreatePlot, calculatedData, setCalculatedData, pValueThreshold, foldChangeThreshold, setPValueThreshold, setFoldChangeThreshold, experimentId, options }: {
   compareBetween: string,
   group1: string | number,
   group2: string | number,
@@ -28,6 +29,8 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
   foldChangeThreshold: number
   setPValueThreshold: React.Dispatch<React.SetStateAction<number>>
   setFoldChangeThreshold: React.Dispatch<React.SetStateAction<number>>
+  experimentId: string
+  options: Record<string, Record<string, string>>
 }) => {
 
   const red = '#B30059' // color for Significant Up
@@ -41,10 +44,12 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
   })
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
 
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth)
+      setWindowHeight(window.innerHeight)
     }
     handleResize()
     window.addEventListener("resize", handleResize)
@@ -73,10 +78,19 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
     }
   }, [executeCreatePlot])
 
+  const excelFileToUse =
+    experimentId === 'I' ? swineDataExcel
+      : experimentId === 'G' ? salmonellaDataExcel
+        : ''
+
 
   const fetchExcelFile = async () => {
+    if (!excelFileToUse) {
+      console.error("No valid experiment ID provided")
+      return
+    }
     try {
-      const response = await fetch(excelFile)
+      const response = await fetch(excelFileToUse)
       const blob = await response.blob()
 
       const reader = new FileReader()
@@ -92,9 +106,8 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
           workbook.Sheets["Sample metadata"]
         )
         const annotationsSheet = XLSX.utils.sheet_to_json(
-          workbook.Sheets["Swine trial annotated list"]
+          workbook.Sheets["Annotations"]
         )
-
 
         processVolcanoData(abundancesSheet, metadataSheet, annotationsSheet)
       }
@@ -147,9 +160,8 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
     // Replace metabolite codes with curated names
     const annotationsMap = Object.fromEntries(
       annotations.map((row) => [
-        row["Feature_ID"],
-        // row["Curated ID"] 
-        row["Curated ID"] === "Unknown" ? row["Feature_ID"] : row["Curated ID"]
+      row["Feature_ID"],
+      ( row["Curated ID"] === "Unknown" || row["Curated ID"] === "") ? row["Feature_ID"] : row["Curated ID"]
       ])
     );
 
@@ -221,14 +233,8 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
 
 
   const layout: Partial<Layout> = {
-    // paper_bgcolor: '#e6e6e6',
-    // plot_bgcolor: '#e9e9e9',
-    // height: window.innerHeight,
-    // height: 420,
-    // height: volcanoPlotRef.current ? volcanoPlotRef.current.offsetHeight - 140 : 420,
-    // width: 900,
-    // width: volcanoPlotRef.current ? volcanoPlotRef.current.offsetWidth - 40 : 900,
-    width: windowWidth > 768 ? 700 : windowWidth - 64,
+    width: windowWidth > 1279 ? windowWidth - 580 : windowWidth - 64,
+    height: windowHeight - 300,
     margin: { t: 0, r: 0, l: 40, },
     title: "",
     xaxis: {
@@ -266,29 +272,18 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
   }
 
 
+
   return (
     <div className="h-full">
       {calculatedData ? (
         <div className="px-4 pt-4 max-sm:px-0">
           <header className="flex items-center gap-2 pb-2 max-sm:pb-6">
-            <h2 className="text-xl font-semibold">Volcano Plot</h2>
+            {/* <h2 className="text-xl font-semibold">Volcano Plot</h2> */}
             <p className="font-light">
-              (
-              {currentlyDisplayedPlot.compareBetween}:&nbsp;
-              {currentlyDisplayedPlot.group1 === 1 && 'High protein diet'}
-              {currentlyDisplayedPlot.group1 === 3 && 'Low protein diet'}
-              {currentlyDisplayedPlot.group1 === 'T1' && 'Control diet + no mannan'}
-              {currentlyDisplayedPlot.group1 === 'T2' && 'Mannan'}
-              {currentlyDisplayedPlot.group1 === 'LEBV' && 'LEBV'}
-              {currentlyDisplayedPlot.group1 === 'HEBV' && 'HEBV'}
-              ,&nbsp;
-              {currentlyDisplayedPlot.group2 === 1 && 'High protein diet'}
-              {currentlyDisplayedPlot.group2 === 3 && 'Low protein diet'}
-              {currentlyDisplayedPlot.group2 === 'T1' && 'Control diet + no mannan'}
-              {currentlyDisplayedPlot.group2 === 'T2' && 'Mannan'}
-              {currentlyDisplayedPlot.group2 === 'LEBV' && 'LEBV'}
-              {currentlyDisplayedPlot.group2 === 'HEBV' && 'HEBV'}
-              )
+              <span className='font-semibold'>{currentlyDisplayedPlot.compareBetween}:&nbsp;</span>
+              {options[currentlyDisplayedPlot.compareBetween]?.[String(currentlyDisplayedPlot.group1)] || currentlyDisplayedPlot.group1}
+              <span className='font-semibold'>&nbsp;/&nbsp;</span>
+              {options[currentlyDisplayedPlot.compareBetween]?.[String(currentlyDisplayedPlot.group2)] || currentlyDisplayedPlot.group2}
             </p>
           </header>
 

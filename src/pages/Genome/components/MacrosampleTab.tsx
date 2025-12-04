@@ -3,7 +3,11 @@ import { useReactTable, getCoreRowModel, CellContext } from '@tanstack/react-tab
 import ErrorBanner from 'components/ErrorBanner'
 import { Link } from 'react-router-dom'
 
-type SampleData = Array<{ [key: string]: string }>
+type SampleData = Array<{
+  id: string
+  count: any
+  [key: string]: string | null | any
+}>
 
 interface MacrosampleTabProps {
   data: SampleData
@@ -28,7 +32,7 @@ const MacrosampleTab = ({ data, genomeName, isLoading, error }: MacrosampleTabPr
       id: 'run_accession',
       header: 'ENA link',
       accessorKey: 'run_accession',
-      cell: ({ cell, row }: CellContext<{ [key: string]: string }, string>) => (
+      cell: ({ cell, row }: CellContext<SampleData[number], string>) => (
         <Link
           to={row.original.enaLink}
           target="_blank"

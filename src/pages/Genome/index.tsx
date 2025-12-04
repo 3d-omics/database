@@ -10,14 +10,16 @@ import MacrosampleTab from './components/MacrosampleTab'
 import MicrosampleTab from './components/MicrosampleTab'
 import { useGenomeJsonFile, useAllMicrosampleCounts } from 'hooks/useJsonData'
 import macrosampleData from 'assets/data/airtable/macrosample.json'
-import microsamplesWithCoordinationData from 'assets/data/airtable/microsampleswithcoordination.json'
+import microsamplesWithCoordinationDataImport from 'assets/data/airtable/microsampleswithcoordination.json'
 
+const microsamplesWithCoordinationData = microsamplesWithCoordinationDataImport as any[]
 
 type SampleData = Array<{
   id: string
   count: any
   [key: string]: string | null | any
 }>
+
 
 const Genome = () => {
   const [selectedTab, setSelectedTab] = useState('Microsample')
@@ -78,7 +80,6 @@ const Genome = () => {
 
   // Load all microsample counts (all 83 files)
   const allMicrosampleCounts = useAllMicrosampleCounts()
-
 
 
   // Helper function to process counts ____ORIGINAL AMOUNT

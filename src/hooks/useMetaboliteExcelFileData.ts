@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import * as XLSX from "xlsx"
-import excelFile from "assets/data/metabolomics.xlsx"
+import excelFile from "assets/data/swine_metabolomics.xlsx"
 
 const useMetaboliteExcelFileData = () => {
 
@@ -24,9 +24,8 @@ const useMetaboliteExcelFileData = () => {
         const workbook = XLSX.read(arrayBuffer, { type: "array" })
 
         // Process first sheet
-        const originalAbundanceSheet = workbook.SheetNames[3] // Sheet index 3 corresponds to "Abundances to Curated ID"
-        // const originalAbundanceSheet = workbook.SheetNames[0]
-        if (!originalAbundanceSheet) throw new Error("Excel sheet 0 does not exist")
+        const originalAbundanceSheet = workbook.SheetNames[3] // Sheet index 3 corresponds to "Abundances with Curated ID"
+        if (!originalAbundanceSheet) throw new Error("Excel sheet 3 does not exist")
         const sheet1 = workbook.Sheets[originalAbundanceSheet]
         const originalAbundancesRowData: any[][] = XLSX.utils.sheet_to_json(sheet1, { header: 1 })
         setOriginalRowData(originalAbundancesRowData)
@@ -38,8 +37,7 @@ const useMetaboliteExcelFileData = () => {
 
         // Process second sheet
         const normalizedAbundanceSheet = workbook.SheetNames[4] // Sheet index 4 corresponds to "Normalized Abundances"
-        // const normalizedAbundanceSheet = workbook.SheetNames[1]
-        if (!normalizedAbundanceSheet) throw new Error("Excel sheet 1 does not exist")
+        if (!normalizedAbundanceSheet) throw new Error("Excel sheet 4 does not exist")
         const sheet2 = workbook.Sheets[normalizedAbundanceSheet]
         const normalizedAbundancesRowData: any[][] = XLSX.utils.sheet_to_json(sheet2, { header: 1 })
         // setNormalizedRowData(normalizedAbundancesRowData)

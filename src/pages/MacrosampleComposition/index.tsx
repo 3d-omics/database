@@ -5,7 +5,6 @@ import BreadCrumbs from 'components/BreadCrumbs'
 import { useParams } from 'react-router-dom'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
-import ErrorBanner from 'components/ErrorBanner'
 
 const MacrosampleComposition = () => {
 
@@ -32,7 +31,9 @@ const MacrosampleComposition = () => {
               { label: experimentName },
             ]}
           />
-          <header className='main_header mb-4'>Macrosample Community Composition: {experimentName}</header>
+          <header className='main_header mb-4'>
+            {experimentName}
+          </header>
         </section>
 
         <div className='flex min-h-[calc(100vh-300px)] justify-between gap-10 items-start

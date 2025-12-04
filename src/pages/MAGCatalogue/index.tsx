@@ -223,7 +223,7 @@ const MAGCatalogue = () => {
             ]}
           />
 
-          <header className='main_header mb-3'>{experimentName}&nbsp;MAG Catalogue</header>
+          <header className='main_header mb-3'>{experimentName}</header>
 
           <div className='flex gap-4 text-sm text-gray-500 mb-3 font-thin [&>span]:flex [&>span]:gap-1'>
             <span>

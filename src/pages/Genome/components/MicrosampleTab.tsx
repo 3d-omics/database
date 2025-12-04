@@ -2,8 +2,6 @@ import TableBody from 'components/Table/components/TableBody'
 import { useReactTable, getCoreRowModel, CellContext } from '@tanstack/react-table'
 import ErrorBanner from 'components/ErrorBanner'
 import { Link } from 'react-router-dom'
-import { useTaxonomyData } from 'hooks/useTaxonomyData'
-
 
 type SampleData = Array<{ [key: string]: string }>
 
