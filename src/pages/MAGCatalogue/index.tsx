@@ -41,8 +41,6 @@ const MAGCatalogue = () => {
 
   const experiment = data[0].fields
 
-  console.log(experiment)
-
   // Load genome metadata using the helper hook
   const rawMetaData = useGenomeJsonFile(
     'genome_metadata',
@@ -232,13 +230,54 @@ const MAGCatalogue = () => {
             </span>
             <span>
               Average completeness:&nbsp;
-              {/* <div className='w-3 bg-teal-200'></div> */}
-              <b>{experiment['MAG catalogue - Average completeness (%)']}%</b>
+              {experiment['MAG catalogue - Average completeness (%)'] &&
+                <div className='w-3'
+                  style={{
+                    backgroundColor: (() => {
+                      const value = experiment['MAG catalogue - Average completeness (%)'] ?? 0;
+                      const min = 70;
+                      const max = 100;
+
+                      // Normalize value between 0 and 1
+                      const normalized = Math.max(0, Math.min(1, (value - min) / (max - min)));
+
+                      // Interpolate between #7f2804 (low) and #fff5ea (high)
+                      const r = Math.round(127 + (255 - 127) * normalized);
+                      const g = Math.round(40 + (245 - 40) * normalized);
+                      const b = Math.round(4 + (234 - 4) * normalized);
+
+                      return `rgb(${r}, ${g}, ${b})`;
+                    })()
+                  }}
+                ></div>
+              }
+              <b>{experiment['MAG catalogue - Average completeness (%)']?.toFixed(2)}%</b>
             </span>
             <span>
               Average contamination:&nbsp;
-              {/* <div className='w-3 bg-teal-200'></div> */}
-              <b>{experiment['MAG catalogue - Average contamination (%)']}%</b>
+              {
+                experiment['MAG catalogue - Average contamination (%)'] &&
+                <div className='w-3'
+                  style={{
+                    backgroundColor: (() => {
+                      const value = experiment['MAG catalogue - Average contamination (%)'] ?? 0;
+                      const min = 0;
+                      const max = 20;
+
+                      // Normalize value between 0 and 1
+                      const normalized = Math.max(0, Math.min(1, (value - min) / (max - min)));
+
+                      // Interpolate between #fff5ea (low) and #7f2804 (high)
+                      const r = Math.round(255 + (127 - 255) * normalized);
+                      const g = Math.round(245 + (40 - 245) * normalized);
+                      const b = Math.round(234 + (4 - 234) * normalized);
+
+                      return `rgb(${r}, ${g}, ${b})`;
+                    })()
+                  }}
+                ></div>
+              }
+              <b>{experiment['MAG catalogue - Average contamination (%)']?.toFixed(2)}%</b>
             </span>
             <span>
               New species:&nbsp;

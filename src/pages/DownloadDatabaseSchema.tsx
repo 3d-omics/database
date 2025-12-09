@@ -1,33 +1,4 @@
-import { useEffect, useState } from 'react'
-
 const DownloadDatabaseSchema = () => {
-
-  // console.log('Expected output:')
-  // const [data, setData] = useState<any>(null)
-  // console.log(data?.Cryosections)
-  // console.log(data?.Cryosections ? Object.keys(data.Cryosections).length : 0)
-
-
-  // useEffect(() => {
-  //   fetch('/database/experiment_hierarchy.json')
-  //     .then(response => response.json())
-  //     .then(data => setData(data))
-  //     .catch(error => console.error('Error loading schema:', error));
-  // }, []);
-
-  // =======================================
-
-  // console.log('What we have now:')
-  // const [data, setData] = useState<any>(null)
-  // console.log(data?.Cryosections)
-  // console.log(data?.Cryosections ? Object.keys(data.Cryosections).length : 0)
-
-  // useEffect(() => {
-  //   fetch('/database/experiment-hierarchy.json')
-  //     .then(response => response.json())
-  //     .then(data => setData(data))
-  //     .catch(error => console.error('Error loading schema:', error));
-  // }, []);
 
   return (
     <div className='page_padding min-h-[calc(100dvh-(var(--navbar-height)+var(--footer-height)))] flex flex-col'>

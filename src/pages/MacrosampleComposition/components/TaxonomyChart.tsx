@@ -37,13 +37,13 @@ const MacrosampleTaxonomyChart = ({
   const colorScheme = useMemo(() => {
     try {
       const colorSchemeFiles = import.meta.glob(
-        '/src/config/colorScheme/*.ts',
+        '/src/config/*.ts',
         { eager: true }
       )
 
       const colorSchemeModule =
-        // colorSchemeFiles[`/src/config/colorScheme/taxonomy-color-scheme-${experimentId}.ts`]
-        colorSchemeFiles[`/src/config/colorScheme/taxonomy-color-scheme.ts`]
+        // colorSchemeFiles[`/src/config/taxonomy-color-scheme-${experimentId}.ts`]
+        colorSchemeFiles[`/src/config/taxonomy-color-scheme.ts`]
 
       if (!colorSchemeModule) {
         console.warn(`Color scheme for experiment ${experimentId} not found, using default`)

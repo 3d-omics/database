@@ -32,7 +32,7 @@ const PhyloTreeLayer = ({ data, width, height }: { data: any, width: number, hei
     const totalRadius = Math.min(width, height) / 2 - 40
 
     // Define clear separation between phylogenetic tree and circos
-    const treeRadius = totalRadius * 0.53  // Inner 53% for phylogenetic tree
+    const treeRadius = totalRadius * 0.58  // Inner 58% for phylogenetic tree
 
     // for opening the circle for labels
     const gapDegrees = 15

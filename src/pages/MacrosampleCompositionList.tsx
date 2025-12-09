@@ -36,14 +36,14 @@ const MacrosampleCompositionList = () => {
                     experiment.fields['MAG catalogue - Average completeness (%)'] &&
                     <span>
                       Average completeness:&nbsp;
-                      <b>{experiment.fields['MAG catalogue - Average completeness (%)']}%</b>
+                      <b>{experiment.fields['MAG catalogue - Average completeness (%)'].toFixed(2)}%</b>
                     </span>
                   }
                   {
                     experiment.fields['MAG catalogue - Average contamination (%)'] &&
                     <span>
                       Average contamination:&nbsp;
-                      <b>{experiment.fields['MAG catalogue - Average contamination (%)']}%</b>
+                      <b>{experiment.fields['MAG catalogue - Average contamination (%)'].toFixed(2)}%</b>
                     </span>
                   }
                   {

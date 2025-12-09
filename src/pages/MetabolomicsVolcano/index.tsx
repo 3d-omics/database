@@ -6,6 +6,13 @@ import SignificantMetabolitesTable from './components/SignificantMetabolitesTabl
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
 import BreadCrumbs from 'components/BreadCrumbs'
+import { getExperimentOptions } from './options'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons'
+// import experimentI from "assets/data/metabolomics/metabolomics_I.xlsx"
+// import experimentJ from "assets/data/metabolomics/metabolomics_J.xlsx"
+// import experimentK from "assets/data/metabolomics/metabolomics_K.xlsx"
+// import experimentG from "assets/data/metabolomics/metabolomics_G.xlsx"
 
 
 const Metabolomics = () => {
@@ -19,33 +26,7 @@ const Metabolomics = () => {
     filterValue: experimentName
   })
 
-  const options: Record<string, Record<string, string>> =
-    experimentId === 'I' // Swine experiment
-      ? {
-        Diet: {
-          '1': 'High protein diet',
-          '3': 'Low protein diet',
-          T1: 'Control diet + no mannan',
-          T2: 'Mannan'
-        },
-        Group: {
-          LEBV: 'LEBV',
-          HEBV: 'HEBV'
-        }
-      }
-      : experimentId === 'G' // Salmonella experiment
-        ? {
-          Treatment: {
-            T1: 'YES pathogen, YES PoultryStar® in drinking water and feed',
-            T2: 'YES pathogen, YES PoultryStar® in drinking water',
-            T3: 'YES pathogen, YES PoultryStar® in feed',
-            T4: 'YES pathogen, NO PoultryStar®',
-            T5: 'NO pathogen, NO PoultryStar®'
-          }
-        }
-        : {}
-
-
+  const options = getExperimentOptions(experimentId)
 
   const [compareBetween, setCompareBetween] = useState<string>(options ? Object.keys(options)[0] : '')
   const [group1, setGroup1] = useState<string>(
@@ -60,6 +41,49 @@ const Metabolomics = () => {
   const [pValueThreshold, setPValueThreshold] = useState(0.05)
   const [foldChangeThreshold, setFoldChangeThreshold] = useState(1.5)
 
+
+  useEffect(() => {
+    const groupKeys = Object.keys(options[compareBetween] as Record<string, string>)
+    setGroup1(groupKeys[0] || '')
+    setGroup2(groupKeys[1] || '')
+  }, [compareBetween])
+
+
+  // // for download excel file button
+  // const files = {
+  //   'G': experimentG,
+  //   // 'H': experimentH,
+  //   'I': experimentI,
+  //   'J': experimentJ,
+  //   'K': experimentK,
+  //   // 'M': experimentM
+  // }
+  // const DownloadButton = ({ experimentId }: { experimentId: string }) => {
+  //   const handleDownload = () => {
+  //     const excelFile = files[experimentId as keyof typeof files];
+  //     if (!excelFile) {
+  //       console.error('File not found for param:', experimentId);
+  //       return;
+  //     }
+  //     const link = document.createElement('a');
+  //     link.href = excelFile;
+  //     link.download = `metabolite-data-experiment-${experimentId}.xlsx`;
+  //     document.body.appendChild(link);
+  //     link.click();
+  //     document.body.removeChild(link);
+  //   };
+  //   return (
+  //     <button
+  //       onClick={handleDownload}
+  //       className='btn btn-outline btn-xs min-w-max bg-white text-custom_black hover:bg-custom_black hover:border-custom_black'
+  //     >
+  //       <FontAwesomeIcon icon={faFileArrowDown} className='-mr-0.5' data-testid='download-tsv-icon' />
+  //       <span className='whitespace-nowrap'>Download Excel File for experiment {experimentId}</span>
+  //     </button>
+  //   )
+  // }
+
+
   return (
     <ParamsValidator validating={validating} notFound={notFound}>
       <div className='px-4 pt-4 pb-4 flex flex-col overflow-auto'>
@@ -68,17 +92,18 @@ const Metabolomics = () => {
           items={[
             { label: 'Data Portal Home', link: '/' },
             { label: 'Metabolomics', link: '/metabolomics' },
-            { label: experimentName },
+            { label: `${experimentName} - Volcano Plot ` },
           ]}
         />
 
-        <div className='flex items-end gap-3 pb-6'>
+        <div className='flex items-center gap-4 pb-6 max-md:flex-col max-md:items-start'>
           <header className='main_header'>{experimentName}</header>
+          {/* <DownloadButton experimentId={experimentId} /> */}
         </div>
 
         <main className='rounded-md flex gap-4 bg-white min-h-[calc(100vh-(var(--navbar-height)+70px))] max-h-[calc(100vh-(var(--navbar-height)))]
-        max-xl:flex-col max-xl:border-none max-xl:h-full max-xl:max-h-none
-      '>
+          max-xl:flex-col max-xl:border-none max-xl:h-full max-xl:max-h-none
+        '>
 
           <div className='h-full grow'>
             <AnalysisSettings
@@ -125,3 +150,7 @@ const Metabolomics = () => {
 }
 
 export default Metabolomics
+
+
+
+// =IF(ISNUMBER('Abundances with Curated ID'!C2),('Abundances with Curated ID'!C2 - AVERAGE('Abundances with Curated ID'!C2:'Abundances with Curated ID'!BA2)) / STDEV.P('Abundances with Curated ID'!C2:'Abundances with Curated ID'!BA2),"")

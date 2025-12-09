@@ -2,12 +2,13 @@ import Table from 'components/Table'
 import { ColumnDef } from '@tanstack/react-table'
 import ErrorBanner from 'components/ErrorBanner'
 
-const TableView = <TData,>({ columns, data, pageTitle, fetchMetaboliteError, displayTableHeader, displayTableFilters, displayTableBody, tableDescription }: {
+const TableView = <TData,>({ columns, data, pageTitle, fetchMetaboliteError, displayTableHeader, displayTableDescription, displayTableFilters, displayTableBody, tableDescription }: {
   columns: ColumnDef<TData>[]
   data: TData[]
   pageTitle: string
   fetchMetaboliteError?: string | null
   displayTableHeader?: boolean
+  displayTableDescription?: boolean
   displayTableFilters?: boolean
   displayTableBody?: boolean
   tableDescription?: string
@@ -25,6 +26,7 @@ const TableView = <TData,>({ columns, data, pageTitle, fetchMetaboliteError, dis
           columns={columns}
           pageTitle={pageTitle}
           displayTableHeader={displayTableHeader}
+          displayTableDescription={displayTableDescription}
           displayTableFilters={displayTableFilters}
           displayTableBody={displayTableBody}
           tableDescription={tableDescription}

@@ -4,6 +4,7 @@ import TableView from 'components/TableView';
 import cryosectionData from 'assets/data/airtable/cryosection.json'
 import cryosectionImageData from 'assets/data/airtable/cryosectionimage.json'
 import { Link } from 'react-router-dom'
+import CompositionExistsIcon from 'assets/images/GC.png'
 
 export type TData = {
   id: string
@@ -95,19 +96,24 @@ const Cryosection = ({
       id: 'ID',
       header: 'ID',
       accessorFn: (row) => row.fields.ID,
-      // cell: (props: any) => (
-      //   cryosectionImageData.find(cryosection => cryosection.fields.ID === props.getValue()) ?
-      //     <Link to={`/microsample-compositions/${props.getValue()}`} className='link'>{props.getValue()}</Link>
-      //     :
-      //     <>{props.getValue()}</>
-      // )
       cell: (props: any) => (
-        <Link
-          to={`/cryosections/${encodeURIComponent(props.row.original.fields.ID)}`}
-          className='link'
-        >
-          {props.getValue()}
-        </Link>
+        <div className='flex items-center gap-1 min-w-[120px]'>
+          <Link
+            to={`/cryosections/${encodeURIComponent(props.row.original.fields.ID)}`}
+            className='link'
+          >
+            {props.getValue()}
+          </Link>
+          {cryosectionImageData.find(cryosection => cryosection.fields.ID === props.getValue()) &&
+            <div className='tooltip tooltip-right before:text-xs' data-tip='Microsample community composition info available'>
+              <img
+              src={CompositionExistsIcon}
+              alt=''
+              className='w-6 h-6 object-contain'
+              />
+            </div>
+          }
+        </div>
       )
     },
     {
@@ -134,6 +140,14 @@ const Cryosection = ({
       id: 'Macrosample',
       header: 'Macrosample',
       accessorFn: (row) => row.fields.Macrosample,
+      cell: (props: any) => (
+        <Link
+          to={`/macrosamples/${encodeURIComponent(props.row.original.fields.Macrosample)}`}
+          className='link'
+        >
+          {props.getValue()}
+        </Link>
+      )
     },
     {
       id: 'SlideDate',

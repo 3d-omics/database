@@ -27,6 +27,9 @@ const AnalysisSettings = ({ compareBetween, setCompareBetween, group1, setGroup1
   }, [group1, group2])
 
 
+  
+
+
   return (
     <div className="p-4 pt-3 bg-gray-100 rounded-lg h-fit
       max-xl:mb-4

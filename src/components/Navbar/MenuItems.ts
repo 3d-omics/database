@@ -12,11 +12,5 @@ export const menus = [
     ]
   },
   { location: '/cryosections', title: 'Cryosections' },
-  {
-    sectionTitle: 'Microsamples',
-    subMenus: [
-      { location: '/microsamples', title: 'Microsamples' },
-      { location: '/microsample-compositions', title: 'Metagenomics' },
-    ]
-  }
+  { location: '/microsamples', title: 'Microsamples' },
 ]

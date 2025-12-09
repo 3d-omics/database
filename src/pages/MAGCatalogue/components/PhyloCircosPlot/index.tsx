@@ -18,8 +18,8 @@ export type CircosData = {
 }
 
 const PhylogeneticTree = ({ phyloData, circosData }: { phyloData: PhyloData, circosData: CircosData }) => {
-  const width = 1000
-  const height = 1000
+  const width = 1100
+  const height = 1100
   const svgRef = useRef<SVGSVGElement | null>(null)
 
   return (

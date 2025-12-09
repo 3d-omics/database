@@ -30,12 +30,10 @@ export default function useValidateParams({
       cryosectionImage: cryosectionImageData as AirtableRecord[],
       macrosample: macrosampleData as AirtableRecord[],
       cryosection: cryosectionData as AirtableRecord[],
-      metabolomics: animalTrialExperimentData.filter(exp => exp.fields.ID === 'G' || exp.fields.ID === 'H' || exp.fields.ID === 'I' || exp.fields.ID === 'J' || exp.fields.ID === 'K') as AirtableRecord[],
+      metabolomics: animalTrialExperimentData.filter(exp => exp.fields.ID === 'G' || exp.fields.ID === 'H' || exp.fields.ID === 'I' || exp.fields.ID === 'J' || exp.fields.ID === 'K' || exp.fields.ID === 'M') as AirtableRecord[],
     };
     return dataMap[tableType];
   }, [tableType]);
-
-  console.log(dataset)
 
   // Filter the data
   const filteredData = useMemo(() => {

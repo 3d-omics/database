@@ -48,11 +48,11 @@ const TaxonomyChartLegend = ({ selectedTaxonomicLevel, experimentId }: {
 
 
   // ===== Get color scheme file for the experiment ====
-  const colorSchemeFiles = import.meta.glob('../config/colorScheme/*.ts', {
+  const colorSchemeFiles = import.meta.glob('../config/*.ts', {
     eager: true,
   });
   const colorSchemeModule =
-    colorSchemeFiles[`../config/colorScheme/taxonomy-color-scheme.ts`];
+    colorSchemeFiles[`../config/taxonomy-color-scheme.ts`];
 
   if (!colorSchemeModule) {
     throw new Error(`Color scheme for experiment ${experimentId} not found`);
@@ -177,11 +177,10 @@ const TaxonomyChartLegend = ({ selectedTaxonomicLevel, experimentId }: {
   };
 
   return (
-    <div className="p-2 h-fit max-h-[80vh] w-[320px] overflow-y-auto bg-gray-100 
+    <div className="p-2 h-fit max-h-[80vh] w-[320px] overflow-y-auto bg-gray-100 mt-10
       max-md:w-[calc(100%-80px)] max-md:mx-10
     ">
       <div className="space-y-2">
-        {/* {Object.entries(colorScheme).map(([name, data]) => ( */}
         {Object.entries(filteredColorScheme).map(([name, data]) => (
           <LegendNode key={name} name={name} data={data as TaxonomyNode} level={0} parentLevel="phylum" />
         ))}

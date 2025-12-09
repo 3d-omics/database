@@ -4,6 +4,10 @@ import Plot from "react-plotly.js"
 import { log10, log2 } from "mathjs"
 import swineDataExcel from "assets/data/swine_metabolomics.xlsx"
 import salmonellaDataExcel from "assets/data/salmonella_metabolomics.xlsx"
+import experimentI from "assets/data/metabolomics/metabolomics_I.xlsx"
+import experimentJ from "assets/data/metabolomics/metabolomics_J.xlsx"
+import experimentK from "assets/data/metabolomics/metabolomics_K.xlsx"
+import experimentG from "assets/data/metabolomics/metabolomics_G.xlsx"
 import { Layout, Config } from 'plotly.js'
 import jStat from "jstat"
 
@@ -59,10 +63,10 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
   }, [])
 
   useEffect(() => {
-    if (group1 === "1" || group1 === "3") {
+    if (group1 === "1" || group1 === "3" || group1 === "7" || group1 === "14" || group1 === "21" || group1 === "28" || group1 === "35") {
       group1 = Number(group1)
     }
-    if (group2 === "1" || group2 === "3") {
+    if (group2 === "1" || group2 === "3" || group2 === "7" || group2 === "14" || group2 === "21" || group2 === "28" || group2 === "35") {
       group2 = Number(group2)
     }
 
@@ -79,9 +83,11 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
   }, [executeCreatePlot])
 
   const excelFileToUse =
-    experimentId === 'I' ? swineDataExcel
-      : experimentId === 'G' ? salmonellaDataExcel
-        : ''
+    experimentId === 'I' ? experimentI
+      : experimentId === 'J' ? experimentJ
+        : experimentId === 'K' ? experimentK
+          : experimentId === 'G' ? experimentG
+            : ''
 
 
   const fetchExcelFile = async () => {
@@ -160,8 +166,8 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
     // Replace metabolite codes with curated names
     const annotationsMap = Object.fromEntries(
       annotations.map((row) => [
-      row["Feature_ID"],
-      ( row["Curated ID"] === "Unknown" || row["Curated ID"] === "") ? row["Feature_ID"] : row["Curated ID"]
+        row["Feature_ID"],
+        (row["Curated ID"] === "Unknown" || row["Curated ID"] === "") ? row["Feature_ID"] : row["Curated ID"]
       ])
     );
 
@@ -230,7 +236,6 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
       // hovertemplate: '<span style="background-color: #0057D9">%{text}</span><extra></extra>'
     },
   ] : [];
-
 
   const layout: Partial<Layout> = {
     width: windowWidth > 1279 ? windowWidth - 580 : windowWidth - 64,

@@ -10,12 +10,13 @@ import Microsample from 'pages/Microsamples'
 import Home from 'pages/Home'
 import NotFound from 'pages/NotFound'
 import Footer from 'components/Footer'
-import Metabolomics from 'pages/Metabolomics_new'
+import MetabolomicsVolcano from 'pages/MetabolomicsVolcano'
 // import Metabolomics from 'pages/Metabolomics'
+import MetabolomicsHeatmap from 'pages/MetabolomicsHeatmap'
 import MAGCatalogue from 'pages/MAGCatalogue'
 import Genome from 'pages/Genome'
 import MAGCatalogueList from 'pages/MAGCatalogueList'
-import MicrosampleCompositionList from 'pages/MicrosampleCompositionList'
+// import MicrosampleCompositionList from 'pages/MicrosampleCompositionList'
 import MicrosampleComposition from 'pages/MicrosampleComposition'
 import MacrosampleTaxonomyChart from 'pages/MacrosampleComposition'
 import MacrosampleCompositionList from 'pages/MacrosampleCompositionList'
@@ -25,6 +26,7 @@ import MacrosampleOverview from 'pages/MacrosampleOverview'
 import CryosectionOverview from 'pages/CryosectionOverview'
 import DownloadDatabaseSchema from 'pages/DownloadDatabaseSchema'
 import MetabolomicsList from 'pages/MetabolomicsList'
+
 
 function App() {
 
@@ -113,9 +115,10 @@ function App() {
           <Route path="/macrosample-compositions/:experimentName" element={<MacrosampleTaxonomyChart />} />
 
           <Route path="/metabolomics" element={<MetabolomicsList />} />
-          <Route path="/metabolomics/:experimentName" element={<Metabolomics />} />
+          <Route path="/metabolomics/volcano/:experimentName" element={<MetabolomicsVolcano />} />
+          <Route path="/metabolomics/heatmap/:experimentName" element={<MetabolomicsHeatmap />} />
 
-          <Route path="/microsample-compositions" element={<MicrosampleCompositionList />} />
+          {/* <Route path="/microsample-compositions" element={<MicrosampleCompositionList />} /> */}
           <Route path="/microsample-compositions/:cryosection" element={<MicrosampleComposition />} />
 
           <Route path="/database-schema" element={<DownloadDatabaseSchema />} />

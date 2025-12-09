@@ -1,13 +1,15 @@
 import { useState, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
 import BreadCrumbs from 'components/BreadCrumbs'
 import cryosectionData from 'assets/data/airtable/cryosection.json'
-import CryosectionTab from 'components/CryosectionTab'
 import MicrosampleTab from 'components/MicrosampleTab'
 import Tabs from 'components/Tabs'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
+import MicrosampleComposition from './MicrosampleComposition'
+import cryosectionImageData from 'assets/data/airtable/cryosectionimage.json'
+
+
 
 const CryosectionOverview = () => {
 
@@ -29,8 +31,16 @@ const CryosectionOverview = () => {
     })
   }, [cryosectionName])
 
+
+  // Check if community composition data exists for this cryosection
+  const hasCommunityComposition = useMemo(() => {
+    return cryosectionImageData.some((record) => {
+      const name = record.fields.ID
+      return name && name === cryosectionName
+    })
+  }, [cryosectionName])
+
   const cryosection = data[0]
-  console.log(cryosection)
 
   return (
     <ParamsValidator validating={validating} notFound={notFound}>
@@ -74,13 +84,19 @@ const CryosectionOverview = () => {
               <Tabs
                 selectedTab={selectedTab}
                 setSelectedTab={setSelectedTab}
-                tabs={['Microsamples']}
+                tabs={hasCommunityComposition
+                  ? ['Microsamples', 'Microsamples Community Composition']
+                  : ['Microsamples']
+                }
               />
             </section>
 
 
             <main className='-mt-7'>
               {selectedTab === 'Microsamples' && <MicrosampleTab id={cryosection.fields.ID} />}
+              {(hasCommunityComposition && selectedTab === 'Microsamples Community Composition')
+                && <MicrosampleComposition cryosectionFromTab={cryosection.fields.ID} />
+              }
             </main>
           </>
         )}

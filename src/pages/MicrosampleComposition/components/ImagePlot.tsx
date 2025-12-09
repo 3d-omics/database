@@ -33,7 +33,7 @@ const ImagePlot = ({ cryosection, setSelectedMicrosampleIds, microsampleIds, xco
       text: microsampleIds,
       customdata: xcoord.map((_, index) => [shape[index], size[index]]),
       marker: {
-        size: 8,
+        size: 5,
         opacity: markerOpacity,
         color: '#741B47',
         line: { width: 0, color: 'transparent' },

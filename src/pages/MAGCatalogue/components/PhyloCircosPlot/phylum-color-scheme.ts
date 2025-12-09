@@ -1,4 +1,4 @@
-import { colorScheme } from 'config/colorScheme/taxonomy-color-scheme';
+import { colorScheme } from 'config/taxonomy-color-scheme';
 
 
 const extractPhylumColorMap = (colorScheme: any): Record<string, string> => {
