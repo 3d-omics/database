@@ -19,8 +19,6 @@ const SignificantMetabolitesTable = ({ calculatedData, pValueThreshold, foldChan
     setDisplayedRows(30)
   }, [executeCreatePlot])
 
-  // console.log(calculatedData?.map((d)=>d.metabolite))
-
   return (
     <>
       {calculatedData &&

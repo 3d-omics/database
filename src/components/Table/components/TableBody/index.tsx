@@ -2,30 +2,24 @@ import { Table } from '@tanstack/react-table'
 import { flexRender } from '@tanstack/react-table'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons'
-import Filter from './components/Filter/Filter'
-import MetaboliteColumn from './components/MetaboliteColumn'
+import Filter from './components/Filter'
 
-interface TableBodyProps {
-  table: Table<any>
-  checkedItems: any[]
-  setCheckedItems: React.Dispatch<React.SetStateAction<any[]>>
-  checkedMetaboliteIds: string[]
-  setCheckedMetaboliteIds: React.Dispatch<React.SetStateAction<string[]>>
-  displayTableFilters?: boolean
-}
 
 const TableBody = ({
   table,
-  checkedItems,
-  setCheckedItems,
-  checkedMetaboliteIds,
-  setCheckedMetaboliteIds,
+  // checkedItems,
+  // setCheckedItems,
   displayTableFilters = true
-}: TableBodyProps) => {
+}: {
+  table: Table<any>
+  // checkedItems: any[]
+  // setCheckedItems: React.Dispatch<React.SetStateAction<any[]>>
+  displayTableFilters?: boolean
+}) => {
   return (
     <main className='max-lg:overflow-x-auto max-lg:max-h-[calc(100dvh-264px)] mb-[66px]'>
       <table className='table table-sm' data-testid='table'>
-        <thead className='sticky bg-white z-20 top-[66px] shadow-[0px_4px_3px_-3px_rgba(0,0,0,0.1)] max-lg:top-[-1px]'>
+        <thead className='sticky bg-white z-20 top-[64px] shadow-[0px_4px_3px_-3px_rgba(0,0,0,0.1)] max-lg:top-[-1px]'>
           {table.getHeaderGroups().map(headerGroup => (
             <tr key={headerGroup.id} className='[&>th]:pb-4'>
               {/* ⬇️ <th> for checkbox input for selecting for download TSV */}
@@ -103,24 +97,15 @@ const TableBody = ({
                   checked={checkedItems.some(item => item.id === row.id)}
                 />
               </td> */}
+
               {row.getVisibleCells().map(cell => {
-                if (cell.column.id === 'Metabolite') {
-                  return (
-                    <td key={cell.id} className='text-center'>
-                      <MetaboliteColumn
-                        cell={cell}
-                        checkedMetaboliteIds={checkedMetaboliteIds}
-                        setCheckedMetaboliteIds={setCheckedMetaboliteIds}
-                      />
-                    </td>
-                  )
-                }
                 return (
                   <td key={cell.id}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </td>
                 )
               })}
+
             </tr>
           ))}
         </tbody>

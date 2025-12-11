@@ -105,7 +105,7 @@ const AnimalTrial = () => {
     <TableView<TData>
       data={data}
       columns={columns}
-      pageTitle={'Animal Trial'}
+      pageTitle={'Animal Trials'}
       tableDescription={tableDescription}
     />
   )

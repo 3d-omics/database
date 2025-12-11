@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { getCoreRowModel, useReactTable, getSortedRowModel, getFilteredRowModel, getPaginationRowModel, Column, ColumnDef, FilterFn, Row } from '@tanstack/react-table'
 import Pagination from 'components/Table/components/Pagination'
-import CompareSamplesButton from './components/CompareSamplesButton'
 import TableHeader from './components/TableHeader'
 import TableFilters from './components/TableFilters'
 import TableBody from './components/TableBody'
@@ -28,21 +27,20 @@ const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, di
 }) => {
   const [pagination, setPagination] = useState({ pageIndex: 0, pageSize: 100, })
   const [globalFilter, setGlobalFilter] = useState<string | undefined>(undefined)
-  const [checkedMetaboliteIds, setCheckedMetaboliteIds] = useState<string[]>([])
-  const [checkedItems, setCheckedItems] = useState<any[]>([])
+  // const [checkedItems, setCheckedItems] = useState<any[]>([])
 
-  const globalFilterFn: FilterFn<any> = (row: Row<any>, columnId: string, filterValue: string) => {
-    const searchTerm = filterValue.toLowerCase()
-    return row.getAllCells().some(cell => {
-      const cellValue = String(cell.getValue()).toLowerCase()
-      return cellValue.includes(searchTerm)
-    })
-  }
+  // const globalFilterFn: FilterFn<any> = (row: Row<any>, columnId: string, filterValue: string) => {
+  //   const searchTerm = filterValue.toLowerCase()
+  //   return row.getAllCells().some(cell => {
+  //     const cellValue = String(cell.getValue()).toLowerCase()
+  //     return cellValue.includes(searchTerm)
+  //   })
+  // }
 
   const table = useReactTable({
     data,
     columns,
-    globalFilterFn,
+    // globalFilterFn,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -64,7 +62,7 @@ const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, di
         <TableHeader
           pageTitle={pageTitle}
           filteredDataLength={filteredData.length}
-          checkedItems={checkedItems}
+          // checkedItems={checkedItems}
           filteredAndSortedData={filteredAndSortedData}
           columns={columns}
         />
@@ -88,20 +86,11 @@ const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, di
       {displayTableBody &&
         <TableBody
           table={table}
-          checkedItems={checkedItems}
-          setCheckedItems={setCheckedItems}
-          checkedMetaboliteIds={checkedMetaboliteIds}
-          setCheckedMetaboliteIds={setCheckedMetaboliteIds}
+          // checkedItems={checkedItems}
+          // setCheckedItems={setCheckedItems}
           displayTableFilters={displayTableFilters}
         />
       }
-
-      {checkedMetaboliteIds.length > 0 && (
-        <CompareSamplesButton
-          samples={checkedMetaboliteIds}
-          setSamples={setCheckedMetaboliteIds}
-        />
-      )}
 
       {filteredData.length === 0 ? (
         <div className='mt-10 font-extrabold text-2xl text-center'>

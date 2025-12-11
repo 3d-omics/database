@@ -2,14 +2,16 @@ import { useState, useEffect } from "react"
 import * as XLSX from "xlsx"
 import Plot from "react-plotly.js"
 import { log10, log2 } from "mathjs"
-import swineDataExcel from "assets/data/swine_metabolomics.xlsx"
-import salmonellaDataExcel from "assets/data/salmonella_metabolomics.xlsx"
+import { Layout, Config } from 'plotly.js'
+import jStat from "jstat"
+// import swineDataExcel from "assets/data/swine_metabolomics.xlsx"
+// import salmonellaDataExcel from "assets/data/salmonella_metabolomics.xlsx"
+import experimentH from "assets/data/metabolomics/metabolomics_H.xlsx"
 import experimentI from "assets/data/metabolomics/metabolomics_I.xlsx"
 import experimentJ from "assets/data/metabolomics/metabolomics_J.xlsx"
 import experimentK from "assets/data/metabolomics/metabolomics_K.xlsx"
 import experimentG from "assets/data/metabolomics/metabolomics_G.xlsx"
-import { Layout, Config } from 'plotly.js'
-import jStat from "jstat"
+import experimentM from "assets/data/metabolomics/metabolomics_M.xlsx"
 
 const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExecuteCreatePlot, calculatedData, setCalculatedData, pValueThreshold, foldChangeThreshold, setPValueThreshold, setFoldChangeThreshold, experimentId, options }: {
   compareBetween: string,
@@ -47,8 +49,8 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
     group2,
   })
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight)
 
   useEffect(() => {
     const handleResize = () => {
@@ -63,10 +65,10 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
   }, [])
 
   useEffect(() => {
-    if (group1 === "1" || group1 === "3" || group1 === "7" || group1 === "14" || group1 === "21" || group1 === "28" || group1 === "35") {
+    if (group1 === "0" || group1 === "1" || group1 === "3" || group1 === "7" || group1 === "9" || group1 === "14" || group1 === "21" || group1 === "28" || group1 === "35") {
       group1 = Number(group1)
     }
-    if (group2 === "1" || group2 === "3" || group2 === "7" || group2 === "14" || group2 === "21" || group2 === "28" || group2 === "35") {
+    if (group1 === "0" || group2 === "1" || group2 === "3" || group2 === "7" || group1 === "9" || group2 === "14" || group2 === "21" || group2 === "28" || group2 === "35") {
       group2 = Number(group2)
     }
 
@@ -83,12 +85,13 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
   }, [executeCreatePlot])
 
   const excelFileToUse =
-    experimentId === 'I' ? experimentI
-      : experimentId === 'J' ? experimentJ
-        : experimentId === 'K' ? experimentK
-          : experimentId === 'G' ? experimentG
-            : ''
-
+    experimentId === 'H' ? experimentH
+      : experimentId === 'I' ? experimentI
+        : experimentId === 'J' ? experimentJ
+          : experimentId === 'K' ? experimentK
+            : experimentId === 'G' ? experimentG
+              : experimentId === 'M' ? experimentM
+                : ''
 
   const fetchExcelFile = async () => {
     if (!excelFileToUse) {
@@ -167,7 +170,7 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
     const annotationsMap = Object.fromEntries(
       annotations.map((row) => [
         row["Feature_ID"],
-        (row["Curated ID"] === "Unknown" || row["Curated ID"] === "") ? row["Feature_ID"] : row["Curated ID"]
+        (row["Curated_ID"] === "Unknown" || row["Curated_ID"] === "") ? row["Feature_ID"] : row["Curated_ID"]
       ])
     );
 

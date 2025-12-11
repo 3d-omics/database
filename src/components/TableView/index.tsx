@@ -2,7 +2,7 @@ import Table from 'components/Table'
 import { ColumnDef } from '@tanstack/react-table'
 import ErrorBanner from 'components/ErrorBanner'
 
-const TableView = <TData,>({ columns, data, pageTitle, fetchMetaboliteError, displayTableHeader, displayTableDescription, displayTableFilters, displayTableBody, tableDescription }: {
+const TableView = <TData,>({ columns, data, pageTitle, fetchMetaboliteError, displayTableHeader, displayTableDescription, displayTableFilters, displayTableBody, tableDescription}: {
   columns: ColumnDef<TData>[]
   data: TData[]
   pageTitle: string
@@ -16,10 +16,10 @@ const TableView = <TData,>({ columns, data, pageTitle, fetchMetaboliteError, dis
 
   return (
     <div className='page_padding min-h-[calc(100dvh-var(--navbar-height)-var(--footer-height))] relative'>
-      {fetchMetaboliteError && 
+      {fetchMetaboliteError &&
         <ErrorBanner>Error fetching metabolite data, Please try again</ErrorBanner>
       }
-      
+
       {data.length !== 0 &&
         <Table<TData>
           data={data}
@@ -33,7 +33,7 @@ const TableView = <TData,>({ columns, data, pageTitle, fetchMetaboliteError, dis
         />
       }
 
-      {data.length === 0 && 
+      {data.length === 0 &&
         <div className='text-center text-gray-500 mt-32'>No <span className='lowercase'>{pageTitle}</span> data was found.</div>
       }
     </div>

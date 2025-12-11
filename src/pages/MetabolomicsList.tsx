@@ -4,11 +4,11 @@ import { faArrowRight, faFileArrowDown } from '@fortawesome/free-solid-svg-icons
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 import experimentsWithGenomeInfo from 'assets/data/airtable/experimentswithgenomeinfo.json'
 import experimentG from "assets/data/metabolomics/metabolomics_G.xlsx"
-// import experimentH from "assets/data/metabolomics/metabolomics_H.xlsx"
+import experimentH from "assets/data/metabolomics/metabolomics_H.xlsx"
 import experimentI from "assets/data/metabolomics/metabolomics_I.xlsx"
 import experimentJ from "assets/data/metabolomics/metabolomics_J.xlsx"
 import experimentK from "assets/data/metabolomics/metabolomics_K.xlsx"
-// import experimentM from "assets/data/metabolomics/metabolomics_M.xlsx"
+import experimentM from "assets/data/metabolomics/metabolomics_M.xlsx"
 
 
 const MetabolomicsList = () => {
@@ -16,11 +16,11 @@ const MetabolomicsList = () => {
   // for download excel file button
   const files = {
     'G': experimentG,
-    // 'H': experimentH,
+    'H': experimentH,
     'I': experimentI,
     'J': experimentJ,
     'K': experimentK,
-    // 'M': experimentM
+    'M': experimentM
   }
 
   const handleDownload = ({ experimentId }: { experimentId: string }) => {
@@ -55,7 +55,7 @@ const MetabolomicsList = () => {
                 </Link>
               </h2>
 
-              <div className='grid grid-cols-3 gap-4'>
+              <div className='grid grid-cols-3 gap-4 max-md:grid-cols-1 max-md:gap-2'>
                 <Link
                   to={`/metabolomics/volcano/${encodeURIComponent(experiment.fields.Name)}`}
                   className='group flex items-center justify-between gap-4 px-4 py-3 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition bg-white hover:bg-gray-50'

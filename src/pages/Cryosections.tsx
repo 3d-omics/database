@@ -168,7 +168,7 @@ const Cryosection = ({
     <TableView<TData>
       data={filteredData}
       columns={columns}
-      pageTitle={'Cryosection'}
+      pageTitle={'Cryosections'}
       tableDescription={tableDescription}
       displayTableHeader={displayTableHeader}
       displayTableFilters={displayTableFilters}

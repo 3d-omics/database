@@ -187,7 +187,7 @@ const AnimalSpecimen = ({
     <TableView<TData>
       data={filteredData}
       columns={columns}
-      pageTitle={'Animal Specimen'}
+      pageTitle={'Animal Specimens'}
       tableDescription={tableDescription}
       displayTableHeader={displayTableHeader}
       displayTableFilters={displayTableFilters}

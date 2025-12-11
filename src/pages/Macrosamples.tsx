@@ -2,16 +2,10 @@ import { useMemo } from 'react'
 import CrossReferenceTooltip from 'components/CrossReferenceTooltip'
 import { ColumnDef } from '@tanstack/react-table'
 import TableView from 'components/TableView'
-import useMetaboliteExcelFileData from 'hooks/useMetaboliteExcelFileData'
+// import useMetaboliteExcelFileData from 'hooks/useMetaboliteExcelFileData'
 import intestinalSectionSampleData from 'assets/data/airtable/intestinalsectionsample.json'
 import animalSpecimenData from 'assets/data/airtable/animalspecimen.json'
 import { Link } from 'react-router-dom'
-import experimentI from "assets/data/metabolomics/metabolomics_I.xlsx"
-import experimentJ from "assets/data/metabolomics/metabolomics_J.xlsx"
-import experimentK from "assets/data/metabolomics/metabolomics_K.xlsx"
-import experimentG from "assets/data/metabolomics/metabolomics_G.xlsx"
-// import { macrosampleWithMetaboliteData } from 'config/macrosampleWithMetaboliteData'
-
 
 type TData = {
   id: string
@@ -42,7 +36,11 @@ const Macrosample = (
     displayTableBody,
     filterWith = [],
     customColumns,
-    macrosampleWithMetaboliteData
+    macrosampleWithMetaboliteData,
+    pageTitle = 'Macrosamples',
+    tableDescription = "In 3D'omics we sampled two main types of samples: macrosamples, conventional-sized samples manually obtained from the animals, such as tissue sections, faeces and digesta samples, and microsamples, collected through laser microdissection for micro-scale spatial analyses. Macrosamples contain samples employed for direct nucleic acid and mass spectrometry analysis, as well as samples employed for downstream processing to obtain microsamples.",
+    checkedMetaboliteIds,
+    setCheckedMetaboliteIds
   }: {
     displayTableHeader?: boolean
     displayTableDescription?: boolean
@@ -51,30 +49,21 @@ const Macrosample = (
     filterWith?: { id: keyof TData['fields']; value: string | number; condition?: 'startsWith' | 'equals' }[]
     customColumns?: ColumnDef<TData>[]
     macrosampleWithMetaboliteData?: string[]
+    pageTitle?: string
+    tableDescription?: string,
+    checkedMetaboliteIds?: string[]
+    setCheckedMetaboliteIds?: React.Dispatch<React.SetStateAction<string[]>>
   }) => {
 
-  const { listOfSampleIdsThatHaveMetaboliteData = [], fetchMetaboliteError } = useMetaboliteExcelFileData()
+
+  // const { listOfSampleIdsThatHaveMetaboliteData = [], fetchMetaboliteError } = useMetaboliteExcelFileData({experimentId})
 
   const data = intestinalSectionSampleData as unknown as TData[]
-  // console.log(data.map((d) => d.fields))
-
-  const tableDescription = "In 3D'omics we sampled two main types of samples: macrosamples, conventional-sized samples manually obtained from the animals, such as tissue sections, faeces and digesta samples, and microsamples, collected through laser microdissection for micro-scale spatial analyses. Macrosamples contain samples employed for direct nucleic acid and mass spectrometry analysis, as well as samples employed for downstream processing to obtain microsamples."
-
 
   // for cross reference tooltip
   const specimenLookup = useMemo(() => {
     return (animalSpecimenData as any[]).map((record) => record.fields);
   }, []);
-
-  const files = {
-    'G': experimentG,
-    // 'H': experimentH,
-    'I': experimentI,
-    'J': experimentJ,
-    'K': experimentK,
-    // 'M': experimentM
-  }
-
 
   const filteredData = useMemo(() => {
     let result = data;
@@ -111,12 +100,11 @@ const Macrosample = (
     }
 
     return result;
-  }, [filterWith, macrosampleWithMetaboliteData]);
+  }, [filterWith, macrosampleWithMetaboliteData, data]);
 
 
 
   const defaultColumns = useMemo<ColumnDef<TData>[]>(() => {
-    const isHeatmapPage = window.location.href.includes('heatmap');
 
     const baseColumns: ColumnDef<TData>[] = [
       {
@@ -152,15 +140,7 @@ const Macrosample = (
           />
         ),
       },
-      {
-        id: 'Code',
-        header: 'Code',
-        accessorFn: (row) => row.fields.Code,
-        meta: {
-          filterVariant: 'select' as const,
-          uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Code))),
-        },
-      },
+
       {
         id: 'Sample type',
         header: 'Sample Type',
@@ -171,16 +151,7 @@ const Macrosample = (
           uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields['Sample type']))),
         },
       },
-      {
-        id: 'Data type',
-        header: 'Data Type',
-        accessorFn: (row) => row.fields['Data type'],
-        filterFn: 'equals',
-        meta: {
-          filterVariant: 'select' as const,
-          uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields['Data type']))),
-        },
-      },
+
       {
         id: 'Description',
         header: 'Description',
@@ -209,21 +180,6 @@ const Macrosample = (
         },
       },
       {
-        id: 'ENA Accession',
-        header: 'ENA Accession',
-        accessorFn: (row) => row.fields['ENA accession'],
-        cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
-          const enaLink = row.original.fields['ENA link'];
-          return enaLink ? (
-            <Link to={enaLink} target="_blank" rel="noopener noreferrer" className='link'>
-              {cell.getValue() as string}
-            </Link>
-          ) : (
-            <></>
-          );
-        }
-      },
-      {
         id: 'Metabolites Accession',
         header: 'Metabolites Accession',
         accessorFn: (row) => row.fields['Metabolights accession'],
@@ -241,21 +197,92 @@ const Macrosample = (
     ];
 
     if (macrosampleWithMetaboliteData) {
-      baseColumns.push({
+      baseColumns.splice(0, 0, {
         id: 'Metabolite',
-        header: 'Check to compare heatmap',
         accessorFn: (row) => macrosampleWithMetaboliteData.includes(row.fields.ID) ? 'Yes' : 'No',
         enableSorting: false,
         enableColumnFilter: false,
-        // meta: {
-        //   filterVariant: 'select' as const,
-        //   uniqueValues: ['Yes', 'No'],
-        // }
+        header: () => (
+          <div className='flex flex-col justify-center gap-4'>
+            <p className='text-center'>Heatmap comparison</p>
+            <input
+              type='checkbox'
+              className='accent-mustard tooltip tooltip-top !bg-white !text-custom_black'
+              data-tip='check to compare all samples'
+              checked={checkedMetaboliteIds?.length === macrosampleWithMetaboliteData.length}
+              onChange={(e) => {
+                if (e.target.checked) {
+                  setCheckedMetaboliteIds?.(macrosampleWithMetaboliteData)
+                } else {
+                  setCheckedMetaboliteIds?.([])
+                }
+              }}
+            />
+          </div>
+        ),
+        cell: (props: any) => {
+          const id = props.row.original.fields.ID;
+          return <div className='flex justify-center items-center'>
+            <input
+              type='checkbox'
+              className='accent-mustard tooltip tooltip-right !bg-white !text-custom_black'
+              data-tip='check samples to view/compare'
+              checked={checkedMetaboliteIds?.includes(id)}
+              onChange={(e) => {
+                if (e.target.checked) {
+                  setCheckedMetaboliteIds?.([...(checkedMetaboliteIds || []), id])
+                } else {
+                  setCheckedMetaboliteIds?.(checkedMetaboliteIds?.filter((checkedId) => checkedId !== id) || [])
+                }
+              }}
+              data-testid='metabolite-checkbox'
+            />
+          </div>
+        }
+      });
+    }
+
+    if (!macrosampleWithMetaboliteData) {
+      baseColumns.splice(2, 0, {
+        id: 'Code',
+        header: 'Code',
+        accessorFn: (row) => row.fields.Code,
+        meta: {
+          filterVariant: 'select' as const,
+          uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Code))),
+        },
+      });
+
+      baseColumns.splice(4, 0, {
+        id: 'Data type',
+        header: 'Data Type',
+        accessorFn: (row) => row.fields['Data type'],
+        filterFn: 'equals',
+        meta: {
+          filterVariant: 'select' as const,
+          uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields['Data type']))),
+        }
+      });
+
+      baseColumns.splice(8, 0, {
+        id: 'ENA Accession',
+        header: 'ENA Accession',
+        accessorFn: (row) => row.fields['ENA accession'],
+        cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
+          const enaLink = row.original.fields['ENA link'];
+          return enaLink ? (
+            <Link to={enaLink} target="_blank" rel="noopener noreferrer" className='link'>
+              {cell.getValue() as string}
+            </Link>
+          ) : (
+            <></>
+          );
+        }
       });
     }
 
     return baseColumns;
-  }, [filteredData, specimenLookup])
+  }, [filteredData, specimenLookup, macrosampleWithMetaboliteData, checkedMetaboliteIds, setCheckedMetaboliteIds]);
 
   const columns = customColumns ?? defaultColumns
 
@@ -263,8 +290,8 @@ const Macrosample = (
     <TableView<TData>
       data={filteredData}
       columns={columns}
-      fetchMetaboliteError={fetchMetaboliteError}
-      pageTitle={'Macrosample'}
+      // fetchMetaboliteError={fetchMetaboliteError}
+      pageTitle={pageTitle}
       displayTableHeader={displayTableHeader}
       displayTableDescription={displayTableDescription}
       displayTableFilters={displayTableFilters}

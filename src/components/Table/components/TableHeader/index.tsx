@@ -1,21 +1,20 @@
 import { ColumnDef } from '@tanstack/react-table'
 import DownloadTSVButton from './DownloadTSVButton'
 
-interface TableHeaderProps<TData> {
-  pageTitle: string
-  filteredDataLength: number
-  checkedItems: any[]
-  filteredAndSortedData: any[]
-  columns: ColumnDef<TData>[]
-}
 
 const TableHeader = <TData,>({
   pageTitle,
   filteredDataLength,
-  checkedItems,
+  // checkedItems,
   filteredAndSortedData,
   columns
-}: TableHeaderProps<TData>) => {
+}: {
+  pageTitle: string
+  filteredDataLength: number
+  // checkedItems: any[]
+  filteredAndSortedData: any[]
+  columns: ColumnDef<TData>[]
+}) => {
   return (
     <section className='z-20 bg-white flex justify-between items-center pb-5 max-md:flex-col max-md:items-start'>
       <div className='flex gap-4 items-center max-sm:block'>
@@ -28,7 +27,7 @@ const TableHeader = <TData,>({
       </div>
 
       <div className='flex gap-4 max-md:pt-4 max-sm:flex-col max-sm:items-start max-sm:gap-0.5'>
-        {checkedItems.length > 0 && (
+        {/* {checkedItems.length > 0 && (
           <div
             className='max-sm:pt-1 tooltip tooltip-bottom z-[22]' // Make this z-index stronger that the other Download button for when responsive (so that it goes over the other button)
             data-testid='download-selected-tsv-button-wrapper'
@@ -41,7 +40,7 @@ const TableHeader = <TData,>({
               buttonLabel={`Download Selected (${checkedItems.length}) as TSV`}
             />
           </div>
-        )}
+        )} */}
         <div
           className='max-sm:pt-1 z-[21]'
           data-testid='download-all-tsv-button-wrapper'

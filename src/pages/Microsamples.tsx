@@ -164,7 +164,7 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
     <TableView<TData>
       data={filteredData}
       columns={columns}
-      pageTitle={'Microsample'}
+      pageTitle={'Microsamples'}
       tableDescription={tableDescription}
       displayTableHeader={displayTableHeader}
       displayTableFilters={displayTableFilters}

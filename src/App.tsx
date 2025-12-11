@@ -1,31 +1,37 @@
 import './App.css'
 import { useLayoutEffect, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import AnimalTrial from 'pages/AnimalTrials'
+
 import Nav from 'components/Navbar'
+import Footer from 'components/Footer'
+import NotFound from 'pages/NotFound'
+import Home from 'pages/Home'
+
+import AnimalTrial from 'pages/AnimalTrials'
 import AnimalSpecimen from 'pages/AnimalSpecimens'
 import Macrosample from 'pages/Macrosamples'
 import Cryosection from 'pages/Cryosections'
 import Microsample from 'pages/Microsamples'
-import Home from 'pages/Home'
-import NotFound from 'pages/NotFound'
-import Footer from 'components/Footer'
+
+import MacrosampleCompositionList from 'pages/MacrosampleCompositionList'
+
+import MetabolomicsList from 'pages/MetabolomicsList'
 import MetabolomicsVolcano from 'pages/MetabolomicsVolcano'
-// import Metabolomics from 'pages/Metabolomics'
 import MetabolomicsHeatmap from 'pages/MetabolomicsHeatmap'
+
+import MAGCatalogueList from 'pages/MAGCatalogueList'
 import MAGCatalogue from 'pages/MAGCatalogue'
 import Genome from 'pages/Genome'
-import MAGCatalogueList from 'pages/MAGCatalogueList'
-// import MicrosampleCompositionList from 'pages/MicrosampleCompositionList'
+
 import MicrosampleComposition from 'pages/MicrosampleComposition'
 import MacrosampleTaxonomyChart from 'pages/MacrosampleComposition'
-import MacrosampleCompositionList from 'pages/MacrosampleCompositionList'
-import AnimalSpecimenOverview from 'pages/AnimalSpecimenOverview'
+
 import AnimalTrialOverview from 'pages/AnimalTrialOverview'
+import AnimalSpecimenOverview from 'pages/AnimalSpecimenOverview'
 import MacrosampleOverview from 'pages/MacrosampleOverview'
 import CryosectionOverview from 'pages/CryosectionOverview'
+
 import DownloadDatabaseSchema from 'pages/DownloadDatabaseSchema'
-import MetabolomicsList from 'pages/MetabolomicsList'
 
 
 function App() {
@@ -45,18 +51,15 @@ function App() {
     const getTitle = (pathname: string) => {
       let title = ""
       if (pathname === "/") title = "Home"
-      else if (pathname === "/animal-trials") title = "Animal Trial"
-      else if (pathname === "/animal-specimens") title = "Animal Specimen"
-      else if (pathname === "/macrosamples") title = "Macrosample"
-      else if (pathname === "/cryosections") title = "Cryosection"
-      else if (pathname === "/microsamples") title = "Microsample"
-
+      else if (pathname === "/animal-trials") title = "Animal Trials"
+      else if (pathname === "/animal-specimens") title = "Animal Specimens"
+      else if (pathname === "/macrosamples") title = "Macrosamples"
+      else if (pathname === "/cryosections") title = "Cryosections"
+      else if (pathname === "/microsamples") title = "Microsamples"
       else if (pathname === "/metabolomics") title = "Metabolomics"
-      else if (pathname === "/microsample-compositions") title = "Microsample Community Composition"
       else if (pathname === "/macrosample-compositions") title = "Macrosample Community Composition"
       else if (pathname === "/mag-catalogues") title = "MAG Catalogue List"
       else if (pathname === "/database-schema") title = "Download Database Schema"
-
       else {
         const experimentMatch = pathname.match(/^\/animal-trials\/([^/]+)$/)
         if (experimentMatch) { // Match /animal-trials/:experimentName/
@@ -73,10 +76,30 @@ function App() {
               const macroCompMatch = pathname.match(/^\/macrosample-compositions\/([^/]+)$/)
               if (macroCompMatch) {
                 title = decodeURIComponent(macroCompMatch[1])
-              } else { // Match /microsample-composition/:cryosection
-                const microCompMatch = pathname.match(/^\/microsample-compositions\/([^/]+)$/)
-                if (microCompMatch) {
-                  title = decodeURIComponent(microCompMatch[1])
+              } else { // Match /metabolomics/volcano/:experimentName
+                const volcanoMatch = pathname.match(/^\/metabolomics\/volcano\/([^/]+)$/)
+                if (volcanoMatch) {
+                  title = `${decodeURIComponent(volcanoMatch[1])} - Volcano Plot`
+                } else { // Match /metabolomics/heatmap/:experimentName
+                  const heatmapMatch = pathname.match(/^\/metabolomics\/heatmap\/([^/]+)$/)
+                  if (heatmapMatch) {
+                    title = `${decodeURIComponent(heatmapMatch[1])} - Heatmap`
+                  } else { // Match /animal-specimens/:specimenName
+                    const specimenMatch = pathname.match(/^\/animal-specimens\/([^/]+)$/)
+                    if (specimenMatch) {
+                      title = decodeURIComponent(specimenMatch[1])
+                    } else { // Match /macrosamples/:macrosampleName
+                      const macrosampleMatch = pathname.match(/^\/macrosamples\/([^/]+)$/)
+                      if (macrosampleMatch) {
+                        title = decodeURIComponent(macrosampleMatch[1])
+                      } else { // Match /cryosections/:cryosectionName
+                        const cryosectionMatch = pathname.match(/^\/cryosections\/([^/]+)$/)
+                        if (cryosectionMatch) {
+                          title = decodeURIComponent(cryosectionMatch[1])
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -118,7 +141,6 @@ function App() {
           <Route path="/metabolomics/volcano/:experimentName" element={<MetabolomicsVolcano />} />
           <Route path="/metabolomics/heatmap/:experimentName" element={<MetabolomicsHeatmap />} />
 
-          {/* <Route path="/microsample-compositions" element={<MicrosampleCompositionList />} /> */}
           <Route path="/microsample-compositions/:cryosection" element={<MicrosampleComposition />} />
 
           <Route path="/database-schema" element={<DownloadDatabaseSchema />} />

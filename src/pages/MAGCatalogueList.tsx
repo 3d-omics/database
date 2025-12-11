@@ -11,6 +11,10 @@ const MAGCatalogueList = () => {
 
       <header className='main_header mb-4'>List of MAG Catalogues</header>
 
+      <p className='page_description'>
+        Metagenome-assembled genome (MAG) catalogues are trial-specific collections of bacterial and archaeal genomes reconstructed from the faecal and intestinal samples collected from the experimental animals. Each catalogue contains hundreds of near-complete genomes reconstructed using hybrid DNA sequencing, combining long-read PacBio HiFi and short-read Illumina sequencing. In the following pages you will be able to browse these catalogues. Use the provided links to download the genome sequences and their annotations.
+      </p>
+
       <ul className='space-y-4'>
         {animalTrialExperimentData.map((experiment) => {
           const link = experimentsWithGenomeInfo.filter((exp) => exp.fields.ID === experiment.fields.ID)[0]?.fields.link
@@ -27,7 +31,7 @@ const MAGCatalogueList = () => {
                     {experiment.fields.Name}
                   </h1>
                 </Link>
-                
+
                 <div className='flex gap-4 text-xs text-gray-500 font-extralight [&>span]:flex [&>span]:gap-1 max-md:flex-col max-md:gap-0'>
                   {
                     experiment.fields['MAG catalogue - Number of MAGs'] &&
