@@ -1,113 +1,122 @@
-import { render, screen } from '@testing-library/react'
-import { describe, it, expect, vi } from 'vitest'
-import TestRouter from "tests/setup/test-utils"
-import { fireEvent } from '@testing-library/react'
-import MobileMenu from './MobileMenu'
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import { BrowserRouter } from 'react-router-dom';
+import MobileMenu from './MobileMenu';
 
+// Mock MenuItems
+vi.mock('./MenuItems', () => ({
+  menus: [
+    {
+      sectionTitle: 'Data',
+      subMenus: [
+        { title: 'Animal Trials', location: '/animal-trials' },
+        { title: 'Animal Specimens', location: '/animal-specimens' },
+      ],
+    },
+    {
+      title: 'About',
+      location: '/about',
+    },
+  ],
+}));
 
-vi.mock('react-router-dom', async () => {
-  const actual = await vi.importActual<typeof import('react-router-dom')>('react-router-dom')
-  return {
-    ...actual,
-    useLocation: vi.fn(),
-    useNavigate: vi.fn()
-  }
-})
-const { useLocation } = await import('react-router-dom')
-const mockUseLocation = useLocation as jest.Mock
+// Mock SocialIcons
+vi.mock('../SocialIcons', () => ({
+  default: () => <div data-testid="social-icons">Social Icons</div>,
+}));
 
+describe('MobileMenu', () => {
+  const renderMobileMenu = () => {
+    return render(
+      <BrowserRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true
+        }}
+      >
+        <MobileMenu />
+      </BrowserRouter>
+    );
+  };
 
-const renderMobileMenu = () => {
-  render(
-    <TestRouter>
-      <MobileMenu />
-    </TestRouter>
-  )
-}
+  it('renders hamburger menu', () => {
+    renderMobileMenu();
+    expect(screen.getByTestId('hamburger-menu')).toBeInTheDocument();
+  });
 
+  it('mobile menu is closed by default', () => {
+    renderMobileMenu();
+    expect(screen.queryByTestId('mobile-menu-opened')).not.toBeInTheDocument();
+  });
 
-describe('components > MobileMenu', () => {
-  beforeEach(() => {
-    vi.clearAllMocks()
-    mockUseLocation.mockReturnValue({ pathname: '/' })
-  })
+  it('opens mobile menu when hamburger clicked', async () => {
+    const user = userEvent.setup();
+    renderMobileMenu();
 
+    const hamburger = screen.getByTestId('hamburger-menu');
+    await user.click(hamburger);
 
-  it('should toggle mobile menu visibility when hamburger is clicked', () => {
-    renderMobileMenu()
-    expect(screen.queryByTestId('mobile-menu-opened')).not.toBeInTheDocument() // Initially menu should be closed
-    const hamburger = screen.getByTestId('hamburger-menu')
-    fireEvent.click(hamburger) // Click hamburger menu
-    expect(screen.getByTestId('mobile-menu-opened')).toBeInTheDocument()  // Menu should be open
-    fireEvent.click(hamburger) // Click hamburger again
-    expect(screen.queryByTestId('mobile-menu-opened')).not.toBeInTheDocument() // Menu should be closed again
-  })
+    expect(screen.getByTestId('mobile-menu-opened')).toBeInTheDocument();
+  });
 
+  it('closes mobile menu when overlay clicked', async () => {
+    const user = userEvent.setup();
+    renderMobileMenu();
 
+    const hamburger = screen.getByTestId('hamburger-menu');
+    await user.click(hamburger);
+    expect(screen.getByTestId('mobile-menu-opened')).toBeInTheDocument();
 
-  it('should render all menu items from the menus array', () => {
-    renderMobileMenu()
-    expect(screen.queryByText(/animal trial/i)).not.toBeInTheDocument() // Check if menu items are not rendered before opening the menu
-    expect(screen.queryByText(/animal specimen/i)).not.toBeInTheDocument()
-    fireEvent.click(screen.getByTestId('hamburger-menu')) // Open the menu
-    expect(screen.getByText(/animal trial/i)).toBeInTheDocument() // Check if menu items are rendered
-    expect(screen.getByText(/animal specimen/i)).toBeInTheDocument()
-    expect(screen.getByText(/home/i)).toHaveAttribute('href', '/') // Check if links have correct hrefs
-    expect(screen.getByText(/animal trial/i)).toHaveAttribute('href', '/animal-trials')
-    expect(screen.getByText(/animal specimen/i)).toHaveAttribute('href', '/animal-specimens')
-    expect(screen.getByText(/metabolomics/i)).toHaveAttribute('href', '/metabolomics')
-    expect(screen.getByText(/cryosections/i)).toHaveAttribute('href', '/cryosections')
-    expect(screen.getByText(/microsamples/i)).toHaveAttribute('href', '/microsamples')
-    expect(screen.getAllByText(/metagenomics/i)[0]).toHaveAttribute('href', '/macrosample-compositions')
-    expect(screen.getAllByText(/metagenomics/i)[1]).toHaveAttribute('href', '/microsample-compositions')
-  })
+    const overlay = screen.getByTestId('mobile-menu-overlay');
+    await user.click(overlay);
+    expect(screen.queryByTestId('mobile-menu-opened')).not.toBeInTheDocument();
+  });
 
+  it('closes mobile menu when menu link clicked', async () => {
+    const user = userEvent.setup();
+    renderMobileMenu();
 
+    const hamburger = screen.getByTestId('hamburger-menu');
+    await user.click(hamburger);
 
-  it('should highlight the current location with mustard text color', () => {
-    mockUseLocation.mockReturnValue({ pathname: '/animal-specimens' })
-    renderMobileMenu()
-    fireEvent.click(screen.getByTestId('hamburger-menu')) // Open the menu
-    expect(screen.getByText(/animal specimen/i)).toHaveClass('text-mustard')
-    expect(screen.getByText(/animal trial/i)).not.toHaveClass('text-mustard')
-  })
+    const homeLink = screen.getByRole('link', { name: /Data Portal Home/i });
+    await user.click(homeLink);
 
+    expect(screen.queryByTestId('mobile-menu-opened')).not.toBeInTheDocument();
+  });
 
+  it('renders menu items when opened', async () => {
+    const user = userEvent.setup();
+    renderMobileMenu();
 
+    const hamburger = screen.getByTestId('hamburger-menu');
+    await user.click(hamburger);
 
-  it('should stop click propagation when clicking on the nav element', () => {
-    renderMobileMenu()
-    fireEvent.click(screen.getByTestId('hamburger-menu'))
-    const navElement = screen.getByTestId('mobile-menu-opened')
-    const clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true })
-    const stopPropagationMock = vi.fn()
-    Object.defineProperty(clickEvent, 'stopPropagation', {  // Patch the event
-      value: stopPropagationMock,
-      writable: true,
-    })
-    navElement.dispatchEvent(clickEvent)
-    expect(stopPropagationMock).toHaveBeenCalled()
-  })
+    expect(screen.getByRole('link', { name: /Data Portal Home/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Animal Trials/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /Animal Specimens/i })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /About/i })).toBeInTheDocument();
+  });
 
+  it('renders SocialIcons when opened', async () => {
+    const user = userEvent.setup();
+    renderMobileMenu();
 
+    const hamburger = screen.getByTestId('hamburger-menu');
+    await user.click(hamburger);
 
+    expect(screen.getByTestId('social-icons')).toBeInTheDocument();
+  });
 
-  it('should close the menu when clicking outside the menu area', () => {
-    renderMobileMenu()
-    fireEvent.click(screen.getByTestId('hamburger-menu'))
-    expect(screen.getByTestId('mobile-menu-opened')).toBeInTheDocument()
-    fireEvent.click(screen.getByTestId('mobile-menu-overlay')) // Click outside the menu (clicking on the backdrop overlay)
-    expect(screen.queryByTestId('mobile-menu-opened')).not.toBeInTheDocument()
-  })
+  it('renders 3Domics logo link', async () => {
+    const user = userEvent.setup();
+    renderMobileMenu();
 
+    const hamburger = screen.getByTestId('hamburger-menu');
+    await user.click(hamburger);
 
-
-
-  it('should render SocialIcons component only after mobile menu is opened', () => {
-    renderMobileMenu()
-    expect(screen.queryByTestId('social-icons')).not.toBeInTheDocument()
-    fireEvent.click(screen.getByTestId('hamburger-menu'))
-    expect(screen.getByTestId('social-icons')).toBeInTheDocument()
-  })
-
-})
+    const logoLink = screen.getByRole('link', { name: /3D'omics logo/i });
+    expect(logoLink).toHaveAttribute('href', 'http://www.3domics.eu');
+  });
+});

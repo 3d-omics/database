@@ -1,5 +1,4 @@
 export const menus = [
-  // { location: '/', title: 'Data Portal Home' },
   { location: '/animal-trials', title: 'Animal Trials' },
   { location: '/mag-catalogues', title: 'MAG Catalogues' },
   { location: '/animal-specimens', title: 'Animal Specimens' },
@@ -13,4 +12,5 @@ export const menus = [
   },
   { location: '/cryosections', title: 'Cryosections' },
   { location: '/microsamples', title: 'Microsamples' },
+  // { location: '/database-schema', title: 'Download Database Schema' },
 ]

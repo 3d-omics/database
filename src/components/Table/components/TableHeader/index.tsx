@@ -30,7 +30,6 @@ const TableHeader = <TData,>({
         {/* {checkedItems.length > 0 && (
           <div
             className='max-sm:pt-1 tooltip tooltip-bottom z-[22]' // Make this z-index stronger that the other Download button for when responsive (so that it goes over the other button)
-            data-testid='download-selected-tsv-button-wrapper'
             data-tip="only the rows you've checked"
           >
             <DownloadTSVButton<TData>
@@ -43,7 +42,6 @@ const TableHeader = <TData,>({
         )} */}
         <div
           className='max-sm:pt-1 z-[21]'
-          data-testid='download-all-tsv-button-wrapper'
         // className='max-sm:pt-1 tooltip tooltip-bottom z-[21]'
         // data-tip="all filtered + sorted items"
         >

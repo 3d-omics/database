@@ -2,14 +2,14 @@ export const getExperimentOptions = (experimentId: string): Record<string, Recor
   switch (experimentId) {
     case 'G':
       return {
-        'DAY': {
+        'Day': {
           '7': 'Day 7',
           '14': 'Day 14',
           '21': 'Day 21',
           '28': 'Day 28',
           '35': 'Day 35'
         },
-        'TREATMENT': {
+        'Treatment': {
           'T1': 'YES pathogen, YES PoultryStar® in drinking water and feed',
           'T2': 'YES pathogen, YES PoultryStar® in drinking water',
           'T3': 'YES pathogen, YES PoultryStar® in feed',
@@ -20,14 +20,21 @@ export const getExperimentOptions = (experimentId: string): Record<string, Recor
 
     case 'H':
       return {
-        'DAY': {
-          'a': 'Day 0',
-          'b': 'Day 4',
-          'c': 'Day 7',
-          'd': 'Day 14',
-          'e': 'Day 21'
+        'Day': {
+          'a': 'a',
+          'b': 'b',
+          'c': 'c',
+          'd': 'd',
+          'e': 'e'
         },
-        'TREATMENT': {
+        // 'Day': {
+        //   'a': 'Day 0',
+        //   'b': 'Day 4',
+        //   'c': 'Day 7',
+        //   'd': 'Day 14',
+        //   'e': 'Day 21'
+        // },
+        'Treatment': {
           'TH1': 'Vaccinated + Challenge (Formulation 1)',
           'TH2': 'Vaccinated + Challenge (Formulation 2)',
           'TH3': 'Non-vaccinated + Challenge (Positive control)',
@@ -48,11 +55,11 @@ export const getExperimentOptions = (experimentId: string): Record<string, Recor
 
     case 'I':
       return {
-        'DIET': {
+        'Diet': {
           '1': 'High protein diet',
           '3': 'Low protein diet',
         },
-        'GROUP': {
+        'Group': {
           'LEBV': 'LEBV',
           'HEBV': 'HEBV'
         },
@@ -64,7 +71,7 @@ export const getExperimentOptions = (experimentId: string): Record<string, Recor
 
     case 'J':
       return {
-        'DIET': {
+        'Diet': {
           'T1': 'Control diet + no mannan',
           'T2': 'Mannan'
         },
@@ -76,11 +83,11 @@ export const getExperimentOptions = (experimentId: string): Record<string, Recor
 
     case 'K':
       return {
-        'DIET': {
+        'Diet': {
           '1': 'High protein diet',
           '3': 'Low protein diet',
         },
-        'GROUP': {
+        'Group': {
           'LEBV': 'LEBV',
           'HEBV': 'HEBV'
         },
@@ -92,13 +99,19 @@ export const getExperimentOptions = (experimentId: string): Record<string, Recor
 
     case 'M':
       return {
-        'DAY': {
-          'a': '0',
-          'b': '7',
-          'c': '9/14',
-          'd': '21',
+        'Day': {
+          'a': 'a',
+          'b': 'b',
+          'c': 'c',
+          'd': 'd',
         },
-        'TREATMENT': {
+        // 'Day': {
+        //   'a': '0',
+        //   'b': '7',
+        //   'c': '9/14',
+        //   'd': '21',
+        // },
+        'Treatment': {
           'TM1': 'Vaccinated + Challenge (Formulation 1)',
           'TM2': 'Vaccinated + Challenge (Formulation 2)',
           'TM3': 'Non-vaccinated + Challenge (Positive control)',

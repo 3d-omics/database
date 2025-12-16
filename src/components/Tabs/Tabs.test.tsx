@@ -1,65 +1,64 @@
-import { render, screen, fireEvent } from '@testing-library/react'
-import { vi } from 'vitest'
-import Tabs from '.'
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import Tabs from './index';
 
 describe('Tabs', () => {
-  const mockSetSelectedTab = vi.fn()
-  const tabs = ['Tab 1', 'Tab 2', 'Tab 3']
-
-  beforeEach(() => {
-    vi.clearAllMocks()
-  })
+  const mockTabs = ['Tab 1', 'Tab 2', 'Tab 3'];
 
   it('renders all tabs', () => {
     render(
-      <Tabs 
-        selectedTab="Tab 1" 
-        setSelectedTab={mockSetSelectedTab} 
-        tabs={tabs} 
+      <Tabs
+        selectedTab="Tab 1"
+        setSelectedTab={vi.fn()}
+        tabs={mockTabs}
       />
-    )
+    );
 
-    expect(screen.getByText('Tab 1')).toBeInTheDocument()
-    expect(screen.getByText('Tab 2')).toBeInTheDocument()
-    expect(screen.getByText('Tab 3')).toBeInTheDocument()
-  })
+    expect(screen.getByText('Tab 1')).toBeInTheDocument();
+    expect(screen.getByText('Tab 2')).toBeInTheDocument();
+    expect(screen.getByText('Tab 3')).toBeInTheDocument();
+  });
 
   it('applies active styling to selected tab', () => {
     render(
-      <Tabs 
-        selectedTab="Tab 2" 
-        setSelectedTab={mockSetSelectedTab} 
-        tabs={tabs} 
+      <Tabs
+        selectedTab="Tab 2"
+        setSelectedTab={vi.fn()}
+        tabs={mockTabs}
       />
-    )
+    );
 
-    const activeTab = screen.getByText('Tab 2')
-    expect(activeTab).toHaveClass('tab-active')
-  })
+    const selectedTab = screen.getByText('Tab 2');
+    expect(selectedTab).toHaveClass('tab-active');
+  });
 
-  it('calls setSelectedTab when tab is clicked', () => {
+  it('calls setSelectedTab when tab clicked', async () => {
+    const setSelectedTab = vi.fn();
+    const user = userEvent.setup();
+
     render(
-      <Tabs 
-        selectedTab="Tab 1" 
-        setSelectedTab={mockSetSelectedTab} 
-        tabs={tabs} 
+      <Tabs
+        selectedTab="Tab 1"
+        setSelectedTab={setSelectedTab}
+        tabs={mockTabs}
       />
-    )
+    );
 
-    fireEvent.click(screen.getByText('Tab 2'))
-    expect(mockSetSelectedTab).toHaveBeenCalledWith('Tab 2')
-  })
+    await user.click(screen.getByText('Tab 2'));
 
-  it('does not apply active styling to non-selected tabs', () => {
+    expect(setSelectedTab).toHaveBeenCalledWith('Tab 2');
+  });
+
+  it('renders with empty tabs array', () => {
     render(
-      <Tabs 
-        selectedTab="Tab 1" 
-        setSelectedTab={mockSetSelectedTab} 
-        tabs={tabs} 
+      <Tabs
+        selectedTab=""
+        setSelectedTab={vi.fn()}
+        tabs={[]}
       />
-    )
+    );
 
-    const inactiveTab = screen.getByText('Tab 2')
-    expect(inactiveTab).not.toHaveClass('tab-active')
-  })
-})
+    expect(screen.getByTestId('tabs')).toBeInTheDocument();
+  });
+});

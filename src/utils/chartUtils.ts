@@ -1,22 +1,4 @@
-// export const flattenedcolorScheme = (colorScheme:Record<string, any>) => {
-//   const result: Record<string, string> = {};
-//   function traverse(obj: Record<string, any>): void {
-//     for (const key in obj) {
-//       if (key === 'color') continue;
-//       if (['species', 'genus', 'family', 'order', 'class'].includes(key)) {
-//         traverse(obj[key]);
-//       } else {
-//         const taxonData = obj[key];
-//         if (taxonData.color) {
-//           result[key] = taxonData.color;
-//         }
-//         traverse(taxonData);
-//       }
-//     }
-//   }
-//   traverse(colorScheme);
-//   return result;
-// }
+
 export const flattenedcolorScheme = (colorScheme: Record<string, any>) => {
   const result: Record<string, string> = {};
   function traverse(obj: Record<string, any>): void {

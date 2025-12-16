@@ -49,7 +49,7 @@ const MobileMenu = () => {
                     className='font-semibold btn btn-ghost w-fit cursor-pointer mx-2 mb-2'
                   >
                     {/* 3D'omics Home */}
-                    <img src={Logo} alt="3D'omics logo" className="h-8 object-contain" data-cy='3domics-logo' />
+                    <img src={Logo} alt="3D'omics logo" className="h-8 object-contain" />
                   </Link>
                 </li>
 

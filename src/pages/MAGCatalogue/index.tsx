@@ -223,7 +223,7 @@ const MAGCatalogue = () => {
 
           <header className='main_header mb-3'>{experimentName}</header>
 
-          <div className='flex gap-4 text-sm text-gray-500 mb-3 font-thin [&>span]:flex [&>span]:gap-1'>
+          <div className='flex gap-4 text-sm text-gray-500 mb-3 font-thin [&>span]:flex [&>span]:gap-1 max-lg:flex-col max-lg:gap-0.5 max-lg:mb-0.5'>
             <span>
               Number of MAGs:&nbsp;
               <b>{experiment['MAG catalogue - Number of MAGs']}</b>
@@ -286,7 +286,7 @@ const MAGCatalogue = () => {
           </div>
 
           {(trialDoiAndLink.link || trialDoiAndLink.doi) &&
-            <div className='flex gap-4 text-sm text-gray-500 mb-3 font-thin [&>span]:flex [&>span]:gap-1'>
+            <div className='flex gap-4 text-sm text-gray-500 mb-3 font-thin [&>span]:flex [&>span]:gap-1 max-lg:flex-col max-lg:gap-0.5'>
               {trialDoiAndLink.link &&
                 <span>
                   Link:&nbsp;

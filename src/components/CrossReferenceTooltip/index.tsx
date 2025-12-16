@@ -19,7 +19,6 @@ const CrossReferenceTooltip = ({ value, data, fieldsName }: {
       {value && (
         <CrossReferenceIcon
           className='fill-inherit cursor-pointer hover:fill-mustard peer inline ml-1 mb-3'
-          data-cy='cross-reference-tooltip'
           data-testid='cross-reference-icon'
         />
       )}

@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import BreadCrumbs from 'components/BreadCrumbs'
 import cryosectionData from 'assets/data/airtable/cryosection.json'
-import MicrosampleTab from 'components/MicrosampleTab'
+import MicrosampleTab from 'components/TabComponents/MicrosampleTab'
 import Tabs from 'components/Tabs'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
@@ -58,7 +58,7 @@ const CryosectionOverview = () => {
 
               <header className='main_header mb-3'>{cryosectionName}</header>
 
-              <div className='flex gap-4 text-sm text-gray-500 font-thin [&>span]:flex [&>span]:gap-1'>
+              <div className='flex gap-4 text-sm text-gray-500 font-thin [&>span]:flex [&>span]:gap-1 max-lg:flex-col max-lg:gap-0.5'>
                 <span>
                   Slide:&nbsp;
                   <b>{cryosection.fields['Slide_flat']}</b>

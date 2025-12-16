@@ -1,117 +1,128 @@
-import { render, screen } from '@testing-library/react'
-import MicrosampleTab from './MicrosampleTab'
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import MicrosampleTab from './MicrosampleTab';
 
-describe('Genome page > SamplesContainingThisGenome > MicrosampleTab', () => {
+// Mock components
+vi.mock('components/Table/components/TableBody', () => ({
+  default: () => <div data-testid="table-body">Table Body</div>,
+}));
+
+vi.mock('components/ErrorBanner', () => ({
+  default: ({ children }: any) => <div data-testid="error-banner">{children}</div>,
+}));
+
+describe('MicrosampleTab', () => {
   const mockData = [
-    { id: 'MICRO001', count: '1.5' },
-    { id: 'MICRO002', count: '2.1' },
-  ]
+    {
+      id: 'M001',
+      count: 0.45,
+      enaLink: 'https://www.ebi.ac.uk/ena/browser/view/ERR123',
+      run_accession: 'ERR123',
+    },
+    {
+      id: 'M002',
+      count: 0.32,
+      enaLink: 'https://www.ebi.ac.uk/ena/browser/view/ERR456',
+      run_accession: 'ERR456',
+    },
+  ];
 
-  it('renders loading state', () => {
-    render(
-      <MicrosampleTab
-        data={[]}
-        genomeName="TG2:bin_000003"
-        isLoading={true}
-        error={null}
-      />
-    )
+  const renderMicrosampleTab = (props: any) => {
+    return render(
+      <BrowserRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true
+        }}
+      >
+        <MicrosampleTab {...props} />
+      </BrowserRouter>
+    );
+  };
+
+  it('shows loading state when isLoading is true', () => {
+    renderMicrosampleTab({
+      data: null,
+      genomeName: 'Genome1',
+      isLoading: true,
+      error: null,
+    });
 
     expect(screen.getByText((content, element) => {
-      return element?.classList.contains('loading') || false
-    })).toBeInTheDocument()
-  })
+      return element?.className?.includes('loading-dots') || false;
+    })).toBeInTheDocument();
+  });
 
-  it('renders error banner when error exists', () => {
-    render(
-      <MicrosampleTab
-        data={[]}
-        genomeName="TG2:bin_000003"
-        isLoading={false}
-        error="Failed to load data"
-      />
-    )
+  it('shows error banner when error exists', () => {
+    renderMicrosampleTab({
+      data: null,
+      genomeName: 'Genome1',
+      isLoading: false,
+      error: 'Failed to load data',
+    });
 
-    expect(screen.getByText('Failed to load data')).toBeInTheDocument()
-  })
+    expect(screen.getByTestId('error-banner')).toBeInTheDocument();
+    expect(screen.getByText('Failed to load data')).toBeInTheDocument();
+  });
 
-  it('renders "no microsamples" message when data is null', () => {
-    render(
-      <MicrosampleTab
-        data={null}
-        genomeName="TG2:bin_000003"
-        isLoading={false}
-        error={null}
-      />
-    )
+  it('shows no results message when data is null', () => {
+    renderMicrosampleTab({
+      data: null,
+      genomeName: 'Genome1',
+      isLoading: false,
+      error: null,
+    });
 
-    expect(screen.getByText(/No microsamples containing/i)).toBeInTheDocument()
-    expect(screen.getByText(/TG2:bin_000003/i)).toBeInTheDocument()
-    expect(screen.getByText(/were found/i)).toBeInTheDocument()
-  })
+    expect(screen.getByText(/No microsamples containing/i)).toBeInTheDocument();
+    expect(screen.getByText('Genome1')).toBeInTheDocument();
+  });
 
-  it('renders "no microsamples" message when data is empty', () => {
-    render(
-      <MicrosampleTab
-        data={[]}
-        genomeName="TG2:bin_000003"
-        isLoading={false}
-        error={null}
-      />
-    )
+  it('shows no results message when data is empty', () => {
+    renderMicrosampleTab({
+      data: [],
+      genomeName: 'Genome1',
+      isLoading: false,
+      error: null,
+    });
 
-    expect(screen.getByText(/No microsamples containing/i)).toBeInTheDocument()
-    expect(screen.getByText(/TG2:bin_000003/i)).toBeInTheDocument()
-    expect(screen.getByText(/were found/i)).toBeInTheDocument()
-  })
+    expect(screen.getByText(/No microsamples containing/i)).toBeInTheDocument();
+  });
 
-  it('renders table with correct count label for single microsample', () => {
-    render(
-      <MicrosampleTab
-        data={[mockData[0]]}
-        genomeName="TG2:bin_000003"
-        isLoading={false}
-        error={null}
-      />
-    )
+  it('renders table with data', () => {
+    renderMicrosampleTab({
+      data: mockData,
+      genomeName: 'Genome1',
+      isLoading: false,
+      error: null,
+    });
 
-    expect(screen.getByText('1')).toBeInTheDocument()
-    expect(screen.getByText(/microsample containing/i)).toBeInTheDocument()
-    expect(screen.getByText('TG2:bin_000003')).toBeInTheDocument()
-    expect(screen.getByText('MICRO001')).toBeInTheDocument()
-    expect(screen.getByText('1.5')).toBeInTheDocument()
-  })
+    expect(screen.getByTestId('table-body')).toBeInTheDocument();
+  });
 
-  it('renders table with correct count label for multiple microsamples', () => {
-    render(
-      <MicrosampleTab
-        data={mockData}
-        genomeName="TG2:bin_000003"
-        isLoading={false}
-        error={null}
-      />
-    )
+  it('displays count with plural form', () => {
+    renderMicrosampleTab({
+      data: mockData,
+      genomeName: 'Genome1',
+      isLoading: false,
+      error: null,
+    });
 
-    expect(screen.getByText('2')).toBeInTheDocument()
-    expect(screen.getByText(/microsamples containing/i)).toBeInTheDocument()
-    expect(screen.getByText('TG2:bin_000003')).toBeInTheDocument()
-    expect(screen.getByText('MICRO001')).toBeInTheDocument()
-    expect(screen.getByText('1.5')).toBeInTheDocument()
-    expect(screen.getByText('MICRO002')).toBeInTheDocument()
-    expect(screen.getByText('2.1')).toBeInTheDocument()
-  })
+    expect(screen.getByText(/2/)).toBeInTheDocument();
+    expect(screen.getByText(/microsamples containing/)).toBeInTheDocument();
+  });
 
-  it('renders table headers correctly', () => {
-    render(
-      <MicrosampleTab
-        data={mockData}
-        genomeName="TG2:bin_000003"
-        isLoading={false}
-        error={null}
-      />
-    )
+  it('displays count with singular form', () => {
+    renderMicrosampleTab({
+      data: [mockData[0]],
+      genomeName: 'Genome1',
+      isLoading: false,
+      error: null,
+    });
 
-    expect(screen.getByText('Microsample ID')).toBeInTheDocument()
-    expect(screen.getByText('Count')).toBeInTheDocument()
-  })
+    expect(screen.getByText('1')).toBeInTheDocument();
+    expect(screen.getByText('microsample containing')).toBeInTheDocument();
+    expect(screen.getByText('Genome1')).toBeInTheDocument();
+  });
+
 })

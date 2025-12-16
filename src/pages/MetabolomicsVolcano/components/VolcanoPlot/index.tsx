@@ -65,10 +65,10 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
   }, [])
 
   useEffect(() => {
-    if (group1 === "0" || group1 === "1" || group1 === "3" || group1 === "7" || group1 === "9" || group1 === "14" || group1 === "21" || group1 === "28" || group1 === "35") {
+    if (group1 === "0" || group1 === "1" || group1 === "3" || group1 === "4" || group1 === "7" || group1 === "9" || group1 === "14" || group1 === "21" || group1 === "28" || group1 === "35") {
       group1 = Number(group1)
     }
-    if (group1 === "0" || group2 === "1" || group2 === "3" || group2 === "7" || group1 === "9" || group2 === "14" || group2 === "21" || group2 === "28" || group2 === "35") {
+    if (group1 === "0" || group2 === "1" || group2 === "3" || group2 === "4" || group2 === "7" || group1 === "9" || group2 === "14" || group2 === "21" || group2 === "28" || group2 === "35") {
       group2 = Number(group2)
     }
 

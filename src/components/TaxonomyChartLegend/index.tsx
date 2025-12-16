@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useGenomeJsonFile } from 'hooks/useJsonData'
 
-
 interface TaxonomyNode {
   color: string;
   classes?: Record<string, TaxonomyNode>;
@@ -48,11 +47,11 @@ const TaxonomyChartLegend = ({ selectedTaxonomicLevel, experimentId }: {
 
 
   // ===== Get color scheme file for the experiment ====
-  const colorSchemeFiles = import.meta.glob('../config/*.ts', {
+  const colorSchemeFiles = import.meta.glob('../../config/*.ts', {
     eager: true,
   });
   const colorSchemeModule =
-    colorSchemeFiles[`../config/taxonomy-color-scheme.ts`];
+    colorSchemeFiles[`../../config/taxonomy-color-scheme.ts`];
 
   if (!colorSchemeModule) {
     throw new Error(`Color scheme for experiment ${experimentId} not found`);

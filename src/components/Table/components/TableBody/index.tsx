@@ -81,23 +81,6 @@ const TableBody = ({
         <tbody className='bg-neutral-50 odd:[&>tr]:bg-neutral-200 hover:[&>tr]:bg-light_burgundy hover:[&>tr]:text-white'>
           {table.getRowModel().rows.map(row => (
             <tr key={row.id}>
-              {/* ⬇️ Column for checkbox input for selecting for download TSV */}
-              {/* <td>
-                <input
-                  type='checkbox'
-                  className='accent-mustard'
-                  onChange={(e) => {
-                    if (e.target.checked) {
-                      setCheckedItems(prev => [...prev, row])
-                    } else {
-                      setCheckedItems(prev => prev.filter((item) => item.id !== row.id))
-                    }
-                  }}
-                  id={row.id}
-                  checked={checkedItems.some(item => item.id === row.id)}
-                />
-              </td> */}
-
               {row.getVisibleCells().map(cell => {
                 return (
                   <td key={cell.id}>
@@ -105,7 +88,6 @@ const TableBody = ({
                   </td>
                 )
               })}
-
             </tr>
           ))}
         </tbody>

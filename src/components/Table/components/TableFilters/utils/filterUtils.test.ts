@@ -1,47 +1,57 @@
-import { describe, expect } from 'vitest'
-import { formatIdForDisplay, deleteFilter } from './filterUtils'
+import { describe, it, expect } from 'vitest';
+import { formatIdForDisplay, deleteFilter } from './filterUtils';
 
+describe('formatIdForDisplay', () => {
+  it('returns ID as-is', () => {
+    expect(formatIdForDisplay('ID')).toBe('ID');
+  });
 
-describe('components > Table > utils > formatIdForDisplay', () => {
-  it('should return ID unchanged', () => {
-    expect(formatIdForDisplay('ID')).toBe('ID')
-  })
+  it('removes _flat suffix', () => {
+    expect(formatIdForDisplay('LMBatch_flat')).toBe('LMBatch');
+    expect(formatIdForDisplay('sample_flat')).toBe('sample');
+  });
 
-  it('should formats known cases', () => {
-    expect(formatIdForDisplay('LMBatch_flat')).toBe('LMBatch')
-    expect(formatIdForDisplay('Individual')).toBe('Experimental Unit Series')
-    expect(formatIdForDisplay('Metabolite')).toBe('Metabolite Data')
-  })
+  it('formats Individual as Experimental Unit Series', () => {
+    expect(formatIdForDisplay('Individual')).toBe('Experimental Unit Series');
+  });
 
-  it('should removes _flat for other IDs', () => {
-    expect(formatIdForDisplay('Example_flat')).toBe('Example')
-  })
+  it('formats Metabolite as Metabolite Data', () => {
+    expect(formatIdForDisplay('Metabolite')).toBe('Metabolite Data');
+  });
 
-  it('should add spaces before capitals', () => {
-    expect(formatIdForDisplay('SomeLongID')).toBe('Some Long I D')
-  })
+  it('adds space before capital letters', () => {
+    expect(formatIdForDisplay('AnimalSpecies')).toBe('Animal Species');
+  });
+});
 
-  it('should trim spaces', () => {
-    expect(formatIdForDisplay('AnotherTest')).toBe('Another Test')
-  })
-})
+describe('deleteFilter', () => {
+  it('removes filter at specified index', () => {
+    const filters = [
+      { id: 'species', value: 'Pig' },
+      { id: 'status', value: 'Active' },
+      { id: 'type', value: 'Test' },
+    ];
 
+    const result = deleteFilter(1, filters);
 
+    expect(result).toHaveLength(2);
+    expect(result[0]).toEqual({ id: 'species', value: 'Pig' });
+    expect(result[1]).toEqual({ id: 'type', value: 'Test' });
+  });
 
-describe('components > Table > utils > deleteFilter', () => {
-  it('should removes filter at index', () => {
-    const filters = [{ id: 'a', value: 1 }, { id: 'b', value: 2 }]
-    const result = deleteFilter(0, filters)
-    expect(result).toEqual([{ id: 'b', value: 2 }])
-  })
+  it('does not mutate original array', () => {
+    const filters = [
+      { id: 'species', value: 'Pig' },
+      { id: 'status', value: 'Active' },
+    ];
 
-  it('should not mutate original', () => {
-    const filters = [{ id: 'a', value: 1 }, { id: 'b', value: 2 }]
-    const _ = deleteFilter(0, filters)
-    expect(filters).toHaveLength(2)
-  })
+    deleteFilter(0, filters);
 
-  it('should work with empty array', () => {
-    expect(deleteFilter(0, [])).toEqual([])
-  })
-})
+    expect(filters).toHaveLength(2);
+  });
+
+  it('handles empty array', () => {
+    const result = deleteFilter(0, []);
+    expect(result).toEqual([]);
+  });
+});

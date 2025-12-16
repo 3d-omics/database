@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 type SampleData = Array<{
   id: string
-  count: any
+  count: number
   [key: string]: string | null | any
 }>
 
@@ -70,10 +70,6 @@ const MacrosampleTab = ({ data, genomeName, isLoading, error }: MacrosampleTabPr
       </p>
       <TableBody
         table={table}
-        checkedItems={[]}
-        setCheckedItems={() => { }}
-        checkedMetaboliteIds={[]}
-        setCheckedMetaboliteIds={() => { }}
         displayTableFilters={false}
       />
     </div>

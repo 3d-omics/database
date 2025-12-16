@@ -58,13 +58,13 @@ const MAGCatalogueList = () => {
                     experiment.fields['MAG catalogue - New species (%)'] &&
                     <span>
                       New species:&nbsp;
-                      <b>{experiment.fields['MAG catalogue - New species (%)']}%</b>
+                      <b>{experiment.fields['MAG catalogue - New species (%)'].toFixed(2)}%</b>
                     </span>
                   }
                 </div>
 
                 {(link || doi) &&
-                  <div className='flex gap-4 text-xs text-gray-500 font-thin [&>span]:flex [&>span]:gap-1 mt-2 relative z-10'>
+                  <div className='flex gap-4 text-xs text-gray-500 font-thin [&>span]:flex [&>span]:gap-1 mt-2 relative z-10 max-md:flex-col max-md:gap-0'>
                     {link &&
                       <span>
                         Link:&nbsp;

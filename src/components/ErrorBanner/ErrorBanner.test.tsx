@@ -1,11 +1,20 @@
-import '@testing-library/jest-dom';
+import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import ErrorBanner from '.';
+import ErrorBanner from './index';
 
 describe('ErrorBanner', () => {
-  it('components > renders error message with children string', () => {
-    render(<ErrorBanner>Request failed with status code 404</ErrorBanner>);
+  it('renders error message', () => {
+    render(<ErrorBanner>Error details</ErrorBanner>);
     expect(screen.getByText('Error! Something went wrong. Please try again.')).toBeInTheDocument();
-    expect(screen.getByText('Request failed with status code 404')).toBeInTheDocument();
+  });
+
+  it('renders children text', () => {
+    render(<ErrorBanner>Custom error details</ErrorBanner>);
+    expect(screen.getByText('Custom error details')).toBeInTheDocument();
+  });
+
+  it('renders without children', () => {
+    render(<ErrorBanner>{null}</ErrorBanner>);
+    expect(screen.getByText('Error! Something went wrong. Please try again.')).toBeInTheDocument();
   });
 });

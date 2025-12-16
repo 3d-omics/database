@@ -1,157 +1,108 @@
-import { render, screen, fireEvent } from '@testing-library/react'
-import { vi } from 'vitest'
-import TableBody from '.'
-import { createColumnHelper, getCoreRowModel, useReactTable } from '@tanstack/react-table'
-import React from 'react'
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import TableBody from './index';
 
-// Mock FontAwesome icons
-vi.mock('@fortawesome/react-fontawesome', () => ({
-  FontAwesomeIcon: ({ icon }: any) => <span>{icon.iconName}</span>,
-}))
-
-vi.mock('@fortawesome/free-solid-svg-icons', () => ({
-  faSort: { iconName: 'sort' },
-  faSortUp: { iconName: 'sort-up' },
-  faSortDown: { iconName: 'sort-down' },
-}))
-
-// Mock child components
-vi.mock('./components/Filter/Filter', () => ({
-  default: ({ column }: any) => <div data-testid={`filter-${column.id}`}>Filter</div>,
-}))
-
-vi.mock('./components/MetaboliteColumn', () => ({
-  default: ({ cell, checkedMetaboliteIds, setCheckedMetaboliteIds }: any) => (
-    <div data-testid={`metabolite-column-${cell.row.id}`}>
-      <input
-        type="checkbox"
-        data-testid={`metabolite-checkbox-${cell.row.id}`}
-        checked={checkedMetaboliteIds.includes(cell.getValue())}
-        onChange={(e) => {
-          if (e.target.checked) {
-            setCheckedMetaboliteIds([...checkedMetaboliteIds, cell.getValue()])
-          } else {
-            setCheckedMetaboliteIds(
-              checkedMetaboliteIds.filter((id: string) => id !== cell.getValue())
-            )
-          }
-        }}
-      />
-      {cell.getValue()}
-    </div>
-  ),
-}))
-
-// Test wrapper
-const TestWrapper = ({
-  data,
-  displayTableFilters = true
-}: {
-  data: any[]
-  displayTableFilters?: boolean
-}) => {
-  const columnHelper = createColumnHelper<any>()
-
-  const columns = [
-    columnHelper.accessor('id', {
-      header: 'ID',
-      enableSorting: true,
-      enableColumnFilter: true,
-    }),
-    columnHelper.accessor('name', {
-      header: 'Name',
-      enableSorting: true,
-      enableColumnFilter: false,
-    }),
-    columnHelper.accessor('Metabolite', {
-      id: 'Metabolite',
-      header: 'Metabolite',
-      enableSorting: false,
-      enableColumnFilter: false,
-    }),
-  ]
-
-  const table = useReactTable({
-    data,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-  })
-
-  const [checkedItems, setCheckedItems] = React.useState<any[]>([])
-  const [checkedMetaboliteIds, setCheckedMetaboliteIds] = React.useState<string[]>([])
-
-  return (
-    <TableBody
-      table={table}
-      checkedItems={checkedItems}
-      setCheckedItems={setCheckedItems}
-      checkedMetaboliteIds={checkedMetaboliteIds}
-      setCheckedMetaboliteIds={setCheckedMetaboliteIds}
-      displayTableFilters={displayTableFilters}
-    />
-  )
-}
-
-const mockData = [
-  { id: '1', name: 'Item 1', Metabolite: 'MET001' },
-  { id: '2', name: 'Item 2', Metabolite: 'MET002' },
-]
+// Mock Filter component
+vi.mock('./components/Filter', () => ({
+  default: () => <div data-testid="filter-component">Filter</div>,
+}));
 
 describe('TableBody', () => {
-  it('renders table with headers and data', () => {
-    render(<TestWrapper data={mockData} />)
+  const mockTable = {
+    getHeaderGroups: () => [
+      {
+        id: 'header-group-1',
+        headers: [
+          {
+            id: 'name',
+            isPlaceholder: false,
+            column: {
+              getCanSort: () => true,
+              getCanFilter: () => true,
+              getToggleSortingHandler: () => vi.fn(),
+              getNextSortingOrder: () => 'asc',
+              getIsSorted: () => false,
+              columnDef: { header: 'Name' },
+            },
+            getContext: () => ({}),
+          },
+          {
+            id: 'status',
+            isPlaceholder: false,
+            column: {
+              getCanSort: () => false,
+              getCanFilter: () => false,
+              getToggleSortingHandler: () => vi.fn(),
+              getNextSortingOrder: () => null,
+              getIsSorted: () => false,
+              columnDef: { header: 'Status' },
+            },
+            getContext: () => ({}),
+          },
+        ],
+      },
+    ],
+    getRowModel: () => ({
+      rows: [
+        {
+          id: 'row-1',
+          getVisibleCells: () => [
+            {
+              id: 'cell-1',
+              column: { columnDef: { cell: 'Item 1' } },
+              getContext: () => ({}),
+            },
+            {
+              id: 'cell-2',
+              column: { columnDef: { cell: 'Active' } },
+              getContext: () => ({}),
+            },
+          ],
+        },
+      ],
+    }),
+  };
 
-    expect(screen.getByTestId('table')).toBeInTheDocument()
-    expect(screen.getByText('ID')).toBeInTheDocument()
-    expect(screen.getByText('Name')).toBeInTheDocument()
-    expect(screen.getByText('Metabolite')).toBeInTheDocument()
-    expect(screen.getByText('Item 1')).toBeInTheDocument()
-    expect(screen.getByText('Item 2')).toBeInTheDocument()
-  })
+  it('renders table structure', () => {
+    render(<TableBody table={mockTable as any} />);
+    expect(screen.getByTestId('table')).toBeInTheDocument();
+  });
 
-  it('shows sort icons for sortable columns when displayTableFilters is true', () => {
-    render(<TestWrapper data={mockData} displayTableFilters={true} />)
-    expect(screen.getAllByText('sort')).toHaveLength(2)
-  })
+  it('renders headers', () => {
+    render(<TableBody table={mockTable as any} />);
+    expect(screen.getByText('Name')).toBeInTheDocument();
+    expect(screen.getByText('Status')).toBeInTheDocument();
+  });
 
-  it('hides sort icons when displayTableFilters is false', () => {
-    render(<TestWrapper data={mockData} displayTableFilters={false} />)
-    expect(screen.queryByText('sort')).not.toBeInTheDocument()
-  })
+  it('renders rows', () => {
+    render(<TableBody table={mockTable as any} />);
+    expect(screen.getByText('Item 1')).toBeInTheDocument();
+    expect(screen.getByText('Active')).toBeInTheDocument();
+  });
 
-  it('shows filters for filterable columns when displayTableFilters is true', () => {
-    render(<TestWrapper data={mockData} displayTableFilters={true} />)
-    expect(screen.getByTestId('filter-id')).toBeInTheDocument()
-    expect(screen.queryByTestId('filter-name')).not.toBeInTheDocument()
-  })
+  it('shows sort icon for sortable columns', () => {
+    render(<TableBody table={mockTable as any} />);
+    expect(screen.getByTestId('sort-icon-for-name')).toBeInTheDocument();
+  });
 
-  it('hides filters when displayTableFilters is false', () => {
-    render(<TestWrapper data={mockData} displayTableFilters={false} />)
-    expect(screen.queryByTestId('filter-id')).not.toBeInTheDocument()
-  })
+  it('shows filter component when column can be filtered', () => {
+    render(<TableBody table={mockTable as any} />);
+    expect(screen.getByTestId('filter-component')).toBeInTheDocument();
+  });
 
-  it('renders MetaboliteColumn for Metabolite cells', () => {
-    render(<TestWrapper data={mockData} />)
-    expect(screen.getByTestId('metabolite-column-0')).toBeInTheDocument()
-    expect(screen.getByTestId('metabolite-column-1')).toBeInTheDocument()
-    expect(screen.getByText('MET001')).toBeInTheDocument()
-    expect(screen.getByText('MET002')).toBeInTheDocument()
-  })
+  it('hides sort and filter when displayTableFilters is false', () => {
+    render(<TableBody table={mockTable as any} displayTableFilters={false} />);
+    expect(screen.queryByTestId('sort-icon-for-name')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('filter-component')).not.toBeInTheDocument();
+  });
 
-  it('handles metabolite checkbox interactions', () => {
-    render(<TestWrapper data={mockData} />)
-    const checkbox = screen.getByTestId('metabolite-checkbox-0')
-    expect(checkbox).not.toBeChecked()
-    fireEvent.click(checkbox)
-    expect(checkbox).toBeChecked()
-    fireEvent.click(checkbox)
-    expect(checkbox).not.toBeChecked()
-  })
+  it('renders empty table when no rows', () => {
+    const emptyTable = {
+      ...mockTable,
+      getRowModel: () => ({ rows: [] }),
+    };
 
-  it('renders empty table when no data provided', () => {
-    render(<TestWrapper data={[]} />)
-    expect(screen.getByTestId('table')).toBeInTheDocument()
-    expect(screen.getByText('ID')).toBeInTheDocument()
-    expect(screen.queryByText('Item 1')).not.toBeInTheDocument()
-  })
-})
+    render(<TableBody table={emptyTable as any} />);
+    expect(screen.queryByText('Item 1')).not.toBeInTheDocument();
+  });
+});

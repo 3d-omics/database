@@ -3,7 +3,12 @@ import { useReactTable, getCoreRowModel, CellContext } from '@tanstack/react-tab
 import ErrorBanner from 'components/ErrorBanner'
 import { Link } from 'react-router-dom'
 
-type SampleData = Array<{ [key: string]: string }>
+type SampleData = Array<{ 
+  id: string
+  count: number
+  enaLink: string
+  run_accession: string
+}>
 
 interface MicrosampleTabProps {
   data: SampleData | null
@@ -28,7 +33,7 @@ const MicrosampleTab = ({ data, genomeName, isLoading, error }: MicrosampleTabPr
       id: 'run_accession',
       header: 'ENA link',
       accessorKey: 'run_accession',
-      cell: ({ cell, row }: CellContext<{ [key: string]: string }, string>) => (
+      cell: ({ cell, row }: CellContext<SampleData[number], string>) => (
         <Link
           to={row.original.enaLink}
           target="_blank"
@@ -39,11 +44,6 @@ const MicrosampleTab = ({ data, genomeName, isLoading, error }: MicrosampleTabPr
         </Link>
       )
     },
-    // {
-    //   id: 'cryosection_text',
-    //   header: 'Cryosection Text',
-    //   accessorKey: 'cryosection_text',
-    // }
   ]
 
   const table = useReactTable({
@@ -71,10 +71,6 @@ const MicrosampleTab = ({ data, genomeName, isLoading, error }: MicrosampleTabPr
       </p>
       <TableBody
         table={table}
-        checkedItems={[]}
-        setCheckedItems={() => { }}
-        checkedMetaboliteIds={[]}
-        setCheckedMetaboliteIds={() => { }}
         displayTableFilters={false}
       />
     </div>

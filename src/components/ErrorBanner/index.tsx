@@ -1,5 +1,3 @@
-import React from 'react'
-
 const ErrorBanner = ({ children }: { children: string | null }) => {
   return (
     <div className='bg-rose-200 border-l-4 border-rose-600 h-fit rounded-r-lg pl-4 pr-6 py-3 flex gap-3 mb-6'>

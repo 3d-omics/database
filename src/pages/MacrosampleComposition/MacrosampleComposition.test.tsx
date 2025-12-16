@@ -1,89 +1,141 @@
-import { render, screen } from '@testing-library/react'
-import { vi } from 'vitest'
-import MacrosampleComposition from '.'
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { MemoryRouter, Routes, Route } from 'react-router-dom';
+import MacrosampleComposition from './index';
+import useValidateParams from 'hooks/useValidateParams';
 
-const mockUseParams = vi.fn()
-vi.mock('react-router-dom', () => ({
-  useParams: () => mockUseParams(),
-}))
+// Mock hooks
+vi.mock('hooks/useValidateParams');
 
-const mockUseValidateParams = vi.fn()
-vi.mock('hooks/useValidateParams', () => ({
-  default: () => mockUseValidateParams(),
-}))
+// Mock components
+vi.mock('components/BreadCrumbs', () => ({
+  default: ({ items }: any) => (
+    <div data-testid="breadcrumbs">
+      {items.map((item: any) => (
+        <span key={item.label}>{item.label}</span>
+      ))}
+    </div>
+  ),
+}));
+
+vi.mock('components/ParamsValidator', () => ({
+  default: ({ children, validating, notFound }: any) => {
+    if (validating) return <div data-testid="validating">Validating...</div>;
+    if (notFound) return <div data-testid="not-found">Not Found</div>;
+    return <div>{children}</div>;
+  },
+}));
 
 vi.mock('./components/TaxonomyChart', () => ({
   default: ({ experimentId, selectedTaxonomicLevel }: any) => (
     <div data-testid="taxonomy-chart">
-      Chart - {experimentId} - {selectedTaxonomicLevel}
+      Chart-{experimentId}-{selectedTaxonomicLevel}
     </div>
   ),
-}))
+}));
 
 vi.mock('components/TaxonomyChartLegend', () => ({
   default: ({ experimentId, selectedTaxonomicLevel }: any) => (
-    <div data-testid="legend">
-      Legend - {experimentId} - {selectedTaxonomicLevel}
+    <div data-testid="taxonomy-legend">
+      Legend-{experimentId}-{selectedTaxonomicLevel}
     </div>
   ),
-}))
+}));
 
-vi.mock('components/BreadCrumbs', () => ({
-  default: ({ items }: any) => (
-    <div data-testid="breadcrumbs">
-      {items.map((i: any) => i.label).join(' > ')}
-    </div>
-  ),
-}))
-
-vi.mock('components/ParamsValidator', () => ({
-  default: ({ children, validating, notFound }: any) => {
-    if (validating) return <div>Loading...</div>
-    if (notFound) return <div>404</div>
-    return <div>{children}</div>
-  },
-}))
-
-vi.mock('components/ErrorBanner', () => ({
-  default: ({ children }: any) => (
-    <div data-testid="error-banner">{children}</div>
-  ),
-}))
 
 describe('MacrosampleComposition', () => {
   beforeEach(() => {
-    vi.clearAllMocks()
-    mockUseValidateParams.mockReturnValue({
+    vi.clearAllMocks();
+
+    (useValidateParams as any).mockReturnValue({
       validating: false,
       notFound: false,
-    })
-  })
+    });
+  });
 
-  it('renders chart and legend for experiment G', () => {
-    mockUseParams.mockReturnValue({ experimentName: 'G_experiment' })
+  const renderPage = (experimentName = 'Experiment G') => {
+    return render(
+      <MemoryRouter
+        initialEntries={[`/macrosample-compositions/${experimentName}`]}
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true
+        }}
+      >
+        <Routes>
+          <Route path="/macrosample-compositions/:experimentName" element={<MacrosampleComposition />} />
+        </Routes>
+      </MemoryRouter>
+    );
+  };
 
-    render(<MacrosampleComposition />)
+  it('renders page with experiment name in header', () => {
+    renderPage('Experiment G');
 
-    expect(screen.getByText(/Macrosample Community Composition: G_experiment/)).toBeInTheDocument()
-    expect(screen.getByTestId('taxonomy-chart')).toBeInTheDocument()
-    expect(screen.getByTestId('legend')).toBeInTheDocument()
-  })
+    const header = screen.getByRole('banner');
+    expect(header).toHaveTextContent('Experiment G');
+  });
 
-  it('renders chart and legend for experiment H', () => {
-    mockUseParams.mockReturnValue({ experimentName: 'H_experiment' })
+  it('renders breadcrumbs', () => {
+    renderPage('Experiment G');
 
-    render(<MacrosampleComposition />)
+    expect(screen.getByTestId('breadcrumbs')).toBeInTheDocument();
+    expect(screen.getByText('Data Portal Home')).toBeInTheDocument();
+    expect(screen.getByText('Macrosamples Community Composition')).toBeInTheDocument();
+  });
 
-    expect(screen.getByTestId('taxonomy-chart')).toBeInTheDocument()
-    expect(screen.getByTestId('legend')).toBeInTheDocument()
-  })
+  it('renders TaxonomyChart with experimentId', () => {
+    renderPage('Experiment G');
 
-  it('passes correct props to child components', () => {
-    mockUseParams.mockReturnValue({ experimentName: 'G_experiment' })
+    const chart = screen.getByTestId('taxonomy-chart');
+    expect(chart).toBeInTheDocument();
+    // experimentId = 'E' (first char of "Experiment G")
+    expect(chart).toHaveTextContent('Chart-E-phylum');
+  });
 
-    render(<MacrosampleComposition />)
+  it('renders TaxonomyChartLegend with experimentId', () => {
+    renderPage('Experiment G');
 
-    expect(screen.getByTestId('taxonomy-chart')).toHaveTextContent('Chart - G - phylum')
-    expect(screen.getByTestId('legend')).toHaveTextContent('Legend - G - phylum')
-  })
-})
+    const legend = screen.getByTestId('taxonomy-legend');
+    expect(legend).toBeInTheDocument();
+    // experimentId = 'E' (first char of "Experiment G")
+    expect(legend).toHaveTextContent('Legend-E-phylum');
+  });
+
+  it('passes phylum as default selectedTaxonomicLevel', () => {
+    renderPage('Experiment G');
+
+    expect(screen.getByText('Chart-E-phylum')).toBeInTheDocument();
+    expect(screen.getByText('Legend-E-phylum')).toBeInTheDocument();
+  });
+
+  it('shows validating state', () => {
+    (useValidateParams as any).mockReturnValue({
+      validating: true,
+      notFound: false,
+    });
+
+    renderPage('Experiment G');
+
+    expect(screen.getByTestId('validating')).toBeInTheDocument();
+  });
+
+  it('shows not found state', () => {
+    (useValidateParams as any).mockReturnValue({
+      validating: false,
+      notFound: true,
+    });
+
+    renderPage('Experiment G');
+
+    expect(screen.getByTestId('not-found')).toBeInTheDocument();
+  });
+
+  it('extracts experimentId from experimentName', () => {
+    renderPage('Hello World');
+
+    // experimentId should be 'H' (first character of full string)
+    expect(screen.getByText('Chart-H-phylum')).toBeInTheDocument();
+    expect(screen.getByText('Legend-H-phylum')).toBeInTheDocument();
+  });
+});

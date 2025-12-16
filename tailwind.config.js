@@ -62,6 +62,9 @@ module.exports = {
         '.clip-arrow-last': {
           'clip-path': 'polygon(50% 25%, 100% 0, 100% 100%, 0 100%, 0 0)',
         },
+        '.clip-arrow-first': {
+          'clip-path': 'polygon(100% 10%, 100% 75%, 50% 100%, 0 75%, 0 10%)',
+        },
       })
     },
   ],

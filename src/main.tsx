@@ -1,26 +1,3 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
-// import './index.css';
-// import App from './App';
-// import { BrowserRouter } from 'react-router-dom';
-
-// const root = ReactDOM.createRoot(
-//   document.getElementById('root') as HTMLElement
-// );
-// root.render(
-//   <React.StrictMode>
-//     <BrowserRouter
-//       basename="/database"
-//       future={{
-//         v7_startTransition: true,
-//         v7_relativeSplatPath: true
-//       }}
-//     >
-//       <App />
-//     </BrowserRouter>
-//   </React.StrictMode>
-// );
-
 import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -38,7 +15,7 @@ function RedirectHandler({ children }: { children: React.ReactNode }) {
     const redirectPath = sessionStorage.getItem('redirectPath');
     if (redirectPath) {
       sessionStorage.removeItem('redirectPath');
-      const path = redirectPath.replace('/database', '') || '/';
+      const path = redirectPath.replace('/database/', '') || '/';
       
       // Navigate immediately
       navigate(path, { replace: true });
@@ -65,7 +42,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter
-      basename="/database"
+      basename="/database/"
       future={{
         v7_startTransition: true,
         v7_relativeSplatPath: true

@@ -84,7 +84,7 @@ const MetabolomicsList = () => {
                   onClick={() => handleDownload({ experimentId: experiment.fields.ID })}
                   className='group flex items-center justify-between gap-4 px-4 py-3 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition bg-white hover:bg-gray-50'
                 >
-                  <h3 className='text-lg font-medium mb-1 group-hover:text-mustard group-hover:underline'>
+                  <h3 className='text-lg font-medium text-left mb-1 group-hover:text-mustard group-hover:underline'>
                     <FontAwesomeIcon icon={faFileArrowDown} className='mr-1' data-testid='download-tsv-icon' />
                     Download Excel File for experiment {experiment.fields.ID}
                   </h3>

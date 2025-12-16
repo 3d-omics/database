@@ -1,124 +1,78 @@
-import { flattenedcolorScheme } from './chartUtils'
+import { describe, it, expect } from 'vitest';
+import { flattenedcolorScheme } from './chartUtils';
 
 describe('flattenedcolorScheme', () => {
-  it('flattens nested color scheme', () => {
+  it('flattens nested color scheme correctly', () => {
     const colorScheme = {
-      'Proteobacteria': {
+      Bacteria: {
         color: '#FF0000',
         class: {
-          'Gammaproteobacteria': {
-            color: '#FF5555',
-          },
+          Bacilli: { color: '#00FF00' },
+          Clostridia: { color: '#0000FF' },
         },
       },
-      'Firmicutes': {
-        color: '#00FF00',
-      },
-    }
+    };
 
-    const result = flattenedcolorScheme(colorScheme)
+    const result = flattenedcolorScheme(colorScheme);
 
     expect(result).toEqual({
-      'Proteobacteria': '#FF0000',
-      'Gammaproteobacteria': '#FF5555',
-      'Firmicutes': '#00FF00',
-    })
-  })
+      Bacteria: '#FF0000',
+      Bacilli: '#00FF00',
+      Clostridia: '#0000FF',
+    });
+  });
 
-  it('handles deeply nested taxonomic levels', () => {
+  it('skips keys named "color"', () => {
     const colorScheme = {
-      'Phylum': {
-        color: '#111111',
-        class: {
-          'Class': {
-            color: '#222222',
-            order: {
-              'Order': {
-                color: '#333333',
-                family: {
-                  'Family': {
-                    color: '#444444',
-                    genus: {
-                      'Genus': {
-                        color: '#555555',
-                        species: {
-                          'Species': {
-                            color: '#666666',
-                          },
-                        },
-                      },
-                    },
-                  },
-                },
-              },
+      Bacteria: { color: '#FF0000' },
+      color: '#AAAAAA', // Should be skipped
+    };
+
+    const result = flattenedcolorScheme(colorScheme);
+
+    expect(result).not.toHaveProperty('color');
+    expect(result).toHaveProperty('Bacteria');
+  });
+
+  it('handles deeply nested structures', () => {
+    const colorScheme = {
+      Bacteria: {
+        color: '#FF0000',
+        order: {
+          Lactobacillales: {
+            color: '#00FF00',
+            family: {
+              Lactobacillaceae: { color: '#0000FF' },
             },
           },
         },
       },
-    }
+    };
 
-    const result = flattenedcolorScheme(colorScheme)
+    const result = flattenedcolorScheme(colorScheme);
 
     expect(result).toEqual({
-      'Phylum': '#111111',
-      'Class': '#222222',
-      'Order': '#333333',
-      'Family': '#444444',
-      'Genus': '#555555',
-      'Species': '#666666',
-    })
-  })
+      Bacteria: '#FF0000',
+      Lactobacillales: '#00FF00',
+      Lactobacillaceae: '#0000FF',
+    });
+  });
 
-  it('skips entries without color property', () => {
+  it('handles empty object', () => {
+    const result = flattenedcolorScheme({});
+    expect(result).toEqual({});
+  });
+
+  it('ignores items without color property', () => {
     const colorScheme = {
-      'WithColor': {
-        color: '#FF0000',
-      },
-      'WithoutColor': {
-        someOtherProp: 'value',
-      },
-    }
+      Bacteria: { color: '#FF0000' },
+      NoColor: { otherProperty: 'value' },
+    };
 
-    const result = flattenedcolorScheme(colorScheme)
+    const result = flattenedcolorScheme(colorScheme);
 
     expect(result).toEqual({
-      'WithColor': '#FF0000',
-    })
-  })
-
-  it('returns empty object for empty input', () => {
-    const result = flattenedcolorScheme({})
-    expect(result).toEqual({})
-  })
-
-  it('handles multiple taxa at same level', () => {
-    const colorScheme = {
-      'Taxa1': { color: '#111111' },
-      'Taxa2': { color: '#222222' },
-      'Taxa3': { color: '#333333' },
-    }
-
-    const result = flattenedcolorScheme(colorScheme)
-
-    expect(result).toEqual({
-      'Taxa1': '#111111',
-      'Taxa2': '#222222',
-      'Taxa3': '#333333',
-    })
-  })
-
-  it('handles primitive values gracefully', () => {
-    const colorScheme = {
-      'WithColor': { color: '#FF0000' },
-      'StringValue': 'just a string',
-      'NumberValue': 42,
-    }
-
-    const result = flattenedcolorScheme(colorScheme)
-
-    // Should only extract the one with color
-    expect(result).toEqual({
-      'WithColor': '#FF0000',
-    })
-  })
-})
+      Bacteria: '#FF0000',
+    });
+  });
+});

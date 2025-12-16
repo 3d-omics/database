@@ -8,10 +8,12 @@ import turkeyImage from 'assets/images/turkey.png'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 
 const Home = () => {
-
   const tables = tablesData.tables
 
-  const menu = animalTrialExperimentData?.map((experiment: any) => {
+  const getRecordCount = (tableName: string) =>
+    tables.find(table => table.name === tableName)?.recordCount
+
+  const animalTrialsMenu = animalTrialExperimentData?.map((experiment: any) => {
     const experimentName = experiment.fields?.Name || experiment.Name
     const animalImage = experimentName?.includes('swine') ? pigImage :
       experimentName?.includes('chicken') ? chickenImage :
@@ -24,73 +26,135 @@ const Home = () => {
     }
   })
 
+  // Navigation hierarchy data structure
+  const navItems = [
+    {
+      type: 'row',
+      items: [
+        {
+          title: 'Animal Trials',
+          link: '/animal-trials',
+          recordCount: getRecordCount('AnimalTrialExperiment'),
+          description: 'Trials conducted in experimental farms',
+          bgClass: 'bg-texture',
+        },
+      ],
+      subItems: [
+        {
+          title: 'MAG Catalogues',
+          titleMobile: '(Animal Trials)',
+          link: '/mag-catalogues',
+          description: 'Metagenome-assembled genome catalogues reconstructed for each trial',
+          bgClass: 'bg-diagonal',
+        }
+      ],
+      arrow: 'right'
+    },
+
+    { type: 'arrow', direction: 'down' },
+
+    {
+      type: 'single',
+      item: {
+        title: 'Animal Specimens',
+        link: '/animal-specimens',
+        recordCount: getRecordCount('AnimalSpecimen'),
+        description: 'Individual animal specimens used for experimentation',
+        bgClass: 'bg-texture',
+      }
+    },
+
+    { type: 'arrow', direction: 'down' },
+
+    {
+      type: 'row',
+      items: [
+        {
+          title: 'Macrosamples',
+          link: '/macrosamples',
+          recordCount: getRecordCount('IntestinalSectionSample'),
+          description: 'Conventional macro-scale samples employed for molecular analyses',
+          bgClass: 'bg-texture',
+        }
+      ],
+      subItems: [
+        {
+          title: 'Metagenomics',
+          titleMobile: '(Macrosamples)',
+          link: '/macrosample-compositions',
+          description: 'Community compositions profiled from macro-scale conventional samples',
+          bgClass: 'bg-diagonal',
+        },
+        {
+          title: 'Metabolomics',
+          titleMobile: '(Macrosamples)',
+          link: '/metabolomics',
+          description: 'Metabolite landscapes profiled from macro-scale conventional samples',
+          bgClass: 'bg-diagonal',
+        }
+      ]
+    },
+
+    { type: 'arrow', direction: 'down' },
+
+    {
+      type: 'single',
+      item: {
+        title: 'Cryosections',
+        link: '/cryosections',
+        recordCount: getRecordCount('Cryosection'),
+        description: 'Thin intestinal cross-cuts used for laser microdissection',
+        bgClass: 'bg-texture',
+      }
+    },
+
+    { type: 'arrow', direction: 'down' },
+
+    {
+      type: 'single',
+      item: {
+        title: 'Microsamples',
+        link: '/microsamples',
+        recordCount: getRecordCount('Microsample'),
+        description: 'Micro-scale sample used for molecular analysis collected through laser microdissection',
+        bgClass: 'bg-texture',
+      }
+    }
+  ]
+
+  // Reusable nav item component
+  const NavItem = ({ item, showMobileTitle = false }: { item: any, showMobileTitle?: boolean }) => (
+    <Link to={item.link}>
+      <li className={`${item.bgClass} h-full flex flex-col`}>
+        <div className={`${item.bgClass === 'bg-diagonal' ? 'max-lg:px-8' : ''} max-lg:text-center`}>
+          <h2>
+            {item.title}
+            <br />
+            {showMobileTitle && item.titleMobile && (
+              <span className='hidden max-lg:block font-light text-sm'>
+                {item.titleMobile}
+              </span>
+            )}
+          </h2>
+          <p>
+            {item.recordCount && (
+              <>
+                <span>{item.recordCount}</span>&nbsp;records<br />
+              </>
+            )}
+            {item.description}
+          </p>
+        </div>
+      </li>
+    </Link>
+  )
+
   return (
     <div>
-      {/* <section
-        className='px-28 pt-14 text-neutral-50 bg-prism h-[350px]
-        max-md:px-16 max-sm:px-4 max-sm:pt-8'
-        style={{ clipPath: 'polygon(100% 0, 100% 82%, 50% 100%, 0 82%, 0 0)' }}
-      >
-
-        <div className='w-max'>
-          <h1
-            className='main_header text-5xl mb-2 text-light_mustard 
-            animate-typing overflow-hidden whitespace-nowrap pr-5
-            max-md:text-4xl max-[400px]:text-3xl'
-            style={{
-              animation: 'typing 0.9s steps(30, end), blink-caret 0.5s step-end infinite',
-              borderRight: '4px solid white',
-              animationFillMode: 'forwards',
-            }}
-            onAnimationEnd={(e) => {
-              (e.target as HTMLElement).style.borderRight = 'none';
-            }}
-          >
-            3D'omics Data Portal
-          </h1>
-        </div>
-
-        <p className='mb-5 max-[400px]:text-sm'>
-          <Link to={"http://www.3domics.eu/index.html"} className='link' target='_blank'>
-            3D'omics Project&nbsp;<FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-          </Link>
-        </p>
-        <h1 className='font-semibold mb-1 max-[400px]:leading-tight'>Generating 3D omics landscapes, achieving reconstructions of intestinal host-microbiota ecosystems.</h1>
-        <p className='text-sm max-w-[62rem] font-extralight max-sm:text-xs max-[400px]:text-2xs'>
-          The world's population continues to grow - but the Earth's surface does not.
-          <br />
-          This urges us all to ensure that the associated need for increased food production is performed in a sustainable fashion, because optimising food production is of critical importance for biodiversity and ultimately humanity.
-        </p>
-      </section> */}
-
-
-      <section
-        className='px-28 py-16 flex flex-col items-center gap-6 bg-prism text-neutral-50
-        max-md:px-16 max-sm:px-4'
-      >
-        <h1
-          className='main_header text-5xl text-light_mustard whitespace-nowrap pr-5
-            max-md:text-4xl max-[400px]:text-3xl'
-        >
+      <section className='px-28 py-16 flex flex-col items-center gap-6 bg-prism text-neutral-50 max-md:px-16 max-sm:px-4'>
+        <h1 className='main_header text-5xl text-light_mustard whitespace-nowrap pr-5 max-md:text-4xl max-[400px]:text-3xl'>
           3D'omics Data Portal
         </h1>
-        {/* <h1
-          className='main_header text-5xl mb-2 text-light_mustard text-center
-            overflow-hidden whitespace-nowrap animation-typing
-            max-md:text-4xl max-[400px]:text-3xl'
-          style={{
-            animation: 'typing 0.9s steps(30, end), blink-caret 0.5s step-end infinite',
-            borderRight: '4px solid white',
-            animationFillMode: 'forwards',
-          }}
-          onAnimationEnd={(e) => {
-            (e.target as HTMLElement).style.borderRight = 'none';
-          }}
-        >
-          3D'omics Data Portal
-        </h1> */}
-
-        {/* <p className='mt-4 max-[400px]:text-sm'> */}
         <p className='text-sm max-w-4xl max-sm:text-xs max-[400px]:text-2xs text-center'>
           Welcome to the 3D'omics Data Portal.<br />
           This website provides access to all the molecular data
@@ -102,34 +166,14 @@ const Home = () => {
         </p>
       </section>
 
-      {/* <section className='mt-16 mb-16 flex flex-col items-center gap-4 px-12 max-sm:px-6'>
-        <Link to={"http://www.3domics.eu/index.html"} className='link' target='_blank'>
-          <h2 className='main_header text-2xl max-sm:text-xl'>
-            3D'omics Project
-            <FontAwesomeIcon icon={faArrowUpRightFromSquare} className='text-[18px] ml-2' />
-          </h2>
-        </Link>
-        <p className='text-center max-w-3xl mx-auto text-sm'>
-        </p>
-      </section> */}
+      <div className='h-16 max-lg:h-8'></div>
 
-      <div className='h-16 max-lg:h-1.5'></div>
-
-      {/* /////////////////////////////////////////////////////////////////////////////////////////// */}
-      <main className='mb-16'>
-        <ul className='flex flex-wrap px-4 justify-center bg-neutral-50 bg-texture
-        max-xl:grid max-xl:grid-cols-3
-        max-lg:grid-cols-2
-        max-md:px-8
-        max-sm:grid-cols-1 max-sm:px-16 max-sm:justify-items-center
-        '>
-          {menu.map((item, index) => (
-            <li key={index} className='hover:bg-neutral-300/50 hover:text-mustard py-3 px-4
-            max-xl:w-full
-            max-md:px-4
-            '>
+      <main className='mb-16 max-lg:[&_ul]:w-[calc(100dvw-10px)]  max-lg:flex  max-lg:justify-center'>
+        <ul className='flex flex-wrap px-4 justify-center bg-neutral-50 bg-texture max-xl:grid max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:px-8 max-sm:grid-cols-1 max-sm:px-16 max-sm:justify-items-center'>
+          {animalTrialsMenu.map((item, index) => (
+            <li key={index} className='hover:bg-neutral-300/50 hover:text-mustard py-3 px-4 max-xl:w-full max-md:px-4'>
               <Link to={item.link}>
-                <div className={`flex items-center gap-0.5`}>
+                <div className='flex items-center gap-0.5'>
                   <div
                     className="w-[52px] h-[52px] bg-[#444444]"
                     style={{
@@ -153,217 +197,65 @@ const Home = () => {
           ))}
         </ul>
       </main>
-      {/* /////////////////////////////////////////////////////////////////////////////////////////// */}
-
 
       <div className='pb-20 flex justify-center max-lg:pb-2'>
-        <ul className='flex flex-col gap-2 
-          [&_li]:bg-neutral-100 [&_li]:w-[32rem] [&_li]:p-5 [&_li]:justify-center
-            max-xl:[&_li]:w-[30rem]
-            max-lg:[&_li]:h-[240px] max-lg:[&_li]:w-[calc(100vw-20px)]
-            max-lg:[&_li]:flex max-lg:[&_li]:justify-center max-lg:[&_li]:items-center
-          hover:[&_li]:bg-neutral-200
-          [&_li:hover_h2]:text-mustard
-          [&_h2]:main_header [&_h2]:text-3xl [&_h2]:mb-1
-            max-lg:[&_h2]:text-2xl max-lg:[&_h2]:mt-4
-            max-lg:[&_p]:text-sm
-          [&_svg]:w-[32rem] [&_svg]:text-2xl
-            max-lg:[&_svg]:hidden
-          [&>div]:flex [&>div]:items-stretch [&>div]:gap-6
-            max-lg:[&>div]:flex-col max-lg:[&>div]:gap-2
-          [&_li_p]:text-[13px]
-          [&_li_p>span]:font-bold
-        '>
+        <ul className='flex flex-col gap-2 [&_li]:bg-neutral-100 [&_li]:w-[32rem] [&_li]:p-5 [&_li]:justify-center max-xl:[&_li]:w-[30rem] max-lg:[&_li]:h-[240px] max-lg:[&_li]:w-[calc(100dvw-10px)] max-lg:[&_li]:flex max-lg:[&_li]:justify-center max-lg:[&_li]:items-center hover:[&_li]:bg-neutral-200 [&_li:hover_h2]:text-mustard [&_h2]:main_header [&_h2]:text-3xl [&_h2]:mb-1 max-lg:[&_h2]:text-2xl max-lg:[&_h2]:mt-4 max-lg:[&_p]:text-sm [&_svg]:w-[32rem] [&_svg]:text-2xl max-lg:[&_svg]:hidden [&>div]:flex [&>div]:items-stretch [&>div]:gap-6 max-lg:[&>div]:flex-col max-lg:[&>div]:gap-2 [&_li_p]:text-[13px] [&_li_p>span]:font-bold'>
+          {navItems.map((section, idx) => {
+            if (section.type === 'arrow') {
+              return (
+                <FontAwesomeIcon
+                  key={idx}
+                  icon={section.direction === 'down' ? faCaretDown : faCaretRight}
+                />
+              )
+            }
 
-          <div>
-            <div className='max-lg:clip-arrow max-lg:-mt-14 flex-1'>
-              <Link to={"/animal-trials"}>
-                <li className='bg-texture h-full flex flex-col'>
-                  <div>
-                    <h2>Animal&nbsp;Trials</h2>
-                    <p>
-                      <span>{tables.filter((table) => table.name === 'AnimalTrialExperiment')[0].recordCount}</span>&nbsp;records
-                      <br />
-                      Trials conducted in experimental farms
-                    </p>
-                  </div>
-                </li>
-              </Link>
-            </div>
-
-            <div className="flex items-center max-lg:hidden">
-              <FontAwesomeIcon icon={faCaretRight} className="!w-6" /> {/* !w-6 is for safari browser */}
-            </div>
-
-            <div className='max-lg:clip-arrow max-lg:-mt-14 flex-1'>
-              <Link to={"/mag-catalogues"}>
-                <li className='bg-diagonal h-full flex flex-col'>
-                  <div className='max-lg:px-8'>
-                    <h2>
-                      MAG Catalogues
-                      <span className='hidden max-lg:inline font-light text-sm'>
-                        &nbsp;(Animal Trial)</span>
-                    </h2>
-                    <p>Metagenome-assembled genome catalogues reconstructed for each trial</p>
-                  </div>
-                </li>
-              </Link>
-            </div>
-          </div>
-
-
-          <FontAwesomeIcon icon={faCaretDown} />
-
-
-          <div className='max-lg:clip-arrow max-lg:-mt-14'>
-            <Link to={"/animal-specimens"}>
-              <li className='bg-texture'>
-                <div>
-                  <h2>Animal&nbsp;Specimens</h2>
-                  <p>
-                    <span>{tables.filter((table) => table.name === 'AnimalSpecimen')[0].recordCount}</span>&nbsp;records
-                    <br />
-                    Individual animal specimens used for experimentation
-                  </p>
+            if (section.type === 'single') {
+              return (
+                <div key={idx} className={`${section.item?.title === 'Microsamples' ? 'max-lg:clip-arrow-last' : 'max-lg:clip-arrow'} max-lg:-mt-14`}>
+                  <NavItem item={section.item} />
                 </div>
-              </li>
-            </Link>
-          </div>
+              )
+            }
 
-
-          <FontAwesomeIcon icon={faCaretDown} />
-
-
-
-
-
-
-          <div>
-            <div className='max-lg:clip-arrow max-lg:-mt-14'>
-              <Link to={"/macrosamples"}>
-                <li className='bg-texture h-full flex justify-center flex-col'>
-                  <div>
-                    <h2>Macrosamples</h2>
-                    <p>
-                      <span>{tables.filter((table) => table.name === 'IntestinalSectionSample')[0].recordCount}</span>&nbsp;records
-                      <br />
-                      Conventional macro-scale samples employed for molecular analyses
-                    </p>
-                  </div>
-                </li>
-              </Link>
-            </div>
-
-
-            <div className='flex flex-col gap-4'>
-              <section className='flex gap-6'>
-                <div className="flex items-center max-lg:hidden">
-                  <FontAwesomeIcon icon={faCaretRight} className="!w-6" /> {/* !w-6 is for safari browser */}
-                </div>
-                <div className='max-lg:clip-arrow max-lg:-mt-14 '>
-                  <Link to={"/macrosample-compositions"}>
-                    <li className='bg-diagonal  h-full flex flex-col'>
-                      <div className='max-lg:px-8'>
-                        <h2>
-                          Metagenomics
-                          <span className='hidden max-lg:inline font-light text-sm'>
-                            &nbsp;(Macrosample)</span>
-                        </h2>
-                        <p>Community compositions profiled from macro-scale conventional samples</p>
+            if (section.type === 'row') {
+              return (
+                <div key={idx}>
+                  {section.items?.map((item: any, itemIdx: number) => (
+                    <div key={itemIdx}>
+                      <div className={`${item.title === 'Animal Trials' ? 'max-lg:clip-arrow-first' : 'max-lg:clip-arrow'} max-lg:-mt-14 flex-1 h-full max-lg:h-auto`}>
+                        <NavItem item={item} showMobileTitle={true} />
                       </div>
-                    </li>
-                  </Link>
+                      {itemIdx < section.items.length - 1 && (
+                        <div className="flex items-center max-lg:hidden">
+                          <FontAwesomeIcon icon={faCaretRight} className="!w-6" />
+                        </div>
+                      )}
+                    </div>
+                  ))}
+
+                  {section.subItems && (
+                    <div className='flex flex-col gap-4 max-lg:gap-2'>
+                      {section.subItems.map((subitem: any, subIdx: number) => (
+                        <section key={subIdx} className='flex gap-6 flex-1'>
+                          <div className="flex items-center max-lg:hidden">
+                            <FontAwesomeIcon icon={faCaretRight} className="!w-6" />
+                          </div>
+                          <div className='max-lg:clip-arrow max-lg:-mt-14'>
+                            <NavItem item={subitem} showMobileTitle={true} />
+                          </div>
+                        </section>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              </section>
+              )
+            }
 
-              <section className='flex gap-6'>
-                <div className="flex items-center max-lg:hidden">
-                  <FontAwesomeIcon icon={faCaretRight} className="!w-6" /> {/* !w-6 is for safari browser */}
-                </div>
-                <div className='max-lg:clip-arrow max-lg:-mt-14 '>
-                  <Link to={"/metabolomics"}>
-                    <li className='bg-diagonal  h-full flex flex-col'>
-                      <div className='max-lg:px-8'>
-                        <h2>
-                          Metabolomics
-                          <span className='hidden max-lg:inline font-light text-sm'>
-                            &nbsp;(Intestinal Section Sample)</span>
-                        </h2>
-                        <p>Metabolite landscapes profiled from macro-scale conventional samples</p>
-                      </div>
-                    </li>
-                  </Link>
-                </div>
-              </section>
-
-
-            </div>
-          </div>
-
-
-
-
-          <FontAwesomeIcon icon={faCaretDown} />
-
-
-          <div className='max-lg:clip-arrow max-lg:-mt-14'>
-            <Link to={"/cryosections"}>
-              <li className='bg-texture'>
-                <div>
-                  <h2>Cryosections</h2>
-                  <p>
-                    <span>{tables.filter((table) => table.name === 'Cryosection')[0].recordCount}</span>&nbsp;records
-                    <br />
-                    Thin intestinal cross-cuts used for laser microdissection
-                  </p>
-                </div>
-              </li>
-            </Link>
-          </div>
-
-
-          <FontAwesomeIcon icon={faCaretDown} />
-
-
-          <div>
-            <div className='max-lg:clip-arrow max-lg:-mt-14'>
-              <Link to={"/microsamples"}>
-                <li className='bg-texture h-full flex flex-col'>
-                  <div>
-                    <h2>Microsamples</h2>
-                    <p>
-                      <span>{tables.filter((table) => table.name === 'Microsample')[0].recordCount}</span>&nbsp;records
-                      <br />
-                      Micro-scale sample used for molecular analysis collected through laser microdissection
-                    </p>
-                  </div>
-                </li>
-              </Link>
-            </div>
-
-            {/* <div className="flex items-center max-lg:hidden">
-              <FontAwesomeIcon icon={faCaretRight} className="!w-6" /> 
-            </div> */}
-
-            {/* <div className='max-lg:clip-arrow-last max-lg:-mt-14'>
-              <Link to={"/microsample-compositions"}>
-                <li className='bg-diagonal h-full flex flex-col'>
-                  <div className='max-lg:px-8'>
-                    <h2>
-                      Metagenomics
-                      <span className='hidden max-lg:inline font-light text-sm'>&nbsp;(Microsample)</span>
-                    </h2>
-                    <p>Community compositions profiled from micro-scale spatial samples</p>
-                  </div>
-                </li>
-              </Link>
-            </div> */}
-          </div>
-
-
+            return null
+          })}
         </ul>
-      </div >
-
+      </div>
 
       <div className='flex justify-center mb-20 mt-8'>
         <Link
@@ -373,11 +265,8 @@ const Home = () => {
           Download Database Schema
         </Link>
       </div>
-
-    </div >
+    </div>
   )
 }
 
 export default Home
-
-

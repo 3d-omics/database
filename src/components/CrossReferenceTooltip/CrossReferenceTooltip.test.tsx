@@ -1,93 +1,95 @@
-import { render, fireEvent, screen } from '@testing-library/react'
-import CrossReferenceTooltip from './index'
+import { describe, it, expect } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import CrossReferenceTooltip from './index';
 
-const mockData = [
-  {
-    "ID": "A",
-    "Notes": "Kept in Freezer 5 -70C, in a ziplock bag",
-    "Name": "Preliminary sampling trial",
-    "StartDate": "2021-10-14",
-    "EndDate": "2021-10-14",
-    "Type": "In vivo",
-    "Status": "Finished"
-  },
-  {
-    "ID": "B",
-    "Name": "Another experiment",
-    "StartDate": "2021-11-01",
-    "EndDate": "2021-11-05",
-    "Type": "In vitro"
-  }
-]
+describe('CrossReferenceTooltip', () => {
+  const mockData = [
+    { ID: 'EXP001', Name: 'Experiment 1', Status: 'Active' },
+    { ID: 'EXP002', Name: 'Experiment 2', Status: 'Completed' },
+  ];
 
-const props = {
-  value: "A",
-  data: mockData,
-  fieldsName: [
-    { key: 'ID', value: 'ID' },
+  const mockFields = [
     { key: 'Name', value: 'Name' },
-    { key: 'Type', value: 'Type' },
-    { key: 'Start date', value: 'StartDate' },
-    { key: 'End date', value: 'EndDate' }
-  ]
-}
+    { key: 'Status', value: 'Status' },
+  ];
 
-describe('components > CrossReferenceTooltip', () => {
-  
-  it('should display data when hovered on icon', () => {
-    render(<CrossReferenceTooltip {...props} />)
-    
-    const icon = screen.getByTestId('cross-reference-icon')
-    fireEvent.mouseEnter(icon)
-    
-    expect(screen.getByText('Name:')).toBeInTheDocument()
-    expect(screen.getByText('Preliminary sampling trial')).toBeInTheDocument()
-    expect(screen.getByText('Type:')).toBeInTheDocument()
-    expect(screen.getByText('In vivo')).toBeInTheDocument()
-    expect(screen.getByText('Start date:')).toBeInTheDocument()
-    expect(screen.getByText('End date:')).toBeInTheDocument()
-    
-    const dateElements = screen.getAllByText('2021-10-14')
-    expect(dateElements.length).toBeGreaterThanOrEqual(2)
-  })
+  it('renders the value', () => {
+    render(
+      <CrossReferenceTooltip value="EXP001" data={mockData} fieldsName={mockFields} />
+    );
+    expect(screen.getByText('EXP001')).toBeInTheDocument();
+  });
 
+  it('shows icon when value exists', () => {
+    render(
+      <CrossReferenceTooltip value="EXP001" data={mockData} fieldsName={mockFields} />
+    );
+    expect(screen.getByTestId('cross-reference-icon')).toBeInTheDocument();
+  });
 
-  
-  it('should display "Record not found" message when data is null', () => {
-    render(<CrossReferenceTooltip {...props} data={null} />)
-    
-    const icon = screen.getByTestId('cross-reference-icon')
-    fireEvent.mouseEnter(icon)
-    
-    expect(screen.getByText('Record not found')).toBeInTheDocument()
-  })
+  it('does not show icon when value is empty', () => {
+    render(
+      <CrossReferenceTooltip value="" data={mockData} fieldsName={mockFields} />
+    );
+    expect(screen.queryByTestId('cross-reference-icon')).not.toBeInTheDocument();
+  });
 
+  it('shows tooltip on hover', async () => {
+    const user = userEvent.setup();
+    const { container } = render(
+      <CrossReferenceTooltip value="EXP001" data={mockData} fieldsName={mockFields} />
+    );
 
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    const containerDiv = container.firstChild as HTMLElement;
+    await user.hover(containerDiv);
 
-  it('should hide tooltip on mouse leave', () => {
-    render(<CrossReferenceTooltip {...props} />)
-    
-    const icon = screen.getByTestId('cross-reference-icon')
-    fireEvent.mouseEnter(icon)
-    
-    expect(screen.getByText('Name:')).toBeInTheDocument()
-    expect(screen.getByText('Preliminary sampling trial')).toBeInTheDocument()
-    
-    fireEvent.mouseLeave(icon)
-    
-    expect(screen.queryByText('Name:')).not.toBeInTheDocument()
-    expect(screen.queryByText('Preliminary sampling trial')).not.toBeInTheDocument()
-  })
+    expect(screen.getByText('Experiment 1')).toBeInTheDocument();
+    expect(screen.getByText('Active')).toBeInTheDocument();
+  });
 
+  it('hides tooltip on mouse leave', async () => {
+    const user = userEvent.setup();
+    const { container } = render(
+      <CrossReferenceTooltip value="EXP001" data={mockData} fieldsName={mockFields} />
+    );
 
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    const containerDiv = container.firstChild as HTMLElement;
+    await user.hover(containerDiv);
+    expect(screen.getByText('Experiment 1')).toBeInTheDocument();
 
-  it('should display correct data for different values', () => {
-    render(<CrossReferenceTooltip {...props} value="B" />)
-    
-    const icon = screen.getByTestId('cross-reference-icon')
-    fireEvent.mouseEnter(icon)
-    
-    expect(screen.getByText('Another experiment')).toBeInTheDocument()
-    expect(screen.getByText('In vitro')).toBeInTheDocument()
-  })
-})
+    await user.unhover(containerDiv);
+    expect(screen.queryByText('Experiment 1')).not.toBeInTheDocument();
+  });
+
+  it('displays correct field values for matching record', async () => {
+    const user = userEvent.setup();
+    const { container } = render(
+      <CrossReferenceTooltip value="EXP002" data={mockData} fieldsName={mockFields} />
+    );
+
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    const containerDiv = container.firstChild as HTMLElement;
+    await user.hover(containerDiv);
+
+    expect(screen.getByText(/Name:/)).toBeInTheDocument();
+    expect(screen.getByText('Experiment 2')).toBeInTheDocument();
+    expect(screen.getByText(/Status:/)).toBeInTheDocument();
+    expect(screen.getByText('Completed')).toBeInTheDocument();
+  });
+
+  it('shows "Record not found" when data is null', async () => {
+    const user = userEvent.setup();
+    const { container } = render(
+      <CrossReferenceTooltip value="EXP001" data={null} fieldsName={mockFields} />
+    );
+
+    // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
+    const containerDiv = container.firstChild as HTMLElement;
+    await user.hover(containerDiv);
+
+    expect(screen.getByText('Record not found')).toBeInTheDocument();
+  });
+});

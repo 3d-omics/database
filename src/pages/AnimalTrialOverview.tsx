@@ -1,10 +1,10 @@
 import { useState, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import AnimalSpecimenTab from '../components/AnimalSpecimenTab'
-import MacrosampleTab from 'components/MacrosampleTab'
-import CryosectionTab from 'components/CryosectionTab'
-import MicrosampleTab from 'components/MicrosampleTab'
+import AnimalSpecimenTab from '../components/TabComponents/AnimalSpecimenTab'
+import MacrosampleTab from 'components/TabComponents/MacrosampleTab'
+import CryosectionTab from 'components/TabComponents/CryosectionTab'
+import MicrosampleTab from 'components/TabComponents/MicrosampleTab'
 import Tabs from 'components/Tabs'
 import BreadCrumbs from 'components/BreadCrumbs'
 import useValidateParams from 'hooks/useValidateParams'
@@ -59,7 +59,7 @@ const AnimalTrialOverview = () => {
                 ]}
               />
 
-              <div className='flex items-end gap-4 mb-3'>
+              <div className='flex items-end gap-4 mb-3 max-lg:flex-col max-lg:items-start max-lg:gap-1'>
                 <header className='main_header'>{experimentName}</header>
                 <Link
                   to={`/mag-catalogues/${encodeURIComponent(experimentName)}`}
@@ -69,7 +69,7 @@ const AnimalTrialOverview = () => {
                 </Link>
               </div>
 
-              <div className='flex gap-4 text-sm text-gray-500 mb-3 font-thin [&>span]:flex [&>span]:gap-1'>
+              <div className='flex gap-4 text-sm text-gray-500 mb-3 font-thin [&>span]:flex [&>span]:gap-1 max-lg:flex-col max-lg:gap-0.5'>
                 <span>
                   Experiment ID:&nbsp;
                   <b>{experiment.fields.ID}</b>

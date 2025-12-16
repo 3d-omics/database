@@ -3,9 +3,9 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import BreadCrumbs from 'components/BreadCrumbs'
 import animalSpecimenData from 'assets/data/airtable/animalspecimen.json'
-import MacrosampleTab from 'components/MacrosampleTab'
-import CryosectionTab from 'components/CryosectionTab'
-import MicrosampleTab from 'components/MicrosampleTab'
+import MacrosampleTab from 'components/TabComponents/MacrosampleTab'
+import CryosectionTab from 'components/TabComponents/CryosectionTab'
+import MicrosampleTab from 'components/TabComponents/MicrosampleTab'
 import Tabs from 'components/Tabs'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
@@ -48,7 +48,7 @@ const AnimalSpecimenOverview = () => {
 
               <header className='main_header mb-3'>{specimenName}</header>
 
-              <div className='flex gap-7 text-sm text-gray-500 pb-8 font-thin [&>span]:flex [&>span]:gap-1'>
+              <div className='flex gap-7 text-sm text-gray-500 pb-8 font-thin [&>span]:flex [&>span]:gap-1 max-lg:flex-col max-lg:gap-0.5'>
                 <div className='flex flex-col gap-0.5'>
                   <span>
                     Experiment ID:&nbsp;

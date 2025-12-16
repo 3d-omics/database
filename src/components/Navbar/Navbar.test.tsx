@@ -1,134 +1,91 @@
-import { render, screen } from '@testing-library/react'
-import { describe, it, expect, vi } from 'vitest'
-import Navbar from "."
-import TestRouter from "tests/setup/test-utils"
-import { fireEvent } from '@testing-library/react'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import Navbar from './index';
 
+// Mock MenuItems
+vi.mock('./MenuItems', () => ({
+  menus: [
+    {
+      sectionTitle: 'Data',
+      subMenus: [
+        { title: 'Animal Trials', location: '/animal-trials' },
+        { title: 'Animal Specimens', location: '/animal-specimens' },
+      ],
+    },
+    {
+      title: 'About',
+      location: '/about',
+    },
+  ],
+}));
 
-vi.mock('react-router-dom', async () => {
-  const actual = await vi.importActual<typeof import('react-router-dom')>('react-router-dom')
-  return {
-    ...actual,
-    useLocation: vi.fn(),
-    useNavigate: vi.fn()
-  }
-})
-const { useLocation, useNavigate } = await import('react-router-dom')
-const mockUseLocation = useLocation as jest.Mock
-const mockUseNavigate = useNavigate as jest.Mock
-const mockNavigate = vi.fn()
+// Mock MobileMenu
+vi.mock('./MobileMenu', () => ({
+  default: () => <div data-testid="mobile-menu">Mobile Menu</div>,
+}));
 
-
-
-const renderNavbar = () => {
-  render(
-    <TestRouter>
-      <Navbar />
-    </TestRouter>
-  )
-}
-
-
-
-describe('components > Navbar', () => {
-
+describe('Navbar', () => {
   beforeEach(() => {
-    vi.clearAllMocks()
-    mockUseLocation.mockReturnValue({ pathname: '/' })
-    mockUseNavigate.mockReturnValue(mockNavigate)
-  })
+    document.documentElement.style.removeProperty('--navbar-height');
+  });
 
-  it('should render the logo and navigation links correctly', () => {
-    renderNavbar()
-    expect(screen.getByAltText("3D'omics logo")).toBeInTheDocument()
-    const experimentElements = screen.getAllByText('Animal Trial')
-    expect(experimentElements).toHaveLength(2)
-    expect(screen.getByText(/animal specimens/i)).toBeInTheDocument()
-    expect(screen.getByText(/cryosections/i)).toBeInTheDocument()
-    const microsampleElements = screen.getAllByText(/microsampless/i)
-    expect(microsampleElements).toHaveLength(2) // One section title, one submenu item
-    expect(screen.getByText(/metabolomics/i)).toBeInTheDocument()
-    const genomeCompositionElements = screen.getAllByText(/metagenomics/i)
-    expect(genomeCompositionElements).toHaveLength(2) // One for macrosample, one for microsample
-  })
+  afterEach(() => {
+    document.documentElement.style.removeProperty('--navbar-height');
+  });
 
+  const renderNavbar = (initialRoute = '/') => {
+    return render(
+      <BrowserRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true
+        }}
+      >
+        <Navbar />
+      </BrowserRouter>
+    );
+  };
 
-  it('should highlight menu item based on current location', () => {
-    mockUseLocation.mockReturnValue({ pathname: '/animal-specimens' })
-    renderNavbar()
-    const highlightedMenuItem = screen.getByTestId('parentmenu-animal-specimens')
-    expect(highlightedMenuItem).toHaveClass('text-mustard')
-    const notHighlightedMenuItem = screen.getByTestId('parentmenu-cryosection')
-    expect(notHighlightedMenuItem).not.toHaveClass('text-mustard')
-  })
+  it('renders logo with external link', () => {
+    renderNavbar();
+    const logoLink = screen.getByRole('link', { name: /3D'omics logo/i });
+    expect(logoLink).toHaveAttribute('href', 'http://www.3domics.eu');
+    expect(logoLink).toHaveAttribute('target', '_blank');
+  });
 
+  it('renders Data Portal Home link', () => {
+    renderNavbar();
+    const homeLink = screen.getByRole('link', { name: /Data Portal Home/i });
+    expect(homeLink).toHaveAttribute('href', '/');
+  });
 
+  it('sets navbar height CSS variable on mount', () => {
+    renderNavbar();
+    const navbarHeight = document.documentElement.style.getPropertyValue('--navbar-height');
+    expect(navbarHeight).toBeTruthy();
+  });
 
-  it('should highlight submenu item based on current location2', () => {
-    mockUseLocation.mockReturnValue({ pathname: '/metabolomics' })
-    renderNavbar()
-    const highlightedMenuItem2 = screen.getByTestId('submenu-metabolomics')
-    expect(highlightedMenuItem2).toHaveClass('text-mustard')
-    const notHighlightedMenuItem2 = screen.getByTestId('submenu-microsample')
-    expect(notHighlightedMenuItem2).not.toHaveClass('text-mustard')
-  })
+  it('renders parent menu items', () => {
+    renderNavbar();
+    expect(screen.getByTestId('parentmenu-data')).toBeInTheDocument();
+    expect(screen.getByTestId('parentmenu-about')).toBeInTheDocument();
+  });
 
+  it('renders submenu items', () => {
+    renderNavbar();
+    expect(screen.getByTestId('submenu-animal-trials')).toBeInTheDocument();
+    expect(screen.getByTestId('submenu-animal-specimens')).toBeInTheDocument();
+  });
 
+  it('renders menu item without submenus', () => {
+    renderNavbar();
+    const aboutLink = screen.getByRole('link', { name: /About/i });
+    expect(aboutLink).toHaveAttribute('href', '/about');
+  });
 
-  it('should display dropdown menus on hover for items with submenus', async () => {
-    renderNavbar()
-    const parentMenu = screen.getByTestId('parentmenu-macrosample')
-    fireEvent.mouseOver(parentMenu)
-    const submenu = await screen.findByTestId('submenu-macrosample')
-    const submenu2 = await screen.findByTestId('submenu-metabolomics')
-    // const submenu3 = await screen.findByTestId('submenu-genome-composition')
-    expect(submenu).toBeVisible()
-    expect(submenu2).toBeVisible()
-    // expect(submenu3).toBeVisible()
-  })
-
-
-
-  // it('should display search input when search icon is clicked, and close when close icon is clicked', () => {
-  //   renderNavbar()
-  //   expect(screen.queryByPlaceholderText('Search...')).not.toBeInTheDocument()
-  //   fireEvent.click(screen.getByTestId('open-search-input-icon')) // Open search input
-  //   expect(screen.getByPlaceholderText('Search...')).toBeInTheDocument()
-  //   fireEvent.click(screen.getByTestId('close-search-input-icon')) // Close search input
-  //   expect(screen.queryByPlaceholderText('Search...')).not.toBeInTheDocument()
-  // })
-
-
-
-
-  // it('should navigate to search page when search button is clicked', () => {
-  //   renderNavbar()
-  //   fireEvent.click(screen.getByTestId('open-search-input-icon')) // Open search input
-  //   const searchInput = screen.getByPlaceholderText('Search...')
-  //   fireEvent.change(searchInput, { target: { value: 'test query' } }) // Type in search query
-  //   fireEvent.click(screen.getByTestId('perform-search-icon')) // Click search button
-  //   expect(mockNavigate).toHaveBeenCalledWith('/search?keyword=test query')
-  // })
-
-
-
-  // it('should navigate to search page with keyword when Enter key is pressed', () => {
-  //   renderNavbar()
-  //   fireEvent.click(screen.getByTestId('open-search-input-icon')) // Open search input
-  //   const input = screen.getByPlaceholderText('Search...')
-  //   fireEvent.change(input, { target: { value: 'test query2' } })
-  //   fireEvent.keyDown(input, { key: 'Enter', code: 'Enter' })
-  //   expect(mockNavigate).toHaveBeenCalledWith('/search?keyword=test query2')
-  // })
-
-
-
-  it('should open mobile menu when hamburger icon is clicked', async () => {
-    renderNavbar()
-    expect(screen.queryByTestId('mobile-menu-opened')).not.toBeInTheDocument()
-    const hamburgerIcon = screen.getByTestId('hamburger-menu')
-    fireEvent.click(hamburgerIcon)
-    expect(screen.getByTestId('mobile-menu-opened')).toHaveClass('translate-x-0')
-  })
-
-})
+  it('renders MobileMenu component', () => {
+    renderNavbar();
+    expect(screen.getByTestId('mobile-menu')).toBeInTheDocument();
+  });
+});

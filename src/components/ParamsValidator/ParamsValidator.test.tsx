@@ -1,60 +1,60 @@
-import { render, screen } from '@testing-library/react'
-import { vi } from 'vitest'
-import ParamsValidator from '.'
+import { describe, it, expect, vi } from 'vitest';
+import { render, screen } from '@testing-library/react';
+import ParamsValidator from './index';
 
+// Mock Loading component
 vi.mock('components/Loading', () => ({
   default: () => <div data-testid="loading">Loading...</div>,
-}))
+}));
 
+// Mock NotFound component
 vi.mock('pages/NotFound', () => ({
-  default: () => <div data-testid="not-found">404 Not Found</div>,
-}))
-
+  default: () => <div data-testid="not-found">Not Found</div>,
+}));
 
 describe('ParamsValidator', () => {
-  it('shows loading when validating is true', () => {
+  it('renders Loading when validating is true', () => {
     render(
       <ParamsValidator validating={true} notFound={false}>
-        <div>Content</div>
+        <div>Children</div>
       </ParamsValidator>
-    )
+    );
 
-    expect(screen.getByTestId('loading-dots-wrapper')).toBeInTheDocument()
-    expect(screen.getByTestId('loading')).toBeInTheDocument()
-    expect(screen.queryByText('Content')).not.toBeInTheDocument()
-  })
+    expect(screen.getByTestId('loading')).toBeInTheDocument();
+    expect(screen.queryByText('Children')).not.toBeInTheDocument();
+  });
 
-  it('shows not found when notFound is true', () => {
+  it('renders NotFound when notFound is true', () => {
     render(
       <ParamsValidator validating={false} notFound={true}>
-        <div>Content</div>
+        <div>Children</div>
       </ParamsValidator>
-    )
+    );
 
-    expect(screen.getByTestId('not-found')).toBeInTheDocument()
-    expect(screen.queryByText('Content')).not.toBeInTheDocument()
-  })
+    expect(screen.getByTestId('not-found')).toBeInTheDocument();
+    expect(screen.queryByText('Children')).not.toBeInTheDocument();
+  });
 
-  it('shows children when both validating and notFound are false', () => {
+  it('renders children when both validating and notFound are false', () => {
     render(
       <ParamsValidator validating={false} notFound={false}>
-        <div>Content</div>
+        <div>Children Content</div>
       </ParamsValidator>
-    )
+    );
 
-    expect(screen.getByText('Content')).toBeInTheDocument()
-    expect(screen.queryByTestId('loading')).not.toBeInTheDocument()
-    expect(screen.queryByTestId('not-found')).not.toBeInTheDocument()
-  })
+    expect(screen.getByText('Children Content')).toBeInTheDocument();
+    expect(screen.queryByTestId('loading')).not.toBeInTheDocument();
+    expect(screen.queryByTestId('not-found')).not.toBeInTheDocument();
+  });
 
-  it('prioritizes loading over notFound when both are true', () => {
+  it('prioritizes Loading over NotFound', () => {
     render(
       <ParamsValidator validating={true} notFound={true}>
-        <div>Content</div>
+        <div>Children</div>
       </ParamsValidator>
-    )
+    );
 
-    expect(screen.getByTestId('loading')).toBeInTheDocument()
-    expect(screen.queryByTestId('not-found')).not.toBeInTheDocument()
-  })
-})
+    expect(screen.getByTestId('loading')).toBeInTheDocument();
+    expect(screen.queryByTestId('not-found')).not.toBeInTheDocument();
+  });
+});
