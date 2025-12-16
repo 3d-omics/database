@@ -95,7 +95,7 @@ const CryosectionOverview = () => {
             <main className='-mt-7'>
               {selectedTab === 'Microsamples' && <MicrosampleTab id={cryosection.fields.ID} />}
               {(hasCommunityComposition && selectedTab === 'Microsamples Community Composition')
-                && <MicrosampleComposition cryosectionFromTab={cryosection.fields.ID} />
+                && <MicrosampleComposition cryosection={cryosection.fields.ID} />
               }
             </main>
           </>

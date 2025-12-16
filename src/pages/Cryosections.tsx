@@ -4,7 +4,8 @@ import TableView from 'components/TableView';
 import cryosectionData from 'assets/data/airtable/cryosection.json'
 import cryosectionImageData from 'assets/data/airtable/cryosectionimage.json'
 import { Link } from 'react-router-dom'
-import CompositionExistsIcon from 'assets/images/GC.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlassChart } from '@fortawesome/free-solid-svg-icons';
 
 export type TData = {
   id: string
@@ -106,11 +107,7 @@ const Cryosection = ({
           </Link>
           {cryosectionImageData.find(cryosection => cryosection.fields.ID === props.getValue()) &&
             <div className='tooltip tooltip-right before:text-xs' data-tip='Microsample community composition info available'>
-              <img
-              src={CompositionExistsIcon}
-              alt=''
-              className='w-6 h-6 object-contain'
-              />
+              <FontAwesomeIcon icon={faMagnifyingGlassChart} className='ml-0.5'/>
             </div>
           }
         </div>

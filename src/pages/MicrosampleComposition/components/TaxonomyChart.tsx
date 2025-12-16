@@ -23,7 +23,6 @@ const MicrosampleTaxonomyChart = ({
   experimentId: string 
 }) => {
   const taxonomicLevels = ["phylum", "class", "order"]
-  // const taxonomicLevels = ["phylum", "class", "order", "family", "genus", "species"]
   const [isInitializing, setIsInitializing] = useState(true)
   const [isChangingLevel, setIsChangingLevel] = useState(false)
 
@@ -129,7 +128,7 @@ const MicrosampleTaxonomyChart = ({
 
   if (hasError) {
     return (
-      <section className='px-8'>
+      <section className='px-8 mt-12'>
         <ErrorBanner>
           {fetchError || 'Failed to load taxonomy data'}
         </ErrorBanner>
