@@ -3,7 +3,7 @@ import Plot from 'react-plotly.js'
 import { Layout, Config } from 'plotly.js'
 import useMetaboliteExcelFileData from 'hooks/useMetaboliteExcelFileData'
 
-const MetaboliteHeatmapComparison = ({ ids, experimentId }: { ids: string[], experimentId: string }) => {
+const Heatmap = ({ ids, experimentId }: { ids: string[], experimentId: string }) => {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [windowHeight, setWindowHeight] = useState(window.innerHeight)
@@ -151,4 +151,4 @@ const MetaboliteHeatmapComparison = ({ ids, experimentId }: { ids: string[], exp
   )
 }
 
-export default MetaboliteHeatmapComparison
+export default Heatmap

@@ -3,7 +3,6 @@ import { ColumnDef } from '@tanstack/react-table'
 import { Link } from 'react-router-dom'
 import TableView from 'components/TableView'
 import microsampleData from 'assets/data/airtable/microsample.json'
-import cryosectionImageData from 'assets/data/airtable/cryosectionimage.json'
 import cryosectionData from 'assets/data/airtable/cryosection.json'
 
 
@@ -40,7 +39,6 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
   const data = microsampleData as unknown as TData[];
 
   const tableDescription = "Microsamples are microscopic tissue/digesta samples collected from thin intestinal cross-cuts (cryosections) using laser capture microdissection. Each microsample typically covers a volume of about 50,000 μm3, which usually encompass between 100 and 2000 bacterial cells. Microsamples are spatially referenced, enabling analysis of microbial community variation across space within the gut."
-
 
   const filteredData = useMemo(() => {
     if (!filterWith || filterWith.length === 0) {
@@ -91,18 +89,6 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       id: 'Cryosection_flat',
       header: 'Cryosection',
       accessorFn: (row) => row.fields.Cryosection_flat,
-      // === for dropdown filter ===
-      // meta: {
-      //   filterVariant: 'select' as const,
-      //   uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Cryosection_flat))),
-      // },
-      // ==== for link to microsample composition page ===
-      // cell: (props: any) => (
-      //   cryosectionImageData.find(cryosection => cryosection.fields.ID === props.getValue()) 
-      //      ?  <Link to={`/microsample-compositions/${props.getValue()}`} className='link'>{props.getValue()}</Link>
-      //      :  <>{props.getValue()}</>
-      // )
-      // ==== for link to cryosection overview page ===
       cell: (props: any) => (
         cryosectionData.find(cryosection => cryosection.fields.ID === props.getValue())
           ? <Link to={`/cryosections/${props.getValue()}`} className='link'>{props.getValue()}</Link>
@@ -149,7 +135,7 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
         const enaLink = row.original.fields['ENA link'];
         return enaLink ? (
-          <Link to={enaLink} target="_blank" rel="noopener noreferrer" className='link'>
+          <Link to={enaLink} target='_blank' rel='noopener noreferrer' className='link'>
             {cell.getValue() as string}
           </Link>
         ) : (

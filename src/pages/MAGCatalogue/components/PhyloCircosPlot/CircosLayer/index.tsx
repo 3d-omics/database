@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import type { PhyloData, CircosData } from '..'
 import * as d3 from 'd3'
-import { getPhylumColor } from '../phylum-color-scheme'
+import { getPhylumColor } from '../../../utils/phylumColorScheme'
 
 
 const CircosLayer = ({

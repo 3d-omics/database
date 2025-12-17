@@ -8,8 +8,9 @@ import MicrosampleTab from 'components/TabComponents/MicrosampleTab'
 import Tabs from 'components/Tabs'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
+import Macrosample from './Macrosamples'
 
-const MicrosampleOverview = () => {
+const MacrosampleOverview = () => {
 
   const { macrosampleName = '' } = useParams()
   const [selectedTab, setSelectedTab] = useState('Cryosections')
@@ -90,7 +91,7 @@ const MicrosampleOverview = () => {
                   </span>
                   <span>
                     ENA Accession:&nbsp;
-                    <Link to={macrosample.fields['ENA link']} target="_blank" rel="noopener noreferrer" className='link'><b>{macrosample.fields['ENA accession']}</b></Link>
+                    <Link to={macrosample.fields['ENA link']} target='_blank' rel='noopener noreferrer' className='link'><b>{macrosample.fields['ENA accession']}</b></Link>
                   </span>
                 </div>
               </div>
@@ -114,4 +115,4 @@ const MicrosampleOverview = () => {
   )
 }
 
-export default MicrosampleOverview
+export default MacrosampleOverview

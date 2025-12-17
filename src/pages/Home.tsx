@@ -8,6 +8,7 @@ import turkeyImage from 'assets/images/turkey.png'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 
 const Home = () => {
+
   const tables = tablesData.tables
 
   const getRecordCount = (tableName: string) =>
@@ -175,7 +176,7 @@ const Home = () => {
               <Link to={item.link}>
                 <div className='flex items-center gap-0.5'>
                   <div
-                    className="w-[52px] h-[52px] bg-[#444444]"
+                    className='w-[52px] h-[52px] bg-[#444444]'
                     style={{
                       maskImage: `url(${item.image})`,
                       WebkitMaskImage: `url(${item.image})`,
@@ -227,8 +228,8 @@ const Home = () => {
                         <NavItem item={item} showMobileTitle={true} />
                       </div>
                       {itemIdx < section.items.length - 1 && (
-                        <div className="flex items-center max-lg:hidden">
-                          <FontAwesomeIcon icon={faCaretRight} className="!w-6" />
+                        <div className='flex items-center max-lg:hidden'>
+                          <FontAwesomeIcon icon={faCaretRight} className='!w-6' />
                         </div>
                       )}
                     </div>
@@ -238,8 +239,8 @@ const Home = () => {
                     <div className='flex flex-col gap-4 max-lg:gap-2'>
                       {section.subItems.map((subitem: any, subIdx: number) => (
                         <section key={subIdx} className='flex gap-6 flex-1'>
-                          <div className="flex items-center max-lg:hidden">
-                            <FontAwesomeIcon icon={faCaretRight} className="!w-6" />
+                          <div className='flex items-center max-lg:hidden'>
+                            <FontAwesomeIcon icon={faCaretRight} className='!w-6' />
                           </div>
                           <div className='max-lg:clip-arrow max-lg:-mt-14'>
                             <NavItem item={subitem} showMobileTitle={true} />
@@ -259,7 +260,7 @@ const Home = () => {
 
       <div className='flex justify-center mb-20 mt-8'>
         <Link
-          to={"/database-schema"}
+          to={'/database-schema'}
           className='px-6 py-3 bg-texture hover:text-mustard main_header text-xl bg-neutral-100 hover:bg-neutral-200'
         >
           Download Database Schema

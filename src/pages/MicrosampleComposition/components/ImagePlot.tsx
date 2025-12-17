@@ -3,13 +3,13 @@ import Plot from 'react-plotly.js'
 import { PlotMouseEvent, Layout, Config, PlotSelectionEvent } from 'plotly.js'
 
 const ImagePlot = ({ cryosection, setSelectedMicrosampleIds, microsampleIds, xcoord, ycoord, size, shape }: {
-  cryosection: string,
+  cryosection: string
   setSelectedMicrosampleIds: React.Dispatch<React.SetStateAction<string[]>>
-  microsampleIds: string[],
-  xcoord: number[],
-  ycoord: number[],
-  size: number[],
-  shape: string[],
+  microsampleIds: string[]
+  xcoord: number[]
+  ycoord: number[]
+  size: number[]
+  shape: string[]
 }) => {
 
   const [activeIndices, setActiveIndices] = useState<number[] | null>(null);

@@ -19,8 +19,6 @@ export const airtableConfig = {
   microsampleTableId: 'tblCkV1GWTGEaiUBC',
   microsampleViewId: 'viwmrIdcDm8oxwfJU',
 
-  
-
   microsamplesWithCoordinationBaseId: 'appKakM1bnKSekwuW',
   microsamplesWithCoordinationTableId: 'tbl6uGSGiUXIp0K3z',
   microsamplesWithCoordinationViewId: 'viwP0l9OtkLEZTgCw',

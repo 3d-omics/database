@@ -44,13 +44,13 @@ const SignificantMetabolitesTable = ({ calculatedData, pValueThreshold, foldChan
                   .slice(0, displayedRows)
                   .map((d, i) => (
                     <tr key={i}>
-                      <td className="">{d.metabolite}</td>
-                      <td className="!max-w-4">{d.fold_change.toFixed(2)}</td>
-                      <td className="!max-w-4">{d.p_value.toFixed(2)}</td>
-                      <td className="text-center">
+                      <td className=''>{d.metabolite}</td>
+                      <td className='!max-w-4'>{d.fold_change.toFixed(2)}</td>
+                      <td className='!max-w-4'>{d.p_value.toFixed(2)}</td>
+                      <td className='text-center'>
                         {d.p_value > -Math.log10(pValueThreshold) && Math.abs(d.fold_change) > foldChangeThreshold ?
-                          <span className="px-2 py-0.5 rounded-full bg-light_mustard text-gray-800">Yes</span> :
-                          <span className="px-2 py-0.5 rounded-full bg-gray-100 text-gray-800">No</span>
+                          <span className='px-2 py-0.5 rounded-full bg-light_mustard text-gray-800'>Yes</span> :
+                          <span className='px-2 py-0.5 rounded-full bg-gray-100 text-gray-800'>No</span>
                         }
                       </td>
                     </tr>
@@ -71,10 +71,9 @@ const SignificantMetabolitesTable = ({ calculatedData, pValueThreshold, foldChan
 
 
           {(calculatedData && calculatedData.length > displayedRows) &&
-            <div className="m-3 w-fit mx-auto">
+            <div className='m-3 w-fit mx-auto'>
               <button
-                className="font-extrabold text-lg text-burgundy hover:text-burgundy/70"
-                // className="btn btn-sm bg-burgundy text-white border-none"
+                className='font-extrabold text-lg text-burgundy hover:text-burgundy/70'
                 onClick={() => setDisplayedRows(displayedRows + 10)}
               >
                 Load more

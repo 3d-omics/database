@@ -4,7 +4,7 @@ import { Layout, Config } from 'plotly.js'
 import useMetaboliteExcelFileData from 'hooks/useMetaboliteExcelFileData'
 
 
-const SingleMetaboliteBarPlot = ({ id, experimentId }: { id: string[]; experimentId: string }) => {
+const Barplot = ({ id, experimentId }: { id: string[]; experimentId: string }) => {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [windowHeight, setWindowHeight] = useState(window.innerHeight)
@@ -21,14 +21,12 @@ const SingleMetaboliteBarPlot = ({ id, experimentId }: { id: string[]; experimen
       setWindowHeight(window.innerHeight)
     }
     handleResize()
-    window.addEventListener("resize", handleResize)
+    window.addEventListener('resize', handleResize)
     return () => {
-      window.removeEventListener("resize", handleResize)
+      window.removeEventListener('resize', handleResize)
     }
   }, [])
 
-
-  // console.log(originalColumnData, listOfCuratedIdsOfMetabolites)
 
   // Check if data is ready, if not, show a loading state
   const isDataReady = useMemo(() => {
@@ -53,7 +51,7 @@ const SingleMetaboliteBarPlot = ({ id, experimentId }: { id: string[]; experimen
     {
       x: sortedCuratedIds,
       y: sortedOriginalValues,
-      type: "bar",
+      type: 'bar',
       marker: { size: 6, color: '#BF910A' },
       hovertemplate: '<span style="font-size: 10px">Curated ID:</span> <b>%{x}</b><br>' +
         '<span style="font-size: 10px">Original Value:</span> <b>%{y}</b>' +
@@ -64,15 +62,15 @@ const SingleMetaboliteBarPlot = ({ id, experimentId }: { id: string[]; experimen
   const layout: Partial<Layout> = {
     showlegend: false,
     xaxis: {
-      title: "Curated Ids",
+      title: 'Curated Ids',
       dtick: 1,
       automargin: true,
       tickfont: { size: 8 },
       tickangle: 55,
     },
     yaxis: {
-      title: "Original Value",
-      side: "left",
+      title: 'Original Value',
+      side: 'left',
     },
     width: plotWidth,
     height: windowHeight - 100,
@@ -88,23 +86,10 @@ const SingleMetaboliteBarPlot = ({ id, experimentId }: { id: string[]; experimen
     <>
       {isDataReady
         ?
-        <div data-testid="plot-container">
+        <div data-testid='plot-container'>
           <Plot data={data} layout={layout} config={config} />
         </div>
         :
-        // <div className='animate-pulse h-[600px] w-[1300px] flex flex-col justify-center items-center' data-testid='loading-skeleton'>
-        //   <div className='flex items-center gap-2'>
-        //     <div className='h-32 w-6 bg-gray-200 rounded'></div>
-        //     <div className='h-[300px] w-8 bg-gray-200 rounded'></div>
-        //     <div className='h-[300px] w-[1134px] bg-gray-200 rounded'></div>
-        //   </div>
-        //   <div className='ml-[108px] h-[110px] w-[1134px] flex justify-between [&>div]:-rotate-[35deg]'>
-        //     {Array.from({ length: listOfCuratedIdsOfMetabolites?.length || 0 }).map((_, index) => (
-        //       <div key={index} className='h-28 w-1 bg-gray-200 rounded'></div>
-        //     ))}
-        //   </div>
-        //   <div className='h-6 w-32 mx-auto bg-gray-200 rounded'></div>
-        // </div>
         <div
           className='animate-pulse flex flex-col justify-center mx-auto px-12 py-16'
           data-testid='loading-skeleton'
@@ -130,6 +115,6 @@ const SingleMetaboliteBarPlot = ({ id, experimentId }: { id: string[]; experimen
   );
 }
 
-export default SingleMetaboliteBarPlot
+export default Barplot
 
 

@@ -3,7 +3,6 @@ import { ColumnDef } from '@tanstack/react-table'
 import TableView from 'components/TableView'
 import { Link } from 'react-router-dom'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
-import { table } from 'console'
 
 type TData = {
   id: string
@@ -74,7 +73,7 @@ const AnimalTrial = () => {
       cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
         const bioprojectLink = row.original.fields['Bioproject link'];
         return bioprojectLink ? (
-          <Link to={bioprojectLink} target="_blank" rel="noopener noreferrer" className='link'>
+          <Link to={bioprojectLink} target='_blank' rel='noopener noreferrer' className='link'>
             {cell.getValue() as string}
           </Link>
         ) : (

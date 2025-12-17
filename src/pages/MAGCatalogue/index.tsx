@@ -290,7 +290,7 @@ const MAGCatalogue = () => {
               {trialDoiAndLink.link &&
                 <span>
                   Link:&nbsp;
-                  <Link to={trialDoiAndLink.link} target="_blank" rel="noopener noreferrer" className="link">
+                  <Link to={trialDoiAndLink.link} target='_blank' rel='noopener noreferrer' className='link'>
                     <b>{trialDoiAndLink.link}</b>
                   </Link>
                 </span>

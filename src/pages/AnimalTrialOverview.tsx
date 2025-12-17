@@ -63,7 +63,7 @@ const AnimalTrialOverview = () => {
                 <header className='main_header'>{experimentName}</header>
                 <Link
                   to={`/mag-catalogues/${encodeURIComponent(experimentName)}`}
-                  className="link"
+                  className='link'
                 >
                   view MAG Catalogue
                 </Link>

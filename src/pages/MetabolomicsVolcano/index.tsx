@@ -28,7 +28,6 @@ const Metabolomics = () => {
   const [group2, setGroup2] = useState<string>(
     options ? Object.keys(Object.values(options)[0] as Record<string, string>)[1] : ''
   )
-  // console.log(experimentId, '===>', compareBetween, ':', group1, group2)
   const [executeCreatePlot, setExecuteCreatePlot] = useState<boolean>(false)
   const [calculatedData, setCalculatedData] = useState<{ metabolite: string, fold_change: number, p_value: number, significant: boolean }[] | null>(null)
   const [pValueThreshold, setPValueThreshold] = useState(0.05)

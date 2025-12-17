@@ -9,8 +9,17 @@ type DataItem = {
 
 const DownloadTSVButton = <TData,>({ filteredAndSortedData, columns, fileTitle, buttonLabel }: { filteredAndSortedData: Row<TData>[], columns: ColumnDef<TData>[], fileTitle: string, buttonLabel: string }) => {
 
+  // Filter out columns that shouldn't be exported
+  const exportableColumns = useMemo(() => {
+    return columns.filter((column) => {
+      if (column.id === 'Metabolite') return false 
+      if (typeof column.header === 'function') return false
+      return true
+    })
+  }, [columns])
+
   const convertToTSV = (data: DataItem[]) => {
-    const headers = columns.map((column) => column.header).join('\t')
+    const headers = exportableColumns.map((column) => column.header).join('\t')
     const rows = data.map((row) => Object.values(row as object).join('\t')).join('\n')
     return `${headers}\n${rows}`
   }
@@ -18,25 +27,21 @@ const DownloadTSVButton = <TData,>({ filteredAndSortedData, columns, fileTitle, 
   const filteredAndSortedDataWithExistingColumns = useMemo(() => {
     return filteredAndSortedData.map((row: any) => {
       const visibleRow: DataItem = {}
-      columns.forEach((column) => {
-        //　⬇️ before ading circos table
-        // if (column.id) visibleRow[column.id] = row.original.fields[column.id];
-
+      exportableColumns.forEach((column) => { 
         if (column.id) {
           if (column.id === 'taxonomy') {
             visibleRow[column.id] = row.renderValue('taxonomy')
           } else
             if (row.original.fields) {
-              visibleRow[column.id] = row.original.fields[column.id];
+              visibleRow[column.id] = row.original.fields[column.id]
             } else {
-              visibleRow[column.id] = row.original[column.id];
+              visibleRow[column.id] = row.original[column.id]
             }
         }
-
       })
       return visibleRow
     })
-  }, [filteredAndSortedData, columns])
+  }, [filteredAndSortedData, exportableColumns]) 
 
   const handleDownload = () => {
     const tsvData = convertToTSV(filteredAndSortedDataWithExistingColumns)
@@ -61,6 +66,5 @@ const DownloadTSVButton = <TData,>({ filteredAndSortedData, columns, fileTitle, 
     </button>
   )
 }
-
 
 export default DownloadTSVButton

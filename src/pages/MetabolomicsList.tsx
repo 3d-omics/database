@@ -1,14 +1,13 @@
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faFileArrowDown } from '@fortawesome/free-solid-svg-icons'
-import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 import experimentsWithGenomeInfo from 'assets/data/airtable/experimentswithgenomeinfo.json'
-import experimentG from "assets/data/metabolomics/metabolomics_G.xlsx"
-import experimentH from "assets/data/metabolomics/metabolomics_H.xlsx"
-import experimentI from "assets/data/metabolomics/metabolomics_I.xlsx"
-import experimentJ from "assets/data/metabolomics/metabolomics_J.xlsx"
-import experimentK from "assets/data/metabolomics/metabolomics_K.xlsx"
-import experimentM from "assets/data/metabolomics/metabolomics_M.xlsx"
+import experimentG from 'assets/data/metabolomics/metabolomics_G.xlsx'
+import experimentH from 'assets/data/metabolomics/metabolomics_H.xlsx'
+import experimentI from 'assets/data/metabolomics/metabolomics_I.xlsx'
+import experimentJ from 'assets/data/metabolomics/metabolomics_J.xlsx'
+import experimentK from 'assets/data/metabolomics/metabolomics_K.xlsx'
+import experimentM from 'assets/data/metabolomics/metabolomics_M.xlsx'
 
 
 const MetabolomicsList = () => {

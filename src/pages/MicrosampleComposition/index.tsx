@@ -86,7 +86,8 @@ const MicrosampleComposition = ({ cryosection = '' }) => {
         </div>
 
       </div>
-    </ParamsValidator>)
+    </ParamsValidator>
+  )
 }
 
 export default MicrosampleComposition

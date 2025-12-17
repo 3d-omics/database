@@ -1,8 +1,8 @@
 import { useState, Dispatch, SetStateAction } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
-import MetaboliteHeatmapComparison from '../MetabolitePlots/Heatmap'
-import SingleMetaboliteBarPlot from '../MetabolitePlots/Bar'
+import Heatmap from '../MetabolitePlots/Heatmap'
+import BarPlot from '../MetabolitePlots/Bar'
 import { useParams } from 'react-router-dom'
 
 const CompareSamplesButton = ({ samples, setSamples }: { samples: string[], setSamples: Dispatch<SetStateAction<string[]>> }) => {
@@ -41,21 +41,21 @@ const CompareSamplesButton = ({ samples, setSamples }: { samples: string[], setS
               onClick={() => setDisplayedPlot('bar')}
             >
               <svg
-                width="24" height="24"
-                viewBox="0 0 100 100"
-                fill="none" xmlns="http://www.w3.org/2000/svg"
-                stroke="white" strokeWidth="2"
+                width='24' height='24'
+                viewBox='0 0 100 100'
+                fill='none' xmlns='http://www.w3.org/2000/svg'
+                stroke='white' strokeWidth='2'
               >
-                <line x1="2" y1="92" x2="90" y2="92" stroke="white" strokeWidth="4" />
-                <line x1="4" y1="90" x2="4" y2="10" stroke="white" strokeWidth="4" />
-                <line x1="20" y1="90" x2="20" y2="40" stroke="white" strokeWidth="10" />
-                <line x1="35" y1="90" x2="35" y2="60" stroke="white" strokeWidth="10" />
-                <line x1="50" y1="90" x2="50" y2="30" stroke="white" strokeWidth="10" />
-                <line x1="65" y1="90" x2="65" y2="70" stroke="white" strokeWidth="10" />
-                <line x1="80" y1="90" x2="80" y2="50" stroke="white" strokeWidth="10" />
+                <line x1='2' y1='92' x2='90' y2='92' stroke='white' strokeWidth='4' />
+                <line x1='4' y1='90' x2='4' y2='10' stroke='white' strokeWidth='4' />
+                <line x1='20' y1='90' x2='20' y2='40' stroke='white' strokeWidth='10' />
+                <line x1='35' y1='90' x2='35' y2='60' stroke='white' strokeWidth='10' />
+                <line x1='50' y1='90' x2='50' y2='30' stroke='white' strokeWidth='10' />
+                <line x1='65' y1='90' x2='65' y2='70' stroke='white' strokeWidth='10' />
+                <line x1='80' y1='90' x2='80' y2='50' stroke='white' strokeWidth='10' />
               </svg>
-              <span className="hidden max-sm:inline">View</span>
-              <span className="max-sm:hidden">View single sample</span>
+              <span className='hidden max-sm:inline'>View</span>
+              <span className='max-sm:hidden'>View single sample</span>
             </button>
           </div>
 
@@ -71,25 +71,25 @@ const CompareSamplesButton = ({ samples, setSamples }: { samples: string[], setS
               onClick={() => setDisplayedPlot('heatmap')}
             >
               <svg
-                width="20" height="20" viewBox="0 0 100 100"
-                fill="none" xmlns="http://www.w3.org/2000/svg"
-                stroke="white" strokeWidth="4"
+                width='20' height='20' viewBox='0 0 100 100'
+                fill='none' xmlns='http://www.w3.org/2000/svg'
+                stroke='white' strokeWidth='4'
               >
-                <rect x="0" y="10" width="33" height="20" fill="white" />
-                <rect x="33" y="10" width="33" height="20" fill="none" />
-                <rect x="66" y="10" width="33" height="20" fill="white" />
-                <rect x="0" y="30" width="33" height="20" fill="none" />
-                <rect x="33" y="30" width="33" height="20" fill="none" />
-                <rect x="66" y="30" width="33" height="20" fill="none" />
-                <rect x="0" y="50" width="33" height="20" fill="none" />
-                <rect x="33" y="50" width="33" height="20" fill="none" />
-                <rect x="66" y="50" width="33" height="20" fill="white" />
-                <rect x="0" y="70" width="33" height="20" fill="none" />
-                <rect x="33" y="70" width="33" height="20" fill="white" />
-                <rect x="66" y="70" width="33" height="20" fill="none" />
+                <rect x='0' y='10' width='33' height='20' fill='white' />
+                <rect x='33' y='10' width='33' height='20' fill='none' />
+                <rect x='66' y='10' width='33' height='20' fill='white' />
+                <rect x='0' y='30' width='33' height='20' fill='none' />
+                <rect x='33' y='30' width='33' height='20' fill='none' />
+                <rect x='66' y='30' width='33' height='20' fill='none' />
+                <rect x='0' y='50' width='33' height='20' fill='none' />
+                <rect x='33' y='50' width='33' height='20' fill='none' />
+                <rect x='66' y='50' width='33' height='20' fill='white' />
+                <rect x='0' y='70' width='33' height='20' fill='none' />
+                <rect x='33' y='70' width='33' height='20' fill='white' />
+                <rect x='66' y='70' width='33' height='20' fill='none' />
               </svg>
-              <span className="hidden max-sm:inline">View</span>
-              <span className="max-sm:hidden">Compare samples in Heatmap</span>
+              <span className='hidden max-sm:inline'>View</span>
+              <span className='max-sm:hidden'>Compare samples in Heatmap</span>
             </button>
           </div>
 
@@ -99,31 +99,24 @@ const CompareSamplesButton = ({ samples, setSamples }: { samples: string[], setS
 
       {displayedPlot &&
         <>
-          <div className="fixed inset-0 bg-black opacity-50 z-50"></div>
-          <dialog open className="modal">
-            <div className="modal-box px-0 min-w-[calc(100vw-32px)] min-h-[calc(100vh-48px)] relative">
-              {/* <div className="modal-box px-0 max-w-[calc(100vw-96px)] relative mx-12"> */}
+          <div className='fixed inset-0 bg-black opacity-50 z-50'></div>
+          <dialog open className='modal'>
+            <div className='modal-box px-0 min-w-[calc(100vw-32px)] min-h-[calc(100vh-48px)] relative'>
               <button
-                className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+                className='btn btn-sm btn-circle btn-ghost absolute right-2 top-2'
                 onClick={(e) => { setDisplayedPlot(null); e.stopPropagation() }}
               >
                 ✕
               </button>
-              <h3 className="font-semibold text-xl mb-4 px-6">
-                {/* <span className='mr-1 font-light text-sm'>
-                  {displayedPlot === 'bar'
-                    ? 'Single feature of:'
-                    : 'Heatmap comparison of: '
-                  }
-                </span> */}
+              <h3 className='font-semibold text-xl mb-4 px-6'>
                 {displayedPlot === 'bar' &&
                   samples.map((sample) => <span key={sample} className='mr-2'>{sample}</span>)
                 }
               </h3>
 
               <main className='overflow-auto'>
-                {displayedPlot === 'bar' && <SingleMetaboliteBarPlot id={samples} experimentId={experimentId} />}
-                {displayedPlot === 'heatmap' && <MetaboliteHeatmapComparison ids={samples} experimentId={experimentId} />}
+                {displayedPlot === 'bar' && <BarPlot id={samples} experimentId={experimentId} />}
+                {displayedPlot === 'heatmap' && <Heatmap ids={samples} experimentId={experimentId} />}
               </main>
 
             </div>

@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import type { PhyloData } from '..'
 import * as d3 from 'd3'
 import { useParams } from 'react-router-dom'
-import { phylumColors } from '../phylum-color-scheme'
+import { phylumColors } from '../../../utils/phylumColorScheme'
 
 
 const PhyloTreeLayer = ({ data, width, height }: { data: any, width: number, height: number }) => {
@@ -17,11 +17,11 @@ const PhyloTreeLayer = ({ data, width, height }: { data: any, width: number, hei
     const s1 = Math.sin((endAngle - 90) / 180 * Math.PI)
 
     return (
-      "M" + startRadius * c0 + "," + startRadius * s0 +
+      'M' + startRadius * c0 + ',' + startRadius * s0 +
       (endAngle === startAngle
-        ? ""
-        : "A" + startRadius + "," + startRadius + " 0 0 " + (endAngle > startAngle ? 1 : 0) + " " + startRadius * c1 + "," + startRadius * s1) +
-      "L" + endRadius * c1 + "," + endRadius * s1
+        ? ''
+        : 'A' + startRadius + ',' + startRadius + ' 0 0 ' + (endAngle > startAngle ? 1 : 0) + ' ' + startRadius * c1 + ',' + startRadius * s1) +
+      'L' + endRadius * c1 + ',' + endRadius * s1
     )
   }
 

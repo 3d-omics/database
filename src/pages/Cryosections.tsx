@@ -1,11 +1,11 @@
 import { useMemo } from 'react'
-import { ColumnDef } from '@tanstack/react-table';
-import TableView from 'components/TableView';
+import { ColumnDef } from '@tanstack/react-table'
+import TableView from 'components/TableView'
 import cryosectionData from 'assets/data/airtable/cryosection.json'
 import cryosectionImageData from 'assets/data/airtable/cryosectionimage.json'
 import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlassChart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMagnifyingGlassChart } from '@fortawesome/free-solid-svg-icons'
 
 export type TData = {
   id: string
@@ -155,7 +155,7 @@ const Cryosection = ({
     {
       id: 'Microsample number',
       header: 'Microsample number',
-      accessorFn: (row) => row.fields["Microsample number"],
+      accessorFn: (row) => row.fields['Microsample number'],
       enableColumnFilter: false,
     },
   ], [filteredData])

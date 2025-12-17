@@ -2,7 +2,6 @@ import { useMemo } from 'react'
 import CrossReferenceTooltip from 'components/CrossReferenceTooltip'
 import { ColumnDef } from '@tanstack/react-table'
 import TableView from 'components/TableView'
-// import useMetaboliteExcelFileData from 'hooks/useMetaboliteExcelFileData'
 import intestinalSectionSampleData from 'assets/data/airtable/intestinalsectionsample.json'
 import animalSpecimenData from 'assets/data/airtable/animalspecimen.json'
 import { Link } from 'react-router-dom'
@@ -180,13 +179,13 @@ const Macrosample = (
         },
       },
       {
-        id: 'Metabolites Accession',
+        id: 'Metabolights accession',
         header: 'Metabolites Accession',
         accessorFn: (row) => row.fields['Metabolights accession'],
         cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
           const metaboliteLink = row.original.fields['Metabolights link'];
           return metaboliteLink ? (
-            <Link to={metaboliteLink} target="_blank" rel="noopener noreferrer" className='link'>
+            <Link to={metaboliteLink} target='_blank' rel='noopener noreferrer' className='link'>
               {cell.getValue() as string}
             </Link>
           ) : (
@@ -265,13 +264,13 @@ const Macrosample = (
       });
 
       baseColumns.splice(8, 0, {
-        id: 'ENA Accession',
+        id: 'ENA accession',
         header: 'ENA Accession',
         accessorFn: (row) => row.fields['ENA accession'],
         cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
           const enaLink = row.original.fields['ENA link'];
           return enaLink ? (
-            <Link to={enaLink} target="_blank" rel="noopener noreferrer" className='link'>
+            <Link to={enaLink} target='_blank' rel='noopener noreferrer' className='link'>
               {cell.getValue() as string}
             </Link>
           ) : (
@@ -290,7 +289,6 @@ const Macrosample = (
     <TableView<TData>
       data={filteredData}
       columns={columns}
-      // fetchMetaboliteError={fetchMetaboliteError}
       pageTitle={pageTitle}
       displayTableHeader={displayTableHeader}
       displayTableDescription={displayTableDescription}

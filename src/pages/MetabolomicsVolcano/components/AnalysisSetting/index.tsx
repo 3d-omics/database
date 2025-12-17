@@ -31,13 +31,11 @@ const AnalysisSettings = ({ compareBetween, setCompareBetween, group1, setGroup1
 
 
   return (
-    <div className="p-4 pt-3 bg-gray-100 rounded-lg h-fit
-      max-xl:mb-4
-    ">
-      <div className="flex items-center gap-3 [&_div]:w-full max-sm:flex-col">
+    <div className='p-4 pt-3 bg-gray-100 rounded-lg h-fit max-xl:mb-4'>
+      <div className='flex items-center gap-3 [&_div]:w-full max-sm:flex-col'>
         <section className='flex justify-between items-center gap-3 w-full max-sm:flex-col'>
           <div>
-            <label className="block text-xs font-medium mb-1" htmlFor='compareBetween'>Compare between:</label>
+            <label className='block text-xs font-medium mb-1' htmlFor='compareBetween'>Compare between:</label>
             <select
               className='btn btn-sm text-left w-full bg-white border-none shadow-none'
               value={compareBetween}
@@ -51,7 +49,7 @@ const AnalysisSettings = ({ compareBetween, setCompareBetween, group1, setGroup1
           </div>
 
           <div>
-            <label className="block text-xs font-medium mb-1" htmlFor='group1'>Group 1:</label>
+            <label className='block text-xs font-medium mb-1' htmlFor='group1'>Group 1:</label>
             <select
               className={`btn btn-sm bg-white shadow-none text-left w-full ${groupSelectionError && 'border border-red-500'}`}
               onChange={(e) => setGroup1(e.target.value)}
@@ -67,7 +65,7 @@ const AnalysisSettings = ({ compareBetween, setCompareBetween, group1, setGroup1
           </div>
 
           <div>
-            <label className="block text-xs font-medium mb-1" htmlFor='group2'>Group 2:</label>
+            <label className='block text-xs font-medium mb-1' htmlFor='group2'>Group 2:</label>
             <select
               className={`btn btn-sm bg-white shadow-none text-left w-full ${groupSelectionError && 'border border-red-500'}`}
               onChange={(e) => setGroup2(e.target.value)}
@@ -83,9 +81,9 @@ const AnalysisSettings = ({ compareBetween, setCompareBetween, group1, setGroup1
           </div>
         </section>
 
-        <div className="!w-fit whitespace-nowrap mt-6 max-sm:flex max-sm:justify-end max-sm:!w-full max-sm:mt-0 mb-2 max-sm:mb-0">
+        <div className='!w-fit whitespace-nowrap mt-6 max-sm:flex max-sm:justify-end max-sm:!w-full max-sm:mt-0 mb-2 max-sm:mb-0'>
           <button
-            className="btn btn-sm bg-burgundy text-white border-burgundy max-sm:mt-3 max-sm:w-full"
+            className='btn btn-sm bg-burgundy text-white border-burgundy max-sm:mt-3 max-sm:w-full'
             onClick={() => checkGroupSelection()}
           >
             Run Analysis

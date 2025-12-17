@@ -90,7 +90,7 @@ const AnimalSpecimenOverview = () => {
                   </span>
                   <span>
                     Biosample Accession:&nbsp;
-                    <Link to={specimen.fields['Biosample link']} target="_blank" rel="noopener noreferrer" className='link'><b>{specimen.fields['Biosample accession']}</b></Link>
+                    <Link to={specimen.fields['Biosample link']} target='_blank' rel='noopener noreferrer' className='link'><b>{specimen.fields['Biosample accession']}</b></Link>
                   </span>
                 </div>
               </div>

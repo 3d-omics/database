@@ -1,5 +1,5 @@
 export const colorScheme = {
-  'Actinomycetota': {
+  'Actinomycetota': { // deep crimson red
     color: "#C7243A",
     class: {
       'Actinomycetia': {
@@ -24,7 +24,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Bacillota': {
+  'Bacillota': { // vivid pure red
     color: "#FF0022",
     class: {
       'Bacilli': {
@@ -68,7 +68,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Bacillota_A': {
+  'Bacillota_A': { // bright red-orange
     color: "#FF4400",
     class: {
       'Clostridia': {
@@ -115,7 +115,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Bacillota_B': {
+  'Bacillota_B': { // strong amber orange
     color: "#FFA600",
     class: {
       'Dehalobacteriia': {
@@ -140,7 +140,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Bacillota_C': {
+  'Bacillota_C': { // golden yellow
     color: "#FFC800",
     class: {
       'Negativicutes': {
@@ -160,7 +160,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Bacillota_G': {
+  'Bacillota_G': { // bright lemon yellow
     color: "#FFE600",
     class: {
       'SHA-98': {
@@ -174,8 +174,7 @@ export const colorScheme = {
     }
   },
   //======================================
-
-  'Bacteroidota': {
+  'Bacteroidota': { // yellow-green
     color: "#DBE600",
     class: {
       'Bacteroidia': {
@@ -192,8 +191,8 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Bdellovibrionota': {
-    color: "#B8E600",
+  'Bdellovibrionota': { //light yellow-green
+    color: "#B8E600", 
     class: {
       'UBA2361': {
         color: "#BFE626",
@@ -206,8 +205,8 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Campylobacterota': {
-    color: "#22FF00",
+  'Campylobacterota': { // vivid neon green
+    color: "#22FF00", 
     class: {
       'Campylobacteria': {
         color: "#46FF2A",
@@ -220,7 +219,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Chlamydiota': {
+  'Chlamydiota': { // bright mint green
     color: "#00FF8C",
     class: {
       'Chlamydiia': {
@@ -234,7 +233,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Cyanobacteriota': {
+  'Cyanobacteriota': { //muted teal green
     color: "#009F8C",
     class: {
       'Vampirovibrionia': {
@@ -248,7 +247,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Deferribacterota': {
+  'Deferribacterota': { // bright turquoise
     color: "#00FFE1",
     class: {
       'Deferribacteres': {
@@ -262,7 +261,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Desulfobacterota': {
+  'Desulfobacterota': { // vivid sky blue
     color: "#00C8FF",
     class: {
       'Desulfovibrionia': {
@@ -276,7 +275,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Elusimicrobiota': {
+  'Elusimicrobiota': { // deep cyan blue
     color: "#007FB1",
     class: {
       'Elusimicrobia': {
@@ -290,7 +289,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Eremiobacterota': {
+  'Eremiobacterota': { // bright azure blue
     color: "#00AAFF",
     class: {
       'Xenobia': {
@@ -304,7 +303,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Fibrobacterota': {
+  'Fibrobacterota': { // royal blue
     color: "#0062FF",
     class: {
       'Fibrobacteria': {
@@ -318,7 +317,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Myxococcota': {
+  'Myxococcota': { // muted blue-violet
     color: "#5D639E",
     class: {
       'Bradymonadia': {
@@ -332,7 +331,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Patescibacteria': {
+  'Patescibacteria': { // electric blue
     color: "#001AFF",
     class: {
       'Saccharimonadia': {
@@ -346,7 +345,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Planctomycetota': {
+  'Planctomycetota': { // purple
     color: "#9500FF",
     class: {
       'Planctomycetia': {
@@ -360,7 +359,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Pseudomonadota': {
+  'Pseudomonadota': { // magenta
     color: "#FF00BB",
     class: {
       'Alphaproteobacteria': {
@@ -397,7 +396,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Spirochaetota': {
+  'Spirochaetota': { // deep rose pink
     color: "#A52175",
     class: {
       'Brachyspirae': {
@@ -422,7 +421,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Thermoplasmatota': {
+  'Thermoplasmatota': { // dark slate gray
     color: "#374151",
     class: {
       'Thermoplasmata': {
@@ -436,7 +435,7 @@ export const colorScheme = {
     }
   },
   //======================================
-  'Verrucomicrobiota': {
+  'Verrucomicrobiota': { // dark wine red
     color: "#86153D",
     class: {
       'Kiritimatiellia': {

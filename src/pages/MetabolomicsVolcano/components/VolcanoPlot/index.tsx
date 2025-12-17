@@ -1,17 +1,15 @@
-import { useState, useEffect } from "react"
-import * as XLSX from "xlsx"
-import Plot from "react-plotly.js"
-import { log10, log2 } from "mathjs"
+import { useState, useEffect } from 'react'
+import * as XLSX from 'xlsx'
+import Plot from 'react-plotly.js'
+import { log10, log2 } from 'mathjs'
 import { Layout, Config } from 'plotly.js'
-import jStat from "jstat"
-// import swineDataExcel from "assets/data/swine_metabolomics.xlsx"
-// import salmonellaDataExcel from "assets/data/salmonella_metabolomics.xlsx"
-import experimentH from "assets/data/metabolomics/metabolomics_H.xlsx"
-import experimentI from "assets/data/metabolomics/metabolomics_I.xlsx"
-import experimentJ from "assets/data/metabolomics/metabolomics_J.xlsx"
-import experimentK from "assets/data/metabolomics/metabolomics_K.xlsx"
-import experimentG from "assets/data/metabolomics/metabolomics_G.xlsx"
-import experimentM from "assets/data/metabolomics/metabolomics_M.xlsx"
+import jStat from 'jstat'
+import experimentH from 'assets/data/metabolomics/metabolomics_H.xlsx'
+import experimentI from 'assets/data/metabolomics/metabolomics_I.xlsx'
+import experimentJ from 'assets/data/metabolomics/metabolomics_J.xlsx'
+import experimentK from 'assets/data/metabolomics/metabolomics_K.xlsx'
+import experimentG from 'assets/data/metabolomics/metabolomics_G.xlsx'
+import experimentM from 'assets/data/metabolomics/metabolomics_M.xlsx'
 
 const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExecuteCreatePlot, calculatedData, setCalculatedData, pValueThreshold, foldChangeThreshold, setPValueThreshold, setFoldChangeThreshold, experimentId, options }: {
   compareBetween: string,
@@ -58,17 +56,17 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
       setWindowHeight(window.innerHeight)
     }
     handleResize()
-    window.addEventListener("resize", handleResize)
+    window.addEventListener('resize', handleResize)
     return () => {
-      window.removeEventListener("resize", handleResize)
+      window.removeEventListener('resize', handleResize)
     }
   }, [])
 
   useEffect(() => {
-    if (group1 === "0" || group1 === "1" || group1 === "3" || group1 === "4" || group1 === "7" || group1 === "9" || group1 === "14" || group1 === "21" || group1 === "28" || group1 === "35") {
+    if (group1 === '0' || group1 === '1' || group1 === '3' || group1 === '4' || group1 === '7' || group1 === '9' || group1 === '14' || group1 === '21' || group1 === '28' || group1 === '35') {
       group1 = Number(group1)
     }
-    if (group1 === "0" || group2 === "1" || group2 === "3" || group2 === "4" || group2 === "7" || group1 === "9" || group2 === "14" || group2 === "21" || group2 === "28" || group2 === "35") {
+    if (group1 === '0' || group2 === '1' || group2 === '3' || group2 === '4' || group2 === '7' || group1 === '9' || group2 === '14' || group2 === '21' || group2 === '28' || group2 === '35') {
       group2 = Number(group2)
     }
 
@@ -95,7 +93,7 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
 
   const fetchExcelFile = async () => {
     if (!excelFileToUse) {
-      console.error("No valid experiment ID provided")
+      console.error('No valid experiment ID provided')
       return
     }
     try {
@@ -106,29 +104,29 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
       reader.onload = (e) => {
         if (!e.target) return
         const binaryStr = e.target.result
-        const workbook = XLSX.read(binaryStr, { type: "binary" })
+        const workbook = XLSX.read(binaryStr, { type: 'binary' })
 
         const abundancesSheet = XLSX.utils.sheet_to_json(
-          workbook.Sheets["Abundances"]
+          workbook.Sheets['Abundances']
         )
         const metadataSheet = XLSX.utils.sheet_to_json(
-          workbook.Sheets["Sample metadata"]
+          workbook.Sheets['Sample metadata']
         )
         const annotationsSheet = XLSX.utils.sheet_to_json(
-          workbook.Sheets["Annotations"]
+          workbook.Sheets['Annotations']
         )
 
         processVolcanoData(abundancesSheet, metadataSheet, annotationsSheet)
       }
       reader.readAsBinaryString(blob)
     } catch (error) {
-      console.error("Error loading the Excel file:", error)
+      console.error('Error loading the Excel file:', error)
     }
   }
 
   const processVolcanoData = (abundances: any[], metadata: any[], annotations: any[]) => {
-    const sampleCol = "SAMPLE_ID"
-    const metaboliteCol = "Feature_ID"
+    const sampleCol = 'SAMPLE_ID'
+    const metaboliteCol = 'Feature_ID'
     const groupCol = compareBetween
 
     const group1Samples = metadata
@@ -169,8 +167,8 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
     // Replace metabolite codes with curated names
     const annotationsMap = Object.fromEntries(
       annotations.map((row) => [
-        row["Feature_ID"],
-        (row["Curated_ID"] === "Unknown" || row["Curated_ID"] === "") ? row["Feature_ID"] : row["Curated_ID"]
+        row['Feature_ID'],
+        (row['Curated_ID'] === 'Unknown' || row['Curated_ID'] === '') ? row['Feature_ID'] : row['Curated_ID']
       ])
     );
 
@@ -187,27 +185,26 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
 
   const data: any[] = calculatedData ? [
     {
-      type: "scattergl",
-      name: "All Metabolites",
+      type: 'scattergl',
+      name: 'All Metabolites',
       x: calculatedData.map((d) => d.fold_change),
       y: calculatedData.map((d) => d.p_value),
-      mode: "markers",
+      mode: 'markers',
       marker: { color: grey, size: 3, opacity: 0.3 },
       text: calculatedData.map((d) => d.metabolite),
       hoverinfo: 'text',
       showlegend: windowWidth > 768,
-      // hovertemplate: '<span style="background-color: #E4E0BE">%{text}</span><extra></extra>'
     },
     {
-      type: "scatter",
-      name: "Significant UP",
+      type: 'scatter',
+      name: 'Significant UP',
       x: calculatedData
         .filter((d) => d.p_value > -log10(pValueThreshold) && d.fold_change > foldChangeThreshold)
         .map((d) => d.fold_change),
       y: calculatedData
         .filter((d) => d.p_value > -log10(pValueThreshold) && d.fold_change > foldChangeThreshold)
         .map((d) => d.p_value),
-      mode: "markers+text",
+      mode: 'markers+text',
       marker: { color: red, size: 8, opacity: 1 },
       text: calculatedData
         .filter((d) => d.p_value > -log10(pValueThreshold) && d.fold_change > foldChangeThreshold)
@@ -216,18 +213,17 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
       hoverinfo: 'text',
       hoverlabel: { bgcolor: red },
       showlegend: windowWidth > 768,
-      // hovertemplate: '<span style="background-color: #B30059">%{text}</span><extra></extra>'
     },
     {
-      type: "scatter",
-      name: "Significant DOWN",
+      type: 'scatter',
+      name: 'Significant DOWN',
       x: calculatedData
         .filter((d) => d.p_value > -log10(pValueThreshold) && d.fold_change < -foldChangeThreshold)
         .map((d) => d.fold_change),
       y: calculatedData
         .filter((d) => d.p_value > -log10(pValueThreshold) && d.fold_change < -foldChangeThreshold)
         .map((d) => d.p_value),
-      mode: "markers+text",
+      mode: 'markers+text',
       marker: { color: blue, size: 8 },
       text: calculatedData
         .filter((d) => d.p_value > -log10(pValueThreshold) && d.fold_change < -foldChangeThreshold)
@@ -236,7 +232,6 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
       hoverinfo: 'text',
       hoverlabel: { bgcolor: blue },
       showlegend: windowWidth > 768,
-      // hovertemplate: '<span style="background-color: #0057D9">%{text}</span><extra></extra>'
     },
   ] : [];
 
@@ -244,10 +239,10 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
     width: windowWidth > 1279 ? windowWidth - 580 : windowWidth - 64,
     height: windowHeight - 300,
     margin: { t: 0, r: 0, l: 40, },
-    title: "",
+    title: '',
     xaxis: {
       title: {
-        text: "log2 (Fold Change)",
+        text: 'log2 (Fold Change)',
         font: { size: windowWidth > 768 ? 12 : 10 }
       },
       tickfont: {
@@ -256,7 +251,7 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
     },
     yaxis: {
       title: {
-        text: "-log10 (p-value)",
+        text: '-log10 (p-value)',
         font: { size: windowWidth > 768 ? 12 : 10 }
       },
       tickfont: {
@@ -264,10 +259,10 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
       }
     },
     shapes: [
-      { type: "line", x0: 0, x1: 0, y0: 0, y1: calculatedData ? Math.max(...calculatedData.map((d) => d.p_value)) : 0, line: { color: "black", dash: "dash" } },
-      { type: "line", x0: -foldChangeThreshold, x1: -foldChangeThreshold, y0: 0, y1: calculatedData ? Math.max(...calculatedData.map((d) => d.p_value)) : 0, line: { color: blue, dash: "dash" } },
-      { type: "line", x0: foldChangeThreshold, x1: foldChangeThreshold, y0: 0, y1: calculatedData ? Math.max(...calculatedData.map((d) => d.p_value)) : 0, line: { color: blue, dash: "dash" } },
-      { type: "line", x0: calculatedData ? -Math.max(...calculatedData.map((d) => Math.abs(d.fold_change))) : 0, x1: calculatedData ? Math.max(...calculatedData.map((d) => Math.abs(d.fold_change))) : 0, y0: -log10(pValueThreshold), y1: -log10(pValueThreshold), line: { color: red, dash: "dash" } },
+      { type: 'line', x0: 0, x1: 0, y0: 0, y1: calculatedData ? Math.max(...calculatedData.map((d) => d.p_value)) : 0, line: { color: 'black', dash: 'dash' } },
+      { type: 'line', x0: -foldChangeThreshold, x1: -foldChangeThreshold, y0: 0, y1: calculatedData ? Math.max(...calculatedData.map((d) => d.p_value)) : 0, line: { color: blue, dash: 'dash' } },
+      { type: 'line', x0: foldChangeThreshold, x1: foldChangeThreshold, y0: 0, y1: calculatedData ? Math.max(...calculatedData.map((d) => d.p_value)) : 0, line: { color: blue, dash: 'dash' } },
+      { type: 'line', x0: calculatedData ? -Math.max(...calculatedData.map((d) => Math.abs(d.fold_change))) : 0, x1: calculatedData ? Math.max(...calculatedData.map((d) => Math.abs(d.fold_change))) : 0, y0: -log10(pValueThreshold), y1: -log10(pValueThreshold), line: { color: red, dash: 'dash' } },
     ],
   }
 
@@ -282,12 +277,11 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
 
 
   return (
-    <div className="h-full">
+    <div className='h-full'>
       {calculatedData ? (
-        <div className="px-4 pt-4 max-sm:px-0">
-          <header className="flex items-center gap-2 pb-2 max-sm:pb-6">
-            {/* <h2 className="text-xl font-semibold">Volcano Plot</h2> */}
-            <p className="font-light">
+        <div className='px-4 pt-4 max-sm:px-0'>
+          <header className='flex items-center gap-2 pb-2 max-sm:pb-6'>
+            <p className='font-light'>
               <span className='font-semibold'>{currentlyDisplayedPlot.compareBetween}:&nbsp;</span>
               {options[currentlyDisplayedPlot.compareBetween]?.[String(currentlyDisplayedPlot.group1)] || currentlyDisplayedPlot.group1}
               <span className='font-semibold'>&nbsp;/&nbsp;</span>
@@ -295,38 +289,38 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
             </p>
           </header>
 
-          <div className="mb-4 flex gap-6 justify-center">
+          <div className='mb-4 flex gap-6 justify-center'>
             <div>
-              <label className="block text-xs font-medium text-center max-sm:text-2xs" htmlFor='foldChange'>Fold Change Threshold:</label>
+              <label className='block text-xs font-medium text-center max-sm:text-2xs' htmlFor='foldChange'>Fold Change Threshold:</label>
               <input
-                id="foldChange"
-                type="range"
-                min="0.5"
-                max="3"
-                step="0.1"
+                id='foldChange'
+                type='range'
+                min='0.5'
+                max='3'
+                step='0.1'
                 value={foldChangeThreshold}
                 onChange={(e) => setFoldChangeThreshold(parseFloat(e.target.value))}
-                className="w-full accent-burgundy"
+                className='w-full accent-burgundy'
               />
-              <div className="text-xs text-center">{foldChangeThreshold.toFixed(1)}</div>
+              <div className='text-xs text-center'>{foldChangeThreshold.toFixed(1)}</div>
             </div>
             <div>
-              <label className="block text-xs font-medium text-center max-sm:text-2xs" htmlFor="pValue">p-value Threshold:</label>
+              <label className='block text-xs font-medium text-center max-sm:text-2xs' htmlFor='pValue'>p-value Threshold:</label>
               <input
-                id="pValue"
-                type="range"
-                min="0.001"
-                max="0.1"
-                step="0.001"
+                id='pValue'
+                type='range'
+                min='0.001'
+                max='0.1'
+                step='0.001'
                 value={pValueThreshold}
                 onChange={(e) => setPValueThreshold(parseFloat(e.target.value))}
-                className="w-full accent-burgundy"
+                className='w-full accent-burgundy'
               />
-              <div className="text-xs text-center">{pValueThreshold.toFixed(3)}</div>
+              <div className='text-xs text-center'>{pValueThreshold.toFixed(3)}</div>
             </div>
           </div>
 
-          <main className="w-fit mx-auto">
+          <main className='w-fit mx-auto'>
             <Plot
               data={data}
               layout={layout}
@@ -334,32 +328,32 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
             />
           </main>
 
-          <section className="hidden max-md:block">
-            <div className="flex gap-4 items-center justify-center mt-4 mb-6 max-sm:gap-2">
-              <div className="flex gap-1 items-center">
-                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: grey }}></div>
-                <p className="text-xs">All Metabolites</p>
+          <section className='hidden max-md:block'>
+            <div className='flex gap-4 items-center justify-center mt-4 mb-6 max-sm:gap-2'>
+              <div className='flex gap-1 items-center'>
+                <div className='w-3 h-3 rounded-full' style={{ backgroundColor: grey }}></div>
+                <p className='text-xs'>All Metabolites</p>
               </div>
-              <div className="flex gap-1 items-center">
-                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: red }}></div>
-                <p className="text-xs">Significant UP</p>
+              <div className='flex gap-1 items-center'>
+                <div className='w-3 h-3 rounded-full' style={{ backgroundColor: red }}></div>
+                <p className='text-xs'>Significant UP</p>
               </div>
-              <div className="flex gap-1 items-center">
-                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: blue }}></div>
-                <p className="text-xs">Significant DOWN</p>
+              <div className='flex gap-1 items-center'>
+                <div className='w-3 h-3 rounded-full' style={{ backgroundColor: blue }}></div>
+                <p className='text-xs'>Significant DOWN</p>
               </div>
             </div>
           </section>
 
         </div>
       ) : (
-        <div className="flex justify-center items-center w-full h-[calc(100vh-222px)]
+        <div className='flex justify-center items-center w-full h-[calc(100vh-222px)]
           max-xl:h-[calc(100vh-(var(--navbar-height)+200px))] 
           max-xl:text-center max-xl:px-20 
           max-sm:h-[calc(100vh-(var(--navbar-height)+48px+264px+32px+16px))]
           max-sm:px-4
-          ">
-          <p className="text-2xl font-semibold">Select target groups and click "Run Analysis" button to generate volcano plot.</p>
+          '>
+          <p className='text-2xl font-semibold'>Select target groups and click "Run Analysis" button to generate volcano plot.</p>
         </div>
       )
       }

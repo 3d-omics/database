@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import TableView from 'components/TableView'
-import { ColumnDef, CellContext } from '@tanstack/react-table'
+import { ColumnDef } from '@tanstack/react-table'
 import { Link } from 'react-router-dom'
 
 
@@ -47,7 +47,7 @@ const MAGCatalogueTable = ({ metaData, experimentName }: {
       cell: ({ cell, row }: { cell: { getValue: () => any }, row: { original: GenomeData } }) => (
         <Link
           to={`/mag-catalogues/${encodeURIComponent(experimentName)}/${encodeURIComponent(cell.getValue())}`}
-          className="link"
+          className='link'
         >
           <span>{cell.getValue() || 'unknown'}</span>
         </Link>
@@ -67,14 +67,13 @@ const MAGCatalogueTable = ({ metaData, experimentName }: {
       id: 'taxonomy',
       header: 'Taxonomy',
       accessorFn: (row) => `${row.domain || ''} > ${row.phylum || ''} > ${row.class || ''} > ${row.order || ''} > ${row.family || ''} > ${row.genus || ''} > ${row.species || 'unknown'}`,
-      // accessorFn: (row) => `${row.domain || ''} > ${row.class || ''} > ${row.order || ''} > ${row.family || ''} > ${row.genus || ''} > ${row.species || 'unknown'}`,
       meta: {
         filterVariant: 'select' as const,
         uniqueValues: Array.from(new Set(data.map((row) => row.species))),
       },
       cell: ({ cell, row }: { cell: { getValue: () => any }, row: { original: GenomeData } }) => (
-        <div className="tooltip tooltip-bottom" data-tip={cell.getValue()} data-testid='taxonomy-tooltip'>
-          <span className="underline decoration-dotted">{row.original.species || 'unknown'}</span>
+        <div className='tooltip tooltip-bottom' data-tip={cell.getValue()} data-testid='taxonomy-tooltip'>
+          <span className='underline decoration-dotted'>{row.original.species || 'unknown'}</span>
         </div>
       ),
     },

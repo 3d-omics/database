@@ -22,7 +22,7 @@ const MicrosampleTaxonomyChart = ({
   setSelectedTaxonomicLevel: React.Dispatch<React.SetStateAction<string>>
   experimentId: string 
 }) => {
-  const taxonomicLevels = ["phylum", "class", "order"]
+  const taxonomicLevels = ['phylum', 'class', 'order']
   const [isInitializing, setIsInitializing] = useState(true)
   const [isChangingLevel, setIsChangingLevel] = useState(false)
 
@@ -139,19 +139,19 @@ const MicrosampleTaxonomyChart = ({
   // Show full loading skeleton during initialization
   if (isInitializing || !isDataReady) {
     return (
-      <div className="grow flex flex-col pl-4 max-md:pl-0">
-        <div className="animate-pulse flex flex-col w-[95%] max-w-3xl">
-          <div className="h-6 bg-gray-200 rounded w-[80%] mb-4"></div>
-          <div className="h-[70vh] bg-gray-200 rounded w-full"></div>
+      <div className='grow flex flex-col pl-4 max-md:pl-0'>
+        <div className='animate-pulse flex flex-col w-[95%] max-w-3xl'>
+          <div className='h-6 bg-gray-200 rounded w-[80%] mb-4'></div>
+          <div className='h-[70vh] bg-gray-200 rounded w-full'></div>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="grow flex flex-col pl-4 max-md:pl-0">
-      <div className="flex items-center mb-3 px-3 taxonomic-level-buttons">
-        <p className="text-sm font-bold mr-1.5 whitespace-nowrap">Taxonomic Level:</p>
+    <div className='grow flex flex-col pl-4 max-md:pl-0'>
+      <div className='flex items-center mb-3 px-3 taxonomic-level-buttons'>
+        <p className='text-sm font-bold mr-1.5 whitespace-nowrap'>Taxonomic Level:</p>
         <div>
           {(chartWidth ?? 0) > 520 ? (
             taxonomicLevels.map((level) => (
@@ -160,8 +160,8 @@ const MicrosampleTaxonomyChart = ({
                 onClick={() => handleLevelChange(level)}
                 disabled={isChangingLevel}
                 className={`btn btn-xs border-none mr-1 ${
-                  selectedTaxonomicLevel === level && "bg-light_burgundy text-white"
-                } ${isChangingLevel && "opacity-50 cursor-not-allowed"}`}
+                  selectedTaxonomicLevel === level && 'bg-light_burgundy text-white'
+                } ${isChangingLevel && 'opacity-50 cursor-not-allowed'}`}
               >
                 {level.charAt(0).toUpperCase() + level.slice(1)}
               </button>
@@ -186,10 +186,10 @@ const MicrosampleTaxonomyChart = ({
         <Bar data={chartData} options={options} />
         {/* Loading overlay - shows when changing levels */}
         {isChangingLevel && (
-          <div className="absolute inset-0 bg-white/80 flex items-center justify-center z-10">
-            <div className="flex flex-col items-center gap-3">
-              <div className="w-12 h-12 border-4 border-gray-300 border-t-light_burgundy rounded-full animate-spin" />
-              <p className="text-sm font-medium text-gray-600">Updating chart...</p>
+          <div className='absolute inset-0 bg-white/80 flex items-center justify-center z-10'>
+            <div className='flex flex-col items-center gap-3'>
+              <div className='w-12 h-12 border-4 border-gray-300 border-t-light_burgundy rounded-full animate-spin' />
+              <p className='text-sm font-medium text-gray-600'>Updating chart...</p>
             </div>
           </div>
         )}

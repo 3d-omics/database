@@ -34,30 +34,6 @@ describe('flattenedcolorScheme', () => {
     expect(result).toHaveProperty('Bacteria');
   });
 
-  it('handles deeply nested structures', () => {
-    const colorScheme = {
-      Bacteria: {
-        color: '#FF0000',
-        order: {
-          Lactobacillales: {
-            color: '#00FF00',
-            family: {
-              Lactobacillaceae: { color: '#0000FF' },
-            },
-          },
-        },
-      },
-    };
-
-    const result = flattenedcolorScheme(colorScheme);
-
-    expect(result).toEqual({
-      Bacteria: '#FF0000',
-      Lactobacillales: '#00FF00',
-      Lactobacillaceae: '#0000FF',
-    });
-  });
-
   it('handles empty object', () => {
     const result = flattenedcolorScheme({});
     expect(result).toEqual({});

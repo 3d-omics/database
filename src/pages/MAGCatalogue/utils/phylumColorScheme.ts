@@ -1,5 +1,4 @@
-import { colorScheme } from 'config/taxonomy-color-scheme';
-
+import { colorScheme } from 'config/taxonomy-color-scheme'
 
 const extractPhylumColorMap = (colorScheme: any): Record<string, string> => {
   const map: Record<string, string> = {};
@@ -9,10 +8,10 @@ const extractPhylumColorMap = (colorScheme: any): Record<string, string> => {
   return map;
 }
 
-const defaultPhylumColor = "#999999";
+const defaultPhylumColor = '#999999'
 
-export const phylumColors = extractPhylumColorMap(colorScheme);
+export const phylumColors = extractPhylumColorMap(colorScheme)
 
 export const getPhylumColor = (phylum: string) => {
-  return phylumColors[phylum] ?? defaultPhylumColor;
+  return phylumColors[phylum] ?? defaultPhylumColor
 }

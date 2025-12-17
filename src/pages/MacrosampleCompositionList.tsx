@@ -50,7 +50,7 @@ const MacrosampleCompositionList = () => {
                     experiment.fields['MAG catalogue - New species (%)'] &&
                     <span>
                       New species:&nbsp;
-                      <b>{experiment.fields['MAG catalogue - New species (%)']}%</b>
+                      <b>{experiment.fields['MAG catalogue - New species (%)'].toFixed(2)}%</b>
                     </span>
                   }
                 </div>

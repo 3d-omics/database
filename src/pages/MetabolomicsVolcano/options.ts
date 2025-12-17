@@ -27,13 +27,6 @@ export const getExperimentOptions = (experimentId: string): Record<string, Recor
           'd': 'd',
           'e': 'e'
         },
-        // 'Day': {
-        //   'a': 'Day 0',
-        //   'b': 'Day 4',
-        //   'c': 'Day 7',
-        //   'd': 'Day 14',
-        //   'e': 'Day 21'
-        // },
         'Treatment': {
           'TH1': 'Vaccinated + Challenge (Formulation 1)',
           'TH2': 'Vaccinated + Challenge (Formulation 2)',
@@ -105,12 +98,6 @@ export const getExperimentOptions = (experimentId: string): Record<string, Recor
           'c': 'c',
           'd': 'd',
         },
-        // 'Day': {
-        //   'a': '0',
-        //   'b': '7',
-        //   'c': '9/14',
-        //   'd': '21',
-        // },
         'Treatment': {
           'TM1': 'Vaccinated + Challenge (Formulation 1)',
           'TM2': 'Vaccinated + Challenge (Formulation 2)',

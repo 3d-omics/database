@@ -6,9 +6,6 @@ export interface TaxonomyData {
   phylum: string[]
   class: string[]
   order: string[]
-  // family: string[]
-  // genus: string[]
-  // species: string[]
   genome: string[]
 }
 
@@ -39,9 +36,6 @@ export const useTaxonomyData = ({
         phylum: [],
         class: [],
         order: [],
-        // family: [],
-        // genus: [],
-        // species: [],
         genome: [],
       }
     }
@@ -51,9 +45,6 @@ export const useTaxonomyData = ({
       phylum: metadataFile.phylum || [],
       class: metadataFile.class || [],
       order: metadataFile.order || [],
-      // family: metadataFile.family || [],
-      // genus: metadataFile.genus || [],
-      // species: metadataFile.species || [],
       genome: metadataFile.genome || [],
     }
   }, [metadataFile])

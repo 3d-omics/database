@@ -4,12 +4,12 @@ export const flattenedcolorScheme = (colorScheme: Record<string, any>) => {
   function traverse(obj: Record<string, any>): void {
     for (const key in obj) {
       if (key === 'color') continue;
-      if (['species', 'genus', 'family', 'order', 'class'].includes(key)) {
+      if (['order', 'class'].includes(key)) {
         if (typeof obj[key] === 'object' && obj[key] !== null) {
           traverse(obj[key]);
         }
       } else {
-        const taxonData = obj[key];        
+        const taxonData = obj[key];
         if (taxonData && typeof taxonData === 'object' && taxonData.color) {
           result[key] = taxonData.color;
         }
