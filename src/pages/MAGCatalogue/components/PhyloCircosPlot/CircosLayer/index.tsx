@@ -3,20 +3,13 @@ import type { PhyloData, CircosData } from '..'
 import * as d3 from 'd3'
 import { getPhylumColor } from '../../../utils/phylumColorScheme'
 
-
-const CircosLayer = ({
-  phyloData,
-  circosData,
-  width,
-  height
-}: {
+const CircosLayer = ({ phyloData, circosData, width, height }: {
   phyloData: PhyloData,
   circosData: CircosData,
   width: number,
   height: number
 }) => {
   const groupRef = useRef<SVGGElement | null>(null)
-
 
   useEffect(() => {
     if (!groupRef.current || !phyloData || !circosData) return
@@ -46,14 +39,10 @@ const CircosLayer = ({
     const allData = Object.values(circosData)
     metrics[2].maxValue = Math.max(...allData.map(d => d.length))
 
-    // ✅ Add dynamic color scales for each metric:
+    // Add dynamic color scales for each metric:
     const colorScales = {
       completeness: d3.scaleSequential<string>(d3.interpolateOranges)
-      .domain([0, 17]),
-      // completeness: d3.scaleLinear<string>()
-      //   .domain([0, 17])
-      //   .range(['#d1f4ba', '#f4baba']), // Light green to pink
-
+        .domain([0, 17]),
       length: d3.scaleSequential<string>(d3.interpolateOranges)
         .domain([0, metrics[2].maxValue]),
     }
@@ -70,13 +59,10 @@ const CircosLayer = ({
     leafNodes.forEach((node, i) => {
       const leafName = node.data.name
 
-
       // for opening the circle for labels
       const gapDegrees = 15
       const gapRadians = (gapDegrees / 360) * 2 * Math.PI
       const availableAngle = 2 * Math.PI - gapRadians
-
-
 
       // Equal angular position
       const nodeAngle = (i / totalLeaves) * availableAngle + gapRadians / 2
@@ -109,12 +95,8 @@ const CircosLayer = ({
         const normalizedValue = (barHeightValue / metric.maxValue) * bandHeight * 0.8
 
         const innerRadius = metric.key === 'completeness' ? circosInnerRadius + (i * bandHeight * 0.6) : circosInnerRadius + (i * bandHeight * 0.8)
-        // const innerRadius = circosInnerRadius + (i * bandHeight)
         const outerRadius = innerRadius + normalizedValue
-
         const angleSpan = (2 * Math.PI) / leafNodes.length * 1
-        // const angleSpan = availableAngle / totalLeaves 
-
         const startAngle = nodeAngle - angleSpan / 2
         const endAngle = nodeAngle + angleSpan / 2
 
@@ -126,10 +108,8 @@ const CircosLayer = ({
 
         circosGroup
           .append('path')
-          .attr('d', arc as any) // TS quirk: d3.arc() type can be fussy
-          .attr("data-testid", "circos-path") // for testing
-          // .attr('fill', metric.color) // for static color
-          // .attr('fill', colorScales[metric.key as keyof typeof colorScales](value))
+          .attr('d', arc as any)
+          .attr('data-testid', 'circos-path') // for testing
           .attr('fill',
             metric.key === 'phylum'
               ? getPhylumColor(colorValue as string) // special color by string
@@ -154,7 +134,7 @@ const CircosLayer = ({
               .style('pointer-events', 'none')
               .style('z-index', '1000')
               .style('opacity', 0)
-            if (metric.label === "Genome Quality") {
+            if (metric.label === 'Genome Quality') {
               tooltip.html(`
                 &nbsp;<strong>${leafName}</strong>&nbsp;
                 <br/>
@@ -186,7 +166,7 @@ const CircosLayer = ({
 
   }, [phyloData, circosData, width, height])
 
-  return <g ref={groupRef} data-testid="circos-layer" />
+  return <g ref={groupRef} data-testid='circos-layer' />
 }
 
 export default CircosLayer

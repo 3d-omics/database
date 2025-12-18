@@ -22,8 +22,8 @@ type TData = {
     Weight: number
     'Biosample accession'?: string
     'Biosample link'?: string
-  };
-};
+  }
+}
 
 const AnimalSpecimen = ({
   displayTableHeader,
@@ -169,14 +169,14 @@ const AnimalSpecimen = ({
         header: 'Biosample Accession',
         accessorFn: (row) => row.fields['Biosample accession'],
         cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
-          const biosampleLink = row.original.fields['Biosample link'];
+          const biosampleLink = row.original.fields['Biosample link']
           return biosampleLink ? (
             <Link to={biosampleLink} target='_blank' rel='noopener noreferrer' className='link'>
               {cell.getValue() as string}
             </Link>
           ) : (
             <></>
-          );
+          )
         }
       },
     ],
@@ -193,8 +193,8 @@ const AnimalSpecimen = ({
       displayTableFilters={displayTableFilters}
       displayTableBody={displayTableBody}
     />
-  );
-};
+  )
+}
 
-export default AnimalSpecimen;
+export default AnimalSpecimen
 

@@ -1,15 +1,15 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import PhyloCircosPlot from './index';
+import { describe, it, expect, vi } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import PhyloCircosPlot from './index'
 
 // Mock child components
 vi.mock('./PhyloTreeLayer', () => ({
-  default: () => <g data-testid="phylo-tree-layer">PhyloTree</g>,
-}));
+  default: () => <g data-testid='phylo-tree-layer'>PhyloTree</g>,
+}))
 
 vi.mock('./CircosLayer', () => ({
-  default: () => <g data-testid="circos-layer">Circos</g>,
-}));
+  default: () => <g data-testid='circos-layer'>Circos</g>,
+}))
 
 describe('PhyloCircosPlot', () => {
   const mockPhyloData = {
@@ -25,7 +25,7 @@ describe('PhyloCircosPlot', () => {
         ],
       },
     ],
-  };
+  }
 
   const mockCircosData = {
     Genome1: {
@@ -35,47 +35,47 @@ describe('PhyloCircosPlot', () => {
       length: 2000000,
       N50: 50000,
     },
-  };
+  }
 
   it('renders SVG with correct dimensions', () => {
     render(
       <PhyloCircosPlot phyloData={mockPhyloData} circosData={mockCircosData} />
-    );
+    )
 
-    const svg = screen.getByTestId('phylo-circos-svg');
-    expect(svg).toHaveAttribute('width', '1100');
-    expect(svg).toHaveAttribute('height', '1100');
-  });
+    const svg = screen.getByTestId('phylo-circos-svg')
+    expect(svg).toHaveAttribute('width', '1100')
+    expect(svg).toHaveAttribute('height', '1100')
+  })
 
 
   it('renders labels for genome metrics', () => {
-    render(<PhyloCircosPlot phyloData={mockPhyloData} circosData={mockCircosData} />);
+    render(<PhyloCircosPlot phyloData={mockPhyloData} circosData={mockCircosData} />)
 
-    expect(screen.getByText('Genome size')).toBeInTheDocument();
-    expect(screen.getByText('Genome quality')).toBeInTheDocument();
-    expect(screen.getByText('Phylum')).toBeInTheDocument();
-  });
+    expect(screen.getByText('Genome size')).toBeInTheDocument()
+    expect(screen.getByText('Genome quality')).toBeInTheDocument()
+    expect(screen.getByText('Phylum')).toBeInTheDocument()
+  })
 
   it('renders CircosLayer component', () => {
-    render(<PhyloCircosPlot phyloData={mockPhyloData} circosData={mockCircosData} />);
+    render(<PhyloCircosPlot phyloData={mockPhyloData} circosData={mockCircosData} />)
 
-    expect(screen.getByTestId('circos-layer')).toBeInTheDocument();
-  });
+    expect(screen.getByTestId('circos-layer')).toBeInTheDocument()
+  })
 
   it('renders PhyloTreeLayer component', () => {
-    render(<PhyloCircosPlot phyloData={mockPhyloData} circosData={mockCircosData} />);
+    render(<PhyloCircosPlot phyloData={mockPhyloData} circosData={mockCircosData} />)
 
-    expect(screen.getByTestId('phylo-tree-layer')).toBeInTheDocument();
-  });
+    expect(screen.getByTestId('phylo-tree-layer')).toBeInTheDocument()
+  })
 
   it('renders with empty data', () => {
-    const emptyPhyloData = { name: '', children: [] };
-    const emptyCircosData = {};
+    const emptyPhyloData = { name: '', children: [] }
+    const emptyCircosData = {}
 
     render(
       <PhyloCircosPlot phyloData={emptyPhyloData} circosData={emptyCircosData} />
-    );
+    )
 
-    expect(screen.getByTestId('phylo-circos-svg')).toBeInTheDocument();
-  });
-});
+    expect(screen.getByTestId('phylo-circos-svg')).toBeInTheDocument()
+  })
+})

@@ -1,4 +1,4 @@
-import { useMemo, useCallback, useState, useEffect } from 'react'
+import { useMemo, useCallback, useState, useEffect, Dispatch, SetStateAction } from 'react'
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 import ErrorBanner from 'components/ErrorBanner'
@@ -9,16 +9,12 @@ import { useGenomeJsonFile } from 'hooks/useJsonData'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, dynamicXAxisPlugin)
 
-const MacrosampleTaxonomyChart = ({
-  selectedTaxonomicLevel,
-  setSelectedTaxonomicLevel,
-  experimentId
-}: {
+const MacrosampleComposition = ({ selectedTaxonomicLevel, setSelectedTaxonomicLevel, experimentId }: {
   selectedTaxonomicLevel: string
-  setSelectedTaxonomicLevel: React.Dispatch<React.SetStateAction<string>>
+  setSelectedTaxonomicLevel: Dispatch<SetStateAction<string>>
   experimentId: string
 }) => {
-  const taxonomicLevels = ["phylum", "class", "order"]
+  const taxonomicLevels = ['phylum', 'class', 'order']
   const [isInitializing, setIsInitializing] = useState(true)
   const [isChangingLevel, setIsChangingLevel] = useState(false)
 
@@ -42,7 +38,6 @@ const MacrosampleTaxonomyChart = ({
       )
 
       const colorSchemeModule =
-        // colorSchemeFiles[`/src/config/taxonomy-color-scheme-${experimentId}.ts`]
         colorSchemeFiles[`/src/config/taxonomy-color-scheme.ts`]
 
       if (!colorSchemeModule) {
@@ -60,7 +55,7 @@ const MacrosampleTaxonomyChart = ({
   // Extract macrosample IDs from counts data
   const macrosampleIds = useMemo(() => {
     if (!countsData) return []
-    return Object.keys(countsData).filter(key => key !== "genome")
+    return Object.keys(countsData).filter(key => key !== 'genome')
   }, [countsData])
 
   // Fetch and process taxonomy data
@@ -127,9 +122,9 @@ const MacrosampleTaxonomyChart = ({
   if (isInitializing || !isDataReady) {
     return (
       <div className='grow max-xl:min-w-full'>
-        <div className="animate-pulse flex flex-col mb-16" data-testid='loading-skeleton'>
-          <div className="h-6 bg-gray-200 rounded w-[30%] mb-4"></div>
-          <div className="h-[70vh] bg-gray-200 rounded w-full"></div>
+        <div className='animate-pulse flex flex-col mb-16' data-testid='loading-skeleton'>
+          <div className='h-6 bg-gray-200 rounded w-[30%] mb-4'></div>
+          <div className='h-[70vh] bg-gray-200 rounded w-full'></div>
         </div>
       </div>
     )
@@ -138,16 +133,16 @@ const MacrosampleTaxonomyChart = ({
   return (
     <div className='grow max-xl:min-w-full'>
       <div>
-        <div className="flex items-center mb-3 px-3 taxonomic-level-buttons">
-          <p className="text-sm font-bold mr-1.5 whitespace-nowrap">Taxonomic Level:</p>
+        <div className='flex items-center mb-3 px-3 taxonomic-level-buttons'>
+          <p className='text-sm font-bold mr-1.5 whitespace-nowrap'>Taxonomic Level:</p>
           <div>
             {taxonomicLevels.map((level) => (
               <button
                 key={level}
                 onClick={() => handleLevelChange(level)}
                 disabled={isChangingLevel}
-                className={`btn btn-xs border-none mr-1 ${selectedTaxonomicLevel === level && "bg-light_burgundy text-white"
-                  } ${isChangingLevel && "opacity-50 cursor-not-allowed"}`}
+                className={`btn btn-xs border-none mr-1 ${selectedTaxonomicLevel === level && 'bg-light_burgundy text-white'
+                  } ${isChangingLevel && 'opacity-50 cursor-not-allowed'}`}
               >
                 {level}
               </button>
@@ -159,10 +154,10 @@ const MacrosampleTaxonomyChart = ({
           <Bar data={chartData} options={options} />
           {/* Loading overlay - shows immediately when changing levels */}
           {isChangingLevel && (
-            <div className="absolute inset-0 bg-white/30 backdrop-blur-sm flex items-center justify-center z-10">
-              <div className="flex flex-col items-center gap-3">
-                <div className="w-12 h-12 border-4 border-gray-300 border-t-light_burgundy rounded-full animate-spin" />
-                <p className="text-sm font-medium text-gray-600">Loading...</p>
+            <div className='absolute inset-0 bg-white/30 backdrop-blur-sm flex items-center justify-center z-10'>
+              <div className='flex flex-col items-center gap-3'>
+                <div className='w-12 h-12 border-4 border-gray-300 border-t-light_burgundy rounded-full animate-spin' />
+                <p className='text-sm font-medium text-gray-600'>Loading...</p>
               </div>
             </div>
           )}
@@ -172,4 +167,4 @@ const MacrosampleTaxonomyChart = ({
   )
 }
 
-export default MacrosampleTaxonomyChart
+export default MacrosampleComposition

@@ -10,8 +10,8 @@ export interface TaxonomyData {
 }
 
 interface UseTaxonomyDataParams {
-  metadataFile: Record<string, any[]> | null  
-  countsFile: Record<string, any[]> | null    
+  metadataFile: Record<string, any[]> | null
+  countsFile: Record<string, any[]> | null
   sampleIds: string[]
 }
 
@@ -22,11 +22,9 @@ interface UseTaxonomyDataReturn {
   fetchError: string | null
 }
 
-export const useTaxonomyData = ({
-  metadataFile,
-  countsFile,
-  sampleIds
-}: UseTaxonomyDataParams): UseTaxonomyDataReturn => {
+export const useTaxonomyData = ({ metadataFile, countsFile, sampleIds }:
+  UseTaxonomyDataParams
+): UseTaxonomyDataReturn => {
 
   // Extract taxonomy data from metadata
   const taxonomyData = useMemo<TaxonomyData>(() => {
@@ -88,8 +86,8 @@ export const useTaxonomyData = ({
     genomeCounts !== null &&
     genomeCounts.length > 0
 
-  const fetchError = !metadataFile || !countsFile 
-    ? 'Failed to load taxonomy data' 
+  const fetchError = !metadataFile || !countsFile
+    ? 'Failed to load taxonomy data'
     : null
 
   return {

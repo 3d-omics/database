@@ -7,13 +7,9 @@ import Filter from './components/Filter'
 
 const TableBody = ({
   table,
-  // checkedItems,
-  // setCheckedItems,
   displayTableFilters = true
 }: {
   table: Table<any>
-  // checkedItems: any[]
-  // setCheckedItems: React.Dispatch<React.SetStateAction<any[]>>
   displayTableFilters?: boolean
 }) => {
   return (
@@ -22,8 +18,6 @@ const TableBody = ({
         <thead className='sticky bg-white z-20 top-[64px] shadow-[0px_4px_3px_-3px_rgba(0,0,0,0.1)] max-lg:top-[-1px]'>
           {table.getHeaderGroups().map(headerGroup => (
             <tr key={headerGroup.id} className='[&>th]:pb-4'>
-              {/* ⬇️ <th> for checkbox input for selecting for download TSV */}
-              {/* <th></th> */}
               {headerGroup.headers.map(header => (
                 <th key={header.id}>
                   {header.isPlaceholder ? null : (

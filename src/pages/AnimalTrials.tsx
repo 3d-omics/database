@@ -24,7 +24,6 @@ const AnimalTrial = () => {
 
   const tableDescription = "The data and metadata generated in 3D'omics derived from multiple animal experiments conducted on chickens, turkeys and pigs. Poultry trials aimed at addressing the effects of the interactions between the microbiota and diverse pathogens in the performance of chickens and turkeys, while the swine trials explored the effect of diverse nutritional variations in the performance of young and adult pigs."
 
-
   const columns = useMemo<ColumnDef<TData>[]>(() => [
     {
       id: 'ID',
@@ -67,18 +66,18 @@ const AnimalTrial = () => {
       enableColumnFilter: false,
     },
     {
-      id: 'Bioproject Accession',
+      id: 'Bioproject accession',
       header: 'Bioproject Accession',
       accessorFn: (row) => row.fields['Bioproject accession'],
       cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
-        const bioprojectLink = row.original.fields['Bioproject link'];
+        const bioprojectLink = row.original.fields['Bioproject link']
         return bioprojectLink ? (
           <Link to={bioprojectLink} target='_blank' rel='noopener noreferrer' className='link'>
             {cell.getValue() as string}
           </Link>
         ) : (
           <></>
-        );
+        )
       }
     },
     {
@@ -98,7 +97,6 @@ const AnimalTrial = () => {
       }
     },
   ], [data])
-
 
   return (
     <TableView<TData>

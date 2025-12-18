@@ -7,12 +7,18 @@ type DataItem = {
   [key: string]: string | number
 }
 
-const DownloadTSVButton = <TData,>({ filteredAndSortedData, columns, fileTitle, buttonLabel }: { filteredAndSortedData: Row<TData>[], columns: ColumnDef<TData>[], fileTitle: string, buttonLabel: string }) => {
+const DownloadTSVButton = <TData,>({ filteredAndSortedData, columns, fileTitle, buttonLabel }: {
+  filteredAndSortedData: Row<TData>[],
+  columns: ColumnDef<TData>[],
+  fileTitle: string,
+  buttonLabel: string
+}) => {
 
   // Filter out columns that shouldn't be exported
   const exportableColumns = useMemo(() => {
     return columns.filter((column) => {
-      if (column.id === 'Metabolite') return false 
+      if (column.id === 'Metabolite') return false
+      if (column.id === 'MAGCatalogue') return false
       if (typeof column.header === 'function') return false
       return true
     })
@@ -27,7 +33,7 @@ const DownloadTSVButton = <TData,>({ filteredAndSortedData, columns, fileTitle, 
   const filteredAndSortedDataWithExistingColumns = useMemo(() => {
     return filteredAndSortedData.map((row: any) => {
       const visibleRow: DataItem = {}
-      exportableColumns.forEach((column) => { 
+      exportableColumns.forEach((column) => {
         if (column.id) {
           if (column.id === 'taxonomy') {
             visibleRow[column.id] = row.renderValue('taxonomy')
@@ -41,7 +47,7 @@ const DownloadTSVButton = <TData,>({ filteredAndSortedData, columns, fileTitle, 
       })
       return visibleRow
     })
-  }, [filteredAndSortedData, exportableColumns]) 
+  }, [filteredAndSortedData, exportableColumns])
 
   const handleDownload = () => {
     const tsvData = convertToTSV(filteredAndSortedDataWithExistingColumns)

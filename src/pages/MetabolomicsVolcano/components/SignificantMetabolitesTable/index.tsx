@@ -68,8 +68,6 @@ const SignificantMetabolitesTable = ({ calculatedData, pValueThreshold, foldChan
             </tbody>
           </table>
 
-
-
           {(calculatedData && calculatedData.length > displayedRows) &&
             <div className='m-3 w-fit mx-auto'>
               <button
@@ -80,7 +78,6 @@ const SignificantMetabolitesTable = ({ calculatedData, pValueThreshold, foldChan
               </button>
             </div>
           }
-
         </div>
       }
     </>

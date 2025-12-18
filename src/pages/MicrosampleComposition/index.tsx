@@ -50,7 +50,6 @@ const MicrosampleComposition = ({ cryosection = '' }) => {
 
   const { xcoord, ycoord, size, shape, microsampleIds } = coordinationData
 
-
   return (
     <ParamsValidator validating={validating} notFound={notFound} >
       <div className='page_padding max-w-screen'>

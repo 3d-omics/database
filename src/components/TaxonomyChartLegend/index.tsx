@@ -36,7 +36,6 @@ type ProcessedMetadata = {
   order: string[]
 }
 
-
 const TaxonomyChartLegend = ({ selectedTaxonomicLevel, experimentId }: {
   selectedTaxonomicLevel: string,
   experimentId: string
@@ -176,9 +175,7 @@ const TaxonomyChartLegend = ({ selectedTaxonomicLevel, experimentId }: {
   }
 
   return (
-    <div className='p-2 h-fit max-h-[80vh] w-[320px] overflow-y-auto bg-gray-100 mt-[46px]
-      max-md:w-[calc(100%-80px)] max-md:mx-10
-    '>
+    <div className='p-2 h-fit max-h-[80vh] w-[320px] overflow-y-auto bg-gray-100 mt-[46px] max-md:w-[calc(100%-80px)] max-md:mx-10'>
       <div className='space-y-2'>
         {Object.entries(filteredColorScheme).map(([name, data]) => (
           <LegendNode key={name} name={name} data={data as TaxonomyNode} level={0} parentLevel='phylum' />

@@ -1,7 +1,7 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import MAGCatalogueList from './MAGCatalogueList';
+import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom'
+import MAGCatalogueList from './MAGCatalogueList'
 
 // Mock data
 vi.mock('assets/data/airtable/animaltrialexperiment.json', () => ({
@@ -26,7 +26,7 @@ vi.mock('assets/data/airtable/animaltrialexperiment.json', () => ({
       },
     },
   ],
-}));
+}))
 
 vi.mock('assets/data/airtable/experimentswithgenomeinfo.json', () => ({
   default: [
@@ -45,12 +45,12 @@ vi.mock('assets/data/airtable/experimentswithgenomeinfo.json', () => ({
       },
     },
   ],
-}));
+}))
 
 describe('MAGCatalogueList', () => {
   beforeEach(() => {
-    vi.clearAllMocks();
-  });
+    vi.clearAllMocks()
+  })
 
   const renderPage = () => {
     return render(
@@ -62,79 +62,79 @@ describe('MAGCatalogueList', () => {
       >
         <MAGCatalogueList />
       </BrowserRouter>
-    );
-  };
+    )
+  }
 
   it('renders page header', () => {
-    renderPage();
-    expect(screen.getByText('List of MAG Catalogues')).toBeInTheDocument();
-  });
+    renderPage()
+    expect(screen.getByText('List of MAG Catalogues')).toBeInTheDocument()
+  })
 
   it('renders page description', () => {
-    renderPage();
-    expect(screen.getByText(/Metagenome-assembled genome/i)).toBeInTheDocument();
-  });
+    renderPage()
+    expect(screen.getByText(/Metagenome-assembled genome/i)).toBeInTheDocument()
+  })
 
   it('renders all experiments', () => {
-    renderPage();
+    renderPage()
 
-    expect(screen.getByText('Experiment G')).toBeInTheDocument();
-    expect(screen.getByText('Experiment H')).toBeInTheDocument();
-  });
+    expect(screen.getByText('Experiment G')).toBeInTheDocument()
+    expect(screen.getByText('Experiment H')).toBeInTheDocument()
+  })
 
   it('renders links to MAG catalogue pages', () => {
-    renderPage();
+    renderPage()
 
-    const linkG = screen.getByRole('link', { name: /Experiment G/i });
-    expect(linkG).toHaveAttribute('href', '/mag-catalogues/Experiment%20G');
+    const linkG = screen.getByRole('link', { name: /Experiment G/i })
+    expect(linkG).toHaveAttribute('href', '/mag-catalogues/Experiment%20G')
 
-    const linkH = screen.getByRole('link', { name: /Experiment H/i });
-    expect(linkH).toHaveAttribute('href', '/mag-catalogues/Experiment%20H');
-  });
+    const linkH = screen.getByRole('link', { name: /Experiment H/i })
+    expect(linkH).toHaveAttribute('href', '/mag-catalogues/Experiment%20H')
+  })
 
   it('displays MAG statistics when available', () => {
-    renderPage();
+    renderPage()
 
-    expect(screen.getByText('500')).toBeInTheDocument(); // Number of MAGs
-    expect(screen.getByText('95.50%')).toBeInTheDocument(); // Average completeness
-    expect(screen.getByText('2.30%')).toBeInTheDocument(); // Average contamination
-    expect(screen.getByText('15.70%')).toBeInTheDocument(); // New species
-  });
+    expect(screen.getByText('500')).toBeInTheDocument() // Number of MAGs
+    expect(screen.getByText('95.50%')).toBeInTheDocument() // Average completeness
+    expect(screen.getByText('2.30%')).toBeInTheDocument() // Average contamination
+    expect(screen.getByText('15.70%')).toBeInTheDocument() // New species
+  })
 
   it('displays link when available', () => {
-    renderPage();
+    renderPage()
 
-    const link = screen.getByRole('link', { name: /https:\/\/example.com\/genomes/i });
-    expect(link).toHaveAttribute('href', 'https://example.com/genomes');
-    expect(link).toHaveAttribute('target', '_blank');
-  });
+    const link = screen.getByRole('link', { name: /https:\/\/example.com\/genomes/i })
+    expect(link).toHaveAttribute('href', 'https://example.com/genomes')
+    expect(link).toHaveAttribute('target', '_blank')
+  })
 
   it('displays DOI when available', () => {
-    renderPage();
+    renderPage()
 
-    expect(screen.getByText('10.1234/example.doi')).toBeInTheDocument();
-  });
+    expect(screen.getByText('10.1234/example.doi')).toBeInTheDocument()
+  })
 
   it('handles missing statistics gracefully', () => {
-    renderPage();
+    renderPage()
 
     // Experiment H has only Number of MAGs
-    expect(screen.getByText('300')).toBeInTheDocument();
+    expect(screen.getByText('300')).toBeInTheDocument()
     // Should not crash or show undefined
-  });
+  })
 
   it('handles missing link and DOI gracefully', () => {
-    renderPage();
+    renderPage()
 
     // Experiment H has no link or DOI, but should still render
-    expect(screen.getByText('Experiment H')).toBeInTheDocument();
-  });
+    expect(screen.getByText('Experiment H')).toBeInTheDocument()
+  })
 
   it('formats percentages to 2 decimal places', () => {
-    renderPage();
+    renderPage()
 
-    expect(screen.getByText('95.50%')).toBeInTheDocument();
-    expect(screen.getByText('2.30%')).toBeInTheDocument();
-    expect(screen.getByText('15.70%')).toBeInTheDocument();
-  });
-});
+    expect(screen.getByText('95.50%')).toBeInTheDocument()
+    expect(screen.getByText('2.30%')).toBeInTheDocument()
+    expect(screen.getByText('15.70%')).toBeInTheDocument()
+  })
+})

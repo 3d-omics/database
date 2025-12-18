@@ -1,7 +1,7 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import Microsamples from './Microsamples';
+import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom'
+import Microsamples from './Microsamples'
 
 // Mock data
 vi.mock('assets/data/airtable/microsample.json', () => ({
@@ -45,7 +45,7 @@ vi.mock('assets/data/airtable/microsample.json', () => ({
       },
     },
   ],
-}));
+}))
 
 vi.mock('assets/data/airtable/cryosection.json', () => ({
   default: [
@@ -56,24 +56,24 @@ vi.mock('assets/data/airtable/cryosection.json', () => ({
       },
     },
   ],
-}));
+}))
 
 // Mock TableView
 vi.mock('components/TableView', () => ({
   default: ({ data, columns, pageTitle, tableDescription }: any) => (
-    <div data-testid="table-view">
-      <div data-testid="page-title">{pageTitle}</div>
-      <div data-testid="table-description">{tableDescription}</div>
-      <div data-testid="data-count">{data.length}</div>
-      <div data-testid="column-count">{columns.length}</div>
+    <div data-testid='table-view'>
+      <div data-testid='page-title'>{pageTitle}</div>
+      <div data-testid='table-description'>{tableDescription}</div>
+      <div data-testid='data-count'>{data.length}</div>
+      <div data-testid='column-count'>{columns.length}</div>
     </div>
   ),
-}));
+}))
 
 describe('Microsamples', () => {
   beforeEach(() => {
-    vi.clearAllMocks();
-  });
+    vi.clearAllMocks()
+  })
 
   const renderComponent = (props = {}) => {
     return render(
@@ -85,50 +85,50 @@ describe('Microsamples', () => {
       >
         <Microsamples {...props} />
       </BrowserRouter>
-    );
-  };
+    )
+  }
 
   it('renders TableView component', () => {
-    renderComponent();
-    expect(screen.getByTestId('table-view')).toBeInTheDocument();
-  });
+    renderComponent()
+    expect(screen.getByTestId('table-view')).toBeInTheDocument()
+  })
 
   it('passes correct page title', () => {
-    renderComponent();
-    expect(screen.getByTestId('page-title')).toHaveTextContent('Microsamples');
-  });
+    renderComponent()
+    expect(screen.getByTestId('page-title')).toHaveTextContent('Microsamples')
+  })
 
   it('passes table description', () => {
-    renderComponent();
-    expect(screen.getByTestId('table-description')).toHaveTextContent(/microscopic tissue\/digesta samples/i);
-  });
+    renderComponent()
+    expect(screen.getByTestId('table-description')).toHaveTextContent(/microscopic tissue\/digesta samples/i)
+  })
 
   it('displays all data by default', () => {
-    renderComponent();
-    expect(screen.getByTestId('data-count')).toHaveTextContent('2');
-  });
+    renderComponent()
+    expect(screen.getByTestId('data-count')).toHaveTextContent('2')
+  })
 
   it('creates correct number of columns', () => {
-    renderComponent();
+    renderComponent()
     // Code, Batch, Cryosection, Collection Method, Date, Xcoord, Ycoord, Size, ENA Accession = 9
-    expect(screen.getByTestId('column-count')).toHaveTextContent('9');
-  });
+    expect(screen.getByTestId('column-count')).toHaveTextContent('9')
+  })
 
   it('filters data with startsWith condition', () => {
     renderComponent({
       filterWith: [{ id: 'Code', value: 'MS00', condition: 'startsWith' }],
-    });
+    })
 
-    expect(screen.getByTestId('data-count')).toHaveTextContent('2');
-  });
+    expect(screen.getByTestId('data-count')).toHaveTextContent('2')
+  })
 
   it('filters data with equals condition', () => {
     renderComponent({
       filterWith: [{ id: 'LMBatch_flat', value: 'Batch 1', condition: 'equals' }],
-    });
+    })
 
-    expect(screen.getByTestId('data-count')).toHaveTextContent('2');
-  });
+    expect(screen.getByTestId('data-count')).toHaveTextContent('2')
+  })
 
   it('handles multiple filters', () => {
     renderComponent({
@@ -136,31 +136,31 @@ describe('Microsamples', () => {
         { id: 'LMBatch_flat', value: 'Batch 1', condition: 'equals' },
         { id: 'Code', value: 'MS001', condition: 'equals' },
       ],
-    });
+    })
 
-    expect(screen.getByTestId('data-count')).toHaveTextContent('1');
-  });
+    expect(screen.getByTestId('data-count')).toHaveTextContent('1')
+  })
 
   it('handles empty filter array', () => {
-    renderComponent({ filterWith: [] });
-    expect(screen.getByTestId('data-count')).toHaveTextContent('2');
-  });
+    renderComponent({ filterWith: [] })
+    expect(screen.getByTestId('data-count')).toHaveTextContent('2')
+  })
 
   it('filters out null/undefined values', () => {
     renderComponent({
       filterWith: [{ id: 'ENA accession', value: 'ERS', condition: 'startsWith' }],
-    });
+    })
 
-    expect(screen.getByTestId('data-count')).toHaveTextContent('1');
-  });
+    expect(screen.getByTestId('data-count')).toHaveTextContent('1')
+  })
 
   it('passes display props to TableView', () => {
     renderComponent({
       displayTableHeader: true,
       displayTableFilters: true,
       displayTableBody: false,
-    });
+    })
 
-    expect(screen.getByTestId('table-view')).toBeInTheDocument();
-  });
-});
+    expect(screen.getByTestId('table-view')).toBeInTheDocument()
+  })
+})

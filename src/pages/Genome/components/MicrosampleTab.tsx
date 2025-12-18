@@ -36,8 +36,8 @@ const MicrosampleTab = ({ data, genomeName, isLoading, error }: MicrosampleTabPr
       cell: ({ cell, row }: CellContext<SampleData[number], string>) => (
         <Link
           to={row.original.enaLink}
-          target="_blank"
-          rel="noopener noreferrer"
+          target='_blank'
+          rel='noopener noreferrer'
           className='link'
         >
           {cell.getValue()}

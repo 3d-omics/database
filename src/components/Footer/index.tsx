@@ -3,19 +3,18 @@ import { Link } from 'react-router-dom'
 import SocialIcons from '../SocialIcons'
 import EUflag from 'src/assets/images/eu-flag.jpeg'
 
-
 const Footer = () => {
 
-  const footerRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (footerRef.current) {
       document.documentElement.style.setProperty(
         '--footer-height',
         `${footerRef.current.offsetHeight}px`
-      );
+      )
     }
-  }, []);
+  }, [])
 
   return (
     <footer className='bg-burgundy bg-prism text-neutral-50 px-24 pt-12 pb-10 text-sm flex gap-72 items-center max-xl:gap-16 max-xl:px-8 max-lg:block max-lg:pb-8 max-sm:px-6 max-sm:pt-8' ref={footerRef}>

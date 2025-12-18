@@ -101,8 +101,6 @@ const AnimalSpecimenOverview = () => {
                 tabs={['Macrosamples','Cryosections', 'Microsamples']}
               />
             </section>
-
-
             <main className='-mt-7'>
               {selectedTab === 'Macrosamples' && <MacrosampleTab id={specimen.fields.ID} />}
               {selectedTab === 'Cryosections' && <CryosectionTab id={specimen.fields.ID} />}

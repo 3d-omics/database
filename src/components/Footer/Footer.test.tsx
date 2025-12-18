@@ -1,17 +1,17 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import Footer from './index';
+import { describe, it, expect, beforeEach, afterEach } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom'
+import Footer from './index'
 
 describe('Footer', () => {
   beforeEach(() => {
     // Clean up CSS variable
-    document.documentElement.style.removeProperty('--footer-height');
-  });
+    document.documentElement.style.removeProperty('--footer-height')
+  })
 
   afterEach(() => {
-    document.documentElement.style.removeProperty('--footer-height');
-  });
+    document.documentElement.style.removeProperty('--footer-height')
+  })
 
   const renderFooter = () => {
     return render(
@@ -23,35 +23,35 @@ describe('Footer', () => {
       >
         <Footer />
       </BrowserRouter>
-    );
-  };
+    )
+  }
 
   it('renders EU funding text', () => {
-    renderFooter();
-    expect(screen.getByText(/European Union's Horizon 2020/)).toBeInTheDocument();
-  });
+    renderFooter()
+    expect(screen.getByText(/European Union's Horizon 2020/)).toBeInTheDocument()
+  })
 
   it('renders coordinator link', () => {
-    renderFooter();
-    const link = screen.getByRole('link', { name: /Antton Alberdi/i });
-    expect(link).toHaveAttribute('href', 'https://www.alberdilab.dk/');
-  });
+    renderFooter()
+    const link = screen.getByRole('link', { name: /Antton Alberdi/i })
+    expect(link).toHaveAttribute('href', 'https://www.alberdilab.dk/')
+  })
 
   it('renders contact email link', () => {
-    renderFooter();
-    const link = screen.getByRole('link', { name: /3d-omics@sund.ku.dk/i });
-    expect(link).toHaveAttribute('href', 'mailto:3d-omics@sund.ku.dk');
-  });
+    renderFooter()
+    const link = screen.getByRole('link', { name: /3d-omics@sund.ku.dk/i })
+    expect(link).toHaveAttribute('href', 'mailto:3d-omics@sund.ku.dk')
+  })
 
   it('renders privacy policy link', () => {
-    renderFooter();
-    const link = screen.getByRole('link', { name: /Data and privacy policy/i });
-    expect(link).toHaveAttribute('href', 'https://www.3domics.eu/privacy.html');
-  });
+    renderFooter()
+    const link = screen.getByRole('link', { name: /Data and privacy policy/i })
+    expect(link).toHaveAttribute('href', 'https://www.3domics.eu/privacy.html')
+  })
 
   it('sets footer height CSS variable on mount', () => {
-    renderFooter();
-    const footerHeight = document.documentElement.style.getPropertyValue('--footer-height');
-    expect(footerHeight).toBeTruthy();
-  });
-});
+    renderFooter()
+    const footerHeight = document.documentElement.style.getPropertyValue('--footer-height')
+    expect(footerHeight).toBeTruthy()
+  })
+})

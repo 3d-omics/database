@@ -10,7 +10,7 @@ import CompareSamplesButton from './components/CompareSamplesButton'
 
 const MetabolomicsHeatmap = () => {
 
-    const [checkedMetaboliteIds, setCheckedMetaboliteIds] = useState<string[]>([])
+  const [checkedMetaboliteIds, setCheckedMetaboliteIds] = useState<string[]>([])
 
   const { experimentName = '' } = useParams()
   const experimentId = experimentName.charAt(0)
@@ -53,8 +53,7 @@ const MetabolomicsHeatmap = () => {
           setSamples={setCheckedMetaboliteIds}
         />
       )}
-
-
+      
     </ParamsValidator>
   )
 }

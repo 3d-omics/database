@@ -12,6 +12,7 @@ import experimentsWithGenomeInfo from 'assets/data/airtable/experimentswithgenom
 import { Link } from 'react-router-dom'
 
 const MAGCatalogue = () => {
+
   const { experimentName = '' } = useParams()
   const experimentId = experimentName.charAt(0)
 
@@ -234,19 +235,15 @@ const MAGCatalogue = () => {
                 <div className='w-3'
                   style={{
                     backgroundColor: (() => {
-                      const value = experiment['MAG catalogue - Average completeness (%)'] ?? 0;
-                      const min = 70;
-                      const max = 100;
-
-                      // Normalize value between 0 and 1
-                      const normalized = Math.max(0, Math.min(1, (value - min) / (max - min)));
-
+                      const value = experiment['MAG catalogue - Average completeness (%)'] ?? 0
+                      const min = 70
+                      const max = 100
+                      const normalized = Math.max(0, Math.min(1, (value - min) / (max - min)))  // Normalize value between 0 and 1
                       // Interpolate between #7f2804 (low) and #fff5ea (high)
-                      const r = Math.round(127 + (255 - 127) * normalized);
-                      const g = Math.round(40 + (245 - 40) * normalized);
-                      const b = Math.round(4 + (234 - 4) * normalized);
-
-                      return `rgb(${r}, ${g}, ${b})`;
+                      const r = Math.round(127 + (255 - 127) * normalized)
+                      const g = Math.round(40 + (245 - 40) * normalized)
+                      const b = Math.round(4 + (234 - 4) * normalized)
+                      return `rgb(${r}, ${g}, ${b})`
                     })()
                   }}
                 ></div>
@@ -260,19 +257,15 @@ const MAGCatalogue = () => {
                 <div className='w-3'
                   style={{
                     backgroundColor: (() => {
-                      const value = experiment['MAG catalogue - Average contamination (%)'] ?? 0;
-                      const min = 0;
-                      const max = 20;
-
-                      // Normalize value between 0 and 1
-                      const normalized = Math.max(0, Math.min(1, (value - min) / (max - min)));
-
+                      const value = experiment['MAG catalogue - Average contamination (%)'] ?? 0
+                      const min = 0
+                      const max = 20
+                      const normalized = Math.max(0, Math.min(1, (value - min) / (max - min)))   // Normalize value between 0 and 1
                       // Interpolate between #fff5ea (low) and #7f2804 (high)
-                      const r = Math.round(255 + (127 - 255) * normalized);
-                      const g = Math.round(245 + (40 - 245) * normalized);
-                      const b = Math.round(234 + (4 - 234) * normalized);
-
-                      return `rgb(${r}, ${g}, ${b})`;
+                      const r = Math.round(255 + (127 - 255) * normalized)
+                      const g = Math.round(245 + (40 - 245) * normalized)
+                      const b = Math.round(234 + (4 - 234) * normalized)
+                      return `rgb(${r}, ${g}, ${b})`
                     })()
                   }}
                 ></div>

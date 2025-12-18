@@ -3,7 +3,6 @@ import TableView from 'components/TableView'
 import { ColumnDef } from '@tanstack/react-table'
 import { Link } from 'react-router-dom'
 
-
 export type GenomeData = {
   genome: string,
   phylum: string,
@@ -17,7 +16,6 @@ export type GenomeData = {
   genus: string,
   species: string,
 }
-
 
 const MAGCatalogueTable = ({ metaData, experimentName }: {
   metaData: Record<string, (string | number)[]>,
@@ -37,7 +35,6 @@ const MAGCatalogueTable = ({ metaData, experimentName }: {
     genus: String(metaData.genus[i]),
     species: String(metaData.species[i]),
   }))
-
 
   const columns = useMemo<ColumnDef<any>[]>(() => [
     {
@@ -88,19 +85,15 @@ const MAGCatalogueTable = ({ metaData, experimentName }: {
             className='w-3 mr-1'
             style={{
               backgroundColor: (() => {
-                const value = row.original.completeness;
-                const min = 70;
-                const max = 100;
-
-                // Normalize value between 0 and 1
-                const normalized = Math.max(0, Math.min(1, (value - min) / (max - min)));
-
+                const value = row.original.completeness
+                const min = 70
+                const max = 100
+                const normalized = Math.max(0, Math.min(1, (value - min) / (max - min)))    // Normalize value between 0 and 1
                 // Interpolate between #7f2804 (low) and #fff5ea (high)
-                const r = Math.round(127 + (255 - 127) * normalized);
-                const g = Math.round(40 + (245 - 40) * normalized);
-                const b = Math.round(4 + (234 - 4) * normalized);
-
-                return `rgb(${r}, ${g}, ${b})`;
+                const r = Math.round(127 + (255 - 127) * normalized)
+                const g = Math.round(40 + (245 - 40) * normalized)
+                const b = Math.round(4 + (234 - 4) * normalized)
+                return `rgb(${r}, ${g}, ${b})`
               })()
             }}
           />
@@ -119,19 +112,15 @@ const MAGCatalogueTable = ({ metaData, experimentName }: {
             className='w-3 mr-1'
             style={{
               backgroundColor: (() => {
-                const value = row.original.contamination;
-                const min = 0;
-                const max = 20;
-
-                // Normalize value between 0 and 1
-                const normalized = Math.max(0, Math.min(1, (value - min) / (max - min)));
-
+                const value = row.original.contamination
+                const min = 0
+                const max = 20
+                const normalized = Math.max(0, Math.min(1, (value - min) / (max - min)))  // Normalize value between 0 and 1
                 // Interpolate between #fff5ea (low) and #7f2804 (high)
-                const r = Math.round(255 + (127 - 255) * normalized);
-                const g = Math.round(245 + (40 - 245) * normalized);
-                const b = Math.round(234 + (4 - 234) * normalized);
-
-                return `rgb(${r}, ${g}, ${b})`;
+                const r = Math.round(255 + (127 - 255) * normalized)
+                const g = Math.round(245 + (40 - 245) * normalized)
+                const b = Math.round(234 + (4 - 234) * normalized)
+                return `rgb(${r}, ${g}, ${b})`
               })()
             }}
           />
@@ -141,7 +130,7 @@ const MAGCatalogueTable = ({ metaData, experimentName }: {
     },
     {
       id: 'length',
-      header: 'Size', // 'Length'
+      header: 'Size',
       accessorFn: (row) => row.length,
       enableColumnFilter: false,
     },

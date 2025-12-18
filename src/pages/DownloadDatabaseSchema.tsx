@@ -13,10 +13,10 @@ const DownloadDatabaseSchema = () => {
         <button
           className='px-12 py-4 bg-texture hover:text-mustard main_header text-3xl bg-neutral-100 hover:bg-neutral-200'
           onClick={() => {
-            const link = document.createElement('a');
-            link.href = '/database/experiment-hierarchy.json';
-            link.download = '3domics_data_schema.json';
-            link.click();
+            const link = document.createElement('a')
+            link.href = '/database/experiment-hierarchy.json'
+            link.download = '3domics_data_schema.json'
+            link.click()
           }}
         >
           Download JSON file

@@ -24,16 +24,16 @@ const Navbar = () => {
       data-testid='desktop-navbar'
       ref={navbarRef}
     >
-      <div className="flex-1 flex items-center">
+      <div className='flex-1 flex items-center'>
         <Link
-          to={"http://www.3domics.eu"}
+          to={'http://www.3domics.eu'}
           target='_blank'
-          className="btn btn-ghost text-xl max-xl:px-2 max-sm:px-1"
+          className='btn btn-ghost text-xl max-xl:px-2 max-sm:px-1'
         >
-          <img src={Logo} alt="3D'omics logo" className="h-10 object-contain" />
+          <img src={Logo} alt="3D'omics logo" className='h-10 object-contain' />
         </Link>
         <Link
-          to={"/"}
+          to={'/'}
           className={`hover:text-mustard ${location === '/' && 'text-mustard'} font-bold px-2 text-[15px] max-sm:text-xs relative whitespace-nowrap max-sm:px-2`}
         >
           <span className='absolute -top-2 max-sm:-top-1'>
@@ -43,7 +43,7 @@ const Navbar = () => {
       </div>
 
       <div className='flex items-center max-lg:hidden'>
-        <ul className="flex items-center gap-7 text-xs font-semibold">
+        <ul className='flex items-center gap-7 text-xs font-semibold'>
           {menus.map((menu) => (
             menu.sectionTitle
               ? (
@@ -76,11 +76,8 @@ const Navbar = () => {
               )
           ))}
         </ul>
-
       </div>
-
       <MobileMenu />
-
     </nav>
   )
 }

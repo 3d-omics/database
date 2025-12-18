@@ -1,4 +1,4 @@
-import { useMemo } from 'react'
+import { useMemo, Dispatch, SetStateAction } from 'react'
 import CrossReferenceTooltip from 'components/CrossReferenceTooltip'
 import { ColumnDef } from '@tanstack/react-table'
 import TableView from 'components/TableView'
@@ -51,57 +51,51 @@ const Macrosample = (
     pageTitle?: string
     tableDescription?: string,
     checkedMetaboliteIds?: string[]
-    setCheckedMetaboliteIds?: React.Dispatch<React.SetStateAction<string[]>>
+    setCheckedMetaboliteIds?: Dispatch<SetStateAction<string[]>>
   }) => {
-
-
-  // const { listOfSampleIdsThatHaveMetaboliteData = [], fetchMetaboliteError } = useMetaboliteExcelFileData({experimentId})
 
   const data = intestinalSectionSampleData as unknown as TData[]
 
   // for cross reference tooltip
   const specimenLookup = useMemo(() => {
-    return (animalSpecimenData as any[]).map((record) => record.fields);
-  }, []);
+    return (animalSpecimenData as any[]).map((record) => record.fields)
+  }, [])
 
   const filteredData = useMemo(() => {
-    let result = data;
+    let result = data
 
     // First filter by macrosampleWithMetaboliteData if provided
     if (macrosampleWithMetaboliteData && macrosampleWithMetaboliteData.length > 0) {
       result = result.filter((record) =>
         macrosampleWithMetaboliteData.includes(record.fields.ID)
-      );
+      )
     }
 
     // Then apply filterWith conditions
     if (filterWith && filterWith.length > 0) {
       result = result.filter((record) => {
         return filterWith.every((filter) => {
-          const fieldValue = record.fields[filter.id];
+          const fieldValue = record.fields[filter.id]
 
-          if (fieldValue === undefined || fieldValue === null) return false;
+          if (fieldValue === undefined || fieldValue === null) return false
 
-          const values = Array.isArray(fieldValue) ? fieldValue : [fieldValue];
-          const searchValue = String(filter.value).toLowerCase();
+          const values = Array.isArray(fieldValue) ? fieldValue : [fieldValue]
+          const searchValue = String(filter.value).toLowerCase()
 
           if (filter.condition === 'startsWith') {
             return values.some((val) =>
               String(val).toLowerCase().startsWith(searchValue)
-            );
+            )
           } else {
             return values.some((val) =>
               String(val).toLowerCase() === searchValue
-            );
+            )
           }
-        });
-      });
+        })
+      })
     }
-
-    return result;
-  }, [filterWith, macrosampleWithMetaboliteData, data]);
-
-
+    return result
+  }, [filterWith, macrosampleWithMetaboliteData, data])
 
   const defaultColumns = useMemo<ColumnDef<TData>[]>(() => {
 
@@ -183,17 +177,17 @@ const Macrosample = (
         header: 'Metabolites Accession',
         accessorFn: (row) => row.fields['Metabolights accession'],
         cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
-          const metaboliteLink = row.original.fields['Metabolights link'];
+          const metaboliteLink = row.original.fields['Metabolights link']
           return metaboliteLink ? (
             <Link to={metaboliteLink} target='_blank' rel='noopener noreferrer' className='link'>
               {cell.getValue() as string}
             </Link>
           ) : (
             <></>
-          );
+          )
         }
       }
-    ];
+    ]
 
     if (macrosampleWithMetaboliteData) {
       baseColumns.splice(0, 0, {
@@ -220,7 +214,7 @@ const Macrosample = (
           </div>
         ),
         cell: (props: any) => {
-          const id = props.row.original.fields.ID;
+          const id = props.row.original.fields.ID
           return <div className='flex justify-center items-center'>
             <input
               type='checkbox'
@@ -238,7 +232,7 @@ const Macrosample = (
             />
           </div>
         }
-      });
+      })
     }
 
     if (!macrosampleWithMetaboliteData) {
@@ -250,7 +244,7 @@ const Macrosample = (
           filterVariant: 'select' as const,
           uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Code))),
         },
-      });
+      })
 
       baseColumns.splice(4, 0, {
         id: 'Data type',
@@ -261,27 +255,26 @@ const Macrosample = (
           filterVariant: 'select' as const,
           uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields['Data type']))),
         }
-      });
+      })
 
       baseColumns.splice(8, 0, {
         id: 'ENA accession',
         header: 'ENA Accession',
         accessorFn: (row) => row.fields['ENA accession'],
         cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
-          const enaLink = row.original.fields['ENA link'];
+          const enaLink = row.original.fields['ENA link']
           return enaLink ? (
             <Link to={enaLink} target='_blank' rel='noopener noreferrer' className='link'>
               {cell.getValue() as string}
             </Link>
           ) : (
             <></>
-          );
+          )
         }
-      });
+      })
     }
-
-    return baseColumns;
-  }, [filteredData, specimenLookup, macrosampleWithMetaboliteData, checkedMetaboliteIds, setCheckedMetaboliteIds]);
+    return baseColumns
+  }, [filteredData, specimenLookup, macrosampleWithMetaboliteData, checkedMetaboliteIds, setCheckedMetaboliteIds])
 
   const columns = customColumns ?? defaultColumns
 

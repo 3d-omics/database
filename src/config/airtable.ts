@@ -7,6 +7,7 @@ export const airtableConfig = {
   animalSpecimenTableId: 'tbldS5LFsxJ9KHZzm',
   animalSpecimenViewId: 'viws7AWwPKnZ7fiub',
 
+  // currently used as "Macrosamples"
   intestinalSectionSampleBaseId: 'app9370SI6jEJttkB',
   intestinalSectionSampleTableId: 'tbl0X0ElXWistmHa4',
   intestinalSectionSampleViewId: 'viwfyjXFn1AHSpWdk',

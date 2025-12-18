@@ -25,6 +25,7 @@ interface AnimalTrialExperiment {
 }
 
 const AnimalTrialOverview = () => {
+  
   const { experimentName = '' } = useParams()
   const [selectedTab, setSelectedTab] = useState('Animal Specimens')
 

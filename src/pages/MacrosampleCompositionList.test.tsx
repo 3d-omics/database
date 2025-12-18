@@ -1,7 +1,7 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import MacrosampleCompositionList from './MacrosampleCompositionList';
+import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom'
+import MacrosampleCompositionList from './MacrosampleCompositionList'
 
 // Mock data
 vi.mock('assets/data/airtable/animaltrialexperiment.json', () => ({
@@ -31,12 +31,12 @@ vi.mock('assets/data/airtable/animaltrialexperiment.json', () => ({
       },
     },
   ],
-}));
+}))
 
 describe('MacrosampleCompositionList', () => {
   beforeEach(() => {
-    vi.clearAllMocks();
-  });
+    vi.clearAllMocks()
+  })
 
   const renderPage = () => {
     return render(
@@ -48,68 +48,68 @@ describe('MacrosampleCompositionList', () => {
       >
         <MacrosampleCompositionList />
       </BrowserRouter>
-    );
-  };
+    )
+  }
 
   it('renders page header', () => {
-    renderPage();
-    expect(screen.getByText('Macrosample Community Composition')).toBeInTheDocument();
-  });
+    renderPage()
+    expect(screen.getByText('Macrosample Community Composition')).toBeInTheDocument()
+  })
 
   it('renders page description', () => {
-    renderPage();
-    expect(screen.getByText(/DNA sequencing reads produced/i)).toBeInTheDocument();
-  });
+    renderPage()
+    expect(screen.getByText(/DNA sequencing reads produced/i)).toBeInTheDocument()
+  })
 
   it('renders all experiments', () => {
-    renderPage();
+    renderPage()
 
-    expect(screen.getByText('Experiment G')).toBeInTheDocument();
-    expect(screen.getByText('Experiment H')).toBeInTheDocument();
-    expect(screen.getByText('Experiment I')).toBeInTheDocument();
-  });
+    expect(screen.getByText('Experiment G')).toBeInTheDocument()
+    expect(screen.getByText('Experiment H')).toBeInTheDocument()
+    expect(screen.getByText('Experiment I')).toBeInTheDocument()
+  })
 
   it('renders links to composition pages', () => {
-    renderPage();
+    renderPage()
 
-    const linkG = screen.getByRole('link', { name: /Experiment G/i });
-    expect(linkG).toHaveAttribute('href', '/macrosample-compositions/Experiment%20G');
+    const linkG = screen.getByRole('link', { name: /Experiment G/i })
+    expect(linkG).toHaveAttribute('href', '/macrosample-compositions/Experiment%20G')
 
-    const linkH = screen.getByRole('link', { name: /Experiment H/i });
-    expect(linkH).toHaveAttribute('href', '/macrosample-compositions/Experiment%20H');
-  });
+    const linkH = screen.getByRole('link', { name: /Experiment H/i })
+    expect(linkH).toHaveAttribute('href', '/macrosample-compositions/Experiment%20H')
+  })
 
   it('displays MAG statistics when available', () => {
-    renderPage();
+    renderPage()
 
-    expect(screen.getByText('500')).toBeInTheDocument(); // Number of MAGs
-    expect(screen.getByText('95.50%')).toBeInTheDocument(); // Average completeness
-    expect(screen.getByText('2.30%')).toBeInTheDocument(); // Average contamination
-    expect(screen.getByText('15.70%')).toBeInTheDocument(); // New species
-  });
+    expect(screen.getByText('500')).toBeInTheDocument() // Number of MAGs
+    expect(screen.getByText('95.50%')).toBeInTheDocument() // Average completeness
+    expect(screen.getByText('2.30%')).toBeInTheDocument() // Average contamination
+    expect(screen.getByText('15.70%')).toBeInTheDocument() // New species
+  })
 
   it('handles missing statistics gracefully', () => {
-    renderPage();
+    renderPage()
 
     // Experiment I has no stats, but should still render
-    expect(screen.getByText('Experiment I')).toBeInTheDocument();
-  });
+    expect(screen.getByText('Experiment I')).toBeInTheDocument()
+  })
 
   it('displays partial statistics', () => {
-    renderPage();
+    renderPage()
 
     // Experiment H has only some stats
-    expect(screen.getByText('300')).toBeInTheDocument(); // Number of MAGs
-    expect(screen.getByText('92.10%')).toBeInTheDocument(); // Average completeness
+    expect(screen.getByText('300')).toBeInTheDocument() // Number of MAGs
+    expect(screen.getByText('92.10%')).toBeInTheDocument() // Average completeness
     // Should not display contamination or new species for Experiment H
-  });
+  })
 
   it('formats percentages to 2 decimal places', () => {
-    renderPage();
+    renderPage()
 
     // Check that percentages are formatted correctly
-    expect(screen.getByText('95.50%')).toBeInTheDocument();
-    expect(screen.getByText('2.30%')).toBeInTheDocument();
-    expect(screen.getByText('15.70%')).toBeInTheDocument();
-  });
-});
+    expect(screen.getByText('95.50%')).toBeInTheDocument()
+    expect(screen.getByText('2.30%')).toBeInTheDocument()
+    expect(screen.getByText('15.70%')).toBeInTheDocument()
+  })
+})

@@ -1,7 +1,7 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import Navbar from './index';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom'
+import Navbar from './index'
 
 // Mock MenuItems
 vi.mock('./MenuItems', () => ({
@@ -18,21 +18,21 @@ vi.mock('./MenuItems', () => ({
       location: '/about',
     },
   ],
-}));
+}))
 
 // Mock MobileMenu
 vi.mock('./MobileMenu', () => ({
-  default: () => <div data-testid="mobile-menu">Mobile Menu</div>,
-}));
+  default: () => <div data-testid='mobile-menu'>Mobile Menu</div>,
+}))
 
 describe('Navbar', () => {
   beforeEach(() => {
-    document.documentElement.style.removeProperty('--navbar-height');
-  });
+    document.documentElement.style.removeProperty('--navbar-height')
+  })
 
   afterEach(() => {
-    document.documentElement.style.removeProperty('--navbar-height');
-  });
+    document.documentElement.style.removeProperty('--navbar-height')
+  })
 
   const renderNavbar = (initialRoute = '/') => {
     return render(
@@ -44,48 +44,48 @@ describe('Navbar', () => {
       >
         <Navbar />
       </BrowserRouter>
-    );
-  };
+    )
+  }
 
   it('renders logo with external link', () => {
-    renderNavbar();
-    const logoLink = screen.getByRole('link', { name: /3D'omics logo/i });
-    expect(logoLink).toHaveAttribute('href', 'http://www.3domics.eu');
-    expect(logoLink).toHaveAttribute('target', '_blank');
-  });
+    renderNavbar()
+    const logoLink = screen.getByRole('link', { name: /3D'omics logo/i })
+    expect(logoLink).toHaveAttribute('href', 'http://www.3domics.eu')
+    expect(logoLink).toHaveAttribute('target', '_blank')
+  })
 
   it('renders Data Portal Home link', () => {
-    renderNavbar();
-    const homeLink = screen.getByRole('link', { name: /Data Portal Home/i });
-    expect(homeLink).toHaveAttribute('href', '/');
-  });
+    renderNavbar()
+    const homeLink = screen.getByRole('link', { name: /Data Portal Home/i })
+    expect(homeLink).toHaveAttribute('href', '/')
+  })
 
   it('sets navbar height CSS variable on mount', () => {
-    renderNavbar();
-    const navbarHeight = document.documentElement.style.getPropertyValue('--navbar-height');
-    expect(navbarHeight).toBeTruthy();
-  });
+    renderNavbar()
+    const navbarHeight = document.documentElement.style.getPropertyValue('--navbar-height')
+    expect(navbarHeight).toBeTruthy()
+  })
 
   it('renders parent menu items', () => {
-    renderNavbar();
-    expect(screen.getByTestId('parentmenu-data')).toBeInTheDocument();
-    expect(screen.getByTestId('parentmenu-about')).toBeInTheDocument();
-  });
+    renderNavbar()
+    expect(screen.getByTestId('parentmenu-data')).toBeInTheDocument()
+    expect(screen.getByTestId('parentmenu-about')).toBeInTheDocument()
+  })
 
   it('renders submenu items', () => {
-    renderNavbar();
-    expect(screen.getByTestId('submenu-animal-trials')).toBeInTheDocument();
-    expect(screen.getByTestId('submenu-animal-specimens')).toBeInTheDocument();
-  });
+    renderNavbar()
+    expect(screen.getByTestId('submenu-animal-trials')).toBeInTheDocument()
+    expect(screen.getByTestId('submenu-animal-specimens')).toBeInTheDocument()
+  })
 
   it('renders menu item without submenus', () => {
-    renderNavbar();
-    const aboutLink = screen.getByRole('link', { name: /About/i });
-    expect(aboutLink).toHaveAttribute('href', '/about');
-  });
+    renderNavbar()
+    const aboutLink = screen.getByRole('link', { name: /About/i })
+    expect(aboutLink).toHaveAttribute('href', '/about')
+  })
 
   it('renders MobileMenu component', () => {
-    renderNavbar();
-    expect(screen.getByTestId('mobile-menu')).toBeInTheDocument();
-  });
-});
+    renderNavbar()
+    expect(screen.getByTestId('mobile-menu')).toBeInTheDocument()
+  })
+})

@@ -10,26 +10,20 @@ interface UseTaxonomyChartParams {
   xAxisLabel: string
 }
 
-export const useTaxonomyChart = ({
-  sampleIds,
-  genomeCounts,
-  taxonomyData,
-  selectedTaxonomicLevel,
-  colorScheme,
-  xAxisLabel
-}: UseTaxonomyChartParams) => {
-  
+export const useTaxonomyChart = ({ sampleIds, genomeCounts, taxonomyData, selectedTaxonomicLevel, colorScheme, xAxisLabel }:
+  UseTaxonomyChartParams
+) => {
+
   const { chartData, options } = useMemo(() => {
     if (!genomeCounts || !sampleIds.length || !taxonomyData[selectedTaxonomicLevel]) {
       return { chartData: { labels: [], datasets: [] }, options: {} }
     }
 
-    // Remove taxonomy prefixes (e.g., "p__", "c__", etc.)
+    // Remove taxonomy prefixes (e.g., 'p__', 'c__', etc.)
     const taxonomyLabels = taxonomyData[selectedTaxonomicLevel].map(
       taxon => taxon.replace(/^[a-zA-Z]__/, '')
     )
 
-    
     // Create datasets for each taxonomic group
     const colorSchemeKeys = Object.keys(colorScheme)
     const datasets = taxonomyLabels
@@ -49,34 +43,6 @@ export const useTaxonomyChart = ({
         const bIndex = colorSchemeKeys.indexOf(b.label)
         return bIndex - aIndex
       })
-
-    // const numTaxa = taxonomyLabels.length
-    // const numSamples = sampleIds.length
-    // const colorSchemeKeys = Object.keys(colorScheme)
-    // const datasets = new Array(numTaxa)
-    // for (let taxonIdx = 0; taxonIdx < numTaxa; taxonIdx++) {
-    //   const label = taxonomyLabels[taxonIdx]
-    //   const data = new Array(numSamples)
-    //   for (let sampleIdx = 0; sampleIdx < numSamples; sampleIdx++) {
-    //     data[sampleIdx] = genomeCounts[sampleIdx][taxonIdx] || 0
-    //   }
-    //   datasets[taxonIdx] = {
-    //     label,
-    //     data,
-    //     backgroundColor: colorScheme[label] || '#CCCCCC',
-    //     borderColor: 'rgba(0, 0, 0, 0.1)',
-    //     borderWidth: 0,
-    //   }
-    // }
-    // datasets.sort((a, b) => {
-    //   const aIndex = colorSchemeKeys.indexOf(a.label)
-    //   const bIndex = colorSchemeKeys.indexOf(b.label)
-    //   return bIndex - aIndex
-    // })
-
-
-
-
 
     const options = {
       responsive: true,
@@ -103,8 +69,6 @@ export const useTaxonomyChart = ({
           ticks: {
             stepSize: 0.2,
             font: { size: 10 },
-            // Uncomment to format as percentage:
-            // callback: function (value: any) { return (value * 100).toFixed(0) + '%'}
           },
           title: {
             display: true,
@@ -123,8 +87,6 @@ export const useTaxonomyChart = ({
               const label = context.dataset.label || ''
               const value = context.parsed.y
               return `${label}: ${value}`
-              // Uncomment to format as percentage:
-              // return `${label}: ${(value * 100).toFixed(2)}%`
             },
           }
         },

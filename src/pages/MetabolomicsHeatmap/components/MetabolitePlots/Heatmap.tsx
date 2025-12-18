@@ -3,7 +3,10 @@ import Plot from 'react-plotly.js'
 import { Layout, Config } from 'plotly.js'
 import useMetaboliteExcelFileData from 'hooks/useMetaboliteExcelFileData'
 
-const Heatmap = ({ ids, experimentId }: { ids: string[], experimentId: string }) => {
+const Heatmap = ({ ids, experimentId }: {
+  ids: string[],
+  experimentId: string
+}) => {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [windowHeight, setWindowHeight] = useState(window.innerHeight)
@@ -16,18 +19,15 @@ const Heatmap = ({ ids, experimentId }: { ids: string[], experimentId: string })
     : listOfSampleIdsThatHaveMetaboliteData?.length * 9 || 0
   const plotHeight = listOfCuratedIdsOfMetabolites?.length * 8
 
-  console.log('width==>', listOfSampleIdsThatHaveMetaboliteData?.length, plotWidth,
-    'height==>', listOfCuratedIdsOfMetabolites?.length, plotHeight)
-
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth)
       setWindowHeight(window.innerHeight)
     }
     handleResize()
-    window.addEventListener("resize", handleResize)
+    window.addEventListener('resize', handleResize)
     return () => {
-      window.removeEventListener("resize", handleResize)
+      window.removeEventListener('resize', handleResize)
     }
   }, [])
 
@@ -45,11 +45,6 @@ const Heatmap = ({ ids, experimentId }: { ids: string[], experimentId: string })
   const extractedZData = listOfCuratedIdsOfMetabolites?.map((metaboliteId, index) =>
     ids.map(id => normalizedColumnData[id] ? Number(normalizedColumnData[id][index]) : 0)
   ) || []
-  // const clippedExtractedZData = extractedZData.map(row => row.map(value => Math.max(-2, Math.min(2, value))));
-  // const extractedXData = ids
-  // const extractedYData = listOfCuratedIdsOfMetabolites
-  // const extractedZData = ids.map((id) => normalizedColumnData[id] ? normalizedColumnData[id].map(Number) : [])
-  // const clippedExtractedZData = extractedZData.map(row => row.map(value => Math.max(-2, Math.min(2, value))));
 
   const data: any[] = [{
     type: 'heatmap',
@@ -60,25 +55,24 @@ const Heatmap = ({ ids, experimentId }: { ids: string[], experimentId: string })
     y: extractedXData,
     x: extractedYData,
     z: extractedZData,
-    // z: clippedExtractedZData,
     zmin: -2.1,
     zmax: 2.1,
     colorbar: { // Normalized Abundance color scale
       y: 0.933, // postion of color bar from the bottom
       len: 300,
       lenmode: 'pixels',
-      ticklabelposition: "outside bottom",
+      ticklabelposition: 'outside bottom',
       outlinewidth: 0,
       thickness: 24, // Width of the colorbar
       title: {
-        text: "Normalized Abundance", // Optional title for the colorbar
-        side: "right", // Position of the title
+        text: 'Normalized Abundance', // Optional title for the colorbar
+        side: 'right', // Position of the title
         font: { size: 12, weight: 'bold' }, // Font size for the title
       },
       tickfont: { size: 10 }, // Font size for the tick labels
-      tickmode: "array",
+      tickmode: 'array',
       tickvals: [-2.5, -2, -1, 0, 1, 2, 2.5], // Extra space beyond -2 and 2
-      ticktext: [" ", "-2", "-1", "0", "1", "2", " "], // Blank spaces for clipped values
+      ticktext: ['', '-2', '-1', '0', '1', '2', ''], // Blank spaces for clipped values
     },
   }]
 
@@ -103,8 +97,6 @@ const Heatmap = ({ ids, experimentId }: { ids: string[], experimentId: string })
       tickfont: { size: 8 },
     },
     margin: {
-      // l: 200, // Left margin for long y-axis labels
-      // r: 50, // Right margin
       t: 20, // Top margin
       b: 20, // Bottom margin
     },
@@ -122,7 +114,7 @@ const Heatmap = ({ ids, experimentId }: { ids: string[], experimentId: string })
     <>
       {isDataReady
         ?
-        <div data-testid="plot-container">
+        <div data-testid='plot-container'>
           <Plot data={data} layout={layout} config={config} />
         </div>
         :

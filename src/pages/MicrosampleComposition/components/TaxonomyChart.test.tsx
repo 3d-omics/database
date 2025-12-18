@@ -1,56 +1,55 @@
-import { describe, it, expect, vi, beforeEach, afterEach, beforeAll, afterAll } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
-import { userEvent } from '@testing-library/user-event';
-import TaxonomyChart from './TaxonomyChart';
-import { useGenomeJsonFile } from 'hooks/useJsonData';
-import { useTaxonomyData } from 'hooks/useTaxonomyData';
-import { useTaxonomyChart } from 'hooks/useTaxonomyChart';
+import { describe, it, expect, vi, beforeEach, afterEach, beforeAll, afterAll } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import TaxonomyChart from './TaxonomyChart'
+import { useGenomeJsonFile } from 'hooks/useJsonData'
+import { useTaxonomyData } from 'hooks/useTaxonomyData'
+import { useTaxonomyChart } from 'hooks/useTaxonomyChart'
 
 // Mock hooks
-vi.mock('hooks/useJsonData');
-vi.mock('hooks/useTaxonomyData');
-vi.mock('hooks/useTaxonomyChart');
+vi.mock('hooks/useJsonData')
+vi.mock('hooks/useTaxonomyData')
+vi.mock('hooks/useTaxonomyChart')
 
 // Mock Chart.js
 vi.mock('react-chartjs-2', () => ({
-  Bar: () => <div data-testid="bar-chart">Bar Chart</div>,
-}));
+  Bar: () => <div data-testid='bar-chart'>Bar Chart</div>,
+}))
 
 // Mock utils
 vi.mock('utils/chartUtils', () => ({
   dynamicXAxisPlugin: {},
   flattenedcolorScheme: vi.fn(() => ({ Firmicutes: '#FF0000' })),
-}));
+}))
 
 // Mock ErrorBanner
 vi.mock('components/ErrorBanner', () => ({
-  default: ({ children }: any) => <div data-testid="error-banner">{children}</div>,
-}));
+  default: ({ children }: any) => <div data-testid='error-banner'>{children}</div>,
+}))
 
 // Suppress console warnings and act warnings
-const originalWarn = console.warn;
-const originalError = console.error;
+const originalWarn = console.warn
+const originalError = console.error
 
 beforeAll(() => {
-  console.warn = vi.fn();
+  console.warn = vi.fn()
   console.error = (...args: any[]) => {
-    if (args[0]?.includes?.('act(')) return;
-    originalError(...args);
-  };
-});
+    if (args[0]?.includes?.('act(')) return
+    originalError(...args)
+  }
+})
 
 afterAll(() => {
-  console.warn = originalWarn;
-  console.error = originalError;
-});
+  console.warn = originalWarn
+  console.error = originalError
+})
 
 
 
 describe('TaxonomyChart', () => {
-  const mockSetSelectedTaxonomicLevel = vi.fn();
+  const mockSetSelectedTaxonomicLevel = vi.fn()
 
   beforeEach(() => {
-    vi.clearAllMocks();
+    vi.clearAllMocks()
     vi.useFakeTimers();
 
     // Mock window dimensions
@@ -83,26 +82,26 @@ describe('TaxonomyChart', () => {
     (useTaxonomyChart as any).mockReturnValue({
       chartData: { labels: ['M001'], datasets: [] },
       options: {},
-    });
-  });
+    })
+  })
 
   afterEach(() => {
-    vi.restoreAllMocks();
-    vi.useRealTimers();
-  });
+    vi.restoreAllMocks()
+    vi.useRealTimers()
+  })
 
   const renderChart = (props = {}) => {
     return render(
       <TaxonomyChart
-        cryosection="G_CS1"
+        cryosection='G_CS1'
         microsampleIds={['M001', 'M002']}
-        selectedTaxonomicLevel="phylum"
+        selectedTaxonomicLevel='phylum'
         setSelectedTaxonomicLevel={mockSetSelectedTaxonomicLevel}
-        experimentId="G"
+        experimentId='G'
         {...props}
       />
-    );
-  };
+    )
+  }
 
   it('shows loading skeleton initially', () => {
     (useTaxonomyData as any).mockReturnValue({
@@ -110,24 +109,24 @@ describe('TaxonomyChart', () => {
       genomeCounts: null,
       isDataReady: false,
       fetchError: null,
-    });
+    })
 
-    renderChart();
+    renderChart()
 
     const skeletons = screen.getAllByRole('generic').filter(el =>
       el.className.includes('animate-pulse')
-    );
-    expect(skeletons.length).toBeGreaterThan(0);
-  });
+    )
+    expect(skeletons.length).toBeGreaterThan(0)
+  })
 
   it('shows error banner when data loading fails', () => {
-    (useGenomeJsonFile as any).mockReturnValue(null);
+    (useGenomeJsonFile as any).mockReturnValue(null)
 
-    renderChart();
+    renderChart()
 
-    expect(screen.getByTestId('error-banner')).toBeInTheDocument();
-    expect(screen.getByText(/Failed to load taxonomy data/i)).toBeInTheDocument();
-  });
+    expect(screen.getByTestId('error-banner')).toBeInTheDocument()
+    expect(screen.getByText(/Failed to load taxonomy data/i)).toBeInTheDocument()
+  })
 
   it('shows error banner when fetchError exists', () => {
     (useTaxonomyData as any).mockReturnValue({
@@ -135,34 +134,34 @@ describe('TaxonomyChart', () => {
       genomeCounts: null,
       isDataReady: false,
       fetchError: 'Failed to fetch',
-    });
+    })
 
-    renderChart();
+    renderChart()
 
-    expect(screen.getByTestId('error-banner')).toBeInTheDocument();
-    expect(screen.getByText('Failed to fetch')).toBeInTheDocument();
-  });
+    expect(screen.getByTestId('error-banner')).toBeInTheDocument()
+    expect(screen.getByText('Failed to fetch')).toBeInTheDocument()
+  })
 
   it('renders chart when data is ready', async () => {
-    renderChart();
+    renderChart()
 
     // Advance timers for initialization (100ms)
-    await vi.advanceTimersByTimeAsync(150);
+    await vi.advanceTimersByTimeAsync(150)
 
-    expect(screen.getByTestId('bar-chart')).toBeInTheDocument();
-  });
+    expect(screen.getByTestId('bar-chart')).toBeInTheDocument()
+  })
 
   it('renders select dropdown on narrow screens', async () => {
-    Object.defineProperty(window, 'innerWidth', { value: 400 });
+    Object.defineProperty(window, 'innerWidth', { value: 400 })
 
-    renderChart();
+    renderChart()
 
-    await vi.advanceTimersByTimeAsync(150);
+    await vi.advanceTimersByTimeAsync(150)
 
-    window.dispatchEvent(new Event('resize'));
-    await vi.advanceTimersByTimeAsync(50);
+    window.dispatchEvent(new Event('resize'))
+    await vi.advanceTimersByTimeAsync(50)
 
-    const select = screen.getByRole('combobox');
-    expect(select).toBeInTheDocument();
-  });
-});
+    const select = screen.getByRole('combobox')
+    expect(select).toBeInTheDocument()
+  })
+})

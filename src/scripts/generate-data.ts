@@ -232,7 +232,7 @@ async function convertAllCsvs(): Promise<void> {
   
   await convertCsvFolder('genome_metadata', 'genome metadata files (6 files)');
   await convertCsvFolder('macro_genome_counts', 'macro genome counts files (6 files)');
-  await convertCsvFolder('microsample_counts', 'microsample counts files (83 files)');
+  await convertCsvFolder('microsample_counts', 'microsample counts files (84? files)');
 }
 
 // ============================================

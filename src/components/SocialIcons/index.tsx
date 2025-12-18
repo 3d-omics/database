@@ -1,6 +1,6 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBluesky, faGithub, faYoutube, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBluesky, faGithub, faYoutube, faLinkedinIn } from '@fortawesome/free-brands-svg-icons'
+import { Link } from 'react-router-dom'
 
 const SocialIcons = ({ ulClassName = '' }: { ulClassName?: string }) => {
 
@@ -21,7 +21,7 @@ const SocialIcons = ({ ulClassName = '' }: { ulClassName?: string }) => {
         </li>
       ))}
     </ul>
-  );
-};
+  )
+}
 
 export default SocialIcons;

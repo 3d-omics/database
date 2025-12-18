@@ -10,7 +10,7 @@ module.exports = {
         'inter': ['Inter', 'sans-serif'],
       },
       colors: {
-        'burgundy': '#741B47', // 751a47
+        'burgundy': '#741B47',
         'light_burgundy': '#9D2560',
         'mustard': '#BF910A',
         'light_mustard': '#f9db85',
@@ -45,10 +45,6 @@ module.exports = {
           }
         }
       },
-      animation: {
-        typing: "typing 2s steps(20) 1 alternate, blink 1"
-        // typing: "typing 2s steps(40) infinite alternate, blink 0.7s infinite"
-      }
     },
   },
   plugins: [

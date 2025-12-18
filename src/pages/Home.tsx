@@ -27,7 +27,6 @@ const Home = () => {
     }
   })
 
-  // Navigation hierarchy data structure
   const navItems = [
     {
       type: 'row',
@@ -51,9 +50,7 @@ const Home = () => {
       ],
       arrow: 'right'
     },
-
     { type: 'arrow', direction: 'down' },
-
     {
       type: 'single',
       item: {
@@ -64,9 +61,7 @@ const Home = () => {
         bgClass: 'bg-texture',
       }
     },
-
     { type: 'arrow', direction: 'down' },
-
     {
       type: 'row',
       items: [
@@ -95,9 +90,7 @@ const Home = () => {
         }
       ]
     },
-
     { type: 'arrow', direction: 'down' },
-
     {
       type: 'single',
       item: {
@@ -108,9 +101,7 @@ const Home = () => {
         bgClass: 'bg-texture',
       }
     },
-
     { type: 'arrow', direction: 'down' },
-
     {
       type: 'single',
       item: {

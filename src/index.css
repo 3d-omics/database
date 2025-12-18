@@ -21,6 +21,5 @@
   }
   .page_description {
     @apply mb-8 text-sm text-custom_black max-w-6xl
-    /* @apply mb-8 text-sm text-custom_light_black max-w-6xl */
   }
 }

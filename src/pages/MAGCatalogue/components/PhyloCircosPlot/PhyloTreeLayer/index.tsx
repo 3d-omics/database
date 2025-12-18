@@ -4,8 +4,11 @@ import * as d3 from 'd3'
 import { useParams } from 'react-router-dom'
 import { phylumColors } from '../../../utils/phylumColorScheme'
 
-
-const PhyloTreeLayer = ({ data, width, height }: { data: any, width: number, height: number }) => {
+const PhyloTreeLayer = ({ data, width, height }: {
+  data: any,
+  width: number,
+  height: number
+}) => {
 
   const ref = useRef<SVGSVGElement | null>(null)
   const { experimentName = '' } = useParams()
@@ -25,7 +28,6 @@ const PhyloTreeLayer = ({ data, width, height }: { data: any, width: number, hei
     )
   }
 
-
   useEffect(() => {
     if (!ref.current) return
 
@@ -40,12 +42,12 @@ const PhyloTreeLayer = ({ data, width, height }: { data: any, width: number, hei
     const availableAngle = 2 * Math.PI - gapRadians
 
     // clear old SVG
-    d3.select(ref.current).selectAll("*").remove()
+    d3.select(ref.current).selectAll('*').remove()
 
     const svg = d3
       .select(ref.current)
-      .attr("viewBox", [-width / 2, -height / 2, width, height].join(' '))
-      .style("font", "8px sans-serif")
+      .attr('viewBox', [-width / 2, -height / 2, width, height].join(' '))
+      .style('font', '8px sans-serif')
 
     // create hierarchy with D3
     const root = d3.hierarchy<PhyloData>(data)
@@ -55,7 +57,6 @@ const PhyloTreeLayer = ({ data, width, height }: { data: any, width: number, hei
 
     const cluster = d3.cluster<PhyloData>().size([availableAngle, treeRadius])
     cluster(root)
-
 
     // ====================================================
 
@@ -88,7 +89,7 @@ const PhyloTreeLayer = ({ data, width, height }: { data: any, width: number, hei
       .selectAll('path')
       .data(root.links())
       .join('path')
-      .attr("d", (d: any) =>
+      .attr('d', (d: any) =>
         linkStep(d.source.x * 180 / Math.PI, d.source.y, d.target.x * 180 / Math.PI, d.target.y)
       )
 
@@ -110,15 +111,12 @@ const PhyloTreeLayer = ({ data, width, height }: { data: any, width: number, hei
       .attr('r', 0)
       .attr('fill', '#00000040')
 
-
     // Add text labels only for leaf nodes
     const leafNodeSelection = node.filter(d => !d.children)
     leafNodeSelection
       .append('a')
       .attr('font-size', '8px')
-      // .attr('line-height', '8px')
       .attr('xlink:href', d => `/database/mag-catalogues/${encodeURIComponent(experimentName)}/${encodeURIComponent(d.data.name)}`)
-      // .attr('target', '_blank')
       .append('text')
       .attr('dy', '0.3em')
       .attr('x', d => ((d.x ?? 0) < Math.PI ? 8 : -8))
@@ -128,7 +126,7 @@ const PhyloTreeLayer = ({ data, width, height }: { data: any, width: number, hei
       .clone(true)
       .lower()
       .attr('stroke', 'white')
-      .attr('stroke-width', 1.5) // .attr('stroke-width', 2)
+      .attr('stroke-width', 1.5) 
 
     // Helper to find the closest ancestor (including self) with a matching category color
     function getCategory(node: d3.HierarchyPointNode<PhyloData>): string | undefined {

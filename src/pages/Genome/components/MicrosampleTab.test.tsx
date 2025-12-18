@@ -1,16 +1,16 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import MicrosampleTab from './MicrosampleTab';
+import { describe, it, expect, vi } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom'
+import MicrosampleTab from './MicrosampleTab'
 
 // Mock components
 vi.mock('components/Table/components/TableBody', () => ({
-  default: () => <div data-testid="table-body">Table Body</div>,
-}));
+  default: () => <div data-testid='table-body'>Table Body</div>,
+}))
 
 vi.mock('components/ErrorBanner', () => ({
-  default: ({ children }: any) => <div data-testid="error-banner">{children}</div>,
-}));
+  default: ({ children }: any) => <div data-testid='error-banner'>{children}</div>,
+}))
 
 describe('MicrosampleTab', () => {
   const mockData = [
@@ -26,7 +26,7 @@ describe('MicrosampleTab', () => {
       enaLink: 'https://www.ebi.ac.uk/ena/browser/view/ERR456',
       run_accession: 'ERR456',
     },
-  ];
+  ]
 
   const renderMicrosampleTab = (props: any) => {
     return render(
@@ -38,8 +38,8 @@ describe('MicrosampleTab', () => {
       >
         <MicrosampleTab {...props} />
       </BrowserRouter>
-    );
-  };
+    )
+  }
 
   it('shows loading state when isLoading is true', () => {
     renderMicrosampleTab({
@@ -47,12 +47,12 @@ describe('MicrosampleTab', () => {
       genomeName: 'Genome1',
       isLoading: true,
       error: null,
-    });
+    })
 
     expect(screen.getByText((content, element) => {
-      return element?.className?.includes('loading-dots') || false;
-    })).toBeInTheDocument();
-  });
+      return element?.className?.includes('loading-dots') || false
+    })).toBeInTheDocument()
+  })
 
   it('shows error banner when error exists', () => {
     renderMicrosampleTab({
@@ -60,11 +60,11 @@ describe('MicrosampleTab', () => {
       genomeName: 'Genome1',
       isLoading: false,
       error: 'Failed to load data',
-    });
+    })
 
-    expect(screen.getByTestId('error-banner')).toBeInTheDocument();
-    expect(screen.getByText('Failed to load data')).toBeInTheDocument();
-  });
+    expect(screen.getByTestId('error-banner')).toBeInTheDocument()
+    expect(screen.getByText('Failed to load data')).toBeInTheDocument()
+  })
 
   it('shows no results message when data is null', () => {
     renderMicrosampleTab({
@@ -72,11 +72,11 @@ describe('MicrosampleTab', () => {
       genomeName: 'Genome1',
       isLoading: false,
       error: null,
-    });
+    })
 
-    expect(screen.getByText(/No microsamples containing/i)).toBeInTheDocument();
-    expect(screen.getByText('Genome1')).toBeInTheDocument();
-  });
+    expect(screen.getByText(/No microsamples containing/i)).toBeInTheDocument()
+    expect(screen.getByText('Genome1')).toBeInTheDocument()
+  })
 
   it('shows no results message when data is empty', () => {
     renderMicrosampleTab({
@@ -84,10 +84,10 @@ describe('MicrosampleTab', () => {
       genomeName: 'Genome1',
       isLoading: false,
       error: null,
-    });
+    })
 
-    expect(screen.getByText(/No microsamples containing/i)).toBeInTheDocument();
-  });
+    expect(screen.getByText(/No microsamples containing/i)).toBeInTheDocument()
+  })
 
   it('renders table with data', () => {
     renderMicrosampleTab({
@@ -95,10 +95,10 @@ describe('MicrosampleTab', () => {
       genomeName: 'Genome1',
       isLoading: false,
       error: null,
-    });
+    })
 
-    expect(screen.getByTestId('table-body')).toBeInTheDocument();
-  });
+    expect(screen.getByTestId('table-body')).toBeInTheDocument()
+  })
 
   it('displays count with plural form', () => {
     renderMicrosampleTab({
@@ -106,11 +106,11 @@ describe('MicrosampleTab', () => {
       genomeName: 'Genome1',
       isLoading: false,
       error: null,
-    });
+    })
 
-    expect(screen.getByText(/2/)).toBeInTheDocument();
-    expect(screen.getByText(/microsamples containing/)).toBeInTheDocument();
-  });
+    expect(screen.getByText(/2/)).toBeInTheDocument()
+    expect(screen.getByText(/microsamples containing/)).toBeInTheDocument()
+  })
 
   it('displays count with singular form', () => {
     renderMicrosampleTab({
@@ -118,11 +118,11 @@ describe('MicrosampleTab', () => {
       genomeName: 'Genome1',
       isLoading: false,
       error: null,
-    });
+    })
 
-    expect(screen.getByText('1')).toBeInTheDocument();
-    expect(screen.getByText('microsample containing')).toBeInTheDocument();
-    expect(screen.getByText('Genome1')).toBeInTheDocument();
-  });
+    expect(screen.getByText('1')).toBeInTheDocument()
+    expect(screen.getByText('microsample containing')).toBeInTheDocument()
+    expect(screen.getByText('Genome1')).toBeInTheDocument()
+  })
 
 })

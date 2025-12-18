@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback } from 'react'
+import { useState, useEffect, useMemo, useCallback, Dispatch, SetStateAction } from 'react'
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 import ErrorBanner from 'components/ErrorBanner'
@@ -9,19 +9,14 @@ import { useGenomeJsonFile } from 'hooks/useJsonData'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, dynamicXAxisPlugin)
 
-const MicrosampleTaxonomyChart = ({ 
-  cryosection, 
-  microsampleIds, 
-  selectedTaxonomicLevel, 
-  setSelectedTaxonomicLevel,
-  experimentId  
-}: {
+const MicrosampleTaxonomyChart = ({ cryosection, microsampleIds, selectedTaxonomicLevel, setSelectedTaxonomicLevel, experimentId }: {
   cryosection: string
   microsampleIds: string[]
   selectedTaxonomicLevel: string
-  setSelectedTaxonomicLevel: React.Dispatch<React.SetStateAction<string>>
-  experimentId: string 
+  setSelectedTaxonomicLevel: Dispatch<SetStateAction<string>>
+  experimentId: string
 }) => {
+
   const taxonomicLevels = ['phylum', 'class', 'order']
   const [isInitializing, setIsInitializing] = useState(true)
   const [isChangingLevel, setIsChangingLevel] = useState(false)
@@ -65,9 +60,9 @@ const MicrosampleTaxonomyChart = ({
         '/src/config/*.ts',
         { eager: true }
       )
-      
-      const colorSchemeModule = 
-    colorSchemeFiles[`/src/config/taxonomy-color-scheme.ts`];
+
+      const colorSchemeModule =
+        colorSchemeFiles[`/src/config/taxonomy-color-scheme.ts`];
 
       if (!colorSchemeModule) {
         console.warn(`Color scheme for experiment ${experimentId} not found, using default`)
@@ -88,7 +83,6 @@ const MicrosampleTaxonomyChart = ({
     sampleIds: microsampleIds
   })
 
-
   // ===== Generate chart data and options =====
   const { chartData, options } = useTaxonomyChart({
     sampleIds: microsampleIds,
@@ -103,11 +97,11 @@ const MicrosampleTaxonomyChart = ({
   const handleLevelChange = useCallback((level: string) => {
     // Set loading state immediately
     setIsChangingLevel(true)
-    
+
     // Use setTimeout to allow React to render the loading state first
     setTimeout(() => {
       setSelectedTaxonomicLevel(level)
-      
+
       // Clear loading state after state update and re-render
       setTimeout(() => {
         setIsChangingLevel(false)
@@ -159,9 +153,8 @@ const MicrosampleTaxonomyChart = ({
                 key={level}
                 onClick={() => handleLevelChange(level)}
                 disabled={isChangingLevel}
-                className={`btn btn-xs border-none mr-1 ${
-                  selectedTaxonomicLevel === level && 'bg-light_burgundy text-white'
-                } ${isChangingLevel && 'opacity-50 cursor-not-allowed'}`}
+                className={`btn btn-xs border-none mr-1 ${selectedTaxonomicLevel === level && 'bg-light_burgundy text-white'
+                  } ${isChangingLevel && 'opacity-50 cursor-not-allowed'}`}
               >
                 {level.charAt(0).toUpperCase() + level.slice(1)}
               </button>

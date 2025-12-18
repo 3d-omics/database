@@ -9,8 +9,6 @@ import ParamsValidator from 'components/ParamsValidator'
 import MicrosampleComposition from './MicrosampleComposition'
 import cryosectionImageData from 'assets/data/airtable/cryosectionimage.json'
 
-
-
 const CryosectionOverview = () => {
 
   const { cryosectionName = '' } = useParams()
@@ -90,7 +88,6 @@ const CryosectionOverview = () => {
                 }
               />
             </section>
-
 
             <main className='-mt-7'>
               {selectedTab === 'Microsamples' && <MicrosampleTab id={cryosection.fields.ID} />}

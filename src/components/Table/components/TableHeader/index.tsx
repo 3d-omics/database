@@ -5,13 +5,11 @@ import DownloadTSVButton from './DownloadTSVButton'
 const TableHeader = <TData,>({
   pageTitle,
   filteredDataLength,
-  // checkedItems,
   filteredAndSortedData,
   columns
 }: {
   pageTitle: string
   filteredDataLength: number
-  // checkedItems: any[]
   filteredAndSortedData: any[]
   columns: ColumnDef<TData>[]
 }) => {
@@ -27,23 +25,8 @@ const TableHeader = <TData,>({
       </div>
 
       <div className='flex gap-4 max-md:pt-4 max-sm:flex-col max-sm:items-start max-sm:gap-0.5'>
-        {/* {checkedItems.length > 0 && (
-          <div
-            className='max-sm:pt-1 tooltip tooltip-bottom z-[22]' // Make this z-index stronger that the other Download button for when responsive (so that it goes over the other button)
-            data-tip="only the rows you've checked"
-          >
-            <DownloadTSVButton<TData>
-              filteredAndSortedData={checkedItems}
-              columns={columns}
-              fileTitle={pageTitle}
-              buttonLabel={`Download Selected (${checkedItems.length}) as TSV`}
-            />
-          </div>
-        )} */}
         <div
           className='max-sm:pt-1 z-[21]'
-        // className='max-sm:pt-1 tooltip tooltip-bottom z-[21]'
-        // data-tip="all filtered + sorted items"
         >
           <DownloadTSVButton<TData>
             filteredAndSortedData={filteredAndSortedData}

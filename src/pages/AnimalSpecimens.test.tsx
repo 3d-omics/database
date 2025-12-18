@@ -1,7 +1,7 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import { BrowserRouter } from 'react-router-dom';
-import AnimalSpecimens from './AnimalSpecimens';
+import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom'
+import AnimalSpecimens from './AnimalSpecimens'
 
 // Mock data
 vi.mock('assets/data/airtable/animalspecimen.json', () => ({
@@ -41,7 +41,7 @@ vi.mock('assets/data/airtable/animalspecimen.json', () => ({
       },
     },
   ],
-}));
+}))
 
 vi.mock('assets/data/airtable/animaltrialexperiment.json', () => ({
   default: [
@@ -54,29 +54,29 @@ vi.mock('assets/data/airtable/animaltrialexperiment.json', () => ({
       },
     },
   ],
-}));
+}))
 
 // Mock TableView
 vi.mock('components/TableView', () => ({
   default: ({ data, columns, pageTitle, tableDescription }: any) => (
-    <div data-testid="table-view">
-      <div data-testid="page-title">{pageTitle}</div>
-      <div data-testid="table-description">{tableDescription}</div>
-      <div data-testid="data-count">{data.length}</div>
-      <div data-testid="column-count">{columns.length}</div>
+    <div data-testid='table-view'>
+      <div data-testid='page-title'>{pageTitle}</div>
+      <div data-testid='table-description'>{tableDescription}</div>
+      <div data-testid='data-count'>{data.length}</div>
+      <div data-testid='column-count'>{columns.length}</div>
     </div>
   ),
-}));
+}))
 
 // Mock CrossReferenceTooltip
 vi.mock('components/CrossReferenceTooltip', () => ({
   default: ({ value }: any) => <span>{value}</span>,
-}));
+}))
 
 describe('AnimalSpecimens', () => {
   beforeEach(() => {
-    vi.clearAllMocks();
-  });
+    vi.clearAllMocks()
+  })
 
   const renderComponent = (props = {}) => {
     return render(
@@ -88,49 +88,49 @@ describe('AnimalSpecimens', () => {
       >
         <AnimalSpecimens {...props} />
       </BrowserRouter>
-    );
-  };
+    )
+  }
 
   it('renders TableView component', () => {
-    renderComponent();
-    expect(screen.getByTestId('table-view')).toBeInTheDocument();
-  });
+    renderComponent()
+    expect(screen.getByTestId('table-view')).toBeInTheDocument()
+  })
 
   it('passes correct page title', () => {
-    renderComponent();
-    expect(screen.getByTestId('page-title')).toHaveTextContent('Animal Specimens');
-  });
+    renderComponent()
+    expect(screen.getByTestId('page-title')).toHaveTextContent('Animal Specimens')
+  })
 
   it('passes table description', () => {
-    renderComponent();
-    expect(screen.getByTestId('table-description')).toHaveTextContent(/experimental units/i);
-  });
+    renderComponent()
+    expect(screen.getByTestId('table-description')).toHaveTextContent(/experimental units/i)
+  })
 
   it('displays all data by default', () => {
-    renderComponent();
-    expect(screen.getByTestId('data-count')).toHaveTextContent('2');
-  });
+    renderComponent()
+    expect(screen.getByTestId('data-count')).toHaveTextContent('2')
+  })
 
   it('creates correct number of columns', () => {
-    renderComponent();
-    expect(screen.getByTestId('column-count')).toHaveTextContent('9');
-  });
+    renderComponent()
+    expect(screen.getByTestId('column-count')).toHaveTextContent('9')
+  })
 
   it('filters data with startsWith condition', () => {
     renderComponent({
       filterWith: [{ id: 'ID', value: 'AS00', condition: 'startsWith' }],
-    });
+    })
 
-    expect(screen.getByTestId('data-count')).toHaveTextContent('2');
-  });
+    expect(screen.getByTestId('data-count')).toHaveTextContent('2')
+  })
 
   it('filters data with equals condition', () => {
     renderComponent({
       filterWith: [{ id: 'Pen', value: 'P1', condition: 'equals' }],
-    });
+    })
 
-    expect(screen.getByTestId('data-count')).toHaveTextContent('1');
-  });
+    expect(screen.getByTestId('data-count')).toHaveTextContent('1')
+  })
 
   it('handles multiple filters', () => {
     renderComponent({
@@ -138,31 +138,31 @@ describe('AnimalSpecimens', () => {
         { id: 'Experiment_flat', value: 'Experiment G', condition: 'equals' },
         { id: 'Pen', value: 'P1', condition: 'equals' },
       ],
-    });
+    })
 
-    expect(screen.getByTestId('data-count')).toHaveTextContent('1');
-  });
+    expect(screen.getByTestId('data-count')).toHaveTextContent('1')
+  })
 
   it('handles empty filter array', () => {
-    renderComponent({ filterWith: [] });
-    expect(screen.getByTestId('data-count')).toHaveTextContent('2');
-  });
+    renderComponent({ filterWith: [] })
+    expect(screen.getByTestId('data-count')).toHaveTextContent('2')
+  })
 
   it('filters out null/undefined values', () => {
     renderComponent({
       filterWith: [{ id: 'Biosample accession', value: 'SAMN', condition: 'startsWith' }],
-    });
+    })
 
-    expect(screen.getByTestId('data-count')).toHaveTextContent('1');
-  });
+    expect(screen.getByTestId('data-count')).toHaveTextContent('1')
+  })
 
   it('passes display props to TableView', () => {
     renderComponent({
       displayTableHeader: true,
       displayTableFilters: true,
       displayTableBody: false,
-    });
+    })
 
-    expect(screen.getByTestId('table-view')).toBeInTheDocument();
-  });
-});
+    expect(screen.getByTestId('table-view')).toBeInTheDocument()
+  })
+})

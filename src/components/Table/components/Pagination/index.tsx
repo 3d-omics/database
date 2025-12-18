@@ -1,5 +1,3 @@
-import React from 'react'
-
 type PaginationProps = {
   table: {
     firstPage: () => void
@@ -23,24 +21,22 @@ type PaginationProps = {
 const Pagination: React.FC<PaginationProps> = ({ table }) => {
 
   const scrollToTableTop = () => {
-    const element = document.getElementById('table-top');
+    const element = document.getElementById('table-top')
     if (element) {
-      const y = element.getBoundingClientRect().top + window.pageYOffset - 100;
-      window.scrollTo({ top: y });
-      // window.scrollTo({ top: y, behavior: 'smooth' });
-      return;
+      const y = element.getBoundingClientRect().top + window.pageYOffset - 100
+      window.scrollTo({ top: y })
+      return
     }
     if (element) {
-      (element as HTMLElement).scrollIntoView({ block: 'start' });
-      // (element as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'start' });
+      (element as HTMLElement).scrollIntoView({ block: 'start' })
     }
-  };
+  }
 
   return (
-    <section className="py-8 flex justify-center absolute bottom-0 left-0 right-0">
-      <div className="flex items-center gap-2">
+    <section className='py-8 flex justify-center absolute bottom-0 left-0 right-0'>
+      <div className='flex items-center gap-2'>
         <button
-          className="pagination_btn"
+          className='pagination_btn'
           onClick={() => {
             table.firstPage()
             scrollToTableTop()
@@ -50,7 +46,7 @@ const Pagination: React.FC<PaginationProps> = ({ table }) => {
           {'<<'}
         </button>
         <button
-          className="pagination_btn"
+          className='pagination_btn'
           onClick={() => {
             table.previousPage()
             scrollToTableTop()
@@ -60,7 +56,7 @@ const Pagination: React.FC<PaginationProps> = ({ table }) => {
           {'<'}
         </button>
         <button
-          className="pagination_btn"
+          className='pagination_btn'
           onClick={() => {
             table.nextPage()
             scrollToTableTop()
@@ -70,7 +66,7 @@ const Pagination: React.FC<PaginationProps> = ({ table }) => {
           {'>'}
         </button>
         <button
-          className="pagination_btn"
+          className='pagination_btn'
           onClick={() => {
             table.lastPage()
             scrollToTableTop()
@@ -79,7 +75,7 @@ const Pagination: React.FC<PaginationProps> = ({ table }) => {
         >
           {'>>'}
         </button>
-        <span className="flex items-center gap-1">
+        <span className='flex items-center gap-1'>
           <div>Page</div>
           <strong>
             {table.getState().pagination.pageIndex + 1} of{' '}

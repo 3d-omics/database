@@ -10,9 +10,9 @@ const Filter = <TData,>({ column }: { column: Column<TData> }) => {
 
   return filterVariant === 'select'
     ? (
-      <div className="dropdown w-full">
+      <div className='dropdown w-full'>
         <select
-          className="btn mt-2 btn-xs text-left w-full"
+          className='btn mt-2 btn-xs text-left w-full'
           onChange={e => column.setFilterValue(e.target.value)}
           value={columnFilterValue ? columnFilterValue.toString() : ''}
           id={column.id}
@@ -27,7 +27,7 @@ const Filter = <TData,>({ column }: { column: Column<TData> }) => {
       <DebouncedInput
         onChange={(value: string | number) => column.setFilterValue(value)}
         placeholder={`Search...`}
-        type="text"
+        type='text'
         value={(columnFilterValue ?? '') as string}
         id={column.id}
       />

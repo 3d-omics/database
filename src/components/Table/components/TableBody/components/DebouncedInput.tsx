@@ -32,7 +32,7 @@ const DebouncedInput = ({
       name={props.name}
       value={value}
       onChange={e => setValue(e.target.value.trim())}
-      className="input input-bordered input-xs w-full max-w-xs mt-2"
+      className='input input-bordered input-xs w-full max-w-xs mt-2'
     />
   )
 }

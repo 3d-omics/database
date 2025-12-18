@@ -1,51 +1,50 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
-import { userEvent } from '@testing-library/user-event';
-import TaxonomyChart from './TaxonomyChart';
-import { useGenomeJsonFile } from 'hooks/useJsonData';
-import { useTaxonomyData } from 'hooks/useTaxonomyData';
-import { useTaxonomyChart } from 'hooks/useTaxonomyChart';
+import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import { userEvent } from '@testing-library/user-event'
+import TaxonomyChart from './TaxonomyChart'
+import { useGenomeJsonFile } from 'hooks/useJsonData'
+import { useTaxonomyData } from 'hooks/useTaxonomyData'
+import { useTaxonomyChart } from 'hooks/useTaxonomyChart'
 
 // Suppress act warnings for timer-based state updates
-const originalError = console.error;
+const originalError = console.error
 beforeAll(() => {
   console.error = (...args: any[]) => {
-    if (args[0]?.includes?.('act(')) return;
-    originalError(...args);
-  };
-});
+    if (args[0]?.includes?.('act(')) return
+    originalError(...args)
+  }
+})
 afterAll(() => {
-  console.error = originalError;
-});
-
+  console.error = originalError
+})
 
 // Mock hooks
-vi.mock('hooks/useJsonData');
-vi.mock('hooks/useTaxonomyData');
-vi.mock('hooks/useTaxonomyChart');
+vi.mock('hooks/useJsonData')
+vi.mock('hooks/useTaxonomyData')
+vi.mock('hooks/useTaxonomyChart')
 
 // Mock Chart.js
 vi.mock('react-chartjs-2', () => ({
-  Bar: () => <div data-testid="bar-chart">Bar Chart</div>,
-}));
+  Bar: () => <div data-testid='bar-chart'>Bar Chart</div>,
+}))
 
 // Mock utils
 vi.mock('utils/chartUtils', () => ({
   dynamicXAxisPlugin: {},
   flattenedcolorScheme: vi.fn(() => ({ Firmicutes: '#FF0000' })),
-}));
+}))
 
 // Mock ErrorBanner
 vi.mock('components/ErrorBanner', () => ({
-  default: ({ children }: any) => <div data-testid="error-banner">{children}</div>,
-}));
+  default: ({ children }: any) => <div data-testid='error-banner'>{children}</div>,
+}))
 
 
 describe('TaxonomyChart', () => {
-  const mockSetSelectedTaxonomicLevel = vi.fn();
+  const mockSetSelectedTaxonomicLevel = vi.fn()
 
   beforeEach(() => {
-    vi.clearAllMocks();
+    vi.clearAllMocks()
     vi.useFakeTimers();
 
     // Default successful data loading
@@ -70,24 +69,24 @@ describe('TaxonomyChart', () => {
     (useTaxonomyChart as any).mockReturnValue({
       chartData: { labels: ['Sample1'], datasets: [] },
       options: {},
-    });
-  });
+    })
+  })
 
   afterEach(() => {
-    vi.restoreAllMocks();
-    vi.useRealTimers();
-  });
+    vi.restoreAllMocks()
+    vi.useRealTimers()
+  })
 
   const renderChart = (props = {}) => {
     return render(
       <TaxonomyChart
-        selectedTaxonomicLevel="phylum"
+        selectedTaxonomicLevel='phylum'
         setSelectedTaxonomicLevel={mockSetSelectedTaxonomicLevel}
-        experimentId="G"
+        experimentId='G'
         {...props}
       />
-    );
-  };
+    )
+  }
 
   it('shows loading skeleton initially', () => {
     (useTaxonomyData as any).mockReturnValue({
@@ -95,21 +94,21 @@ describe('TaxonomyChart', () => {
       genomeCounts: null,
       isDataReady: false,
       fetchError: null,
-    });
+    })
 
-    renderChart();
+    renderChart()
 
-    expect(screen.getByTestId('loading-skeleton')).toBeInTheDocument();
-  });
+    expect(screen.getByTestId('loading-skeleton')).toBeInTheDocument()
+  })
 
   it('shows error banner when data loading fails', () => {
-    (useGenomeJsonFile as any).mockReturnValue(null);
+    (useGenomeJsonFile as any).mockReturnValue(null)
 
-    renderChart();
+    renderChart()
 
-    expect(screen.getByTestId('error-banner')).toBeInTheDocument();
-    expect(screen.getByText(/Failed to load taxonomy data/i)).toBeInTheDocument();
-  });
+    expect(screen.getByTestId('error-banner')).toBeInTheDocument()
+    expect(screen.getByText(/Failed to load taxonomy data/i)).toBeInTheDocument()
+  })
 
   it('shows error banner when fetchError exists', () => {
     (useTaxonomyData as any).mockReturnValue({
@@ -117,92 +116,92 @@ describe('TaxonomyChart', () => {
       genomeCounts: null,
       isDataReady: false,
       fetchError: 'Failed to fetch',
-    });
+    })
 
-    renderChart();
+    renderChart()
 
-    expect(screen.getByTestId('error-banner')).toBeInTheDocument();
-    expect(screen.getByText('Failed to fetch')).toBeInTheDocument();
-  });
+    expect(screen.getByTestId('error-banner')).toBeInTheDocument()
+    expect(screen.getByText('Failed to fetch')).toBeInTheDocument()
+  })
 
   it('renders chart when data is ready', async () => {
-    renderChart();
+    renderChart()
 
-    await vi.runAllTimersAsync();
+    await vi.runAllTimersAsync()
 
-    expect(screen.getByTestId('bar-chart')).toBeInTheDocument();
-  });
+    expect(screen.getByTestId('bar-chart')).toBeInTheDocument()
+  })
 
   it('renders taxonomic level buttons', async () => {
-    renderChart();
+    renderChart()
 
-    await vi.runAllTimersAsync();
+    await vi.runAllTimersAsync()
 
-    expect(screen.getByText('phylum')).toBeInTheDocument();
-    expect(screen.getByText('class')).toBeInTheDocument();
-    expect(screen.getByText('order')).toBeInTheDocument();
-  });
+    expect(screen.getByText('phylum')).toBeInTheDocument()
+    expect(screen.getByText('class')).toBeInTheDocument()
+    expect(screen.getByText('order')).toBeInTheDocument()
+  })
 
   it('highlights selected taxonomic level', async () => {
-    renderChart({ selectedTaxonomicLevel: 'class' });
+    renderChart({ selectedTaxonomicLevel: 'class' })
 
-    await vi.runAllTimersAsync();
+    await vi.runAllTimersAsync()
 
-    const classButton = screen.getByText('class');
-    expect(classButton).toHaveClass('bg-light_burgundy');
-  });
+    const classButton = screen.getByText('class')
+    expect(classButton).toHaveClass('bg-light_burgundy')
+  })
 
   it('calls setSelectedTaxonomicLevel when button clicked', async () => {
-    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
-    renderChart();
+    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime })
+    renderChart()
 
-    await vi.runAllTimersAsync();
+    await vi.runAllTimersAsync()
 
-    const classButton = screen.getByText('class');
+    const classButton = screen.getByText('class')
 
-    const clickPromise = user.click(classButton);
-    await vi.runAllTimersAsync();
-    await clickPromise;
+    const clickPromise = user.click(classButton)
+    await vi.runAllTimersAsync()
+    await clickPromise
 
-    expect(mockSetSelectedTaxonomicLevel).toHaveBeenCalledWith('class');
-  });
+    expect(mockSetSelectedTaxonomicLevel).toHaveBeenCalledWith('class')
+  })
 
   it('shows loading overlay when changing levels', async () => {
-    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
-    renderChart();
+    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime })
+    renderChart()
 
-    await vi.runAllTimersAsync();
+    await vi.runAllTimersAsync()
 
-    const orderButton = screen.getByText('order');
+    const orderButton = screen.getByText('order')
 
-    const clickPromise = user.click(orderButton);
+    const clickPromise = user.click(orderButton)
 
     // Advance just enough to show loading
-    await vi.advanceTimersByTimeAsync(10);
+    await vi.advanceTimersByTimeAsync(10)
 
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
+    expect(screen.getByText('Loading...')).toBeInTheDocument()
 
-    await vi.runAllTimersAsync();
-    await clickPromise;
-  });
+    await vi.runAllTimersAsync()
+    await clickPromise
+  })
 
   it('disables buttons while changing levels', async () => {
-    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime });
-    renderChart();
+    const user = userEvent.setup({ advanceTimers: vi.advanceTimersByTime })
+    renderChart()
 
-    await vi.runAllTimersAsync();
+    await vi.runAllTimersAsync()
 
-    const orderButton = screen.getByText('order');
+    const orderButton = screen.getByText('order')
 
-    const clickPromise = user.click(orderButton);
+    const clickPromise = user.click(orderButton)
 
     // Advance to trigger loading state
-    await vi.advanceTimersByTimeAsync(10);
+    await vi.advanceTimersByTimeAsync(10)
 
-    expect(screen.getByRole('button', { name: 'phylum' })).toBeDisabled();
-    expect(screen.getByRole('button', { name: 'class' })).toBeDisabled();
+    expect(screen.getByRole('button', { name: 'phylum' })).toBeDisabled()
+    expect(screen.getByRole('button', { name: 'class' })).toBeDisabled()
 
-    await vi.runAllTimersAsync();
-    await clickPromise;
-  });
-});
+    await vi.runAllTimersAsync()
+    await clickPromise
+  })
+})

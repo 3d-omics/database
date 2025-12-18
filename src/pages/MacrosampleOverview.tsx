@@ -8,7 +8,6 @@ import MicrosampleTab from 'components/TabComponents/MicrosampleTab'
 import Tabs from 'components/Tabs'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
-import Macrosample from './Macrosamples'
 
 const MacrosampleOverview = () => {
 
@@ -102,7 +101,6 @@ const MacrosampleOverview = () => {
                 tabs={['Cryosections', 'Microsamples']}
               />
             </section>
-
 
             <main className='-mt-7'>
               {selectedTab === 'Cryosections' && <CryosectionTab id={macrosample.fields.ID} />}

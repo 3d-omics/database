@@ -12,5 +12,4 @@ export const menus = [
   },
   { location: '/cryosections', title: 'Cryosections' },
   { location: '/microsamples', title: 'Microsamples' },
-  // { location: '/database-schema', title: 'Download Database Schema' },
 ]

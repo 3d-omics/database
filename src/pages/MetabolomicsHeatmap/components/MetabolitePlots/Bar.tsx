@@ -4,7 +4,10 @@ import { Layout, Config } from 'plotly.js'
 import useMetaboliteExcelFileData from 'hooks/useMetaboliteExcelFileData'
 
 
-const Barplot = ({ id, experimentId }: { id: string[]; experimentId: string }) => {
+const Barplot = ({ id, experimentId }: {
+  id: string[]
+  experimentId: string
+}) => {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [windowHeight, setWindowHeight] = useState(window.innerHeight)
@@ -27,7 +30,6 @@ const Barplot = ({ id, experimentId }: { id: string[]; experimentId: string }) =
     }
   }, [])
 
-
   // Check if data is ready, if not, show a loading state
   const isDataReady = useMemo(() => {
     return (
@@ -36,16 +38,15 @@ const Barplot = ({ id, experimentId }: { id: string[]; experimentId: string }) =
     )
   }, [originalColumnData, listOfCuratedIdsOfMetabolites, id])
 
-
   const sampleId = id[0]
   const originalValues: number[] = originalColumnData[sampleId]?.map(Number) || []
 
-  const sortedOriginalValues = [...originalValues].sort((a, b) => b - a);
+  const sortedOriginalValues = [...originalValues].sort((a, b) => b - a)
 
   const sortedIdsWithValues = listOfCuratedIdsOfMetabolites?.map((id, index) => ({ id, value: originalValues[index] }))
-    .sort((a, b) => b.value - a.value);
+    .sort((a, b) => b.value - a.value)
 
-  const sortedCuratedIds = sortedIdsWithValues?.map(item => item.id);
+  const sortedCuratedIds = sortedIdsWithValues?.map(item => item.id)
 
   const data: any[] = [
     {
@@ -112,7 +113,7 @@ const Barplot = ({ id, experimentId }: { id: string[]; experimentId: string }) =
         </div>
       }
     </>
-  );
+  )
 }
 
 export default Barplot

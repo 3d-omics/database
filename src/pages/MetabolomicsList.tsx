@@ -9,7 +9,6 @@ import experimentJ from 'assets/data/metabolomics/metabolomics_J.xlsx'
 import experimentK from 'assets/data/metabolomics/metabolomics_K.xlsx'
 import experimentM from 'assets/data/metabolomics/metabolomics_M.xlsx'
 
-
 const MetabolomicsList = () => {
 
   // for download excel file button
@@ -23,18 +22,18 @@ const MetabolomicsList = () => {
   }
 
   const handleDownload = ({ experimentId }: { experimentId: string }) => {
-    const excelFile = files[experimentId as keyof typeof files];
+    const excelFile = files[experimentId as keyof typeof files]
     if (!excelFile) {
-      console.error('File not found for param:', experimentId);
-      return;
+      console.error('File not found for param:', experimentId)
+      return
     }
-    const link = document.createElement('a');
-    link.href = excelFile;
-    link.download = `metabolite-data-experiment-${experimentId}.xlsx`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+    const link = document.createElement('a')
+    link.href = excelFile
+    link.download = `metabolite-data-experiment-${experimentId}.xlsx`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
 
   return (
     <div className='page_padding pt-7 min-h-[calc(100dvh-(var(--navbar-height)+var(--footer-height)))]'>

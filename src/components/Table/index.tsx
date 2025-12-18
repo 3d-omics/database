@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { getCoreRowModel, useReactTable, getSortedRowModel, getFilteredRowModel, getPaginationRowModel, Column, ColumnDef, FilterFn, Row } from '@tanstack/react-table'
+import { getCoreRowModel, useReactTable, getSortedRowModel, getFilteredRowModel, getPaginationRowModel, ColumnDef } from '@tanstack/react-table'
 import Pagination from 'components/Table/components/Pagination'
 import TableHeader from './components/TableHeader'
 import TableFilters from './components/TableFilters'
@@ -27,20 +27,10 @@ const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, di
 }) => {
   const [pagination, setPagination] = useState({ pageIndex: 0, pageSize: 100, })
   const [globalFilter, setGlobalFilter] = useState<string | undefined>(undefined)
-  // const [checkedItems, setCheckedItems] = useState<any[]>([])
-
-  // const globalFilterFn: FilterFn<any> = (row: Row<any>, columnId: string, filterValue: string) => {
-  //   const searchTerm = filterValue.toLowerCase()
-  //   return row.getAllCells().some(cell => {
-  //     const cellValue = String(cell.getValue()).toLowerCase()
-  //     return cellValue.includes(searchTerm)
-  //   })
-  // }
 
   const table = useReactTable({
     data,
     columns,
-    // globalFilterFn,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getSortedRowModel: getSortedRowModel(),
@@ -50,24 +40,21 @@ const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, di
     onGlobalFilterChange: setGlobalFilter,
   })
 
-
   const filteredData = table.getFilteredRowModel().rows
   const filteredBy: ColumnFiltersState = table.getState().columnFilters
   const filteredAndSortedData = table.getSortedRowModel().rows
   const sortedBy: SortingState = table.getState().sorting
 
   return (
-    <div className='' id="table-top">
+    <div className='' id='table-top'>
       {displayTableHeader &&
         <TableHeader
           pageTitle={pageTitle}
           filteredDataLength={filteredData.length}
-          // checkedItems={checkedItems}
           filteredAndSortedData={filteredAndSortedData}
           columns={columns}
         />
       }
-
 
       {displayTableDescription && tableDescription &&
         <p className='page_description'>
@@ -86,8 +73,6 @@ const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, di
       {displayTableBody &&
         <TableBody
           table={table}
-          // checkedItems={checkedItems}
-          // setCheckedItems={setCheckedItems}
           displayTableFilters={displayTableFilters}
         />
       }

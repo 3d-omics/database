@@ -1,11 +1,11 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import TableBody from './index';
+import { describe, it, expect, vi } from 'vitest'
+import { render, screen } from '@testing-library/react'
+import TableBody from './index'
 
 // Mock Filter component
 vi.mock('./components/Filter', () => ({
-  default: () => <div data-testid="filter-component">Filter</div>,
-}));
+  default: () => <div data-testid='filter-component'>Filter</div>,
+}))
 
 describe('TableBody', () => {
   const mockTable = {
@@ -61,48 +61,48 @@ describe('TableBody', () => {
         },
       ],
     }),
-  };
+  }
 
   it('renders table structure', () => {
-    render(<TableBody table={mockTable as any} />);
-    expect(screen.getByTestId('table')).toBeInTheDocument();
-  });
+    render(<TableBody table={mockTable as any} />)
+    expect(screen.getByTestId('table')).toBeInTheDocument()
+  })
 
   it('renders headers', () => {
-    render(<TableBody table={mockTable as any} />);
-    expect(screen.getByText('Name')).toBeInTheDocument();
-    expect(screen.getByText('Status')).toBeInTheDocument();
-  });
+    render(<TableBody table={mockTable as any} />)
+    expect(screen.getByText('Name')).toBeInTheDocument()
+    expect(screen.getByText('Status')).toBeInTheDocument()
+  })
 
   it('renders rows', () => {
-    render(<TableBody table={mockTable as any} />);
-    expect(screen.getByText('Item 1')).toBeInTheDocument();
-    expect(screen.getByText('Active')).toBeInTheDocument();
-  });
+    render(<TableBody table={mockTable as any} />)
+    expect(screen.getByText('Item 1')).toBeInTheDocument()
+    expect(screen.getByText('Active')).toBeInTheDocument()
+  })
 
   it('shows sort icon for sortable columns', () => {
-    render(<TableBody table={mockTable as any} />);
-    expect(screen.getByTestId('sort-icon-for-name')).toBeInTheDocument();
-  });
+    render(<TableBody table={mockTable as any} />)
+    expect(screen.getByTestId('sort-icon-for-name')).toBeInTheDocument()
+  })
 
   it('shows filter component when column can be filtered', () => {
-    render(<TableBody table={mockTable as any} />);
-    expect(screen.getByTestId('filter-component')).toBeInTheDocument();
-  });
+    render(<TableBody table={mockTable as any} />)
+    expect(screen.getByTestId('filter-component')).toBeInTheDocument()
+  })
 
   it('hides sort and filter when displayTableFilters is false', () => {
-    render(<TableBody table={mockTable as any} displayTableFilters={false} />);
-    expect(screen.queryByTestId('sort-icon-for-name')).not.toBeInTheDocument();
-    expect(screen.queryByTestId('filter-component')).not.toBeInTheDocument();
-  });
+    render(<TableBody table={mockTable as any} displayTableFilters={false} />)
+    expect(screen.queryByTestId('sort-icon-for-name')).not.toBeInTheDocument()
+    expect(screen.queryByTestId('filter-component')).not.toBeInTheDocument()
+  })
 
   it('renders empty table when no rows', () => {
     const emptyTable = {
       ...mockTable,
       getRowModel: () => ({ rows: [] }),
-    };
+    }
 
-    render(<TableBody table={emptyTable as any} />);
-    expect(screen.queryByText('Item 1')).not.toBeInTheDocument();
-  });
-});
+    render(<TableBody table={emptyTable as any} />)
+    expect(screen.queryByText('Item 1')).not.toBeInTheDocument()
+  })
+})

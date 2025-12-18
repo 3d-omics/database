@@ -5,7 +5,10 @@ import Heatmap from '../MetabolitePlots/Heatmap'
 import BarPlot from '../MetabolitePlots/Bar'
 import { useParams } from 'react-router-dom'
 
-const CompareSamplesButton = ({ samples, setSamples }: { samples: string[], setSamples: Dispatch<SetStateAction<string[]>> }) => {
+const CompareSamplesButton = ({ samples, setSamples }: {
+  samples: string[],
+  setSamples: Dispatch<SetStateAction<string[]>>
+}) => {
 
   const [displayedPlot, setDisplayedPlot] = useState<string | null>(null)
 
@@ -14,7 +17,6 @@ const CompareSamplesButton = ({ samples, setSamples }: { samples: string[], setS
 
   return (
     <div>
-
       <div className='fixed bottom-12 left-0 w-screen z-10 px-12 max-sm:px-2' data-testid='compare-metabolite-samples-button'>
         <main className='bg-blue-950 text-white py-4 px-8 rounded-full flex items-center gap-2 mx-auto w-fit shadow-lg 
         max-lg:px-5 max-lg:py-3 max-lg:text-sm max-sm:px-3 max-sm:py-2'>
@@ -95,7 +97,6 @@ const CompareSamplesButton = ({ samples, setSamples }: { samples: string[], setS
 
         </main>
       </div>
-
 
       {displayedPlot &&
         <>

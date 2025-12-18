@@ -5,7 +5,6 @@ import TableView from 'components/TableView'
 import microsampleData from 'assets/data/airtable/microsample.json'
 import cryosectionData from 'assets/data/airtable/cryosection.json'
 
-
 export type TData = {
   id: string
   createdTime: string
@@ -36,38 +35,36 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
   filterWith?: { id: keyof TData['fields']; value: string | number, condition?: string }[]
 }) => {
 
-  const data = microsampleData as unknown as TData[];
+  const data = microsampleData as unknown as TData[]
 
   const tableDescription = "Microsamples are microscopic tissue/digesta samples collected from thin intestinal cross-cuts (cryosections) using laser capture microdissection. Each microsample typically covers a volume of about 50,000 μm3, which usually encompass between 100 and 2000 bacterial cells. Microsamples are spatially referenced, enabling analysis of microbial community variation across space within the gut."
 
   const filteredData = useMemo(() => {
     if (!filterWith || filterWith.length === 0) {
-      return data;
+      return data
     }
 
     return (data).filter((record) => {
       return filterWith.every((filter) => {
-        const fieldValue = record.fields[filter.id];
+        const fieldValue = record.fields[filter.id]
 
-        if (fieldValue === undefined || fieldValue === null) return false;
+        if (fieldValue === undefined || fieldValue === null) return false
 
-        const values = Array.isArray(fieldValue) ? fieldValue : [fieldValue];
-        const searchValue = String(filter.value).toLowerCase();
+        const values = Array.isArray(fieldValue) ? fieldValue : [fieldValue]
+        const searchValue = String(filter.value).toLowerCase()
 
         if (filter.condition === 'startsWith') {
           return values.some((val) =>
             String(val).toLowerCase().startsWith(searchValue)
-          );
+          )
         } else {
           return values.some((val) =>
             String(val).toLowerCase() === searchValue
-          );
+          )
         }
-      });
-    });
-  }, [filterWith]);
-
-
+      })
+    })
+  }, [filterWith])
 
 
   const columns = useMemo<ColumnDef<TData>[]>(() => [
@@ -129,22 +126,21 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       enableColumnFilter: false,
     },
     {
-      id: 'ENA Accession',
+      id: 'ENA accession',
       header: 'ENA Accession',
       accessorFn: (row) => row.fields['ENA accession'],
       cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
-        const enaLink = row.original.fields['ENA link'];
+        const enaLink = row.original.fields['ENA link']
         return enaLink ? (
           <Link to={enaLink} target='_blank' rel='noopener noreferrer' className='link'>
             {cell.getValue() as string}
           </Link>
         ) : (
           <></>
-        );
+        )
       }
     },
   ], [filteredData])
-
 
   return (
     <TableView<TData>

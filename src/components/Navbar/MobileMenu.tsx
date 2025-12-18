@@ -17,47 +17,47 @@ const MobileMenu = () => {
       <div
         className={`lg:hidden tham tham-e-squeeze tham-w-7 z-[60] ${mobileMenuOpened && 'tham-active'}`}
         onClick={() => setMobileMenuOpened(!mobileMenuOpened)}
-        data-testid="hamburger-menu"
+        data-testid='hamburger-menu'
       >
-        <div className="tham-box">
-          <div className="tham-inner !h-[2px] bg-neutral-500 rounded-none after:rounded-none after:!h-[2px] before:rounded-none before:!h-[2px]" />
+        <div className='tham-box'>
+          <div className='tham-inner !h-[2px] bg-neutral-500 rounded-none after:rounded-none after:!h-[2px] before:rounded-none before:!h-[2px]' />
         </div>
       </div>
 
 
       {/* ===== Mobile menu ===== */}
-      <div className="relative">
+      <div className='relative'>
         {mobileMenuOpened ? (
           <div
-            className="fixed right-0 top-0 w-screen h-screen bg-black/30 z-20 duration-300"
+            className='fixed right-0 top-0 w-screen h-screen bg-black/30 z-20 duration-300'
             onClick={() => setMobileMenuOpened(false)}
-            data-testid="mobile-menu-overlay"
+            data-testid='mobile-menu-overlay'
           >
             <nav
-              className="w-7/12 max-sm:w-9/12 bg-neutral-50 h-screen ml-auto duration-300 translate-x-0 pt-28"
+              className='w-7/12 max-sm:w-9/12 bg-neutral-50 h-screen ml-auto duration-300 translate-x-0 pt-28'
               onClick={(e) => e.stopPropagation()}
-              data-testid="mobile-menu-opened"
+              data-testid='mobile-menu-opened'
             >
               <ul className='[&>li]:border-b'>
 
                 <li className='!border-b-0'>
                   <Link
-                    to="http://www.3domics.eu"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    to='http://www.3domics.eu'
+                    target='_blank'
+                    rel='noopener noreferrer'
                     onClick={() => setMobileMenuOpened(false)}
                     className='font-semibold btn btn-ghost w-fit cursor-pointer mx-2 mb-2'
                   >
                     {/* 3D'omics Home */}
-                    <img src={Logo} alt="3D'omics logo" className="h-8 object-contain" />
+                    <img src={Logo} alt="3D'omics logo" className='h-8 object-contain' />
                   </Link>
                 </li>
 
                 <li>
                   <Link
-                    to="/"
+                    to='/'
                     onClick={() => setMobileMenuOpened(false)}
-                    className={`block text-lg py-3 pl-6 font-semibold whitespace-nowrap hover:bg-burgundy ${location === "/" ? 'text-mustard' : 'hover:text-white'} max-sm:text-base`}
+                    className={`block text-lg py-3 pl-6 font-semibold whitespace-nowrap hover:bg-burgundy ${location === '/' ? 'text-mustard' : 'hover:text-white'} max-sm:text-base`}
                   >
                     Data Portal Home
                   </Link>
@@ -101,8 +101,8 @@ const MobileMenu = () => {
             </nav>
           </div>
         ) : (
-          <div className="fixed right-0 top-0 w-screen h-screen bg-transparent -z-10 duration-300 pointer-events-none" >
-            <nav className="w-7/12 ml-auto bg-neutral-50 h-screen duration-300 transform translate-x-full pt-28 px-12" />
+          <div className='fixed right-0 top-0 w-screen h-screen bg-transparent -z-10 duration-300 pointer-events-none' >
+            <nav className='w-7/12 ml-auto bg-neutral-50 h-screen duration-300 transform translate-x-full pt-28 px-12' />
           </div>
         )}
       </div>

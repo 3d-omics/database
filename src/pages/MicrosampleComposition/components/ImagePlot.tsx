@@ -1,10 +1,10 @@
-import React, { useMemo, useState } from 'react'
+import { useMemo, useState, Dispatch, SetStateAction } from 'react'
 import Plot from 'react-plotly.js'
 import { PlotMouseEvent, Layout, Config, PlotSelectionEvent } from 'plotly.js'
 
 const ImagePlot = ({ cryosection, setSelectedMicrosampleIds, microsampleIds, xcoord, ycoord, size, shape }: {
   cryosection: string
-  setSelectedMicrosampleIds: React.Dispatch<React.SetStateAction<string[]>>
+  setSelectedMicrosampleIds: Dispatch<SetStateAction<string[]>>
   microsampleIds: string[]
   xcoord: number[]
   ycoord: number[]
@@ -115,7 +115,6 @@ const ImagePlot = ({ cryosection, setSelectedMicrosampleIds, microsampleIds, xco
     setActiveIndices(null);
     setSelectedMicrosampleIds([]);
   }
-
 
   return (
       <Plot

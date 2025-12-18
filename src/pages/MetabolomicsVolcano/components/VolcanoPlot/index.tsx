@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Dispatch, SetStateAction } from 'react'
 import * as XLSX from 'xlsx'
 import Plot from 'react-plotly.js'
 import { log10, log2 } from 'mathjs'
@@ -16,14 +16,14 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
   group1: string | number,
   group2: string | number,
   executeCreatePlot: boolean,
-  setExecuteCreatePlot: React.Dispatch<React.SetStateAction<boolean>>
+  setExecuteCreatePlot: Dispatch<SetStateAction<boolean>>
   calculatedData: {
     metabolite: string
     fold_change: number
     p_value: number
     significant: boolean
   }[] | null
-  setCalculatedData: React.Dispatch<React.SetStateAction<{
+  setCalculatedData: Dispatch<SetStateAction<{
     metabolite: string
     fold_change: number
     p_value: number
@@ -31,8 +31,8 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
   }[] | null>>
   pValueThreshold: number
   foldChangeThreshold: number
-  setPValueThreshold: React.Dispatch<React.SetStateAction<number>>
-  setFoldChangeThreshold: React.Dispatch<React.SetStateAction<number>>
+  setPValueThreshold: Dispatch<SetStateAction<number>>
+  setFoldChangeThreshold: Dispatch<SetStateAction<number>>
   experimentId: string
   options: Record<string, Record<string, string>>
 }) => {
@@ -131,19 +131,19 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
 
     const group1Samples = metadata
       .filter((row) => row[groupCol] === group1)
-      .map((row) => row[sampleCol]);
+      .map((row) => row[sampleCol])
 
     const group2Samples = metadata
       .filter((row) => row[groupCol] === group2)
-      .map((row) => row[sampleCol]);
+      .map((row) => row[sampleCol])
 
     let results = abundances.map((row) => {
-      const metabolite = row[metaboliteCol];
+      const metabolite = row[metaboliteCol]
 
-      const data1 = group1Samples.map((sample) => row[sample]).filter(Boolean);
-      const data2 = group2Samples.map((sample) => row[sample]).filter(Boolean);
+      const data1 = group1Samples.map((sample) => row[sample]).filter(Boolean)
+      const data2 = group2Samples.map((sample) => row[sample]).filter(Boolean)
 
-      if (data1.length === 0 || data2.length === 0) return null;
+      if (data1.length === 0 || data2.length === 0) return null
 
       const mean1 = jStat.mean(data1)
       const mean2 = jStat.mean(data2)
@@ -152,17 +152,17 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
       const pVal2 = jStat.studentt.cdf(-Math.abs(ttestResult), data1.length + data2.length - 2) * 2 // two side p-value
       const pVal = log10(pVal2) * -1
 
-      const foldChange = mean2 !== 0 ? log2(mean1 / mean2) : null;
+      const foldChange = mean2 !== 0 ? log2(mean1 / mean2) : null
 
       return {
         metabolite,
         p_value: pVal,
         fold_change: foldChange,
         significant: pVal > -log10(pValueThreshold) && foldChange !== null && Math.abs(foldChange) > foldChangeThreshold
-      };
-    });
+      }
+    })
 
-    results = results.filter((result): result is { metabolite: string, fold_change: number | null, p_value: number, significant: boolean } => result !== null);
+    results = results.filter((result): result is { metabolite: string, fold_change: number | null, p_value: number, significant: boolean } => result !== null)
 
     // Replace metabolite codes with curated names
     const annotationsMap = Object.fromEntries(
@@ -170,18 +170,18 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
         row['Feature_ID'],
         (row['Curated_ID'] === 'Unknown' || row['Curated_ID'] === '') ? row['Feature_ID'] : row['Curated_ID']
       ])
-    );
+    )
 
     results = results.map((row) => {
-      if (row === null) return row;
+      if (row === null) return row
       return {
         ...row,
         metabolite: annotationsMap[row.metabolite] || row.metabolite,
-      };
-    });
+      }
+    })
 
-    setCalculatedData(results.filter((result): result is { metabolite: string, fold_change: number, p_value: number, significant: boolean } => result !== null && result.fold_change !== null));
-  };
+    setCalculatedData(results.filter((result): result is { metabolite: string, fold_change: number, p_value: number, significant: boolean } => result !== null && result.fold_change !== null))
+  }
 
   const data: any[] = calculatedData ? [
     {
@@ -233,7 +233,7 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
       hoverlabel: { bgcolor: blue },
       showlegend: windowWidth > 768,
     },
-  ] : [];
+  ] : []
 
   const layout: Partial<Layout> = {
     width: windowWidth > 1279 ? windowWidth - 580 : windowWidth - 64,
@@ -273,7 +273,6 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
     displayModeBar: false,
     modeBarButtonsToRemove: ['toImage', 'lasso2d', 'pan2d', 'zoom2d', 'select2d'],
   }
-
 
 
   return (
@@ -358,10 +357,10 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
       )
       }
     </div>
-  );
-};
+  )
+}
 
-export default VolcanoPlot;
+export default VolcanoPlot
 
 
 

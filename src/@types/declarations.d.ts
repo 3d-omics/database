@@ -30,12 +30,3 @@ declare module '*.svg' {
   const content: string;
   export default content;
 }
-
-declare module 'circos' {
-  const Circos: any;
-  export default Circos;
-}
-
-declare module 'phylocanvas' {
-  export function createTree(element: HTMLElement, options: any): any;
-}

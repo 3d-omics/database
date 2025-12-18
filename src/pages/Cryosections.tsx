@@ -17,7 +17,7 @@ export type TData = {
     Position: string
     SlideDate: string
     Macrosample: string
-    "Microsample number": number
+    'Microsample number': number
     IntestinalSection?: string[]
     Microsample?: string[]
     SlideImage?: {
@@ -49,12 +49,7 @@ export type TData = {
   }
 }
 
-const Cryosection = ({
-  displayTableHeader,
-  displayTableFilters,
-  displayTableBody,
-  filterWith = [],
-}: {
+const Cryosection = ({ displayTableHeader, displayTableFilters, displayTableBody, filterWith = [] }: {
   displayTableHeader?: boolean
   displayTableFilters?: boolean
   displayTableBody?: boolean
@@ -107,7 +102,7 @@ const Cryosection = ({
           </Link>
           {cryosectionImageData.find(cryosection => cryosection.fields.ID === props.getValue()) &&
             <div className='tooltip tooltip-right before:text-xs' data-tip='Microsample community composition info available'>
-              <FontAwesomeIcon icon={faMagnifyingGlassChart} className='ml-0.5'/>
+              <FontAwesomeIcon icon={faMagnifyingGlassChart} className='ml-0.5' />
             </div>
           }
         </div>
@@ -117,11 +112,6 @@ const Cryosection = ({
       id: 'Slide_flat',
       header: 'Slide',
       accessorFn: (row) => row.fields.Slide_flat,
-      // === for dropdown filter ===
-      // meta: {
-      //   filterVariant: 'select' as const,
-      //   uniqueValues: Array.from(new Set(data.map((row) => row.fields.Slide_flat))),
-      // },
     },
     {
       id: 'Position',
@@ -154,7 +144,7 @@ const Cryosection = ({
     },
     {
       id: 'Microsample number',
-      header: 'Microsample number',
+      header: 'Microsample Number',
       accessorFn: (row) => row.fields['Microsample number'],
       enableColumnFilter: false,
     },

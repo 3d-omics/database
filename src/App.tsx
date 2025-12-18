@@ -24,7 +24,7 @@ import MAGCatalogue from 'pages/MAGCatalogue'
 import Genome from 'pages/Genome'
 
 import MicrosampleComposition from 'pages/MicrosampleComposition'
-import MacrosampleTaxonomyChart from 'pages/MacrosampleComposition'
+import MacrosampleComposition from 'pages/MacrosampleComposition'
 
 import AnimalTrialOverview from 'pages/AnimalTrialOverview'
 import AnimalSpecimenOverview from 'pages/AnimalSpecimenOverview'
@@ -32,7 +32,6 @@ import MacrosampleOverview from 'pages/MacrosampleOverview'
 import CryosectionOverview from 'pages/CryosectionOverview'
 
 import DownloadDatabaseSchema from 'pages/DownloadDatabaseSchema'
-
 
 function App() {
 
@@ -43,7 +42,6 @@ function App() {
     }, [location.pathname])
     return children
   }
-
 
   const location = useLocation()
   useEffect(() => {
@@ -135,7 +133,7 @@ function App() {
           <Route path="/mag-catalogues/:experimentName/:genomeName" element={<Genome />} />
 
           <Route path="/macrosample-compositions" element={<MacrosampleCompositionList />} />
-          <Route path="/macrosample-compositions/:experimentName" element={<MacrosampleTaxonomyChart />} />
+          <Route path="/macrosample-compositions/:experimentName" element={<MacrosampleComposition />} />
 
           <Route path="/metabolomics" element={<MetabolomicsList />} />
           <Route path="/metabolomics/volcano/:experimentName" element={<MetabolomicsVolcano />} />

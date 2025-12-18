@@ -33,13 +33,11 @@ const Metabolomics = () => {
   const [pValueThreshold, setPValueThreshold] = useState(0.05)
   const [foldChangeThreshold, setFoldChangeThreshold] = useState(1.5)
 
-
   useEffect(() => {
     const groupKeys = Object.keys(options[compareBetween] as Record<string, string>)
     setGroup1(groupKeys[0] || '')
     setGroup2(groupKeys[1] || '')
   }, [compareBetween])
-
 
   return (
     <ParamsValidator validating={validating} notFound={notFound}>
@@ -99,7 +97,6 @@ const Metabolomics = () => {
           </div>
 
         </main>
-
       </div>
     </ParamsValidator>
   )
