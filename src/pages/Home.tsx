@@ -8,7 +8,7 @@ import turkeyImage from 'assets/images/turkey.png'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 
 const Home = () => {
-
+  
   const tables = tablesData.tables
 
   const getRecordCount = (tableName: string) =>

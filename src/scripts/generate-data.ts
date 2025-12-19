@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import Papa from 'papaparse';
 import { airtableConfig } from 'config/airtable';
+import 'dotenv/config';
 
 const {
   animalTrialExperimentBaseId, animalTrialExperimentTableId, animalTrialExperimentViewId,
@@ -113,6 +114,7 @@ async function fetchTableData(
 }
 
 async function fetchAirtableData(): Promise<void> {
+
   console.log('\n📊 FETCHING AIRTABLE DATA...\n');
   
   const dataPromises = TABLES_CONFIG.map(async (config) => {
