@@ -21,7 +21,6 @@ const originalLog = console.log
 const originalError = console.error
 
 beforeAll(() => {
-  console.log = vi.fn()
   console.error = (...args: any[]) => {
     if (args[0]?.includes?.('act(')) return
     originalError(...args)

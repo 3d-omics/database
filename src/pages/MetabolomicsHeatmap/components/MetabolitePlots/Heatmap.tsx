@@ -10,7 +10,6 @@ const Heatmap = ({ ids, experimentId }: {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [windowHeight, setWindowHeight] = useState(window.innerHeight)
-  console.log(windowWidth)
 
   const { normalizedColumnData, listOfCuratedIdsOfMetabolites, listOfSampleIdsThatHaveMetaboliteData } = useMetaboliteExcelFileData({ experimentId })
 

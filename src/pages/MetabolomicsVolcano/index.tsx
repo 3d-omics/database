@@ -6,7 +6,8 @@ import SignificantMetabolitesTable from './components/SignificantMetabolitesTabl
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
 import BreadCrumbs from 'components/BreadCrumbs'
-import { getExperimentOptions } from './options'
+import { getExperimentOptions } from '../../config/metaboliteOptions'
+import { volcanoPlotDescriptionText } from './descriptionText'
 
 const Metabolomics = () => {
 
@@ -51,8 +52,9 @@ const Metabolomics = () => {
           ]}
         />
 
-        <div className='flex items-center gap-4 pb-6 max-md:flex-col max-md:items-start'>
-          <header className='main_header'>{experimentName}</header>
+        <div className='max-md:flex-col max-md:items-start'>
+          <header className='main_header pb-5'>{experimentName}</header>
+          <p className='page_description'>{volcanoPlotDescriptionText[experimentId]}</p>
         </div>
 
         <main className='rounded-md flex gap-4 bg-white min-h-[calc(100vh-(var(--navbar-height)+70px))] max-h-[calc(100vh-(var(--navbar-height)))]

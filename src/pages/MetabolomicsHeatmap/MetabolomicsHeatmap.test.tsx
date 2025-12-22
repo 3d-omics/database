@@ -26,10 +26,11 @@ vi.mock('components/ParamsValidator', () => ({
 }))
 
 vi.mock('pages/Macrosamples', () => ({
-  default: ({ checkedMetaboliteIds, pageTitle }: any) => (
+  default: ({ checkedMetaboliteIds, pageTitle, experimentId }: any) => (
     <div data-testid='macrosample-component'>
       <div data-testid='page-title'>{pageTitle}</div>
       <div data-testid='checked-count'>{checkedMetaboliteIds?.length || 0}</div>
+      <div data-testid='experiment-id'>{experimentId}</div>
     </div>
   ),
 }))
@@ -82,6 +83,12 @@ describe('MetabolomicsHeatmap', () => {
     expect(screen.getByTestId('page-title')).toHaveTextContent('Sample selection for heatmap')
   })
 
+  it('passes experimentId to Macrosample component', () => {
+    renderPage('G - Test Experiment')
+
+    expect(screen.getByTestId('experiment-id')).toHaveTextContent('G')
+  })
+
   it('filters macrosampleWithMetaboliteData by experimentId', () => {
     // experimentId = 'G' from 'G - Test Experiment'
     renderPage('G - Test Experiment')
@@ -109,7 +116,7 @@ describe('MetabolomicsHeatmap', () => {
   it('extracts experimentId from experimentName', () => {
     renderPage('H - Another Experiment')
 
-    // Should filter to H samples (H001, H002)
-    expect(screen.getByTestId('macrosample-component')).toBeInTheDocument()
+    // Should extract 'H' as experimentId
+    expect(screen.getByTestId('experiment-id')).toHaveTextContent('H')
   })
 })

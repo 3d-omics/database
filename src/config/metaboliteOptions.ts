@@ -20,13 +20,6 @@ export const getExperimentOptions = (experimentId: string): Record<string, Recor
 
     case 'H':
       return {
-        'Day': {
-          'a': 'a',
-          'b': 'b',
-          'c': 'c',
-          'd': 'd',
-          'e': 'e'
-        },
         'Treatment': {
           'TH1': 'Vaccinated + Challenge (Formulation 1)',
           'TH2': 'Vaccinated + Challenge (Formulation 2)',
@@ -92,12 +85,6 @@ export const getExperimentOptions = (experimentId: string): Record<string, Recor
 
     case 'M':
       return {
-        'Day': {
-          'a': 'a',
-          'b': 'b',
-          'c': 'c',
-          'd': 'd',
-        },
         'Treatment': {
           'TM1': 'Vaccinated + Challenge (Formulation 1)',
           'TM2': 'Vaccinated + Challenge (Formulation 2)',

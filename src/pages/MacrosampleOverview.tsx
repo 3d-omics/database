@@ -30,7 +30,6 @@ const MacrosampleOverview = () => {
   }, [macrosampleName])
 
   const macrosample = data[0]
-  // console.log(macrosample)
 
   return (
     <ParamsValidator validating={validating} notFound={notFound}>

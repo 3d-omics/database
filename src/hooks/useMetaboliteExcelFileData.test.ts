@@ -36,29 +36,41 @@ describe('useMetaboliteExcelFileData', () => {
     expect(result.current).toHaveProperty('originalColumnData')
     expect(result.current).toHaveProperty('normalizedColumnData')
     expect(result.current).toHaveProperty('fetchMetaboliteError')
+    expect(result.current).toHaveProperty('sampleMetaDataSheet')
   })
 
   it('processes Excel data successfully', async () => {
-    const mockRowData = [
+    const mockAbundanceData = [
       ['Feature_ID', 'Curated_ID', 'Sample1', 'Sample2'],
       ['F1', 'C1', '10', '20'],
       ['F2', 'C2', '30', '40'],
-    ];
+    ]
 
-    (global.fetch as any).mockResolvedValue({
+    const mockMetadataData = [
+      ['Sample_ID', 'Treatment', 'DPI'],
+      ['Sample1', 'T1', '0'],
+      ['Sample2', 'T2', '7'],
+    ]
+
+    ;(global.fetch as any).mockResolvedValue({
       ok: true,
       arrayBuffer: () => Promise.resolve(new ArrayBuffer(8)),
-    });
+    })
 
-    (XLSX.read as any).mockReturnValue({
-      SheetNames: ['Sheet0', 'Sheet1', 'Sheet2', 'Original', 'Normalized'],
+    ;(XLSX.read as any).mockReturnValue({
+      SheetNames: ['Sheet0', 'Metadata', 'Sheet2', 'Original', 'Normalized'],
       Sheets: {
+        Metadata: {},
         Original: {},
         Normalized: {},
       },
-    });
+    })
 
-    (XLSX.utils.sheet_to_json as any).mockReturnValue(mockRowData)
+    // Mock sheet_to_json to return different data based on which sheet
+    ;(XLSX.utils.sheet_to_json as any)
+      .mockReturnValueOnce(mockAbundanceData) // First call - Original Abundance (index 3)
+      .mockReturnValueOnce(mockAbundanceData) // Second call - Normalized Abundance (index 4)
+      .mockReturnValueOnce(mockMetadataData) // Third call - Sample Metadata (index 1)
 
     const { result } = renderHook(() => useMetaboliteExcelFileData({ experimentId: 'G' }))
 
@@ -67,11 +79,24 @@ describe('useMetaboliteExcelFileData', () => {
     })
 
     expect(result.current.listOfCuratedIdsOfMetabolites).toBeDefined()
+    expect(result.current.sampleMetaDataSheet).toEqual(mockMetadataData)
     expect(result.current.fetchMetaboliteError).toBeNull()
   })
 
+  it('skips fetching when skip is true', async () => {
+    const { result } = renderHook(() => useMetaboliteExcelFileData({ experimentId: 'G', skip: true }))
+
+    // Wait a bit to ensure no fetch happens
+    await new Promise(resolve => setTimeout(resolve, 100))
+
+    expect(global.fetch).not.toHaveBeenCalled()
+    expect(result.current.listOfSampleIdsThatHaveMetaboliteData).toEqual([])
+    expect(result.current.fetchMetaboliteError).toBeNull()
+    expect(result.current.sampleMetaDataSheet).toBeNull()
+  })
+
   it('handles fetch errors', async () => {
-    (global.fetch as any).mockResolvedValue({
+    ;(global.fetch as any).mockResolvedValue({
       ok: false,
     })
 
@@ -83,13 +108,13 @@ describe('useMetaboliteExcelFileData', () => {
   })
 
   it('handles missing Excel sheets', async () => {
-    (global.fetch as any).mockResolvedValue({
+    ;(global.fetch as any).mockResolvedValue({
       ok: true,
       arrayBuffer: () => Promise.resolve(new ArrayBuffer(8)),
-    });
+    })
 
-    (XLSX.read as any).mockReturnValue({
-      SheetNames: ['Sheet0', 'Sheet1'], 
+    ;(XLSX.read as any).mockReturnValue({
+      SheetNames: ['Sheet0', 'Sheet1'],
       Sheets: {},
     })
 
@@ -101,17 +126,17 @@ describe('useMetaboliteExcelFileData', () => {
   })
 
   it('refetches when experimentId changes', async () => {
-    (global.fetch as any).mockResolvedValue({
+    ;(global.fetch as any).mockResolvedValue({
       ok: true,
       arrayBuffer: () => Promise.resolve(new ArrayBuffer(8)),
-    });
+    })
 
-    (XLSX.read as any).mockReturnValue({
+    ;(XLSX.read as any).mockReturnValue({
       SheetNames: ['S0', 'S1', 'S2', 'S3', 'S4'],
-      Sheets: { S3: {}, S4: {} },
-    });
+      Sheets: { S1: {}, S3: {}, S4: {} },
+    })
 
-    (XLSX.utils.sheet_to_json as any).mockReturnValue([['Feature_ID']])
+    ;(XLSX.utils.sheet_to_json as any).mockReturnValue([['Feature_ID']])
 
     const { rerender } = renderHook(
       ({ experimentId }) => useMetaboliteExcelFileData({ experimentId }),

@@ -7,7 +7,7 @@ import experimentJ from 'assets/data/metabolomics/metabolomics_J.xlsx'
 import experimentK from 'assets/data/metabolomics/metabolomics_K.xlsx'
 import experimentM from 'assets/data/metabolomics/metabolomics_M.xlsx'
 
-const useMetaboliteExcelFileData = ({ experimentId }: { experimentId: string }) => {
+const useMetaboliteExcelFileData = ({ experimentId, skip = false }: { experimentId: string, skip?: boolean }) => {
 
   // for original abundance
   const [originalColumnData, setOriginalColumnData] = useState<{ [key: string]: string[] }>({})
@@ -16,6 +16,9 @@ const useMetaboliteExcelFileData = ({ experimentId }: { experimentId: string }) 
   // for normalized abundance
   const [normalizedColumnData, setNormalizedColumnData] = useState<{ [key: string]: string[] }>({})
   const [listOfSampleIdsThatHaveMetaboliteData, setListOfSampleIdsThatHaveMetaboliteData] = useState<string[]>([])
+
+  // for merging with airtable data for heatmap ('Treatment', 'DPI', 'Group')
+  const [sampleMetaDataSheet, setSampleMetaDataSheet] = useState<any>(null)
 
   const files = {
     'G': experimentG,
@@ -28,8 +31,8 @@ const useMetaboliteExcelFileData = ({ experimentId }: { experimentId: string }) 
 
   const fileToFetch = files[experimentId as keyof typeof files]
 
-
   useEffect(() => {
+    if (skip) return
 
     const fetchExcel = async () => {
       try {
@@ -61,6 +64,14 @@ const useMetaboliteExcelFileData = ({ experimentId }: { experimentId: string }) 
         }, {})
         setNormalizedColumnData(normalizedAbundancesColumnData)
 
+        // Process "Sample Metadata" sheet 
+        const sampleMetadataSheet = workbook.SheetNames[1] // Sheet index 1 corresponds to 'Sample Metadata'
+        if (!sampleMetadataSheet) throw new Error('Excel sheet 1 does not exist')
+        const sheet3 = workbook.Sheets[sampleMetadataSheet]
+        const sampleMetadataRowData: any[][] = XLSX.utils.sheet_to_json(sheet3, { header: 1 })
+        setSampleMetaDataSheet(sampleMetadataRowData)
+
+
       } catch (error) {
         if (error instanceof Error) {
           setFetchMetaboliteError(error.message)
@@ -78,7 +89,8 @@ const useMetaboliteExcelFileData = ({ experimentId }: { experimentId: string }) 
     listOfCuratedIdsOfMetabolites: normalizedColumnData.Curated_ID,
     originalColumnData,
     normalizedColumnData,
-    fetchMetaboliteError
+    fetchMetaboliteError,
+    sampleMetaDataSheet
   }
 }
 

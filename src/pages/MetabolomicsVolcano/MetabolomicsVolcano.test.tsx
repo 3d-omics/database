@@ -8,7 +8,7 @@ import useValidateParams from 'hooks/useValidateParams'
 vi.mock('hooks/useValidateParams')
 
 // Mock options
-vi.mock('./options', () => ({
+vi.mock('config/metaboliteOptions', () => ({
   getExperimentOptions: vi.fn((experimentId: string) => ({
     'Treatment': {
       'Group A': ['S001', 'S002'],

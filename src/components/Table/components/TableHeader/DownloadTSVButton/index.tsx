@@ -1,18 +1,28 @@
 import { useMemo } from 'react'
+import { useParams } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons'
 import { Row, ColumnDef } from '@tanstack/react-table'
+import { getExperimentOptions } from 'config/metaboliteOptions'
 
 type DataItem = {
   [key: string]: string | number
 }
 
-const DownloadTSVButton = <TData,>({ filteredAndSortedData, columns, fileTitle, buttonLabel }: {
+const DownloadTSVButton = <TData,>({
+  filteredAndSortedData,
+  columns,
+  fileTitle,
+  buttonLabel
+}: {
   filteredAndSortedData: Row<TData>[],
   columns: ColumnDef<TData>[],
   fileTitle: string,
   buttonLabel: string
 }) => {
+
+  const { experimentName = '' } = useParams()
+  const experimentId = experimentName.charAt(0)
 
   // Filter out columns that shouldn't be exported
   const exportableColumns = useMemo(() => {
@@ -23,6 +33,22 @@ const DownloadTSVButton = <TData,>({ filteredAndSortedData, columns, fileTitle, 
       return true
     })
   }, [columns])
+
+  // Create value transformers based on experiment options
+  const valueTransformers = useMemo(() => {
+    if (!experimentId) return {}
+    const allOptions = getExperimentOptions(experimentId)
+    const transformers: Record<string, (value: any) => string> = {}
+    // Dynamically create transformers for all available options
+    Object.entries(allOptions).forEach(([columnName, mappings]) => {
+      transformers[columnName] = (value: any) => {
+        if (value == null || value === '') return value
+        return mappings[String(value)] || value
+      }
+    })
+
+    return transformers
+  }, [experimentId])
 
   const convertToTSV = (data: DataItem[]) => {
     const headers = exportableColumns.map((column) => column.header).join('\t')
@@ -35,19 +61,27 @@ const DownloadTSVButton = <TData,>({ filteredAndSortedData, columns, fileTitle, 
       const visibleRow: DataItem = {}
       exportableColumns.forEach((column) => {
         if (column.id) {
+          let value: any
+
           if (column.id === 'taxonomy') {
-            visibleRow[column.id] = row.renderValue('taxonomy')
-          } else
-            if (row.original.fields) {
-              visibleRow[column.id] = row.original.fields[column.id]
-            } else {
-              visibleRow[column.id] = row.original[column.id]
-            }
+            value = row.renderValue('taxonomy')
+          } else if (row.original.fields) {
+            value = row.original.fields[column.id]
+          } else {
+            value = row.original[column.id]
+          }
+
+          // Apply value transformer if available for this column
+          if (valueTransformers[column.id] && value != null) {
+            value = valueTransformers[column.id](value)
+          }
+
+          visibleRow[column.id] = value
         }
       })
       return visibleRow
     })
-  }, [filteredAndSortedData, exportableColumns])
+  }, [filteredAndSortedData, exportableColumns, valueTransformers])
 
   const handleDownload = () => {
     const tsvData = convertToTSV(filteredAndSortedDataWithExistingColumns)

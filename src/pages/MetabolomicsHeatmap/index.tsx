@@ -7,13 +7,13 @@ import Macrosample from 'pages/Macrosamples'
 import { macrosampleWithMetaboliteData } from 'config/macrosampleWithMetaboliteData'
 import CompareSamplesButton from './components/CompareSamplesButton'
 
-
 const MetabolomicsHeatmap = () => {
 
   const [checkedMetaboliteIds, setCheckedMetaboliteIds] = useState<string[]>([])
 
   const { experimentName = '' } = useParams()
   const experimentId = experimentName.charAt(0)
+
 
   const { validating, notFound } = useValidateParams({
     tableType: 'metabolomics',
@@ -24,6 +24,7 @@ const MetabolomicsHeatmap = () => {
   const filteredMacrosampleWithMetaboliteData = useMemo(() => {
     return macrosampleWithMetaboliteData.filter(id => id.startsWith(experimentId))
   }, [experimentId])
+
 
   return (
     <ParamsValidator validating={validating} notFound={notFound}>
@@ -42,9 +43,10 @@ const MetabolomicsHeatmap = () => {
         macrosampleWithMetaboliteData={filteredMacrosampleWithMetaboliteData}
         displayTableDescription={true}
         pageTitle={'Sample selection for heatmap'}
-        tableDescription={`Below are the macrosamples available for the ${experimentName} experiment that have metabolite data. Select the macrosamples you wish to include in the heatmap.`}
+        tableDescription={''}
         checkedMetaboliteIds={checkedMetaboliteIds}
         setCheckedMetaboliteIds={setCheckedMetaboliteIds}
+        experimentId={experimentId}
       />
 
       {checkedMetaboliteIds.length > 0 && (

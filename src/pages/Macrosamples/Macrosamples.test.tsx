@@ -1,7 +1,26 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
-import Macrosamples from './Macrosamples'
+import Macrosamples from './index'
+import useMetaboliteExcelFileData from 'hooks/useMetaboliteExcelFileData'
+
+// Mock hooks
+vi.mock('hooks/useMetaboliteExcelFileData')
+
+// Mock utilities
+vi.mock('pages/Macrosamples/utils/mergeMetaboliteData', () => ({
+  mergeExcelWithAirtableData: vi.fn((sampleData, airtableData) => airtableData),
+}))
+
+// Mock config
+vi.mock('config/metaboliteOptions', () => ({
+  getExperimentOptions: vi.fn(() => ({
+    Treatment: {
+      T1: 'Treatment 1',
+      T2: 'Treatment 2',
+    },
+  })),
+}))
 
 // Mock data
 vi.mock('assets/data/airtable/intestinalsectionsample.json', () => ({
@@ -57,7 +76,7 @@ vi.mock('assets/data/airtable/animalspecimen.json', () => ({
   ],
 }))
 
-// Mock TableView
+// Mock components
 vi.mock('components/TableView', () => ({
   default: ({ data, columns, pageTitle, tableDescription }: any) => (
     <div data-testid='table-view'>
@@ -69,14 +88,28 @@ vi.mock('components/TableView', () => ({
   ),
 }))
 
-// Mock CrossReferenceTooltip
 vi.mock('components/CrossReferenceTooltip', () => ({
   default: ({ value }: any) => <span>{value}</span>,
 }))
 
+vi.mock('components/ErrorBanner', () => ({
+  default: ({ children }: any) => <div data-testid='error-banner'>{children}</div>,
+}))
+
+vi.mock('components/Loading', () => ({
+  default: () => <div data-testid='loading'>Loading...</div>,
+}))
+
+
 describe('Macrosamples', () => {
   beforeEach(() => {
-    vi.clearAllMocks()
+    vi.clearAllMocks();
+
+    // Default mock return for the hook
+    (useMetaboliteExcelFileData as any).mockReturnValue({
+      sampleMetaDataSheet: null,
+      fetchMetaboliteError: null,
+    })
   })
 
   const renderComponent = (props = {}) => {
@@ -129,18 +162,31 @@ describe('Macrosamples', () => {
   })
 
   it('creates checkbox column when metabolite data provided', () => {
+    (useMetaboliteExcelFileData as any).mockReturnValue({
+      sampleMetaDataSheet: {},
+      fetchMetaboliteError: null,
+    })
+
     renderComponent({
       macrosampleWithMetaboliteData: ['M001', 'M002'],
       checkedMetaboliteIds: [],
       setCheckedMetaboliteIds: vi.fn(),
+      experimentId: 'G',
     })
-    // With metabolite data: Metabolite (checkbox), ID, Individual, Sample type, Description, Container, Preservative, Metabolites = 8
-    expect(screen.getByTestId('column-count')).toHaveTextContent('8')
+
+    // With metabolite data: Metabolite (checkbox), ID, Individual, Description, Metabolights = 4
+    expect(screen.getByTestId('column-count')).toHaveTextContent('5')
   })
 
   it('filters data by macrosampleWithMetaboliteData', () => {
+    (useMetaboliteExcelFileData as any).mockReturnValue({
+      sampleMetaDataSheet: {},
+      fetchMetaboliteError: null,
+    })
+
     renderComponent({
       macrosampleWithMetaboliteData: ['M001'],
+      experimentId: 'G',
     })
 
     expect(screen.getByTestId('data-count')).toHaveTextContent('1')
@@ -163,9 +209,15 @@ describe('Macrosamples', () => {
   })
 
   it('applies both metabolite and filterWith filters', () => {
+    (useMetaboliteExcelFileData as any).mockReturnValue({
+      sampleMetaDataSheet: {},
+      fetchMetaboliteError: null,
+    })
+
     renderComponent({
       macrosampleWithMetaboliteData: ['M001', 'M002'],
       filterWith: [{ id: 'Sample type', value: 'Tissue', condition: 'equals' }],
+      experimentId: 'G',
     })
 
     expect(screen.getByTestId('data-count')).toHaveTextContent('1')
@@ -194,5 +246,55 @@ describe('Macrosamples', () => {
     })
 
     expect(screen.getByTestId('table-view')).toBeInTheDocument()
+  })
+
+  it('shows error banner when metabolite fetch fails', () => {
+    (useMetaboliteExcelFileData as any).mockReturnValue({
+      sampleMetaDataSheet: null,
+      fetchMetaboliteError: 'Failed to load metabolite data',
+    })
+
+    renderComponent({
+      macrosampleWithMetaboliteData: ['M001'],
+      experimentId: 'G',
+    })
+
+    expect(screen.getByTestId('error-banner')).toBeInTheDocument()
+    expect(screen.getByText('Failed to load metabolite data')).toBeInTheDocument()
+  })
+
+  it('shows loading state while waiting for metabolite data', () => {
+    (useMetaboliteExcelFileData as any).mockReturnValue({
+      sampleMetaDataSheet: null,
+      fetchMetaboliteError: null,
+    })
+
+    renderComponent({
+      macrosampleWithMetaboliteData: ['M001'],
+      experimentId: 'G',
+    })
+
+    expect(screen.getByTestId('loading')).toBeInTheDocument()
+  })
+
+  it('skips metabolite data fetch when not needed', () => {
+    renderComponent()
+
+    expect(useMetaboliteExcelFileData).toHaveBeenCalledWith({
+      experimentId: '',
+      skip: true,
+    })
+  })
+
+  it('fetches metabolite data when needed', () => {
+    renderComponent({
+      macrosampleWithMetaboliteData: ['M001'],
+      experimentId: 'G',
+    })
+
+    expect(useMetaboliteExcelFileData).toHaveBeenCalledWith({
+      experimentId: 'G',
+      skip: false,
+    })
   })
 })

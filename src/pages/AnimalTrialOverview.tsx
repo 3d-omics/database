@@ -92,9 +92,17 @@ const AnimalTrialOverview = () => {
               </div>
 
               <div className='mb-8 page_description'>
-                {experiment.fields['Trial description']?.split('\n').map((line: string, index: number) => (
-                  <span key={index}>{line}<br /></span>
-                ))}
+                {experiment.fields['Trial description']?.split('\n').map((line: string, index: number) => {
+                  const parts = line.split('**')
+                  return (
+                  <span key={index}>
+                    {parts.map((part, i) => 
+                    i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+                    )}
+                    <br />
+                  </span>
+                  )
+                })}
               </div>
 
               <Tabs

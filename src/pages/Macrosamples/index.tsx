@@ -5,6 +5,11 @@ import TableView from 'components/TableView'
 import intestinalSectionSampleData from 'assets/data/airtable/intestinalsectionsample.json'
 import animalSpecimenData from 'assets/data/airtable/animalspecimen.json'
 import { Link } from 'react-router-dom'
+import useMetaboliteExcelFileData from 'hooks/useMetaboliteExcelFileData'
+import { mergeExcelWithAirtableData } from 'pages/Macrosamples/utils/mergeMetaboliteData';
+import { getExperimentOptions } from 'config/metaboliteOptions'
+import ErrorBanner from 'components/ErrorBanner'
+import Loading from 'components/Loading'
 
 type TData = {
   id: string
@@ -24,6 +29,9 @@ type TData = {
     'ENA link'?: string
     'Metabolights accession'?: string
     'Metabolights link'?: string
+    Group?: string
+    DPI?: string
+    Treatment?: string
   }
 }
 
@@ -39,7 +47,8 @@ const Macrosample = (
     pageTitle = 'Macrosamples',
     tableDescription = "In 3D'omics we sampled two main types of samples: macrosamples, conventional-sized samples manually obtained from the animals, such as tissue sections, faeces and digesta samples, and microsamples, collected through laser microdissection for micro-scale spatial analyses. Macrosamples contain samples employed for direct nucleic acid and mass spectrometry analysis, as well as samples employed for downstream processing to obtain microsamples.",
     checkedMetaboliteIds,
-    setCheckedMetaboliteIds
+    setCheckedMetaboliteIds,
+    experimentId,
   }: {
     displayTableHeader?: boolean
     displayTableDescription?: boolean
@@ -52,7 +61,9 @@ const Macrosample = (
     tableDescription?: string,
     checkedMetaboliteIds?: string[]
     setCheckedMetaboliteIds?: Dispatch<SetStateAction<string[]>>
+    experimentId?: string
   }) => {
+
 
   const data = intestinalSectionSampleData as unknown as TData[]
 
@@ -63,14 +74,12 @@ const Macrosample = (
 
   const filteredData = useMemo(() => {
     let result = data
-
     // First filter by macrosampleWithMetaboliteData if provided
     if (macrosampleWithMetaboliteData && macrosampleWithMetaboliteData.length > 0) {
       result = result.filter((record) =>
         macrosampleWithMetaboliteData.includes(record.fields.ID)
       )
     }
-
     // Then apply filterWith conditions
     if (filterWith && filterWith.length > 0) {
       result = result.filter((record) => {
@@ -96,6 +105,24 @@ const Macrosample = (
     }
     return result
   }, [filterWith, macrosampleWithMetaboliteData, data])
+
+  const { sampleMetaDataSheet, fetchMetaboliteError } = useMetaboliteExcelFileData({
+    experimentId: experimentId || '',
+    skip: !macrosampleWithMetaboliteData
+  })
+
+  const mergedData = useMemo(() => {
+    return mergeExcelWithAirtableData(sampleMetaDataSheet, filteredData)
+  }, [sampleMetaDataSheet, filteredData])
+
+  const isDataReady = useMemo(() => {
+    if (!macrosampleWithMetaboliteData) {
+      return true
+    }
+    return sampleMetaDataSheet !== null && sampleMetaDataSheet !== undefined
+  }, [macrosampleWithMetaboliteData, sampleMetaDataSheet])
+
+  const dataToUse = macrosampleWithMetaboliteData ? mergedData : filteredData
 
   const defaultColumns = useMemo<ColumnDef<TData>[]>(() => {
 
@@ -135,43 +162,15 @@ const Macrosample = (
       },
 
       {
-        id: 'Sample type',
-        header: 'Sample Type',
-        accessorFn: (row) => row.fields['Sample type'],
-        filterFn: 'equals',
-        meta: {
-          filterVariant: 'select' as const,
-          uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields['Sample type']))),
-        },
-      },
-
-      {
         id: 'Description',
-        header: 'Description',
+        header: macrosampleWithMetaboliteData ? 'Sample type' : 'Description',
         accessorFn: (row) => row.fields.Description,
         meta: {
           filterVariant: 'select' as const,
           uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Description))),
         },
       },
-      {
-        id: 'Container',
-        header: 'Container',
-        accessorFn: (row) => row.fields.Container,
-        meta: {
-          filterVariant: 'select' as const,
-          uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Container))),
-        },
-      },
-      {
-        id: 'Preservative',
-        header: 'Preservative',
-        accessorFn: (row) => row.fields.Preservative,
-        meta: {
-          filterVariant: 'select' as const,
-          uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Preservative))),
-        },
-      },
+
       {
         id: 'Metabolights accession',
         header: 'Metabolites Accession',
@@ -189,30 +188,43 @@ const Macrosample = (
       }
     ]
 
+    // for metabolite heatmap table
     if (macrosampleWithMetaboliteData) {
       baseColumns.splice(0, 0, {
         id: 'Metabolite',
         accessorFn: (row) => macrosampleWithMetaboliteData.includes(row.fields.ID) ? 'Yes' : 'No',
         enableSorting: false,
         enableColumnFilter: false,
-        header: () => (
-          <div className='flex flex-col justify-center gap-4'>
-            <p className='text-center'>Heatmap comparison</p>
-            <input
-              type='checkbox'
-              className='accent-mustard tooltip tooltip-top !bg-white !text-custom_black'
-              data-tip='check to compare all samples'
-              checked={checkedMetaboliteIds?.length === macrosampleWithMetaboliteData.length}
-              onChange={(e) => {
-                if (e.target.checked) {
-                  setCheckedMetaboliteIds?.(macrosampleWithMetaboliteData)
-                } else {
-                  setCheckedMetaboliteIds?.([])
+        header: (context) => {
+          const filteredRows = context.table.getFilteredRowModel().rows
+          const filteredSampleIds = filteredRows.map((row: any) => row.original.fields.ID)
+          return (
+            <div className='flex flex-col justify-center gap-4'>
+              <p className='text-center'>Heatmap comparison</p>
+              <input
+                type='checkbox'
+                className='accent-mustard tooltip tooltip-top !bg-white !text-custom_black'
+                data-tip='check to compare all samples'
+                checked={
+                  filteredSampleIds.length > 0 &&
+                  filteredSampleIds.every((id: string) => checkedMetaboliteIds?.includes(id))
                 }
-              }}
-            />
-          </div>
-        ),
+                onChange={(e) => {
+                  if (e.target.checked) {
+                    // Add all filtered sample IDs
+                    const newChecked = [...new Set([...(checkedMetaboliteIds || []), ...filteredSampleIds])]
+                    setCheckedMetaboliteIds?.(newChecked)
+                  } else {
+                    // Remove all filtered sample IDs
+                    setCheckedMetaboliteIds?.(
+                      checkedMetaboliteIds?.filter((id) => !filteredSampleIds.includes(id)) || []
+                    )
+                  }
+                }}
+              />
+            </div>
+          )
+        },
         cell: (props: any) => {
           const id = props.row.original.fields.ID
           return <div className='flex justify-center items-center'>
@@ -233,8 +245,68 @@ const Macrosample = (
           </div>
         }
       })
+
+      if (dataToUse.some((row) => row.fields.Treatment)) {
+        const allOptions = getExperimentOptions(experimentId || '')
+        const treatmentOptions = allOptions.Treatment
+        baseColumns.splice(4, 0, {
+          id: 'Treatment',
+          header: 'Treatment',
+          accessorFn: (row) => row.fields.Treatment,
+          cell: ({ cell }: { cell: { getValue: () => string | unknown } }) => {
+            const value = cell.getValue() as string
+            return <span>
+              {treatmentOptions?.[value] || value}
+            </span>
+          },
+          filterFn: (row, columnId, filterValue) => {
+            const rowValue = row.getValue(columnId) as string
+            const rowDisplayValue = treatmentOptions?.[rowValue] || rowValue
+            return rowDisplayValue === filterValue
+          },
+          meta: {
+            filterVariant: 'select' as const,
+            uniqueValues: Array.from(
+              new Set(
+                dataToUse
+                  .map((row) => row.fields.Treatment)
+                  .filter(Boolean)
+                  .map((code) => treatmentOptions?.[code as string] || code)
+              )
+            ),
+          },
+        })
+      }
+
+      if (dataToUse.some((row) => row.fields.DPI)) {
+        baseColumns.splice(4, 0, {
+          id: 'DPI',
+          header: 'Days Post Infection',
+          accessorFn: (row) => row.fields.DPI?.toString(),
+          filterFn: 'equals',
+          meta: {
+            filterVariant: 'select' as const,
+            uniqueValues: Array.from(new Set(mergedData.map((row) => row.fields.DPI?.toString()).filter(Boolean))),
+          },
+        })
+      }
+
+      if (dataToUse.some((row) => row.fields.Group)) {
+        baseColumns.splice(4, 0, {
+          id: 'Group',
+          header: 'Group',
+          accessorFn: (row) => row.fields.Group,
+          filterFn: 'equals',
+          meta: {
+            filterVariant: 'select' as const,
+            uniqueValues: Array.from(new Set(mergedData.map((row) => row.fields.Group).filter(Boolean))),
+          },
+        })
+      }
+
     }
 
+    // for regular macrosample table
     if (!macrosampleWithMetaboliteData) {
       baseColumns.splice(2, 0, {
         id: 'Code',
@@ -246,6 +318,17 @@ const Macrosample = (
         },
       })
 
+      baseColumns.splice(3, 0, {
+        id: 'Sample type',
+        header: 'Sample Type',
+        accessorFn: (row) => row.fields['Sample type'],
+        filterFn: 'equals',
+        meta: {
+          filterVariant: 'select' as const,
+          uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields['Sample type']))),
+        },
+      },)
+
       baseColumns.splice(4, 0, {
         id: 'Data type',
         header: 'Data Type',
@@ -255,6 +338,26 @@ const Macrosample = (
           filterVariant: 'select' as const,
           uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields['Data type']))),
         }
+      })
+
+      baseColumns.splice(6, 0, {
+        id: 'Container',
+        header: 'Container',
+        accessorFn: (row) => row.fields.Container,
+        meta: {
+          filterVariant: 'select' as const,
+          uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Container))),
+        },
+      })
+
+      baseColumns.splice(7, 0, {
+        id: 'Preservative',
+        header: 'Preservative',
+        accessorFn: (row) => row.fields.Preservative,
+        meta: {
+          filterVariant: 'select' as const,
+          uniqueValues: Array.from(new Set(filteredData.map((row) => row.fields.Preservative))),
+        },
       })
 
       baseColumns.splice(8, 0, {
@@ -274,13 +377,29 @@ const Macrosample = (
       })
     }
     return baseColumns
-  }, [filteredData, specimenLookup, macrosampleWithMetaboliteData, checkedMetaboliteIds, setCheckedMetaboliteIds])
+  }, [filteredData, specimenLookup, macrosampleWithMetaboliteData, checkedMetaboliteIds, setCheckedMetaboliteIds, dataToUse, mergedData])
 
   const columns = customColumns ?? defaultColumns
 
+  // Show error if there was a problem fetching metabolite data
+  if (fetchMetaboliteError) {
+    return (
+      <div className='page_padding min-h-dvh'>
+        <ErrorBanner>{fetchMetaboliteError}</ErrorBanner>
+      </div>
+    )
+  }
+
+  // Show loading state while waiting for metabolite data to merge
+  if (!isDataReady) {
+    return (
+      <div className='page_padding min-h-dvh'><Loading /></div>
+    )
+  }
+
   return (
     <TableView<TData>
-      data={filteredData}
+      data={dataToUse as TData[]}
       columns={columns}
       pageTitle={pageTitle}
       displayTableHeader={displayTableHeader}
