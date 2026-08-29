@@ -36,8 +36,31 @@ jobs:
           echo "builder=$(node -p "require('./catalog.json').builder")" >> "$GITHUB_OUTPUT"
           echo "data_version=$(node -p "require('./catalog.json').data_version")" >> "$GITHUB_OUTPUT"
 
+      # The builder is installed the same way the catalogue is fetched: a URL
+      # and a SHA-256, both pinned in catalog.json. pip never reaches an index
+      # and resolves nothing -- the wheel is pure stdlib with no dependencies.
       - name: Install the catalogue builder
-        run: pip install "git+https://github.com/3d-omics/database-build.git@${{ steps.pins.outputs.builder }}"
+        run: |
+          url=$(node -p "require('./catalog.json').builder_wheel || ''")
+          sum=$(node -p "require('./catalog.json').builder_sha256 || ''")
+          if [ -z "$url" ] || [ -z "$sum" ]; then
+            echo "::error::catalog.json is missing builder_wheel / builder_sha256." >&2
+            echo "::error::See docs/deployment.md -- the builder must be published where CI can reach it anonymously." >&2
+            exit 1
+          fi
+          # pip rejects a wheel that is not under its canonical filename, and
+          # a Zenodo file URL ends in /content, so name it from the pin rather
+          # than from the URL. The pin is a git tag (v0.1.0); the package
+          # version drops the "v".
+          expected="${{ steps.pins.outputs.builder }}"
+          wheel="3domics_db_build-${expected#v}-py3-none-any.whl"
+          curl -fsSL "$url" -o "$wheel"
+          echo "$sum  $wheel" | sha256sum -c -
+          pip install --no-deps --no-index "./$wheel"
+          rm "$wheel"
+          installed=$(3domics-db-build --version | awk '{print $NF}')
+          test "$installed" = "${expected#v}" \
+            || echo "::warning::Wheel reports $installed, but catalog.json pins $expected"
 
       # Downloads the Zenodo deposit named by catalog.json and fails on a
       # checksum mismatch. Anonymous HTTPS: the record is open access, and no

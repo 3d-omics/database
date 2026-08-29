@@ -37,6 +37,8 @@ pip install "git+https://github.com/3d-omics/database-build.git@$(node -p "requi
 | `version_doi` | The immutable deposit this commit builds against |
 | `license` | The catalogue's licence (CC-BY-4.0) |
 | `builder` | Which `database-build` tag renders it |
+| `builder_wheel` | Where to get that builder as a wheel, over anonymous HTTPS |
+| `builder_sha256` | The wheel's checksum, enforced before it is installed |
 
 The catalogue is deposited on Zenodo, not attached to a GitHub release: it is open access
 under CC-BY-4.0, citable, and outlives the repository. `source` is pinned to the *version*

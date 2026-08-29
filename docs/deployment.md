@@ -10,7 +10,7 @@
 3. `actions/setup-python@v5` — Python 3.12, for the renderer
 4. `npm ci`
 5. Read `builder` and `data_version` out of [catalog.json](../catalog.json)
-6. `pip install git+…/database-build.git@<builder>`
+6. Download `builder_wheel`, check it against `builder_sha256`, `pip install --no-deps --no-index`
 7. `npm run fetch-catalog` — download the pinned release, verify its SHA-256
 8. `3domics-db-build render .catalog/3domics.sqlite --into .`
 9. `npm run build`
@@ -19,12 +19,31 @@
 **No Airtable credentials are involved** — those live in `database-build`, and step 7
 reads an open-access Zenodo record over anonymous HTTPS.
 
-Step 6 is the exception, and currently the one thing standing between this workflow and a
-green run: `3d-omics/database-build` is a **private** repository, so `pip install
-git+https://…` fails under the workflow's `GITHUB_TOKEN`, which is scoped to this
-repository alone. It works on a maintainer's laptop only because the local git credential
-helper supplies a personal token. Until the builder is made public or a deploy key / PAT
-is added to this repository's secrets, the deploy fails at step 6.
+Step 6 used to clone `3d-omics/database-build` directly, which cannot work: the repository
+is **private**, and the workflow's `GITHUB_TOKEN` is scoped to this repository alone. It
+succeeded on a maintainer's laptop only because the local git credential helper supplied a
+personal token.
+
+It now installs a **checksummed wheel** instead, pinned in `catalog.json` exactly the way
+the catalogue is — a URL plus a SHA-256. The builder is pure stdlib with no dependencies,
+so `pip` never contacts an index and resolves nothing; the wheel is 48 KB and installs
+offline.
+
+**This is not finished.** `builder_wheel` is empty, and step 6 fails loudly until it is
+filled in, because the wheel is not published anywhere public yet. Publishing it is a task
+in `database-build`, not here:
+
+1. Build it from the pinned tag — `git archive v0.1.0 | tar -x -C <dir>`, then
+   `python -m build --wheel`. Building from the tag rather than the working tree matters:
+   `main` is one commit ahead of `v0.1.0`.
+2. Publish it where CI can fetch it anonymously. **Not** as a fourth asset on the
+   catalogue's Zenodo record — that record is `upload_type: dataset`, its description
+   enumerates the three files it deposits, and a published Zenodo record is immutable, so
+   a new asset means a new version DOI and a repin here. A separate Zenodo *software*
+   record, or PyPI, keeps software and data as the distinct things they are.
+3. Put its URL in `builder_wheel`, and the SHA-256 of the exact published file in
+   `builder_sha256`. A wheel is not guaranteed byte-identical across build environments,
+   so take the hash from the file that was uploaded, not from a local rebuild.
 
 Because the data is pinned rather than fetched, **an empty commit no longer changes what
 deploys** — rebuilding any commit reproduces that commit's site. To publish new data,

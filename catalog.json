@@ -6,5 +6,7 @@
   "concept_doi": "10.5281/zenodo.22159111",
   "version_doi": "10.5281/zenodo.22159112",
   "license": "CC-BY-4.0",
-  "builder": "v0.1.0"
+  "builder": "v0.1.0",
+  "builder_wheel": "",
+  "builder_sha256": "83a35f161ca52ddbc51f26faf4b5208c22326c1def6313b780e66ac2b250355d"
 }

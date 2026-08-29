@@ -38,7 +38,10 @@ with `Cannot find module 'assets/data/airtable/…'`.
 
 ```bash
 npm ci
-pip install "git+https://github.com/3d-omics/database-build.git@$(node -p "require('./catalog.json').builder")"
+# The builder is a checksummed wheel pinned in catalog.json, not a git clone:
+# the repo is private and CI cannot read it. See docs/deployment.md.
+curl -fsSL "$(node -p "require('./catalog.json').builder_wheel")" -o 3domics_db_build-0.1.0-py3-none-any.whl
+pip install --no-deps --no-index ./3domics_db_build-0.1.0-py3-none-any.whl
 npm run generate-data        # downloads the pinned catalogue, verifies it, renders it
 ```
 
