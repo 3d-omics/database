@@ -29,21 +29,21 @@ the catalogue is — a URL plus a SHA-256. The builder is pure stdlib with no de
 so `pip` never contacts an index and resolves nothing; the wheel is 48 KB and installs
 offline.
 
-**This is not finished.** `builder_wheel` is empty, and step 6 fails loudly until it is
-filled in, because the wheel is not published anywhere public yet. Publishing it is a task
-in `database-build`, not here:
+The builder has its own Zenodo record, deposited as **software** rather than as a fourth
+asset on the catalogue's dataset record: they are different things, the site pins them
+independently, and a published Zenodo record is immutable, so adding a file to the
+catalogue's record would mean a new version DOI and a repin of the data.
 
-1. Build it from the pinned tag — `git archive v0.1.0 | tar -x -C <dir>`, then
-   `python -m build --wheel`. Building from the tag rather than the working tree matters:
-   `main` is one commit ahead of `v0.1.0`.
-2. Publish it where CI can fetch it anonymously. **Not** as a fourth asset on the
-   catalogue's Zenodo record — that record is `upload_type: dataset`, its description
-   enumerates the three files it deposits, and a published Zenodo record is immutable, so
-   a new asset means a new version DOI and a repin here. A separate Zenodo *software*
-   record, or PyPI, keeps software and data as the distinct things they are.
-3. Put its URL in `builder_wheel`, and the SHA-256 of the exact published file in
-   `builder_sha256`. A wheel is not guaranteed byte-identical across build environments,
-   so take the hash from the file that was uploaded, not from a local rebuild.
+| | |
+|---|---|
+| Builder concept DOI | [10.5281/zenodo.22159536](https://doi.org/10.5281/zenodo.22159536) |
+| Installed here | 0.1.0 — [10.5281/zenodo.22159537](https://doi.org/10.5281/zenodo.22159537) |
+
+To move to a new builder, release it from `database-build`
+(`scripts/release_builder_wheel.py`, see its `RELEASING.md`), then set `builder`,
+`builder_wheel` and `builder_sha256` here. Take the checksum from the record's `.sha256`
+asset: a wheel is **not** byte-reproducible — zip entry timestamps differ between builds —
+so a local rebuild of the same tag hashes differently from the deposited file.
 
 Because the data is pinned rather than fetched, **an empty commit no longer changes what
 deploys** — rebuilding any commit reproduces that commit's site. To publish new data,

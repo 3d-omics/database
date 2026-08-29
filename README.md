@@ -81,8 +81,8 @@ never follow "latest".
   "version_doi": "10.5281/zenodo.<record id>",
   "license": "CC-BY-4.0",
   "builder": "v0.1.0",
-  "builder_wheel": "<url of the published 3domics_db_build wheel>",
-  "builder_sha256": "<that wheel's checksum>"
+  "builder_wheel": "https://zenodo.org/api/records/22159537/files/3domics_db_build-0.1.0-py3-none-any.whl/content",
+  "builder_sha256": "<from the wheel's .sha256 asset in that record>"
 }
 ```
 

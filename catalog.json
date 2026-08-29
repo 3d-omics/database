@@ -7,6 +7,8 @@
   "version_doi": "10.5281/zenodo.22159112",
   "license": "CC-BY-4.0",
   "builder": "v0.1.0",
-  "builder_wheel": "",
-  "builder_sha256": "83a35f161ca52ddbc51f26faf4b5208c22326c1def6313b780e66ac2b250355d"
+  "builder_wheel": "https://zenodo.org/api/records/22159537/files/3domics_db_build-0.1.0-py3-none-any.whl/content",
+  "builder_sha256": "4c8f81d3c298b25975b8e0661b8ec12ef776ffe84be132037f6ec03697e6301f",
+  "builder_concept_doi": "10.5281/zenodo.22159536",
+  "builder_version_doi": "10.5281/zenodo.22159537"
 }

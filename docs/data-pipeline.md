@@ -39,6 +39,14 @@ pip install "git+https://github.com/3d-omics/database-build.git@$(node -p "requi
 | `builder` | Which `database-build` tag renders it |
 | `builder_wheel` | Where to get that builder as a wheel, over anonymous HTTPS |
 | `builder_sha256` | The wheel's checksum, enforced before it is installed |
+| `builder_concept_doi` | Cite this for the software: always the latest builder |
+| `builder_version_doi` | The immutable builder deposit this commit installs |
+
+Both halves of a build are therefore citable and pinned: the catalogue
+([10.5281/zenodo.22159111](https://doi.org/10.5281/zenodo.22159111)) and the program that
+rendered it ([10.5281/zenodo.22159536](https://doi.org/10.5281/zenodo.22159536)). They are
+separate records because they are different things — data and software — and because the
+site pins them independently.
 
 The catalogue is deposited on Zenodo, not attached to a GitHub release: it is open access
 under CC-BY-4.0, citable, and outlives the repository. `source` is pinned to the *version*
