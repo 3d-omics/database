@@ -39,8 +39,9 @@ jobs:
       - name: Install the catalogue builder
         run: pip install "git+https://github.com/3d-omics/database-build.git@${{ steps.pins.outputs.builder }}"
 
-      # Downloads the release named by catalog.json and fails on a checksum
-      # mismatch. No Airtable credentials are involved.
+      # Downloads the Zenodo deposit named by catalog.json and fails on a
+      # checksum mismatch. Anonymous HTTPS: the record is open access, and no
+      # Airtable credentials are involved.
       - name: Fetch the pinned catalogue
         run: npm run fetch-catalog
 

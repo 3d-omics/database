@@ -1,7 +1,10 @@
 {
   "data_version": "2026.08.29",
-  "schema_version": "1",
-  "sha256": "cf0f3a7391663f1319b10b8f5379370f1bad95eca97b3435c195b9388095e3a0",
-  "source": "https://github.com/3d-omics/database-build/releases/download/data-v2026.08.29/3domics-2026.08.29.sqlite",
+  "schema_version": "2",
+  "sha256": "2b779ef3f6303ac97242ee0165cea275924067767fe77c946a9b1c6da2c87120",
+  "source": "https://zenodo.org/api/records/22159112/files/3domics-2026.08.29.sqlite/content",
+  "concept_doi": "10.5281/zenodo.22159111",
+  "version_doi": "10.5281/zenodo.22159112",
+  "license": "CC-BY-4.0",
   "builder": "v0.1.0"
 }

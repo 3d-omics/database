@@ -29,11 +29,19 @@ pip install "git+https://github.com/3d-omics/database-build.git@$(node -p "requi
 
 | Key | Meaning |
 |---|---|
-| `data_version` | Which catalogue release (`YYYY.MM.DD`) |
-| `schema_version` | The catalogue's schema generation |
-| `sha256` | The release artefact's checksum, enforced on download |
-| `source` | Where to get it |
+| `data_version` | Which catalogue version (`YYYY.MM.DD`) |
+| `schema_version` | The catalogue's schema generation, as recorded in its `catalog_meta` |
+| `sha256` | The artefact's checksum, enforced on download |
+| `source` | Where to get it — a Zenodo file-content URL |
+| `concept_doi` | Cite this: always resolves to the latest version |
+| `version_doi` | The immutable deposit this commit builds against |
+| `license` | The catalogue's licence (CC-BY-4.0) |
 | `builder` | Which `database-build` tag renders it |
+
+The catalogue is deposited on Zenodo, not attached to a GitHub release: it is open access
+under CC-BY-4.0, citable, and outlives the repository. `source` is pinned to the *version*
+record rather than the concept DOI, because a reproducible build must never follow
+"latest".
 
 Bumping `data_version` changes the data; bumping `builder` changes the renderer. Neither
 forces the other. Because `render` reads the catalogue through the *installed builder's*

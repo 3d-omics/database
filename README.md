@@ -59,25 +59,34 @@ over HTTPS and verifies its SHA-256 before rendering.
 
 ## Updating site data
 
-Site data changes by **bumping the pin**, not by re-fetching. Data is published from
-[database-build](https://github.com/3d-omics/database-build) as a tagged release; the
-website chooses which release to build against.
+Site data changes by **bumping the pin**, not by re-fetching. The catalogue is built by
+[database-build](https://github.com/3d-omics/database-build) and published to Zenodo as a
+citable, open-access record; the website chooses which version to build against.
 
-### 1. Point catalog.json at the new release
+Zenodo mints two DOIs. The **concept DOI**
+[10.5281/zenodo.22159111](https://doi.org/10.5281/zenodo.22159111) always resolves to the
+latest version and is the one to cite in a paper. The **version DOI** names one immutable
+deposit, and that is what `catalog.json` pins — a build must be reproducible, so it may
+never follow "latest".
+
+### 1. Point catalog.json at the new version
 
 ```json
 {
   "data_version": "2026.09.15",
-  "schema_version": "1",
-  "sha256": "<from 3domics-2026.09.15.sqlite.sha256 in the release>",
-  "source": "https://github.com/3d-omics/database-build/releases/download/data-v2026.09.15/3domics-2026.09.15.sqlite",
+  "schema_version": "2",
+  "sha256": "<from 3domics-2026.09.15.sqlite.sha256 in the record>",
+  "source": "https://zenodo.org/api/records/<record id>/files/3domics-2026.09.15.sqlite/content",
+  "concept_doi": "10.5281/zenodo.22159111",
+  "version_doi": "10.5281/zenodo.<record id>",
+  "license": "CC-BY-4.0",
   "builder": "v0.1.0"
 }
 ```
 
-Copy the `sha256` from the release's `.sha256` asset — do not compute it from a local
+Copy the `sha256` from the record's `.sha256` asset — do not compute it from a local
 build. A local build of the same records has a different `source_snapshot` and therefore
-different bytes.
+different bytes, even when every row is identical.
 
 ### 2. Render and check locally
 

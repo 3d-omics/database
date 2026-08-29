@@ -42,7 +42,7 @@ pip install "git+https://github.com/3d-omics/database-build.git@$(node -p "requi
 npm run generate-data        # downloads the pinned catalogue, verifies it, renders it
 ```
 
-`generate-data` is now two steps: `fetch-catalog` downloads the release named in
+`generate-data` is now two steps: `fetch-catalog` downloads the Zenodo deposit named in
 `catalog.json` into `.catalog/` and checks its SHA-256, then `3domics-db-build render`
 writes the JSON tree. No token, and no partial-success path — a checksum mismatch or a
 missing release exits non-zero.
@@ -95,7 +95,7 @@ src/
 public/
   experiment-hierarchy.json  Rendered from the catalogue; git-ignored
   404.html                   SPA deep-link redirect shim for GitHub Pages
-catalog.json                 THE PIN: data_version, schema_version, sha256, source, builder
+catalog.json                 THE PIN: data_version, schema_version, sha256, source (Zenodo), DOIs, builder
 .catalog/                    Downloaded catalogue (git-ignored)
 .github/workflows/deploy.yml Fetch + render + build + deploy on push to main
 ```

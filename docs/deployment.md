@@ -16,8 +16,15 @@
 9. `npm run build`
 10. `actions/upload-pages-artifact@v3` on `dist/`, then `actions/deploy-pages@v4`
 
-**No repository secrets are involved.** The workflow reads a public release over HTTPS;
-the Airtable credentials live in `database-build`.
+**No Airtable credentials are involved** — those live in `database-build`, and step 7
+reads an open-access Zenodo record over anonymous HTTPS.
+
+Step 6 is the exception, and currently the one thing standing between this workflow and a
+green run: `3d-omics/database-build` is a **private** repository, so `pip install
+git+https://…` fails under the workflow's `GITHUB_TOKEN`, which is scoped to this
+repository alone. It works on a maintainer's laptop only because the local git credential
+helper supplies a personal token. Until the builder is made public or a deploy key / PAT
+is added to this repository's secrets, the deploy fails at step 6.
 
 Because the data is pinned rather than fetched, **an empty commit no longer changes what
 deploys** — rebuilding any commit reproduces that commit's site. To publish new data,
