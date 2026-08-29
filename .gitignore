@@ -10,6 +10,7 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -27,11 +28,20 @@ yarn-error.log*
 .qodo
 
 
-# Generated JSON data
+# The pinned catalogue, downloaded by `npm run fetch-catalog`
+/.catalog
+
+# Everything `3domics-db-build render` writes. All of it is reproducible from
+# the catalogue catalog.json pins, so none of it is tracked -- including the
+# CSVs, which used to be committed and drifted stale against Airtable.
 src/assets/data/airtable/*.json
+src/assets/data/genome_metadata/
 src/assets/data/genome_metadata_json/
+src/assets/data/macro_genome_counts/
 src/assets/data/macro_genome_counts_json/
+src/assets/data/microsample_counts/
 src/assets/data/microsample_counts_json/
+public/experiment-hierarchy.json
 
 # Keep the airtable directory structure
 !src/assets/data/airtable/.gitkeep

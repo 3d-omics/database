@@ -1,0 +1,14 @@
+{
+  "data_version": "2026.08.29",
+  "schema_version": "2",
+  "sha256": "2b779ef3f6303ac97242ee0165cea275924067767fe77c946a9b1c6da2c87120",
+  "source": "https://zenodo.org/api/records/22159112/files/3domics-2026.08.29.sqlite/content",
+  "concept_doi": "10.5281/zenodo.22159111",
+  "version_doi": "10.5281/zenodo.22159112",
+  "license": "CC-BY-4.0",
+  "builder": "v0.1.0",
+  "builder_wheel": "https://zenodo.org/api/records/22159537/files/3domics_db_build-0.1.0-py3-none-any.whl/content",
+  "builder_sha256": "4c8f81d3c298b25975b8e0661b8ec12ef776ffe84be132037f6ec03697e6301f",
+  "builder_concept_doi": "10.5281/zenodo.22159536",
+  "builder_version_doi": "10.5281/zenodo.22159537"
+}
