@@ -15,25 +15,44 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: npm
-      
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - run: npm ci
-      
-      - name: Generate data
-        env:
-          VITE_AIRTABLE_API_KEY: ${{ secrets.VITE_AIRTABLE_API_KEY }}
-        run: npm run generate-data
-      
+
+      # Two pins, both in catalog.json: which catalogue release to render, and
+      # which builder renders it. Neither forces the other, and a change to
+      # either is a reviewable one-line diff.
+      - name: Read the pins
+        id: pins
+        run: |
+          echo "builder=$(node -p "require('./catalog.json').builder")" >> "$GITHUB_OUTPUT"
+          echo "data_version=$(node -p "require('./catalog.json').data_version")" >> "$GITHUB_OUTPUT"
+
+      - name: Install the catalogue builder
+        run: pip install "git+https://github.com/3d-omics/database-build.git@${{ steps.pins.outputs.builder }}"
+
+      # Downloads the release named by catalog.json and fails on a checksum
+      # mismatch. No Airtable credentials are involved.
+      - name: Fetch the pinned catalogue
+        run: npm run fetch-catalog
+
+      - name: Render the site data
+        run: 3domics-db-build render .catalog/3domics.sqlite --into .
+
       - run: npm run build
-      
+
       - uses: actions/configure-pages@v4
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
-      
+
       - uses: actions/deploy-pages@v4
         id: deployment
