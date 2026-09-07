@@ -1,0 +1,307 @@
+# Changelog
+
+Notable changes to the **3D'omics Data Portal**, newest first. Every entry links to the
+commit that made it.
+
+The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/): changes are
+grouped under **Added**, **Changed**, **Deprecated**, **Removed**, **Fixed** and
+**Security**.
+
+Sections are **dated milestones, not version numbers.** This repository is not tagged or
+released — pushing to `main` deploys to GitHub Pages immediately, so there is nothing to
+number. What *is* versioned is the data: each commit pins a catalogue release in
+[catalog.json](catalog.json), and the pinned version is named on every milestone that
+moved it. If the project starts tagging releases, these headings become
+`## [x.y.z] — date` without any other change to the format.
+
+---
+
+## [Unreleased]
+
+### Added
+
+- The home page lists its experiments in a horizontal carousel: a native scroll
+  container, so touch swipes and trackpad scrolling need no JavaScript, with snap points
+  and wrap-around chevron buttons labelled for screen readers. The order is shuffled on
+  every visit, so no experiment is permanently last ([`3d0beea`][3d0beea]).
+- A `.no-scrollbar` Tailwind utility, and a `.table_link` class — `.link` without the
+  underline ([`3d0beea`][3d0beea], [`43b367e`][43b367e]).
+
+### Changed
+
+- Links inside data tables no longer carry an underline. Nearly every cell in an ID or
+  accession column is a link, and underlining all of them ruled the table without telling
+  a reader anything the column had not already. Links in prose are unchanged
+  ([`43b367e`][43b367e]).
+
+---
+
+## 2026-08-29 — Citable, checksummed build inputs
+
+Catalogue `2026.08.29` · schema 2. Developed on `wire-catalogue` and merged as
+[`f901710`][f901710]. The site stops holding Airtable credentials and starts building
+from two pinned, checksummed Zenodo deposits: the data catalogue, and the builder that
+renders it. Rebuilding an old commit now rebuilds against the artefacts *that commit*
+pinned, rather than against today's Airtable.
+
+### Added
+
+- `catalog.json` pins both halves of a build — which catalogue release to render, and
+  which builder renders it — each as a URL plus a SHA-256 ([`0189948`][0189948],
+  [`729310b`][729310b]).
+- `src/scripts/fetch-catalog.ts`: downloads the pinned catalogue over anonymous HTTPS
+  into `.catalog/` and verifies its SHA-256, exiting non-zero on a mismatch or a missing
+  release ([`0189948`][0189948]).
+- `CATALOG_FILE=/path/to/local.sqlite` renders a catalogue you built yourself; the pin is
+  not enforced in that mode and the script says so ([`0189948`][0189948]).
+- Zenodo DOIs recorded for both artefacts: the catalogue under CC-BY-4.0 — concept
+  `10.5281/zenodo.22159111`, version `…22159112` ([`eb72fe9`][eb72fe9]) — and the builder
+  as software, concept `10.5281/zenodo.22159536`, v0.1.0 `…22159537`
+  ([`523393f`][523393f]).
+- A CI step that installs the pinned builder wheel offline
+  (`pip install --no-deps --no-index`), failing loudly with a pointer to
+  `docs/deployment.md` when no wheel is pinned ([`729310b`][729310b]).
+- Written documentation: [docs/architecture.md](docs/architecture.md),
+  [docs/data-pipeline.md](docs/data-pipeline.md),
+  [docs/deployment.md](docs/deployment.md) and
+  [docs/known-issues.md](docs/known-issues.md) ([`0189948`][0189948]).
+
+### Changed
+
+- `npm run generate-data` is two steps — `fetch-catalog`, then `3domics-db-build render`
+  — with no partial-success path ([`0189948`][0189948]).
+- The catalogue is served from a Zenodo record under CC-BY-4.0 instead of a GitHub
+  release asset, so it is fetchable anonymously and citable in its own right
+  ([`eb72fe9`][eb72fe9]).
+- `schema_version` corrected to `2`, which is what the published catalogue declares in
+  `catalog_meta`; schema 2 adds `experiments.mag_description`, the field the MAG
+  catalogue page reads as "MAG catalogue description" ([`eb72fe9`][eb72fe9]).
+- The builder is installed from a 48 KB checksummed wheel — pure stdlib, so pip contacts
+  no index — rather than cloned from the private `3d-omics/database-build`
+  ([`729310b`][729310b]).
+- Checksums are now the ones published in each record's `.sha256` asset, not hashes
+  computed from a local build; a wheel is not byte-reproducible, since zip entry
+  timestamps differ between builds ([`eb72fe9`][eb72fe9], [`523393f`][523393f]).
+
+### Removed
+
+- `src/config/airtable.ts` and `src/scripts/generate-data.ts`. The repository holds no
+  Airtable credentials and does not talk to Airtable ([`0189948`][0189948]).
+- All rendered data left the repository — the count CSVs, their `_json` conversions and
+  `public/experiment-hierarchy.json` — after drifting stale against Airtable
+  ([`0189948`][0189948]).
+
+### Fixed
+
+- The deploy could never install the builder. CI's `GITHUB_TOKEN` is scoped to this
+  repository alone, so cloning the private builder repo only ever worked on a
+  maintainer's laptop, where a credential helper supplied a personal token
+  ([`729310b`][729310b]).
+- `/dist` is git-ignored; Vite emits it and `.gitignore` had missed it
+  ([`0189948`][0189948]).
+
+---
+
+## 2025-12-01 – 2025-12-22 — Metabolomics, community composition and the test suite
+
+### Added
+
+- The volcano-plot metabolomics page, built out in a parallel `Metabolomics_new/` tree —
+  analysis settings, a significant-metabolites table and the plot itself, each with tests
+  ([`9ef3be5`][9ef3be5]).
+- A dedicated heatmap route beside the metabolomics list and volcano pages
+  ([`1cfd5f1`][1cfd5f1]), then sample-comparison and metabolite bar/heatmap plots under it
+  ([`e423070`][e423070]).
+- A database-schema download page ([`c6f670c`][c6f670c]).
+- TSV download from table headers, with per-page column configuration
+  ([`ff2ed9b`][ff2ed9b]).
+- `mergeMetaboliteData`, joining metabolite records into the macrosample table
+  ([`ff2ed9b`][ff2ed9b]).
+- Seven cryosection images, with the experiment hierarchy regenerated to reference them
+  ([`d7d4392`][d7d4392]).
+- Unit and integration tests across the metabolomics, microsample-composition and
+  taxonomy-chart components ([`1f67411`][1f67411]).
+
+### Changed
+
+- Metabolomics restructured from a single page into three routes — list, heatmap and
+  volcano — with `Metabolomics/` becoming `MetabolomicsVolcano/` ([`1cfd5f1`][1cfd5f1]),
+  and `Metabolomics_new/` folded into the real routes once complete
+  ([`e423070`][e423070]).
+- The microsample community-composition page reduced to composition alone, its taxonomy
+  chart and image plot moved out into components ([`0abd7cd`][0abd7cd]).
+- `Macrosamples.tsx` became a `Macrosamples/` folder with its merge logic and tests
+  alongside ([`ff2ed9b`][ff2ed9b]).
+- Metabolite chart options moved from the volcano page to `src/config/metaboliteOptions.ts`
+  ([`ff2ed9b`][ff2ed9b]).
+- Tests reorganised to sit next to the code they cover, and `vitest.setup.ts` lifted out
+  of `tests/setup/` ([`748e8f3`][748e8f3], [`1f67411`][1f67411]).
+- Navbar and mobile menu reworked; the data-generation script substantially rewritten and
+  `experiment_hierarchy.json` renamed to `experiment-hierarchy.json`
+  ([`c6f670c`][c6f670c]).
+- Home, cryosection and microsample page copy revised ([`3c30598`][3c30598]).
+
+### Removed
+
+- The old `Metabolomics/` folder and the composition code duplicated inside
+  `MicrosampleCompositionList` ([`e423070`][e423070], [`0abd7cd`][0abd7cd]).
+- Test files left stranded by the restructure, plus `reportWebVitals` and the unused
+  `test-utils` helper ([`748e8f3`][748e8f3], [`1f67411`][1f67411]).
+- The superseded `public/experiment_hierarchy.json` — 48k lines
+  ([`aa4d6a2`][aa4d6a2]) — and the committed `3domics_data_schema.json`, another 71k
+  ([`fe8b35e`][fe8b35e]).
+
+---
+
+## 2025-11-24 – 2025-11-28 — MAG catalogue, overview pages and genome metadata
+
+### Added
+
+- Per-record overview pages for cryosections and macrosamples
+  ([`a0f59c2`][a0f59c2]).
+- Genome metadata on the home and genome pages, and a revised phylum colour scheme for
+  the circos plot ([`4d37bc5`][4d37bc5]).
+- Tests for macrosample and microsample composition, and for `chartUtils`
+  ([`0f1d025`][0f1d025]).
+
+### Changed
+
+- "Genome catalogue" renamed to **MAG catalogue** throughout — pages, list and tests
+  ([`50d3245`][50d3245]).
+- Sample pages pluralised to match their routes: `AnimalTrial`, `AnimalSpecimen`,
+  `Cryosection`, `Macrosample` and `Microsample` became their plural forms
+  ([`a0f59c2`][a0f59c2]).
+- The genome tabs moved up out of `components/`, and both composition lists reworked
+  ([`50d3245`][50d3245]).
+- Macrosample and MAG catalogue tables reworked with new columns and data
+  ([`0f1d025`][0f1d025]).
+
+### Removed
+
+- `IntestinalSectionSample`, superseded by the macrosample pages ([`0f1d025`][0f1d025]).
+
+---
+
+## 2025-11-03 – 2025-11-04 — Deep links on GitHub Pages
+
+### Added
+
+- `public/404.html`, which stores the requested path in `sessionStorage` and bounces to
+  the app root — GitHub Pages serves no server-side SPA fallback
+  ([`a75ecf3`][a75ecf3]).
+
+### Fixed
+
+- The redirect handler in `main.tsx` now restores the stored path on load, so a deep link
+  lands on the page it named instead of the home page ([`37bfe42`][37bfe42]).
+- No flash of the home page during that redirect ([`80bc447`][80bc447]).
+- `404.html` trimmed back after the handler moved into the app ([`5e7b756`][5e7b756]).
+- Broken link URLs, and the unit tests that had gone stale with them
+  ([`cf74c3d`][cf74c3d]).
+
+---
+
+## 2025-10-30 – 2025-10-31 — Static site generation
+
+### Added
+
+- `src/scripts/generate-data.ts`, which renders the Airtable export into the JSON tree
+  the pages import at build time ([`65005f6`][65005f6]).
+- The GitHub Pages deploy workflow and a `.gitignore` covering the generated data
+  ([`65005f6`][65005f6]).
+- A taxonomy chart component and a microsample composition page
+  ([`65005f6`][65005f6]).
+
+### Changed
+
+- Data fetching moved out of the browser: pages read generated JSON instead of calling an
+  API at runtime, and ~4.5k lines of committed CSVs and unused images were dropped
+  ([`65005f6`][65005f6]).
+- Deployment settings and paths adjusted until the Pages build succeeded
+  ([`9e79498`][9e79498], [`4b200d9`][4b200d9], [`14d6ed3`][14d6ed3],
+  [`02a1cdb`][02a1cdb]).
+- App styling tweak ([`5d82eb8`][5d82eb8]).
+
+### Fixed
+
+- `BrowserRouter` given the `/database/` basename it needs under GitHub Pages
+  ([`ce143ce`][ce143ce]).
+- The Vite base path, and a stray step in the data script ([`6d66c26`][6d66c26]).
+- The metadata import path on the home page ([`3e21477`][3e21477]).
+
+---
+
+## 2025-10-20 – 2025-10-23 — Vite, TypeScript and Tailwind
+
+### Added
+
+- Tailwind and daisyUI, a root `index.html`, `vite.config.js` and a Vitest setup
+  ([`8e33c89`][8e33c89]).
+- Macrosample composition pages and a taxonomy chart ([`3fd9396`][3fd9396]).
+
+### Changed
+
+- The project migrated off Create React App to Vite, with the test runner moving from
+  Jest to Vitest and `tsconfig.json` rewritten for it ([`8e33c89`][8e33c89]).
+- Genome and genome-catalogue pages reworked, and the home page revised
+  ([`3fd9396`][3fd9396]).
+- README rewritten for the new stack ([`caa4d58`][caa4d58], [`5d73cde`][5d73cde]).
+
+### Removed
+
+- The CRA scaffolding: `public/index.html`, `setupTests.ts` and the CRA-specific config
+  ([`8e33c89`][8e33c89]).
+
+---
+
+## 2024-07-01 — Initial project
+
+### Added
+
+- Project initialised with Create React App and TypeScript ([`18c4bc9`][18c4bc9]).
+
+<!-- Commit links -->
+
+[Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[3d0beea]: https://github.com/3d-omics/database/commit/3d0beea613d28edfa2ca961a78377cb30af0f690
+[43b367e]: https://github.com/3d-omics/database/commit/43b367e43047dacca461e7cbf2281c1b4de2b90d
+[f901710]: https://github.com/3d-omics/database/commit/f9017109658bfb4feb663a4be12e317bef230d8b
+[0189948]: https://github.com/3d-omics/database/commit/01899488ab6c1ae0397290a507f30dc5651854f8
+[729310b]: https://github.com/3d-omics/database/commit/729310b2768c70a5375003f6649de641ca41b9ee
+[eb72fe9]: https://github.com/3d-omics/database/commit/eb72fe94fc23f8d098557ddb011c3860ba36c1c5
+[523393f]: https://github.com/3d-omics/database/commit/523393f31b1c829c64a31b95ab66a5d64edcbc0c
+[9ef3be5]: https://github.com/3d-omics/database/commit/9ef3be5df86fa3eefc2b5a83d77517db6ba1976f
+[1cfd5f1]: https://github.com/3d-omics/database/commit/1cfd5f179f76187c8e26b51849ab0765bc394dd3
+[e423070]: https://github.com/3d-omics/database/commit/e423070a7c39a1453f4ef6b2b9059aaa3f6f3ad8
+[c6f670c]: https://github.com/3d-omics/database/commit/c6f670c8d34a98b7a8bc759d5ce69b2b2935417c
+[ff2ed9b]: https://github.com/3d-omics/database/commit/ff2ed9bd4bce959a0ab8e5ea062e402230f7e2b3
+[d7d4392]: https://github.com/3d-omics/database/commit/d7d43920958ccfcd81ffbd668e966381ed254ffb
+[1f67411]: https://github.com/3d-omics/database/commit/1f674112ce224912c27c166e1701751d3164f2f7
+[0abd7cd]: https://github.com/3d-omics/database/commit/0abd7cd340338a1a339b4a096e54b9dbe289f80a
+[748e8f3]: https://github.com/3d-omics/database/commit/748e8f31dbbc203ebf9b2901bd7260833d046321
+[3c30598]: https://github.com/3d-omics/database/commit/3c30598009cb174634460476b2b661433bda199d
+[aa4d6a2]: https://github.com/3d-omics/database/commit/aa4d6a279ed66a75d196a3eacd44ec93a9f7cec5
+[fe8b35e]: https://github.com/3d-omics/database/commit/fe8b35efd23283e473fa12b9c90c5e8b92e025e4
+[a0f59c2]: https://github.com/3d-omics/database/commit/a0f59c2a2fbbc9c1c63b681bbd705ba0a6b2c29e
+[4d37bc5]: https://github.com/3d-omics/database/commit/4d37bc55d8741c6271c6efbc82150ed5dca26b22
+[0f1d025]: https://github.com/3d-omics/database/commit/0f1d0250b7d2a0f2267498d8994c8a206c1dfc7b
+[50d3245]: https://github.com/3d-omics/database/commit/50d3245cc8624b049283c532772f5d910873e12c
+[a75ecf3]: https://github.com/3d-omics/database/commit/a75ecf368dacf263381c7e7943f1b30ecdffc9c4
+[37bfe42]: https://github.com/3d-omics/database/commit/37bfe42cd6356055f049f0d47c4b13a870b9fa55
+[80bc447]: https://github.com/3d-omics/database/commit/80bc44729ed83c7bb2cac3d6e2d777d928fb91ac
+[5e7b756]: https://github.com/3d-omics/database/commit/5e7b756d4ead9d23b67ad0b8e5c963026b9e83b3
+[cf74c3d]: https://github.com/3d-omics/database/commit/cf74c3dc31f531dc3490b776af6123b3222c0ba1
+[65005f6]: https://github.com/3d-omics/database/commit/65005f6078cb29acf4e49059d42357de11e3c76c
+[9e79498]: https://github.com/3d-omics/database/commit/9e794981d0a9d118cd9b962521e08a8434ced6da
+[4b200d9]: https://github.com/3d-omics/database/commit/4b200d93aa1cb1bdf5a9c5b0dbe47dc518f7fc08
+[14d6ed3]: https://github.com/3d-omics/database/commit/14d6ed35065606eec2218a59bc4560deefe92394
+[02a1cdb]: https://github.com/3d-omics/database/commit/02a1cdb4875ef6461499e3390d7719bd444fbf38
+[5d82eb8]: https://github.com/3d-omics/database/commit/5d82eb8541289b0cf2097d706940c0fafd29374a
+[ce143ce]: https://github.com/3d-omics/database/commit/ce143cee0b964f0aae22fb18762c2831b83d4348
+[6d66c26]: https://github.com/3d-omics/database/commit/6d66c26e95913291bd7543d85f8ad706a680b2ba
+[3e21477]: https://github.com/3d-omics/database/commit/3e2147765077b05b2010c02f8c0f426f27478f9b
+[8e33c89]: https://github.com/3d-omics/database/commit/8e33c89e83f51d5a8f337b2e8ecda23cd1887e97
+[3fd9396]: https://github.com/3d-omics/database/commit/3fd939644f5db4f66b7f86d7b4918b3e09d226cb
+[caa4d58]: https://github.com/3d-omics/database/commit/caa4d587c7233abcf0da66552b8b3694d6fc4ad3
+[5d73cde]: https://github.com/3d-omics/database/commit/5d73cde21f3f8f53452ab9a83b1bd4f085ea0bac
+[18c4bc9]: https://github.com/3d-omics/database/commit/18c4bc9c9f0c51a1698ec788d52ebe2f73cb59e0

@@ -28,6 +28,7 @@ Plotly · D3**
 | [docs/data-pipeline.md](docs/data-pipeline.md) | The catalogue pin, rendering, the hierarchy file, ID conventions |
 | [docs/deployment.md](docs/deployment.md) | GitHub Pages, base path, deep-link redirects |
 | [docs/known-issues.md](docs/known-issues.md) | Current assessment and prioritised backlog |
+| [CHANGELOG.md](CHANGELOG.md) | What changed and when, every entry linked to its commit |
 
 ---
 

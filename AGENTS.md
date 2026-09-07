@@ -236,6 +236,10 @@ git status                # both dist/ and the rendered data are git-ignored
 - Never hand-edit anything under `src/assets/data/` except `metabolomics/`, nor
   `public/experiment-hierarchy.json` — everything else there is rendered output.
 - Commit messages: this repo has no `Co-Authored-By` trailers. Keep it that way.
+- Record anything notable in [CHANGELOG.md](CHANGELOG.md) under `## [Unreleased]`, in the
+  Keep a Changelog groups (Added / Changed / Deprecated / Removed / Fixed / Security), and
+  link the commit once you have its hash. Milestones are dated, not numbered — this repo is
+  not tagged.
 
 ---
 
@@ -245,3 +249,4 @@ git status                # both dist/ and the rendered data are git-ignored
 - [docs/data-pipeline.md](docs/data-pipeline.md) — the catalogue pin, rendering, the hierarchy file, ID conventions
 - [docs/deployment.md](docs/deployment.md) — GitHub Pages, base path, the 404 redirect trick
 - [docs/known-issues.md](docs/known-issues.md) — assessed findings and a prioritised backlog
+- [CHANGELOG.md](CHANGELOG.md) — dated milestones, Keep a Changelog format, every entry linked to its commit
