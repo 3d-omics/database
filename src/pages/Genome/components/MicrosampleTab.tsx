@@ -38,7 +38,7 @@ const MicrosampleTab = ({ data, genomeName, isLoading, error }: MicrosampleTabPr
           to={row.original.enaLink}
           target='_blank'
           rel='noopener noreferrer'
-          className='link'
+          className='table_link'
         >
           {cell.getValue()}
         </Link>

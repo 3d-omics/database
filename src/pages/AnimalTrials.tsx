@@ -37,7 +37,7 @@ const AnimalTrial = () => {
       cell: (props: any) => (
         <Link
           to={`/animal-trials/${encodeURIComponent(props.row.original.fields.Name)}`}
-          className='link'
+          className='table_link'
         >
           {props.getValue()}
         </Link>
@@ -72,7 +72,7 @@ const AnimalTrial = () => {
       cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
         const bioprojectLink = row.original.fields['Bioproject link']
         return bioprojectLink ? (
-          <Link to={bioprojectLink} target='_blank' rel='noopener noreferrer' className='link'>
+          <Link to={bioprojectLink} target='_blank' rel='noopener noreferrer' className='table_link'>
             {cell.getValue() as string}
           </Link>
         ) : (
@@ -89,7 +89,7 @@ const AnimalTrial = () => {
         return (
           <Link
             to={`/mag-catalogues/${encodeURIComponent(props.row.original.fields.Name)}`}
-            className='link'
+            className='table_link'
           >
             View MAG Catalogue
           </Link>

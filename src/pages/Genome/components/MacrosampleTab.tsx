@@ -37,7 +37,7 @@ const MacrosampleTab = ({ data, genomeName, isLoading, error }: MacrosampleTabPr
           to={row.original.enaLink}
           target='_blank'
           rel='noopener noreferrer'
-          className='link'
+          className='table_link'
         >
           {cell.getValue()}
         </Link>

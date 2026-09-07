@@ -44,7 +44,7 @@ const MAGCatalogueTable = ({ metaData, experimentName }: {
       cell: ({ cell, row }: { cell: { getValue: () => any }, row: { original: GenomeData } }) => (
         <Link
           to={`/mag-catalogues/${encodeURIComponent(experimentName)}/${encodeURIComponent(cell.getValue())}`}
-          className='link'
+          className='table_link'
         >
           <span>{cell.getValue() || 'unknown'}</span>
         </Link>

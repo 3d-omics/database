@@ -134,7 +134,7 @@ const Macrosample = (
         cell: (props: any) => (
           <Link
             to={`/macrosamples/${encodeURIComponent(props.row.original.fields.ID)}`}
-            className='link'
+            className='table_link'
           >
             {props.getValue()}
           </Link>
@@ -178,7 +178,7 @@ const Macrosample = (
         cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
           const metaboliteLink = row.original.fields['Metabolights link']
           return metaboliteLink ? (
-            <Link to={metaboliteLink} target='_blank' rel='noopener noreferrer' className='link'>
+            <Link to={metaboliteLink} target='_blank' rel='noopener noreferrer' className='table_link'>
               {cell.getValue() as string}
             </Link>
           ) : (
@@ -367,7 +367,7 @@ const Macrosample = (
         cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
           const enaLink = row.original.fields['ENA link']
           return enaLink ? (
-            <Link to={enaLink} target='_blank' rel='noopener noreferrer' className='link'>
+            <Link to={enaLink} target='_blank' rel='noopener noreferrer' className='table_link'>
               {cell.getValue() as string}
             </Link>
           ) : (

@@ -19,6 +19,9 @@
   .link {
     @apply underline hover:text-mustard
   }
+  .table_link {
+    @apply no-underline hover:text-mustard
+  }
   .page_description {
     @apply mb-8 text-sm text-custom_black max-w-6xl
   }

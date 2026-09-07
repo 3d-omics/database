@@ -88,7 +88,7 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       accessorFn: (row) => row.fields.Cryosection_flat,
       cell: (props: any) => (
         cryosectionData.find(cryosection => cryosection.fields.ID === props.getValue())
-          ? <Link to={`/cryosections/${props.getValue()}`} className='link'>{props.getValue()}</Link>
+          ? <Link to={`/cryosections/${props.getValue()}`} className='table_link'>{props.getValue()}</Link>
           : <>{props.getValue()}</>
       )
     },
@@ -132,7 +132,7 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
         const enaLink = row.original.fields['ENA link']
         return enaLink ? (
-          <Link to={enaLink} target='_blank' rel='noopener noreferrer' className='link'>
+          <Link to={enaLink} target='_blank' rel='noopener noreferrer' className='table_link'>
             {cell.getValue() as string}
           </Link>
         ) : (

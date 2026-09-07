@@ -96,7 +96,7 @@ const Cryosection = ({ displayTableHeader, displayTableFilters, displayTableBody
         <div className='flex items-center gap-1 min-w-[120px]'>
           <Link
             to={`/cryosections/${encodeURIComponent(props.row.original.fields.ID)}`}
-            className='link'
+            className='table_link'
           >
             {props.getValue()}
           </Link>
@@ -130,7 +130,7 @@ const Cryosection = ({ displayTableHeader, displayTableFilters, displayTableBody
       cell: (props: any) => (
         <Link
           to={`/macrosamples/${encodeURIComponent(props.row.original.fields.Macrosample)}`}
-          className='link'
+          className='table_link'
         >
           {props.getValue()}
         </Link>

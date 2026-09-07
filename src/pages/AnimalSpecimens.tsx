@@ -84,7 +84,7 @@ const AnimalSpecimen = ({
         cell: (props: any) => (
           <Link
             to={`/animal-specimens/${encodeURIComponent(props.row.original.fields.ID)}`}
-            className='link'
+            className='table_link'
           >
             {props.getValue()}
           </Link>
@@ -171,7 +171,7 @@ const AnimalSpecimen = ({
         cell: ({ cell, row }: { cell: { getValue: () => string | unknown }, row: { original: TData } }) => {
           const biosampleLink = row.original.fields['Biosample link']
           return biosampleLink ? (
-            <Link to={biosampleLink} target='_blank' rel='noopener noreferrer' className='link'>
+            <Link to={biosampleLink} target='_blank' rel='noopener noreferrer' className='table_link'>
               {cell.getValue() as string}
             </Link>
           ) : (
