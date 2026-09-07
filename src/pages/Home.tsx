@@ -1,31 +1,60 @@
+import { useMemo, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretDown, faCaretRight } from '@fortawesome/free-solid-svg-icons'
+import { faCaretDown, faCaretRight, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import tablesData from 'assets/data/airtable/_metadata.json'
 import pigImage from 'assets/images/pig.png'
 import chickenImage from 'assets/images/chicken.png'
 import turkeyImage from 'assets/images/turkey.png'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 
+// Fisher-Yates: a fresh order of the experiments on every visit
+const shuffle = <T,>(items: T[]): T[] => {
+  const shuffled = [...items]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
+
 const Home = () => {
-  
+
   const tables = tablesData.tables
 
   const getRecordCount = (tableName: string) =>
     tables.find(table => table.name === tableName)?.recordCount
 
-  const animalTrialsMenu = animalTrialExperimentData?.map((experiment: any) => {
-    const experimentName = experiment.fields?.Name || experiment.Name
-    const animalImage = experimentName?.includes('swine') ? pigImage :
-      experimentName?.includes('chicken') ? chickenImage :
-        experimentName?.includes('turkey') ? turkeyImage : null
-    return {
-      title: experimentName,
-      link: `/animal-trials/${encodeURIComponent(experimentName || '')}`,
-      image: animalImage,
-      altText: `silhouette of ${animalImage}`,
-    }
-  })
+  const animalTrialsMenu = useMemo(() => shuffle(
+    (animalTrialExperimentData ?? []).map((experiment: any) => {
+      const experimentName = experiment.fields?.Name || experiment.Name
+      const animalImage = experimentName?.includes('swine') ? pigImage :
+        experimentName?.includes('chicken') ? chickenImage :
+          experimentName?.includes('turkey') ? turkeyImage : null
+      return {
+        title: experimentName,
+        link: `/animal-trials/${encodeURIComponent(experimentName || '')}`,
+        image: animalImage,
+        altText: `silhouette of ${animalImage}`,
+      }
+    })
+  ), [])
+
+  // The carousel is a native scroll container, so touch swipes work for free;
+  // the arrows page through it and wrap around at either end.
+  const carouselRef = useRef<HTMLUListElement>(null)
+
+  const slideCarousel = (direction: 1 | -1) => {
+    const track = carouselRef.current
+    if (!track) return
+    const maxScroll = track.scrollWidth - track.clientWidth
+    const atEnd = direction === 1 && track.scrollLeft >= maxScroll - 1
+    const atStart = direction === -1 && track.scrollLeft <= 1
+    const left = atEnd ? 0
+      : atStart ? maxScroll
+        : Math.max(0, Math.min(maxScroll, track.scrollLeft + direction * track.clientWidth))
+    track.scrollTo?.({ left, behavior: 'smooth' })
+  }
 
   const navItems = [
     {
@@ -158,36 +187,61 @@ const Home = () => {
         </p>
       </section>
 
-      <div className='h-16 max-lg:h-8'></div>
+      <main className='mb-16 bg-neutral-50 bg-texture'>
+        <div className='flex items-center'>
+          <button
+            type='button'
+            aria-label='Previous experiments'
+            onClick={() => slideCarousel(-1)}
+            className='shrink-0 px-3 py-6 text-custom_black hover:text-mustard max-sm:px-2'
+          >
+            <FontAwesomeIcon icon={faChevronLeft} />
+          </button>
 
-      <main className='mb-16 max-lg:[&_ul]:w-[calc(100dvw-10px)]  max-lg:flex  max-lg:justify-center'>
-        <ul className='flex flex-wrap px-4 justify-center bg-neutral-50 bg-texture max-xl:grid max-xl:grid-cols-3 max-lg:grid-cols-2 max-md:px-8 max-sm:grid-cols-1 max-sm:px-16 max-sm:justify-items-center'>
-          {animalTrialsMenu.map((item, index) => (
-            <li key={index} className='hover:bg-neutral-300/50 hover:text-mustard py-3 px-4 max-xl:w-full max-md:px-4'>
-              <Link to={item.link}>
-                <div className='flex items-center gap-0.5'>
-                  <div
-                    className='w-[52px] h-[52px] bg-[#444444]'
-                    style={{
-                      maskImage: `url(${item.image})`,
-                      WebkitMaskImage: `url(${item.image})`,
-                      maskRepeat: 'no-repeat',
-                      WebkitMaskRepeat: 'no-repeat',
-                      maskPosition: 'center',
-                      WebkitMaskPosition: 'center',
-                      maskSize: 'contain',
-                      WebkitMaskSize: 'contain',
-                    }}
-                    aria-label={item.altText}
-                  />
-                  <div>
-                    <h2 className='font-light tracking-tight text-sm'>{item.title}</h2>
+          <ul
+            ref={carouselRef}
+            aria-label='Animal trial experiments'
+            className='flex flex-nowrap grow overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth'
+          >
+            {animalTrialsMenu.map((item, index) => (
+              <li
+                key={index}
+                className='shrink-0 basis-1/4 snap-start hover:bg-neutral-300/50 hover:text-mustard py-3 px-4 max-xl:basis-1/3 max-lg:basis-1/2 max-sm:basis-full max-md:px-4'
+              >
+                <Link to={item.link}>
+                  <div className='flex items-center gap-0.5 max-sm:justify-center'>
+                    <div
+                      className='w-[52px] h-[52px] shrink-0 bg-[#444444]'
+                      style={{
+                        maskImage: `url(${item.image})`,
+                        WebkitMaskImage: `url(${item.image})`,
+                        maskRepeat: 'no-repeat',
+                        WebkitMaskRepeat: 'no-repeat',
+                        maskPosition: 'center',
+                        WebkitMaskPosition: 'center',
+                        maskSize: 'contain',
+                        WebkitMaskSize: 'contain',
+                      }}
+                      aria-label={item.altText}
+                    />
+                    <div>
+                      <h2 className='font-light tracking-tight text-sm'>{item.title}</h2>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            </li>
-          ))}
-        </ul>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <button
+            type='button'
+            aria-label='Next experiments'
+            onClick={() => slideCarousel(1)}
+            className='shrink-0 px-3 py-6 text-custom_black hover:text-mustard max-sm:px-2'
+          >
+            <FontAwesomeIcon icon={faChevronRight} />
+          </button>
+        </div>
       </main>
 
       <div className='pb-20 flex justify-center max-lg:pb-2'>

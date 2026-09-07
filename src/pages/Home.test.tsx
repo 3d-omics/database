@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import Home from './Home'
 
@@ -109,6 +109,24 @@ describe('Home', () => {
     const downloadLink = screen.getByRole('link', { name: /Download Database Schema/i })
     expect(downloadLink).toBeInTheDocument()
     expect(downloadLink).toHaveAttribute('href', '/database-schema')
+  })
+
+  it('slides the experiment carousel in both directions', () => {
+    renderPage()
+
+    const track = screen.getByRole('list', { name: /animal trial experiments/i })
+    // jsdom does no layout, so drive the scroll maths with known dimensions
+    Object.defineProperty(track, 'clientWidth', { value: 400, configurable: true })
+    Object.defineProperty(track, 'scrollWidth', { value: 1200, configurable: true })
+    const scrollTo = vi.fn()
+    track.scrollTo = scrollTo
+
+    fireEvent.click(screen.getByRole('button', { name: /next experiments/i }))
+    expect(scrollTo).toHaveBeenCalledWith({ left: 400, behavior: 'smooth' })
+
+    // at the start, sliding back wraps around to the far end
+    fireEvent.click(screen.getByRole('button', { name: /previous experiments/i }))
+    expect(scrollTo).toHaveBeenLastCalledWith({ left: 800, behavior: 'smooth' })
   })
 
   it('renders links to animal trial pages', () => {
