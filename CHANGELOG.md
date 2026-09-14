@@ -74,6 +74,12 @@ moved it. If the project starts tagging releases, these headings become
   a reader anything the column had not already. Links in prose are unchanged
   ([`43b367e`][43b367e]).
 
+### Fixed
+
+- The deploy's catalogue download names itself with a User-Agent. Zenodo began answering
+  Node's default, `node`, with 403 Forbidden, which failed the fetch step before
+  anything was built.
+
 ---
 
 ## 2026-08-29 — Citable, checksummed build inputs

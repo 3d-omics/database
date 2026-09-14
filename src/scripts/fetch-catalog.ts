@@ -52,7 +52,11 @@ function readPin(): Catalog {
 
 async function download(url: string, into: string): Promise<void> {
   console.log(`⬇️  ${url}`);
-  const response = await fetch(url);
+  // Zenodo answers Node's default User-Agent ("node") with 403 Forbidden, so
+  // name the client and where it comes from.
+  const response = await fetch(url, {
+    headers: { 'User-Agent': '3domics-database/fetch-catalog (+https://github.com/3d-omics/database)' },
+  });
   if (!response.ok || !response.body) {
     throw new Error(`${response.status} ${response.statusText} fetching ${url}`);
   }
