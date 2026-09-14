@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import BreadCrumbs from 'components/BreadCrumbs'
+import PageHeader from 'components/PageHeader'
 import animalSpecimenData from 'assets/data/airtable/animalspecimen.json'
 import MacrosampleTab from 'components/TabComponents/MacrosampleTab'
 import CryosectionTab from 'components/TabComponents/CryosectionTab'
@@ -37,18 +37,15 @@ const AnimalSpecimenOverview = () => {
       <div className='min-h-screen'>
         {specimen && (
           <>
-            <section className='page_padding'>
-              <BreadCrumbs
-                items={[
-                  { label: 'Data Portal Home', link: '/' },
-                  { label: 'Animal Specimen', link: '/animal-specimens' },
-                  { label: specimenName }
-                ]}
-              />
-
-              <header className='main_header mb-3'>{specimenName}</header>
-
-              <div className='flex gap-7 text-sm text-gray-500 pb-8 font-thin [&>span]:flex [&>span]:gap-1 max-lg:flex-col max-lg:gap-0.5'>
+            <PageHeader
+              title={specimenName}
+              breadcrumbs={[
+                { label: 'Data Portal Home', link: '/' },
+                { label: 'Animal Specimens', link: '/animal-specimens' },
+                { label: specimenName }
+              ]}
+            >
+              <div className='flex gap-7 max-lg:flex-col max-lg:gap-0.5'>
                 <div className='flex flex-col gap-0.5'>
                   <span>
                     Experiment ID:&nbsp;
@@ -94,7 +91,9 @@ const AnimalSpecimenOverview = () => {
                   </span>
                 </div>
               </div>
+            </PageHeader>
 
+            <section className='page_padding'>
               <Tabs
                 selectedTab={selectedTab}
                 setSelectedTab={setSelectedTab}

@@ -6,7 +6,7 @@ import MacrosampleTab from 'components/TabComponents/MacrosampleTab'
 import CryosectionTab from 'components/TabComponents/CryosectionTab'
 import MicrosampleTab from 'components/TabComponents/MicrosampleTab'
 import Tabs from 'components/Tabs'
-import BreadCrumbs from 'components/BreadCrumbs'
+import PageHeader from 'components/PageHeader'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
@@ -51,26 +51,15 @@ const AnimalTrialOverview = () => {
       <div className='min-h-screen'>
         {experiment && (
           <>
-            <section className='page_padding'>
-              <BreadCrumbs
-                items={[
-                  { label: 'Data Portal Home', link: '/' },
-                  { label: 'Animal Trial', link: '/animal-trials' },
-                  { label: experimentName }
-                ]}
-              />
-
-              <div className='flex items-end gap-4 mb-3 max-lg:flex-col max-lg:items-start max-lg:gap-1'>
-                <header className='main_header'>{experimentName}</header>
-                <Link
-                  to={`/mag-catalogues/${encodeURIComponent(experimentName)}`}
-                  className='link'
-                >
-                  view MAG Catalogue
-                </Link>
-              </div>
-
-              <div className='flex gap-4 text-sm text-gray-500 mb-3 font-thin [&>span]:flex [&>span]:gap-1 max-lg:flex-col max-lg:gap-0.5'>
+            <PageHeader
+              title={experimentName}
+              breadcrumbs={[
+                { label: 'Data Portal Home', link: '/' },
+                { label: 'Animal Trials', link: '/animal-trials' },
+                { label: experimentName }
+              ]}
+            >
+              <div className='flex flex-wrap gap-x-4 gap-y-0.5 [&>span]:flex [&>span]:gap-1 max-lg:flex-col'>
                 <span>
                   Experiment ID:&nbsp;
                   <b>{experiment.fields.ID}</b>
@@ -89,9 +78,15 @@ const AnimalTrialOverview = () => {
                     <b>{experiment.fields['Bioproject accession']}</b>
                   </Link>
                 </span>
+                <Link
+                  to={`/mag-catalogues/${encodeURIComponent(experimentName)}`}
+                  className='link'
+                >
+                  View MAG Catalogue
+                </Link>
               </div>
 
-              <div className='mb-8 page_description'>
+              <div>
                 {experiment.fields['Trial description']?.split('\n').map((line: string, index: number) => {
                   const parts = line.split('**')
                   return (
@@ -104,7 +99,9 @@ const AnimalTrialOverview = () => {
                   )
                 })}
               </div>
+            </PageHeader>
 
+            <section className='page_padding'>
               <Tabs
                 selectedTab={selectedTab}
                 setSelectedTab={setSelectedTab}

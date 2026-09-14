@@ -26,11 +26,13 @@ type TData = {
 }
 
 const AnimalSpecimen = ({
+  displayPageHeader = true,
   displayTableHeader,
   displayTableFilters,
   displayTableBody,
   filterWith = [],
 }: {
+  displayPageHeader?: boolean
   displayTableHeader?: boolean
   displayTableFilters?: boolean
   displayTableBody?: boolean
@@ -189,6 +191,7 @@ const AnimalSpecimen = ({
       columns={columns}
       pageTitle={'Animal Specimens'}
       tableDescription={tableDescription}
+      displayPageHeader={displayPageHeader}
       displayTableHeader={displayTableHeader}
       displayTableFilters={displayTableFilters}
       displayTableBody={displayTableBody}

@@ -61,6 +61,9 @@ module.exports = {
         '.clip-arrow-first': {
           'clip-path': 'polygon(100% 10%, 100% 75%, 50% 100%, 0 75%, 0 10%)',
         },
+        '.clip-triangle': {
+          'clip-path': 'polygon(0 0, 100% 50%, 0 100%)',
+        },
         '.no-scrollbar': {
           '-ms-overflow-style': 'none',
           'scrollbar-width': 'none',

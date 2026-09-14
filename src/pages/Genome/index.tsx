@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import Tabs from 'components/Tabs'
 import type { GenomeData } from 'pages/MAGCatalogue/components/Table'
-import BreadCrumbs from 'components/BreadCrumbs'
+import PageHeader from 'components/PageHeader'
 import NotFound from 'pages/NotFound'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
@@ -17,7 +17,7 @@ import microsamplesWithCoordinationDataImport from 'assets/data/airtable/microsa
 const microsamplesWithCoordinationData = microsamplesWithCoordinationDataImport as any[]
 
 const Genome = () => {
-  const [selectedTab, setSelectedTab] = useState('Macrosample')
+  const [selectedTab, setSelectedTab] = useState('Macrosamples')
   const { genomeName = '', experimentName = '' } = useParams()
   const experimentId = experimentName.charAt(0)
 
@@ -136,74 +136,75 @@ const Genome = () => {
 
   return (
     <ParamsValidator validating={validating} notFound={notFound}>
-      <div className='page_padding pt-7 min-h-screen'>
-        <BreadCrumbs
-          items={[
+      <div className='min-h-screen'>
+        <PageHeader
+          title={genomeName}
+          breadcrumbs={[
             { label: 'Data Portal Home', link: '/' },
             { label: 'MAG Catalogues', link: '/mag-catalogues' },
             { label: experimentName, link: `/mag-catalogues/${encodeURIComponent(experimentName)}` },
             { label: genomeName }
           ]}
-        />
+        >
+          <div className='flex [&>span]:flex [&>span]:gap-1'>
+            <span className='flex-wrap [&>span]:font-light'>
+              Taxonomic lineage:&nbsp;
+              <span>{genomeData.domain}</span>
+              <span>&nbsp;&gt;&nbsp;</span>
+              <span>{genomeData.phylum}</span>
+              <span>&nbsp;&gt;&nbsp;</span>
+              <span>{genomeData.class}</span>
+              <span>&nbsp;&gt;&nbsp;</span>
+              <span>{genomeData.order}</span>
+              <span>&nbsp;&gt;&nbsp;</span>
+              <span>{genomeData.family}</span>
+              <span>&nbsp;&gt;&nbsp;</span>
+              <span>{genomeData.genus}</span>
+              <span>&nbsp;&gt;&nbsp;</span>
+              <span>{genomeData.species}</span>
+            </span>
+          </div>
 
-        <header className='main_header max-sm:mb-1.5 pb-7'>{genomeName}</header>
+          <div className='flex flex-wrap gap-x-4 gap-y-0.5 [&>span]:flex [&>span]:gap-1 max-lg:flex-col'>
+            <span>
+              Completeness:&nbsp;
+              <b>{genomeData.completeness}%</b>
+            </span>
+            <span>
+              Contamination:&nbsp;
+              <b>{genomeData.contamination}%</b>
+            </span>
+            <span>
+              Length:&nbsp;
+              <b>{genomeData.length}</b>
+            </span>
+          </div>
+        </PageHeader>
 
-        <div className='flex gap-4 text-sm text-gray-500 mb-3 font-thin [&>span]:flex [&>span]:gap-1 max-lg:mb-2'>
-          <span className='[&>span]:font-light max-lg:flex-wrap'>
-            Taxonomic lineage:&nbsp;
-            <span>{genomeData.domain}</span>
-            <span>&nbsp;&gt;&nbsp;</span>
-            <span>{genomeData.phylum}</span>
-            <span>&nbsp;&gt;&nbsp;</span>
-            <span>{genomeData.class}</span>
-            <span>&nbsp;&gt;&nbsp;</span>
-            <span>{genomeData.order}</span>
-            <span>&nbsp;&gt;&nbsp;</span>
-            <span>{genomeData.family}</span>
-            <span>&nbsp;&gt;&nbsp;</span>
-            <span>{genomeData.genus}</span>
-            <span>&nbsp;&gt;&nbsp;</span>
-            <span>{genomeData.species}</span>
-          </span>
-        </div>
-
-        <div className='flex gap-4 text-sm text-gray-500 mb-3 font-thin [&>span]:flex [&>span]:gap-1 max-lg:flex-col max-lg:gap-0.5'>
-          <span>
-            Completeness:&nbsp;
-            <b>{genomeData.completeness}%</b>
-          </span>
-          <span>
-            Contamination:&nbsp;
-            <b>{genomeData.contamination}%</b>
-          </span>
-          <span>
-            Length:&nbsp;
-            <b>{genomeData.length}</b>
-          </span>
-        </div>
-
-        <Tabs
-          selectedTab={selectedTab}
-          setSelectedTab={setSelectedTab}
-          tabs={['Macrosample', 'Microsample']}
-        />
-        <div className='h-6'></div>
-        {selectedTab === 'Macrosample' && (
-          <MacrosampleTab
-            data={macrosampleIdsWithENALink}
-            genomeName={genomeName}
-            isLoading={false}
-            error={macroError}
+        <div className='page_padding'>
+          <Tabs
+            selectedTab={selectedTab}
+            setSelectedTab={setSelectedTab}
+            tabs={['Macrosamples', 'Microsamples']}
           />
-        )}
-        {selectedTab === 'Microsample' && (
-          <MicrosampleTab
-            data={microsampleIdsWithENALink}
-            genomeName={genomeName}
-            isLoading={false}
-            error={microError}
-          />
-        )}
+          <div className='h-6'></div>
+          {selectedTab === 'Macrosamples' && (
+            <MacrosampleTab
+              data={macrosampleIdsWithENALink}
+              genomeName={genomeName}
+              isLoading={false}
+              error={macroError}
+            />
+          )}
+          {selectedTab === 'Microsamples' && (
+            <MicrosampleTab
+              data={microsampleIdsWithENALink}
+              genomeName={genomeName}
+              isLoading={false}
+              error={microError}
+            />
+          )}
+        </div>
       </div>
     </ParamsValidator>
   )

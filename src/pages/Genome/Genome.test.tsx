@@ -117,10 +117,10 @@ describe('Genome', () => {
     expect(screen.getByText('2%')).toBeInTheDocument()
   })
 
-  it('renders tabs for Macrosample and Microsample', () => {
+  it('renders tabs for Macrosamples and Microsamples', () => {
     renderGenome('Genome1')
-    expect(screen.getByText('Macrosample')).toBeInTheDocument()
-    expect(screen.getByText('Microsample')).toBeInTheDocument()
+    expect(screen.getByText('Macrosamples')).toBeInTheDocument()
+    expect(screen.getByText('Microsamples')).toBeInTheDocument()
   })
 
   it('shows Macrosample tab by default', () => {
@@ -133,7 +133,7 @@ describe('Genome', () => {
     const user = userEvent.setup()
     renderGenome('Genome1')
 
-    await user.click(screen.getByText('Microsample'))
+    await user.click(screen.getByText('Microsamples'))
 
     expect(screen.getByTestId('microsample-tab')).toBeInTheDocument()
     expect(screen.queryByTestId('macrosample-tab')).not.toBeInTheDocument()

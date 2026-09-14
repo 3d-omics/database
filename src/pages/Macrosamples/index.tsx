@@ -37,6 +37,7 @@ type TData = {
 
 const Macrosample = (
   {
+    displayPageHeader = true,
     displayTableHeader,
     displayTableDescription,
     displayTableFilters,
@@ -50,6 +51,7 @@ const Macrosample = (
     setCheckedMetaboliteIds,
     experimentId,
   }: {
+    displayPageHeader?: boolean
     displayTableHeader?: boolean
     displayTableDescription?: boolean
     displayTableFilters?: boolean
@@ -402,6 +404,7 @@ const Macrosample = (
       data={dataToUse as TData[]}
       columns={columns}
       pageTitle={pageTitle}
+      displayPageHeader={displayPageHeader}
       displayTableHeader={displayTableHeader}
       displayTableDescription={displayTableDescription}
       displayTableFilters={displayTableFilters}

@@ -3,19 +3,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 import experimentsWithGenomeInfo from 'assets/data/airtable/experimentswithgenomeinfo.json'
+import PageHeader from 'components/PageHeader'
 
 const MAGCatalogueList = () => {
 
   return (
-    <div className='page_padding pt-7 min-h-[calc(100dvh-(var(--navbar-height)+var(--footer-height)))]'>
+    <div className='min-h-[calc(100dvh-(var(--navbar-height)+var(--footer-height)))]'>
 
-      <header className='main_header mb-4'>List of MAG Catalogues</header>
+      <PageHeader
+        title='MAG Catalogues'
+        breadcrumbs={[
+          { label: 'Data Portal Home', link: '/' },
+          { label: 'MAG Catalogues' },
+        ]}
+      >
+        <p>
+          Metagenome-assembled genome (MAG) catalogues are trial-specific collections of bacterial and archaeal genomes reconstructed from the faecal and intestinal samples collected from the experimental animals. Each catalogue contains hundreds of near-complete genomes reconstructed using hybrid DNA sequencing, combining long-read PacBio HiFi and short-read Illumina sequencing. In the following pages you will be able to browse these catalogues. Use the provided links to download the genome sequences and their annotations.
+        </p>
+      </PageHeader>
 
-      <p className='page_description'>
-        Metagenome-assembled genome (MAG) catalogues are trial-specific collections of bacterial and archaeal genomes reconstructed from the faecal and intestinal samples collected from the experimental animals. Each catalogue contains hundreds of near-complete genomes reconstructed using hybrid DNA sequencing, combining long-read PacBio HiFi and short-read Illumina sequencing. In the following pages you will be able to browse these catalogues. Use the provided links to download the genome sequences and their annotations.
-      </p>
-
-      <ul className='space-y-4'>
+      <ul className='page_padding space-y-4'>
         {animalTrialExperimentData.map((experiment) => {
           const link = experimentsWithGenomeInfo.filter((exp) => exp.fields.ID === experiment.fields.ID)[0]?.fields.link
           const doi = experimentsWithGenomeInfo.filter((exp) => exp.fields.ID === experiment.fields.ID)[0]?.fields.doi
@@ -27,9 +34,9 @@ const MAGCatalogueList = () => {
                   to={`/mag-catalogues/${encodeURIComponent(experiment.fields.Name)}`}
                   className='before:absolute before:inset-0 before:z-0'
                 >
-                  <h1 className='text-lg font-medium mb-1 group-hover:text-mustard group-hover:underline'>
+                  <h2 className='text-lg font-medium mb-1 group-hover:text-mustard group-hover:underline'>
                     {experiment.fields.Name}
-                  </h1>
+                  </h2>
                 </Link>
 
                 <div className='flex gap-4 text-xs text-gray-500 font-extralight [&>span]:flex [&>span]:gap-1 max-md:flex-col max-md:gap-0'>

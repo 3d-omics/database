@@ -20,6 +20,18 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Added
 
+- A **Methods** section at the end of the menu, with MAG Catalogue, Macro
+  Metagenomics, Micro Metagenomics and Metabolomics pages under `/methods/<name>`. Each
+  page opens with its title and introduction on the triangle-patterned `bg-prism` banner
+  of the home page, followed by *Laboratory processing* and *Bioinformatic processing*
+  sections whose headings carry a mustard-to-burgundy triangle (`clip-triangle`). All
+  their text lives in one file, `src/pages/Methods/methodsContent.ts`, and a section left
+  empty is shown as "in preparation"; so far the MAG Catalogue, Macro Metagenomics and
+  Micro Metagenomics pages are written. Cited works are listed under *References* at the bottom of the page,
+  each linked by DOI or, for software without one, its release page or repository. In-text citations link to their entry: clicking one
+  scrolls to it, moves focus there and highlights it briefly. On mobile, a menu section with no same-named link now gets a heading
+  over its links, and the last desktop dropdown opens leftwards so it stays on screen
+  ([`8ed6df4`][8ed6df4]).
 - The home page lists its experiments in a horizontal carousel: a native scroll
   container, so touch swipes and trackpad scrolling need no JavaScript, with snap points
   and wrap-around chevron buttons labelled for screen readers. The order is shuffled on
@@ -29,6 +41,34 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- Every page except the home page opens the way the Methods pages do: the breadcrumb
+  trail, then the title and introduction on the triangle-patterned `bg-prism` banner,
+  drawn by one shared `PageHeader` component. The list pages gain a breadcrumb trail;
+  on detail pages (trials, specimens, samples, MAG catalogues, genomes, metabolomics
+  plots) the key facts — IDs, dates, accessions, MAG statistics — and the description
+  move onto the banner, above the tabs, and a trial's *View MAG Catalogue* link joins
+  its facts. Tables embedded as tabs keep their own title. Each page now has one `<h1>`:
+  table titles are `<h2>`, as are the experiment names on the MAG Catalogues and
+  Metagenomics lists, which were each an `<h1>` ([`8ed6df4`][8ed6df4]).
+- Each section has one name, the one the menu gives it, wherever it appears: page
+  title, breadcrumbs, browser tab and tab strips. *List of MAG Catalogues* (tab: *MAG
+  Catalogue List*) is now *MAG Catalogues*; *Macrosample Community Composition* is now
+  *Metagenomics*, as the menu and home page already called it, and the cryosection tab
+  *Microsamples Community Composition* follows suit; breadcrumbs no longer say *Animal
+  Trial* or *Animal Specimen*; genome pages' tabs are plural, *Macrosamples* and
+  *Microsamples*. Breadcrumbs follow the menu's hierarchy, so *Metagenomics* and
+  *Metabolomics* sit under *Macrosamples*, and a metabolomics plot's trail runs through
+  its experiment to *Volcano Plot* or *Heatmap*, which is now the page title. The
+  browser tab is named by the page header — its title, then the level above it in the
+  trail, as in *Volcano Plot - G - Salmonella experiment (chicken)* — in place of the
+  list of routes `App.tsx` kept by hand ([`8ed6df4`][8ed6df4]).
+- Breadcrumbs follow the site's look. The grey chevrons between levels are small
+  mustard-to-burgundy triangles, the same `clip-triangle` mark as the Methods section
+  headings; links turn mustard on hover, and only the last item — the current page — is
+  set in burgundy, so an unlinked level such as *Methods* no longer reads as current.
+  They are now a labelled `<nav>` around an ordered list with `aria-current` on the
+  current page, wrap onto a second line rather than overflowing, and the mobile home icon
+  keeps "Data Portal Home" as its accessible name ([`8ed6df4`][8ed6df4]).
 - Links inside data tables no longer carry an underline. Nearly every cell in an ID or
   accession column is a link, and underlining all of them ruled the table without telling
   a reader anything the column had not already. Links in prose are unchanged
@@ -263,6 +303,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[8ed6df4]: https://github.com/3d-omics/database/commit/8ed6df42abefde8dbad5f71e0f7989812799c01a
 [3d0beea]: https://github.com/3d-omics/database/commit/3d0beea613d28edfa2ca961a78377cb30af0f690
 [43b367e]: https://github.com/3d-omics/database/commit/43b367e43047dacca461e7cbf2281c1b4de2b90d
 [f901710]: https://github.com/3d-omics/database/commit/f9017109658bfb4feb663a4be12e317bef230d8b

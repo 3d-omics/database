@@ -131,7 +131,7 @@ describe('CryosectionOverview', () => {
 
     expect(screen.getByTestId('tabs')).toBeInTheDocument()
     expect(screen.getByText('Microsamples')).toBeInTheDocument()
-    expect(screen.getByText('Microsamples Community Composition')).toBeInTheDocument()
+    expect(screen.getByText('Metagenomics')).toBeInTheDocument()
   })
 
   it('shows Microsamples tab by default', () => {
@@ -145,7 +145,7 @@ describe('CryosectionOverview', () => {
     const user = userEvent.setup()
     renderPage()
 
-    const compositionButton = screen.getByText('Microsamples Community Composition')
+    const compositionButton = screen.getByText('Metagenomics')
     await user.click(compositionButton)
 
     expect(screen.getByTestId('composition-tab')).toBeInTheDocument()

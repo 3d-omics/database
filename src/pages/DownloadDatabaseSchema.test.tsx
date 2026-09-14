@@ -1,10 +1,17 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
+import { MemoryRouter } from 'react-router-dom'
 import DownloadDatabaseSchema from './DownloadDatabaseSchema'
 
 describe('DownloadDatabaseSchema', () => {
   const originalCreateElement = document.createElement
+
+  const renderPage = () => render(
+    <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <DownloadDatabaseSchema />
+    </MemoryRouter>
+  )
 
   beforeEach(() => {
     vi.clearAllMocks()
@@ -16,40 +23,41 @@ describe('DownloadDatabaseSchema', () => {
   })
 
   it('renders page header', () => {
-    render(<DownloadDatabaseSchema />)
-    expect(screen.getByText('Download Database Schema')).toBeInTheDocument()
+    renderPage()
+    expect(screen.getByRole('heading', { level: 1, name: 'Download Database Schema' })).toBeInTheDocument()
   })
 
   it('renders page description', () => {
-    render(<DownloadDatabaseSchema />)
+    renderPage()
     expect(screen.getByText(/database schema provides means/i)).toBeInTheDocument()
   })
 
   it('renders download button', () => {
-    render(<DownloadDatabaseSchema />)
+    renderPage()
     expect(screen.getByRole('button', { name: /Download JSON file/i })).toBeInTheDocument()
   })
 
   it('triggers download when button clicked', async () => {
     const user = userEvent.setup()
-    
+
+    // Render first: the breadcrumb links are <a> elements the mock would replace
+    renderPage()
+
     // Mock only for 'a' elements
     const mockLink = {
       href: '',
       download: '',
       click: vi.fn(),
     }
-    
+
     const createElementSpy = vi.fn((tag: string) => {
       if (tag === 'a') {
         return mockLink
       }
       return originalCreateElement.call(document, tag)
     })
-    
-    document.createElement = createElementSpy as any
 
-    render(<DownloadDatabaseSchema />)
+    document.createElement = createElementSpy as any
 
     const downloadButton = screen.getByRole('button', { name: /Download JSON file/i })
     await user.click(downloadButton)
@@ -61,15 +69,15 @@ describe('DownloadDatabaseSchema', () => {
   })
 
   it('renders examples section', () => {
-    render(<DownloadDatabaseSchema />)
-    
+    renderPage()
+
     expect(screen.getByText('Examples')).toBeInTheDocument()
     expect(screen.getByText(/List all individual animal IDs/i)).toBeInTheDocument()
   })
 
   it('renders multiple example commands', () => {
-    render(<DownloadDatabaseSchema />)
-    
+    renderPage()
+
     const jqCommands = screen.getAllByText(/jq/i)
     expect(jqCommands.length).toBeGreaterThan(1)
   })

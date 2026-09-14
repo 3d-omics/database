@@ -28,7 +28,8 @@ export type TData = {
   }
 }
 
-const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody, filterWith = [] }: {
+const Microsample = ({ displayPageHeader = true, displayTableHeader, displayTableFilters, displayTableBody, filterWith = [] }: {
+  displayPageHeader?: boolean
   displayTableHeader?: boolean
   displayTableFilters?: boolean
   displayTableBody?: boolean
@@ -148,6 +149,7 @@ const Microsample = ({ displayTableHeader, displayTableFilters, displayTableBody
       columns={columns}
       pageTitle={'Microsamples'}
       tableDescription={tableDescription}
+      displayPageHeader={displayPageHeader}
       displayTableHeader={displayTableHeader}
       displayTableFilters={displayTableFilters}
       displayTableBody={displayTableBody}

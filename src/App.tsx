@@ -1,5 +1,5 @@
 import './App.css'
-import { useLayoutEffect, useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 
 import Nav from 'components/Navbar'
@@ -33,6 +33,10 @@ import CryosectionOverview from 'pages/CryosectionOverview'
 
 import DownloadDatabaseSchema from 'pages/DownloadDatabaseSchema'
 
+import Methods from 'pages/Methods'
+
+import { SITE_TITLE } from 'config/siteTitle'
+
 function App() {
 
   const Wrapper = ({ children }: { children: React.ReactElement }) => {
@@ -43,70 +47,12 @@ function App() {
     return children
   }
 
+  // Every page with a PageHeader names the browser tab from it. This names it for
+  // the rest — the home page, and pages still loading or not found — and, as a
+  // layout effect, runs before the header's own effect on the same navigation
   const location = useLocation()
-  useEffect(() => {
-    const BASE_TITLE = "3D'omics Data Portal"
-    const getTitle = (pathname: string) => {
-      let title = ""
-      if (pathname === "/") title = "Home"
-      else if (pathname === "/animal-trials") title = "Animal Trials"
-      else if (pathname === "/animal-specimens") title = "Animal Specimens"
-      else if (pathname === "/macrosamples") title = "Macrosamples"
-      else if (pathname === "/cryosections") title = "Cryosections"
-      else if (pathname === "/microsamples") title = "Microsamples"
-      else if (pathname === "/metabolomics") title = "Metabolomics"
-      else if (pathname === "/macrosample-compositions") title = "Macrosample Community Composition"
-      else if (pathname === "/mag-catalogues") title = "MAG Catalogue List"
-      else if (pathname === "/database-schema") title = "Download Database Schema"
-      else {
-        const experimentMatch = pathname.match(/^\/animal-trials\/([^/]+)$/)
-        if (experimentMatch) { // Match /animal-trials/:experimentName/
-          title = decodeURIComponent(experimentMatch[1])
-        } else { // Match /mag-catalogues/:experimentName/:genomeName
-          const genomeMatch = pathname.match(/^\/mag-catalogues\/([^/]+)\/([^/]+)$/)
-          if (genomeMatch) {
-            title = `${decodeURIComponent(genomeMatch[2])} | ${decodeURIComponent(genomeMatch[1])}`
-          } else { // Match /mag-catalogues/:experimentName
-            const catalogueMatch = pathname.match(/^\/mag-catalogues\/([^/]+)$/)
-            if (catalogueMatch) {
-              title = decodeURIComponent(catalogueMatch[1])
-            } else { // Match /macrosample-composition/:experimentName
-              const macroCompMatch = pathname.match(/^\/macrosample-compositions\/([^/]+)$/)
-              if (macroCompMatch) {
-                title = decodeURIComponent(macroCompMatch[1])
-              } else { // Match /metabolomics/volcano/:experimentName
-                const volcanoMatch = pathname.match(/^\/metabolomics\/volcano\/([^/]+)$/)
-                if (volcanoMatch) {
-                  title = `${decodeURIComponent(volcanoMatch[1])} - Volcano Plot`
-                } else { // Match /metabolomics/heatmap/:experimentName
-                  const heatmapMatch = pathname.match(/^\/metabolomics\/heatmap\/([^/]+)$/)
-                  if (heatmapMatch) {
-                    title = `${decodeURIComponent(heatmapMatch[1])} - Heatmap`
-                  } else { // Match /animal-specimens/:specimenName
-                    const specimenMatch = pathname.match(/^\/animal-specimens\/([^/]+)$/)
-                    if (specimenMatch) {
-                      title = decodeURIComponent(specimenMatch[1])
-                    } else { // Match /macrosamples/:macrosampleName
-                      const macrosampleMatch = pathname.match(/^\/macrosamples\/([^/]+)$/)
-                      if (macrosampleMatch) {
-                        title = decodeURIComponent(macrosampleMatch[1])
-                      } else { // Match /cryosections/:cryosectionName
-                        const cryosectionMatch = pathname.match(/^\/cryosections\/([^/]+)$/)
-                        if (cryosectionMatch) {
-                          title = decodeURIComponent(cryosectionMatch[1])
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-      return title ? `${title} | ${BASE_TITLE}` : BASE_TITLE
-    }
-    document.title = getTitle(location.pathname)
+  useLayoutEffect(() => {
+    document.title = location.pathname === '/' ? `Home | ${SITE_TITLE}` : SITE_TITLE
   }, [location])
 
 
@@ -142,6 +88,8 @@ function App() {
           <Route path="/microsample-compositions/:cryosection" element={<MicrosampleComposition />} />
 
           <Route path="/database-schema" element={<DownloadDatabaseSchema />} />
+
+          <Route path="/methods/:methodName" element={<Methods />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

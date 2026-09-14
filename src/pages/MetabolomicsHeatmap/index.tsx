@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
-import BreadCrumbs from 'components/BreadCrumbs'
+import PageHeader from 'components/PageHeader'
 import { useParams } from 'react-router-dom'
 import Macrosample from 'pages/Macrosamples'
 import { macrosampleWithMetaboliteData } from 'config/macrosampleWithMetaboliteData'
@@ -28,21 +28,23 @@ const MetabolomicsHeatmap = () => {
 
   return (
     <ParamsValidator validating={validating} notFound={notFound}>
-      <div className='page_padding -mb-12'>
-        <BreadCrumbs
-          items={[
-            { label: 'Data Portal Home', link: '/' },
-            { label: 'Metabolomics', link: '/metabolomics' },
-            { label: `${experimentName} - Heatmap ` },
-          ]}
-        />
-      </div>
+      <PageHeader
+        title='Heatmap'
+        breadcrumbs={[
+          { label: 'Data Portal Home', link: '/' },
+          { label: 'Macrosamples', link: '/macrosamples' },
+          { label: 'Metabolomics', link: '/metabolomics' },
+          { label: experimentName },
+          { label: 'Heatmap' },
+        ]}
+      />
 
       <Macrosample
+        displayPageHeader={false}
         filterWith={[{ id: 'ID', value: experimentId, condition: 'startsWith' }]}
         macrosampleWithMetaboliteData={filteredMacrosampleWithMetaboliteData}
         displayTableDescription={true}
-        pageTitle={'Sample selection for heatmap'}
+        pageTitle={'Sample Selection for Heatmap'}
         tableDescription={''}
         checkedMetaboliteIds={checkedMetaboliteIds}
         setCheckedMetaboliteIds={setCheckedMetaboliteIds}

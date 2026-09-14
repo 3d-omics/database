@@ -44,7 +44,7 @@ const Navbar = () => {
 
       <div className='flex items-center max-lg:hidden'>
         <ul className='flex items-center gap-7 text-xs font-semibold'>
-          {menus.map((menu) => (
+          {menus.map((menu, index) => (
             menu.sectionTitle
               ? (
                 <li
@@ -53,7 +53,8 @@ const Navbar = () => {
                   data-testid={`parentmenu-${menu.sectionTitle?.toLowerCase().replace(/\s/g, '-')}`}
                 >
                   {menu.sectionTitle}
-                  <ul className='absolute top-full px-4 duration-300 overflow-hidden max-h-0 bg-white rounded-md mt-3 -ml-4 shadow-2xl [&>li]:py-3 whitespace-nowrap'>
+                  {/* The last dropdown opens leftwards so it stays inside the viewport */}
+                  <ul className={`absolute top-full px-4 duration-300 overflow-hidden max-h-0 bg-white rounded-md mt-3 ${index === menus.length - 1 ? 'right-0 -mr-4' : '-ml-4'} shadow-2xl [&>li]:py-3 whitespace-nowrap`}>
                     {menu.subMenus.map((subMenu) => (
                       <li
                         className={`hover:text-mustard ${location === subMenu.location && 'text-mustard'}`}

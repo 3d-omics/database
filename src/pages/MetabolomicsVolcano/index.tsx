@@ -5,7 +5,7 @@ import AnalysisSettings from './components/AnalysisSetting'
 import SignificantMetabolitesTable from './components/SignificantMetabolitesTable'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
-import BreadCrumbs from 'components/BreadCrumbs'
+import PageHeader from 'components/PageHeader'
 import { getExperimentOptions } from '../../config/metaboliteOptions'
 import { volcanoPlotDescriptionText } from './descriptionText'
 
@@ -42,20 +42,20 @@ const Metabolomics = () => {
 
   return (
     <ParamsValidator validating={validating} notFound={notFound}>
-      <div className='px-4 pt-4 pb-4 flex flex-col overflow-auto'>
+      <PageHeader
+        title='Volcano Plot'
+        breadcrumbs={[
+          { label: 'Data Portal Home', link: '/' },
+          { label: 'Macrosamples', link: '/macrosamples' },
+          { label: 'Metabolomics', link: '/metabolomics' },
+          { label: experimentName },
+          { label: 'Volcano Plot' },
+        ]}
+      >
+        <p>{volcanoPlotDescriptionText[experimentId]}</p>
+      </PageHeader>
 
-        <BreadCrumbs
-          items={[
-            { label: 'Data Portal Home', link: '/' },
-            { label: 'Metabolomics', link: '/metabolomics' },
-            { label: `${experimentName} - Volcano Plot ` },
-          ]}
-        />
-
-        <div className='max-md:flex-col max-md:items-start'>
-          <header className='main_header pb-5'>{experimentName}</header>
-          <p className='page_description'>{volcanoPlotDescriptionText[experimentId]}</p>
-        </div>
+      <div className='page_padding flex flex-col overflow-auto'>
 
         <main className='rounded-md flex gap-4 bg-white min-h-[calc(100vh-(var(--navbar-height)+70px))] max-h-[calc(100vh-(var(--navbar-height)))]
           max-xl:flex-col max-xl:border-none max-xl:h-full max-xl:max-h-none

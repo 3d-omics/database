@@ -2,6 +2,7 @@ import Macrosample from 'pages/Macrosamples'
 const MacrosampleTab = ({ id }: { id: string }) => {
   return (
     <Macrosample
+      displayPageHeader={false}
       displayTableHeader={true}
       displayTableFilters={false}
       displayTableBody={true}

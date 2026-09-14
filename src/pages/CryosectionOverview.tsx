@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
-import BreadCrumbs from 'components/BreadCrumbs'
+import PageHeader from 'components/PageHeader'
 import cryosectionData from 'assets/data/airtable/cryosection.json'
 import MicrosampleTab from 'components/TabComponents/MicrosampleTab'
 import Tabs from 'components/Tabs'
@@ -45,18 +45,15 @@ const CryosectionOverview = () => {
       <div className='min-h-screen'>
         {cryosection && (
           <>
-            <section className='page_padding'>
-              <BreadCrumbs
-                items={[
-                  { label: 'Data Portal Home', link: '/' },
-                  { label: 'Cryosections', link: '/cryosections' },
-                  { label: cryosectionName }
-                ]}
-              />
-
-              <header className='main_header mb-3'>{cryosectionName}</header>
-
-              <div className='flex gap-4 text-sm text-gray-500 font-thin [&>span]:flex [&>span]:gap-1 max-lg:flex-col max-lg:gap-0.5'>
+            <PageHeader
+              title={cryosectionName}
+              breadcrumbs={[
+                { label: 'Data Portal Home', link: '/' },
+                { label: 'Cryosections', link: '/cryosections' },
+                { label: cryosectionName }
+              ]}
+            >
+              <div className='flex flex-wrap gap-x-4 gap-y-0.5 [&>span]:flex [&>span]:gap-1 max-lg:flex-col'>
                 <span>
                   Slide:&nbsp;
                   <b>{cryosection.fields['Slide_flat']}</b>
@@ -78,12 +75,14 @@ const CryosectionOverview = () => {
                   <b>{cryosection.fields['Microsample number']}</b>
                 </span>
               </div>
+            </PageHeader>
 
+            <section className='page_padding'>
               <Tabs
                 selectedTab={selectedTab}
                 setSelectedTab={setSelectedTab}
                 tabs={hasCommunityComposition
-                  ? ['Microsamples', 'Microsamples Community Composition']
+                  ? ['Microsamples', 'Metagenomics']
                   : ['Microsamples']
                 }
               />
@@ -91,7 +90,7 @@ const CryosectionOverview = () => {
 
             <main className='-mt-7'>
               {selectedTab === 'Microsamples' && <MicrosampleTab id={cryosection.fields.ID} />}
-              {(hasCommunityComposition && selectedTab === 'Microsamples Community Composition')
+              {(hasCommunityComposition && selectedTab === 'Metagenomics')
                 && <MicrosampleComposition cryosection={cryosection.fields.ID} />
               }
             </main>

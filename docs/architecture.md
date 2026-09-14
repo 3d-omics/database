@@ -31,9 +31,9 @@ Everything else — Airtable records, genome metadata, count matrices — is a s
 - [src/main.tsx](../src/main.tsx) — mounts `BrowserRouter` with `basename='/database/'`
   and wraps the app in `RedirectHandler`, which consumes the `redirectPath` written by
   [public/404.html](../public/404.html). See [deployment.md](deployment.md).
-- [src/App.tsx](../src/App.tsx) — the route table, plus a `getTitle` function that derives
-  `document.title` from the pathname through a chain of regex matches. Every new route
-  needs a branch there too.
+- [src/App.tsx](../src/App.tsx) — the route table. Pages name the browser tab through
+  their `PageHeader` (title, then the level above it in the breadcrumbs); `App` only sets
+  the tab for pages without one — the home page and pages still loading or not found.
 
 ## Routes
 
@@ -59,6 +59,7 @@ Everything else — Airtable records, genome metadata, count matrices — is a s
 | `/metabolomics/heatmap/:experimentName` | `pages/MetabolomicsHeatmap` | metabolomics XLSX |
 | `/microsample-compositions/:cryosection` | `pages/MicrosampleComposition` | **dead route** — see [known-issues.md](known-issues.md) |
 | `/database-schema` | `pages/DownloadDatabaseSchema` | `public/experiment-hierarchy.json` |
+| `/methods/:methodName` | `pages/Methods` | `pages/Methods/methodsContent.ts` (static text; unknown names render `NotFound`) |
 | `*` | `pages/NotFound` | — |
 
 The `MicrosampleComposition` component *is* used, but as an embedded tab inside
@@ -75,7 +76,8 @@ convention; choose by complexity.
 
 | Component | Role |
 |---|---|
-| `components/TableView` | Page-level wrapper: heading + `Table` |
+| `components/PageHeader` | How every page but Home opens: breadcrumbs, then the `<h1>` and introduction on the `bg-prism` banner (the Methods layout). Detail pages put their key facts in the introduction. It also names the browser tab: the title, then the level above it in the trail |
+| `components/TableView` | Page-level wrapper around `Table`. With `displayPageHeader` the table *is* the page, and its title and description open it on a `PageHeader`; the list pages set it by default and their `TabComponents` wrappers turn it off |
 | `components/Table` | TanStack Table v8 host — sorting, global + column filters, pagination (100/page), TSV export. Sub-parts live in `Table/components/` |
 | `components/Tabs` | Tab strip used by all the `*Overview` pages |
 | `components/TabComponents/*` | Thin wrappers that embed a filtered list page as a tab (e.g. all macrosamples whose ID starts with a specimen ID) |

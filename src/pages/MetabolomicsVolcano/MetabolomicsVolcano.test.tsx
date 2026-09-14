@@ -87,8 +87,9 @@ describe('Metabolomics', () => {
     expect(screen.getByText('Metabolomics')).toBeInTheDocument()
   })
 
-  it('displays experiment name as header', () => {
+  it('displays the plot as header and the experiment in the breadcrumbs', () => {
     renderPage('G - Test Experiment')
+    expect(screen.getByRole('heading', { level: 1, name: 'Volcano Plot' })).toBeInTheDocument()
     expect(screen.getByText('G - Test Experiment')).toBeInTheDocument()
   })
 

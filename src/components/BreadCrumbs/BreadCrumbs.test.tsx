@@ -59,6 +59,33 @@ describe('BreadCrumbs', () => {
     expect(currentPage).toHaveClass('font-semibold')
   })
 
+  it('marks only the last item as the current page', () => {
+    const items = [
+      { label: 'Home', link: '/' },
+      { label: 'Section' },
+      { label: 'Current Page' },
+    ]
+
+    renderBreadCrumbs(items)
+
+    expect(screen.getByText('Current Page')).toHaveAttribute('aria-current', 'page')
+    expect(screen.getByText('Section')).not.toHaveAttribute('aria-current')
+    expect(screen.getByText('Section')).not.toHaveClass('font-semibold')
+  })
+
+  it('separates the items with a triangle', () => {
+    const items = [
+      { label: 'Home', link: '/' },
+      { label: 'List', link: '/list' },
+      { label: 'Details' },
+    ]
+
+    renderBreadCrumbs(items)
+
+    const nav = screen.getByRole('navigation', { name: 'Breadcrumb' })
+    expect(nav.querySelectorAll('.clip-triangle')).toHaveLength(2)
+  })
+
   it('renders home icon for Data Portal Home', () => {
     const items = [{ label: 'Data Portal Home', link: '/' }]
 

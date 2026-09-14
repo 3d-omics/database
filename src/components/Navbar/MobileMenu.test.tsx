@@ -99,6 +99,18 @@ describe('MobileMenu', () => {
     expect(screen.getByRole('link', { name: /About/i })).toBeInTheDocument()
   })
 
+  it('renders a heading for a section with no same-named link', async () => {
+    const user = userEvent.setup()
+    renderMobileMenu()
+
+    const hamburger = screen.getByTestId('hamburger-menu')
+    await user.click(hamburger)
+
+    const heading = screen.getByText('Data')
+    expect(heading.tagName).toBe('LI')
+    expect(heading.closest('a')).toBeNull()
+  })
+
   it('renders SocialIcons when opened', async () => {
     const user = userEvent.setup()
     renderMobileMenu()
