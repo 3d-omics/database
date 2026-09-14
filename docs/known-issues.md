@@ -86,7 +86,7 @@ links to the route, so it has presumably never been noticed.
 
 *Fix:* read the param inside the component (`const { cryosection } = useParams()`,
 falling back to the prop so the `CryosectionOverview` tab keeps working), or delete the
-route. Also add its branch to `getTitle` in `App.tsx` if it is kept.
+route. If it is kept, open it with a `PageHeader`, which also names the browser tab.
 
 ### P1-3 · Metabolomics workbooks are read by sheet index
 
@@ -135,6 +135,9 @@ name; likewise for `MicrosampleTab`. Easy to edit the wrong one.
 regexes, and it is missing a case for `/microsample-compositions`.
 
 *Fix:* a flat array of `[pattern, formatter]` pairs, or set the title per page.
+
+*Status:* resolved (September 2026). `getTitle` is gone: each page's `PageHeader` names
+the tab from its title and breadcrumbs, and `App` only covers pages without one.
 
 ### P2-5 · Hard-coded per-experiment data in `src/config/`
 

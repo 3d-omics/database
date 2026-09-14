@@ -49,7 +49,8 @@ export type TData = {
   }
 }
 
-const Cryosection = ({ displayTableHeader, displayTableFilters, displayTableBody, filterWith = [] }: {
+const Cryosection = ({ displayPageHeader = true, displayTableHeader, displayTableFilters, displayTableBody, filterWith = [] }: {
+  displayPageHeader?: boolean
   displayTableHeader?: boolean
   displayTableFilters?: boolean
   displayTableBody?: boolean
@@ -157,6 +158,7 @@ const Cryosection = ({ displayTableHeader, displayTableFilters, displayTableBody
       columns={columns}
       pageTitle={'Cryosections'}
       tableDescription={tableDescription}
+      displayPageHeader={displayPageHeader}
       displayTableHeader={displayTableHeader}
       displayTableFilters={displayTableFilters}
       displayTableBody={displayTableBody}

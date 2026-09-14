@@ -3,6 +3,7 @@ import Cryosection from 'pages/Cryosections'
 const CryosectionTab = ({ id }: { id: string }) => {
   return (
     <Cryosection
+      displayPageHeader={false}
       displayTableHeader={true}
       displayTableFilters={false}
       displayTableBody={true}

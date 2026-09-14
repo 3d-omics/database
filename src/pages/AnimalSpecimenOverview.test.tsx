@@ -103,7 +103,7 @@ describe('AnimalSpecimenOverview', () => {
 
     expect(screen.getByTestId('breadcrumbs')).toBeInTheDocument()
     expect(screen.getByText('Data Portal Home')).toBeInTheDocument()
-    expect(screen.getByText('Animal Specimen')).toBeInTheDocument()
+    expect(screen.getByText('Animal Specimens')).toBeInTheDocument()
   })
 
   it('displays specimen name as header', () => {

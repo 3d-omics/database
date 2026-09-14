@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import TaxonomyChart from './components/TaxonomyChart'
 import TaxonomyChartLegend from 'components/TaxonomyChartLegend'
-import BreadCrumbs from 'components/BreadCrumbs'
+import PageHeader from 'components/PageHeader'
 import { useParams } from 'react-router-dom'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
@@ -21,22 +21,19 @@ const MacrosampleComposition = () => {
 
   return (
     <ParamsValidator validating={validating} notFound={notFound} >
-      <div className='px-8 max-w-screen'>
+      <div className='max-w-screen'>
 
-        <section className='pt-4 pb-12 max-xl:pb-6 -mb-6'>
-          <BreadCrumbs
-            items={[
-              { label: 'Data Portal Home', link: '/' },
-              { label: 'Macrosamples Community Composition', link: '/macrosample-compositions' },
-              { label: experimentName },
-            ]}
-          />
-          <header className='main_header mb-4'>
-            {experimentName}
-          </header>
-        </section>
+        <PageHeader
+          title={experimentName}
+          breadcrumbs={[
+            { label: 'Data Portal Home', link: '/' },
+            { label: 'Macrosamples', link: '/macrosamples' },
+            { label: 'Metagenomics', link: '/macrosample-compositions' },
+            { label: experimentName },
+          ]}
+        />
 
-        <div className='flex min-h-[calc(100vh-300px)] justify-between gap-10 items-start
+        <div className='page_padding flex min-h-[calc(100vh-300px)] justify-between gap-10 items-start
               max-xl:flex-col max-xl:items-start max-xl:gap-12 max-xl:h-fit max-xl:mb-12'>
           <TaxonomyChart
             experimentId={experimentId}

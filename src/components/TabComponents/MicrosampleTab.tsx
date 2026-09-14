@@ -3,6 +3,7 @@ import Microsample from 'pages/Microsamples'
 const MicrosampleTab = ({ id }: { id: string }) => {
   return (
     <Microsample
+      displayPageHeader={false}
       displayTableHeader={true}
       displayTableFilters={false}
       displayTableBody={true}

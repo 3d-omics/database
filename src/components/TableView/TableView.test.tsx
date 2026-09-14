@@ -1,11 +1,20 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
 import TableView from './index'
 import { ColumnDef } from '@tanstack/react-table'
 
 // Mock child components
 vi.mock('components/Table', () => ({
-  default: ({ pageTitle }: any) => <div data-testid='table'>{pageTitle}</div>,
+  default: ({ pageTitle, displayTableTitle, displayTableDescription }: any) => (
+    <div
+      data-testid='table'
+      data-display-title={String(displayTableTitle)}
+      data-display-description={String(displayTableDescription)}
+    >
+      {pageTitle}
+    </div>
+  ),
 }))
 
 vi.mock('components/ErrorBanner', () => ({
@@ -82,5 +91,41 @@ describe('TableView', () => {
     )
 
     expect(screen.queryByTestId('error-banner')).not.toBeInTheDocument()
+  })
+
+  it('keeps the title on the table when it is not the page', () => {
+    render(
+      <TableView
+        columns={mockColumns}
+        data={mockData}
+        pageTitle='Test Table'
+        tableDescription='About the table'
+      />
+    )
+
+    expect(screen.queryByRole('heading', { level: 1 })).not.toBeInTheDocument()
+    expect(screen.getByTestId('table')).toHaveAttribute('data-display-title', 'true')
+  })
+
+  it('opens the page with its title and description on the page header', () => {
+    render(
+      <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <TableView
+          columns={mockColumns}
+          data={mockData}
+          pageTitle='Animal Trials'
+          tableDescription='About the trials'
+          displayPageHeader
+        />
+      </MemoryRouter>
+    )
+
+    expect(screen.getByRole('heading', { level: 1, name: 'Animal Trials' })).toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: 'Breadcrumb' })).toHaveTextContent('Data Portal Home')
+    expect(screen.getByRole('banner')).toHaveTextContent('About the trials')
+
+    const table = screen.getByTestId('table')
+    expect(table).toHaveAttribute('data-display-title', 'false')
+    expect(table).toHaveAttribute('data-display-description', 'false')
   })
 })

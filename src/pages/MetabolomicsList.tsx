@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faFileArrowDown } from '@fortawesome/free-solid-svg-icons'
 import experimentsWithGenomeInfo from 'assets/data/airtable/experimentswithgenomeinfo.json'
+import PageHeader from 'components/PageHeader'
 import experimentG from 'assets/data/metabolomics/metabolomics_G.xlsx'
 import experimentH from 'assets/data/metabolomics/metabolomics_H.xlsx'
 import experimentI from 'assets/data/metabolomics/metabolomics_I.xlsx'
@@ -36,14 +37,21 @@ const MetabolomicsList = () => {
   }
 
   return (
-    <div className='page_padding pt-7 min-h-[calc(100dvh-(var(--navbar-height)+var(--footer-height)))]'>
-      <header className='main_header mb-4'>Metabolomics</header>
+    <div className='min-h-[calc(100dvh-(var(--navbar-height)+var(--footer-height)))]'>
+      <PageHeader
+        title='Metabolomics'
+        breadcrumbs={[
+          { label: 'Data Portal Home', link: '/' },
+          { label: 'Macrosamples', link: '/macrosamples' },
+          { label: 'Metabolomics' },
+        ]}
+      >
+        <p>
+          Metabolic landscapes of the intestine were produced for each animal specimen using intestinal content and tissue samples. Here, you can visualise differences between different contrasting groups across various experiments.
+        </p>
+      </PageHeader>
 
-      <p className='page_description'>
-        Metabolic landscapes of the intestine were produced for each animal specimen using intestinal content and tissue samples. Here, you can visualise differences between different contrasting groups across various experiments.
-      </p>
-
-      <ul className=''>
+      <ul className='page_padding'>
         {experimentsWithGenomeInfo
           .map((experiment) => (
             <li key={experiment.id} className='mb-12'>

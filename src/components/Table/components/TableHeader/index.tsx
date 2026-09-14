@@ -4,11 +4,13 @@ import DownloadTSVButton from './DownloadTSVButton'
 
 const TableHeader = <TData,>({
   pageTitle,
+  displayTitle = true,
   filteredDataLength,
   filteredAndSortedData,
   columns
 }: {
   pageTitle: string
+  displayTitle?: boolean
   filteredDataLength: number
   filteredAndSortedData: any[]
   columns: ColumnDef<TData>[]
@@ -16,7 +18,7 @@ const TableHeader = <TData,>({
   return (
     <section className='z-20 bg-white flex justify-between items-center pb-5 max-md:flex-col max-md:items-start'>
       <div className='flex gap-4 items-center max-sm:block'>
-        <header className='main_header max-sm:mb-1.5'>{pageTitle}</header>
+        {displayTitle && <h2 className='main_header max-sm:mb-1.5'>{pageTitle}</h2>}
         <section className='flex items-center text-sm max-sm:text-xs'>
           <div className='mr-6 p-2 bg-light_mustard rounded-md max-sm:p-1'>
             <b>{filteredDataLength}</b> records

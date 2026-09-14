@@ -62,7 +62,7 @@ describe('MetabolomicsList', () => {
 
   it('renders page header', () => {
     renderPage()
-    expect(screen.getByText('Metabolomics')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1, name: 'Metabolomics' })).toBeInTheDocument()
   })
 
   it('renders page description', () => {
@@ -112,6 +112,9 @@ describe('MetabolomicsList', () => {
   it('triggers download when download button clicked', async () => {
     const user = userEvent.setup()
 
+    // Render first: the page's own links are <a> elements the mock would replace
+    renderPage()
+
     const mockLink = originalCreateElement.call(document, 'a') as HTMLAnchorElement
     mockLink.addEventListener('click', (e) => e.preventDefault())
     const clickSpy = vi.spyOn(mockLink, 'click')
@@ -124,8 +127,6 @@ describe('MetabolomicsList', () => {
     })
 
     document.createElement = createElementSpy as any
-
-    renderPage()
 
     const downloadButton = screen.getByRole('button', { name: /Download Excel File for experiment G/i })
     await user.click(downloadButton)

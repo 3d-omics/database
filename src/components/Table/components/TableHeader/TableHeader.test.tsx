@@ -31,7 +31,22 @@ describe('TableHeader', () => {
       />
     )
 
-    expect(screen.getByText('Animal Trials')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 2, name: 'Animal Trials' })).toBeInTheDocument()
+  })
+
+  it('hides the title when displayTitle is false', () => {
+    render(
+      <TableHeader
+        pageTitle='Animal Trials'
+        displayTitle={false}
+        filteredDataLength={10}
+        filteredAndSortedData={mockData}
+        columns={mockColumns}
+      />
+    )
+
+    expect(screen.queryByText('Animal Trials')).not.toBeInTheDocument()
+    expect(screen.getByText('records')).toBeInTheDocument()
   })
 
   it('displays filtered data count', () => {

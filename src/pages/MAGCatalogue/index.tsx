@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import Table from './components/Table'
 import PhyloCircosPlot from './components/PhyloCircosPlot'
 import { useParams } from 'react-router-dom'
-import BreadCrumbs from 'components/BreadCrumbs'
+import PageHeader from 'components/PageHeader'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
 import { useGenomeJsonFile } from 'hooks/useJsonData'
@@ -213,18 +213,15 @@ const MAGCatalogue = () => {
   return (
     <ParamsValidator validating={validating} notFound={notFound}>
       <div className='min-h-screen'>
-        <section className='page_padding pt-7'>
-          <BreadCrumbs
-            items={[
-              { label: 'Data Portal Home', link: '/' },
-              { label: 'MAG Catalogues', link: '/mag-catalogues' },
-              { label: experimentName },
-            ]}
-          />
-
-          <header className='main_header mb-3'>{experimentName}</header>
-
-          <div className='flex gap-4 text-sm text-gray-500 mb-3 font-thin [&>span]:flex [&>span]:gap-1 max-lg:flex-col max-lg:gap-0.5 max-lg:mb-0.5'>
+        <PageHeader
+          title={experimentName}
+          breadcrumbs={[
+            { label: 'Data Portal Home', link: '/' },
+            { label: 'MAG Catalogues', link: '/mag-catalogues' },
+            { label: experimentName },
+          ]}
+        >
+          <div className='flex flex-wrap gap-x-4 gap-y-0.5 [&>span]:flex [&>span]:gap-1 max-lg:flex-col'>
             <span>
               Number of MAGs:&nbsp;
               <b>{experiment['MAG catalogue - Number of MAGs']}</b>
@@ -279,7 +276,7 @@ const MAGCatalogue = () => {
           </div>
 
           {(trialDoiAndLink.link || trialDoiAndLink.doi) &&
-            <div className='flex gap-4 text-sm text-gray-500 mb-3 font-thin [&>span]:flex [&>span]:gap-1 max-lg:flex-col max-lg:gap-0.5'>
+            <div className='flex flex-wrap gap-x-4 gap-y-0.5 [&>span]:flex [&>span]:gap-1 max-lg:flex-col'>
               {trialDoiAndLink.link &&
                 <span>
                   Link:&nbsp;
@@ -297,12 +294,14 @@ const MAGCatalogue = () => {
             </div>
           }
 
-          <div className='mb-8 page_description'>
+          <div>
             {experiment['MAG catalogue description']?.split('\n').map((line: string, index: number) => (
               <span key={index}>{line}<br /></span>
             ))}
           </div>
+        </PageHeader>
 
+        <section className='page_padding'>
           {hasError ? (
             <ErrorBanner>Failed to load genome metadata</ErrorBanner>
           ) : (

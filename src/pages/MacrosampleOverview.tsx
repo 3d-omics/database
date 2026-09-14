@@ -1,7 +1,7 @@
 import { useState, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import BreadCrumbs from 'components/BreadCrumbs'
+import PageHeader from 'components/PageHeader'
 import macrosampleData from 'assets/data/airtable/intestinalsectionsample.json'
 import CryosectionTab from 'components/TabComponents/CryosectionTab'
 import MicrosampleTab from 'components/TabComponents/MicrosampleTab'
@@ -36,18 +36,15 @@ const MacrosampleOverview = () => {
       <div className='min-h-screen'>
         {macrosample && (
           <>
-            <section className='page_padding'>
-              <BreadCrumbs
-                items={[
-                  { label: 'Data Portal Home', link: '/' },
-                  { label: 'Macrosamples', link: '/macrosamples' },
-                  { label: macrosampleName }
-                ]}
-              />
-
-              <header className='main_header mb-3'>{macrosampleName}</header>
-
-              <div className='flex gap-7 text-sm text-gray-500 pb-8 font-thin [&>span]:flex [&>span]:gap-1 max-lg:flex-col max-lg:gap-0.5'>
+            <PageHeader
+              title={macrosampleName}
+              breadcrumbs={[
+                { label: 'Data Portal Home', link: '/' },
+                { label: 'Macrosamples', link: '/macrosamples' },
+                { label: macrosampleName }
+              ]}
+            >
+              <div className='flex gap-7 max-lg:flex-col max-lg:gap-0.5'>
                 <div className='flex flex-col gap-0.5'>
                   <span>
                     Animal Specimen:&nbsp;
@@ -93,7 +90,9 @@ const MacrosampleOverview = () => {
                   </span>
                 </div>
               </div>
+            </PageHeader>
 
+            <section className='page_padding'>
               <Tabs
                 selectedTab={selectedTab}
                 setSelectedTab={setSelectedTab}

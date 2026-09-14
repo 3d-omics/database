@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
@@ -66,18 +66,26 @@ const MobileMenu = () => {
                 {menus.map((menu) => (
                   menu.sectionTitle
                     ? (
-                      menu.subMenus.map((subMenu) => (
-                        <li key={subMenu.title}>
-                          <Link
-                            to={subMenu.location}
-                            onClick={() => setMobileMenuOpened(false)}
-                            className={`block text-lg py-3 pl-6 font-semibold whitespace-nowrap hover:bg-burgundy ${location === subMenu.location ? 'text-mustard' : 'hover:text-white'} max-sm:text-base`}
-                          >
-                            {subMenu.title !== menu.sectionTitle && <FontAwesomeIcon icon={faCaretRight} className='mr-2 ml-3' />}
-                            {subMenu.title}
-                          </Link>
-                        </li>
-                      ))
+                      <Fragment key={menu.sectionTitle}>
+                        {/* A section with no same-named link still needs a heading over its sub-links */}
+                        {!menu.subMenus.some((subMenu) => subMenu.title === menu.sectionTitle) && (
+                          <li className='block text-lg py-3 pl-6 font-semibold whitespace-nowrap text-neutral-500 max-sm:text-base'>
+                            {menu.sectionTitle}
+                          </li>
+                        )}
+                        {menu.subMenus.map((subMenu) => (
+                          <li key={subMenu.location}>
+                            <Link
+                              to={subMenu.location}
+                              onClick={() => setMobileMenuOpened(false)}
+                              className={`block text-lg py-3 pl-6 font-semibold whitespace-nowrap hover:bg-burgundy ${location === subMenu.location ? 'text-mustard' : 'hover:text-white'} max-sm:text-base`}
+                            >
+                              {subMenu.title !== menu.sectionTitle && <FontAwesomeIcon icon={faCaretRight} className='mr-2 ml-3' />}
+                              {subMenu.title}
+                            </Link>
+                          </li>
+                        ))}
+                      </Fragment>
                     ) : (
                       <li key={menu.title}>
                         <Link

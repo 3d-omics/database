@@ -81,7 +81,8 @@ describe('MacrosampleComposition', () => {
 
     expect(screen.getByTestId('breadcrumbs')).toBeInTheDocument()
     expect(screen.getByText('Data Portal Home')).toBeInTheDocument()
-    expect(screen.getByText('Macrosamples Community Composition')).toBeInTheDocument()
+    expect(screen.getByText('Macrosamples')).toBeInTheDocument()
+    expect(screen.getByText('Metagenomics')).toBeInTheDocument()
   })
 
   it('renders TaxonomyChart with experimentId', () => {

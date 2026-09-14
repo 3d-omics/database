@@ -67,7 +67,7 @@ describe('MAGCatalogueList', () => {
 
   it('renders page header', () => {
     renderPage()
-    expect(screen.getByText('List of MAG Catalogues')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1, name: 'MAG Catalogues' })).toBeInTheDocument()
   })
 
   it('renders page description', () => {

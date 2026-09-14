@@ -105,7 +105,7 @@ describe('AnimalTrialOverview', () => {
 
     expect(screen.getByTestId('breadcrumbs')).toBeInTheDocument()
     expect(screen.getByText('Data Portal Home')).toBeInTheDocument()
-    expect(screen.getByText('Animal Trial')).toBeInTheDocument()
+    expect(screen.getByText('Animal Trials')).toBeInTheDocument()
   })
 
   it('displays experiment name', () => {

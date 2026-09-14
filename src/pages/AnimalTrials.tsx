@@ -104,6 +104,7 @@ const AnimalTrial = () => {
       columns={columns}
       pageTitle={'Animal Trials'}
       tableDescription={tableDescription}
+      displayPageHeader
     />
   )
 }

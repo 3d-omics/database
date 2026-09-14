@@ -15,11 +15,12 @@ type SortingState = {
   desc: boolean
 }[]
 
-const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, displayTableDescription = true, displayTableFilters = true, displayTableBody = true, tableDescription }: {
+const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, displayTableTitle = true, displayTableDescription = true, displayTableFilters = true, displayTableBody = true, tableDescription }: {
   data: TData[],
   columns: ColumnDef<TData>[],
   pageTitle: string,
   displayTableHeader?: boolean
+  displayTableTitle?: boolean
   displayTableDescription?: boolean
   displayTableFilters?: boolean
   displayTableBody?: boolean
@@ -50,6 +51,7 @@ const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, di
       {displayTableHeader &&
         <TableHeader
           pageTitle={pageTitle}
+          displayTitle={displayTableTitle}
           filteredDataLength={filteredData.length}
           filteredAndSortedData={filteredAndSortedData}
           columns={columns}

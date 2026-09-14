@@ -53,7 +53,7 @@ describe('MacrosampleCompositionList', () => {
 
   it('renders page header', () => {
     renderPage()
-    expect(screen.getByText('Macrosample Community Composition')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 1, name: 'Metagenomics' })).toBeInTheDocument()
   })
 
   it('renders page description', () => {

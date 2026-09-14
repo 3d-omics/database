@@ -80,7 +80,7 @@ describe('MetabolomicsHeatmap', () => {
     renderPage()
 
     expect(screen.getByTestId('macrosample-component')).toBeInTheDocument()
-    expect(screen.getByTestId('page-title')).toHaveTextContent('Sample selection for heatmap')
+    expect(screen.getByTestId('page-title')).toHaveTextContent('Sample Selection for Heatmap')
   })
 
   it('passes experimentId to Macrosample component', () => {
