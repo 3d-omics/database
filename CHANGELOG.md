@@ -74,6 +74,12 @@ moved it. If the project starts tagging releases, these headings become
   a reader anything the column had not already. Links in prose are unchanged
   ([`43b367e`][43b367e]).
 
+### Fixed
+
+- The deploy's catalogue download names itself with a User-Agent. Zenodo began answering
+  Node's default, `node`, with 403 Forbidden, which failed the fetch step before
+  anything was built ([`58e9a45`][58e9a45]).
+
 ---
 
 ## 2026-08-29 — Citable, checksummed build inputs
@@ -303,6 +309,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[58e9a45]: https://github.com/3d-omics/database/commit/58e9a45b57c73763bde8f0b3ec35d91953f9e6bb
 [8ed6df4]: https://github.com/3d-omics/database/commit/8ed6df42abefde8dbad5f71e0f7989812799c01a
 [3d0beea]: https://github.com/3d-omics/database/commit/3d0beea613d28edfa2ca961a78377cb30af0f690
 [43b367e]: https://github.com/3d-omics/database/commit/43b367e43047dacca461e7cbf2281c1b4de2b90d
