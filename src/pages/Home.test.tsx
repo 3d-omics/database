@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, within } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import Home from './Home'
 
@@ -85,6 +85,30 @@ describe('Home', () => {
     expect(screen.getByText('250')).toBeInTheDocument() // Macrosamples count
   })
 
+  it('shows record counts as tags with grouped thousands', () => {
+    renderPage()
+
+    expect(screen.getByText('1,000').parentElement).toHaveTextContent(/^1,000\s*records$/)
+    expect(screen.getByText('5').parentElement).toHaveClass('text-burgundy_ink')
+  })
+
+  it('reveals the blocks one after another down the hierarchy', () => {
+    renderPage()
+
+    const revealDelay = (title: string) => {
+      let element: HTMLElement | null = screen.getByRole('heading', { name: new RegExp(`^${title}`) })
+      while (element && !element.classList.contains('animate-rise-in')) element = element.parentElement
+      expect(element).toHaveClass('motion-reduce:animate-none')
+      return parseInt(element!.style.animationDelay, 10)
+    }
+
+    const delays = ['Animal Trials', 'MAG Catalogues', 'Animal Specimens', 'Macrosamples',
+      'Metagenomics', 'Metabolomics', 'Cryosections', 'Microsamples'].map(revealDelay)
+
+    expect(delays[0]).toBe(0)
+    delays.slice(1).forEach((delay, i) => expect(delay).toBeGreaterThan(delays[i]))
+  })
+
   it('renders all main navigation sections', () => {
     renderPage()
 
@@ -103,12 +127,14 @@ describe('Home', () => {
     expect(screen.getByText('Metabolomics')).toBeInTheDocument()
   })
 
-  it('renders download database schema button', () => {
+  it('introduces 3dtk with its install command and links', () => {
     renderPage()
 
-    const downloadLink = screen.getByRole('link', { name: /Download Database Schema/i })
-    expect(downloadLink).toBeInTheDocument()
-    expect(downloadLink).toHaveAttribute('href', '/database-schema')
+    const toolkit = screen.getByRole('region', { name: /3dtk/i })
+    expect(within(toolkit).getByText('pip install 3dtk')).toBeInTheDocument()
+    expect(within(toolkit).getByRole('link', { name: 'GitHub' })).toHaveAttribute('href', 'https://github.com/3d-omics/3dtk')
+    expect(within(toolkit).getByRole('link', { name: 'Documentation' })).toHaveAttribute('href', 'https://3dtk.readthedocs.io/')
+    expect(screen.queryByRole('link', { name: /Download Database Schema/i })).not.toBeInTheDocument()
   })
 
   it('slides the experiment carousel in both directions', () => {

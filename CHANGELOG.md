@@ -20,6 +20,19 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Added
 
+- The home page's section blocks and the arrows between them rise into view on load, one
+  after another down the sample hierarchy from Animal Trials to Microsamples (a `rise-in`
+  animation staggered 70 ms apart). Visitors who ask for reduced motion see them at once
+  ([`4229c64`][4229c64]).
+- A visitor-selectable dark mode, with a three-state system/light/dark toggle in desktop
+  and mobile navigation. The default follows the OS setting, each choice persists locally,
+  and a no-flash script applies the resolved theme before the application loads. A token
+  regression test prevents new raw neutral utilities from bypassing the shared theme
+  palette ([`b24a103`][b24a103]).
+- Theme plumbing for the forthcoming dark mode: a typed light/dark/system preference,
+  a no-flash `data-theme` script, `ThemeProvider`/`useTheme`, semantic colour tokens and
+  a daisyUI dark theme. Dark mode remains opt-in through `localStorage.theme` until the
+  launch phase ([`99ccee4`][99ccee4]).
 - A **Methods** section at the end of the menu, with MAG Catalogue, Macro
   Metagenomics, Micro Metagenomics and Metabolomics pages under `/methods/<name>`. Each
   page opens with its title and introduction on the triangle-patterned `bg-prism` banner
@@ -41,6 +54,47 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- The home page's "Download Database Schema" button is replaced by a full-width block
+  introducing 3dtk, the 3D'omics ToolKit, set directly above the footer: a short overview,
+  the `pip install 3dtk` command, and links to its
+  [GitHub repository](https://github.com/3d-omics/3dtk) and
+  [documentation](https://3dtk.readthedocs.io/). The `/database-schema` page itself stays
+  reachable at its URL ([`ff34c8f`][ff34c8f]).
+- The record counts on the home page's section blocks ("8 records", "1,466 records", …)
+  are now burgundy-tinted tags in the style of the navbar's "Data portal" tag, set between
+  each block's title and description, with the count in bold and thousands grouped. The
+  arrows connecting the blocks take the same burgundy ([`4229c64`][4229c64]).
+- The navbar's "Data Portal Home" entry is now a "Data portal" tag: a small rounded box
+  beside the 3D'omics logo rather than a menu entry, tinted burgundy on the home page. It
+  replaces the home icon the bar fell back to between the `lg` and `xl` breakpoints, and in
+  the mobile drawer it sits beside the logo in place of the home link at the top of the list
+  ([`c0b8eab`][c0b8eab]).
+- The page header's breadcrumbs now sit inside the `bg-prism` banner, which follows the
+  navbar directly, on a translucent strip that keeps them legible over the mustard end.
+  The navbar is now a frosted sticky bar with full-height entries: the entry of the open
+  page — or of any page below it — is lit and underlined in the mustard-to-burgundy
+  gradient, and hovered entries light up the same way. Dropdowns are frosted panels that
+  also open on keyboard focus, and their links carry the site's triangle mark. The mobile
+  drawer is frosted as well, slides in, and marks the open page the same way
+  ([`c548b8e`][c548b8e]).
+- Dark-mode texture overlays now use lower-opacity variants on dark surfaces, keeping the
+  Home carousel and navigation tiles legible. The existing transparent logo is approved
+  for the dark navbar, and the contrast audit confirmed the token palette, daisyUI focus
+  rings and native dark controls need no further changes ([`0379fd0`][0379fd0]).
+- Plotly, Chart.js and D3 charts now follow the resolved theme through a shared chart
+  palette: transparent Plotly canvases inherit the page surface, axes, grids and labels
+  remain legible, and the volcano plot uses accessible dark-theme label colours. Existing
+  taxonomy, phylum, heatmap and mustard data encodings remain unchanged ([`22b2349`][22b2349]).
+- Page-specific surfaces now respond to the selected theme: the home carousel and
+  navigation tiles, catalogue/list cards, volcano controls and table, taxonomy loading
+  states, Heatmap plot skeletons, Methods, the schema download, 404 and redirect loader
+  all use semantic colour tokens. Intended light fills — notably mustard badges — retain
+  fixed dark text ([`66f4f55`][66f4f55]).
+- The shared portal shell and reusable components now use semantic theme tokens: page
+  surfaces and text, navigation, breadcrumbs, tabs, tables, pagination, tooltips and
+  empty states all respond to the selected theme. Mustard record/filter badges and the
+  rose error banner retain their fixed dark text on their intentionally light fills
+  ([`091cad7`][091cad7]).
 - Every page except the home page opens the way the Methods pages do: the breadcrumb
   trail, then the title and introduction on the triangle-patterned `bg-prism` banner,
   drawn by one shared `PageHeader` component. The list pages gain a breadcrumb trail;
@@ -76,6 +130,8 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Fixed
 
+- OS dark-mode preferences no longer make daisyUI form controls dark while the page
+  surface remains light ([`09d837e`][09d837e]).
 - The deploy's catalogue download names itself with a User-Agent. Zenodo began answering
   Node's default, `node`, with 403 Forbidden, which failed the fetch step before
   anything was built ([`58e9a45`][58e9a45]).
@@ -309,6 +365,17 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[ff34c8f]: https://github.com/3d-omics/database/commit/ff34c8fdac4e30464816e1407037c2ddbbc477ca
+[4229c64]: https://github.com/3d-omics/database/commit/4229c64ab78000f2262a30fdc3f536c54db888f5
+[c0b8eab]: https://github.com/3d-omics/database/commit/c0b8eab81184c056de1808302e5bacc204d0e1f3
+[c548b8e]: https://github.com/3d-omics/database/commit/c548b8e49f5028141d11b93536b368bb10901dce
+[b24a103]: https://github.com/3d-omics/database/commit/b24a1030e5cc93ba5c57156d999ccacaee517dbd
+[0379fd0]: https://github.com/3d-omics/database/commit/0379fd0dc793587dc90afccc023e479855ca46c7
+[22b2349]: https://github.com/3d-omics/database/commit/22b2349d1119b56c2deb24f5bbb0d129cf815a85
+[66f4f55]: https://github.com/3d-omics/database/commit/66f4f55154a154cb6edfde6e1e23bb74b1666966
+[091cad7]: https://github.com/3d-omics/database/commit/091cad77630c07f90ddc4166a2a2dcf74b372a64
+[99ccee4]: https://github.com/3d-omics/database/commit/99ccee40dfc38a438dcf0a4b772fcdcc4671c405
+[09d837e]: https://github.com/3d-omics/database/commit/09d837eb8c5999afeca376bec4f528705e193d55
 [58e9a45]: https://github.com/3d-omics/database/commit/58e9a45b57c73763bde8f0b3ec35d91953f9e6bb
 [8ed6df4]: https://github.com/3d-omics/database/commit/8ed6df42abefde8dbad5f71e0f7989812799c01a
 [3d0beea]: https://github.com/3d-omics/database/commit/3d0beea613d28edfa2ca961a78377cb30af0f690

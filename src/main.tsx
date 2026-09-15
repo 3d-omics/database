@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
 import { BrowserRouter, useNavigate } from 'react-router-dom'
+import ThemeProvider from 'components/ThemeProvider'
 
 function RedirectHandler({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate()
@@ -27,7 +28,7 @@ function RedirectHandler({ children }: { children: React.ReactNode }) {
   if (isChecking) {
     return (
       <div className='flex items-center justify-center min-h-screen'>
-        <div className='w-12 h-12 border-4 border-gray-300 border-t-blue-600 rounded-full animate-spin' />
+        <div className='w-12 h-12 border-4 border-line_strong border-t-blue-600 rounded-full animate-spin' />
       </div>
     )
   }
@@ -41,16 +42,18 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter
-      basename='/database/'
-      future={{
-        v7_startTransition: true,
-        v7_relativeSplatPath: true
-      }}
-    >
-      <RedirectHandler>
-        <App />
-      </RedirectHandler>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter
+        basename='/database/'
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true
+        }}
+      >
+        <RedirectHandler>
+          <App />
+        </RedirectHandler>
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>
 );

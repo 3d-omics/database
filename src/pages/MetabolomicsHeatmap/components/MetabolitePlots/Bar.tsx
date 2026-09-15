@@ -2,12 +2,14 @@ import { useMemo, useState, useEffect } from 'react'
 import Plot from 'react-plotly.js'
 import { Layout, Config } from 'plotly.js'
 import useMetaboliteExcelFileData from 'hooks/useMetaboliteExcelFileData'
+import useChartTheme from 'hooks/useChartTheme'
 
 
 const Barplot = ({ id, experimentId }: {
   id: string[]
   experimentId: string
 }) => {
+  const chartColors = useChartTheme()
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [windowHeight, setWindowHeight] = useState(window.innerHeight)
@@ -62,16 +64,26 @@ const Barplot = ({ id, experimentId }: {
 
   const layout: Partial<Layout> = {
     showlegend: false,
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+    font: { color: chartColors.text },
     xaxis: {
       title: 'Curated Ids',
       dtick: 1,
       automargin: true,
-      tickfont: { size: 8 },
+      tickfont: { size: 8, color: chartColors.axis },
       tickangle: 55,
+      gridcolor: chartColors.grid,
+      zerolinecolor: chartColors.axis,
+      linecolor: chartColors.axis,
     },
     yaxis: {
       title: 'Original Value',
       side: 'left',
+      tickfont: { color: chartColors.axis },
+      gridcolor: chartColors.grid,
+      zerolinecolor: chartColors.axis,
+      linecolor: chartColors.axis,
     },
     width: plotWidth,
     height: windowHeight - 100,
@@ -99,15 +111,15 @@ const Barplot = ({ id, experimentId }: {
           <div className='flex justify-center items-start gap-1 h-full w-full'>
             <div className='flex flex-col justify-evenly h-full'>
               {Array.from({ length: 24 }).map((_, index) => (
-                <div key={index} className='bg-gray-200 w-12 h-3 rounded'></div>
+                <div key={index} className='bg-surface_strong w-12 h-3 rounded'></div>
               ))}
             </div>
-            <div className='h-full w-full bg-gray-200 rounded mr-7'></div>
-            <div className='h-[190px] w-6 bg-gray-200 rounded mr-16'></div>
+            <div className='h-full w-full bg-surface_strong rounded mr-7'></div>
+            <div className='h-[190px] w-6 bg-surface_strong rounded mr-16'></div>
           </div>
           <div className='ml-[64px] h-[160px] w-[calc(100%-64px-90px)] flex justify-evenly [&>div]:-rotate-[35deg]'>
             {Array.from({ length: 64 }).map((_, index) => (
-              <div key={index} className='h-20 w-2 bg-gray-200 rounded'></div>
+              <div key={index} className='h-20 w-2 bg-surface_strong rounded'></div>
             ))}
           </div>
         </div>
@@ -117,5 +129,3 @@ const Barplot = ({ id, experimentId }: {
 }
 
 export default Barplot
-
-

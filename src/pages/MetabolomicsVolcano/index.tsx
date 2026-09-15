@@ -57,7 +57,7 @@ const Metabolomics = () => {
 
       <div className='page_padding flex flex-col overflow-auto'>
 
-        <main className='rounded-md flex gap-4 bg-white min-h-[calc(100vh-(var(--navbar-height)+70px))] max-h-[calc(100vh-(var(--navbar-height)))]
+        <main className='rounded-md flex gap-4 bg-surface min-h-[calc(100vh-(var(--navbar-height)+70px))] max-h-[calc(100vh-(var(--navbar-height)))]
           max-xl:flex-col max-xl:border-none max-xl:h-full max-xl:max-h-none
         '>
 
@@ -105,6 +105,5 @@ const Metabolomics = () => {
 }
 
 export default Metabolomics
-
 
 

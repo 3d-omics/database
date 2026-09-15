@@ -64,7 +64,7 @@ const MetabolomicsList = () => {
               <div className='grid grid-cols-3 gap-4 max-md:grid-cols-1 max-md:gap-2'>
                 <Link
                   to={`/metabolomics/volcano/${encodeURIComponent(experiment.fields.Name)}`}
-                  className='group flex items-center justify-between gap-4 px-4 py-3 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition bg-white hover:bg-gray-50'
+                  className='group flex items-center justify-between gap-4 px-4 py-3 border border-line rounded-xl shadow-sm hover:shadow-md transition bg-surface hover:bg-surface_subtle'
                 >
                   <div>
                     <h3 className='text-lg font-medium mb-1 group-hover:text-mustard group-hover:underline'>
@@ -76,7 +76,7 @@ const MetabolomicsList = () => {
 
                 <Link
                   to={`/metabolomics/heatmap/${encodeURIComponent(experiment.fields.Name)}`}
-                  className='group flex items-center justify-between gap-4 px-4 py-3 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition bg-white hover:bg-gray-50'
+                  className='group flex items-center justify-between gap-4 px-4 py-3 border border-line rounded-xl shadow-sm hover:shadow-md transition bg-surface hover:bg-surface_subtle'
                 >
                   <div>
                     <h3 className='text-lg font-medium mb-1 group-hover:text-mustard group-hover:underline'>
@@ -88,7 +88,7 @@ const MetabolomicsList = () => {
 
                 <button
                   onClick={() => handleDownload({ experimentId: experiment.fields.ID })}
-                  className='group flex items-center justify-between gap-4 px-4 py-3 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition bg-white hover:bg-gray-50'
+                  className='group flex items-center justify-between gap-4 px-4 py-3 border border-line rounded-xl shadow-sm hover:shadow-md transition bg-surface hover:bg-surface_subtle'
                 >
                   <h3 className='text-lg font-medium text-left mb-1 group-hover:text-mustard group-hover:underline'>
                     <FontAwesomeIcon icon={faFileArrowDown} className='mr-1' data-testid='download-tsv-icon' />

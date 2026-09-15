@@ -20,6 +20,18 @@
 
   <meta name="theme-color" content="#741B47" />
 
+  <script>
+    // Keep in step with src/config/theme.ts.
+    (function () {
+      var pref
+      try { pref = localStorage.getItem('theme') } catch (e) {}
+      if (pref !== 'light' && pref !== 'dark' && pref !== 'system') pref = 'system'
+      var dark = pref === 'dark' || (pref === 'system' && !!window.matchMedia
+        && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light'
+    })()
+  </script>
+
   <title>3D'omics Data Portal</title>
 </head>
 

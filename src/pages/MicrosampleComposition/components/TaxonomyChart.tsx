@@ -135,8 +135,8 @@ const MicrosampleTaxonomyChart = ({ cryosection, microsampleIds, selectedTaxonom
     return (
       <div className='grow flex flex-col pl-4 max-md:pl-0'>
         <div className='animate-pulse flex flex-col w-[95%] max-w-3xl'>
-          <div className='h-6 bg-gray-200 rounded w-[80%] mb-4'></div>
-          <div className='h-[70vh] bg-gray-200 rounded w-full'></div>
+          <div className='h-6 bg-surface_strong rounded w-[80%] mb-4'></div>
+          <div className='h-[70vh] bg-surface_strong rounded w-full'></div>
         </div>
       </div>
     )
@@ -164,7 +164,7 @@ const MicrosampleTaxonomyChart = ({ cryosection, microsampleIds, selectedTaxonom
               value={selectedTaxonomicLevel}
               onChange={(e) => handleLevelChange(e.target.value)}
               disabled={isChangingLevel}
-              className='btn btn-xs bg-gray-200 border-none outline-none'
+              className='btn btn-xs bg-surface_strong border-none outline-none'
             >
               {taxonomicLevels.map((level) => (
                 <option value={level} key={level}>{level}</option>
@@ -179,10 +179,10 @@ const MicrosampleTaxonomyChart = ({ cryosection, microsampleIds, selectedTaxonom
         <Bar data={chartData} options={options} />
         {/* Loading overlay - shows when changing levels */}
         {isChangingLevel && (
-          <div className='absolute inset-0 bg-white/80 flex items-center justify-center z-10'>
+          <div className='absolute inset-0 bg-surface/80 flex items-center justify-center z-10'>
             <div className='flex flex-col items-center gap-3'>
-              <div className='w-12 h-12 border-4 border-gray-300 border-t-light_burgundy rounded-full animate-spin' />
-              <p className='text-sm font-medium text-gray-600'>Updating chart...</p>
+              <div className='w-12 h-12 border-4 border-line_strong border-t-light_burgundy rounded-full animate-spin' />
+              <p className='text-sm font-medium text-ink_muted'>Updating chart...</p>
             </div>
           </div>
         )}
@@ -192,4 +192,3 @@ const MicrosampleTaxonomyChart = ({ cryosection, microsampleIds, selectedTaxonom
 }
 
 export default MicrosampleTaxonomyChart
-

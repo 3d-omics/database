@@ -123,8 +123,8 @@ const MacrosampleComposition = ({ selectedTaxonomicLevel, setSelectedTaxonomicLe
     return (
       <div className='grow max-xl:min-w-full'>
         <div className='animate-pulse flex flex-col mb-16' data-testid='loading-skeleton'>
-          <div className='h-6 bg-gray-200 rounded w-[30%] mb-4'></div>
-          <div className='h-[70vh] bg-gray-200 rounded w-full'></div>
+          <div className='h-6 bg-surface_strong rounded w-[30%] mb-4'></div>
+          <div className='h-[70vh] bg-surface_strong rounded w-full'></div>
         </div>
       </div>
     )
@@ -154,10 +154,10 @@ const MacrosampleComposition = ({ selectedTaxonomicLevel, setSelectedTaxonomicLe
           <Bar data={chartData} options={options} />
           {/* Loading overlay - shows immediately when changing levels */}
           {isChangingLevel && (
-            <div className='absolute inset-0 bg-white/30 backdrop-blur-sm flex items-center justify-center z-10'>
+            <div className='absolute inset-0 bg-surface/30 backdrop-blur-sm flex items-center justify-center z-10'>
               <div className='flex flex-col items-center gap-3'>
-                <div className='w-12 h-12 border-4 border-gray-300 border-t-light_burgundy rounded-full animate-spin' />
-                <p className='text-sm font-medium text-gray-600'>Loading...</p>
+                <div className='w-12 h-12 border-4 border-line_strong border-t-light_burgundy rounded-full animate-spin' />
+                <p className='text-sm font-medium text-ink_muted'>Loading...</p>
               </div>
             </div>
           )}

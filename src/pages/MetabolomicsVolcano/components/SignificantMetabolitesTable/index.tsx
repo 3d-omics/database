@@ -26,7 +26,7 @@ const SignificantMetabolitesTable = ({ calculatedData, pValueThreshold, foldChan
         max-xl:w-full max-xl:mb-4
       '>
           <table className='text-xs w-full max-sm:text-2xs' data-testid='significant-metabolites-table'>
-            <thead className='sticky top-0 bg-neutral-100 shadow-lg [&_th]:px-4 [&_th]:py-3 max-sm:[&_th]:px-2'>
+            <thead className='sticky top-0 bg-surface_muted shadow-lg [&_th]:px-4 [&_th]:py-3 max-sm:[&_th]:px-2'>
               <tr className='whitespace-nowrap'>
                 <th>Metabolite</th>
                 <th>Fold Change</th>
@@ -34,7 +34,7 @@ const SignificantMetabolitesTable = ({ calculatedData, pValueThreshold, foldChan
                 <th>Significant</th>
               </tr>
             </thead>
-            <tbody className='bg-neutral-50 odd:[&>tr]:bg-neutral-200 hover:[&>tr]:bg-light_burgundy hover:[&>tr]:text-white
+            <tbody className='bg-surface_subtle odd:[&>tr]:bg-surface_strong hover:[&>tr]:bg-light_burgundy hover:[&>tr]:text-white
               [&_td]:px-4 [&_td]:py-1 max-sm:[&_td]:px-2
             '>
               {calculatedData ? (
@@ -49,8 +49,8 @@ const SignificantMetabolitesTable = ({ calculatedData, pValueThreshold, foldChan
                       <td className='!max-w-4'>{d.p_value.toFixed(2)}</td>
                       <td className='text-center'>
                         {d.p_value > -Math.log10(pValueThreshold) && Math.abs(d.fold_change) > foldChangeThreshold ?
-                          <span className='px-2 py-0.5 rounded-full bg-light_mustard text-gray-800'>Yes</span> :
-                          <span className='px-2 py-0.5 rounded-full bg-gray-100 text-gray-800'>No</span>
+                          <span className='px-2 py-0.5 rounded-full bg-light_mustard text-custom_black'>Yes</span> :
+                          <span className='px-2 py-0.5 rounded-full bg-surface_muted text-ink'>No</span>
                         }
                       </td>
                     </tr>
@@ -71,7 +71,7 @@ const SignificantMetabolitesTable = ({ calculatedData, pValueThreshold, foldChan
           {(calculatedData && calculatedData.length > displayedRows) &&
             <div className='m-3 w-fit mx-auto'>
               <button
-                className='font-extrabold text-lg text-burgundy hover:text-burgundy/70'
+                className='font-extrabold text-lg text-burgundy_ink hover:text-burgundy_ink/70'
                 onClick={() => setDisplayedRows(displayedRows + 10)}
               >
                 Load more

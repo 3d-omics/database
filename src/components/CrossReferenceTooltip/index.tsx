@@ -24,7 +24,7 @@ const CrossReferenceTooltip = ({ value, data, fieldsName }: {
       )}
 
       {showTooltip && (
-        <div className='absolute hidden bg-white text-black shadow-2xl z-10 w-fit px-4 py-2 rounded-md peer-hover:block'>
+        <div className='absolute hidden bg-surface text-ink shadow-2xl z-10 w-fit px-4 py-2 rounded-md peer-hover:block'>
           {!data && <p className='whitespace-nowrap'>Record not found</p>}
           {data &&
             fieldsName.map((field) => {

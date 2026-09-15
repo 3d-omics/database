@@ -1,7 +1,8 @@
 import { useMemo, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretDown, faCaretRight, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faCaretDown, faCaretRight, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import tablesData from 'assets/data/airtable/_metadata.json'
 import pigImage from 'assets/images/pig.png'
 import chickenImage from 'assets/images/chicken.png'
@@ -17,6 +18,10 @@ const shuffle = <T,>(items: T[]): T[] => {
   }
   return shuffled
 }
+
+// The blocks rise into view one after another, down the sample hierarchy
+const REVEAL_STAGGER_MS = 70
+const REVEAL_CLASS = 'animate-rise-in motion-reduce:animate-none'
 
 const Home = () => {
 
@@ -157,18 +162,21 @@ const Home = () => {
               </span>
             )}
           </h2>
-          <p>
-            {item.recordCount && (
-              <>
-                <span>{item.recordCount}</span>&nbsp;records<br />
-              </>
-            )}
-            {item.description}
-          </p>
+          {typeof item.recordCount === 'number' && (
+            <span className='inline-flex items-baseline gap-1 mb-2 rounded-md border border-burgundy_ink/40 bg-burgundy_ink/10 px-2 py-1 font-jakarta text-xs leading-none text-burgundy_ink whitespace-nowrap'>
+              <span className='font-bold'>{item.recordCount.toLocaleString('en-US')}</span>
+              {item.recordCount === 1 ? 'record' : 'records'}
+            </span>
+          )}
+          <p>{item.description}</p>
         </div>
       </li>
     </Link>
   )
+
+  // Called once per block or arrow in render order, so each waits for the one before it
+  let revealStep = 0
+  const nextReveal = () => ({ animationDelay: `${revealStep++ * REVEAL_STAGGER_MS}ms` })
 
   return (
     <div>
@@ -187,13 +195,13 @@ const Home = () => {
         </p>
       </section>
 
-      <main className='mb-16 bg-neutral-50 bg-texture'>
+      <main className='mb-16 bg-surface_subtle bg-texture'>
         <div className='flex items-center'>
           <button
             type='button'
             aria-label='Previous experiments'
             onClick={() => slideCarousel(-1)}
-            className='shrink-0 px-3 py-6 text-custom_black hover:text-mustard max-sm:px-2'
+            className='shrink-0 px-3 py-6 text-ink hover:text-mustard max-sm:px-2'
           >
             <FontAwesomeIcon icon={faChevronLeft} />
           </button>
@@ -206,12 +214,12 @@ const Home = () => {
             {animalTrialsMenu.map((item, index) => (
               <li
                 key={index}
-                className='shrink-0 basis-1/4 snap-start hover:bg-neutral-300/50 hover:text-mustard py-3 px-4 max-xl:basis-1/3 max-lg:basis-1/2 max-sm:basis-full max-md:px-4'
+                className='shrink-0 basis-1/4 snap-start hover:bg-surface_strong/50 hover:text-mustard py-3 px-4 max-xl:basis-1/3 max-lg:basis-1/2 max-sm:basis-full max-md:px-4'
               >
                 <Link to={item.link}>
                   <div className='flex items-center gap-0.5 max-sm:justify-center'>
                     <div
-                      className='w-[52px] h-[52px] shrink-0 bg-[#444444]'
+                      className='w-[52px] h-[52px] shrink-0 bg-ink'
                       style={{
                         maskImage: `url(${item.image})`,
                         WebkitMaskImage: `url(${item.image})`,
@@ -237,28 +245,30 @@ const Home = () => {
             type='button'
             aria-label='Next experiments'
             onClick={() => slideCarousel(1)}
-            className='shrink-0 px-3 py-6 text-custom_black hover:text-mustard max-sm:px-2'
+            className='shrink-0 px-3 py-6 text-ink hover:text-mustard max-sm:px-2'
           >
             <FontAwesomeIcon icon={faChevronRight} />
           </button>
         </div>
       </main>
 
-      <div className='pb-20 flex justify-center max-lg:pb-2'>
-        <ul className='flex flex-col gap-2 [&_li]:bg-neutral-100 [&_li]:w-[32rem] [&_li]:p-5 [&_li]:justify-center max-xl:[&_li]:w-[30rem] max-lg:[&_li]:h-[240px] max-lg:[&_li]:w-[calc(100dvw-10px)] max-lg:[&_li]:flex max-lg:[&_li]:justify-center max-lg:[&_li]:items-center hover:[&_li]:bg-neutral-200 [&_li:hover_h2]:text-mustard [&_h2]:main_header [&_h2]:text-3xl [&_h2]:mb-1 max-lg:[&_h2]:text-2xl max-lg:[&_h2]:mt-4 max-lg:[&_p]:text-sm [&_svg]:w-[32rem] [&_svg]:text-2xl max-lg:[&_svg]:hidden [&>div]:flex [&>div]:items-stretch [&>div]:gap-6 max-lg:[&>div]:flex-col max-lg:[&>div]:gap-2 [&_li_p]:text-[13px] [&_li_p>span]:font-bold'>
+      <div className='pb-14 flex justify-center max-lg:pb-5'>
+        <ul className='flex flex-col gap-2 [&_li]:bg-surface_muted [&_li]:w-[32rem] [&_li]:p-5 [&_li]:justify-center max-xl:[&_li]:w-[30rem] max-lg:[&_li]:h-[240px] max-lg:[&_li]:w-[calc(100dvw-10px)] max-lg:[&_li]:flex max-lg:[&_li]:justify-center max-lg:[&_li]:items-center hover:[&_li]:bg-surface_strong [&_li:hover_h2]:text-mustard [&_h2]:main_header [&_h2]:text-3xl [&_h2]:mb-1 max-lg:[&_h2]:text-2xl max-lg:[&_h2]:mt-4 max-lg:[&_p]:text-sm [&_svg]:w-[32rem] [&_svg]:text-2xl [&_svg]:text-burgundy_ink max-lg:[&_svg]:hidden [&>div]:flex [&>div]:items-stretch [&>div]:gap-6 max-lg:[&>div]:flex-col max-lg:[&>div]:gap-2 [&_li_p]:text-[13px]'>
           {navItems.map((section, idx) => {
             if (section.type === 'arrow') {
               return (
                 <FontAwesomeIcon
                   key={idx}
                   icon={section.direction === 'down' ? faCaretDown : faCaretRight}
+                  className={REVEAL_CLASS}
+                  style={nextReveal()}
                 />
               )
             }
 
             if (section.type === 'single') {
               return (
-                <div key={idx} className={`${section.item?.title === 'Microsamples' ? 'max-lg:clip-arrow-last' : 'max-lg:clip-arrow'} max-lg:-mt-14`}>
+                <div key={idx} className={`${section.item?.title === 'Microsamples' ? 'max-lg:clip-arrow-last' : 'max-lg:clip-arrow'} max-lg:-mt-14 ${REVEAL_CLASS}`} style={nextReveal()}>
                   <NavItem item={section.item} />
                 </div>
               )
@@ -269,7 +279,7 @@ const Home = () => {
                 <div key={idx}>
                   {section.items?.map((item: any, itemIdx: number) => (
                     <div key={itemIdx}>
-                      <div className={`${item.title === 'Animal Trials' ? 'max-lg:clip-arrow-first' : 'max-lg:clip-arrow'} max-lg:-mt-14 flex-1 h-full max-lg:h-auto`}>
+                      <div className={`${item.title === 'Animal Trials' ? 'max-lg:clip-arrow-first' : 'max-lg:clip-arrow'} max-lg:-mt-14 flex-1 h-full max-lg:h-auto ${REVEAL_CLASS}`} style={nextReveal()}>
                         <NavItem item={item} showMobileTitle={true} />
                       </div>
                       {itemIdx < section.items.length - 1 && (
@@ -283,7 +293,7 @@ const Home = () => {
                   {section.subItems && (
                     <div className='flex flex-col gap-4 max-lg:gap-2'>
                       {section.subItems.map((subitem: any, subIdx: number) => (
-                        <section key={subIdx} className='flex gap-6 flex-1'>
+                        <section key={subIdx} className={`flex gap-6 flex-1 ${REVEAL_CLASS}`} style={nextReveal()}>
                           <div className='flex items-center max-lg:hidden'>
                             <FontAwesomeIcon icon={faCaretRight} className='!w-6' />
                           </div>
@@ -303,14 +313,46 @@ const Home = () => {
         </ul>
       </div>
 
-      <div className='flex justify-center mb-20 mt-8'>
-        <Link
-          to={'/database-schema'}
-          className='px-6 py-3 bg-texture hover:text-mustard main_header text-xl bg-neutral-100 hover:bg-neutral-200'
-        >
-          Download Database Schema
-        </Link>
-      </div>
+      <section aria-labelledby='toolkit-heading' className='px-28 py-12 bg-surface_muted bg-texture max-md:px-16 max-sm:px-4 max-sm:py-8'>
+        <div className='flex justify-between gap-10 max-lg:flex-col max-lg:gap-6'>
+          <div className='flex-1 max-w-4xl'>
+            <span className='inline-flex rounded-md border border-burgundy_ink/40 bg-burgundy_ink/10 px-2 py-1 font-jakarta text-xs leading-none text-burgundy_ink'>
+              Command line &amp; Python
+            </span>
+            <h2 id='toolkit-heading' className='main_header text-3xl mt-3 mb-2 max-lg:text-2xl'>
+              3dtk <span className='font-light text-ink_muted'>— the 3D'omics ToolKit</span>
+            </h2>
+            <p className='text-[13px] max-lg:text-sm'>
+              3dtk finds, summarises, exports and downloads records from the 3D'omics data catalogue,
+              from the command line or from Python, with no credentials and no server. It reads the
+              published, checksum-verified catalogue deposited on Zenodo and joins every level from
+              animal trials down to microsamples, so a single command answers questions that span the
+              hierarchy, from filtering microsamples by host and treatment to exporting genome count matrices.
+            </p>
+          </div>
+
+          <div className='flex flex-col justify-center gap-4 lg:w-80'>
+            <div>
+              <p className='mb-1 text-xs uppercase tracking-wide text-ink_muted'>Install</p>
+              <code className='block rounded-md border border-line bg-surface px-4 py-3 font-mono text-sm'>
+                <span aria-hidden='true' className='select-none text-ink_muted'>$ </span>
+                <span className='select-all'>pip install 3dtk</span>
+              </code>
+              <p className='mt-1 text-xs text-ink_muted'>
+                Then run <code>3dtk</code>, or <code>import py3dtk</code> in Python.
+              </p>
+            </div>
+            <div className='flex flex-wrap gap-3 [&_a]:inline-flex [&_a]:items-center [&_a]:gap-2 [&_a]:rounded-md [&_a]:border [&_a]:border-line [&_a]:bg-surface [&_a]:px-4 [&_a]:py-2 [&_a]:font-jakarta [&_a]:text-sm [&_a]:font-semibold hover:[&_a]:bg-surface_strong hover:[&_a]:text-mustard'>
+              <Link to='https://github.com/3d-omics/3dtk' target='_blank' rel='noopener noreferrer'>
+                <FontAwesomeIcon icon={faGithub} /> GitHub
+              </Link>
+              <Link to='https://3dtk.readthedocs.io/' target='_blank' rel='noopener noreferrer'>
+                <FontAwesomeIcon icon={faBook} /> Documentation
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

@@ -116,6 +116,11 @@ catalog.json                 THE PIN: data_version, schema_version, sha256, sour
   (`page_padding`, `main_header`, `page_description`, `link`, `pagination_btn`) defined in
   [src/index.css](src/index.css). Brand colours (`burgundy`, `mustard`, `custom_black`) are
   in [tailwind.config.js](tailwind.config.js). Use the shortcuts rather than re-deriving them.
+- Theme surfaces and ordinary text use the semantic Tailwind tokens (`surface*`, `line*`,
+  `ink*`, `burgundy_ink`), never raw neutral utilities. Keep `custom_black` only for text
+  on fixed light fills such as mustard badges and rose error banners. Charts must obtain
+  their palette through `useChartTheme`; `ThemeProvider` resolves the visitor's saved
+  light/dark/system preference, which defaults to their OS setting.
 - Tabular pages funnel through `components/TableView` → `components/Table`, which supplies
   sorting, filtering, pagination and TSV download for free. Define `ColumnDef[]` in a
   `useMemo` and hand it over; do not hand-roll a `<table>`.

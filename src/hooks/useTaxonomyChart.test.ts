@@ -1,5 +1,8 @@
-import { describe, it, expect } from 'vitest'
+import { createElement, type PropsWithChildren } from 'react'
+import { describe, it, expect, vi } from 'vitest'
 import { renderHook } from '@testing-library/react'
+import { chartTheme } from 'config/chartTheme'
+import { ThemeContext, type ThemeContextValue } from 'components/ThemeProvider'
 import { useTaxonomyChart } from './useTaxonomyChart'
 import { TaxonomyData } from './useTaxonomyData'
 
@@ -15,6 +18,15 @@ describe('useTaxonomyChart', () => {
   const mockColorScheme = {
     Firmicutes: '#FF0000',
     Proteobacteria: '#00FF00',
+  }
+
+  const chartParams = {
+    sampleIds: ['Sample1'],
+    genomeCounts: [[0.6, 0.4]],
+    taxonomyData: mockTaxonomyData,
+    selectedTaxonomicLevel: 'phylum',
+    colorScheme: mockColorScheme,
+    xAxisLabel: 'Test Label',
   }
 
   it('returns empty chart when data is missing', () => {
@@ -106,18 +118,34 @@ describe('useTaxonomyChart', () => {
 
   it('returns chart options with correct configuration', () => {
     const { result } = renderHook(() =>
-      useTaxonomyChart({
-        sampleIds: ['Sample1'],
-        genomeCounts: [[0.6, 0.4]],
-        taxonomyData: mockTaxonomyData,
-        selectedTaxonomicLevel: 'phylum',
-        colorScheme: mockColorScheme,
-        xAxisLabel: 'Test Label',
-      })
+      useTaxonomyChart(chartParams)
     )
-  const options = result.current.options as any // Type assertion
-  expect(options.scales.x.stacked).toBe(true)
-  expect(options.scales.y.stacked).toBe(true)
-  expect(options.scales.x.title.text).toBe('Test Label')
+
+    const options = result.current.options as any // Type assertion
+    expect(options.scales.x.stacked).toBe(true)
+    expect(options.scales.y.stacked).toBe(true)
+    expect(options.scales.x.title.text).toBe('Test Label')
+    expect(options.scales.x.ticks.color).toBe(chartTheme.light.axis)
+    expect(options.scales.y.grid.color).toBe(chartTheme.light.grid)
+    expect(options.scales.x.title.color).toBe(chartTheme.light.text)
+    expect(result.current.chartData.datasets[0].borderColor).toBe(chartTheme.light.grid)
+  })
+
+  it('updates chart options for the resolved dark theme', () => {
+    const value: ThemeContextValue = {
+      preference: 'dark',
+      resolved: 'dark',
+      setPreference: vi.fn(),
+    }
+    const wrapper = ({ children }: PropsWithChildren) =>
+      createElement(ThemeContext.Provider, { value }, children)
+
+    const { result } = renderHook(() => useTaxonomyChart(chartParams), { wrapper })
+
+    const options = result.current.options as any
+    expect(options.scales.x.ticks.color).toBe(chartTheme.dark.axis)
+    expect(options.scales.y.grid.color).toBe(chartTheme.dark.grid)
+    expect(options.scales.y.title.color).toBe(chartTheme.dark.text)
+    expect(result.current.chartData.datasets[0].borderColor).toBe(chartTheme.dark.grid)
   })
 })

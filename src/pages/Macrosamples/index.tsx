@@ -205,7 +205,7 @@ const Macrosample = (
               <p className='text-center'>Heatmap comparison</p>
               <input
                 type='checkbox'
-                className='accent-mustard tooltip tooltip-top !bg-white !text-custom_black'
+                className='accent-mustard tooltip tooltip-top !bg-surface !text-ink'
                 data-tip='check to compare all samples'
                 checked={
                   filteredSampleIds.length > 0 &&
@@ -232,7 +232,7 @@ const Macrosample = (
           return <div className='flex justify-center items-center'>
             <input
               type='checkbox'
-              className='accent-mustard tooltip tooltip-right !bg-white !text-custom_black'
+              className='accent-mustard tooltip tooltip-right !bg-surface !text-ink'
               data-tip='check samples to view/compare'
               checked={checkedMetaboliteIds?.includes(id)}
               onChange={(e) => {

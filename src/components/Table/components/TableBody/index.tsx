@@ -15,7 +15,7 @@ const TableBody = ({
   return (
     <main className='max-lg:overflow-x-auto max-lg:max-h-[calc(100dvh-264px)] mb-[66px]'>
       <table className='table table-sm' data-testid='table'>
-        <thead className='sticky bg-white z-20 top-[64px] shadow-[0px_4px_3px_-3px_rgba(0,0,0,0.1)] max-lg:top-[-1px]'>
+        <thead className='sticky bg-surface z-20 top-[64px] shadow-[0px_4px_3px_-3px_rgba(0,0,0,0.1)] max-lg:top-[-1px]'>
           {table.getHeaderGroups().map(headerGroup => (
             <tr key={headerGroup.id} className='[&>th]:pb-4'>
               {headerGroup.headers.map(header => (
@@ -72,7 +72,7 @@ const TableBody = ({
           ))}
         </thead>
 
-        <tbody className='bg-neutral-50 odd:[&>tr]:bg-neutral-200 hover:[&>tr]:bg-light_burgundy hover:[&>tr]:text-white'>
+        <tbody className='bg-surface_subtle odd:[&>tr]:bg-surface_strong hover:[&>tr]:bg-light_burgundy hover:[&>tr]:text-white'>
           {table.getRowModel().rows.map(row => (
             <tr key={row.id}>
               {row.getVisibleCells().map(cell => {

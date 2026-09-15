@@ -5,13 +5,38 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root, [data-theme="light"] {
+    --surface: 255 255 255;
+    --surface-subtle: 250 250 250;
+    --surface-muted: 245 245 245;
+    --surface-strong: 229 229 229;
+    --line: 229 231 235;
+    --line-strong: 209 213 219;
+    --ink: 85 85 85;
+    --ink-muted: 115 115 115;
+    --burgundy-ink: 116 27 71;
+  }
+
+  [data-theme="dark"] {
+    --surface: 22 24 27;
+    --surface-subtle: 28 31 35;
+    --surface-muted: 35 39 44;
+    --surface-strong: 44 49 55;
+    --line: 58 64 71;
+    --line-strong: 75 82 90;
+    --ink: 212 212 212;
+    --ink-muted: 156 163 175;
+    --burgundy-ink: 224 122 174;
+  }
+}
 
 @layer components {
   .main_header {
     @apply text-2xl font-bold font-jakarta
   }
   .pagination_btn {
-    @apply border rounded p-1 disabled:opacity-30 enabled:hover:bg-gray-100
+    @apply border border-line rounded p-1 disabled:opacity-30 enabled:hover:bg-surface_muted
   }
   .page_padding {
     @apply px-12 py-7 max-lg:px-8 max-md:px-6 max-sm:px-4
@@ -23,6 +48,6 @@
     @apply no-underline hover:text-mustard
   }
   .page_description {
-    @apply mb-8 text-sm text-custom_black max-w-6xl
+    @apply mb-8 text-sm text-ink max-w-6xl
   }
 }

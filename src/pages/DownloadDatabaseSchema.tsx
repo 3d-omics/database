@@ -22,7 +22,7 @@ const DownloadDatabaseSchema = () => {
       <div className='page_padding flex flex-col'>
         <div className='flex items-center justify-center my-16'>
           <button
-            className='px-12 py-4 bg-texture hover:text-mustard main_header text-3xl bg-neutral-100 hover:bg-neutral-200'
+            className='px-12 py-4 bg-texture hover:text-mustard main_header text-3xl bg-surface_muted hover:bg-surface_strong'
             onClick={() => {
               const link = document.createElement('a')
               link.href = '/database/experiment-hierarchy.json'

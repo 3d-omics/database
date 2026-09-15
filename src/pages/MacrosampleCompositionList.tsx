@@ -26,13 +26,13 @@ const MacrosampleCompositionList = () => {
           <li key={experiment.id}>
             <Link
               to={`/macrosample-compositions/${encodeURIComponent(experiment.fields.Name)}`}
-              className='group flex items-center justify-between gap-4 px-4 py-3 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition bg-white hover:bg-gray-50'
+              className='group flex items-center justify-between gap-4 px-4 py-3 border border-line rounded-xl shadow-sm hover:shadow-md transition bg-surface hover:bg-surface_subtle'
             >
               <div>
                 <h2 className='text-lg font-medium mb-1 group-hover:text-mustard group-hover:underline'>
                   {experiment.fields.Name}
                 </h2>
-                <div className='flex gap-4 text-xs text-gray-500 font-extralight [&>span]:flex [&>span]:gap-1 max-md:flex-col max-md:gap-0'>
+                <div className='flex gap-4 text-xs text-ink_muted font-extralight [&>span]:flex [&>span]:gap-1 max-md:flex-col max-md:gap-0'>
                   {
                     experiment.fields['MAG catalogue - Number of MAGs'] &&
                     <span>

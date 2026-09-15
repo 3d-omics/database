@@ -3,6 +3,7 @@ import type { PhyloData } from '..'
 import * as d3 from 'd3'
 import { useParams } from 'react-router-dom'
 import { phylumColors } from '../../../utils/phylumColorScheme'
+import useChartTheme from 'hooks/useChartTheme'
 
 const PhyloTreeLayer = ({ data, width, height }: {
   data: any,
@@ -12,6 +13,7 @@ const PhyloTreeLayer = ({ data, width, height }: {
 
   const ref = useRef<SVGSVGElement | null>(null)
   const { experimentName = '' } = useParams()
+  const chartColors = useChartTheme()
 
   const linkStep = (startAngle: number, startRadius: number, endAngle: number, endRadius: number) => {
     const c0 = Math.cos((startAngle - 90) / 180 * Math.PI)
@@ -81,7 +83,7 @@ const PhyloTreeLayer = ({ data, width, height }: {
     const linkGroup = svg
       .append('g')
       .attr('fill', 'none')
-      .attr('stroke', '#555')
+      .attr('stroke', chartColors.axis)
       .attr('stroke-opacity', 1)
       .attr('stroke-width', 0.6)
 
@@ -109,7 +111,7 @@ const PhyloTreeLayer = ({ data, width, height }: {
     node
       .append('circle')
       .attr('r', 0)
-      .attr('fill', '#00000040')
+      .attr('fill', chartColors.grid)
 
     // Add text labels only for leaf nodes
     const leafNodeSelection = node.filter(d => !d.children)
@@ -122,10 +124,11 @@ const PhyloTreeLayer = ({ data, width, height }: {
       .attr('x', d => ((d.x ?? 0) < Math.PI ? 8 : -8))
       .attr('text-anchor', d => ((d.x ?? 0) < Math.PI ? 'start' : 'end'))
       .attr('transform', d => ((d.x ?? 0) >= Math.PI ? 'rotate(180)' : null))
+      .attr('fill', chartColors.text)
       .text(d => d.data.name)
       .clone(true)
       .lower()
-      .attr('stroke', 'white')
+      .attr('stroke', chartColors.surface)
       .attr('stroke-width', 1.5) 
 
     // Helper to find the closest ancestor (including self) with a matching category color
@@ -156,7 +159,7 @@ const PhyloTreeLayer = ({ data, width, height }: {
       if (category && category in phylumColors) {
         return phylumColors[category]
       }
-      return '#555'
+      return chartColors.axis
     })
 
     // Add hover effects to leaf nodes
@@ -210,7 +213,7 @@ const PhyloTreeLayer = ({ data, width, height }: {
           .attr('r', 0)
       })
 
-  }, [data, width, height])
+  }, [data, width, height, chartColors.axis, chartColors.grid, chartColors.surface, chartColors.text])
 
 
   return (
@@ -219,6 +222,5 @@ const PhyloTreeLayer = ({ data, width, height }: {
 }
 
 export default PhyloTreeLayer
-
 
 
