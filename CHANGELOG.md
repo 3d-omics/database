@@ -369,6 +369,7 @@ pinned, rather than against today's Airtable.
 [4229c64]: https://github.com/3d-omics/database/commit/4229c64ab78000f2262a30fdc3f536c54db888f5
 [c0b8eab]: https://github.com/3d-omics/database/commit/c0b8eab81184c056de1808302e5bacc204d0e1f3
 [c548b8e]: https://github.com/3d-omics/database/commit/c548b8e49f5028141d11b93536b368bb10901dce
+[b24a103]: https://github.com/3d-omics/database/commit/b24a1030e5cc93ba5c57156d999ccacaee517dbd
 [0379fd0]: https://github.com/3d-omics/database/commit/0379fd0dc793587dc90afccc023e479855ca46c7
 [22b2349]: https://github.com/3d-omics/database/commit/22b2349d1119b56c2deb24f5bbb0d129cf815a85
 [66f4f55]: https://github.com/3d-omics/database/commit/66f4f55154a154cb6edfde6e1e23bb74b1666966
