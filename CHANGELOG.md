@@ -59,7 +59,7 @@ moved it. If the project starts tagging releases, these headings become
   the `pip install 3dtk` command, and links to its
   [GitHub repository](https://github.com/3d-omics/3dtk) and
   [documentation](https://3dtk.readthedocs.io/). The `/database-schema` page itself stays
-  reachable at its URL.
+  reachable at its URL ([`ff34c8f`][ff34c8f]).
 - The record counts on the home page's section blocks ("8 records", "1,466 records", …)
   are now burgundy-tinted tags in the style of the navbar's "Data portal" tag, set between
   each block's title and description, with the count in bold and thousands grouped. The
@@ -365,6 +365,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[ff34c8f]: https://github.com/3d-omics/database/commit/ff34c8fdac4e30464816e1407037c2ddbbc477ca
 [4229c64]: https://github.com/3d-omics/database/commit/4229c64ab78000f2262a30fdc3f536c54db888f5
 [c0b8eab]: https://github.com/3d-omics/database/commit/c0b8eab81184c056de1808302e5bacc204d0e1f3
 [c548b8e]: https://github.com/3d-omics/database/commit/c548b8e49f5028141d11b93536b368bb10901dce
