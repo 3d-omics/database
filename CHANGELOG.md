@@ -53,7 +53,8 @@ moved it. If the project starts tagging releases, these headings become
 - The navbar's "Data Portal Home" entry is now a "Data portal" tag: a small rounded box
   beside the 3D'omics logo rather than a menu entry, tinted burgundy on the home page. It
   replaces the home icon the bar fell back to between the `lg` and `xl` breakpoints, and in
-  the mobile drawer it sits beside the logo in place of the home link at the top of the list.
+  the mobile drawer it sits beside the logo in place of the home link at the top of the list
+  ([`c0b8eab`][c0b8eab]).
 - The page header's breadcrumbs now sit inside the `bg-prism` banner, which follows the
   navbar directly, on a translucent strip that keeps them legible over the mustard end.
   The navbar is now a frosted sticky bar with full-height entries: the entry of the open
@@ -350,6 +351,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[c0b8eab]: https://github.com/3d-omics/database/commit/c0b8eab81184c056de1808302e5bacc204d0e1f3
 [c548b8e]: https://github.com/3d-omics/database/commit/c548b8e49f5028141d11b93536b368bb10901dce
 [0379fd0]: https://github.com/3d-omics/database/commit/0379fd0dc793587dc90afccc023e479855ca46c7
 [22b2349]: https://github.com/3d-omics/database/commit/22b2349d1119b56c2deb24f5bbb0d129cf815a85
