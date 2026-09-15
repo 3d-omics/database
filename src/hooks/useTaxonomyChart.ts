@@ -1,4 +1,5 @@
 import { useMemo } from 'react'
+import useChartTheme from 'hooks/useChartTheme'
 import { TaxonomyData } from './useTaxonomyData'
 
 interface UseTaxonomyChartParams {
@@ -13,6 +14,7 @@ interface UseTaxonomyChartParams {
 export const useTaxonomyChart = ({ sampleIds, genomeCounts, taxonomyData, selectedTaxonomicLevel, colorScheme, xAxisLabel }:
   UseTaxonomyChartParams
 ) => {
+  const chartColors = useChartTheme()
 
   const { chartData, options } = useMemo(() => {
     if (!genomeCounts || !sampleIds.length || !taxonomyData[selectedTaxonomicLevel]) {
@@ -33,7 +35,7 @@ export const useTaxonomyChart = ({ sampleIds, genomeCounts, taxonomyData, select
           label,
           data,
           backgroundColor: colorScheme[label] || '#CCCCCC',
-          borderColor: 'rgba(0, 0, 0, 0.1)',
+          borderColor: chartColors.grid,
           borderWidth: 0,
         }
       })
@@ -52,15 +54,18 @@ export const useTaxonomyChart = ({ sampleIds, genomeCounts, taxonomyData, select
           stacked: true,
           ticks: {
             autoSkip: false,
+            color: chartColors.axis,
           },
           title: {
             display: true,
             text: xAxisLabel,
-            font: { size: 12 }
+            font: { size: 12 },
+            color: chartColors.text,
           },
           grid: {
             display: false,
             drawTicks: false,
+            color: chartColors.grid,
           },
         },
         y: {
@@ -69,14 +74,17 @@ export const useTaxonomyChart = ({ sampleIds, genomeCounts, taxonomyData, select
           ticks: {
             stepSize: 0.2,
             font: { size: 10 },
+            color: chartColors.axis,
           },
           title: {
             display: true,
             text: 'Relative Abundance',
-            font: { size: 12 }
+            font: { size: 12 },
+            color: chartColors.text,
           },
           grid: {
             drawTicks: false,
+            color: chartColors.grid,
           },
         }
       },
@@ -102,11 +110,10 @@ export const useTaxonomyChart = ({ sampleIds, genomeCounts, taxonomyData, select
       chartData: { labels: sampleIds, datasets },
       options
     }
-  }, [sampleIds, genomeCounts, taxonomyData, selectedTaxonomicLevel, colorScheme, xAxisLabel])
+  }, [sampleIds, genomeCounts, taxonomyData, selectedTaxonomicLevel, colorScheme, xAxisLabel, chartColors])
 
   return { chartData, options }
 }
-
 
 
 

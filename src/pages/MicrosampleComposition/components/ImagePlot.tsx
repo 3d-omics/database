@@ -1,6 +1,7 @@
 import { useMemo, useState, Dispatch, SetStateAction } from 'react'
 import Plot from 'react-plotly.js'
 import { PlotMouseEvent, Layout, Config, PlotSelectionEvent } from 'plotly.js'
+import useChartTheme from 'hooks/useChartTheme'
 
 const ImagePlot = ({ cryosection, setSelectedMicrosampleIds, microsampleIds, xcoord, ycoord, size, shape }: {
   cryosection: string
@@ -11,6 +12,7 @@ const ImagePlot = ({ cryosection, setSelectedMicrosampleIds, microsampleIds, xco
   size: number[]
   shape: string[]
 }) => {
+  const chartColors = useChartTheme()
 
   const [activeIndices, setActiveIndices] = useState<number[] | null>(null);
 
@@ -51,17 +53,26 @@ const ImagePlot = ({ cryosection, setSelectedMicrosampleIds, microsampleIds, xco
   const layout: Partial<Layout> = useMemo(() => ({ // if useMemo is not used, the image will reset once the samples are selected on zoom
     margin: { l: 0, r: 0, t: 0, b: 0 },
     showlegend: false,
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+    font: { color: chartColors.text },
     dragmode: 'pan', // 'pan' for dragging the image, 'select' for selecting microsamples in the area
     xaxis: {
       range: [0, 1000],
       scaleanchor: 'y',
       showgrid: false,
       zeroline: false,
+      gridcolor: chartColors.grid,
+      zerolinecolor: chartColors.axis,
+      linecolor: chartColors.axis,
     },
     yaxis: {
       range: [0, 1000],
       showgrid: false,
       zeroline: false,
+      gridcolor: chartColors.grid,
+      zerolinecolor: chartColors.axis,
+      linecolor: chartColors.axis,
     },
     images: [{
       source: imageUrl,
@@ -76,7 +87,7 @@ const ImagePlot = ({ cryosection, setSelectedMicrosampleIds, microsampleIds, xco
       yanchor: 'top',
       layer: 'below',
     }],
-  }), [cryosection])
+  }), [cryosection, chartColors])
 
   const config: Partial<Config> = useMemo(() => ({
     scrollZoom: true,

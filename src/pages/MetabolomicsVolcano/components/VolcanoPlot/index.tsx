@@ -10,6 +10,7 @@ import experimentJ from 'assets/data/metabolomics/metabolomics_J.xlsx'
 import experimentK from 'assets/data/metabolomics/metabolomics_K.xlsx'
 import experimentG from 'assets/data/metabolomics/metabolomics_G.xlsx'
 import experimentM from 'assets/data/metabolomics/metabolomics_M.xlsx'
+import useChartTheme from 'hooks/useChartTheme'
 
 const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExecuteCreatePlot, calculatedData, setCalculatedData, pValueThreshold, foldChangeThreshold, setPValueThreshold, setFoldChangeThreshold, experimentId, options }: {
   compareBetween: string,
@@ -36,9 +37,10 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
   experimentId: string
   options: Record<string, Record<string, string>>
 }) => {
+  const chartColors = useChartTheme()
 
-  const red = '#B30059' // color for Significant Up
-  const blue = '#0057D9' // color for Significant Down
+  const red = chartColors.volcanoUp // color for Significant Up
+  const blue = chartColors.volcanoDown // color for Significant Down
   const grey = '#808080' // color for All Metabolites
 
   const [currentlyDisplayedPlot, setCurrentlyDisplayedPlot] = useState({
@@ -240,26 +242,37 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
     height: windowHeight - 300,
     margin: { t: 0, r: 0, l: 40, },
     title: '',
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+    font: { color: chartColors.text },
     xaxis: {
       title: {
         text: 'log2 (Fold Change)',
-        font: { size: windowWidth > 768 ? 12 : 10 }
+        font: { size: windowWidth > 768 ? 12 : 10, color: chartColors.text }
       },
       tickfont: {
         size: windowWidth > 768 ? 12 : 8,
-      }
+        color: chartColors.axis,
+      },
+      gridcolor: chartColors.grid,
+      zerolinecolor: chartColors.axis,
+      linecolor: chartColors.axis,
     },
     yaxis: {
       title: {
         text: '-log10 (p-value)',
-        font: { size: windowWidth > 768 ? 12 : 10 }
+        font: { size: windowWidth > 768 ? 12 : 10, color: chartColors.text }
       },
       tickfont: {
         size: windowWidth > 768 ? 12 : 8,
-      }
+        color: chartColors.axis,
+      },
+      gridcolor: chartColors.grid,
+      zerolinecolor: chartColors.axis,
+      linecolor: chartColors.axis,
     },
     shapes: [
-      { type: 'line', x0: 0, x1: 0, y0: 0, y1: calculatedData ? Math.max(...calculatedData.map((d) => d.p_value)) : 0, line: { color: 'black', dash: 'dash' } },
+      { type: 'line', x0: 0, x1: 0, y0: 0, y1: calculatedData ? Math.max(...calculatedData.map((d) => d.p_value)) : 0, line: { color: chartColors.axis, dash: 'dash' } },
       { type: 'line', x0: -foldChangeThreshold, x1: -foldChangeThreshold, y0: 0, y1: calculatedData ? Math.max(...calculatedData.map((d) => d.p_value)) : 0, line: { color: blue, dash: 'dash' } },
       { type: 'line', x0: foldChangeThreshold, x1: foldChangeThreshold, y0: 0, y1: calculatedData ? Math.max(...calculatedData.map((d) => d.p_value)) : 0, line: { color: blue, dash: 'dash' } },
       { type: 'line', x0: calculatedData ? -Math.max(...calculatedData.map((d) => Math.abs(d.fold_change))) : 0, x1: calculatedData ? Math.max(...calculatedData.map((d) => Math.abs(d.fold_change))) : 0, y0: -log10(pValueThreshold), y1: -log10(pValueThreshold), line: { color: red, dash: 'dash' } },
@@ -361,7 +374,6 @@ const VolcanoPlot = ({ compareBetween, group1, group2, executeCreatePlot, setExe
 }
 
 export default VolcanoPlot
-
 
 
 

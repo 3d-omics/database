@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import type { PhyloData, CircosData } from '..'
 import * as d3 from 'd3'
 import { getPhylumColor } from '../../../utils/phylumColorScheme'
+import useChartTheme from 'hooks/useChartTheme'
 
 const CircosLayer = ({ phyloData, circosData, width, height }: {
   phyloData: PhyloData,
@@ -10,6 +11,7 @@ const CircosLayer = ({ phyloData, circosData, width, height }: {
   height: number
 }) => {
   const groupRef = useRef<SVGGElement | null>(null)
+  const chartColors = useChartTheme()
 
   useEffect(() => {
     if (!groupRef.current || !phyloData || !circosData) return
@@ -117,7 +119,7 @@ const CircosLayer = ({ phyloData, circosData, width, height }: {
                 ? colorScales.completeness(colorValue as number)
                 : colorScales[metric.key as keyof typeof colorScales](colorValue as number)
           )
-          .attr('stroke', 'white')
+          .attr('stroke', chartColors.surface)
           .attr('stroke-width', 0.5)
           .attr('opacity', 0.8)
           .on('mouseenter', function (event) {
@@ -164,10 +166,9 @@ const CircosLayer = ({ phyloData, circosData, width, height }: {
       })
     })
 
-  }, [phyloData, circosData, width, height])
+  }, [phyloData, circosData, width, height, chartColors.surface])
 
   return <g ref={groupRef} data-testid='circos-layer' />
 }
 
 export default CircosLayer
-

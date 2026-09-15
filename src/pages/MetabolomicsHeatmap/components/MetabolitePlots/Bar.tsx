@@ -2,12 +2,14 @@ import { useMemo, useState, useEffect } from 'react'
 import Plot from 'react-plotly.js'
 import { Layout, Config } from 'plotly.js'
 import useMetaboliteExcelFileData from 'hooks/useMetaboliteExcelFileData'
+import useChartTheme from 'hooks/useChartTheme'
 
 
 const Barplot = ({ id, experimentId }: {
   id: string[]
   experimentId: string
 }) => {
+  const chartColors = useChartTheme()
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [windowHeight, setWindowHeight] = useState(window.innerHeight)
@@ -62,16 +64,26 @@ const Barplot = ({ id, experimentId }: {
 
   const layout: Partial<Layout> = {
     showlegend: false,
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+    font: { color: chartColors.text },
     xaxis: {
       title: 'Curated Ids',
       dtick: 1,
       automargin: true,
-      tickfont: { size: 8 },
+      tickfont: { size: 8, color: chartColors.axis },
       tickangle: 55,
+      gridcolor: chartColors.grid,
+      zerolinecolor: chartColors.axis,
+      linecolor: chartColors.axis,
     },
     yaxis: {
       title: 'Original Value',
       side: 'left',
+      tickfont: { color: chartColors.axis },
+      gridcolor: chartColors.grid,
+      zerolinecolor: chartColors.axis,
+      linecolor: chartColors.axis,
     },
     width: plotWidth,
     height: windowHeight - 100,
@@ -117,4 +129,3 @@ const Barplot = ({ id, experimentId }: {
 }
 
 export default Barplot
-

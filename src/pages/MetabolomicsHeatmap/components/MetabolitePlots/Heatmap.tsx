@@ -2,11 +2,13 @@ import { useMemo, useState, useEffect } from 'react'
 import Plot from 'react-plotly.js'
 import { Layout, Config } from 'plotly.js'
 import useMetaboliteExcelFileData from 'hooks/useMetaboliteExcelFileData'
+import useChartTheme from 'hooks/useChartTheme'
 
 const Heatmap = ({ ids, experimentId }: {
   ids: string[],
   experimentId: string
 }) => {
+  const chartColors = useChartTheme()
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const [windowHeight, setWindowHeight] = useState(window.innerHeight)
@@ -66,9 +68,9 @@ const Heatmap = ({ ids, experimentId }: {
       title: {
         text: 'Normalized Abundance', // Optional title for the colorbar
         side: 'right', // Position of the title
-        font: { size: 12, weight: 'bold' }, // Font size for the title
+        font: { size: 12, weight: 'bold', color: chartColors.text }, // Font size for the title
       },
-      tickfont: { size: 10 }, // Font size for the tick labels
+      tickfont: { size: 10, color: chartColors.axis }, // Font size for the tick labels
       tickmode: 'array',
       tickvals: [-2.5, -2, -1, 0, 1, 2, 2.5], // Extra space beyond -2 and 2
       ticktext: ['', '-2', '-1', '0', '1', '2', ''], // Blank spaces for clipped values
@@ -80,20 +82,29 @@ const Heatmap = ({ ids, experimentId }: {
     showlegend: false,
     autosize: true,
     annotations: [],
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+    font: { color: chartColors.text },
     xaxis: {
       ticks: '',
       side: 'bottom',
       automargin: true,
       dtick: 1,
-      tickfont: { size: 8 },
+      tickfont: { size: 8, color: chartColors.axis },
       tickangle: 55,
+      gridcolor: chartColors.grid,
+      zerolinecolor: chartColors.axis,
+      linecolor: chartColors.axis,
     },
     yaxis: {
       automargin: true, // to make all the Y label appear 
       ticks: '',
       dtick: 1, // Display every nth label
       ticksuffix: '',
-      tickfont: { size: 8 },
+      tickfont: { size: 8, color: chartColors.axis },
+      gridcolor: chartColors.grid,
+      zerolinecolor: chartColors.axis,
+      linecolor: chartColors.axis,
     },
     margin: {
       t: 20, // Top margin
