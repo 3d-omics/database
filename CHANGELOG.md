@@ -22,7 +22,8 @@ moved it. If the project starts tagging releases, these headings become
 
 - The home page's section blocks and the arrows between them rise into view on load, one
   after another down the sample hierarchy from Animal Trials to Microsamples (a `rise-in`
-  animation staggered 70 ms apart). Visitors who ask for reduced motion see them at once.
+  animation staggered 70 ms apart). Visitors who ask for reduced motion see them at once
+  ([`4229c64`][4229c64]).
 - A visitor-selectable dark mode, with a three-state system/light/dark toggle in desktop
   and mobile navigation. The default follows the OS setting, each choice persists locally,
   and a no-flash script applies the resolved theme before the application loads. A token
@@ -56,7 +57,7 @@ moved it. If the project starts tagging releases, these headings become
 - The record counts on the home page's section blocks ("8 records", "1,466 records", …)
   are now burgundy-tinted tags in the style of the navbar's "Data portal" tag, set between
   each block's title and description, with the count in bold and thousands grouped. The
-  arrows connecting the blocks take the same burgundy.
+  arrows connecting the blocks take the same burgundy ([`4229c64`][4229c64]).
 - The navbar's "Data Portal Home" entry is now a "Data portal" tag: a small rounded box
   beside the 3D'omics logo rather than a menu entry, tinted burgundy on the home page. It
   replaces the home icon the bar fell back to between the `lg` and `xl` breakpoints, and in
@@ -358,6 +359,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[4229c64]: https://github.com/3d-omics/database/commit/4229c64ab78000f2262a30fdc3f536c54db888f5
 [c0b8eab]: https://github.com/3d-omics/database/commit/c0b8eab81184c056de1808302e5bacc204d0e1f3
 [c548b8e]: https://github.com/3d-omics/database/commit/c548b8e49f5028141d11b93536b368bb10901dce
 [0379fd0]: https://github.com/3d-omics/database/commit/0379fd0dc793587dc90afccc023e479855ca46c7
