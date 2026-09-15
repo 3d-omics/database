@@ -187,13 +187,13 @@ const Home = () => {
         </p>
       </section>
 
-      <main className='mb-16 bg-neutral-50 bg-texture'>
+      <main className='mb-16 bg-surface_subtle bg-texture'>
         <div className='flex items-center'>
           <button
             type='button'
             aria-label='Previous experiments'
             onClick={() => slideCarousel(-1)}
-            className='shrink-0 px-3 py-6 text-custom_black hover:text-mustard max-sm:px-2'
+            className='shrink-0 px-3 py-6 text-ink hover:text-mustard max-sm:px-2'
           >
             <FontAwesomeIcon icon={faChevronLeft} />
           </button>
@@ -206,12 +206,12 @@ const Home = () => {
             {animalTrialsMenu.map((item, index) => (
               <li
                 key={index}
-                className='shrink-0 basis-1/4 snap-start hover:bg-neutral-300/50 hover:text-mustard py-3 px-4 max-xl:basis-1/3 max-lg:basis-1/2 max-sm:basis-full max-md:px-4'
+                className='shrink-0 basis-1/4 snap-start hover:bg-surface_strong/50 hover:text-mustard py-3 px-4 max-xl:basis-1/3 max-lg:basis-1/2 max-sm:basis-full max-md:px-4'
               >
                 <Link to={item.link}>
                   <div className='flex items-center gap-0.5 max-sm:justify-center'>
                     <div
-                      className='w-[52px] h-[52px] shrink-0 bg-[#444444]'
+                      className='w-[52px] h-[52px] shrink-0 bg-ink'
                       style={{
                         maskImage: `url(${item.image})`,
                         WebkitMaskImage: `url(${item.image})`,
@@ -237,7 +237,7 @@ const Home = () => {
             type='button'
             aria-label='Next experiments'
             onClick={() => slideCarousel(1)}
-            className='shrink-0 px-3 py-6 text-custom_black hover:text-mustard max-sm:px-2'
+            className='shrink-0 px-3 py-6 text-ink hover:text-mustard max-sm:px-2'
           >
             <FontAwesomeIcon icon={faChevronRight} />
           </button>
@@ -245,7 +245,7 @@ const Home = () => {
       </main>
 
       <div className='pb-20 flex justify-center max-lg:pb-2'>
-        <ul className='flex flex-col gap-2 [&_li]:bg-neutral-100 [&_li]:w-[32rem] [&_li]:p-5 [&_li]:justify-center max-xl:[&_li]:w-[30rem] max-lg:[&_li]:h-[240px] max-lg:[&_li]:w-[calc(100dvw-10px)] max-lg:[&_li]:flex max-lg:[&_li]:justify-center max-lg:[&_li]:items-center hover:[&_li]:bg-neutral-200 [&_li:hover_h2]:text-mustard [&_h2]:main_header [&_h2]:text-3xl [&_h2]:mb-1 max-lg:[&_h2]:text-2xl max-lg:[&_h2]:mt-4 max-lg:[&_p]:text-sm [&_svg]:w-[32rem] [&_svg]:text-2xl max-lg:[&_svg]:hidden [&>div]:flex [&>div]:items-stretch [&>div]:gap-6 max-lg:[&>div]:flex-col max-lg:[&>div]:gap-2 [&_li_p]:text-[13px] [&_li_p>span]:font-bold'>
+        <ul className='flex flex-col gap-2 [&_li]:bg-surface_muted [&_li]:w-[32rem] [&_li]:p-5 [&_li]:justify-center max-xl:[&_li]:w-[30rem] max-lg:[&_li]:h-[240px] max-lg:[&_li]:w-[calc(100dvw-10px)] max-lg:[&_li]:flex max-lg:[&_li]:justify-center max-lg:[&_li]:items-center hover:[&_li]:bg-surface_strong [&_li:hover_h2]:text-mustard [&_h2]:main_header [&_h2]:text-3xl [&_h2]:mb-1 max-lg:[&_h2]:text-2xl max-lg:[&_h2]:mt-4 max-lg:[&_p]:text-sm [&_svg]:w-[32rem] [&_svg]:text-2xl max-lg:[&_svg]:hidden [&>div]:flex [&>div]:items-stretch [&>div]:gap-6 max-lg:[&>div]:flex-col max-lg:[&>div]:gap-2 [&_li_p]:text-[13px] [&_li_p>span]:font-bold'>
           {navItems.map((section, idx) => {
             if (section.type === 'arrow') {
               return (
@@ -306,7 +306,7 @@ const Home = () => {
       <div className='flex justify-center mb-20 mt-8'>
         <Link
           to={'/database-schema'}
-          className='px-6 py-3 bg-texture hover:text-mustard main_header text-xl bg-neutral-100 hover:bg-neutral-200'
+          className='px-6 py-3 bg-texture hover:text-mustard main_header text-xl bg-surface_muted hover:bg-surface_strong'
         >
           Download Database Schema
         </Link>

@@ -28,7 +28,7 @@ const MAGCatalogueList = () => {
           const doi = experimentsWithGenomeInfo.filter((exp) => exp.fields.ID === experiment.fields.ID)[0]?.fields.doi
           return <li key={experiment.id}>
 
-            <div className='group relative flex items-center justify-between gap-4 px-4 py-3 border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition bg-white hover:bg-gray-50'>
+            <div className='group relative flex items-center justify-between gap-4 px-4 py-3 border border-line rounded-xl shadow-sm hover:shadow-md transition bg-surface hover:bg-surface_subtle'>
               <div>
                 <Link
                   to={`/mag-catalogues/${encodeURIComponent(experiment.fields.Name)}`}
@@ -39,7 +39,7 @@ const MAGCatalogueList = () => {
                   </h2>
                 </Link>
 
-                <div className='flex gap-4 text-xs text-gray-500 font-extralight [&>span]:flex [&>span]:gap-1 max-md:flex-col max-md:gap-0'>
+                <div className='flex gap-4 text-xs text-ink_muted font-extralight [&>span]:flex [&>span]:gap-1 max-md:flex-col max-md:gap-0'>
                   {
                     experiment.fields['MAG catalogue - Number of MAGs'] &&
                     <span>
@@ -71,7 +71,7 @@ const MAGCatalogueList = () => {
                 </div>
 
                 {(link || doi) &&
-                  <div className='flex gap-4 text-xs text-gray-500 font-thin [&>span]:flex [&>span]:gap-1 mt-2 relative z-10 max-md:flex-col max-md:gap-0'>
+                  <div className='flex gap-4 text-xs text-ink_muted font-thin [&>span]:flex [&>span]:gap-1 mt-2 relative z-10 max-md:flex-col max-md:gap-0'>
                     {link &&
                       <span>
                         Link:&nbsp;

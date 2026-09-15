@@ -19,7 +19,7 @@ const escapeRegExp = (text: string) => text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&
 // Section heading marked with a triangle in the mustard-to-burgundy gradient
 // of the site's prism banner
 const SectionHeading = ({ children }: { children: string }) => (
-  <h2 className='main_header text-xl text-burgundy flex items-center gap-3 pb-2 mb-4 border-b border-neutral-200'>
+  <h2 className='main_header text-xl text-burgundy_ink flex items-center gap-3 pb-2 mb-4 border-b border-line'>
     <span aria-hidden='true' className='w-3 h-3.5 shrink-0 clip-triangle bg-gradient-to-b from-mustard to-burgundy' />
     {children}
   </h2>
@@ -102,7 +102,7 @@ const Methods = () => {
         ))}
       </PageHeader>
 
-      <div className='page_padding max-w-4xl text-sm leading-relaxed text-custom_black'>
+      <div className='page_padding max-w-4xl text-sm leading-relaxed text-ink'>
         {sections.map(({ key, heading }) => (
           <section key={key} className='mb-10'>
             <SectionHeading>{heading}</SectionHeading>
@@ -116,7 +116,7 @@ const Methods = () => {
                   className='mb-3'
                 />
               ))
-              : <p className='italic text-neutral-500'>This section is in preparation.</p>
+              : <p className='italic text-ink_muted'>This section is in preparation.</p>
             }
           </section>
         ))}
