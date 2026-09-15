@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
 import SocialIcons from '../SocialIcons'
+import ThemeToggle from 'components/ThemeToggle'
 import { menus } from './MenuItems'
 import Logo from 'src/assets/images/3domics-logo.png'
 
@@ -61,6 +62,10 @@ const MobileMenu = () => {
                   >
                     Data Portal Home
                   </Link>
+                </li>
+
+                <li className='px-4 py-2'>
+                  <ThemeToggle />
                 </li>
 
                 {menus.map((menu) => (

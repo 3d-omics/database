@@ -88,4 +88,9 @@ describe('Navbar', () => {
     renderNavbar()
     expect(screen.getByTestId('mobile-menu')).toBeInTheDocument()
   })
+
+  it('renders the desktop theme toggle', () => {
+    renderNavbar()
+    expect(screen.getByRole('button', { name: 'Theme: light' })).toBeInTheDocument()
+  })
 })

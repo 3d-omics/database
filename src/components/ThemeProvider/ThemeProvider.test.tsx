@@ -63,10 +63,10 @@ describe('ThemeProvider', () => {
     document.documentElement.removeAttribute('data-theme')
   })
 
-  it('resolves the default preference to light', () => {
+  it('resolves the default preference from the system setting', () => {
     render(<ThemeProvider><ThemeState /></ThemeProvider>)
 
-    expect(screen.getByText('light/light')).toBeInTheDocument()
+    expect(screen.getByText('system/light')).toBeInTheDocument()
     expect(document.documentElement).toHaveAttribute('data-theme', 'light')
   })
 
@@ -103,7 +103,7 @@ describe('ThemeProvider', () => {
 
     render(<ThemeProvider><ThemeState /></ThemeProvider>)
 
-    expect(screen.getByText('light/light')).toBeInTheDocument()
+    expect(screen.getByText('system/light')).toBeInTheDocument()
   })
 
   it('falls back to the default when storage is unavailable', () => {
@@ -114,6 +114,6 @@ describe('ThemeProvider', () => {
 
     render(<ThemeProvider><ThemeState /></ThemeProvider>)
 
-    expect(screen.getByText('light/light')).toBeInTheDocument()
+    expect(screen.getByText('system/light')).toBeInTheDocument()
   })
 })

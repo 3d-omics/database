@@ -121,6 +121,15 @@ describe('MobileMenu', () => {
     expect(screen.getByTestId('social-icons')).toBeInTheDocument()
   })
 
+  it('renders the theme toggle when opened', async () => {
+    const user = userEvent.setup()
+    renderMobileMenu()
+
+    await user.click(screen.getByTestId('hamburger-menu'))
+
+    expect(screen.getByRole('button', { name: 'Theme: light' })).toBeInTheDocument()
+  })
+
   it('renders 3Domics logo link', async () => {
     const user = userEvent.setup()
     renderMobileMenu()

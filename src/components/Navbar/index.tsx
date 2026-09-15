@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import MobileMenu from './MobileMenu'
 import { menus } from './MenuItems'
+import ThemeToggle from 'components/ThemeToggle'
 import Logo from 'src/assets/images/3domics-logo.png'
 
 const Navbar = () => {
@@ -78,6 +79,7 @@ const Navbar = () => {
           ))}
         </ul>
       </div>
+      <ThemeToggle className='ml-4 max-lg:hidden' />
       <MobileMenu />
     </nav>
   )
