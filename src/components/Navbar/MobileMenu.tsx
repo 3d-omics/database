@@ -20,7 +20,7 @@ const MobileMenu = () => {
         data-testid='hamburger-menu'
       >
         <div className='tham-box'>
-          <div className='tham-inner !h-[2px] bg-neutral-500 rounded-none after:rounded-none after:!h-[2px] before:rounded-none before:!h-[2px]' />
+          <div className='tham-inner !h-[2px] bg-ink_muted rounded-none after:rounded-none after:!h-[2px] before:rounded-none before:!h-[2px]' />
         </div>
       </div>
 
@@ -34,7 +34,7 @@ const MobileMenu = () => {
             data-testid='mobile-menu-overlay'
           >
             <nav
-              className='w-7/12 max-sm:w-9/12 bg-neutral-50 h-screen ml-auto duration-300 translate-x-0 pt-28'
+              className='w-7/12 max-sm:w-9/12 bg-surface_subtle h-screen ml-auto duration-300 translate-x-0 pt-28'
               onClick={(e) => e.stopPropagation()}
               data-testid='mobile-menu-opened'
             >
@@ -69,7 +69,7 @@ const MobileMenu = () => {
                       <Fragment key={menu.sectionTitle}>
                         {/* A section with no same-named link still needs a heading over its sub-links */}
                         {!menu.subMenus.some((subMenu) => subMenu.title === menu.sectionTitle) && (
-                          <li className='block text-lg py-3 pl-6 font-semibold whitespace-nowrap text-neutral-500 max-sm:text-base'>
+                          <li className='block text-lg py-3 pl-6 font-semibold whitespace-nowrap text-ink_muted max-sm:text-base'>
                             {menu.sectionTitle}
                           </li>
                         )}
@@ -110,7 +110,7 @@ const MobileMenu = () => {
           </div>
         ) : (
           <div className='fixed right-0 top-0 w-screen h-screen bg-transparent -z-10 duration-300 pointer-events-none' >
-            <nav className='w-7/12 ml-auto bg-neutral-50 h-screen duration-300 transform translate-x-full pt-28 px-12' />
+            <nav className='w-7/12 ml-auto bg-surface_subtle h-screen duration-300 transform translate-x-full pt-28 px-12' />
           </div>
         )}
       </div>

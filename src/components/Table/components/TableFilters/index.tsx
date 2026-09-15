@@ -27,14 +27,14 @@ const TableFilters = ({ table, filteredBy, sortedBy }: TableFiltersProps) => {
   }
 
   return (
-    <section className='z-20 bg-white flex items-center text-xs max-sm:block pb-4'>
+    <section className='z-20 bg-surface flex items-center text-xs max-sm:block pb-4'>
       <div className='flex my-1 items-center max-sm:items-start'>
         {filteredBy.length !== 0 && (
           <>
             Filtered by
             <div className='mr-6 flex max-sm:flex-col max-sm:gap-1'>
               {filteredBy.map((filter, i) => (
-                <p key={filter.id} className='bg-light_mustard w-fit rounded-md flex items-center ml-1 p-2 font-bold max-sm:p-1'>
+                <p key={filter.id} className='bg-light_mustard text-custom_black w-fit rounded-md flex items-center ml-1 p-2 font-bold max-sm:p-1'>
                   <span className='capitalize mr-1 font-thin'>{formatIdForDisplay(filter.id)}:</span>
                   <span>{filter.value as ReactNode}</span>
                   <FontAwesomeIcon
@@ -56,7 +56,7 @@ const TableFilters = ({ table, filteredBy, sortedBy }: TableFiltersProps) => {
             Sorted by
             <div className='mr-6 flex'>
               {sortedBy.map((sort) => (
-                <p key={sort.id} className='bg-light_mustard rounded-md flex items-center ml-1 p-2 font-bold max-sm:p-1'>
+                <p key={sort.id} className='bg-light_mustard text-custom_black rounded-md flex items-center ml-1 p-2 font-bold max-sm:p-1'>
                   <span className='capitalize mr-1 font-thin'>{formatIdForDisplay(sort.id)}:</span>
                   <span>{sort.desc ? 'descending' : 'ascending'}</span>
                   <FontAwesomeIcon

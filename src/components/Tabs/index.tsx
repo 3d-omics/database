@@ -4,7 +4,7 @@ const Tabs = ({ selectedTab, setSelectedTab, tabs }: {
   tabs: string[]
 }) => {
   return (
-    <div className='border-b-2 border-gray-200 mt-16 relative' data-testid='tabs'>
+    <div className='border-b-2 border-line mt-16 relative' data-testid='tabs'>
       <ul
         role='tablist'
         className='tabs tabs-lifted flex-nowrap gap-2 max-w-full overflow-x-auto overflow-y-hidden whitespace-nowrap absolute -bottom-0.5'
@@ -14,9 +14,9 @@ const Tabs = ({ selectedTab, setSelectedTab, tabs }: {
             role='tab'
             key={tab}
             onClick={() => setSelectedTab(tab)}
-            className={`tab h-10 shrink-0 hover:border-gray-300
+            className={`tab h-10 shrink-0 hover:border-line_strong
               ${selectedTab === tab
-                ? 'tab-active !text-burgundy font-bold '
+                ? 'tab-active !text-burgundy_ink font-bold '
                 : 'hover:border-burgundy hover:border-b-2 hover:opacity-100 opacity-80'}
             `}
           >

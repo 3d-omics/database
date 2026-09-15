@@ -20,7 +20,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className='bg-neutral-50 shadow-md flex items-center py-2 px-8 !sticky top-0 z-40 max-xl:px-6 max-sm:px-3'
+      className='bg-surface_subtle shadow-md flex items-center py-2 px-8 !sticky top-0 z-40 max-xl:px-6 max-sm:px-3'
       data-testid='desktop-navbar'
       ref={navbarRef}
     >
@@ -54,7 +54,7 @@ const Navbar = () => {
                 >
                   {menu.sectionTitle}
                   {/* The last dropdown opens leftwards so it stays inside the viewport */}
-                  <ul className={`absolute top-full px-4 duration-300 overflow-hidden max-h-0 bg-white rounded-md mt-3 ${index === menus.length - 1 ? 'right-0 -mr-4' : '-ml-4'} shadow-2xl [&>li]:py-3 whitespace-nowrap`}>
+                  <ul className={`absolute top-full px-4 duration-300 overflow-hidden max-h-0 bg-surface rounded-md mt-3 ${index === menus.length - 1 ? 'right-0 -mr-4' : '-ml-4'} shadow-2xl [&>li]:py-3 whitespace-nowrap`}>
                     {menu.subMenus.map((subMenu) => (
                       <li
                         className={`hover:text-mustard ${location === subMenu.location && 'text-mustard'}`}

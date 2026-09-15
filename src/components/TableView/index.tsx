@@ -52,7 +52,7 @@ const TableView = <TData,>({ columns, data, pageTitle, fetchMetaboliteError, dis
         }
 
         {data.length === 0 &&
-          <div className='text-center text-gray-500 mt-32'>No <span className='lowercase'>{pageTitle}</span> data was found.</div>
+          <div className='text-center text-ink_muted mt-32'>No <span className='lowercase'>{pageTitle}</span> data was found.</div>
         }
       </div>
     </div>

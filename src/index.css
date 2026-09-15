@@ -36,7 +36,7 @@
     @apply text-2xl font-bold font-jakarta
   }
   .pagination_btn {
-    @apply border rounded p-1 disabled:opacity-30 enabled:hover:bg-gray-100
+    @apply border border-line rounded p-1 disabled:opacity-30 enabled:hover:bg-surface_muted
   }
   .page_padding {
     @apply px-12 py-7 max-lg:px-8 max-md:px-6 max-sm:px-4
@@ -48,6 +48,6 @@
     @apply no-underline hover:text-mustard
   }
   .page_description {
-    @apply mb-8 text-sm text-custom_black max-w-6xl
+    @apply mb-8 text-sm text-ink max-w-6xl
   }
 }

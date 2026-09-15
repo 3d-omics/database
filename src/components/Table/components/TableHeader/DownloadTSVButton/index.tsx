@@ -98,7 +98,7 @@ const DownloadTSVButton = <TData,>({
 
   return (
     <button
-      className='btn btn-outline btn-xs min-w-max bg-white text-custom_black hover:bg-custom_black hover:border-custom_black'
+      className='btn btn-outline btn-xs min-w-max bg-surface text-ink hover:bg-custom_black hover:border-custom_black'
       onClick={handleDownload}
     >
       <FontAwesomeIcon icon={faFileArrowDown} className='-mr-0.5' data-testid='download-tsv-icon' />

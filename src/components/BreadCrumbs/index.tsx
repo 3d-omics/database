@@ -13,7 +13,7 @@ const BreadCrumbs = ({ items }: {
 }) => {
   return (
     <nav aria-label='Breadcrumb' className='text-[12.5px] mb-3 max-md:text-2xs' data-testid='breadcrumbs'>
-      <ol className='flex flex-wrap items-center gap-x-2.5 gap-y-1 text-custom_black'>
+      <ol className='flex flex-wrap items-center gap-x-2.5 gap-y-1 text-ink'>
         {items.map((item, index) => {
           const isCurrent = index === items.length - 1
           return (
@@ -31,7 +31,7 @@ const BreadCrumbs = ({ items }: {
                   )}
                 </Link>
                 : <span
-                  className={isCurrent ? 'font-semibold text-burgundy' : ''}
+                  className={isCurrent ? 'font-semibold text-burgundy_ink' : ''}
                   aria-current={isCurrent ? 'page' : undefined}
                 >
                   {item.label}

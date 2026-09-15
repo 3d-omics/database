@@ -13,7 +13,7 @@ checks in §6 before merging, and tick the phase off below. A prompt that works:
 
 - [x] **Phase 0** — Stop OS dark mode leaking into form controls (bug fix, ship alone)
 - [x] **Phase 1** — Theme plumbing: tokens, daisyUI dark theme, provider, no-flash script
-- [ ] **Phase 2** — Shared layout and components
+- [x] **Phase 2** — Shared layout and components
 - [ ] **Phase 3** — Pages
 - [ ] **Phase 4** — Charts (Plotly, Chart.js, D3)
 - [ ] **Phase 5** — Logo, textures and contrast audit
