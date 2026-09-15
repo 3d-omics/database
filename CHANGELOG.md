@@ -45,6 +45,11 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- Page-specific surfaces now respond to the selected theme: the home carousel and
+  navigation tiles, catalogue/list cards, volcano controls and table, taxonomy loading
+  states, Heatmap plot skeletons, Methods, the schema download, 404 and redirect loader
+  all use semantic colour tokens. Intended light fills — notably mustard badges — retain
+  fixed dark text ([`66f4f55`][66f4f55]).
 - The shared portal shell and reusable components now use semantic theme tokens: page
   surfaces and text, navigation, breadcrumbs, tabs, tables, pagination, tooltips and
   empty states all respond to the selected theme. Mustard record/filter badges and the
@@ -320,6 +325,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[66f4f55]: https://github.com/3d-omics/database/commit/66f4f55154a154cb6edfde6e1e23bb74b1666966
 [091cad7]: https://github.com/3d-omics/database/commit/091cad77630c07f90ddc4166a2a2dcf74b372a64
 [99ccee4]: https://github.com/3d-omics/database/commit/99ccee40dfc38a438dcf0a4b772fcdcc4671c405
 [09d837e]: https://github.com/3d-omics/database/commit/09d837eb8c5999afeca376bec4f528705e193d55
