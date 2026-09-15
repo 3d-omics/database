@@ -16,10 +16,10 @@ checks in §6 before merging, and tick the phase off below. A prompt that works:
 - [x] **Phase 2** — Shared layout and components
 - [x] **Phase 3** — Pages
 - [x] **Phase 4** — Charts (Plotly, Chart.js, D3)
-- [ ] **Phase 5** — Logo, textures and contrast audit
+- [x] **Phase 5** — Logo, textures and contrast audit
 - [ ] **Phase 6** — Toggle, default to system, docs, launch
 
-Estimated total: about 3½ days of work, plus waiting on a logo asset (§8).
+Estimated total: about 3½ days of work.
 
 ---
 
@@ -324,19 +324,17 @@ from the intended light fills (mustard badges, error banner).
 **Done when:** switching theme redraws every chart with readable axes and labels, and
 there are tests for `useChartTheme` plus the updated `useTaxonomyChart` tests.
 
-### Phase 5 — Logo, textures and contrast audit (~½ day, plus the logo asset)
+### Phase 5 — Logo, textures and contrast audit (~½ day)
 
-- **Logo** ([Navbar:33](../src/components/Navbar/index.tsx#L33), MobileMenu `:52`): see §8.
-  If a dark-background variant arrives, render both images with `dark:hidden` and
-  `hidden dark:block`.
-- **Textures**: `.bg-texture` and `.bg-diagonal` in [App.css](../src/App.css) draw fixed
-  `#9C92AC` dots and lines. Check them on the dark Home carousel and tiles; if they look
-  noisy, add `[data-theme="dark"] .bg-texture { … }` with a lower `fill-opacity`.
-- **Contrast pass** on the dark screenshots: body and muted text, the mustard active nav
-  item on `surface_subtle`, text on the zebra rows, `burgundy_ink`, focus outlines on
-  daisyUI inputs, text selection, and native scrollbars (these follow daisyUI's
-  per-theme `color-scheme`).
-- Tune the dark values in §4 and in `chartTheme.ts` together.
+- **Logo** ([Navbar:33](../src/components/Navbar/index.tsx#L33), MobileMenu `:52`): the
+  existing transparent logo is approved for the dark navbar; keep the single image.
+- **Textures**: `.bg-texture` and `.bg-diagonal` in [App.css](../src/App.css) retain the
+  existing light-mode overlays and lower their dark-mode opacity to keep the Home carousel
+  and tiles readable.
+- **Contrast pass**: the dark values in §4 meet their stated body, muted-text,
+  `burgundy_ink`, mustard-navigation and zebra-row targets. daisyUI supplies visible
+  focus outlines and its dark `color-scheme`, so native controls and scrollbars follow the
+  active theme. No palette changes are needed.
 
 ### Phase 6 — Toggle, default to system, docs, launch (~½ day)
 
@@ -445,9 +443,8 @@ During development you can switch themes from the browser console with
 
 ## 8. Open decisions (need the project's call)
 
-1. **Logo on dark.** (a) Get a dark-background variant of the logo from the project
-   (preferred); (b) keep the navbar light in both themes; or (c) place the logo on a small
-   light rounded plate. This blocks Phase 5 only.
+1. **Logo on dark — decided.** The existing transparent PNG remains on the dark navbar;
+   no alternate asset or light plate is needed.
 2. **Toggle style.** A three-state cycling button (system / light / dark) is recommended;
    a two-state switch is simpler but loses "follow my OS".
 3. **Default at launch.** Following the OS is recommended; light-by-default with opt-in

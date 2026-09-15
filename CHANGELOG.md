@@ -45,6 +45,10 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- Dark-mode texture overlays now use lower-opacity variants on dark surfaces, keeping the
+  Home carousel and navigation tiles legible. The existing transparent logo is approved
+  for the dark navbar, and the contrast audit confirmed the token palette, daisyUI focus
+  rings and native dark controls need no further changes ([`0379fd0`][0379fd0]).
 - Plotly, Chart.js and D3 charts now follow the resolved theme through a shared chart
   palette: transparent Plotly canvases inherit the page surface, axes, grids and labels
   remain legible, and the volcano plot uses accessible dark-theme label colours. Existing
@@ -329,6 +333,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[0379fd0]: https://github.com/3d-omics/database/commit/0379fd0dc793587dc90afccc023e479855ca46c7
 [22b2349]: https://github.com/3d-omics/database/commit/22b2349d1119b56c2deb24f5bbb0d129cf815a85
 [66f4f55]: https://github.com/3d-omics/database/commit/66f4f55154a154cb6edfde6e1e23bb74b1666966
 [091cad7]: https://github.com/3d-omics/database/commit/091cad77630c07f90ddc4166a2a2dcf74b372a64
