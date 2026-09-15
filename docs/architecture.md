@@ -78,13 +78,13 @@ convention; choose by complexity.
 
 | Component | Role |
 |---|---|
-| `components/PageHeader` | How every page but Home opens: breadcrumbs, then the `<h1>` and introduction on the `bg-prism` banner (the Methods layout). Detail pages put their key facts in the introduction. It also names the browser tab: the title, then the level above it in the trail |
+| `components/PageHeader` | How every page but Home opens: the `bg-prism` banner, straight under the navbar, carrying the breadcrumbs, the `<h1>` and the introduction (the Methods layout). Detail pages put their key facts in the introduction. It also names the browser tab: the title, then the level above it in the trail |
 | `components/TableView` | Page-level wrapper around `Table`. With `displayPageHeader` the table *is* the page, and its title and description open it on a `PageHeader`; the list pages set it by default and their `TabComponents` wrappers turn it off |
 | `components/Table` | TanStack Table v8 host — sorting, global + column filters, pagination (100/page), TSV export. Sub-parts live in `Table/components/` |
 | `components/Tabs` | Tab strip used by all the `*Overview` pages |
 | `components/TabComponents/*` | Thin wrappers that embed a filtered list page as a tab (e.g. all macrosamples whose ID starts with a specimen ID) |
 | `components/ParamsValidator` | Renders `Loading`, `NotFound`, or children, driven by `useValidateParams` |
-| `components/BreadCrumbs`, `Navbar`, `Footer`, `SocialIcons` | Chrome; Navbar and its mobile menu include the three-state `ThemeToggle` |
+| `components/BreadCrumbs`, `Navbar`, `Footer`, `SocialIcons` | Chrome. BreadCrumbs is styled for the prism banner of `PageHeader`, its only host. Navbar is a frosted sticky bar: the entry of the open page (or of any page below it) is underlined with the mustard-to-burgundy gradient, and dropdown and mobile-drawer links carry the `clip-triangle` mark (`Navbar/MenuMark`). Dropdowns are frosted too, and open on hover or keyboard focus. Navbar and its mobile menu include the three-state `ThemeToggle` |
 | `components/ErrorBanner` | Inline error surface for failed data loads |
 | `components/TaxonomyChartLegend` | Shared legend for both composition charts |
 

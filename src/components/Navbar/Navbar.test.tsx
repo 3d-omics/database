@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 import Navbar from './index'
 
 // Mock MenuItems
@@ -36,14 +36,15 @@ describe('Navbar', () => {
 
   const renderNavbar = (initialRoute = '/') => {
     return render(
-      <BrowserRouter
+      <MemoryRouter
+        initialEntries={[initialRoute]}
         future={{
           v7_startTransition: true,
           v7_relativeSplatPath: true
         }}
       >
         <Navbar />
-      </BrowserRouter>
+      </MemoryRouter>
     )
   }
 
@@ -92,5 +93,39 @@ describe('Navbar', () => {
   it('renders the desktop theme toggle', () => {
     renderNavbar()
     expect(screen.getByRole('button', { name: 'Theme: light' })).toBeInTheDocument()
+  })
+
+  it('marks the page that is open', () => {
+    renderNavbar('/about')
+    expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('aria-current', 'page')
+    expect(screen.getByRole('link', { name: 'Data Portal Home' })).not.toHaveAttribute('aria-current')
+  })
+
+  it('keeps an entry marked on the pages below it', () => {
+    renderNavbar('/about/team')
+    expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('aria-current', 'page')
+  })
+
+  it('marks the home link on the home page alone', () => {
+    renderNavbar('/')
+    expect(screen.getByRole('link', { name: 'Data Portal Home' })).toHaveAttribute('aria-current', 'page')
+    expect(screen.getByRole('link', { name: 'About' })).not.toHaveAttribute('aria-current')
+  })
+
+  it('opens each dropdown from a button, so keyboard focus can reach it', () => {
+    renderNavbar()
+    expect(screen.getByRole('button', { name: 'Data' })).toBeInTheDocument()
+  })
+
+  it('marks a dropdown while one of its pages, or a page below one, is open', () => {
+    renderNavbar('/animal-specimens/SPEC-1')
+    expect(screen.getByRole('button', { name: 'Data' })).toHaveAttribute('aria-current', 'true')
+    expect(screen.getByRole('link', { name: 'Animal Specimens' })).toHaveAttribute('aria-current', 'page')
+    expect(screen.getByRole('link', { name: 'Animal Trials' })).not.toHaveAttribute('aria-current')
+  })
+
+  it('leaves a dropdown unmarked on other pages', () => {
+    renderNavbar('/about')
+    expect(screen.getByRole('button', { name: 'Data' })).not.toHaveAttribute('aria-current')
   })
 })

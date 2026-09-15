@@ -50,6 +50,13 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- The page header's breadcrumbs now sit inside the `bg-prism` banner, which follows the
+  navbar directly, on a translucent strip that keeps them legible over the mustard end.
+  The navbar is now a frosted sticky bar with full-height entries: the entry of the open
+  page — or of any page below it — is lit and underlined in the mustard-to-burgundy
+  gradient, and hovered entries light up the same way. Dropdowns are frosted panels that
+  also open on keyboard focus, and their links carry the site's triangle mark. The mobile
+  drawer is frosted as well, slides in, and marks the open page the same way.
 - Dark-mode texture overlays now use lower-opacity variants on dark surfaces, keeping the
   Home carousel and navigation tiles legible. The existing transparent logo is approved
   for the dark navbar, and the contrast audit confirmed the token palette, daisyUI focus

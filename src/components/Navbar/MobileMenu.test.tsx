@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
-import { BrowserRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 import MobileMenu from './MobileMenu'
 
 // Mock MenuItems
@@ -27,16 +27,17 @@ vi.mock('../SocialIcons', () => ({
 }))
 
 describe('MobileMenu', () => {
-  const renderMobileMenu = () => {
+  const renderMobileMenu = (initialRoute = '/') => {
     return render(
-      <BrowserRouter
+      <MemoryRouter
+        initialEntries={[initialRoute]}
         future={{
           v7_startTransition: true,
           v7_relativeSplatPath: true
         }}
       >
         <MobileMenu />
-      </BrowserRouter>
+      </MemoryRouter>
     )
   }
 
@@ -73,6 +74,16 @@ describe('MobileMenu', () => {
     expect(screen.queryByTestId('mobile-menu-opened')).not.toBeInTheDocument()
   })
 
+  it('stays open when the drawer itself is clicked', async () => {
+    const user = userEvent.setup()
+    renderMobileMenu()
+
+    await user.click(screen.getByTestId('hamburger-menu'))
+    await user.click(screen.getByTestId('mobile-menu-opened'))
+
+    expect(screen.getByTestId('mobile-menu-opened')).toBeInTheDocument()
+  })
+
   it('closes mobile menu when menu link clicked', async () => {
     const user = userEvent.setup()
     renderMobileMenu()
@@ -97,6 +108,16 @@ describe('MobileMenu', () => {
     expect(screen.getByRole('link', { name: /Animal Trials/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /Animal Specimens/i })).toBeInTheDocument()
     expect(screen.getByRole('link', { name: /About/i })).toBeInTheDocument()
+  })
+
+  it('marks the page that is open', async () => {
+    const user = userEvent.setup()
+    renderMobileMenu('/animal-trials')
+
+    await user.click(screen.getByTestId('hamburger-menu'))
+
+    expect(screen.getByRole('link', { name: 'Animal Trials' })).toHaveAttribute('aria-current', 'page')
+    expect(screen.getByRole('link', { name: 'Data Portal Home' })).not.toHaveAttribute('aria-current')
   })
 
   it('renders a heading for a section with no same-named link', async () => {

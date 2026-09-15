@@ -1,22 +1,46 @@
-import { Fragment, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
+import { Fragment, useState, type ReactNode } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 import SocialIcons from '../SocialIcons'
 import ThemeToggle from 'components/ThemeToggle'
+import MenuMark from './MenuMark'
 import { menus } from './MenuItems'
 import Logo from 'src/assets/images/3domics-logo.png'
+
+// A link in the drawer. The page that is open is tinted burgundy and carries the
+// site's triangle mark; the link hovered gets the mark over a neutral wash, so
+// the two never look alike. The pages of a section sit indented under it
+const MenuLink = ({ to, end = false, indented = false, onClick, children }: {
+  to: string
+  end?: boolean
+  indented?: boolean
+  onClick: () => void
+  children: ReactNode
+}) => (
+  <NavLink
+    to={to}
+    end={end}
+    onClick={onClick}
+    className={({ isActive }) => `group/sub flex items-center gap-3 rounded-md py-2.5 pr-4 text-base font-semibold whitespace-nowrap transition-colors duration-200 motion-reduce:transition-none max-sm:text-[15px] ${indented ? 'pl-8' : 'pl-4'} ${isActive ? 'bg-burgundy_ink/10 text-burgundy_ink' : 'hover:bg-surface_strong/60 hover:text-burgundy_ink'}`}
+  >
+    {({ isActive }) => (
+      <>
+        <MenuMark active={isActive} />
+        {children}
+      </>
+    )}
+  </NavLink>
+)
 
 const MobileMenu = () => {
 
   const [mobileMenuOpened, setMobileMenuOpened] = useState(false)
-  const location = useLocation().pathname
+  const closeMenu = () => setMobileMenuOpened(false)
 
   return (
     <>
       {/* ===== Mobile menu hamburger =====  */}
       <div
-        className={`lg:hidden tham tham-e-squeeze tham-w-7 z-[60] ${mobileMenuOpened && 'tham-active'}`}
+        className={`lg:hidden self-center tham tham-e-squeeze tham-w-7 z-[60] ${mobileMenuOpened && 'tham-active'}`}
         onClick={() => setMobileMenuOpened(!mobileMenuOpened)}
         data-testid='hamburger-menu'
       >
@@ -27,45 +51,40 @@ const MobileMenu = () => {
 
 
       {/* ===== Mobile menu ===== */}
-      <div className='relative'>
-        {mobileMenuOpened ? (
+      {mobileMenuOpened && (
+        <>
           <div
-            className='fixed right-0 top-0 w-screen h-screen bg-black/30 z-20 duration-300'
-            onClick={() => setMobileMenuOpened(false)}
+            className='fixed inset-0 z-20 bg-black/40 animate-fade-in motion-reduce:animate-none lg:hidden'
+            onClick={closeMenu}
             data-testid='mobile-menu-overlay'
+          />
+
+          {/* A frosted drawer with the gradient of the prism banner down its leading
+              edge. It is a sibling of the scrim rather than inside it, since a
+              translucent or filtered ancestor would stop its own blur reaching the page */}
+          <nav
+            className='fixed right-0 top-0 z-30 flex h-dvh w-7/12 flex-col bg-surface_subtle/85 shadow-2xl backdrop-blur-xl backdrop-saturate-150 animate-slide-in-right motion-reduce:animate-none max-sm:w-10/12 lg:hidden'
+            data-testid='mobile-menu-opened'
           >
-            <nav
-              className='w-7/12 max-sm:w-9/12 bg-surface_subtle h-screen ml-auto duration-300 translate-x-0 pt-28'
-              onClick={(e) => e.stopPropagation()}
-              data-testid='mobile-menu-opened'
-            >
-              <ul className='[&>li]:border-b'>
+            <span aria-hidden='true' className='absolute inset-y-0 left-0 w-[3px] bg-gradient-to-b from-mustard to-burgundy_ink' />
 
-                <li className='!border-b-0'>
-                  <Link
-                    to='http://www.3domics.eu'
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    onClick={() => setMobileMenuOpened(false)}
-                    className='font-semibold btn btn-ghost w-fit cursor-pointer mx-2 mb-2'
-                  >
-                    {/* 3D'omics Home */}
-                    <img src={Logo} alt="3D'omics logo" className='h-8 object-contain' />
-                  </Link>
-                </li>
+            <div className='flex flex-1 flex-col overflow-y-auto px-3 pt-20'>
+              <div className='mb-3 flex items-center justify-between border-b border-line/60 pb-3 pr-1'>
+                <Link
+                  to='http://www.3domics.eu'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  onClick={closeMenu}
+                  className='btn btn-ghost px-2'
+                >
+                  <img src={Logo} alt="3D'omics logo" className='h-8 object-contain' />
+                </Link>
+                <ThemeToggle />
+              </div>
 
+              <ul className='space-y-0.5 pb-6'>
                 <li>
-                  <Link
-                    to='/'
-                    onClick={() => setMobileMenuOpened(false)}
-                    className={`block text-lg py-3 pl-6 font-semibold whitespace-nowrap hover:bg-burgundy ${location === '/' ? 'text-mustard' : 'hover:text-white'} max-sm:text-base`}
-                  >
-                    Data Portal Home
-                  </Link>
-                </li>
-
-                <li className='px-4 py-2'>
-                  <ThemeToggle />
+                  <MenuLink to='/' end onClick={closeMenu}>Data Portal Home</MenuLink>
                 </li>
 
                 {menus.map((menu) => (
@@ -74,52 +93,39 @@ const MobileMenu = () => {
                       <Fragment key={menu.sectionTitle}>
                         {/* A section with no same-named link still needs a heading over its sub-links */}
                         {!menu.subMenus.some((subMenu) => subMenu.title === menu.sectionTitle) && (
-                          <li className='block text-lg py-3 pl-6 font-semibold whitespace-nowrap text-ink_muted max-sm:text-base'>
+                          <li className='px-4 pt-4 pb-1 text-2xs font-bold uppercase tracking-[0.14em] text-ink_muted'>
                             {menu.sectionTitle}
                           </li>
                         )}
                         {menu.subMenus.map((subMenu) => (
                           <li key={subMenu.location}>
-                            <Link
+                            <MenuLink
                               to={subMenu.location}
-                              onClick={() => setMobileMenuOpened(false)}
-                              className={`block text-lg py-3 pl-6 font-semibold whitespace-nowrap hover:bg-burgundy ${location === subMenu.location ? 'text-mustard' : 'hover:text-white'} max-sm:text-base`}
+                              indented={subMenu.title !== menu.sectionTitle}
+                              onClick={closeMenu}
                             >
-                              {subMenu.title !== menu.sectionTitle && <FontAwesomeIcon icon={faCaretRight} className='mr-2 ml-3' />}
                               {subMenu.title}
-                            </Link>
+                            </MenuLink>
                           </li>
                         ))}
                       </Fragment>
                     ) : (
                       <li key={menu.title}>
-                        <Link
-                          to={menu.location ?? '/'}
-                          onClick={() => setMobileMenuOpened(false)}
-                          className={`block text-lg py-3 pl-6 font-semibold whitespace-nowrap hover:bg-burgundy ${location === menu.location ? 'text-mustard' : 'hover:text-white'} max-sm:text-base`}
-                        >
-                          {menu.title}
-                        </Link>
+                        <MenuLink to={menu.location ?? '/'} onClick={closeMenu}>{menu.title}</MenuLink>
                       </li>
                     )
                 ))}
-
               </ul>
 
-              <section className='absolute bottom-10 w-full'>
+              <section className='mt-auto border-t border-line/60 py-8'>
                 <SocialIcons
                   ulClassName='gap-6 [&_svg]:text-2xl [&>li:hover_svg]:text-mustard'
                 />
               </section>
-            </nav>
-          </div>
-        ) : (
-          <div className='fixed right-0 top-0 w-screen h-screen bg-transparent -z-10 duration-300 pointer-events-none' >
-            <nav className='w-7/12 ml-auto bg-surface_subtle h-screen duration-300 transform translate-x-full pt-28 px-12' />
-          </div>
-        )}
-      </div>
-
+            </div>
+          </nav>
+        </>
+      )}
     </>
   )
 }

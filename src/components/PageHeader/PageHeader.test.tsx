@@ -18,9 +18,11 @@ describe('PageHeader', () => {
     </MemoryRouter>
   )
 
-  it('renders the breadcrumb trail', () => {
+  it('renders the breadcrumb trail inside the banner', () => {
     renderHeader()
-    expect(screen.getByRole('navigation', { name: 'Breadcrumb' })).toHaveTextContent('Trials')
+    const trail = screen.getByRole('navigation', { name: 'Breadcrumb' })
+    expect(trail).toHaveTextContent('Trials')
+    expect(screen.getByRole('banner')).toContainElement(trail)
   })
 
   it('renders the title as the page heading inside the banner', () => {
@@ -36,7 +38,8 @@ describe('PageHeader', () => {
 
   it('leaves out the introduction when there is none', () => {
     renderHeader()
-    expect(screen.getByRole('banner').children).toHaveLength(1)
+    // The trail and the title alone
+    expect(screen.getByRole('banner').children).toHaveLength(2)
   })
 
   it('names the browser tab after the title alone below the home page', () => {

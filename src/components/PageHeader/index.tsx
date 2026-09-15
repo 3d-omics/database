@@ -4,8 +4,8 @@ import BreadCrumbs from 'components/BreadCrumbs'
 import { SITE_TITLE } from 'config/siteTitle'
 
 // The header every page opens with, laid out after the Methods pages: the
-// breadcrumb trail, then the title and introduction on the triangle-patterned
-// prism banner of the home page
+// breadcrumb trail, title and introduction on the triangle-patterned prism
+// banner of the home page, which follows straight on from the navbar
 const PageHeader = ({ title, breadcrumbs, children }: {
   title: string
   breadcrumbs: { label: string, link?: string }[]
@@ -23,18 +23,13 @@ const PageHeader = ({ title, breadcrumbs, children }: {
   }, [tabTitle, location])
 
   return (
-    <>
-      <div className='page_padding pb-0'>
-        <BreadCrumbs items={breadcrumbs} />
-      </div>
-
-      <header className='page_padding py-10 bg-prism text-neutral-50'>
-        <h1 className='main_header text-4xl text-light_mustard break-words max-md:text-3xl'>{title}</h1>
-        {children &&
-          <div className='mt-4 max-w-4xl text-sm leading-relaxed space-y-3'>{children}</div>
-        }
-      </header>
-    </>
+    <header className='page_padding pt-6 pb-10 bg-prism text-neutral-50 max-md:pt-4'>
+      <BreadCrumbs items={breadcrumbs} />
+      <h1 className='main_header text-4xl text-light_mustard break-words max-md:text-3xl'>{title}</h1>
+      {children &&
+        <div className='mt-4 max-w-4xl text-sm leading-relaxed space-y-3'>{children}</div>
+      }
+    </header>
   )
 }
 
