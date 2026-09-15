@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
 import { BrowserRouter, useNavigate } from 'react-router-dom'
+import ThemeProvider from 'components/ThemeProvider'
 
 function RedirectHandler({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate()
@@ -41,16 +42,18 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <BrowserRouter
-      basename='/database/'
-      future={{
-        v7_startTransition: true,
-        v7_relativeSplatPath: true
-      }}
-    >
-      <RedirectHandler>
-        <App />
-      </RedirectHandler>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter
+        basename='/database/'
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true
+        }}
+      >
+        <RedirectHandler>
+          <App />
+        </RedirectHandler>
+      </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>
 );
