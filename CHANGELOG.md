@@ -56,7 +56,8 @@ moved it. If the project starts tagging releases, these headings become
   page — or of any page below it — is lit and underlined in the mustard-to-burgundy
   gradient, and hovered entries light up the same way. Dropdowns are frosted panels that
   also open on keyboard focus, and their links carry the site's triangle mark. The mobile
-  drawer is frosted as well, slides in, and marks the open page the same way.
+  drawer is frosted as well, slides in, and marks the open page the same way
+  ([`c548b8e`][c548b8e]).
 - Dark-mode texture overlays now use lower-opacity variants on dark surfaces, keeping the
   Home carousel and navigation tiles legible. The existing transparent logo is approved
   for the dark navbar, and the contrast audit confirmed the token palette, daisyUI focus
@@ -345,6 +346,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[c548b8e]: https://github.com/3d-omics/database/commit/c548b8e49f5028141d11b93536b368bb10901dce
 [0379fd0]: https://github.com/3d-omics/database/commit/0379fd0dc793587dc90afccc023e479855ca46c7
 [22b2349]: https://github.com/3d-omics/database/commit/22b2349d1119b56c2deb24f5bbb0d129cf815a85
 [66f4f55]: https://github.com/3d-omics/database/commit/66f4f55154a154cb6edfde6e1e23bb74b1666966
