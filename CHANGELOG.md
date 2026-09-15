@@ -20,6 +20,10 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Added
 
+- Theme plumbing for the forthcoming dark mode: a typed light/dark/system preference,
+  a no-flash `data-theme` script, `ThemeProvider`/`useTheme`, semantic colour tokens and
+  a daisyUI dark theme. Dark mode remains opt-in through `localStorage.theme` until the
+  launch phase ([`99ccee4`][99ccee4]).
 - A **Methods** section at the end of the menu, with MAG Catalogue, Macro
   Metagenomics, Micro Metagenomics and Metabolomics pages under `/methods/<name>`. Each
   page opens with its title and introduction on the triangle-patterned `bg-prism` banner
@@ -311,6 +315,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[99ccee4]: https://github.com/3d-omics/database/commit/99ccee40dfc38a438dcf0a4b772fcdcc4671c405
 [09d837e]: https://github.com/3d-omics/database/commit/09d837eb8c5999afeca376bec4f528705e193d55
 [58e9a45]: https://github.com/3d-omics/database/commit/58e9a45b57c73763bde8f0b3ec35d91953f9e6bb
 [8ed6df4]: https://github.com/3d-omics/database/commit/8ed6df42abefde8dbad5f71e0f7989812799c01a
