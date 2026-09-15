@@ -76,6 +76,8 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Fixed
 
+- OS dark-mode preferences no longer make daisyUI form controls dark while the page
+  surface remains light ([`09d837e`][09d837e]).
 - The deploy's catalogue download names itself with a User-Agent. Zenodo began answering
   Node's default, `node`, with 403 Forbidden, which failed the fetch step before
   anything was built ([`58e9a45`][58e9a45]).
@@ -309,6 +311,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[09d837e]: https://github.com/3d-omics/database/commit/09d837eb8c5999afeca376bec4f528705e193d55
 [58e9a45]: https://github.com/3d-omics/database/commit/58e9a45b57c73763bde8f0b3ec35d91953f9e6bb
 [8ed6df4]: https://github.com/3d-omics/database/commit/8ed6df42abefde8dbad5f71e0f7989812799c01a
 [3d0beea]: https://github.com/3d-omics/database/commit/3d0beea613d28edfa2ca961a78377cb30af0f690
