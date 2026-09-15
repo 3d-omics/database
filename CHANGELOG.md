@@ -45,6 +45,11 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- The shared portal shell and reusable components now use semantic theme tokens: page
+  surfaces and text, navigation, breadcrumbs, tabs, tables, pagination, tooltips and
+  empty states all respond to the selected theme. Mustard record/filter badges and the
+  rose error banner retain their fixed dark text on their intentionally light fills
+  ([`091cad7`][091cad7]).
 - Every page except the home page opens the way the Methods pages do: the breadcrumb
   trail, then the title and introduction on the triangle-patterned `bg-prism` banner,
   drawn by one shared `PageHeader` component. The list pages gain a breadcrumb trail;
@@ -315,6 +320,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[091cad7]: https://github.com/3d-omics/database/commit/091cad77630c07f90ddc4166a2a2dcf74b372a64
 [99ccee4]: https://github.com/3d-omics/database/commit/99ccee40dfc38a438dcf0a4b772fcdcc4671c405
 [09d837e]: https://github.com/3d-omics/database/commit/09d837eb8c5999afeca376bec4f528705e193d55
 [58e9a45]: https://github.com/3d-omics/database/commit/58e9a45b57c73763bde8f0b3ec35d91953f9e6bb
