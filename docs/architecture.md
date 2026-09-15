@@ -28,9 +28,11 @@ Everything else — Airtable records, genome metadata, count matrices — is a s
 
 ## Entry points
 
-- [src/main.tsx](../src/main.tsx) — mounts `BrowserRouter` with `basename='/database/'`
-  and wraps the app in `RedirectHandler`, which consumes the `redirectPath` written by
-  [public/404.html](../public/404.html). See [deployment.md](deployment.md).
+- [src/main.tsx](../src/main.tsx) — mounts `ThemeProvider` around `BrowserRouter` with
+  `basename='/database/'`; the provider resolves and persists the light/dark/system
+  preference (default: OS setting) and sets `<html data-theme>`. `RedirectHandler` consumes
+  the `redirectPath` written by [public/404.html](../public/404.html). See
+  [deployment.md](deployment.md).
 - [src/App.tsx](../src/App.tsx) — the route table. Pages name the browser tab through
   their `PageHeader` (title, then the level above it in the breadcrumbs); `App` only sets
   the tab for pages without one — the home page and pages still loading or not found.
@@ -82,7 +84,7 @@ convention; choose by complexity.
 | `components/Tabs` | Tab strip used by all the `*Overview` pages |
 | `components/TabComponents/*` | Thin wrappers that embed a filtered list page as a tab (e.g. all macrosamples whose ID starts with a specimen ID) |
 | `components/ParamsValidator` | Renders `Loading`, `NotFound`, or children, driven by `useValidateParams` |
-| `components/BreadCrumbs`, `Navbar`, `Footer`, `SocialIcons` | Chrome |
+| `components/BreadCrumbs`, `Navbar`, `Footer`, `SocialIcons` | Chrome; Navbar and its mobile menu include the three-state `ThemeToggle` |
 | `components/ErrorBanner` | Inline error surface for failed data loads |
 | `components/TaxonomyChartLegend` | Shared legend for both composition charts |
 
@@ -94,6 +96,7 @@ convention; choose by complexity.
 | `useJsonData` | `useGenomeJsonFile(folder, name)` and `useAllMicrosampleCounts()` — resolve generated JSON via `import.meta.glob(..., { eager: true })`. Eager globbing is why all 76 microsample count files enter the bundle. |
 | `useTaxonomyData` | Normalises a counts matrix to relative abundance per sample and aligns genome order with the metadata file. |
 | `useTaxonomyChart` | Builds the Chart.js dataset/options for stacked composition charts. |
+| `useTheme` / `useChartTheme` | Read the resolved portal theme; the latter exposes the shared palette for Plotly, Chart.js and D3. |
 | `useMetaboliteExcelFileData` | Fetches and parses a metabolomics workbook. **Reads sheets by numeric index** — 1 = Sample Metadata, 3 = Reordered Abundances, 4 = Normalized Abundances. Reordering sheets in the source workbook silently breaks the page. |
 
 ## Configuration
@@ -110,14 +113,18 @@ convention; choose by complexity.
 - [src/config/macrosampleWithMetaboliteData.ts](../src/config/macrosampleWithMetaboliteData.ts)
   — a hard-coded list of ~700 macrosample IDs known to have metabolite data, used to
   decide which rows link out to metabolomics views.
+- [src/config/theme.ts](../src/config/theme.ts) and
+  [src/config/chartTheme.ts](../src/config/chartTheme.ts) — the preference/storage model
+  and chart-specific light/dark palette.
 
 ## Styling
 
-Tailwind 3 with daisyUI and `tailwind-hamburgers`. Component shortcuts and the two
-Google Font imports are in [src/index.css](../src/index.css); brand colours, clip-path
-utilities and custom font sizes in [tailwind.config.js](../tailwind.config.js);
-Plotly/Circos overrides and the CSS custom properties `--navbar-height` /
-`--footer-height` in [src/App.css](../src/App.css).
+Tailwind 3 with daisyUI and `tailwind-hamburgers`. Semantic light/dark colour tokens live
+in [src/index.css](../src/index.css), along with component shortcuts and the two Google
+Font imports; brand colours, token utilities, clip-path utilities and custom font sizes
+are in [tailwind.config.js](../tailwind.config.js). Plotly/Circos overrides, texture
+variants and the CSS custom properties `--navbar-height` / `--footer-height` are in
+[src/App.css](../src/App.css).
 
 ## Testing
 

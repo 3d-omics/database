@@ -1,13 +1,10 @@
-# Dark mode — implementation roadmap
+# Dark mode — implementation record
 
-Plan for adding a light/dark theme to the Data Portal, written to be picked up cold in a
-new session. Assessed and verified against `main` at `86888a0` on 2026-09-15.
+The complete light/dark theme implementation for the Data Portal. It was initially
+written as an incremental roadmap and verified at launch on 2026-09-15.
 
-**Starting a session on this:** read [AGENTS.md](../AGENTS.md) first (data generation,
-commit rules, the pre-commit gate), then this file. Do one phase per branch, run the
-checks in §6 before merging, and tick the phase off below. A prompt that works:
-
-> Read AGENTS.md and docs/dark-mode-roadmap.md, then implement Phase 1 on a new branch.
+For future theme work, read [AGENTS.md](../AGENTS.md) first, then use the design rules,
+tokens and verification guidance below.
 
 ## Progress
 
@@ -17,7 +14,7 @@ checks in §6 before merging, and tick the phase off below. A prompt that works:
 - [x] **Phase 3** — Pages
 - [x] **Phase 4** — Charts (Plotly, Chart.js, D3)
 - [x] **Phase 5** — Logo, textures and contrast audit
-- [ ] **Phase 6** — Toggle, default to system, docs, launch
+- [x] **Phase 6** — Toggle, default to system, docs, launch
 
 Estimated total: about 3½ days of work.
 
@@ -30,9 +27,8 @@ Estimated total: about 3½ days of work.
 - **Light mode must look the same as today.** Every token's light value is the colour the
   site uses now. The one intended light-mode change is chart axis text unified to `#555`
   in Phase 4.
-- **Dark mode stays hidden until Phase 6.** Until then the default preference is `light`
-  and dark is reachable only by setting `localStorage.theme = 'dark'`. Pushing to `main`
-  deploys immediately, so this is what makes it safe to merge Phases 1–5 one at a time.
+- The launch default is **system**. The theme toggle in both navigation layouts cycles
+  system → light → dark, and its choice is remembered per browser.
 - **Data colours do not change between themes.** Taxonomy colours
   ([taxonomy-color-scheme.ts](../src/config/taxonomy-color-scheme.ts), 115 colours), phylum
   colours, the heatmap colour scale, the MAG completeness/contamination swatches, the
@@ -66,8 +62,8 @@ Estimated total: about 3½ days of work.
   the built CSS). Both selectors have equal specificity, so an explicit `data-theme` on
   `<html>` beats the OS preference. The plan depends on this.
 - **Tests:** jsdom has no `window.matchMedia` (the Methods page already guards it with
-  `?.` at [Methods/index.tsx:77](../src/pages/Methods/index.tsx#L77)). There are 66 test
-  files; AGENTS.md still says 63.
+  `?.` at [Methods/index.tsx:77](../src/pages/Methods/index.tsx#L77)). At launch, the
+  suite has 70 test files and 513 tests.
 
 ## 3. Design decisions
 
@@ -336,7 +332,7 @@ there are tests for `useChartTheme` plus the updated `useTaxonomyChart` tests.
   focus outlines and its dark `color-scheme`, so native controls and scrollbars follow the
   active theme. No palette changes are needed.
 
-### Phase 6 — Toggle, default to system, docs, launch (~½ day)
+### Phase 6 — Toggle, default to system, docs, launch (~½ day) — complete
 
 1. Add a toggle button to the Navbar (desktop) and MobileMenu that cycles
    system → light → dark. Use the FontAwesome free-solid icons already installed
@@ -353,6 +349,11 @@ there are tests for `useChartTheme` plus the updated `useTaxonomyChart` tests.
    [architecture.md](architecture.md); add a CHANGELOG entry under **Added**.
 6. Final screenshot run in both themes, plus OS dark with no stored preference.
 
+**Completed:** the desktop and mobile navigation contain the cycling FontAwesome toggle;
+the default and no-flash fallback are both `system`; the test suite covers cycling and
+persistence; the token guard prevents newly introduced raw neutral utilities. The
+production preview was visually checked in both light and dark modes.
+
 ---
 
 ## 6. Verification
@@ -360,8 +361,8 @@ there are tests for `useChartTheme` plus the updated `useTaxonomyChart` tests.
 Run these before every merge (AGENTS §7):
 
 ```bash
-npx tsc --noEmit          # 4 known errors (AGENTS §6.7); no new ones
-npx vitest run            # all green (66 test files at the time of writing)
+npx tsc --noEmit          # only the pre-existing data-model errors; no new ones
+npx vitest run            # all green (70 files / 513 tests at launch)
 npm run build             # needs the generated data (AGENTS §2)
 ```
 
@@ -391,7 +392,7 @@ const OTHER_PAGES = ['/', '/database-schema', '/methods/mag-catalogue',
   const browser = await chromium.launch()
   for (const theme of ['light', 'dark']) {
     const ctx = await browser.newContext({ colorScheme: theme, viewport: { width: 1280, height: 900 } })
-    // Until Phase 6 dark mode is opt-in: force it the way the toggle will
+    // Force each resolved theme independently of the host OS setting.
     await ctx.addInitScript((t) => { try { localStorage.setItem('theme', t) } catch {} }, theme)
     const page = await ctx.newPage()
     const shoot = async (path) => {
@@ -434,20 +435,17 @@ During development you can switch themes from the browser console with
 - **Charts only change when they re-render.** Every `useMemo` or `useEffect` that builds
   chart options or draws SVG needs the theme colours in its dependencies.
 - **Keep the script in `index.html` and `theme.ts` in step.** They share the storage key
-  and the default preference.
+  and the `system` default preference.
 - **Mustard text on white is about 2.9:1 today.** That is a pre-existing light-mode issue
   and out of scope here; on the dark surface it is 6.2:1.
-- **`main` deploys on push.** Keep the default at `light` until Phase 6.
+- **`main` deploys on push.** Check both resolved themes before shipping a theme change.
 - **Commit rules:** no `Co-Authored-By` trailers; each CHANGELOG entry links its commit
   hash (AGENTS §7).
 
-## 8. Open decisions (need the project's call)
+## 8. Final decisions
 
-1. **Logo on dark — decided.** The existing transparent PNG remains on the dark navbar;
-   no alternate asset or light plate is needed.
-2. **Toggle style.** A three-state cycling button (system / light / dark) is recommended;
-   a two-state switch is simpler but loses "follow my OS".
-3. **Default at launch.** Following the OS is recommended; light-by-default with opt-in
-   dark is the cautious alternative.
-4. **Dark palette.** The §4 values are proposals chosen for contrast; adjust them to taste
-   in Phase 5.
+1. **Logo on dark.** The existing transparent PNG remains on the dark navbar; no alternate
+   asset or light plate is needed.
+2. **Toggle style.** A three-state cycling button provides system, light and dark modes.
+3. **Launch default.** The portal follows the visitor's OS until they make a selection.
+4. **Dark palette.** The §4 values passed the final contrast audit.

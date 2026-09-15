@@ -20,6 +20,11 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Added
 
+- A visitor-selectable dark mode, with a three-state system/light/dark toggle in desktop
+  and mobile navigation. The default follows the OS setting, each choice persists locally,
+  and a no-flash script applies the resolved theme before the application loads. A token
+  regression test prevents new raw neutral utilities from bypassing the shared theme
+  palette ([`b24a103`][b24a103]).
 - Theme plumbing for the forthcoming dark mode: a typed light/dark/system preference,
   a no-flash `data-theme` script, `ThemeProvider`/`useTheme`, semantic colour tokens and
   a daisyUI dark theme. Dark mode remains opt-in through `localStorage.theme` until the
