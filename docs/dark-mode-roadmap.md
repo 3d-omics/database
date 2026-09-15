@@ -15,7 +15,7 @@ checks in §6 before merging, and tick the phase off below. A prompt that works:
 - [x] **Phase 1** — Theme plumbing: tokens, daisyUI dark theme, provider, no-flash script
 - [x] **Phase 2** — Shared layout and components
 - [x] **Phase 3** — Pages
-- [ ] **Phase 4** — Charts (Plotly, Chart.js, D3)
+- [x] **Phase 4** — Charts (Plotly, Chart.js, D3)
 - [ ] **Phase 5** — Logo, textures and contrast audit
 - [ ] **Phase 6** — Toggle, default to system, docs, launch
 
