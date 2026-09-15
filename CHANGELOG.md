@@ -54,6 +54,12 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- The home page's "Download Database Schema" button is replaced by a full-width block
+  introducing 3dtk, the 3D'omics ToolKit, set directly above the footer: a short overview,
+  the `pip install 3dtk` command, and links to its
+  [GitHub repository](https://github.com/3d-omics/3dtk) and
+  [documentation](https://3dtk.readthedocs.io/). The `/database-schema` page itself stays
+  reachable at its URL.
 - The record counts on the home page's section blocks ("8 records", "1,466 records", …)
   are now burgundy-tinted tags in the style of the navbar's "Data portal" tag, set between
   each block's title and description, with the count in bold and thousands grouped. The

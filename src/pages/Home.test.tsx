@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, within } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import Home from './Home'
 
@@ -127,12 +127,14 @@ describe('Home', () => {
     expect(screen.getByText('Metabolomics')).toBeInTheDocument()
   })
 
-  it('renders download database schema button', () => {
+  it('introduces 3dtk with its install command and links', () => {
     renderPage()
 
-    const downloadLink = screen.getByRole('link', { name: /Download Database Schema/i })
-    expect(downloadLink).toBeInTheDocument()
-    expect(downloadLink).toHaveAttribute('href', '/database-schema')
+    const toolkit = screen.getByRole('region', { name: /3dtk/i })
+    expect(within(toolkit).getByText('pip install 3dtk')).toBeInTheDocument()
+    expect(within(toolkit).getByRole('link', { name: 'GitHub' })).toHaveAttribute('href', 'https://github.com/3d-omics/3dtk')
+    expect(within(toolkit).getByRole('link', { name: 'Documentation' })).toHaveAttribute('href', 'https://3dtk.readthedocs.io/')
+    expect(screen.queryByRole('link', { name: /Download Database Schema/i })).not.toBeInTheDocument()
   })
 
   it('slides the experiment carousel in both directions', () => {

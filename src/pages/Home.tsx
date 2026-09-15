@@ -1,7 +1,8 @@
 import { useMemo, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretDown, faCaretRight, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faBook, faCaretDown, faCaretRight, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import tablesData from 'assets/data/airtable/_metadata.json'
 import pigImage from 'assets/images/pig.png'
 import chickenImage from 'assets/images/chicken.png'
@@ -251,7 +252,7 @@ const Home = () => {
         </div>
       </main>
 
-      <div className='pb-20 flex justify-center max-lg:pb-2'>
+      <div className='pb-14 flex justify-center max-lg:pb-5'>
         <ul className='flex flex-col gap-2 [&_li]:bg-surface_muted [&_li]:w-[32rem] [&_li]:p-5 [&_li]:justify-center max-xl:[&_li]:w-[30rem] max-lg:[&_li]:h-[240px] max-lg:[&_li]:w-[calc(100dvw-10px)] max-lg:[&_li]:flex max-lg:[&_li]:justify-center max-lg:[&_li]:items-center hover:[&_li]:bg-surface_strong [&_li:hover_h2]:text-mustard [&_h2]:main_header [&_h2]:text-3xl [&_h2]:mb-1 max-lg:[&_h2]:text-2xl max-lg:[&_h2]:mt-4 max-lg:[&_p]:text-sm [&_svg]:w-[32rem] [&_svg]:text-2xl [&_svg]:text-burgundy_ink max-lg:[&_svg]:hidden [&>div]:flex [&>div]:items-stretch [&>div]:gap-6 max-lg:[&>div]:flex-col max-lg:[&>div]:gap-2 [&_li_p]:text-[13px]'>
           {navItems.map((section, idx) => {
             if (section.type === 'arrow') {
@@ -312,14 +313,46 @@ const Home = () => {
         </ul>
       </div>
 
-      <div className='flex justify-center mb-20 mt-8'>
-        <Link
-          to={'/database-schema'}
-          className='px-6 py-3 bg-texture hover:text-mustard main_header text-xl bg-surface_muted hover:bg-surface_strong'
-        >
-          Download Database Schema
-        </Link>
-      </div>
+      <section aria-labelledby='toolkit-heading' className='px-28 py-12 bg-surface_muted bg-texture max-md:px-16 max-sm:px-4 max-sm:py-8'>
+        <div className='flex justify-between gap-10 max-lg:flex-col max-lg:gap-6'>
+          <div className='flex-1 max-w-4xl'>
+            <span className='inline-flex rounded-md border border-burgundy_ink/40 bg-burgundy_ink/10 px-2 py-1 font-jakarta text-xs leading-none text-burgundy_ink'>
+              Command line &amp; Python
+            </span>
+            <h2 id='toolkit-heading' className='main_header text-3xl mt-3 mb-2 max-lg:text-2xl'>
+              3dtk <span className='font-light text-ink_muted'>— the 3D'omics ToolKit</span>
+            </h2>
+            <p className='text-[13px] max-lg:text-sm'>
+              3dtk finds, summarises, exports and downloads records from the 3D'omics data catalogue,
+              from the command line or from Python, with no credentials and no server. It reads the
+              published, checksum-verified catalogue deposited on Zenodo and joins every level from
+              animal trials down to microsamples, so a single command answers questions that span the
+              hierarchy, from filtering microsamples by host and treatment to exporting genome count matrices.
+            </p>
+          </div>
+
+          <div className='flex flex-col justify-center gap-4 lg:w-80'>
+            <div>
+              <p className='mb-1 text-xs uppercase tracking-wide text-ink_muted'>Install</p>
+              <code className='block rounded-md border border-line bg-surface px-4 py-3 font-mono text-sm'>
+                <span aria-hidden='true' className='select-none text-ink_muted'>$ </span>
+                <span className='select-all'>pip install 3dtk</span>
+              </code>
+              <p className='mt-1 text-xs text-ink_muted'>
+                Then run <code>3dtk</code>, or <code>import py3dtk</code> in Python.
+              </p>
+            </div>
+            <div className='flex flex-wrap gap-3 [&_a]:inline-flex [&_a]:items-center [&_a]:gap-2 [&_a]:rounded-md [&_a]:border [&_a]:border-line [&_a]:bg-surface [&_a]:px-4 [&_a]:py-2 [&_a]:font-jakarta [&_a]:text-sm [&_a]:font-semibold hover:[&_a]:bg-surface_strong hover:[&_a]:text-mustard'>
+              <Link to='https://github.com/3d-omics/3dtk' target='_blank' rel='noopener noreferrer'>
+                <FontAwesomeIcon icon={faGithub} /> GitHub
+              </Link>
+              <Link to='https://3dtk.readthedocs.io/' target='_blank' rel='noopener noreferrer'>
+                <FontAwesomeIcon icon={faBook} /> Documentation
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
