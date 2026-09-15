@@ -55,10 +55,9 @@ describe('Navbar', () => {
     expect(logoLink).toHaveAttribute('target', '_blank')
   })
 
-  it('renders Data Portal Home link', () => {
+  it('renders the Data portal tag as the home link', () => {
     renderNavbar()
-    const homeLink = screen.getByRole('link', { name: /Data Portal Home/i })
-    expect(homeLink).toHaveAttribute('href', '/')
+    expect(screen.getByRole('link', { name: 'Data portal' })).toHaveAttribute('href', '/')
   })
 
   it('sets navbar height CSS variable on mount', () => {
@@ -98,7 +97,7 @@ describe('Navbar', () => {
   it('marks the page that is open', () => {
     renderNavbar('/about')
     expect(screen.getByRole('link', { name: 'About' })).toHaveAttribute('aria-current', 'page')
-    expect(screen.getByRole('link', { name: 'Data Portal Home' })).not.toHaveAttribute('aria-current')
+    expect(screen.getByRole('link', { name: 'Data portal' })).not.toHaveAttribute('aria-current')
   })
 
   it('keeps an entry marked on the pages below it', () => {
@@ -108,7 +107,7 @@ describe('Navbar', () => {
 
   it('marks the home link on the home page alone', () => {
     renderNavbar('/')
-    expect(screen.getByRole('link', { name: 'Data Portal Home' })).toHaveAttribute('aria-current', 'page')
+    expect(screen.getByRole('link', { name: 'Data portal' })).toHaveAttribute('aria-current', 'page')
     expect(screen.getByRole('link', { name: 'About' })).not.toHaveAttribute('aria-current')
   })
 

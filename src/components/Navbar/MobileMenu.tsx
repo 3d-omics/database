@@ -3,22 +3,21 @@ import { Link, NavLink } from 'react-router-dom'
 import SocialIcons from '../SocialIcons'
 import ThemeToggle from 'components/ThemeToggle'
 import MenuMark from './MenuMark'
+import PortalTag from './PortalTag'
 import { menus } from './MenuItems'
 import Logo from 'src/assets/images/3domics-logo.png'
 
 // A link in the drawer. The page that is open is tinted burgundy and carries the
 // site's triangle mark; the link hovered gets the mark over a neutral wash, so
 // the two never look alike. The pages of a section sit indented under it
-const MenuLink = ({ to, end = false, indented = false, onClick, children }: {
+const MenuLink = ({ to, indented = false, onClick, children }: {
   to: string
-  end?: boolean
   indented?: boolean
   onClick: () => void
   children: ReactNode
 }) => (
   <NavLink
     to={to}
-    end={end}
     onClick={onClick}
     className={({ isActive }) => `group/sub flex items-center gap-3 rounded-md py-2.5 pr-4 text-base font-semibold whitespace-nowrap transition-colors duration-200 motion-reduce:transition-none max-sm:text-[15px] ${indented ? 'pl-8' : 'pl-4'} ${isActive ? 'bg-burgundy_ink/10 text-burgundy_ink' : 'hover:bg-surface_strong/60 hover:text-burgundy_ink'}`}
   >
@@ -70,23 +69,22 @@ const MobileMenu = () => {
 
             <div className='flex flex-1 flex-col overflow-y-auto px-3 pt-20'>
               <div className='mb-3 flex items-center justify-between border-b border-line/60 pb-3 pr-1'>
-                <Link
-                  to='http://www.3domics.eu'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  onClick={closeMenu}
-                  className='btn btn-ghost px-2'
-                >
-                  <img src={Logo} alt="3D'omics logo" className='h-8 object-contain' />
-                </Link>
+                <div className='flex items-center'>
+                  <Link
+                    to='http://www.3domics.eu'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    onClick={closeMenu}
+                    className='btn btn-ghost px-2'
+                  >
+                    <img src={Logo} alt="3D'omics logo" className='h-8 object-contain' />
+                  </Link>
+                  <PortalTag onClick={closeMenu} />
+                </div>
                 <ThemeToggle />
               </div>
 
               <ul className='space-y-0.5 pb-6'>
-                <li>
-                  <MenuLink to='/' end onClick={closeMenu}>Data Portal Home</MenuLink>
-                </li>
-
                 {menus.map((menu) => (
                   menu.sectionTitle
                     ? (

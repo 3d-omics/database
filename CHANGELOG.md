@@ -50,6 +50,10 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- The navbar's "Data Portal Home" entry is now a "Data portal" tag: a small rounded box
+  beside the 3D'omics logo rather than a menu entry, tinted burgundy on the home page. It
+  replaces the home icon the bar fell back to between the `lg` and `xl` breakpoints, and in
+  the mobile drawer it sits beside the logo in place of the home link at the top of the list.
 - The page header's breadcrumbs now sit inside the `bg-prism` banner, which follows the
   navbar directly, on a translucent strip that keeps them legible over the mustard end.
   The navbar is now a frosted sticky bar with full-height entries: the entry of the open

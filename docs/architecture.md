@@ -84,7 +84,7 @@ convention; choose by complexity.
 | `components/Tabs` | Tab strip used by all the `*Overview` pages |
 | `components/TabComponents/*` | Thin wrappers that embed a filtered list page as a tab (e.g. all macrosamples whose ID starts with a specimen ID) |
 | `components/ParamsValidator` | Renders `Loading`, `NotFound`, or children, driven by `useValidateParams` |
-| `components/BreadCrumbs`, `Navbar`, `Footer`, `SocialIcons` | Chrome. BreadCrumbs is styled for the prism banner of `PageHeader`, its only host. Navbar is a frosted sticky bar: the entry of the open page (or of any page below it) is underlined with the mustard-to-burgundy gradient, and dropdown and mobile-drawer links carry the `clip-triangle` mark (`Navbar/MenuMark`). Dropdowns are frosted too, and open on hover or keyboard focus. Navbar and its mobile menu include the three-state `ThemeToggle` |
+| `components/BreadCrumbs`, `Navbar`, `Footer`, `SocialIcons` | Chrome. BreadCrumbs is styled for the prism banner of `PageHeader`, its only host. Navbar is a frosted sticky bar: the home page is linked from a "Data portal" tag beside the 3D'omics logo (`Navbar/PortalTag`, shared with the mobile drawer), the entry of the open page (or of any page below it) is underlined with the mustard-to-burgundy gradient, and dropdown and mobile-drawer links carry the `clip-triangle` mark (`Navbar/MenuMark`). Dropdowns are frosted too, and open on hover or keyboard focus. Navbar and its mobile menu include the three-state `ThemeToggle` |
 | `components/ErrorBanner` | Inline error surface for failed data loads |
 | `components/TaxonomyChartLegend` | Shared legend for both composition charts |
 

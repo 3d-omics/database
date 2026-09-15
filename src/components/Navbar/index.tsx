@@ -1,9 +1,10 @@
 import { useRef, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronDown, faHome } from '@fortawesome/free-solid-svg-icons'
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 import MobileMenu from './MobileMenu'
 import MenuMark from './MenuMark'
+import PortalTag from './PortalTag'
 import { menus } from './MenuItems'
 import ThemeToggle from 'components/ThemeToggle'
 import Logo from 'src/assets/images/3domics-logo.png'
@@ -70,24 +71,7 @@ const Navbar = () => {
         >
           <img src={Logo} alt="3D'omics logo" className='h-10 object-contain' />
         </Link>
-        <span aria-hidden='true' className='h-7 w-px mx-2 rotate-[20deg] bg-line_strong max-sm:mx-1' />
-        <div className='group/entry flex self-stretch'>
-          <NavLink
-            to='/'
-            end
-            className={({ isActive }) => `${entryClass(isActive)} font-jakarta font-bold text-[15px] max-sm:text-xs`}
-          >
-            {({ isActive }) => (
-              <>
-                {/* Between lg and xl the full menu leaves no room for the label, so
-                    the home page is an icon there, as in the breadcrumbs on phones */}
-                <span className='lg:max-xl:sr-only'>Data Portal Home</span>
-                <FontAwesomeIcon icon={faHome} className='hidden text-base lg:max-xl:inline' />
-                <Highlight active={isActive} />
-              </>
-            )}
-          </NavLink>
-        </div>
+        <PortalTag className='mr-2' />
       </div>
 
       <ul className='flex text-[13px] font-semibold max-xl:text-xs max-lg:hidden'>
@@ -162,7 +146,7 @@ const Navbar = () => {
         })}
       </ul>
 
-      <ThemeToggle className='ml-3 self-center max-lg:hidden' />
+      <ThemeToggle className='ml-3 self-center max-xl:ml-1 max-lg:hidden' />
       <MobileMenu />
     </nav>
   )
