@@ -20,6 +20,9 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Added
 
+- The home page's section blocks and the arrows between them rise into view on load, one
+  after another down the sample hierarchy from Animal Trials to Microsamples (a `rise-in`
+  animation staggered 70 ms apart). Visitors who ask for reduced motion see them at once.
 - A visitor-selectable dark mode, with a three-state system/light/dark toggle in desktop
   and mobile navigation. The default follows the OS setting, each choice persists locally,
   and a no-flash script applies the resolved theme before the application loads. A token
@@ -50,6 +53,10 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- The record counts on the home page's section blocks ("8 records", "1,466 records", …)
+  are now burgundy-tinted tags in the style of the navbar's "Data portal" tag, set between
+  each block's title and description, with the count in bold and thousands grouped. The
+  arrows connecting the blocks take the same burgundy.
 - The navbar's "Data Portal Home" entry is now a "Data portal" tag: a small rounded box
   beside the 3D'omics logo rather than a menu entry, tinted burgundy on the home page. It
   replaces the home icon the bar fell back to between the `lg` and `xl` breakpoints, and in

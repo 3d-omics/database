@@ -85,6 +85,30 @@ describe('Home', () => {
     expect(screen.getByText('250')).toBeInTheDocument() // Macrosamples count
   })
 
+  it('shows record counts as tags with grouped thousands', () => {
+    renderPage()
+
+    expect(screen.getByText('1,000').parentElement).toHaveTextContent(/^1,000\s*records$/)
+    expect(screen.getByText('5').parentElement).toHaveClass('text-burgundy_ink')
+  })
+
+  it('reveals the blocks one after another down the hierarchy', () => {
+    renderPage()
+
+    const revealDelay = (title: string) => {
+      let element: HTMLElement | null = screen.getByRole('heading', { name: new RegExp(`^${title}`) })
+      while (element && !element.classList.contains('animate-rise-in')) element = element.parentElement
+      expect(element).toHaveClass('motion-reduce:animate-none')
+      return parseInt(element!.style.animationDelay, 10)
+    }
+
+    const delays = ['Animal Trials', 'MAG Catalogues', 'Animal Specimens', 'Macrosamples',
+      'Metagenomics', 'Metabolomics', 'Cryosections', 'Microsamples'].map(revealDelay)
+
+    expect(delays[0]).toBe(0)
+    delays.slice(1).forEach((delay, i) => expect(delay).toBeGreaterThan(delays[i]))
+  })
+
   it('renders all main navigation sections', () => {
     renderPage()
 

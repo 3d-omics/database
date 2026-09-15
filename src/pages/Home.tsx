@@ -18,6 +18,10 @@ const shuffle = <T,>(items: T[]): T[] => {
   return shuffled
 }
 
+// The blocks rise into view one after another, down the sample hierarchy
+const REVEAL_STAGGER_MS = 70
+const REVEAL_CLASS = 'animate-rise-in motion-reduce:animate-none'
+
 const Home = () => {
 
   const tables = tablesData.tables
@@ -157,18 +161,21 @@ const Home = () => {
               </span>
             )}
           </h2>
-          <p>
-            {item.recordCount && (
-              <>
-                <span>{item.recordCount}</span>&nbsp;records<br />
-              </>
-            )}
-            {item.description}
-          </p>
+          {typeof item.recordCount === 'number' && (
+            <span className='inline-flex items-baseline gap-1 mb-2 rounded-md border border-burgundy_ink/40 bg-burgundy_ink/10 px-2 py-1 font-jakarta text-xs leading-none text-burgundy_ink whitespace-nowrap'>
+              <span className='font-bold'>{item.recordCount.toLocaleString('en-US')}</span>
+              {item.recordCount === 1 ? 'record' : 'records'}
+            </span>
+          )}
+          <p>{item.description}</p>
         </div>
       </li>
     </Link>
   )
+
+  // Called once per block or arrow in render order, so each waits for the one before it
+  let revealStep = 0
+  const nextReveal = () => ({ animationDelay: `${revealStep++ * REVEAL_STAGGER_MS}ms` })
 
   return (
     <div>
@@ -245,20 +252,22 @@ const Home = () => {
       </main>
 
       <div className='pb-20 flex justify-center max-lg:pb-2'>
-        <ul className='flex flex-col gap-2 [&_li]:bg-surface_muted [&_li]:w-[32rem] [&_li]:p-5 [&_li]:justify-center max-xl:[&_li]:w-[30rem] max-lg:[&_li]:h-[240px] max-lg:[&_li]:w-[calc(100dvw-10px)] max-lg:[&_li]:flex max-lg:[&_li]:justify-center max-lg:[&_li]:items-center hover:[&_li]:bg-surface_strong [&_li:hover_h2]:text-mustard [&_h2]:main_header [&_h2]:text-3xl [&_h2]:mb-1 max-lg:[&_h2]:text-2xl max-lg:[&_h2]:mt-4 max-lg:[&_p]:text-sm [&_svg]:w-[32rem] [&_svg]:text-2xl max-lg:[&_svg]:hidden [&>div]:flex [&>div]:items-stretch [&>div]:gap-6 max-lg:[&>div]:flex-col max-lg:[&>div]:gap-2 [&_li_p]:text-[13px] [&_li_p>span]:font-bold'>
+        <ul className='flex flex-col gap-2 [&_li]:bg-surface_muted [&_li]:w-[32rem] [&_li]:p-5 [&_li]:justify-center max-xl:[&_li]:w-[30rem] max-lg:[&_li]:h-[240px] max-lg:[&_li]:w-[calc(100dvw-10px)] max-lg:[&_li]:flex max-lg:[&_li]:justify-center max-lg:[&_li]:items-center hover:[&_li]:bg-surface_strong [&_li:hover_h2]:text-mustard [&_h2]:main_header [&_h2]:text-3xl [&_h2]:mb-1 max-lg:[&_h2]:text-2xl max-lg:[&_h2]:mt-4 max-lg:[&_p]:text-sm [&_svg]:w-[32rem] [&_svg]:text-2xl [&_svg]:text-burgundy_ink max-lg:[&_svg]:hidden [&>div]:flex [&>div]:items-stretch [&>div]:gap-6 max-lg:[&>div]:flex-col max-lg:[&>div]:gap-2 [&_li_p]:text-[13px]'>
           {navItems.map((section, idx) => {
             if (section.type === 'arrow') {
               return (
                 <FontAwesomeIcon
                   key={idx}
                   icon={section.direction === 'down' ? faCaretDown : faCaretRight}
+                  className={REVEAL_CLASS}
+                  style={nextReveal()}
                 />
               )
             }
 
             if (section.type === 'single') {
               return (
-                <div key={idx} className={`${section.item?.title === 'Microsamples' ? 'max-lg:clip-arrow-last' : 'max-lg:clip-arrow'} max-lg:-mt-14`}>
+                <div key={idx} className={`${section.item?.title === 'Microsamples' ? 'max-lg:clip-arrow-last' : 'max-lg:clip-arrow'} max-lg:-mt-14 ${REVEAL_CLASS}`} style={nextReveal()}>
                   <NavItem item={section.item} />
                 </div>
               )
@@ -269,7 +278,7 @@ const Home = () => {
                 <div key={idx}>
                   {section.items?.map((item: any, itemIdx: number) => (
                     <div key={itemIdx}>
-                      <div className={`${item.title === 'Animal Trials' ? 'max-lg:clip-arrow-first' : 'max-lg:clip-arrow'} max-lg:-mt-14 flex-1 h-full max-lg:h-auto`}>
+                      <div className={`${item.title === 'Animal Trials' ? 'max-lg:clip-arrow-first' : 'max-lg:clip-arrow'} max-lg:-mt-14 flex-1 h-full max-lg:h-auto ${REVEAL_CLASS}`} style={nextReveal()}>
                         <NavItem item={item} showMobileTitle={true} />
                       </div>
                       {itemIdx < section.items.length - 1 && (
@@ -283,7 +292,7 @@ const Home = () => {
                   {section.subItems && (
                     <div className='flex flex-col gap-4 max-lg:gap-2'>
                       {section.subItems.map((subitem: any, subIdx: number) => (
-                        <section key={subIdx} className='flex gap-6 flex-1'>
+                        <section key={subIdx} className={`flex gap-6 flex-1 ${REVEAL_CLASS}`} style={nextReveal()}>
                           <div className='flex items-center max-lg:hidden'>
                             <FontAwesomeIcon icon={faCaretRight} className='!w-6' />
                           </div>

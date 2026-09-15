@@ -64,11 +64,17 @@ module.exports = {
         "slide-in-right": {
           from: { transform: "translateX(100%)" },
           to: { transform: "translateX(0)" }
+        },
+        "rise-in": {
+          from: { opacity: "0", transform: "translateY(16px)" },
+          to: { opacity: "1", transform: "none" }
         }
       },
       animation: {
         "fade-in": "fade-in 200ms ease-out",
         "slide-in-right": "slide-in-right 300ms cubic-bezier(0.22, 1, 0.36, 1)",
+        // `both` keeps a block hidden while it waits out its stagger delay
+        "rise-in": "rise-in 500ms cubic-bezier(0.22, 1, 0.36, 1) both",
       },
     },
   },
