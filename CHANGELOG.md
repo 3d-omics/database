@@ -39,11 +39,13 @@ moved it. If the project starts tagging releases, these headings become
   of the home page, followed by *Laboratory processing* and *Bioinformatic processing*
   sections whose headings carry a mustard-to-burgundy triangle (`clip-triangle`). All
   their text lives in one file, `src/pages/Methods/methodsContent.ts`, and a section left
-  empty is shown as "in preparation"; so far the MAG Catalogue, Macro Metagenomics and
-  Micro Metagenomics pages are written. Cited works are listed under *References* at the bottom of the page,
-  each linked by DOI or, for software without one, its release page or repository. In-text citations link to their entry: clicking one
-  scrolls to it, moves focus there and highlights it briefly. On mobile, a menu section with no same-named link now gets a heading
-  over its links, and the last desktop dropdown opens leftwards so it stays on screen
+  empty is shown as "in preparation"; the initial content covers the MAG Catalogue,
+  Macro Metagenomics and Micro Metagenomics workflows. Cited works are listed under
+  *References* at the bottom of the page, each linked by DOI or, for software without one,
+  its release page or repository. In-text citations link to their entry: clicking one
+  scrolls to it, moves focus there and highlights it briefly. On mobile, a menu section
+  with no same-named link now gets a heading over its links, and the last desktop dropdown
+  opens leftwards so it stays on screen
   ([`8ed6df4`][8ed6df4]).
 - The home page lists its experiments in a horizontal carousel: a native scroll
   container, so touch swipes and trackpad scrolling need no JavaScript, with snap points
@@ -54,6 +56,11 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- The Metabolomics Methods page now documents sample extraction, LC–MS analysis,
+  peak picking and alignment, drift correction, quality control and metabolite
+  annotation, with the source document's references resolved into linked citations.
+- The shared footer now records that 3D'omics ran from 2021 to 2025, while
+  retaining its Horizon 2020 funding acknowledgement.
 - The home page's "Download Database Schema" button is replaced by a full-width block
   introducing 3dtk, the 3D'omics ToolKit, set directly above the footer: a short overview,
   the `pip install 3dtk` command, and links to its

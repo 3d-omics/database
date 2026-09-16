@@ -21,22 +21,27 @@ const Footer = () => {
       <div className=''>
         <div className='flex items-center gap-6 mb-12 max-lg:px-16 max-lg:text-center max-lg:mb-8 max-md:px-8 max-md:gap-2 max-sm:flex-col max-sm:gap-6 max-sm:px-0'>
           <img src={EUflag} alt='EU flag' className='h-16' />
-          <p className='max-md:text-sm max-md:leading-snug'>This project has received funding from the European Union's Horizon 2020 Research and Innovation programme under grant agreement number No. 101000309.</p>
+          <p className='max-md:text-sm max-md:leading-snug'>The 3D'omics project ran from 2021 to 2025 and received funding from the European Union's Horizon 2020 Research and Innovation programme under grant agreement number No. 101000309.</p>
         </div>
 
-        <ul className='flex text-center [&>li]:mb-1 max-lg:justify-center max-lg:mb-12 max-md:block'>
-          <li>Coordinator:
-            <span className='link ml-1 whitespace-nowrap'><Link to={'https://www.alberdilab.dk/'}>Antton Alberdi (UCPH)</Link></span>
-          </li>
-          <span className='mx-4 font-semibold max-md:hidden'>|</span>
-          <li>Contact:
-            <span className='link ml-1 whitespace-nowrap'><Link to={'mailto:3d-omics@sund.ku.dk'}>3d-omics@sund.ku.dk</Link></span>
-          </li>
-          <span className='mx-4 font-semibold max-md:hidden'>|</span>
-          <li>
-            <span className='link whitespace-nowrap'><Link to={'https://www.3domics.eu/privacy.html'}>Data and privacy policy</Link></span>
-          </li>
-        </ul>
+        <div
+          className='inline-flex rounded-md bg-black/20 px-3 py-1.5 backdrop-blur-sm max-lg:table max-lg:mx-auto max-lg:mb-12'
+          data-testid='footer-meta-panel'
+        >
+          <ul className='flex text-center [&>li]:mb-1 max-lg:justify-center max-md:block'>
+            <li>Coordinator:
+              <span className='link ml-1 whitespace-nowrap'><Link to={'https://www.alberdilab.dk/'}>Antton Alberdi (UCPH)</Link></span>
+            </li>
+            <span className='mx-4 font-semibold max-md:hidden'>|</span>
+            <li>Contact:
+              <span className='link ml-1 whitespace-nowrap'><Link to={'mailto:3d-omics@sund.ku.dk'}>3d-omics@sund.ku.dk</Link></span>
+            </li>
+            <span className='mx-4 font-semibold max-md:hidden'>|</span>
+            <li>
+              <span className='link whitespace-nowrap'><Link to={'https://www.3domics.eu/privacy.html'}>Data and privacy policy</Link></span>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <SocialIcons
@@ -47,6 +52,3 @@ const Footer = () => {
 }
 
 export default Footer
-
-
-

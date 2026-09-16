@@ -28,6 +28,7 @@ describe('Footer', () => {
 
   it('renders EU funding text', () => {
     renderFooter()
+    expect(screen.getByText(/ran from 2021 to 2025/)).toBeInTheDocument()
     expect(screen.getByText(/European Union's Horizon 2020/)).toBeInTheDocument()
   })
 
@@ -47,6 +48,12 @@ describe('Footer', () => {
     renderFooter()
     const link = screen.getByRole('link', { name: /Data and privacy policy/i })
     expect(link).toHaveAttribute('href', 'https://www.3domics.eu/privacy.html')
+  })
+
+  it('groups project contact details in a translucent panel', () => {
+    renderFooter()
+    const panel = screen.getByTestId('footer-meta-panel')
+    expect(panel).toHaveClass('rounded-md', 'bg-black/20', 'backdrop-blur-sm')
   })
 
   it('sets footer height CSS variable on mount', () => {

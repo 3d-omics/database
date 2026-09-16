@@ -1,13 +1,19 @@
-// Text of the Methods pages. Each section is a list of paragraphs; a section
-// left empty renders an "in preparation" note instead. References are listed
-// at the bottom of the page, each linked through its DOI (or, for software
-// without one, its release page or repository), and the list is omitted when empty. Every
-// occurrence of a reference's `cite` label in the text becomes a link to it.
+// Text of the Methods pages. Each section is a list of paragraphs with optional
+// named subsections; a section left empty renders an "in preparation" note
+// instead. References are listed at the bottom of the page, each linked through
+// its DOI (or, for software without one, its release page or repository), and
+// the list is omitted when empty. Every occurrence of a reference's `cite`
+// label in the text becomes a link to it.
 
 export type Reference = {
   cite: string
   text: string
   url: string
+}
+
+export type MethodSubsection = {
+  heading: string
+  paragraphs: string[]
 }
 
 export type Method = {
@@ -16,6 +22,10 @@ export type Method = {
   intro: string[]
   laboratory: string[]
   bioinformatics: string[]
+  subsections?: {
+    laboratory?: MethodSubsection[]
+    bioinformatics?: MethodSubsection[]
+  }
   references: Reference[]
 }
 
@@ -209,10 +219,78 @@ export const methods: Method[] = [
     slug: 'metabolomics',
     title: 'Metabolomics',
     intro: [
-      'Metabolic landscapes of the intestine were produced for each animal specimen using intestinal content and tissue samples.',
+      'Untargeted metabolomics was used to characterise the intestinal metabolic landscape of each animal specimen from caecum tissue sections and digesta samples.',
     ],
-    laboratory: [],
+    laboratory: [
+      'Small aliquots of frozen caecum tissue sections and digesta samples were weighed, and metabolites were extracted by solid-liquid extraction with 80% methanol (v/v). Standardised sample-to-solvent ratios of 1:10 for tissue and 1:15 for digesta were used; the solvent also precipitated proteins. Samples were homogenised at low temperature with a Bead Ruptor 24 Elite bead mill equipped with a cryogenic unit (Omni International), then incubated on ice. After centrifugation, the supernatants were filtered through a Captiva ND 0.2 µm 96-well filter plate (Agilent). Separate pooled quality-control (QC) samples were prepared for tissue and digesta by combining small aliquots of each corresponding supernatant. The 96-well plates were sealed and either analysed on the same day or stored briefly at 2–8 °C.',
+    ],
     bioinformatics: [],
-    references: [],
+    subsections: {
+      laboratory: [
+        {
+          heading: 'LC–MS analyses',
+          paragraphs: [
+            'Untargeted metabolomics analyses were performed by liquid chromatography (LC) using both reversed-phase (RP) and hydrophilic interaction chromatography (HILIC) on an Agilent 1290 Infinity II HPLC system (Agilent Technologies). The system was coupled to an Agilent 6546 quadrupole time-of-flight (Q-TOF) mass spectrometer and operated with positive and negative electrospray ionisation (ESI). Detailed LC–MS conditions and methods are reported by Avella et al., 2026.',
+          ],
+        },
+      ],
+      bioinformatics: [
+        {
+          heading: 'Peak picking and alignment',
+          paragraphs: [
+            'Raw data were retained in Agilent .d format until processing. Peak picking and alignment were performed with MS-DIAL version 4.92 (Tsugawa et al., 2015). Data preprocessing, drift correction and quality control were performed with the notame R package (Klåvus et al., 2020; Koistinen et al., 2026).',
+            'Peak picking used an m/z tolerance of 0.01 Da, a minimum peak height of 10,000 signal counts and a mass-slice width of 0.1 Da. A linear weighted moving average was used for smoothing, with a smoothing level of three scans and a minimum peak width of five scans. The selected positive-mode adducts were [M + H]+, [M + NH4]+, [M + Na]+, [M + K]+, [M + CH3OH + H]+ and [2M + H]+. The selected negative-mode adducts were [M − H]−, [M − H2O − H]−, [M + Cl]−, [M + HCOOH − H]− and [2M − H]−.',
+            'Peak alignment used a retention-time tolerance of 0.1 min and an MS1 tolerance of 0.015 Da. A feature had to be detected in at least 50% of one sample group, and gap filling by compulsion was enabled.',
+          ],
+        },
+        {
+          heading: 'Data preprocessing, drift correction and quality control',
+          paragraphs: [
+            'The complete preprocessing and quality-control procedure has been described previously (Klåvus et al., 2020). Drift correction mitigated systematic intensity fluctuations over the course of an experiment to improve data quality and the accuracy of biological-effect estimates. Quality metrics were used to assess molecular-feature reliability before and after correction, and drift correction was accepted only when the corrected feature had lower robust RSD and D-ratio values.',
+            'Molecular features were considered high quality when they were present in more than 70% of QC samples and in at least 50% of samples in one or more study groups; had a sample maximum-to-blank mean ratio greater than 5; and had RSD* below 20% and D-ratio* below 10%. If either RSD* or D-ratio* exceeded its threshold, a feature could still be retained when its classic RSD, RSD* and basic D-ratio were all below 10%. Low-quality features were flagged and excluded from false-discovery-rate correction and multivariate analyses.',
+            'Features were log-transformed before drift correction to better meet the assumptions of the regression model. Smoothed cubic splines were fitted to QC samples, with leave-one-out cross-validation used to select the smoothing parameters. Sample abundances were adjusted using predictions from the drift function and then transformed back to the original scale. Data were normalised by probabilistic quotient normalisation (PQN), and missing values were imputed as zero. Tissue and digesta samples were processed separately in each trial.',
+          ],
+        },
+        {
+          heading: 'Metabolite annotation',
+          paragraphs: [
+            'MS-DIAL tentatively matched detected molecular features against in-house and public spectral databases using mass-to-charge ratio (m/z), retention time and MS/MS fragmentation patterns. Automated annotations were scored by their MS/MS fragmentation match, and molecular features of interest were then curated manually at identification levels 1–4 following the Metabolomics Standards Initiative (Sumner et al., 2007).',
+            'Level 1, identified from a reference standard analysed with the same method, used MS1, MS2 (MS/MS) and retention-time tolerances of 0.01 Da, 0.05 Da and 0.3 min, respectively. Level 2, a putative annotation based on a public reference database, used MS1 and MS2 tolerances of 0.01 Da and 0.05 Da. Level 3, a putatively characterised compound or compound class, used the same MS1 and MS2 tolerances. Level 4 represented an unknown feature; it used an MS1 tolerance of 0.01 Da and the highest-scoring molecular formula based on mass error and the relative abundance of the detected isotopic combinations. Putatively characterised Level 3 compounds and molecular formulae were determined with MS-FINDER (Tsugawa et al., 2016).',
+          ],
+        },
+      ],
+    },
+    references: [
+      {
+        cite: 'Avella et al., 2026',
+        text: 'Avella, D., Turunen, S., Avgerinou, G., Petridou, A., Mougios, V., Zarei, I., Auriola, S., Hanhineva, K., & Kärkkäinen, O. (2026). An LC-MS untargeted metabolomic comparison between three blood microsampling devices, whole blood, and plasma. Metabolomics, 22, 89.',
+        url: 'https://doi.org/10.1007/s11306-026-02424-6',
+      },
+      {
+        cite: 'Klåvus et al., 2020',
+        text: 'Klåvus, A., Kokla, M., Noerman, S., Koistinen, V. M., Tuomainen, M., Zarei, I., Meuronen, T., Häkkinen, M. R., Rummukainen, S., Farizah Babu, A., Sallinen, T., Kärkkäinen, O., Paananen, J., Broadhurst, D., Brunius, C., & Hanhineva, K. (2020). “Notame”: Workflow for non-targeted LC–MS metabolic profiling. Metabolites, 10(4), 135.',
+        url: 'https://doi.org/10.3390/metabo10040135',
+      },
+      {
+        cite: 'Koistinen et al., 2026',
+        text: 'Koistinen, V., Haikonen, R., Lihtamo, A., Suksi, V., Kärkkäinen, O., Lahti, L., & Hanhineva, K. (2026). Comprehensive LC–MS metabolomics data processing with notame R/Bioconductor package. In Computational Methods and Data Analysis for Metabolomics (pp. 243–272). Methods in Molecular Biology, 3063.',
+        url: 'https://doi.org/10.1007/978-1-0716-5452-1_14',
+      },
+      {
+        cite: 'Sumner et al., 2007',
+        text: 'Sumner, L. W., Amberg, A., Barrett, D., Beale, M. H., Beger, R., Daykin, C. A., Fan, T. W.-M., Fiehn, O., Goodacre, R., Griffin, J. L., Hankemeier, T., Hardy, N., Harnly, J., Higashi, R., Kopka, J., Lane, A. N., Lindon, J. C., Marriott, P., Nicholls, A. W., Reily, M. D., Thaden, J. J., & Viant, M. R. (2007). Proposed minimum reporting standards for chemical analysis. Metabolomics, 3(3), 211–221.',
+        url: 'https://doi.org/10.1007/s11306-007-0082-2',
+      },
+      {
+        cite: 'Tsugawa et al., 2015',
+        text: 'Tsugawa, H., Cajka, T., Kind, T., Ma, Y., Higgins, B., Ikeda, K., Kanazawa, M., VanderGheynst, J., Fiehn, O., & Arita, M. (2015). MS-DIAL: Data-independent MS/MS deconvolution for comprehensive metabolome analysis. Nature Methods, 12(6), 523–526.',
+        url: 'https://doi.org/10.1038/nmeth.3393',
+      },
+      {
+        cite: 'Tsugawa et al., 2016',
+        text: 'Tsugawa, H., Kind, T., Nakabayashi, R., Yukihira, D., Tanaka, W., Cajka, T., Saito, K., Fiehn, O., & Arita, M. (2016). Hydrogen rearrangement rules: Computational MS/MS fragmentation and structure elucidation using MS-FINDER software. Analytical Chemistry, 88(16), 7946–7958.',
+        url: 'https://doi.org/10.1021/acs.analchem.6b00770',
+      },
+    ],
   },
 ]

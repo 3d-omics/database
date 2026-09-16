@@ -10,7 +10,21 @@ vi.mock('./methodsContent', () => ({
       title: 'Written Method',
       intro: ['Intro paragraph.'],
       laboratory: ['Lab paragraph one.', 'Lab paragraph two.', 'A cited claim (Author, 2020).'],
-      bioinformatics: ['Bioinformatic paragraph.'],
+      bioinformatics: [],
+      subsections: {
+        laboratory: [
+          {
+            heading: 'Instrument analysis',
+            paragraphs: ['Instrument paragraph.'],
+          },
+        ],
+        bioinformatics: [
+          {
+            heading: 'Processing step',
+            paragraphs: ['Bioinformatic paragraph.'],
+          },
+        ],
+      },
       references: [
         {
           cite: 'Author, 2020',
@@ -67,6 +81,9 @@ describe('Methods', () => {
     expect(screen.getByText('Lab paragraph one.')).toBeInTheDocument()
     expect(screen.getByText('Lab paragraph two.')).toBeInTheDocument()
     expect(screen.getByText('Bioinformatic paragraph.')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 3, name: 'Instrument analysis' })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 3, name: 'Processing step' })).toBeInTheDocument()
+    expect(screen.getByText('Instrument paragraph.')).toBeInTheDocument()
     expect(screen.queryByText(/in preparation/i)).not.toBeInTheDocument()
   })
 

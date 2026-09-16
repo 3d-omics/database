@@ -103,11 +103,14 @@ const Methods = () => {
       </PageHeader>
 
       <div className='page_padding max-w-4xl text-sm leading-relaxed text-ink'>
-        {sections.map(({ key, heading }) => (
-          <section key={key} className='mb-10'>
-            <SectionHeading>{heading}</SectionHeading>
-            {method[key].length > 0
-              ? method[key].map((paragraph, index) => (
+        {sections.map(({ key, heading }) => {
+          const subsections = method.subsections?.[key] ?? []
+          const isEmpty = method[key].length === 0 && subsections.length === 0
+
+          return (
+            <section key={key} className='mb-10'>
+              <SectionHeading>{heading}</SectionHeading>
+              {method[key].map((paragraph, index) => (
                 <CitedParagraph
                   key={index}
                   text={paragraph}
@@ -115,11 +118,32 @@ const Methods = () => {
                   onCite={showReference}
                   className='mb-3'
                 />
-              ))
-              : <p className='italic text-ink_muted'>This section is in preparation.</p>
-            }
-          </section>
-        ))}
+              ))}
+              {subsections.map((subsection, subsectionIndex) => (
+                <div
+                  key={subsection.heading}
+                  className={method[key].length > 0 || subsectionIndex > 0 ? 'mt-7' : undefined}
+                >
+                  <h3 className='text-base font-semibold text-burgundy_ink mb-2'>
+                    {subsection.heading}
+                  </h3>
+                  {subsection.paragraphs.map((paragraph, index) => (
+                    <CitedParagraph
+                      key={index}
+                      text={paragraph}
+                      references={method.references}
+                      onCite={showReference}
+                      className='mb-3'
+                    />
+                  ))}
+                </div>
+              ))}
+              {isEmpty && (
+                <p className='italic text-ink_muted'>This section is in preparation.</p>
+              )}
+            </section>
+          )
+        })}
 
         {method.references.length > 0 && (
           <section className='mb-10'>
