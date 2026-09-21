@@ -64,6 +64,9 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- The footer's coordinator, contact and privacy policy links lose their underline and
+  still turn mustard on hover, and the *Coordinator:* and *Contact:* labels are set in
+  bold.
 - A MAG catalogue page's summary figures (number of MAGs, average completeness, average
   contamination, new species) move out of the header into a full-width strip flush against
   it: four blocks on the home page's textured section-block background, divided by thin

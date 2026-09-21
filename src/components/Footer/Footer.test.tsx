@@ -50,6 +50,21 @@ describe('Footer', () => {
     expect(link).toHaveAttribute('href', 'https://www.3domics.eu/privacy.html')
   })
 
+  it('does not underline its links', () => {
+    renderFooter()
+    for (const name of [/Antton Alberdi/i, /3d-omics@sund.ku.dk/i, /Data and privacy policy/i]) {
+      const wrapper = screen.getByRole('link', { name }).parentElement
+      expect(wrapper).not.toHaveClass('link')
+      expect(wrapper).not.toHaveClass('underline')
+    }
+  })
+
+  it('sets the Coordinator and Contact labels in bold', () => {
+    renderFooter()
+    expect(screen.getByText('Coordinator:')).toHaveClass('font-bold')
+    expect(screen.getByText('Contact:')).toHaveClass('font-bold')
+  })
+
   it('groups project contact details in a translucent panel', () => {
     renderFooter()
     const panel = screen.getByTestId('footer-meta-panel')
