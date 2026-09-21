@@ -1,478 +1,483 @@
+// Taxonomy colours for the composition charts, their legends and the MAG catalogue tree.
+//
+// Each phylum has a muted base colour (OKLCH chroma ~0.10): the charts are whole
+// communities stacked to 100%, so a loud hue on a dominant phylum takes over the page.
+// Classes are small hue/lightness offsets from their phylum, and orders are lighter and
+// darker steps of their class, so every order still reads as its phylum. The most
+// abundant order in a class keeps the class colour; the other steps are assigned so
+// that orders stacked next to each other in the trial data get clearly different
+// shades. Phyla that neighbour each other in the stacking order (the key order below)
+// are kept far apart in hue.
 export const colorScheme = {
-  'Actinomycetota': { // deep crimson red
-    color: '#C7243A',
+  'Actinomycetota': { // muted raspberry
+    color: '#A56088',
     class: {
       'Actinomycetia': {
-        color: '#D04255',
+        color: '#8A5284',
         order: {
           'Actinomycetales': {
-            color: '#DA6272'
+            color: '#8A5284'
           },
           'Mycobacteriales': {
-            color: '#E38692' 
+            color: '#9B699A'
           }
         }
       },
       'Coriobacteriia': {
-        color: '#ECACB5',
+        color: '#BE718B',
         order: {
           'Coriobacteriales': {
-            color: '#F6D4D8'
+            color: '#BE718B'
           }
         }
       }
     }
   },
   //======================================
-  'Bacillota': { // vivid pure red
-    color: '#FF0022',
+  'Bacillota': { // soft ochre
+    color: '#DDB36C',
     class: {
       'Bacilli': {
-        color: '#FF2A46',
+        color: '#DDB36C',
         order: {
           'Acholeplasmatales': {
-            color: '#FF556C'
+            color: '#D4A962'
           },
           'CAJFEE01': {
-            color: '#FF8091'
+            color: '#DDB46D'
           },
           'Erysipelotrichales': {
-            color: '#FFAAB5'
+            color: '#A37130'
           },
           'Haloplasmatales': {
-            color: '#FFD5DA'
+            color: '#C0924E'
           },
           'Lactobacillales': {
-            color: '#E6001F'
+            color: '#EFCC89'
           },
           'ML615J-28': {
-            color: '#E6263F'
+            color: '#CA9D58'
           },
           'Mycoplasmatales': {
-            color: '#E54C61'
+            color: '#8F5C1B'
           },
           'Paenibacillales': {
-            color: '#E57281'
+            color: '#996626'
           },
           'RF39': {
-            color: '#E498A3'
+            color: '#AD7C3A'
           },
           'RFN20': {
-            color: '#E4BEC3'
+            color: '#E6C07B'
           },
           'Staphylococcales': {
-            color: '#CC001B'
+            color: '#B68744'
           }
         }
       }
     }
   },
   //======================================
-  'Bacillota_A': { // bright red-orange
-    color: '#FF4400',
+  'Bacillota_A': { // calm steel blue
+    color: '#5A90C8',
     class: {
       'Clostridia': {
-        color: '#FF632A',
+        color: '#5A90C8',
         order: {
           'Christensenellales': {
-            color: '#FF8255'
+            color: '#4877AF'
           },
           'Clostridiales': {
-            color: '#FFA280'
+            color: '#3B649C'
           },
           'Eubacteriales': {
-            color: '#FFC1AA'
+            color: '#4F81B9'
           },
           'HGM11327': {
-            color: '#FFE0D5'
+            color: '#7CB3E2'
           },
           'Lachnospirales': {
-            color: '#E63D00'
+            color: '#87BDEA'
           },
           'Monoglobales': {
-            color: '#E63D00'
+            color: '#5E95CB'
           },
           'Oscillospirales': {
-            color: '#E5754C'
+            color: '#416EA6'
           },
           'Peptostreptococcales': {
-            color: '#E59072'
+            color: '#689FD3'
           },
           'RUG12999': {
-            color: '#E4AC98'
+            color: '#91C8F1'
           },
           'TANB77': {
-            color: '#E4C8BE'
+            color: '#9CD2F9'
           },
           'UBA1212': {
-            color: '#CC3600'
+            color: '#568BC3'
           },
           'UBA1381': {
-            color: '#CB4F21'
+            color: '#72A9DA'
           }
         }
       }
     }
   },
   //======================================
-  'Bacillota_B': { // strong amber orange
-    color: '#FFA600',
+  'Bacillota_B': { // pale lavender
+    color: '#9E9BE2',
     class: {
       'Dehalobacteriia': {
-        color: '#FFB42A',
+        color: '#7B8ED1',
         order: {
           'UBA4068': {
-            color: '#FFC455'
+            color: '#7B8ED1'
           },
           'UBA7702': {
-            color: '#FFD380'
+            color: '#8EA6E3'
           }
         }
       },
       'Peptococcia': {
-        color: '#FFE1AA',
+        color: '#C0A9F0',
         order: {
           'Peptococcales': {
-            color: '#FFF0D5'
+            color: '#C0A9F0'
           }
         }
       }
     }
   },
   //======================================
-  'Bacillota_C': { // golden yellow
-    color: '#FFC800',
+  'Bacillota_C': { // dusty rose
+    color: '#B46570',
     class: {
       'Negativicutes': {
-        color: '#FFD12A',
+        color: '#B46570',
         order: {
           'Acidaminococcales': {
-            color: '#FFDA55'
+            color: '#C77D89'
           },
           'Selenomonadales': {
-            color: '#FFE380'
+            color: '#9E5158'
           },
           'Veillonellales': {
-            color: '#FFEDAA'
+            color: '#B46570'
           }
         }
       }
     }
   },
   //======================================
-  'Bacillota_G': { // bright lemon yellow
-    color: '#FFE600',
+  'Bacillota_G': { // pale sand
+    color: '#DFCA7B',
     class: {
       'SHA-98': {
-        color: '#FFEA2A',
+        color: '#DFCA7B',
         order: {
           'DTUO25': {
-            color: '#FFEE55'
+            color: '#DFCA7B'
           }
         }
       }
     }
   },
   //======================================
-  'Bacteroidota': { // yellow-green
-    color: '#DBE600',
+  'Bacteroidota': { // sage green
+    color: '#77BA85',
     class: {
       'Bacteroidia': {
-        color: '#DCE626',
+        color: '#77BA85',
         order: {
           'Bacteroidales': {
-            color: '#DDE54C'
+            color: '#77BA85'
           },
           'Cytophagales': {
-            color: '#DFE572'
+            color: '#96CE9A'
           }
         }
       }
     }
   },
   //======================================
-  'Bdellovibrionota': { //light yellow-green
-    color: '#B8E600', 
+  'Bdellovibrionota': { // dusty mauve
+    color: '#A2699D',
     class: {
       'UBA2361': {
-        color: '#BFE626',
+        color: '#A2699D',
         order: {
           'UBA2361': {
-            color: '#C6E54C'
+            color: '#A2699D'
           }
         }
       }
     }
   },
   //======================================
-  'Campylobacterota': { // vivid neon green
-    color: '#22FF00', 
+  'Campylobacterota': { // soft straw
+    color: '#E0D383',
     class: {
       'Campylobacteria': {
-        color: '#46FF2A',
+        color: '#E0D383',
         order: {
           'Campylobacterales': {
-            color: '#6CFF55'
+            color: '#E0D383'
           }
         }
       }
     }
   },
   //======================================
-  'Chlamydiota': { // bright mint green
-    color: '#00FF8C',
+  'Chlamydiota': { // moss green
+    color: '#6C853D',
     class: {
       'Chlamydiia': {
-        color: '#2AFF9F',
+        color: '#6C853D',
         order: {
           'Chlamydiales': {
-            color: '#55FFB3'
+            color: '#6C853D'
           }
         }
       }
     }
   },
   //======================================
-  'Cyanobacteriota': { //muted teal green
-    color: '#009F8C',
+  'Cyanobacteriota': { // deep muted teal
+    color: '#1D767D',
     class: {
       'Vampirovibrionia': {
-        color: '#1DAF9E',
+        color: '#1D767D',
         order: {
           'Gastranaerophilales': {
-            color: '#40BFB0'
+            color: '#1D767D'
           }
         }
       }
     }
   },
   //======================================
-  'Deferribacterota': { // bright turquoise
-    color: '#00FFE1',
+  'Deferribacterota': { // pale aqua
+    color: '#5FC8E0',
     class: {
       'Deferribacteres': {
-        color: '#2AFFE6',
+        color: '#5FC8E0',
         order: {
           'Deferribacterales': {
-            color: '#55FFEB'
+            color: '#5FC8E0'
           }
         }
       }
     }
   },
   //======================================
-  'Desulfobacterota': { // vivid sky blue
-    color: '#00C8FF',
+  'Desulfobacterota': { // soft olive
+    color: '#94984A',
     class: {
       'Desulfovibrionia': {
-        color: '#2AD1FF',
+        color: '#94984A',
         order: {
           'Desulfovibrionales': {
-            color: '#55DAFF'
+            color: '#94984A'
           }
         }
       }
     }
   },
   //======================================
-  'Elusimicrobiota': { // deep cyan blue
-    color: '#007FB1',
+  'Elusimicrobiota': { // deep denim
+    color: '#18719B',
     class: {
       'Elusimicrobia': {
-        color: '#1F91BE',
+        color: '#18719B',
         order: {
           'Elusimicrobiales': {
-            color: '#44A5CB'
+            color: '#18719B'
           }
         }
       }
     }
   },
   //======================================
-  'Eremiobacterota': { // bright azure blue
-    color: '#00AAFF',
+  'Eremiobacterota': { // muted jade
+    color: '#3EA083',
     class: {
       'Xenobia': {
-        color: '#2AB8FF',
+        color: '#3EA083',
         order: {
           'Xenobiales': {
-            color: '#55C6FF'
+            color: '#3EA083'
           }
         }
       }
     }
   },
   //======================================
-  'Fibrobacterota': { // royal blue
-    color: '#0062FF',
+  'Fibrobacterota': { // pale periwinkle
+    color: '#95AFF3',
     class: {
       'Fibrobacteria': {
-        color: '#2A7CFF',
+        color: '#95AFF3',
         order: {
           'Fibrobacterales': {
-            color: '#5596FF'
+            color: '#95AFF3'
           }
         }
       }
     }
   },
   //======================================
-  'Myxococcota': { // muted blue-violet
-    color: '#5D639E',
+  'Myxococcota': { // muted indigo
+    color: '#6367A9',
     class: {
       'Bradymonadia': {
-        color: '#7379AE',
+        color: '#6367A9',
         order: {
           'UBA4248': {
-            color: '#8B90BE'
+            color: '#6367A9'
           }
         }
       }
     }
   },
   //======================================
-  'Patescibacteria': { // electric blue
-    color: '#001AFF',
+  'Patescibacteria': { // soft sky
+    color: '#57B9D9',
     class: {
       'Saccharimonadia': {
-        color: '#2A3FFF',
+        color: '#57B9D9',
         order: {
           'Saccharimonadales': {
-            color: '#5566FF'
+            color: '#57B9D9'
           }
         }
       }
     }
   },
   //======================================
-  'Planctomycetota': { // purple
-    color: '#9500FF',
+  'Planctomycetota': { // soft orchid
+    color: '#BF90CE',
     class: {
       'Planctomycetia': {
-        color: '#A62AFF',
+        color: '#BF90CE',
         order: {
           'Pirellulales': {
-            color: '#B855FF'
+            color: '#BF90CE'
           }
         }
       }
     }
   },
   //======================================
-  'Pseudomonadota': { // magenta
-    color: '#FF00BB',
+  'Pseudomonadota': { // muted clay
+    color: '#AF6F41',
     class: {
       'Alphaproteobacteria': {
-        color: '#FF2AC6',
+        color: '#A0593E',
         order: {
           'RF32': {
-            color: '#FF55D2'
+            color: '#934D35'
           },
           'Rickettsiales': {
-            color: '#FF80DD'
+            color: '#CC9374'
           },
           'Rs-D84': {
-            color: '#FFAAE8'
+            color: '#A86347'
           },
           'UBA3830': {
-            color: '#FFD5F4'
+            color: '#BA7A5D'
           }
         }
       },
       'Gammaproteobacteria': {
-        color: '#E600A9',
+        color: '#BB8648',
         order: {
           'Burkholderiales': {
-            color: '#E626B2'
+            color: '#CC9E64'
           },
           'Enterobacterales': {
-            color: '#E54CBC'
+            color: '#A67035'
           },
           'Enterobacterales_A': {
-            color: '#E572C6'
+            color: '#BB8648'
           }
         }
       }
     }
   },
   //======================================
-  'Spirochaetota': { // deep rose pink
-    color: '#A52175',
+  'Spirochaetota': { // soft lavender
+    color: '#A392D7',
     class: {
       'Brachyspirae': {
-        color: '#B43C88',
+        color: '#8184C9',
         order: {
           'Brachyspirales': {
-            color: '#C35B9D'
+            color: '#8184C9'
           }
         }
       },
       'Spirochaetia': {
-        color: '#951E69',
+        color: '#C49FE3',
         order: {
           'Sphaerochaetales': {
-            color: '#A2377B'
+            color: '#D6B8F8'
           },
           'Treponematales': {
-            color: '#AF528D'
+            color: '#C49FE3'
           }
         }
       }
     }
   },
   //======================================
-  'Thermoplasmatota': { // dark slate gray
-    color: '#374151',
+  'Thermoplasmatota': { // neutral slate
+    color: '#6F757D',
     class: {
       'Thermoplasmata': {
-        color: '#4b5563',
+        color: '#6F757D',
         order: {
           'Methanomassiliicoccales': {
-            color: '#6b7280'
+            color: '#6F757D'
           }
         }
       }
     }
   },
   //======================================
-  'Verrucomicrobiota': { // dark wine red
-    color: '#86153D',
+  'Verrucomicrobiota': { // deep wine
+    color: '#813E60',
     class: {
       'Kiritimatiellia': {
-        color: '#8C2A4C',
+        color: '#682F5C',
         order: {
           'RFP12': {
-            color: '#92405D'
+            color: '#682F5C'
           }
         }
       },
       'Lentisphaeria': {
-        color: '#98586D',
+        color: '#813E60',
         order: {
           'UBA1407': {
-            color: '#9E7182'
+            color: '#8B4B6D'
           },
           'Victivallales': {
-            color: '#A48D95'
+            color: '#9D6284'
           }
         }
       },
       'Verrucomicrobiae': {
-        color: '#731234',
+        color: '#994E62',
         order: {
           'Opitutales': {
-            color: '#782341'
+            color: '#AB657A'
           },
           'Verrucomicrobiales': {
-            color: '#814B5D'
+            color: '#994E62'
           }
         }
       }
     }
   }
 };
-
-
-
-
-
