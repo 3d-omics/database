@@ -1,8 +1,24 @@
-import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { useMemo } from 'react'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 import PageHeader from 'components/PageHeader'
+import TrialBlock from 'components/TrialBlock'
+import { useGenomeJsonFile } from 'hooks/useJsonData'
+import { getCompositionStats } from 'pages/MacrosampleComposition/utils/compositionStats'
+
+// A trial's block, its figures computed from the counts and genome metadata its
+// composition chart is drawn from
+const CompositionBlock = ({ fields }: { fields: { ID: string, Name: string } }) => {
+  const counts = useGenomeJsonFile('macro_genome_counts', `experiment_${fields.ID}_counts`)
+  const metadata = useGenomeJsonFile('genome_metadata', `experiment_${fields.ID}_metadata`)
+  const stats = useMemo(() => getCompositionStats(counts, metadata), [counts, metadata])
+
+  return <TrialBlock
+    fields={fields}
+    stats={stats}
+    to={`/macrosample-compositions/${encodeURIComponent(fields.Name)}`}
+    browseLabel='Browse composition'
+  />
+}
 
 const MacrosampleCompositionList = () => {
 
@@ -21,51 +37,9 @@ const MacrosampleCompositionList = () => {
         </p>
       </PageHeader>
 
-      <ul className='page_padding space-y-4'>
+      <ul className='page_padding flex flex-col gap-4'>
         {animalTrialExperimentData.map((experiment) => (
-          <li key={experiment.id}>
-            <Link
-              to={`/macrosample-compositions/${encodeURIComponent(experiment.fields.Name)}`}
-              className='group flex items-center justify-between gap-4 px-4 py-3 border border-line rounded-xl shadow-sm hover:shadow-md transition bg-surface hover:bg-surface_subtle'
-            >
-              <div>
-                <h2 className='text-lg font-medium mb-1 group-hover:text-mustard group-hover:underline'>
-                  {experiment.fields.Name}
-                </h2>
-                <div className='flex gap-4 text-xs text-ink_muted font-extralight [&>span]:flex [&>span]:gap-1 max-md:flex-col max-md:gap-0'>
-                  {
-                    experiment.fields['MAG catalogue - Number of MAGs'] &&
-                    <span>
-                      Number of MAGs:&nbsp;
-                      <b>{experiment.fields['MAG catalogue - Number of MAGs']}</b>
-                    </span>
-                  }
-                  {
-                    experiment.fields['MAG catalogue - Average completeness (%)'] &&
-                    <span>
-                      Average completeness:&nbsp;
-                      <b>{experiment.fields['MAG catalogue - Average completeness (%)'].toFixed(2)}%</b>
-                    </span>
-                  }
-                  {
-                    experiment.fields['MAG catalogue - Average contamination (%)'] &&
-                    <span>
-                      Average contamination:&nbsp;
-                      <b>{experiment.fields['MAG catalogue - Average contamination (%)'].toFixed(2)}%</b>
-                    </span>
-                  }
-                  {
-                    experiment.fields['MAG catalogue - New species (%)'] &&
-                    <span>
-                      New species:&nbsp;
-                      <b>{experiment.fields['MAG catalogue - New species (%)'].toFixed(2)}%</b>
-                    </span>
-                  }
-                </div>
-              </div>
-              <FontAwesomeIcon icon={faArrowRight} className='w-5 h-5 group-hover:text-mustard group-hover:translate-x-1 transition-transform' />
-            </Link>
-          </li>
+          <CompositionBlock key={experiment.id} fields={experiment.fields} />
         ))}
       </ul>
 

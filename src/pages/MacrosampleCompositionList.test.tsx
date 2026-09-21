@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import MacrosampleCompositionList from './MacrosampleCompositionList'
 
@@ -10,27 +10,40 @@ vi.mock('assets/data/airtable/animaltrialexperiment.json', () => ({
       id: '1',
       fields: {
         Name: 'Experiment G',
+        ID: 'G',
         'MAG catalogue - Number of MAGs': 500,
         'MAG catalogue - Average completeness (%)': 95.5,
-        'MAG catalogue - Average contamination (%)': 2.3,
-        'MAG catalogue - New species (%)': 15.7,
       },
     },
     {
       id: '2',
       fields: {
         Name: 'Experiment H',
-        'MAG catalogue - Number of MAGs': 300,
-        'MAG catalogue - Average completeness (%)': 92.1,
+        ID: 'H',
       },
     },
     {
       id: '3',
       fields: {
-        Name: 'Experiment I',
+        Name: 'M - Histomonas experiment (turkey)',
+        ID: 'M',
       },
     },
   ],
+}))
+
+// Trial G has three MAGs in two phyla, detected across two samples: one with two
+// equally abundant MAGs (a Shannon diversity of 2), the other with abundances ¼, ¼
+// and ½ (2^1.5). Trial H has no composition data
+const genomeFiles: Record<string, Record<string, (string | number)[]>> = {
+  experiment_G_counts: { genome: ['g1', 'g2', 'g3'], S1: [1, 1, 0], S2: [1, 1, 2] },
+  experiment_G_metadata: { genome: ['g1', 'g2', 'g3'], phylum: ['p__Bacillota', 'p__Bacillota', 'p__Bacteroidota'] },
+  experiment_M_counts: { genome: ['g1'], S1: [5] },
+  experiment_M_metadata: { genome: ['g1'], phylum: ['p__Bacillota'] },
+}
+
+vi.mock('hooks/useJsonData', () => ({
+  useGenomeJsonFile: (_folder: string, fileName: string) => genomeFiles[fileName] ?? null,
 }))
 
 describe('MacrosampleCompositionList', () => {
@@ -51,6 +64,16 @@ describe('MacrosampleCompositionList', () => {
     )
   }
 
+  // The block of the trial headed by `name`
+  const getBlock = (name: string | RegExp) =>
+    screen.getAllByRole('listitem').find((item) => within(item).queryByRole('heading', { level: 2, name }))!
+
+  // The figure a block shows under `label`
+  const getFigure = (block: HTMLElement, label: string) => {
+    const labels = within(block).getAllByRole('term').map((term) => term.textContent)
+    return within(block).getAllByRole('definition')[labels.indexOf(label)]
+  }
+
   it('renders page header', () => {
     renderPage()
     expect(screen.getByRole('heading', { level: 1, name: 'Metagenomics' })).toBeInTheDocument()
@@ -66,50 +89,57 @@ describe('MacrosampleCompositionList', () => {
 
     expect(screen.getByText('Experiment G')).toBeInTheDocument()
     expect(screen.getByText('Experiment H')).toBeInTheDocument()
-    expect(screen.getByText('Experiment I')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { level: 2, name: 'Trial M — Histomonas experiment (turkey)' })).toBeInTheDocument()
   })
 
-  it('renders links to composition pages', () => {
+  it('links each heading to its composition page', () => {
     renderPage()
 
-    const linkG = screen.getByRole('link', { name: /Experiment G/i })
-    expect(linkG).toHaveAttribute('href', '/macrosample-compositions/Experiment%20G')
-
-    const linkH = screen.getByRole('link', { name: /Experiment H/i })
-    expect(linkH).toHaveAttribute('href', '/macrosample-compositions/Experiment%20H')
+    expect(screen.getByRole('link', { name: 'Experiment G' })).toHaveAttribute('href', '/macrosample-compositions/Experiment%20G')
+    const heading = screen.getByRole('heading', { level: 2, name: /Trial M/ })
+    expect(within(heading).getByRole('link')).toHaveAttribute('href', '/macrosample-compositions/M%20-%20Histomonas%20experiment%20(turkey)')
   })
 
-  it('displays MAG statistics when available', () => {
+  it('tags a trial with the host named in its name', () => {
     renderPage()
 
-    expect(screen.getByText('500')).toBeInTheDocument() // Number of MAGs
-    expect(screen.getByText('95.50%')).toBeInTheDocument() // Average completeness
-    expect(screen.getByText('2.30%')).toBeInTheDocument() // Average contamination
-    expect(screen.getByText('15.70%')).toBeInTheDocument() // New species
+    expect(within(getBlock(/Trial M/)).getByText('turkey')).toBeInTheDocument()
   })
 
-  it('handles missing statistics gracefully', () => {
+  it('offers a button to browse each composition', () => {
     renderPage()
 
-    // Experiment I has no stats, but should still render
-    expect(screen.getByText('Experiment I')).toBeInTheDocument()
+    const buttons = screen.getAllByRole('link', { name: /Browse composition/ })
+    expect(buttons.map((button) => button.getAttribute('href'))).toEqual([
+      '/macrosample-compositions/Experiment%20G',
+      '/macrosample-compositions/Experiment%20H',
+      '/macrosample-compositions/M%20-%20Histomonas%20experiment%20(turkey)',
+    ])
   })
 
-  it('displays partial statistics', () => {
+  it('shows the composition figures computed from the trial\'s counts', () => {
     renderPage()
 
-    // Experiment H has only some stats
-    expect(screen.getByText('300')).toBeInTheDocument() // Number of MAGs
-    expect(screen.getByText('92.10%')).toBeInTheDocument() // Average completeness
-    // Should not display contamination or new species for Experiment H
+    const experimentG = getBlock('Experiment G')
+    expect(getFigure(experimentG, 'Number of MAGs')).toHaveTextContent('3')
+    expect(getFigure(experimentG, 'Number of phyla')).toHaveTextContent('2')
+    expect(getFigure(experimentG, 'Number of samples')).toHaveTextContent('2')
+    expect(getFigure(experimentG, 'Average Shannon diversity')).toHaveTextContent('2.4 effective MAGs')
   })
 
-  it('formats percentages to 2 decimal places', () => {
+  it('does not show the MAG catalogue\'s figures', () => {
     renderPage()
 
-    // Check that percentages are formatted correctly
-    expect(screen.getByText('95.50%')).toBeInTheDocument()
-    expect(screen.getByText('2.30%')).toBeInTheDocument()
-    expect(screen.getByText('15.70%')).toBeInTheDocument()
+    expect(screen.queryByText('Average completeness')).not.toBeInTheDocument()
+    expect(screen.queryByText('500')).not.toBeInTheDocument()
+    expect(screen.queryByText('95.50%')).not.toBeInTheDocument()
+  })
+
+  it('shows dashes for a trial without composition data', () => {
+    renderPage()
+
+    const experimentH = getBlock('Experiment H')
+    expect(within(experimentH).getAllByText('—')).toHaveLength(4)
+    expect(within(experimentH).queryByText('effective MAGs')).not.toBeInTheDocument()
   })
 })

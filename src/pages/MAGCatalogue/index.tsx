@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import Table from './components/Table'
 import PhyloCircosPlot from './components/PhyloCircosPlot'
+import { getSummaryStats } from './utils/summaryStats'
 import { useParams } from 'react-router-dom'
 import PageHeader from 'components/PageHeader'
 import useValidateParams from 'hooks/useValidateParams'
@@ -44,15 +45,7 @@ const MAGCatalogue = () => {
   const experiment = data[0].fields
 
   // The catalogue's headline figures, shown as blocks below the header
-  const toPercent = (value: number | undefined, options: Intl.NumberFormatOptions) =>
-    value == null ? undefined : `${value.toLocaleString('en-US', options)}%`
-  const twoDecimals = { minimumFractionDigits: 2, maximumFractionDigits: 2 }
-  const summaryStats = [
-    { label: 'Number of MAGs', value: experiment['MAG catalogue - Number of MAGs']?.toLocaleString('en-US') },
-    { label: 'Average completeness', value: toPercent(experiment['MAG catalogue - Average completeness (%)'], twoDecimals) },
-    { label: 'Average contamination', value: toPercent(experiment['MAG catalogue - Average contamination (%)'], twoDecimals) },
-    { label: 'New species', value: toPercent(experiment['MAG catalogue - New species (%)'], { maximumFractionDigits: 2 }) },
-  ]
+  const summaryStats = getSummaryStats(experiment)
 
   // Load genome metadata using the helper hook
   const rawMetaData = useGenomeJsonFile(
