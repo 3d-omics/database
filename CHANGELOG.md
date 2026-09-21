@@ -67,6 +67,31 @@ moved it. If the project starts tagging releases, these headings become
 - The footer's coordinator, contact and privacy policy links lose their underline and
   still turn mustard on hover, and the *Coordinator:* and *Contact:* labels are set in
   bold ([`dc1c51c`][dc1c51c]).
+- The MAG Catalogues list lays each catalogue out like the home page's 3dtk block instead
+  of as a rounded, shadowed card: square blocks on the textured section-block background,
+  set apart from each other by a margin of the page background. Each opens with a tag
+  naming the host read from the trial's name, then a heading such as *Trial C —
+  Proof-of-principle swine trial*, the name after the trial letter set light and muted,
+  followed by the four summary figures as small uppercase labels over large burgundy
+  figures. The DOI sits to the right in a copyable box, above a *Browse catalogue* button
+  and a *Download* button to the genome repository (previously the bare URL); below `lg`
+  they drop beneath the figures. The figures are
+  formatted by a helper shared with the catalogue page, `getSummaryStats`, so the list
+  now also gives the MAG count a thousands separator, rounds the new-species share to at
+  most two decimals, and shows a missing figure as a dash ([`ec21142`][ec21142]).
+- The macrosample Metagenomics list lays each trial out the same way as the MAG
+  Catalogues list: host tag and *Trial C — …* heading, with a *Browse composition*
+  button to the right in place of the whole-card link and arrow. Its figures no longer
+  repeat the MAG catalogue's. They describe the trial's composition instead, computed by
+  `getCompositionStats` from the counts and genome metadata the chart is drawn from: the
+  number of MAGs detected in at least one sample, the number of phyla they belong to,
+  the number of samples with any mapped reads, and those samples' average Shannon
+  diversity in effective number of MAGs (the mean of each sample's Hill number of order
+  1, from abundances relative to the sample's total, as in the chart). A trial without
+  composition data shows dashes. Both lists now draw their blocks with a shared
+  `TrialBlock` component, which takes its figures as a prop, sets an optional unit
+  after a figure, and takes the MAG list's DOI box and *Download* button as optional
+  slots ([`ec21142`][ec21142]).
 - A MAG catalogue page's summary figures (number of MAGs, average completeness, average
   contamination, new species) move out of the header into a full-width strip flush against
   it: four blocks on the home page's textured section-block background, divided by thin
@@ -395,6 +420,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[ec21142]: https://github.com/3d-omics/database/commit/ec21142d82bde966a7253a9a05d003b367d25e4c
 [dc1c51c]: https://github.com/3d-omics/database/commit/dc1c51ccd4d3b2910380b8227ecff8e7622b4dcc
 [a520f1a]: https://github.com/3d-omics/database/commit/a520f1a2a1f9763b767b05648eeaecbfa4d4b938
 [b6dc7ef]: https://github.com/3d-omics/database/commit/b6dc7efb7f841afa9a2f99fa6e8eb381eab47e0d

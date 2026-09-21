@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import MAGCatalogueList from './MAGCatalogueList'
 
@@ -23,6 +23,13 @@ vi.mock('assets/data/airtable/animaltrialexperiment.json', () => ({
         Name: 'Experiment H',
         ID: 'EXP002',
         'MAG catalogue - Number of MAGs': 300,
+      },
+    },
+    {
+      id: '3',
+      fields: {
+        Name: 'M - Histomonas experiment (turkey)',
+        ID: 'M',
       },
     },
   ],
@@ -65,6 +72,10 @@ describe('MAGCatalogueList', () => {
     )
   }
 
+  // The block of the trial headed by `name`
+  const getBlock = (name: string | RegExp) =>
+    screen.getAllByRole('listitem').find((item) => within(item).queryByRole('heading', { level: 2, name }))!
+
   it('renders page header', () => {
     renderPage()
     expect(screen.getByRole('heading', { level: 1, name: 'MAG Catalogues' })).toBeInTheDocument()
@@ -98,13 +109,38 @@ describe('MAGCatalogueList', () => {
     expect(screen.getByText('500')).toBeInTheDocument() // Number of MAGs
     expect(screen.getByText('95.50%')).toBeInTheDocument() // Average completeness
     expect(screen.getByText('2.30%')).toBeInTheDocument() // Average contamination
-    expect(screen.getByText('15.70%')).toBeInTheDocument() // New species
+    expect(screen.getByText('15.7%')).toBeInTheDocument() // New species
   })
 
-  it('displays link when available', () => {
+  it('heads a trial named after its ID with the ID, then the rest of the name', () => {
     renderPage()
 
-    const link = screen.getByRole('link', { name: /https:\/\/example.com\/genomes/i })
+    const heading = screen.getByRole('heading', { level: 2, name: 'Trial M — Histomonas experiment (turkey)' })
+    expect(within(heading).getByRole('link')).toHaveAttribute('href', '/mag-catalogues/M%20-%20Histomonas%20experiment%20(turkey)')
+  })
+
+  it('tags a catalogue with the host named in its trial', () => {
+    renderPage()
+
+    const trialM = getBlock(/Trial M/)
+    expect(within(trialM).getByText('turkey')).toBeInTheDocument()
+  })
+
+  it('offers a button to browse each catalogue', () => {
+    renderPage()
+
+    const buttons = screen.getAllByRole('link', { name: /Browse catalogue/ })
+    expect(buttons.map((button) => button.getAttribute('href'))).toEqual([
+      '/mag-catalogues/Experiment%20G',
+      '/mag-catalogues/Experiment%20H',
+      '/mag-catalogues/M%20-%20Histomonas%20experiment%20(turkey)',
+    ])
+  })
+
+  it('offers a download button when a link is available', () => {
+    renderPage()
+
+    const link = screen.getByRole('link', { name: /Download/ })
     expect(link).toHaveAttribute('href', 'https://example.com/genomes')
     expect(link).toHaveAttribute('target', '_blank')
   })
@@ -118,9 +154,10 @@ describe('MAGCatalogueList', () => {
   it('handles missing statistics gracefully', () => {
     renderPage()
 
-    // Experiment H has only Number of MAGs
-    expect(screen.getByText('300')).toBeInTheDocument()
-    // Should not crash or show undefined
+    // Experiment H has only Number of MAGs; the others are shown as dashes
+    const experimentH = getBlock('Experiment H')
+    expect(within(experimentH).getByText('300')).toBeInTheDocument()
+    expect(within(experimentH).getAllByText('—')).toHaveLength(3)
   })
 
   it('handles missing link and DOI gracefully', () => {
@@ -130,11 +167,11 @@ describe('MAGCatalogueList', () => {
     expect(screen.getByText('Experiment H')).toBeInTheDocument()
   })
 
-  it('formats percentages to 2 decimal places', () => {
+  it('formats figures as on a catalogue page: two decimals, and at most two for new species', () => {
     renderPage()
 
     expect(screen.getByText('95.50%')).toBeInTheDocument()
     expect(screen.getByText('2.30%')).toBeInTheDocument()
-    expect(screen.getByText('15.70%')).toBeInTheDocument()
+    expect(screen.getByText('15.7%')).toBeInTheDocument()
   })
 })
