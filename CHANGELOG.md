@@ -75,7 +75,7 @@ moved it. If the project starts tagging releases, these headings become
   each other in the trial data are clearly different, including under simulated red–green
   colour blindness. The composition legend sets phylum names in the text colour rather
   than the phylum's, which the paler and deeper shades made hard to read. This also fixes
-  Lachnospirales and Monoglobales sharing one colour.
+  Lachnospirales and Monoglobales sharing one colour ([`4d4fae7`][4d4fae7]).
 - The footer's coordinator, contact and privacy policy links lose their underline and
   still turn mustard on hover, and the *Coordinator:* and *Contact:* labels are set in
   bold ([`dc1c51c`][dc1c51c]).
@@ -432,6 +432,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[4d4fae7]: https://github.com/3d-omics/database/commit/4d4fae7359c7a3de80cf28851b524c7c435d1786
 [ec21142]: https://github.com/3d-omics/database/commit/ec21142d82bde966a7253a9a05d003b367d25e4c
 [dc1c51c]: https://github.com/3d-omics/database/commit/dc1c51ccd4d3b2910380b8227ecff8e7622b4dcc
 [a520f1a]: https://github.com/3d-omics/database/commit/a520f1a2a1f9763b767b05648eeaecbfa4d4b938
