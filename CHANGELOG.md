@@ -26,7 +26,7 @@ moved it. If the project starts tagging releases, these headings become
   `2026.09.21` (version DOI `10.5281/zenodo.22867160`), which also carries one new
   cryosection, `G121eI121B`. F's page header shows no number of MAGs, completeness,
   contamination or new-species figures yet: those four fields are still empty on its
-  Airtable record.
+  Airtable record ([`31f8c89`][31f8c89]).
 - The home page's section blocks and the arrows between them rise into view on load, one
   after another down the sample hierarchy from Animal Trials to Microsamples (a `rise-in`
   animation staggered 70 ms apart). Visitors who ask for reduced motion see them at once
@@ -379,6 +379,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[31f8c89]: https://github.com/3d-omics/database/commit/31f8c8906337fd2b1ada3cf70a8956f4a6ab3dcc
 [ff34c8f]: https://github.com/3d-omics/database/commit/ff34c8fdac4e30464816e1407037c2ddbbc477ca
 [4229c64]: https://github.com/3d-omics/database/commit/4229c64ab78000f2262a30fdc3f536c54db888f5
 [c0b8eab]: https://github.com/3d-omics/database/commit/c0b8eab81184c056de1808302e5bacc204d0e1f3
