@@ -64,6 +64,18 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- A MAG catalogue page's summary figures (number of MAGs, average completeness, average
+  contamination, new species) move out of the header into a full-width strip flush against
+  it: four blocks on the home page's textured section-block background, divided by thin
+  dark grey rules (two by two below the `lg` breakpoint), each a small label centred above
+  the figure set large in the burgundy accent. The completeness and contamination colour
+  swatches are dropped, the MAG count gains a thousands separator, and the new-species
+  share is rounded to two decimals. The catalogue's link and DOI move to the right of the
+  title, stacked and centred on it in the breadcrumb trail's translucent box, through a new
+  optional `aside` slot on `PageHeader`; below `lg` the box drops beneath the title. Each
+  label is led by the trail's light mustard triangle (now exported from `BreadCrumbs` as
+  `TrailMark`), both values are links without underlines that turn light mustard on
+  hover, and the DOI now resolves through `https://doi.org/`.
 - The Metabolomics Methods page now documents sample extraction, LC–MS analysis,
   peak picking and alignment, drift correction, quality control and metabolite
   annotation, with the source document's references resolved into linked citations.

@@ -4,8 +4,9 @@ import { faHome } from '@fortawesome/free-solid-svg-icons'
 
 // The trail opens the prism banner of the page header, so it takes the banner's
 // light colours: levels are separated by a triangle in the light mustard of the
-// page title, the same mark as the section headings of the Methods pages
-const Separator = () => (
+// page title, the same mark as the section headings of the Methods pages. Other
+// items set on the banner take it too, to lead into their labels
+export const TrailMark = () => (
   <span aria-hidden='true' className='w-1.5 h-[7px] shrink-0 clip-triangle bg-light_mustard' />
 )
 
@@ -20,7 +21,7 @@ const BreadCrumbs = ({ items }: {
           const isCurrent = index === items.length - 1
           return (
             <li key={item.label} className='flex items-center gap-2.5'>
-              {index > 0 && <Separator />}
+              {index > 0 && <TrailMark />}
               {item.link
                 ? <Link to={item.link} className='transition-colors hover:text-light_mustard'>
                   {item.label === 'Data Portal Home' ? (
