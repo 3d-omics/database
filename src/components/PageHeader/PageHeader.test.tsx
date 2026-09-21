@@ -42,6 +42,22 @@ describe('PageHeader', () => {
     expect(screen.getByRole('banner').children).toHaveLength(2)
   })
 
+  it('sets the aside beside the title inside the banner', () => {
+    render(
+      <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <PageHeader
+          title='Animal Trials'
+          breadcrumbs={[{ label: 'Data Portal Home', link: '/' }, { label: 'Trials' }]}
+          aside={<p>DOI: 10.1234/test</p>}
+        />
+      </MemoryRouter>
+    )
+    const heading = screen.getByRole('heading', { level: 1, name: 'Animal Trials' })
+    const aside = screen.getByText('DOI: 10.1234/test')
+    expect(screen.getByRole('banner')).toContainElement(aside)
+    expect(heading.parentElement).toBe(aside.parentElement)
+  })
+
   it('names the browser tab after the title alone below the home page', () => {
     renderHeader()
     expect(document.title).toBe("Animal Trials | 3D'omics Data Portal")

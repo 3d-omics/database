@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import MAGCatalogue from './index'
 import useValidateParams from 'hooks/useValidateParams'
@@ -16,6 +16,7 @@ vi.mock('components/BreadCrumbs', () => ({
       {items.map((item: any) => <span key={item.label}>{item.label}</span>)}
     </div>
   ),
+  TrailMark: () => <span aria-hidden='true' />,
 }))
 
 vi.mock('components/ParamsValidator', () => ({
@@ -117,27 +118,31 @@ describe('MAGCatalogue', () => {
     expect(screen.getByText('MAG Catalogues')).toBeInTheDocument()
   })
 
-  it('displays experiment statistics', () => {
+  it('displays experiment statistics as blocks below the header', () => {
     renderPage()
 
-    expect(screen.getByText(/Number of MAGs:/)).toBeInTheDocument()
-    expect(screen.getByText('150')).toBeInTheDocument()
+    const summary = screen.getByRole('region', { name: 'Catalogue summary' })
+    expect(screen.getByRole('banner')).not.toContainElement(summary)
 
-    expect(screen.getByText(/Average completeness:/)).toBeInTheDocument()
-    expect(screen.getByText('95.50%')).toBeInTheDocument()
+    expect(within(summary).getByText('Number of MAGs')).toBeInTheDocument()
+    expect(within(summary).getByText('150')).toBeInTheDocument()
 
-    expect(screen.getByText(/Average contamination:/)).toBeInTheDocument()
-    expect(screen.getByText('2.30%')).toBeInTheDocument()
+    expect(within(summary).getByText('Average completeness')).toBeInTheDocument()
+    expect(within(summary).getByText('95.50%')).toBeInTheDocument()
 
-    expect(screen.getByText(/New species:/)).toBeInTheDocument()
-    expect(screen.getByText('12%')).toBeInTheDocument()
+    expect(within(summary).getByText('Average contamination')).toBeInTheDocument()
+    expect(within(summary).getByText('2.30%')).toBeInTheDocument()
+
+    expect(within(summary).getByText('New species')).toBeInTheDocument()
+    expect(within(summary).getByText('12%')).toBeInTheDocument()
   })
 
   it('displays DOI and link when available', () => {
     renderPage()
 
     expect(screen.getByText(/DOI:/)).toBeInTheDocument()
-    expect(screen.getByText('10.1234/test.doi')).toBeInTheDocument()
+    const doi = screen.getByRole('link', { name: '10.1234/test.doi' })
+    expect(doi).toHaveAttribute('href', 'https://doi.org/10.1234/test.doi')
 
     expect(screen.getByText(/Link:/)).toBeInTheDocument()
     const link = screen.getByRole('link', { name: /example.com/i })

@@ -7,6 +7,7 @@ import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
 import { useGenomeJsonFile } from 'hooks/useJsonData'
 import ErrorBanner from 'components/ErrorBanner'
+import { TrailMark } from 'components/BreadCrumbs'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 import experimentsWithGenomeInfo from 'assets/data/airtable/experimentswithgenomeinfo.json'
 import { Link } from 'react-router-dom'
@@ -41,6 +42,17 @@ const MAGCatalogue = () => {
   }, [experimentName])
 
   const experiment = data[0].fields
+
+  // The catalogue's headline figures, shown as blocks below the header
+  const toPercent = (value: number | undefined, options: Intl.NumberFormatOptions) =>
+    value == null ? undefined : `${value.toLocaleString('en-US', options)}%`
+  const twoDecimals = { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+  const summaryStats = [
+    { label: 'Number of MAGs', value: experiment['MAG catalogue - Number of MAGs']?.toLocaleString('en-US') },
+    { label: 'Average completeness', value: toPercent(experiment['MAG catalogue - Average completeness (%)'], twoDecimals) },
+    { label: 'Average contamination', value: toPercent(experiment['MAG catalogue - Average contamination (%)'], twoDecimals) },
+    { label: 'New species', value: toPercent(experiment['MAG catalogue - New species (%)'], { maximumFractionDigits: 2 }) },
+  ]
 
   // Load genome metadata using the helper hook
   const rawMetaData = useGenomeJsonFile(
@@ -220,86 +232,57 @@ const MAGCatalogue = () => {
             { label: 'MAG Catalogues', link: '/mag-catalogues' },
             { label: experimentName },
           ]}
-        >
-          <div className='flex flex-wrap gap-x-4 gap-y-0.5 [&>span]:flex [&>span]:gap-1 max-lg:flex-col'>
-            <span>
-              Number of MAGs:&nbsp;
-              <b>{experiment['MAG catalogue - Number of MAGs']}</b>
-            </span>
-            <span>
-              Average completeness:&nbsp;
-              {experiment['MAG catalogue - Average completeness (%)'] &&
-                <div className='w-3'
-                  style={{
-                    backgroundColor: (() => {
-                      const value = experiment['MAG catalogue - Average completeness (%)'] ?? 0
-                      const min = 70
-                      const max = 100
-                      const normalized = Math.max(0, Math.min(1, (value - min) / (max - min)))  // Normalize value between 0 and 1
-                      // Interpolate between #7f2804 (low) and #fff5ea (high)
-                      const r = Math.round(127 + (255 - 127) * normalized)
-                      const g = Math.round(40 + (245 - 40) * normalized)
-                      const b = Math.round(4 + (234 - 4) * normalized)
-                      return `rgb(${r}, ${g}, ${b})`
-                    })()
-                  }}
-                ></div>
-              }
-              <b>{experiment['MAG catalogue - Average completeness (%)']?.toFixed(2)}%</b>
-            </span>
-            <span>
-              Average contamination:&nbsp;
-              {
-                experiment['MAG catalogue - Average contamination (%)'] &&
-                <div className='w-3'
-                  style={{
-                    backgroundColor: (() => {
-                      const value = experiment['MAG catalogue - Average contamination (%)'] ?? 0
-                      const min = 0
-                      const max = 20
-                      const normalized = Math.max(0, Math.min(1, (value - min) / (max - min)))   // Normalize value between 0 and 1
-                      // Interpolate between #fff5ea (low) and #7f2804 (high)
-                      const r = Math.round(255 + (127 - 255) * normalized)
-                      const g = Math.round(245 + (40 - 245) * normalized)
-                      const b = Math.round(234 + (4 - 234) * normalized)
-                      return `rgb(${r}, ${g}, ${b})`
-                    })()
-                  }}
-                ></div>
-              }
-              <b>{experiment['MAG catalogue - Average contamination (%)']?.toFixed(2)}%</b>
-            </span>
-            <span>
-              New species:&nbsp;
-              <b>{experiment['MAG catalogue - New species (%)']}%</b>
-            </span>
-          </div>
-
-          {(trialDoiAndLink.link || trialDoiAndLink.doi) &&
-            <div className='flex flex-wrap gap-x-4 gap-y-0.5 [&>span]:flex [&>span]:gap-1 max-lg:flex-col'>
-              {trialDoiAndLink.link &&
-                <span>
-                  Link:&nbsp;
-                  <Link to={trialDoiAndLink.link} target='_blank' rel='noopener noreferrer' className='link'>
-                    <b>{trialDoiAndLink.link}</b>
+          aside={(trialDoiAndLink.link || trialDoiAndLink.doi) &&
+            // The translucent box of the breadcrumb trail, so both read over either end of the banner
+            <dl className='grid grid-cols-[auto_1fr] gap-x-2 gap-y-0.5 rounded-md bg-black/20 px-3 py-1.5 text-sm text-neutral-50/85 backdrop-blur-sm [&_dt]:flex [&_dt]:items-center [&_dt]:gap-2 [&_a]:font-bold [&_a]:transition-colors hover:[&_a]:text-light_mustard'>
+              {trialDoiAndLink.link && <>
+                <dt><TrailMark />Link:</dt>
+                <dd>
+                  <Link to={trialDoiAndLink.link} target='_blank' rel='noopener noreferrer'>
+                    {trialDoiAndLink.link}
                   </Link>
-                </span>
-              }
-              {trialDoiAndLink.doi &&
-                <span>
-                  DOI:&nbsp;
-                  <b>{trialDoiAndLink.doi}</b>
-                </span>
-              }
-            </div>
+                </dd>
+              </>}
+              {trialDoiAndLink.doi && <>
+                <dt><TrailMark />DOI:</dt>
+                <dd>
+                  <Link to={`https://doi.org/${trialDoiAndLink.doi}`} target='_blank' rel='noopener noreferrer'>
+                    {trialDoiAndLink.doi}
+                  </Link>
+                </dd>
+              </>}
+            </dl>
           }
-
+        >
           <div>
             {experiment['MAG catalogue description']?.split('\n').map((line: string, index: number) => (
               <span key={index}>{line}<br /></span>
             ))}
           </div>
         </PageHeader>
+
+        {/* A strip flush against the header, on the textured background of the home
+            page's section blocks. The texture sits on the strip rather than on each
+            block so its dots run on unbroken across the separators */}
+        <section aria-label='Catalogue summary' className='bg-surface_muted bg-texture'>
+          <dl className='grid grid-cols-4 max-lg:grid-cols-2'>
+            {summaryStats.map(({ label, value }, index) => (
+              <div
+                key={label}
+                className={[
+                  'page_padding py-5 border-ink text-center',
+                  index > 0 && 'lg:border-l',
+                  // Two by two below lg: a vertical rule in each row, and one across between the rows
+                  index % 2 === 1 && 'max-lg:border-l',
+                  index >= 2 && 'max-lg:border-t',
+                ].filter(Boolean).join(' ')}
+              >
+                <dt className='text-xs text-ink'>{label}</dt>
+                <dd className='main_header mt-1 text-3xl text-burgundy_ink max-lg:text-2xl'>{value ?? '—'}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
 
         <section className='page_padding'>
           {hasError ? (
