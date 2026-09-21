@@ -27,7 +27,7 @@ moved it. If the project starts tagging releases, these headings become
   `catalog.json` now pins catalogue `2026.09.21.1` (version DOI
   `10.5281/zenodo.22867325`), which also carries one new cryosection, `G121eI121B`. It
   supersedes `2026.09.21`, published the same day before F's summary figures were in
-  Airtable ([`31f8c89`][31f8c89]).
+  Airtable ([`31f8c89`][31f8c89], [`b6dc7ef`][b6dc7ef]).
 - The home page's section blocks and the arrows between them rise into view on load, one
   after another down the sample hierarchy from Animal Trials to Microsamples (a `rise-in`
   animation staggered 70 ms apart). Visitors who ask for reduced motion see them at once
@@ -380,6 +380,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[b6dc7ef]: https://github.com/3d-omics/database/commit/b6dc7efb7f841afa9a2f99fa6e8eb381eab47e0d
 [31f8c89]: https://github.com/3d-omics/database/commit/31f8c8906337fd2b1ada3cf70a8956f4a6ab3dcc
 [ff34c8f]: https://github.com/3d-omics/database/commit/ff34c8fdac4e30464816e1407037c2ddbbc477ca
 [4229c64]: https://github.com/3d-omics/database/commit/4229c64ab78000f2262a30fdc3f536c54db888f5
