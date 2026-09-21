@@ -20,6 +20,13 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Added
 
+- Trial F's MAG catalogue (*Adenovirus experiment, chicken*) on the MAG Catalogues
+  pages: 260 genomes, their counts across 144 caecal sequencing libraries, and the
+  catalogue's Zenodo DOI and description. `catalog.json` now pins catalogue
+  `2026.09.21` (version DOI `10.5281/zenodo.22867160`), which also carries one new
+  cryosection, `G121eI121B`. F's page header shows no number of MAGs, completeness,
+  contamination or new-species figures yet: those four fields are still empty on its
+  Airtable record.
 - The home page's section blocks and the arrows between them rise into view on load, one
   after another down the sample hierarchy from Animal Trials to Microsamples (a `rise-in`
   animation staggered 70 ms apart). Visitors who ask for reduced motion see them at once
