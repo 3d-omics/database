@@ -29,16 +29,16 @@ const Footer = () => {
           data-testid='footer-meta-panel'
         >
           <ul className='flex text-center [&>li]:mb-1 max-lg:justify-center max-md:block'>
-            <li>Coordinator:
-              <span className='link ml-1 whitespace-nowrap'><Link to={'https://www.alberdilab.dk/'}>Antton Alberdi (UCPH)</Link></span>
+            <li><span className='font-bold'>Coordinator:</span>
+              <span className='ml-1 whitespace-nowrap hover:text-mustard'><Link to={'https://www.alberdilab.dk/'}>Antton Alberdi (UCPH)</Link></span>
             </li>
             <span className='mx-4 font-semibold max-md:hidden'>|</span>
-            <li>Contact:
-              <span className='link ml-1 whitespace-nowrap'><Link to={'mailto:3d-omics@sund.ku.dk'}>3d-omics@sund.ku.dk</Link></span>
+            <li><span className='font-bold'>Contact:</span>
+              <span className='ml-1 whitespace-nowrap hover:text-mustard'><Link to={'mailto:3d-omics@sund.ku.dk'}>3d-omics@sund.ku.dk</Link></span>
             </li>
             <span className='mx-4 font-semibold max-md:hidden'>|</span>
             <li>
-              <span className='link whitespace-nowrap'><Link to={'https://www.3domics.eu/privacy.html'}>Data and privacy policy</Link></span>
+              <span className='whitespace-nowrap hover:text-mustard'><Link to={'https://www.3domics.eu/privacy.html'}>Data and privacy policy</Link></span>
             </li>
           </ul>
         </div>

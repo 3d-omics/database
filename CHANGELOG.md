@@ -64,6 +64,9 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- The footer's coordinator, contact and privacy policy links lose their underline and
+  still turn mustard on hover, and the *Coordinator:* and *Contact:* labels are set in
+  bold ([`dc1c51c`][dc1c51c]).
 - A MAG catalogue page's summary figures (number of MAGs, average completeness, average
   contamination, new species) move out of the header into a full-width strip flush against
   it: four blocks on the home page's textured section-block background, divided by thin
@@ -392,6 +395,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[dc1c51c]: https://github.com/3d-omics/database/commit/dc1c51ccd4d3b2910380b8227ecff8e7622b4dcc
 [a520f1a]: https://github.com/3d-omics/database/commit/a520f1a2a1f9763b767b05648eeaecbfa4d4b938
 [b6dc7ef]: https://github.com/3d-omics/database/commit/b6dc7efb7f841afa9a2f99fa6e8eb381eab47e0d
 [31f8c89]: https://github.com/3d-omics/database/commit/31f8c8906337fd2b1ada3cf70a8956f4a6ab3dcc
