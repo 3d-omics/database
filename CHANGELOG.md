@@ -64,6 +64,18 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- The taxonomy colours are muted (OKLCH chroma about 0.10, from 0.2–0.3), and the
+  phyla that dominate the trials no longer share a red-to-yellow run: Bacillota_A,
+  44–95% of every chicken and turkey sample, is a steel blue instead of orange-red;
+  Bacteroidota, which dominates the swine trials, a sage green instead of neon
+  yellow-green; Bacillota an ochre; Pseudomonadota a clay; Spirochaetota a lavender. Classes
+  are still offsets of their phylum and orders lighter and darker steps of their class.
+  The most abundant order keeps its class's colour, so switching taxonomic level keeps
+  the bars' overall look, and the other steps are placed so that orders stacked next to
+  each other in the trial data are clearly different, including under simulated red–green
+  colour blindness. The composition legend sets phylum names in the text colour rather
+  than the phylum's, which the paler and deeper shades made hard to read. This also fixes
+  Lachnospirales and Monoglobales sharing one colour.
 - The footer's coordinator, contact and privacy policy links lose their underline and
   still turn mustard on hover, and the *Coordinator:* and *Contact:* labels are set in
   bold ([`dc1c51c`][dc1c51c]).

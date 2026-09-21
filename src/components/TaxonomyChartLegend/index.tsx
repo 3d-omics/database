@@ -151,7 +151,6 @@ const TaxonomyChartLegend = ({ selectedTaxonomicLevel, experimentId }: {
               ${parentLevel === 'class' && 'text-sm font-bold  max-xl:text-xs'}
               ${parentLevel === 'order' && 'text-xs font-semibold max-xl:text-2xs'}
               `}
-            style={parentLevel === 'phylum' ? { color: data.color } : undefined}
           >
             {name}
           </span>
