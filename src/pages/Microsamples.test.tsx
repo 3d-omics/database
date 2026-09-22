@@ -60,8 +60,8 @@ vi.mock('assets/data/airtable/cryosection.json', () => ({
 
 // Mock TableView
 vi.mock('components/TableView', () => ({
-  default: ({ data, columns, pageTitle, tableDescription }: any) => (
-    <div data-testid='table-view'>
+  default: ({ data, columns, pageTitle, tableDescription, displayTableDescription }: any) => (
+    <div data-testid='table-view' data-description={String(displayTableDescription)}>
       <div data-testid='page-title'>{pageTitle}</div>
       <div data-testid='table-description'>{tableDescription}</div>
       <div data-testid='data-count'>{data.length}</div>
@@ -162,5 +162,11 @@ describe('Microsamples', () => {
     })
 
     expect(screen.getByTestId('table-view')).toBeInTheDocument()
+  })
+
+  it('passes on whether to show the table description', () => {
+    renderComponent({ displayPageHeader: false, displayTableDescription: false })
+
+    expect(screen.getByTestId('table-view')).toHaveAttribute('data-description', 'false')
   })
 })

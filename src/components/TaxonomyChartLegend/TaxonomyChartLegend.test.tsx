@@ -85,6 +85,37 @@ describe('TaxonomyChartLegend', () => {
     expect(screen.getByText('Enterobacterales')).toBeInTheDocument()
   })
 
+  it('stacks the phyla in a column by default', () => {
+    const { container } = render(
+      <TaxonomyChartLegend
+        selectedTaxonomicLevel='phylum'
+        experimentId='G'
+      />
+    )
+
+    expect(container.firstChild).toHaveClass('w-[320px]')
+    expect(container.firstChild?.firstChild).toHaveClass('space-y-2')
+  })
+
+  it('sets each phylum, with its classes and orders, side by side in a row layout', () => {
+    const { container } = render(
+      <TaxonomyChartLegend
+        selectedTaxonomicLevel='order'
+        experimentId='G'
+        layout='row'
+      />
+    )
+
+    const row = container.firstChild?.firstChild as HTMLElement
+    expect(container.firstChild).toHaveClass('w-full')
+    expect(row).toHaveClass('flex', 'flex-wrap')
+
+    // One block per phylum, each holding its own classes and orders
+    expect(row.children).toHaveLength(2)
+    expect(row.children[0]).toHaveTextContent('FirmicutesBacilliLactobacillales')
+    expect(row.children[1]).toHaveTextContent('ProteobacteriaGammaproteobacteriaEnterobacterales')
+  })
+
   it('handles null metadata gracefully', () => {
     (useGenomeJsonFile as any).mockReturnValue(null)
 

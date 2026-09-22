@@ -64,8 +64,8 @@ Everything else — Airtable records, genome metadata, count matrices — is a s
 | `/methods/:methodName` | `pages/Methods` | `pages/Methods/methodsContent.ts` (static text; unknown names render `NotFound`) |
 | `*` | `pages/NotFound` | — |
 
-The `MicrosampleComposition` component *is* used, but as an embedded tab inside
-`CryosectionOverview`, not through its own route.
+The `MicrosampleComposition` component *is* used, but as a section of
+`CryosectionOverview`, above its microsample table, not through its own route.
 
 ## The two page shapes
 

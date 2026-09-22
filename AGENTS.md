@@ -198,7 +198,7 @@ bulk data.
 [src/App.tsx](src/App.tsx#L142) renders `<MicrosampleComposition />` with no props, but
 the component reads `cryosection` from **props**, not `useParams`, defaulting to `''`.
 Validation then finds no match and the page renders `NotFound`. The working path is the
-tab embedded in [CryosectionOverview](src/pages/CryosectionOverview.tsx#L95). Fix by
+section embedded in [CryosectionOverview](src/pages/CryosectionOverview.tsx#L77). Fix by
 calling `useParams` in the component, or delete the route.
 
 ### 6.5 Two different `MacrosampleTab` / `MicrosampleTab` components exist

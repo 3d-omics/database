@@ -49,7 +49,6 @@ export const getCompositionStats = (
     {
       label: 'Average Shannon diversity',
       value: diversity?.toLocaleString('en-US', { minimumFractionDigits: 1, maximumFractionDigits: 1 }),
-      unit: 'effective MAGs',
     },
   ]
 }

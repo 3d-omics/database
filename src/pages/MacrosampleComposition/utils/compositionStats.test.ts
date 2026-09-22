@@ -31,9 +31,7 @@ describe('getCompositionStats', () => {
 
   it('averages the samples\' Shannon diversity as an effective number of MAGs', () => {
     // S1 has two equally abundant MAGs (2); S2 has abundances ¼, ¼, ½ (2^1.5 ≈ 2.83)
-    const stats = getCompositionStats(counts, metadata)
-    expect(valueOf(stats, 'Average Shannon diversity')).toBe('2.4')
-    expect(stats.find((stat) => stat.label === 'Average Shannon diversity')?.unit).toBe('effective MAGs')
+    expect(valueOf(getCompositionStats(counts, metadata), 'Average Shannon diversity')).toBe('2.4')
   })
 
   it('reads counts stored as strings', () => {

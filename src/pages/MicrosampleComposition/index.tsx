@@ -1,9 +1,10 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useCallback } from 'react'
 import microsamplesWithCoordinationData from 'assets/data/airtable/microsampleswithcoordination.json'
 import useValidateParams from 'hooks/useValidateParams'
 import ImagePlot from './components/ImagePlot'
 import TaxonomyChartLegend from 'components/TaxonomyChartLegend'
 import TaxonomyChart from './components/TaxonomyChart'
+import TaxonomicLevelPicker from './components/TaxonomicLevelPicker'
 import ParamsValidator from 'components/ParamsValidator'
 
 interface MicrosampleRecord {
@@ -26,6 +27,17 @@ const MicrosampleComposition = ({ cryosection = '' }) => {
 
   const [selectedMicrosampleIds, setSelectedMicrosampleIds] = useState<string[]>([])
   const [selectedTaxonomicLevel, setSelectedTaxonomicLevel] = useState('phylum')
+  const [isChangingLevel, setIsChangingLevel] = useState(false)
+
+  // The chart is covered while it is redrawn at the new level: the change waits a
+  // tick so the cover is painted first, and the cover lifts once the chart has redrawn
+  const handleLevelChange = useCallback((level: string) => {
+    setIsChangingLevel(true)
+    setTimeout(() => {
+      setSelectedTaxonomicLevel(level)
+      setTimeout(() => setIsChangingLevel(false), 100)
+    }, 0)
+  }, [])
 
   const { validating, notFound } = useValidateParams({
     tableType: 'cryosectionImage',
@@ -52,11 +64,23 @@ const MicrosampleComposition = ({ cryosection = '' }) => {
 
   return (
     <ParamsValidator validating={validating} notFound={notFound} >
-      <div className='page_padding max-w-screen'>
+      <section aria-labelledby='composition-heading' className='page_padding'>
+        <div className='flex flex-wrap items-center justify-between gap-x-6 gap-y-3 pb-5'>
+          <h2 id='composition-heading' className='main_header'>Metagenomics</h2>
+          <TaxonomicLevelPicker
+            selectedTaxonomicLevel={selectedTaxonomicLevel}
+            onChange={handleLevelChange}
+            disabled={isChangingLevel}
+          />
+        </div>
 
-        <div className='flex min-h-[calc(100vh-123px)] items-start max-xl:flex-col max-xl:gap-12 max-xl:h-fit max-xl:items-center'>
-
-          <div className='w-[35%] aspect-square mt-12 max-xl:w-[60%] max-lg:w-[70%] max-md:w-[80%] max-sm:w-[100%] image-plot'>
+        {/* The square image sets the row's height and the chart takes it on, so the
+            two stand level. The chart is laid over its column rather than inside it,
+            so that it cannot hold the row open when the image shrinks. Below lg the
+            chart goes under the image at a height of its own. The image's column is a flex
+            box so that the plot, an inline block, leaves no line gap below itself */}
+        <div className='flex gap-6 max-lg:flex-col'>
+          <div className='flex w-[min(70vh,45%)] aspect-square shrink-0 max-lg:w-full max-lg:max-w-xl max-lg:self-center'>
             <ImagePlot
               cryosection={cryosection}
               setSelectedMicrosampleIds={setSelectedMicrosampleIds}
@@ -68,23 +92,27 @@ const MicrosampleComposition = ({ cryosection = '' }) => {
             />
           </div>
 
-          <div className='w-[65%] flex max-xl:w-full max-xl:pb-8 max-md:flex-col max-md:gap-12'>
-            <TaxonomyChart
-              cryosection={cryosection}
-              microsampleIds={selectedMicrosampleIds.length > 0 ? selectedMicrosampleIds : microsampleIds}
-              selectedTaxonomicLevel={selectedTaxonomicLevel}
-              setSelectedTaxonomicLevel={setSelectedTaxonomicLevel}
-              experimentId={experimentId}
-            />
-            <TaxonomyChartLegend
-              selectedTaxonomicLevel={selectedTaxonomicLevel}
-              experimentId={experimentId}
-            />
+          <div className='relative flex-1 min-w-0 max-lg:flex-none max-lg:h-[28rem]'>
+            <div className='absolute inset-0'>
+              <TaxonomyChart
+                cryosection={cryosection}
+                microsampleIds={selectedMicrosampleIds.length > 0 ? selectedMicrosampleIds : microsampleIds}
+                selectedTaxonomicLevel={selectedTaxonomicLevel}
+                isChangingLevel={isChangingLevel}
+                experimentId={experimentId}
+              />
+            </div>
           </div>
-
         </div>
 
-      </div>
+        <div className='mt-4'>
+          <TaxonomyChartLegend
+            selectedTaxonomicLevel={selectedTaxonomicLevel}
+            experimentId={experimentId}
+            layout='row'
+          />
+        </div>
+      </section>
     </ParamsValidator>
   )
 }

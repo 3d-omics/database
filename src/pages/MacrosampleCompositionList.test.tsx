@@ -124,7 +124,7 @@ describe('MacrosampleCompositionList', () => {
     expect(getFigure(experimentG, 'Number of MAGs')).toHaveTextContent('3')
     expect(getFigure(experimentG, 'Number of phyla')).toHaveTextContent('2')
     expect(getFigure(experimentG, 'Number of samples')).toHaveTextContent('2')
-    expect(getFigure(experimentG, 'Average Shannon diversity')).toHaveTextContent('2.4 effective MAGs')
+    expect(getFigure(experimentG, 'Average Shannon diversity')).toHaveTextContent('2.4')
   })
 
   it('does not show the MAG catalogue\'s figures', () => {
@@ -140,6 +140,5 @@ describe('MacrosampleCompositionList', () => {
 
     const experimentH = getBlock('Experiment H')
     expect(within(experimentH).getAllByText('—')).toHaveLength(4)
-    expect(within(experimentH).queryByText('effective MAGs')).not.toBeInTheDocument()
   })
 })
