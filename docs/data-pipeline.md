@@ -80,10 +80,10 @@ application code changed in the migration:
 | `animalspecimen.json` | table `specimens` | `tbldS5LFsxJ9KHZzm` | |
 | `intestinalsectionsample.json` | table `macrosamples` | `tbl0X0ElXWistmHa4` | surfaced in the UI as "Macrosamples" |
 | `experimentswithgenomeinfo.json` | view `experiments_with_genomes` | `tblIv5AygbJtitB14` | same table as trials, different view |
-| `cryosection.json` | table `cryosections` | `tblC7ttwMXX9aOFNQ` | ~117 records |
-| `cryosectionimage.json` | view `cryosections_with_image` | `tblC7ttwMXX9aOFNQ` | same table, image view, ~92 records |
-| `microsample.json` | table `microsamples` | `tblCkV1GWTGEaiUBC` | ~5 800 records |
-| `microsampleswithcoordination.json` | table `microsample_sequencing` | `tbl6uGSGiUXIp0K3z` | ~4 460 records, X/Y pixel coordinates |
+| `cryosection.json` | table `cryosections` | `tblC7ttwMXX9aOFNQ` | ~85 records; complete cryosections only, see below |
+| `cryosectionimage.json` | view `cryosections_with_image` | `tblC7ttwMXX9aOFNQ` | same table, image view, ~78 records |
+| `microsample.json` | table `microsamples` | `tblCkV1GWTGEaiUBC` | ~5 300 records |
+| `microsampleswithcoordination.json` | table `microsample_sequencing` | `tbl6uGSGiUXIp0K3z` | ~4 090 records, X/Y pixel coordinates |
 | `macrosample.json` | table `macrosample_sequencing` | `tbld4FX1XjMrjBS0R` | a third base |
 
 Written to `src/assets/data/airtable/` (git-ignored) as
@@ -94,6 +94,14 @@ The two pairs that came from one Airtable table via different views
 (`animaltrialexperiment` / `experimentswithgenomeinfo`, `cryosection` / `cryosectionimage`)
 are now SQL views over one stored table, distinguished by a flag column — one fetch
 instead of two.
+
+**Only complete cryosections are catalogued.** A cryosection is included when its
+Airtable record holds exactly one CSV in `microsample_counts_csv`, one CSV in
+`pixel_coordinates_csv` and one image in `cropped_image`. Any other cryosection is left
+out, and so are its microsamples in both `microsample.json` and
+`microsampleswithcoordination.json`. They appear in the first catalogue built after their
+attachments are complete. The rule is `require_attachments` and `left_out_with` in
+`database-build`'s `scripts/build_mapping.py`, not here.
 
 **The catalogue carries 73 of Airtable's 496 columns**, only what the site reads. A dump
 rendered from it is therefore a subset of an Airtable dump, and adding a column is a
@@ -109,9 +117,9 @@ All six directories are git-ignored.
 
 | Rendered CSV | Rendered JSON | Count |
 |---|---|---|
-| `src/assets/data/genome_metadata/` | `genome_metadata_json/` | 7 — one per experiment F, G, H, I, J, K, M |
-| `src/assets/data/macro_genome_counts/` | `macro_genome_counts_json/` | 7 |
-| `src/assets/data/microsample_counts/` | `microsample_counts_json/` | **76**, one per cryosection with counts |
+| `src/assets/data/genome_metadata/` | `genome_metadata_json/` | 8 — one per experiment C, F, G, H, I, J, K, M |
+| `src/assets/data/macro_genome_counts/` | `macro_genome_counts_json/` | 8 |
+| `src/assets/data/microsample_counts/` | `microsample_counts_json/` | **85**, one per cryosection |
 
 Genome metadata columns: `genome, domain, phylum, class, order, family, genus, species,
 completeness, contamination, length`.
@@ -141,7 +149,7 @@ Projects → Experiments → Individuals → Macrosamples → Microsamples
 ```
 
 Current content: 1 project, 8 experiments (C, F, G, H, I, J, K, M), 526 individuals,
-1 466 macrosamples, **117** cryosections, 5 808 microsamples.
+1 466 macrosamples, **85** cryosections, 5 334 microsamples.
 
 This file used to be tracked in git, which made it the one place a bad pipeline run left
 a committable artefact — and the committed copy had indeed gone stale, holding 107
