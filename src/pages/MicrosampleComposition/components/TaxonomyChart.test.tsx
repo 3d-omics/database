@@ -46,18 +46,9 @@ afterAll(() => {
 
 
 describe('TaxonomyChart', () => {
-  const mockSetSelectedTaxonomicLevel = vi.fn()
-
   beforeEach(() => {
     vi.clearAllMocks()
     vi.useFakeTimers();
-
-    // Mock window dimensions
-    Object.defineProperty(window, 'innerWidth', {
-      writable: true,
-      configurable: true,
-      value: 1280,
-    });
 
     // Default successful data loading
     (useGenomeJsonFile as any).mockReturnValue({
@@ -96,7 +87,6 @@ describe('TaxonomyChart', () => {
         cryosection='G_CS1'
         microsampleIds={['M001', 'M002']}
         selectedTaxonomicLevel='phylum'
-        setSelectedTaxonomicLevel={mockSetSelectedTaxonomicLevel}
         experimentId='G'
         {...props}
       />
@@ -151,17 +141,21 @@ describe('TaxonomyChart', () => {
     expect(screen.getByTestId('bar-chart')).toBeInTheDocument()
   })
 
-  it('renders select dropdown on narrow screens', async () => {
-    Object.defineProperty(window, 'innerWidth', { value: 400 })
-
+  it('leaves choosing the level to its parent', async () => {
     renderChart()
 
     await vi.advanceTimersByTimeAsync(150)
 
-    window.dispatchEvent(new Event('resize'))
-    await vi.advanceTimersByTimeAsync(50)
+    expect(screen.queryByRole('button')).not.toBeInTheDocument()
+    expect(screen.queryByRole('combobox')).not.toBeInTheDocument()
+  })
 
-    const select = screen.getByRole('combobox')
-    expect(select).toBeInTheDocument()
+  it('covers the chart while it is redrawn at a new level', async () => {
+    renderChart({ isChangingLevel: true })
+
+    await vi.advanceTimersByTimeAsync(150)
+
+    expect(screen.getByTestId('bar-chart')).toBeInTheDocument()
+    expect(screen.getByText('Updating chart...')).toBeInTheDocument()
   })
 })

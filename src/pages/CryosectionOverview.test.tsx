@@ -1,6 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen, within } from '@testing-library/react'
-import { userEvent } from '@testing-library/user-event'
 import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import CryosectionOverview from './CryosectionOverview'
 import useValidateParams from 'hooks/useValidateParams'
@@ -21,6 +20,18 @@ vi.mock('assets/data/airtable/cryosection.json', () => ({
         Macrosample: 'M001',
         SlideDate: '2024-01-15',
         'Microsample number': 100,
+      },
+    },
+    {
+      id: '2',
+      createdTime: '2024-01-01',
+      fields: {
+        ID: 'G_CS2', // Has no image, so no composition
+        Slide_flat: 'Slide 1',
+        Position: 'B1',
+        Macrosample: 'M001',
+        SlideDate: '2024-01-15',
+        'Microsample number': 40,
       },
     },
   ],
@@ -50,24 +61,12 @@ vi.mock('components/ParamsValidator', () => ({
   default: ({ children, notFound }: any) => notFound ? <div>Not Found</div> : <div>{children}</div>,
 }))
 
-vi.mock('components/Tabs', () => ({
-  default: ({ tabs, selectedTab, setSelectedTab }: any) => (
-    <div data-testid='tabs'>
-      {tabs.map((tab: string) => (
-        <button
-          key={tab}
-          onClick={() => setSelectedTab(tab)}
-          data-selected={selectedTab === tab}
-        >
-          {tab}
-        </button>
-      ))}
+vi.mock('components/TabComponents/MicrosampleTab', () => ({
+  default: ({ id, displayTableDescription }: any) => (
+    <div data-testid='microsample-tab' data-description={String(displayTableDescription)}>
+      Microsample Tab: {id}
     </div>
   ),
-}))
-
-vi.mock('components/TabComponents/MicrosampleTab', () => ({
-  default: ({ id }: any) => <div data-testid='microsample-tab'>Microsample Tab: {id}</div>,
 }))
 
 vi.mock('./MicrosampleComposition', () => ({
@@ -139,30 +138,38 @@ describe('CryosectionOverview', () => {
     expect(screen.queryByText(/Slide date/)).not.toBeInTheDocument()
   })
 
-  it('renders tabs with composition when data exists', () => {
+  it('introduces cryosections and microsamples in the header', () => {
     renderPage()
 
-    expect(screen.getByTestId('tabs')).toBeInTheDocument()
-    expect(screen.getByText('Microsamples')).toBeInTheDocument()
-    expect(screen.getByText('Metagenomics')).toBeInTheDocument()
+    const header = screen.getByRole('banner')
+    expect(within(header).getByText(/A cryosection is a thin cross-cut of the intestine/)).toBeInTheDocument()
+    expect(within(header).getByText(/laser\s+capture\s+microdissection/)).toBeInTheDocument()
   })
 
-  it('shows Microsamples tab by default', () => {
+  it('shows the composition and then the microsamples, without tabs', () => {
     renderPage()
 
-    expect(screen.getByTestId('microsample-tab')).toBeInTheDocument()
-    expect(screen.getByTestId('microsample-tab')).toHaveTextContent('G_CS1')
+    expect(screen.queryByRole('tab')).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Microsamples' })).not.toBeInTheDocument()
+
+    const composition = screen.getByTestId('composition-tab')
+    const microsamples = screen.getByTestId('microsample-tab')
+    expect(composition).toHaveTextContent('G_CS1')
+    expect(microsamples).toHaveTextContent('G_CS1')
+    expect(composition.compareDocumentPosition(microsamples) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
   })
 
-  it('switches to Community Composition tab when clicked', async () => {
-    const user = userEvent.setup()
+  it('leaves the microsamples\' description out of their table', () => {
     renderPage()
 
-    const compositionButton = screen.getByText('Metagenomics')
-    await user.click(compositionButton)
+    expect(screen.getByTestId('microsample-tab')).toHaveAttribute('data-description', 'false')
+  })
 
-    expect(screen.getByTestId('composition-tab')).toBeInTheDocument()
-    expect(screen.queryByTestId('microsample-tab')).not.toBeInTheDocument()
+  it('shows only the microsamples for a cryosection without a composition', () => {
+    renderPage('G_CS2')
+
+    expect(screen.queryByTestId('composition-tab')).not.toBeInTheDocument()
+    expect(screen.getByTestId('microsample-tab')).toHaveTextContent('G_CS2')
   })
 
   it('shows not found when validation fails', () => {

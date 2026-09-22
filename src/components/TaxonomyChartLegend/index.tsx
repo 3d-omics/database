@@ -36,9 +36,12 @@ type ProcessedMetadata = {
   order: string[]
 }
 
-const TaxonomyChartLegend = ({ selectedTaxonomicLevel, experimentId }: {
+const TaxonomyChartLegend = ({ selectedTaxonomicLevel, experimentId, layout = 'column' }: {
   selectedTaxonomicLevel: string,
   experimentId: string
+  // A column beside the chart, or a row below it in which each phylum, with its
+  // classes and orders when expanded, is one block and the blocks wrap
+  layout?: 'column' | 'row'
 }) => {
 
   const taxonomicLevels = ['class', 'order']
@@ -174,8 +177,11 @@ const TaxonomyChartLegend = ({ selectedTaxonomicLevel, experimentId }: {
   }
 
   return (
-    <div className='p-2 h-fit max-h-[80vh] w-[320px] overflow-y-auto bg-surface_muted mt-[46px] max-md:w-[calc(100%-80px)] max-md:mx-10'>
-      <div className='space-y-2'>
+    <div className={layout === 'row'
+      ? 'p-2 w-full bg-surface_muted'
+      : 'p-2 h-fit max-h-[80vh] w-[320px] overflow-y-auto bg-surface_muted mt-[46px] max-md:w-[calc(100%-80px)] max-md:mx-10'
+    }>
+      <div className={layout === 'row' ? 'flex flex-wrap items-start gap-x-6 gap-y-2' : 'space-y-2'}>
         {Object.entries(filteredColorScheme).map(([name, data]) => (
           <LegendNode key={name} name={name} data={data as TaxonomyNode} level={0} parentLevel='phylum' />
         ))}

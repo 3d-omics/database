@@ -85,7 +85,7 @@ component takes `cryosection` as a **prop** with default `''` and never calls
 links to the route, so it has presumably never been noticed.
 
 *Fix:* read the param inside the component (`const { cryosection } = useParams()`,
-falling back to the prop so the `CryosectionOverview` tab keeps working), or delete the
+falling back to the prop so the `CryosectionOverview` section keeps working), or delete the
 route. If it is kept, open it with a `PageHeader`, which also names the browser tab.
 
 ### P1-3 · Metabolomics workbooks are read by sheet index

@@ -71,6 +71,15 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- A cryosection's page shows its composition and its microsamples one after the other,
+  the composition first, instead of in *Microsamples* and *Metagenomics* tabs. The
+  cryosection's image and the stacked bar chart stand side by side at the same height,
+  under a *Metagenomics* heading that carries the taxonomic level buttons; below `lg` the
+  chart goes under the image. The legend runs in a row below them, each phylum with its
+  classes and orders a block of its own, where it stood in a column beside the chart; the
+  trial pages under Metagenomics keep the column. The microsamples' description no
+  longer sits above their table: a shorter introduction to cryosections and their
+  microsamples opens the page's header.
 - A cryosection's page shows its slide, position, macrosample and number of
   microsamples in a strip below the header, as a MAG catalogue's page shows its summary
   figures, instead of as a line of text in the header. The slide date is no longer shown.

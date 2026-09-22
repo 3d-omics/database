@@ -1,10 +1,9 @@
-import { useState, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import PageHeader from 'components/PageHeader'
 import SummaryStrip from 'components/SummaryStrip'
 import cryosectionData from 'assets/data/airtable/cryosection.json'
 import MicrosampleTab from 'components/TabComponents/MicrosampleTab'
-import Tabs from 'components/Tabs'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
 import MicrosampleComposition from './MicrosampleComposition'
@@ -13,7 +12,6 @@ import cryosectionImageData from 'assets/data/airtable/cryosectionimage.json'
 const CryosectionOverview = () => {
 
   const { cryosectionName = '' } = useParams()
-  const [selectedTab, setSelectedTab] = useState('Microsamples')
 
   // Validate that the macrosample exists
   const { validating, notFound } = useValidateParams({
@@ -53,7 +51,15 @@ const CryosectionOverview = () => {
                 { label: 'Cryosections', link: '/cryosections' },
                 { label: cryosectionName }
               ]}
-            />
+            >
+              <p>
+                A cryosection is a thin cross-cut of the intestine, holding both the host's
+                tissue and the intestinal contents. Its microsamples are cut from it by laser
+                capture microdissection: each covers about 50,000 µm³, usually 100 to 2,000
+                bacterial cells, and keeps its position on the section, so the microbial
+                community can be mapped across it.
+              </p>
+            </PageHeader>
 
             <SummaryStrip
               label='Cryosection summary'
@@ -65,22 +71,11 @@ const CryosectionOverview = () => {
               ]}
             />
 
-            <section className='page_padding'>
-              <Tabs
-                selectedTab={selectedTab}
-                setSelectedTab={setSelectedTab}
-                tabs={hasCommunityComposition
-                  ? ['Microsamples', 'Metagenomics']
-                  : ['Microsamples']
-                }
-              />
-            </section>
-
-            <main className='-mt-7'>
-              {selectedTab === 'Microsamples' && <MicrosampleTab id={cryosection.fields.ID} />}
-              {(hasCommunityComposition && selectedTab === 'Metagenomics')
-                && <MicrosampleComposition cryosection={cryosection.fields.ID} />
-              }
+            {/* The composition, where there is one, then the microsamples it is drawn
+                from; the header introduces microsamples, so the table does not */}
+            <main>
+              {hasCommunityComposition && <MicrosampleComposition cryosection={cryosection.fields.ID} />}
+              <MicrosampleTab id={cryosection.fields.ID} displayTableDescription={false} />
             </main>
           </>
         )}

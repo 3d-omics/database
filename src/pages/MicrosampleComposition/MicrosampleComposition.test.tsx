@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, act, fireEvent } from '@testing-library/react'
 import MicrosampleComposition from './index'
 import useValidateParams from 'hooks/useValidateParams'
 
@@ -63,8 +63,8 @@ vi.mock('./components/ImagePlot', () => ({
 }))
 
 vi.mock('./components/TaxonomyChart', () => ({
-  default: ({ microsampleIds, selectedTaxonomicLevel }: any) => (
-    <div data-testid='taxonomy-chart'>
+  default: ({ microsampleIds, selectedTaxonomicLevel, isChangingLevel }: any) => (
+    <div data-testid='taxonomy-chart' data-changing={String(isChangingLevel)}>
       <div data-testid='selected-level'>{selectedTaxonomicLevel}</div>
       <div data-testid='chart-sample-count'>{microsampleIds.length}</div>
     </div>
@@ -72,8 +72,8 @@ vi.mock('./components/TaxonomyChart', () => ({
 }))
 
 vi.mock('components/TaxonomyChartLegend', () => ({
-  default: ({ selectedTaxonomicLevel, experimentId }: any) => (
-    <div data-testid='taxonomy-legend'>
+  default: ({ selectedTaxonomicLevel, experimentId, layout }: any) => (
+    <div data-testid='taxonomy-legend' data-layout={layout}>
       <div data-testid='legend-level'>{selectedTaxonomicLevel}</div>
       <div data-testid='legend-experiment'>{experimentId}</div>
     </div>
@@ -103,6 +103,37 @@ describe('MicrosampleComposition', () => {
   it('renders TaxonomyChartLegend component', () => {
     render(<MicrosampleComposition cryosection='G_CS1' />)
     expect(screen.getByTestId('taxonomy-legend')).toBeInTheDocument()
+  })
+
+  it('heads the section Metagenomics', () => {
+    render(<MicrosampleComposition cryosection='G_CS1' />)
+    expect(screen.getByRole('region', { name: 'Metagenomics' })).toBeInTheDocument()
+  })
+
+  it('sets the legend in a row below the image and chart', () => {
+    render(<MicrosampleComposition cryosection='G_CS1' />)
+
+    const legend = screen.getByTestId('taxonomy-legend')
+    expect(legend).toHaveAttribute('data-layout', 'row')
+    expect(screen.getByTestId('taxonomy-chart').compareDocumentPosition(legend) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(screen.getByTestId('image-plot').compareDocumentPosition(legend) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+  })
+
+  it('redraws the chart and legend at the level picked, covering the chart meanwhile', async () => {
+    vi.useFakeTimers()
+    try {
+      render(<MicrosampleComposition cryosection='G_CS1' />)
+
+      fireEvent.click(screen.getByRole('button', { name: 'Order' }))
+      expect(screen.getByTestId('taxonomy-chart')).toHaveAttribute('data-changing', 'true')
+
+      await act(() => vi.advanceTimersByTimeAsync(150))
+      expect(screen.getByTestId('selected-level')).toHaveTextContent('order')
+      expect(screen.getByTestId('legend-level')).toHaveTextContent('order')
+      expect(screen.getByTestId('taxonomy-chart')).toHaveAttribute('data-changing', 'false')
+    } finally {
+      vi.useRealTimers()
+    }
   })
 
   it('filters data by cryosection', () => {

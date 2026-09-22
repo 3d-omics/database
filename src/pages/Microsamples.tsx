@@ -28,9 +28,10 @@ export type TData = {
   }
 }
 
-const Microsample = ({ displayPageHeader = true, displayTableHeader, displayTableFilters, displayTableBody, filterWith = [] }: {
+const Microsample = ({ displayPageHeader = true, displayTableHeader, displayTableDescription, displayTableFilters, displayTableBody, filterWith = [] }: {
   displayPageHeader?: boolean
   displayTableHeader?: boolean
+  displayTableDescription?: boolean
   displayTableFilters?: boolean
   displayTableBody?: boolean
   filterWith?: { id: keyof TData['fields']; value: string | number, condition?: string }[]
@@ -151,6 +152,7 @@ const Microsample = ({ displayPageHeader = true, displayTableHeader, displayTabl
       tableDescription={tableDescription}
       displayPageHeader={displayPageHeader}
       displayTableHeader={displayTableHeader}
+      displayTableDescription={displayTableDescription}
       displayTableFilters={displayTableFilters}
       displayTableBody={displayTableBody}
     />
