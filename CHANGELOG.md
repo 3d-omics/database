@@ -20,6 +20,13 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Added
 
+- Trial C's MAG catalogue (*Proof-of-principle swine trial*) on the MAG Catalogues
+  pages: 439 genomes, their counts across 15 sequencing libraries, the catalogue's
+  Zenodo DOI and description, and its summary figures (1,981 MAGs, 88.2% average
+  completeness, 5.5% average contamination, 35.2% new species). The same catalogue
+  release adds microsample counts for nine cryosections that had none: six in trial F
+  and `G121eI104A`–`C`. `catalog.json` now pins catalogue `2026.09.22` (version DOI
+  `10.5281/zenodo.22894102`).
 - Trial F's MAG catalogue (*Adenovirus experiment, chicken*) on the MAG Catalogues
   pages: 260 genomes, their counts across 144 caecal sequencing libraries, the
   catalogue's Zenodo DOI and description, and its summary figures (7,376 MAGs, 89.5%
@@ -64,6 +71,14 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- Only complete cryosections are shown: those whose Airtable record holds exactly one
+  microsample counts CSV, one pixel-coordinates CSV and one cropped image. The 32
+  cryosections that fall short, including five with two pixel-coordinate files, are
+  withheld along with their 474 microsamples and those microsamples' 370 sequencing
+  records. Each returns in the first catalogue built after its attachments are
+  complete. Catalogue `2026.09.22` holds 85 cryosections (from 117), 78 of them with an
+  image (from 92), and 5,334 microsamples (from 5,808). The rule is applied when the
+  catalogue is built, in `3d-omics/database-build`.
 - The taxonomy colours are muted (OKLCH chroma about 0.10, from 0.2–0.3), and the
   phyla that dominate the trials no longer share a red-to-yellow run: Bacillota_A,
   44–95% of every chicken and turkey sample, is a steel blue instead of orange-red;
