@@ -79,7 +79,7 @@ moved it. If the project starts tagging releases, these headings become
   classes and orders a block of its own, where it stood in a column beside the chart; the
   trial pages under Metagenomics keep the column. The microsamples' description no
   longer sits above their table: a shorter introduction to cryosections and their
-  microsamples opens the page's header.
+  microsamples opens the page's header ([`d7c08a9`][d7c08a9]).
 - A cryosection's page shows its slide, position, macrosample and number of
   microsamples in a strip below the header, as a MAG catalogue's page shows its summary
   figures, instead of as a line of text in the header. The slide date is no longer shown.
@@ -468,6 +468,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[d7c08a9]: https://github.com/3d-omics/database/commit/d7c08a99a3973e7836cb57ca3fb04389f5f0ba96
 [5d7efad]: https://github.com/3d-omics/database/commit/5d7efad88ce47c8cd4feec025ce650f8ccc0cd44
 [575902d]: https://github.com/3d-omics/database/commit/575902d0b966dfebfad3333f46269b8c3171c6a1
 [4d4fae7]: https://github.com/3d-omics/database/commit/4d4fae7359c7a3de80cf28851b524c7c435d1786
