@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import CryosectionOverview from './CryosectionOverview'
@@ -116,14 +116,27 @@ describe('CryosectionOverview', () => {
     expect(headers.length).toBeGreaterThan(0)
   })
 
-  it('displays cryosection details', () => {
+  it('shows the cryosection\'s details in a strip below the header', () => {
     renderPage()
 
-    expect(screen.getByText('Slide 1')).toBeInTheDocument()
-    expect(screen.getByText('A1')).toBeInTheDocument()
-    expect(screen.getByText('M001')).toBeInTheDocument()
-    expect(screen.getByText('2024-01-15')).toBeInTheDocument()
-    expect(screen.getByText('100')).toBeInTheDocument()
+    const summary = screen.getByRole('region', { name: 'Cryosection summary' })
+    expect(screen.getByRole('banner')).not.toContainElement(summary)
+
+    expect(within(summary).getByText('Slide')).toBeInTheDocument()
+    expect(within(summary).getByText('Slide 1')).toBeInTheDocument()
+    expect(within(summary).getByText('Position')).toBeInTheDocument()
+    expect(within(summary).getByText('A1')).toBeInTheDocument()
+    expect(within(summary).getByText('Macrosample')).toBeInTheDocument()
+    expect(within(summary).getByText('M001')).toBeInTheDocument()
+    expect(within(summary).getByText('Number of microsamples')).toBeInTheDocument()
+    expect(within(summary).getByText('100')).toBeInTheDocument()
+  })
+
+  it('does not show the slide date', () => {
+    renderPage()
+
+    expect(screen.queryByText('2024-01-15')).not.toBeInTheDocument()
+    expect(screen.queryByText(/Slide date/)).not.toBeInTheDocument()
   })
 
   it('renders tabs with composition when data exists', () => {

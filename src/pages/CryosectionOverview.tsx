@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { useParams } from 'react-router-dom'
 import PageHeader from 'components/PageHeader'
+import SummaryStrip from 'components/SummaryStrip'
 import cryosectionData from 'assets/data/airtable/cryosection.json'
 import MicrosampleTab from 'components/TabComponents/MicrosampleTab'
 import Tabs from 'components/Tabs'
@@ -52,30 +53,17 @@ const CryosectionOverview = () => {
                 { label: 'Cryosections', link: '/cryosections' },
                 { label: cryosectionName }
               ]}
-            >
-              <div className='flex flex-wrap gap-x-4 gap-y-0.5 [&>span]:flex [&>span]:gap-1 max-lg:flex-col'>
-                <span>
-                  Slide:&nbsp;
-                  <b>{cryosection.fields['Slide_flat']}</b>
-                </span>
-                <span>
-                  Position:&nbsp;
-                  <b>{cryosection.fields.Position}</b>
-                </span>
-                <span>
-                  Macrosample:&nbsp;
-                  <b>{cryosection.fields.Macrosample}</b>
-                </span>
-                <span>
-                  Slide date:&nbsp;
-                  <b>{cryosection.fields.SlideDate}</b>
-                </span>
-                <span>
-                  Microsample number:&nbsp;
-                  <b>{cryosection.fields['Microsample number']}</b>
-                </span>
-              </div>
-            </PageHeader>
+            />
+
+            <SummaryStrip
+              label='Cryosection summary'
+              stats={[
+                { label: 'Slide', value: cryosection.fields.Slide_flat },
+                { label: 'Position', value: cryosection.fields.Position },
+                { label: 'Macrosample', value: cryosection.fields.Macrosample },
+                { label: 'Number of microsamples', value: cryosection.fields['Microsample number'] },
+              ]}
+            />
 
             <section className='page_padding'>
               <Tabs

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 // A headline figure; one without a value is shown as a dash
-export type TrialStat = { label: string, value?: string, unit?: string }
+export type TrialStat = { label: string, value?: string }
 
 // The host is read from the trial's name, as the home page does for its silhouettes
 const HOSTS = ['chicken', 'swine', 'turkey']
@@ -48,13 +48,11 @@ const TrialBlock = ({ fields, stats, to, browseLabel, aside, actions }: {
       </h2>
 
       <dl className='grid grid-cols-4 gap-x-6 gap-y-3 max-sm:grid-cols-2'>
-        {stats.map(({ label, value, unit }) => (
-          <div key={label}>
-            <dt className='text-xs uppercase tracking-wide text-ink_muted'>{label}</dt>
-            <dd className='main_header mt-1 text-burgundy_ink max-lg:text-xl'>
-              {value ?? '—'}
-              {value && unit && <> <span className='font-inter text-sm font-normal text-ink_muted'>{unit}</span></>}
-            </dd>
+        {stats.map(({ label, value }) => (
+          // A label that wraps onto a second line leaves the row's figures level
+          <div key={label} className='flex flex-col justify-between'>
+            <dt className='text-base uppercase tracking-wide text-ink_muted max-lg:text-sm'>{label}</dt>
+            <dd className='main_header mt-1 text-burgundy_ink max-lg:text-xl'>{value ?? '—'}</dd>
           </div>
         ))}
       </dl>

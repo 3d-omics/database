@@ -8,6 +8,7 @@ import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
 import { useGenomeJsonFile } from 'hooks/useJsonData'
 import ErrorBanner from 'components/ErrorBanner'
+import SummaryStrip from 'components/SummaryStrip'
 import { TrailMark } from 'components/BreadCrumbs'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 import experimentsWithGenomeInfo from 'assets/data/airtable/experimentswithgenomeinfo.json'
@@ -254,28 +255,7 @@ const MAGCatalogue = () => {
           </div>
         </PageHeader>
 
-        {/* A strip flush against the header, on the textured background of the home
-            page's section blocks. The texture sits on the strip rather than on each
-            block so its dots run on unbroken across the separators */}
-        <section aria-label='Catalogue summary' className='bg-surface_muted bg-texture'>
-          <dl className='grid grid-cols-4 max-lg:grid-cols-2'>
-            {summaryStats.map(({ label, value }, index) => (
-              <div
-                key={label}
-                className={[
-                  'page_padding py-5 border-ink text-center',
-                  index > 0 && 'lg:border-l',
-                  // Two by two below lg: a vertical rule in each row, and one across between the rows
-                  index % 2 === 1 && 'max-lg:border-l',
-                  index >= 2 && 'max-lg:border-t',
-                ].filter(Boolean).join(' ')}
-              >
-                <dt className='text-xs text-ink'>{label}</dt>
-                <dd className='main_header mt-1 text-3xl text-burgundy_ink max-lg:text-2xl'>{value ?? '—'}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
+        <SummaryStrip label='Catalogue summary' stats={summaryStats} />
 
         <section className='page_padding'>
           {hasError ? (

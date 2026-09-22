@@ -71,6 +71,16 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- A cryosection's page shows its slide, position, macrosample and number of
+  microsamples in a strip below the header, as a MAG catalogue's page shows its summary
+  figures, instead of as a line of text in the header. The slide date is no longer shown.
+  The strip is now a shared `SummaryStrip` component used by both pages.
+- The labels of headline figures are set at 16px (14px below `lg`), from 12px: in the
+  summary strip of the cryosection and MAG catalogue pages, and in the trial blocks of
+  the Metagenomics and MAG Catalogues lists. A trial block's figures are aligned to the
+  foot of their row, so a label that wraps onto a second line leaves them level.
+- The Metagenomics list gives a trial's average Shannon diversity as a bare figure,
+  without the *effective MAGs* unit after it.
 - Only complete cryosections are shown: those whose Airtable record holds exactly one
   microsample counts CSV, one pixel-coordinates CSV and one cropped image. The 32
   cryosections that fall short, including five with two pixel-coordinate files, are
