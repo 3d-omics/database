@@ -74,13 +74,15 @@ moved it. If the project starts tagging releases, these headings become
 - A cryosection's page shows its slide, position, macrosample and number of
   microsamples in a strip below the header, as a MAG catalogue's page shows its summary
   figures, instead of as a line of text in the header. The slide date is no longer shown.
-  The strip is now a shared `SummaryStrip` component used by both pages.
+  The strip is now a shared `SummaryStrip` component used by both pages
+  ([`5d7efad`][5d7efad]).
 - The labels of headline figures are set at 16px (14px below `lg`), from 12px: in the
   summary strip of the cryosection and MAG catalogue pages, and in the trial blocks of
   the Metagenomics and MAG Catalogues lists. A trial block's figures are aligned to the
-  foot of their row, so a label that wraps onto a second line leaves them level.
+  foot of their row, so a label that wraps onto a second line leaves them level
+  ([`5d7efad`][5d7efad]).
 - The Metagenomics list gives a trial's average Shannon diversity as a bare figure,
-  without the *effective MAGs* unit after it.
+  without the *effective MAGs* unit after it ([`5d7efad`][5d7efad]).
 - Only complete cryosections are shown: those whose Airtable record holds exactly one
   microsample counts CSV, one pixel-coordinates CSV and one cropped image. The 32
   cryosections that fall short, including five with two pixel-coordinate files, are
@@ -457,6 +459,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[5d7efad]: https://github.com/3d-omics/database/commit/5d7efad88ce47c8cd4feec025ce650f8ccc0cd44
 [575902d]: https://github.com/3d-omics/database/commit/575902d0b966dfebfad3333f46269b8c3171c6a1
 [4d4fae7]: https://github.com/3d-omics/database/commit/4d4fae7359c7a3de80cf28851b524c7c435d1786
 [ec21142]: https://github.com/3d-omics/database/commit/ec21142d82bde966a7253a9a05d003b367d25e4c
