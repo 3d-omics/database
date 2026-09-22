@@ -26,7 +26,7 @@ moved it. If the project starts tagging releases, these headings become
   completeness, 5.5% average contamination, 35.2% new species). The same catalogue
   release adds microsample counts for nine cryosections that had none: six in trial F
   and `G121eI104A`–`C`. `catalog.json` now pins catalogue `2026.09.22` (version DOI
-  `10.5281/zenodo.22894102`).
+  `10.5281/zenodo.22894102`) ([`575902d`][575902d]).
 - Trial F's MAG catalogue (*Adenovirus experiment, chicken*) on the MAG Catalogues
   pages: 260 genomes, their counts across 144 caecal sequencing libraries, the
   catalogue's Zenodo DOI and description, and its summary figures (7,376 MAGs, 89.5%
@@ -78,7 +78,7 @@ moved it. If the project starts tagging releases, these headings become
   records. Each returns in the first catalogue built after its attachments are
   complete. Catalogue `2026.09.22` holds 85 cryosections (from 117), 78 of them with an
   image (from 92), and 5,334 microsamples (from 5,808). The rule is applied when the
-  catalogue is built, in `3d-omics/database-build`.
+  catalogue is built, in `3d-omics/database-build` ([`575902d`][575902d]).
 - The taxonomy colours are muted (OKLCH chroma about 0.10, from 0.2–0.3), and the
   phyla that dominate the trials no longer share a red-to-yellow run: Bacillota_A,
   44–95% of every chicken and turkey sample, is a steel blue instead of orange-red;
@@ -447,6 +447,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[575902d]: https://github.com/3d-omics/database/commit/575902d0b966dfebfad3333f46269b8c3171c6a1
 [4d4fae7]: https://github.com/3d-omics/database/commit/4d4fae7359c7a3de80cf28851b524c7c435d1786
 [ec21142]: https://github.com/3d-omics/database/commit/ec21142d82bde966a7253a9a05d003b367d25e4c
 [dc1c51c]: https://github.com/3d-omics/database/commit/dc1c51ccd4d3b2910380b8227ecff8e7622b4dcc
