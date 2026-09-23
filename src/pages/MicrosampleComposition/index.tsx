@@ -65,8 +65,17 @@ const MicrosampleComposition = ({ cryosection = '' }) => {
   return (
     <ParamsValidator validating={validating} notFound={notFound} >
       <section aria-labelledby='composition-heading' className='page_padding'>
-        <div className='flex flex-wrap items-center justify-between gap-x-6 gap-y-3 pb-5'>
-          <h2 id='composition-heading' className='main_header'>Metagenomics</h2>
+        {/* The heading carries the line on how to read the pair, so the tools in the
+            image's left rail are met already explained */}
+        <div className='flex flex-wrap items-end justify-between gap-x-6 gap-y-3 pb-5'>
+          <div>
+            <h2 id='composition-heading' className='main_header'>Metagenomics</h2>
+            <p className='mt-1 text-sm text-ink_muted max-w-2xl'>
+              Click a microsample on the section for its own community, or take the
+              selection tool from the rail on the left and draw a box around several.
+              Until then the chart holds every microsample on the section.
+            </p>
+          </div>
           <TaxonomicLevelPicker
             selectedTaxonomicLevel={selectedTaxonomicLevel}
             onChange={handleLevelChange}

@@ -71,6 +71,19 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- A cryosection's image carries its tools in a rail down the left of the frame, standing
+  in the open, instead of in plotly's mode bar, which appeared at the top right on hover:
+  moving the image and selecting microsamples, zooming in and out, fitting the whole
+  section, and clearing the selection. Zooming out now stops at the whole section and
+  panning at its edges, so the picture always fills the frame rather than shrinking into
+  empty space, and the pixel coordinates are no longer drawn over it. The wheel is
+  handled by the page rather than by plotly, whose scroll zoom rescaled the drawing —
+  section and microsample dots together — and settled the ranges only once the wheel
+  stopped, so the picture shrank inside the frame mid-turn and snapped back after; each
+  turn is now bounded as it happens, about the point under the cursor. Dragging is off
+  while the whole section is in view, where it could only slide the picture out of the
+  frame. The *Metagenomics* heading carries a line on how to read the section and the
+  chart together.
 - A cryosection's page shows its composition and its microsamples one after the other,
   the composition first, instead of in *Microsamples* and *Metagenomics* tabs. The
   cryosection's image and the stacked bar chart stand side by side at the same height,
