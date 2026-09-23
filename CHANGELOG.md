@@ -83,7 +83,7 @@ moved it. If the project starts tagging releases, these headings become
   turn is now bounded as it happens, about the point under the cursor. Dragging is off
   while the whole section is in view, where it could only slide the picture out of the
   frame. The *Metagenomics* heading carries a line on how to read the section and the
-  chart together.
+  chart together ([`4ef8f79`][4ef8f79]).
 - A cryosection's page shows its composition and its microsamples one after the other,
   the composition first, instead of in *Microsamples* and *Metagenomics* tabs. The
   cryosection's image and the stacked bar chart stand side by side at the same height,
@@ -481,6 +481,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[4ef8f79]: https://github.com/3d-omics/database/commit/4ef8f79ba145fb3a927fe166a090461abc349a39
 [d7c08a9]: https://github.com/3d-omics/database/commit/d7c08a99a3973e7836cb57ca3fb04389f5f0ba96
 [5d7efad]: https://github.com/3d-omics/database/commit/5d7efad88ce47c8cd4feec025ce650f8ccc0cd44
 [575902d]: https://github.com/3d-omics/database/commit/575902d0b966dfebfad3333f46269b8c3171c6a1
