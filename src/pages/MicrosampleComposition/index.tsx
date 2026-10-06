@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from 'react'
+import { useState, useMemo, useCallback, type ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 import microsamplesWithCoordinationData from 'assets/data/airtable/microsampleswithcoordination.json'
 import microsampleData from 'assets/data/airtable/microsample.json'
@@ -24,7 +24,7 @@ interface MicrosampleRecord {
   }
 }
 
-const MicrosampleComposition = ({ cryosection = '' }) => {
+const MicrosampleComposition = ({ cryosection = '', slideSwitcher }: { cryosection?: string, slideSwitcher?: ReactNode }) => {
 
   const experimentId = cryosection.charAt(0)
   const navigate = useNavigate()
@@ -75,7 +75,7 @@ const MicrosampleComposition = ({ cryosection = '' }) => {
       <section aria-labelledby='composition-heading' className='page_padding'>
         {/* The heading carries the line on how to read the pair, so the tools in the
             image's left rail are met already explained */}
-        <div className='flex flex-wrap items-end justify-between gap-x-6 gap-y-3 pb-5'>
+        <div className={`flex flex-wrap justify-between gap-x-6 gap-y-3 pb-5 ${slideSwitcher ? 'items-start' : 'items-end'}`}>
           <div>
             <h2 id='composition-heading' className='main_header'>Metagenomics</h2>
             <p className='mt-1 text-sm text-ink_muted max-w-2xl'>
@@ -85,11 +85,14 @@ const MicrosampleComposition = ({ cryosection = '' }) => {
               every microsample on the section.
             </p>
           </div>
-          <TaxonomicLevelPicker
-            selectedTaxonomicLevel={selectedTaxonomicLevel}
-            onChange={handleLevelChange}
-            disabled={isChangingLevel}
-          />
+          <div className='flex min-w-0 flex-col items-end gap-3 max-lg:items-start'>
+            {slideSwitcher}
+            <TaxonomicLevelPicker
+              selectedTaxonomicLevel={selectedTaxonomicLevel}
+              onChange={handleLevelChange}
+              disabled={isChangingLevel}
+            />
+          </div>
         </div>
 
         {/* The square image sets the row's height and the chart takes it on, so the

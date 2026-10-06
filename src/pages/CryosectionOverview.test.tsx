@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen, within } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import CryosectionOverview from './CryosectionOverview'
 import useValidateParams from 'hooks/useValidateParams'
@@ -10,6 +10,17 @@ vi.mock('hooks/useValidateParams')
 // Mock data
 vi.mock('assets/data/airtable/cryosection.json', () => ({
   default: [
+    {
+      id: '3',
+      createdTime: '2024-01-01',
+      fields: {
+        ID: 'G_CS3',
+        Slide_flat: 'Slide 1',
+        Position: 'C1',
+        Macrosample: 'M001',
+        'Microsample number': 20,
+      },
+    },
     {
       id: '1',
       createdTime: '2024-01-01',
@@ -32,6 +43,17 @@ vi.mock('assets/data/airtable/cryosection.json', () => ({
         Macrosample: 'M001',
         SlideDate: '2024-01-15',
         'Microsample number': 40,
+      },
+    },
+    {
+      id: '4',
+      createdTime: '2024-01-01',
+      fields: {
+        ID: 'G_CS4',
+        Slide_flat: 'Slide 2',
+        Position: 'A1',
+        Macrosample: 'M001',
+        'Microsample number': 10,
       },
     },
   ],
@@ -82,7 +104,12 @@ vi.mock('components/TabComponents/MicrosampleTab', () => ({
 }))
 
 vi.mock('./MicrosampleComposition', () => ({
-  default: ({ cryosection }: any) => <div data-testid='composition-tab'>Composition: {cryosection}</div>,
+  default: ({ cryosection, slideSwitcher }: any) => (
+    <div data-testid='composition-tab'>
+      <div data-testid='composition-heading-row'>{slideSwitcher}<span>Taxonomic Level:</span></div>
+      Composition: {cryosection}
+    </div>
+  ),
 }))
 
 
@@ -159,6 +186,33 @@ describe('CryosectionOverview', () => {
     expect(screen.queryByText(/Slide date/)).not.toBeInTheDocument()
   })
 
+  it('switches between cryosections on the same slide in position order', () => {
+    renderPage()
+
+    const navigation = screen.getByRole('navigation', { name: 'Cryosections on slide Slide 1' })
+    expect(screen.getByTestId('composition-heading-row')).toContainElement(navigation)
+    const links = within(navigation).getAllByRole('link')
+    expect(links.map((link) => link.textContent)).toEqual(['G_CS1', 'G_CS2', 'G_CS3'])
+    expect(links[0]).toHaveAttribute('aria-current', 'page')
+    expect(links[1]).toHaveAttribute('href', '/cryosections/G_CS2')
+    expect(within(navigation).queryByRole('link', { name: 'G_CS4' })).not.toBeInTheDocument()
+
+    fireEvent.click(links[1])
+
+    const nextNavigation = screen.getByRole('navigation', { name: 'Cryosections on slide Slide 1' })
+    expect(within(nextNavigation).getByRole('link', { name: 'G_CS2' })).toHaveAttribute('aria-current', 'page')
+    expect(within(nextNavigation).getByRole('link', { name: 'G_CS1' })).not.toHaveAttribute('aria-current')
+    expect(screen.getByTestId('microsample-tab')).toHaveTextContent('G_CS2')
+    expect(screen.queryByTestId('composition-tab')).not.toBeInTheDocument()
+    expect(within(screen.getByRole('region', { name: 'Cryosection summary' })).getByText('40')).toBeInTheDocument()
+  })
+
+  it('hides the slide switcher when the cryosection has no sibling', () => {
+    renderPage('G_CS4')
+
+    expect(screen.queryByRole('navigation', { name: /Cryosections on slide/ })).not.toBeInTheDocument()
+  })
+
   it('introduces cryosections and microsamples in the header', () => {
     renderPage()
 
@@ -190,6 +244,7 @@ describe('CryosectionOverview', () => {
     renderPage('G_CS2')
 
     expect(screen.queryByTestId('composition-tab')).not.toBeInTheDocument()
+    expect(screen.getByRole('navigation', { name: 'Cryosections on slide Slide 1' })).toBeInTheDocument()
     expect(screen.getByTestId('microsample-tab')).toHaveTextContent('G_CS2')
   })
 

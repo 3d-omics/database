@@ -124,6 +124,24 @@ describe('MicrosampleComposition', () => {
     expect(screen.getByRole('region', { name: 'Metagenomics' })).toBeInTheDocument()
   })
 
+  it('places the slide switcher beside the heading and above the taxonomy selector', () => {
+    render(
+      <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <MicrosampleComposition
+          cryosection='G_CS1'
+          slideSwitcher={<nav aria-label='Slide switcher'>Other cryosections</nav>}
+        />
+      </MemoryRouter>
+    )
+
+    const switcher = screen.getByRole('navigation', { name: 'Slide switcher' })
+    const selector = screen.getByText('Taxonomic Level:')
+    const heading = screen.getByRole('heading', { name: 'Metagenomics' })
+    expect(switcher.parentElement).toContainElement(selector)
+    expect(switcher.parentElement?.parentElement).toContainElement(heading)
+    expect(switcher.compareDocumentPosition(selector) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+  })
+
   it('sets the legend in a row below the image and chart', () => {
     renderComposition('G_CS1')
 
