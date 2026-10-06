@@ -20,6 +20,10 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- Cryosection detail pages now link between sections on the same slide, with the
+  current section highlighted in a compact switcher beside Metagenomics and above
+  the taxonomy selector when a composition chart is available
+  ([`df6cc7c`][df6cc7c]).
 - Microsample details sit directly above taxonomic relative abundance, beside
   ENA metadata on wide screens ([`28ff614`][28ff614]).
 - Detail-page highlights show only the trial letter, with the full trial name on
@@ -631,3 +635,4 @@ pinned, rather than against today's Airtable.
 [531bad2]: https://github.com/3d-omics/database/commit/531bad2dc140784c9d663e10aef391023013c55a
 [79933ae]: https://github.com/3d-omics/database/commit/79933aee28a8f809ee8d1e48e2021d2b34b98b62
 [28ff614]: https://github.com/3d-omics/database/commit/28ff6146df766922f95699020a808a6ded15b69e
+[df6cc7c]: https://github.com/3d-omics/database/commit/df6cc7c063a3c404a5c0b4bdbdf81d3a719e64be
