@@ -23,7 +23,8 @@ moved it. If the project starts tagging releases, these headings become
 - Schema-3 SQL and JSON Schema candidate contracts. The normalized exporter
   and no-Airtable importer now select schema 2 or 3 from the catalogue's
   version stamp, and the download page exposes the candidate contracts while
-  production remains pinned to the published schema-2 release.
+  production remains pinned to the published schema-2 release
+  ([`44c4109`][44c4109]).
 - Separate SQL and JSON Schema files for the pinned catalogue's schema 2, a
   normalized gzip-compressed JSON export with fixed field names, and a
   no-Airtable importer that rebuilds a compatible SQLite catalogue from that
@@ -565,3 +566,4 @@ pinned, rather than against today's Airtable.
 [5d73cde]: https://github.com/3d-omics/database/commit/5d73cde21f3f8f53452ab9a83b1bd4f085ea0bac
 [18c4bc9]: https://github.com/3d-omics/database/commit/18c4bc9c9f0c51a1698ec788d52ebe2f73cb59e0
 [2f0f552]: https://github.com/3d-omics/database/commit/2f0f552756be86ac32c8c80d894f82d918a58d62
+[44c4109]: https://github.com/3d-omics/database/commit/44c4109a41931392f5d5a2532da99aacba9142e3
