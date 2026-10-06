@@ -25,9 +25,11 @@ moved it. If the project starts tagging releases, these headings become
   no-Airtable importer that rebuilds a compatible SQLite catalogue from that
   export. `generate-data` verifies both structural contracts and declared
   relationships before publishing the export. The new schema guide documents
-  field meanings, supported links and unresolved source identifiers.
+  field meanings, supported links and unresolved source identifiers
+  ([`2f0f552`][2f0f552]).
 - A Data model link on the home page and a download page offering both schema
-  files, the normalized catalogue and the older hierarchy separately.
+  files, the normalized catalogue and the older hierarchy separately
+  ([`2f0f552`][2f0f552]).
 - Trial C's MAG catalogue (*Proof-of-principle swine trial*) on the MAG Catalogues
   pages: 439 genomes, their counts across 15 sequencing libraries, the catalogue's
   Zenodo DOI and description, and its summary figures (1,981 MAGs, 88.2% average
@@ -81,7 +83,8 @@ moved it. If the project starts tagging releases, these headings become
 
 - The old "Download Database Schema" page now identifies the populated
   name-keyed hierarchy as a data export. The README installs the public,
-  checksummed builder wheel and documents the source-independent import route.
+  checksummed builder wheel and documents the source-independent import route
+  ([`2f0f552`][2f0f552]).
 - A cryosection's image carries its tools in a rail down the left of the frame, standing
   in the open, instead of in plotly's mode bar, which appeared at the top right on hover:
   moving the image and selecting microsamples, zooming in and out, fitting the whole
@@ -557,3 +560,4 @@ pinned, rather than against today's Airtable.
 [caa4d58]: https://github.com/3d-omics/database/commit/caa4d587c7233abcf0da66552b8b3694d6fc4ad3
 [5d73cde]: https://github.com/3d-omics/database/commit/5d73cde21f3f8f53452ab9a83b1bd4f085ea0bac
 [18c4bc9]: https://github.com/3d-omics/database/commit/18c4bc9c9f0c51a1698ec788d52ebe2f73cb59e0
+[2f0f552]: https://github.com/3d-omics/database/commit/2f0f552756be86ac32c8c80d894f82d918a58d62
