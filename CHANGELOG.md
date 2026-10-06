@@ -88,7 +88,7 @@ moved it. If the project starts tagging releases, these headings become
 
 - Cryosection highlights now identify the parent trial and specimen with links to
   their pages, replacing slide and position; the macrosample value also links to
-  its page.
+  its page ([`8994d79`][8994d79]).
 - The old "Download Database Schema" page now identifies the populated
   name-keyed hierarchy as a data export. The README installs the public,
   checksummed builder wheel and documents the source-independent import route
@@ -570,3 +570,4 @@ pinned, rather than against today's Airtable.
 [18c4bc9]: https://github.com/3d-omics/database/commit/18c4bc9c9f0c51a1698ec788d52ebe2f73cb59e0
 [2f0f552]: https://github.com/3d-omics/database/commit/2f0f552756be86ac32c8c80d894f82d918a58d62
 [44c4109]: https://github.com/3d-omics/database/commit/44c4109a41931392f5d5a2532da99aacba9142e3
+[8994d79]: https://github.com/3d-omics/database/commit/8994d79eb198f239e7717319b9bc223e07bdfc38
