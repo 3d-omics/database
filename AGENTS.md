@@ -25,14 +25,14 @@ rebuilding an old commit reproduces that commit's site rather than today's recor
 - Repo: `3d-omics/database` · Deployed under `…/database/`
 - Stack: Vite 6 · React 18 · TypeScript 5 · Tailwind 3 + daisyUI · React Router 6
 - Tables: TanStack Table v8 · Charts: Chart.js, Plotly, D3 · Excel: SheetJS (`xlsx`)
-- Tests: Vitest + React Testing Library — **63 test files, 475 tests, all passing**
+- Tests: Vitest + React Testing Library — **72 test files, 567 tests, all passing**
 
 ---
 
 ## 2. The golden rule: render the data before anything else
 
 Everything the app imports from `src/assets/data/` and `public/experiment-hierarchy.json`
-is **git-ignored and absent from a fresh clone**, yet 27 source files import it
+is **git-ignored and absent from a fresh clone**, yet many source files import it
 statically. Without it, `npm run dev`, `npm run build`, `npm run test` and `tsc` all fail
 with `Cannot find module 'assets/data/airtable/…'`.
 
@@ -45,10 +45,11 @@ pip install --no-deps --no-index ./3domics_db_build-0.1.0-py3-none-any.whl
 npm run generate-data        # downloads the pinned catalogue, verifies it, renders it
 ```
 
-`generate-data` is now two steps: `fetch-catalog` downloads the Zenodo deposit named in
-`catalog.json` into `.catalog/` and checks its SHA-256, then `3domics-db-build render`
-writes the JSON tree. No token, and no partial-success path — a checksum mismatch or a
-missing release exits non-zero.
+`generate-data` has three steps: `fetch-catalog` downloads the Zenodo deposit named in
+`catalog.json` into `.catalog/` and checks its SHA-256; `3domics-db-build render`
+writes the JSON tree; `export-catalogue` validates the versioned SQL and JSON Schema
+contracts and writes the normalized download and build metadata. No token, and no
+partial-success path — a checksum mismatch or a missing release exits non-zero.
 
 Set `CATALOG_FILE=/path/to/local.sqlite` to render a catalogue you built yourself. The
 pin is not enforced in that mode and the script says so; do not commit anything produced
@@ -92,15 +93,20 @@ src/
                            useMetaboliteExcelFileData
   config/                  Taxonomy colours, metabolite labels
   scripts/fetch-catalog.ts Downloads the pinned catalogue and verifies its checksum
+  scripts/*-catalogue.py Exports/imports normalized, versioned catalogue JSON
   utils/chartUtils.ts      Chart.js helpers
-  assets/data/             Rendered CSV/JSON (git-ignored) + metabolomics XLSX (committed)
+  assets/data/             Rendered CSV/JSON and catalogue-build.json (git-ignored)
+                           + metabolomics XLSX (committed)
   assets/images/           Logos, animal silhouettes, 90 cryosection photos (9 MB)
 public/
   experiment-hierarchy.json  Rendered from the catalogue; git-ignored
+  catalogue-v*.sql          Tracked versioned SQLite contracts
+  catalogue-v*.schema.json  Tracked normalized JSON Schema contracts
+  catalogue-v*.json.gz      Rendered normalized exports; git-ignored
   404.html                   SPA deep-link redirect shim for GitHub Pages
 catalog.json                 THE PIN: data_version, schema_version, sha256, source (Zenodo), DOIs, builder
 .catalog/                    Downloaded catalogue (git-ignored)
-.github/workflows/deploy.yml Fetch + render + build + deploy on push to main
+.github/workflows/deploy.yml Fetch + render + export + build + deploy on push to main
 ```
 
 **Conventions in use — follow them:**
@@ -211,25 +217,24 @@ names. Check the import path before editing.
 
 `src/components/LoadingRemainingData.tsx` is imported nowhere.
 
-### 6.7 Four known type errors, all latent app bugs the real data exposed
+### 6.7 Three known type errors, all latent app bugs the real data exposed
 
 They were invisible while the dumps were empty. None breaks the build — Vite transpiles
 without typechecking — but each is a genuine defect:
 
 | Location | Error |
 |---|---|
-| [MacrosampleOverview.tsx:88](src/pages/MacrosampleOverview.tsx#L88) | reads `fields.Weight`, which does not exist on the macrosample table — renders blank. Same class as `Group` in `Macrosamples/index.tsx`. |
-| [MacrosampleOverview.tsx:92](src/pages/MacrosampleOverview.tsx#L92) | `fields['ENA link']` is `string \| undefined`, passed to `<Link to>` unguarded. |
-| [MAGCatalogue/index.tsx:301](src/pages/MAGCatalogue/index.tsx#L301) | reads `'MAG catalogue description'`. **This one is a mapping gap, not an app bug** — the field exists in Airtable (`tblIv5AygbJtitB14`) but the catalogue does not carry it, so the description renders blank. Fix in `database-build`. |
-| [MicrosampleComposition/index.tsx:38](src/pages/MicrosampleComposition/index.tsx#L38) | `MicrosampleRecord` declares `size: number`; the data has `number[]`. |
+| [MacrosampleOverview.tsx:85](src/pages/MacrosampleOverview.tsx#L85) | reads `fields.Weight`, which does not exist on the macrosample table — renders blank. Same class as `Group` in `Macrosamples/index.tsx`. |
+| [MacrosampleOverview.tsx:89](src/pages/MacrosampleOverview.tsx#L89) | `fields['ENA link']` is `string \| undefined`, passed to `<Link to>` unguarded. |
+| [MicrosampleComposition/index.tsx:50](src/pages/MicrosampleComposition/index.tsx#L50) | `MicrosampleRecord` declares `size: number`; the data has `number[]`. |
 
 ---
 
 ## 7. Before you commit
 
 ```bash
-npx tsc --noEmit          # 4 known errors (§6.7); no new ones
-npx vitest run            # 63 files / 475 tests must pass
+npx tsc --noEmit          # 3 known errors (§6.7); no new ones
+npx vitest run            # 72 files / 567 tests must pass
 npm run build             # must succeed
 git status                # both dist/ and the rendered data are git-ignored
 ```
