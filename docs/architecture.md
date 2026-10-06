@@ -19,7 +19,8 @@ Two things are *not* inlined and are fetched over HTTP by the running page:
 - the six metabolomics `.xlsx` workbooks, via `fetch()` in
   [useMetaboliteExcelFileData](../src/hooks/useMetaboliteExcelFileData.ts), parsed
   client-side with SheetJS;
-- `public/experiment-hierarchy.json` and `public/catalogue-v2.json.gz`, offered
+- `public/experiment-hierarchy.json` and the versioned
+  `public/catalogue-v<schema_version>.json.gz`, offered
   as data downloads by the [Data model](../src/pages/DownloadDatabaseSchema.tsx)
   page. The compressed export is generated from the pinned catalogue.
 

@@ -1,4 +1,4 @@
-"""Build a schema-2 SQLite catalogue from normalized JSON, without Airtable.
+"""Build a supported SQLite catalogue from normalized JSON, without Airtable.
 
 This accepts the export published by the portal or any independently curated
 document that satisfies the same JSON Schema. The website renderer can then
@@ -19,8 +19,8 @@ from catalogue_relations import verify_relationships
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SCHEMA = ROOT / "public" / "catalogue-v2.schema.json"
-SQL = ROOT / "public" / "catalogue-v2.sql"
+SUPPORTED_VERSIONS = {"2", "3"}
+PARENT_FIRST = ("experiments", "specimens", "macrosamples", "cryosections")
 
 
 def reject_nonstandard_number(value: str) -> None:
@@ -51,7 +51,6 @@ def check_record(record: object, fields: dict, table: str, index: int) -> tuple:
 def import_catalogue(source: Path, output: Path) -> None:
     if output.exists():
         raise FileExistsError(f"Output exists: {output}")
-    schema = json.loads(SCHEMA.read_text())
     opener = gzip.open if source.suffix == ".gz" else open
     with opener(source, "rt", encoding="utf-8") as handle:
         document = json.load(handle, parse_constant=reject_nonstandard_number)
@@ -59,12 +58,22 @@ def import_catalogue(source: Path, output: Path) -> None:
         raise ValueError("Expected data_version, schema_version and tables only")
     if not isinstance(document["data_version"], str) or not document["data_version"]:
         raise ValueError("data_version must be a nonempty string")
-    if document["schema_version"] != schema["properties"]["schema_version"]["const"]:
-        raise ValueError("Unsupported schema_version")
+    version = document["schema_version"]
+    if not isinstance(version, str) or version not in SUPPORTED_VERSIONS:
+        raise ValueError(f"Unsupported schema_version: {version}")
+    schema = json.loads((ROOT / "public" / f"catalogue-v{version}.schema.json").read_text())
+    sql = ROOT / "public" / f"catalogue-v{version}.sql"
+    if version != schema["properties"]["schema_version"]["const"]:
+        raise ValueError("JSON Schema version does not match the document")
     table_schemas = schema["properties"]["tables"]["properties"]
     tables = document["tables"]
     if not isinstance(tables, dict) or tables.keys() != table_schemas.keys():
         raise ValueError("Table names differ from the published schema")
+    insert_order = list(PARENT_FIRST) + [
+        table for table in table_schemas if table not in PARENT_FIRST
+    ]
+    if set(insert_order) != table_schemas.keys():
+        raise ValueError("The published schema does not contain the expected parent tables")
 
     output.parent.mkdir(parents=True, exist_ok=True)
     temporary = output.with_name(output.name + ".partial")
@@ -73,8 +82,10 @@ def import_catalogue(source: Path, output: Path) -> None:
     try:
         connection = sqlite3.connect(temporary)
         try:
-            connection.executescript(SQL.read_text())
-            for table, table_schema in table_schemas.items():
+            connection.execute("PRAGMA foreign_keys = ON")
+            connection.executescript(sql.read_text())
+            for table in insert_order:
+                table_schema = table_schemas[table]
                 rows = tables[table]
                 if not isinstance(rows, list):
                     raise ValueError(f"{table}: expected an array")
@@ -91,6 +102,9 @@ def import_catalogue(source: Path, output: Path) -> None:
             if meta.get("schema_version") != document["schema_version"] or meta.get("data_version") != document["data_version"]:
                 raise ValueError("catalog_meta version fields disagree with the export")
             verify_relationships(connection, schema)
+            broken_keys = connection.execute("PRAGMA foreign_key_check").fetchone()
+            if broken_keys:
+                raise ValueError(f"SQLite foreign key check failed: {broken_keys}")
             integrity = connection.execute("PRAGMA integrity_check").fetchone()[0]
             if integrity != "ok":
                 raise ValueError(f"SQLite integrity check failed: {integrity}")

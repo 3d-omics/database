@@ -42,8 +42,9 @@ src/assets/data/macro_genome_counts/
 src/assets/data/macro_genome_counts_json/
 src/assets/data/microsample_counts/
 src/assets/data/microsample_counts_json/
+src/assets/data/catalogue-build.json
 public/experiment-hierarchy.json
-public/catalogue-v2.json.gz
+public/catalogue-v*.json.gz
 
 # Keep the airtable directory structure
 !src/assets/data/airtable/.gitkeep

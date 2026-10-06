@@ -17,13 +17,11 @@ Airtable ──(database-build, elsewhere)──▶ 3domics-<DV>.sqlite ──(r
 |---|---|---|
 | 1 | `npm run fetch-catalog` | Downloads `catalog.json`'s `source` into `.catalog/3domics.sqlite`, verifies its SHA-256 against `sha256`, exits non-zero on mismatch. Re-uses the cached file when it already matches. |
 | 2 | `3domics-db-build render .catalog/3domics.sqlite --into .` | Writes the nine record dumps, the CSVs and their `_json` conversions, and `public/experiment-hierarchy.json`. |
-| 3 | `python3 src/scripts/export-catalogue.py` | Verifies the committed schema against the catalogue and writes `public/catalogue-v2.json.gz`. |
+| 3 | `python3 src/scripts/export-catalogue.py` | Verifies the versioned contracts against the catalogue and writes `public/catalogue-v<schema_version>.json.gz`. |
 
 ## Prerequisites
 
-```bash
 Follow the checksummed wheel installation in the [README](../README.md#first-time-setup).
-```
 
 **No Airtable token.** This repo has none and needs none.
 
@@ -145,11 +143,19 @@ The committed [`catalogue-v2.sql`](../public/catalogue-v2.sql) describes the SQL
 tables, views and indexes separately from their contents. The committed
 [`catalogue-v2.schema.json`](../public/catalogue-v2.schema.json) describes the
 normalized JSON export. The exporter checks the pinned SQLite structure against
-both contracts before writing `public/catalogue-v2.json.gz`. Its fixed table
+both contracts before writing `public/catalogue-v<schema_version>.json.gz`.
+Version 3 has [its own SQL](../public/catalogue-v3.sql) and
+[JSON Schema](../public/catalogue-v3.schema.json); the current production pin
+still selects version 2. The export's fixed table
 names contain arrays of records; record IDs are values in named fields. The
 compressed export is git-ignored and downloaded only on request. See
 [the schema guide](catalogue-schema.md) for the relationship inventory and the
 no-Airtable import route.
+The exporter also writes ignored `src/assets/data/catalogue-build.json`, so the
+download page names the schema actually rendered. In local-catalogue mode it
+labels the page as a preview and omits the pinned release DOI. An export removes
+the old generated JSON download of the other supported schema version, so a
+later site build cannot accidentally include stale local data.
 
 Rebuilds `public/experiment-hierarchy.json`, the nested JSON that the
 [Data model and downloads](../src/pages/DownloadDatabaseSchema.tsx) page hands to users

@@ -27,6 +27,7 @@ Plotly · D3**
 | [docs/architecture.md](docs/architecture.md) | Routes, page-to-data map, components, hooks |
 | [docs/data-pipeline.md](docs/data-pipeline.md) | The catalogue pin, rendering, the hierarchy file, ID conventions |
 | [docs/catalogue-schema.md](docs/catalogue-schema.md) | Formal SQL and JSON schemas, normalized export, relationships and limits |
+| [docs/schema3-validation.md](docs/schema3-validation.md) | Schema-3 migration candidate, integrity checks and release prerequisites |
 | [docs/deployment.md](docs/deployment.md) | GitHub Pages, base path, deep-link redirects |
 | [docs/known-issues.md](docs/known-issues.md) | Current assessment and prioritised backlog |
 | [CHANGELOG.md](CHANGELOG.md) | What changed and when, every entry linked to its commit |
@@ -79,9 +80,11 @@ npm run import-catalogue -- my-catalogue.json --output my-catalogue.sqlite
 CATALOG_FILE=./my-catalogue.sqlite npm run generate-data
 ```
 
-The importer validates every table, field and scalar type against the JSON
-Schema and checks SQLite integrity. See [the schema guide](docs/catalogue-schema.md)
-for relationship limits in schema 2.
+The importer accepts schema 2 and 3, validates every table, field and scalar
+type against the corresponding JSON Schema, and checks declared relationships
+and SQLite integrity. The [schema guide](docs/catalogue-schema.md) explains
+the supported links and current source-data gaps. Schema 3 is a validated
+candidate; the website still pins the published schema-2 catalogue.
 
 ---
 

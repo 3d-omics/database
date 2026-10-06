@@ -18,9 +18,8 @@ from catalogue_relations import verify_relationships
 
 ROOT = Path(__file__).resolve().parents[2]
 CATALOGUE = ROOT / ".catalog" / "3domics.sqlite"
-SCHEMA = ROOT / "public" / "catalogue-v2.schema.json"
-SQL = ROOT / "public" / "catalogue-v2.sql"
-OUTPUT = ROOT / "public" / "catalogue-v2.json.gz"
+BUILD_INFO = ROOT / "src" / "assets" / "data" / "catalogue-build.json"
+SUPPORTED_VERSIONS = {"2", "3"}
 
 
 def catalogue_structure(connection: sqlite3.Connection) -> dict[str, str]:
@@ -34,10 +33,10 @@ def catalogue_structure(connection: sqlite3.Connection) -> dict[str, str]:
     }
 
 
-def verify_structure(connection: sqlite3.Connection, schema: dict) -> None:
+def verify_structure(connection: sqlite3.Connection, schema: dict, sql: Path) -> None:
     expected = sqlite3.connect(":memory:")
     try:
-        expected.executescript(SQL.read_text())
+        expected.executescript(sql.read_text())
         actual_structure = catalogue_structure(connection)
         expected_structure = catalogue_structure(expected)
         if actual_structure != expected_structure:
@@ -48,7 +47,7 @@ def verify_structure(connection: sqlite3.Connection, schema: dict) -> None:
                 if actual_structure[name] != expected_structure[name]
             )
             raise ValueError(
-                f"SQLite schema differs from {SQL.name}: "
+                f"SQLite schema differs from {sql.name}: "
                 f"missing={missing}, extra={extra}, changed={changed}"
             )
     finally:
@@ -74,23 +73,28 @@ def verify_structure(connection: sqlite3.Connection, schema: dict) -> None:
 
 def main() -> None:
     pin = json.loads((ROOT / "catalog.json").read_text())
-    schema = json.loads(SCHEMA.read_text())
-    if pin["schema_version"] != "2" or schema["properties"]["schema_version"]["const"] != "2":
-        raise ValueError("The pinned release and export schema must both be version 2")
-    if not os.getenv("CATALOG_FILE"):
-        with CATALOGUE.open("rb") as source:
+    local = os.getenv("CATALOG_FILE")
+    catalogue = Path(local) if local else CATALOGUE
+    if not local:
+        with catalogue.open("rb") as source:
             digest = hashlib.file_digest(source, "sha256").hexdigest()
         if digest != pin["sha256"]:
             raise ValueError("Catalogue checksum does not match catalog.json")
 
-    with sqlite3.connect(f"file:{CATALOGUE}?mode=ro", uri=True) as connection:
-        verify_structure(connection, schema)
-        verify_relationships(connection, schema)
+    with sqlite3.connect(f"file:{catalogue}?mode=ro", uri=True) as connection:
         meta = dict(connection.execute("SELECT key, value FROM catalog_meta"))
-        if meta["schema_version"] != "2":
-            raise ValueError("Catalogue metadata is not schema version 2")
-        if not os.getenv("CATALOG_FILE") and meta["data_version"] != pin["data_version"]:
-            raise ValueError("Catalogue data version does not match catalog.json")
+        version = meta.get("schema_version")
+        if version not in SUPPORTED_VERSIONS:
+            raise ValueError(f"Unsupported catalogue schema version: {version}")
+        if not local and (version != pin["schema_version"] or meta.get("data_version") != pin["data_version"]):
+            raise ValueError("Catalogue versions do not match catalog.json")
+        schema_file = ROOT / "public" / f"catalogue-v{version}.schema.json"
+        sql_file = ROOT / "public" / f"catalogue-v{version}.sql"
+        schema = json.loads(schema_file.read_text())
+        if schema["properties"]["schema_version"]["const"] != version:
+            raise ValueError("JSON Schema version does not match the catalogue")
+        verify_structure(connection, schema, sql_file)
+        verify_relationships(connection, schema)
         table_names = list(schema["properties"]["tables"]["properties"])
         tables = {}
         for table in table_names:
@@ -98,15 +102,29 @@ def main() -> None:
             columns = [column[0] for column in cursor.description]
             tables[table] = [dict(zip(columns, row)) for row in cursor]
 
-    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    with OUTPUT.open("wb") as destination:
+    output = ROOT / "public" / f"catalogue-v{version}.json.gz"
+    temporary = output.with_name(output.name + ".partial")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with temporary.open("wb") as destination:
         with gzip.GzipFile(filename="", mode="wb", fileobj=destination, mtime=0) as compressed:
             compressed.write(json.dumps({
                 "data_version": meta["data_version"],
                 "schema_version": meta["schema_version"],
                 "tables": tables,
             }, ensure_ascii=False, allow_nan=False, separators=(",", ":")).encode("utf-8"))
-    print(f"Validated schema 2 and wrote {OUTPUT.relative_to(ROOT)}")
+    os.replace(temporary, output)
+    build_info = {
+        "data_version": meta["data_version"],
+        "schema_version": version,
+        "pinned": not bool(local),
+        "version_doi": pin["version_doi"] if not local else None,
+    }
+    build_info_temp = BUILD_INFO.with_name(BUILD_INFO.name + ".partial")
+    build_info_temp.write_text(json.dumps(build_info, indent=2) + "\n", encoding="utf-8")
+    os.replace(build_info_temp, BUILD_INFO)
+    for other_version in SUPPORTED_VERSIONS - {version}:
+        (ROOT / "public" / f"catalogue-v{other_version}.json.gz").unlink(missing_ok=True)
+    print(f"Validated schema {version} and wrote {output.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":

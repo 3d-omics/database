@@ -20,6 +20,10 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Added
 
+- Schema-3 SQL and JSON Schema candidate contracts. The normalized exporter
+  and no-Airtable importer now select schema 2 or 3 from the catalogue's
+  version stamp, and the download page exposes the candidate contracts while
+  production remains pinned to the published schema-2 release.
 - Separate SQL and JSON Schema files for the pinned catalogue's schema 2, a
   normalized gzip-compressed JSON export with fixed field names, and a
   no-Airtable importer that rebuilds a compatible SQLite catalogue from that

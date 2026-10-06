@@ -7,6 +7,11 @@ export is described by [`catalogue-v2.schema.json`](../public/catalogue-v2.schem
 using [JSON Schema 2020-12](https://json-schema.org/draft/2020-12). Both contracts are
 committed and checked against the pinned catalogue when the website data is rendered.
 The current pinned data version is in [`catalog.json`](../catalog.json).
+The candidate **schema version 3** is specified by
+[`catalogue-v3.sql`](../public/catalogue-v3.sql) and
+[`catalogue-v3.schema.json`](../public/catalogue-v3.schema.json). It has been
+validated against a migration of the pinned release but is not yet the
+website's published data version.
 
 The `/database-schema` web page offers both schema files, the normalized JSON
 export and the older hierarchy. **The hierarchy is populated data, not a
@@ -69,6 +74,7 @@ These describe the intended biological hierarchy. They are **not all enforced
 as SQLite foreign keys in schema 2**. In the 2026.09.22 release, eight
 `macrosamples.specimen_id` values have no `specimens` row. The source records
 must be curated before making that relationship mandatory. Furthermore,
+840 `microsamples.cryosection_id` values have no matching released cryosection.
 `microsamples.cryosection_id` and `microsample_sequencing.microsample_id` are
 not direct foreign keys to the same-named ID columns of the apparent parent
 tables. Do not join them by column name alone. The current website hierarchy
@@ -102,8 +108,10 @@ npm run import-catalogue -- my-catalogue.json --output my-catalogue.sqlite
 CATALOG_FILE=./my-catalogue.sqlite npm run generate-data
 ```
 
-The importer validates table names, fields, scalar types, versions and SQLite
-integrity. It cannot establish that a biological identifier is correct or that
+The importer accepts schema 2 or 3 according to `schema_version` in the JSON,
+validates table names, fields, scalar types, declared relationships and SQLite
+integrity, and enables SQLite foreign-key enforcement for schema 3. It cannot
+establish that a biological identifier is correct or that
 an external accession resolves. Attachment provenance in `source_files` should
 be kept accurate for a newly curated catalogue.
 
@@ -111,9 +119,14 @@ Schema changes require a new schema version, an updated renderer and contracts,
 validation against a complete release, and a new pinned catalogue. A change to
 records alone changes the data version, not the schema version.
 
-The builder's next schema version (3) adds primary keys for the five core
+Schema 3 adds primary keys for the five core
 entity tables, foreign keys for the specimen-to-experiment and
 cryosection-to-macrosample links, and real-valued sequencing pixel coordinates.
-It has not replaced the schema-2 release pinned by this website. The builder
-can prepare and validate a schema-3 candidate from the released catalogue
-without Airtable; publishing and pinning it requires a separate release.
+The builder migrated the 2026.09.22 release without Airtable. All rows in its
+13 tables, the 107 source-file manifest entries, and both supported foreign
+keys passed validation. Its normalized JSON export also passes JSON Schema
+2020-12 validation and round-trips through the importer without changing any
+table row. Schema 3 has not replaced the schema-2 release pinned by this
+website; publishing and pinning it requires a separate release.
+The [schema-3 validation record](schema3-validation.md) lists the checks and
+candidate checksum.

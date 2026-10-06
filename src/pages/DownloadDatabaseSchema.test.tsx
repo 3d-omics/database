@@ -22,5 +22,7 @@ describe('Data model downloads', () => {
     expect(screen.getByRole('link', { name: 'Download json schema' })).toHaveAttribute('href', '/database/catalogue-v2.schema.json')
     expect(screen.getByRole('link', { name: 'Download normalized catalogue' })).toHaveAttribute('href', '/database/catalogue-v2.json.gz')
     expect(screen.getByRole('link', { name: 'Download hierarchy export' })).toHaveAttribute('href', '/database/experiment-hierarchy.json')
+    expect(screen.getByRole('link', { name: 'schema-3 SQL' })).toHaveAttribute('href', '/database/catalogue-v3.sql')
+    expect(screen.getByRole('link', { name: 'schema-3 JSON Schema' })).toHaveAttribute('href', '/database/catalogue-v3.schema.json')
   })
 })
