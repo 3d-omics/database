@@ -86,6 +86,10 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- Animal specimen pages now show experiment, treatment, slaughter age in days and
+  weight in the four-item highlight strip. BioSample accessions sit beside the
+  page title as linked external identifiers when a source link is available
+  ([`531bad2`][531bad2]).
 - Cryosection highlights now identify the parent trial and specimen with links to
   their pages, replacing slide and position; the macrosample value also links to
   its page ([`8994d79`][8994d79]).
@@ -571,3 +575,4 @@ pinned, rather than against today's Airtable.
 [2f0f552]: https://github.com/3d-omics/database/commit/2f0f552756be86ac32c8c80d894f82d918a58d62
 [44c4109]: https://github.com/3d-omics/database/commit/44c4109a41931392f5d5a2532da99aacba9142e3
 [8994d79]: https://github.com/3d-omics/database/commit/8994d79eb198f239e7717319b9bc223e07bdfc38
+[531bad2]: https://github.com/3d-omics/database/commit/531bad2dc140784c9d663e10aef391023013c55a
