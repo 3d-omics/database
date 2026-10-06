@@ -6,13 +6,14 @@ import { ColumnDef } from '@tanstack/react-table'
 
 // Mock child components
 vi.mock('components/Table', () => ({
-  default: ({ pageTitle, displayTableTitle, displayTableDescription }: any) => (
+  default: ({ pageTitle, displayTableTitle, displayTableDescription, recordFilterControls }: any) => (
     <div
       data-testid='table'
       data-display-title={String(displayTableTitle)}
       data-display-description={String(displayTableDescription)}
     >
       {pageTitle}
+      {recordFilterControls}
     </div>
   ),
 }))
@@ -79,6 +80,20 @@ describe('TableView', () => {
     )
 
     expect(screen.queryByTestId('table')).not.toBeInTheDocument()
+  })
+
+  it('keeps record filters available when their selection has no matches', () => {
+    render(
+      <TableView
+        columns={mockColumns}
+        data={[]}
+        pageTitle='Macrosamples'
+        recordFilterControls={<button type='button'>All</button>}
+      />
+    )
+
+    expect(screen.getByTestId('table')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'All' })).toBeInTheDocument()
   })
 
   it('does not show error banner when no error', () => {

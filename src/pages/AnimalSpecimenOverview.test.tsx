@@ -16,7 +16,7 @@ vi.mock('assets/data/airtable/animalspecimen.json', () => ({
       createdTime: '2024-01-01',
       fields: {
         ID: 'AS001',
-        Experiment_flat: 'Experiment G',
+        Experiment_flat: 'G',
         Treatment_flat: 'Treatment 1',
         TreatmentName: 'Control',
         Pen: 'P1',
@@ -32,14 +32,29 @@ vi.mock('assets/data/airtable/animalspecimen.json', () => ({
       createdTime: '2024-01-01',
       fields: {
         ID: 'AS002',
-        Experiment_flat: 'Experiment G',
+        Experiment_flat: 'G',
         Treatment_flat: 'Treatment 2',
         SlaughteringDayCount: 0,
         Weight: 0,
         'Biosample accession': 'SAMN67890',
       },
     },
+    { id: '3', fields: { ID: 'AS003', Experiment_flat: 'G', Treatment_flat: 'Treatment 3' } },
   ],
+}))
+
+vi.mock('assets/data/airtable/intestinalsectionsample.json', () => ({
+  default: [{ fields: { ID: 'AS001aF' } }],
+}))
+vi.mock('assets/data/airtable/cryosection.json', () => ({
+  default: [{ fields: { ID: 'AS001aFA' } }],
+}))
+vi.mock('assets/data/airtable/microsample.json', () => ({
+  default: [{ fields: { Code: 'AS001aFA101' } }, { fields: { Code: 'AS002aFA101' } }],
+}))
+
+vi.mock('assets/data/airtable/animaltrialexperiment.json', () => ({
+  default: [{ fields: { ID: 'G', Name: 'G - Salmonella experiment (chicken)' } }],
 }))
 
 // Mock components
@@ -132,14 +147,19 @@ describe('AnimalSpecimenOverview', () => {
     const summary = screen.getByRole('region', { name: 'Animal specimen summary' })
     expect(screen.getByRole('banner')).not.toContainElement(summary)
 
-    expect(within(summary).getByText('Experiment')).toBeInTheDocument()
-    expect(within(summary).getByText('Experiment G')).toBeInTheDocument()
+    expect(within(summary).getByText('Trial')).toBeInTheDocument()
+    const trialLink = within(summary).getByRole('link', { name: 'G' })
+    expect(trialLink).toHaveAttribute('href', '/animal-trials/G%20-%20Salmonella%20experiment%20(chicken)')
+    expect(trialLink).toHaveAttribute('title', 'G - Salmonella experiment (chicken)')
+    expect(trialLink).toHaveClass('no-underline')
     expect(within(summary).getByText('Treatment')).toBeInTheDocument()
-    expect(within(summary).getByText('Treatment 1')).toBeInTheDocument()
+    const treatmentLink = within(summary).getByRole('link', { name: 'Treatment 1' })
+    expect(treatmentLink).toHaveAttribute('href', '/animal-specimens?trial=G&treatment=Treatment+1')
+    expect(treatmentLink).toHaveClass('no-underline')
     expect(within(summary).getByText('Age')).toBeInTheDocument()
     expect(within(summary).getByText('35 days')).toBeInTheDocument()
     expect(within(summary).getByText('Weight')).toBeInTheDocument()
-    expect(within(summary).getByText('2.5')).toBeInTheDocument()
+    expect(within(summary).getByText('2.5 kg')).toBeInTheDocument()
     expect(screen.queryByText('Control')).not.toBeInTheDocument()
     expect(screen.queryByText('P1')).not.toBeInTheDocument()
   })
@@ -164,7 +184,7 @@ describe('AnimalSpecimenOverview', () => {
 
     const summary = screen.getByRole('region', { name: 'Animal specimen summary' })
     expect(within(summary).getByText('0 days')).toBeInTheDocument()
-    expect(within(summary).getByText('0')).toBeInTheDocument()
+    expect(within(summary).getByText('0 kg')).toBeInTheDocument()
   })
 
   it('renders tabs', () => {
@@ -203,6 +223,22 @@ describe('AnimalSpecimenOverview', () => {
 
     expect(screen.getByTestId('microsample-tab')).toBeInTheDocument()
     expect(screen.queryByTestId('macrosample-tab')).not.toBeInTheDocument()
+  })
+
+  it('selects the first populated tab when the default has no data', () => {
+    renderPage('AS002')
+
+    expect(screen.getByTestId('microsample-tab')).toHaveTextContent('AS002')
+    expect(screen.queryByRole('button', { name: 'Macrosamples' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Cryosections' })).not.toBeInTheDocument()
+  })
+
+  it('omits tabs when a specimen has no linked data', () => {
+    renderPage('AS003')
+
+    expect(screen.queryByTestId('tabs')).not.toBeInTheDocument()
+    expect(screen.queryByTestId('macrosample-tab')).not.toBeInTheDocument()
+    expect(screen.getByRole('main')).toBeEmptyDOMElement()
   })
 
   it('shows not found when validation fails', () => {

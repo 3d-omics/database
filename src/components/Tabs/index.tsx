@@ -1,29 +1,55 @@
+import type { KeyboardEvent } from 'react'
+
 const Tabs = ({ selectedTab, setSelectedTab, tabs }: {
   selectedTab: string
   setSelectedTab: (tab: string) => void
   tabs: string[]
 }) => {
+  if (tabs.length === 0) return null
+
+  const handleKeyDown = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
+    let nextIndex: number
+
+    if (event.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length
+    else if (event.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length
+    else if (event.key === 'Home') nextIndex = 0
+    else if (event.key === 'End') nextIndex = tabs.length - 1
+    else return
+
+    event.preventDefault()
+    setSelectedTab(tabs[nextIndex])
+    event.currentTarget.parentElement
+      ?.querySelectorAll<HTMLButtonElement>('[role="tab"]')[nextIndex]
+      ?.focus()
+  }
+
   return (
-    <div className='border-b-2 border-line mt-16 relative' data-testid='tabs'>
-      <ul
+    <div className='max-w-full overflow-x-auto pb-1' data-testid='tabs'>
+      <div
         role='tablist'
-        className='tabs tabs-lifted flex-nowrap gap-2 max-w-full overflow-x-auto overflow-y-hidden whitespace-nowrap absolute -bottom-0.5'
+        aria-label='Related data'
+        className='inline-flex min-w-max gap-1 rounded-xl border border-line bg-surface_muted p-1 shadow-sm'
       >
-        {tabs.map((tab) => (
-          <li
+        {tabs.map((tab, index) => (
+          <button
             role='tab'
+            type='button'
             key={tab}
+            aria-selected={selectedTab === tab}
+            aria-controls='related-data-panel'
+            tabIndex={selectedTab === tab ? 0 : -1}
             onClick={() => setSelectedTab(tab)}
-            className={`tab h-10 shrink-0 hover:border-line_strong
+            onKeyDown={(event) => handleKeyDown(event, index)}
+            className={`shrink-0 rounded-lg px-4 py-2.5 font-jakarta text-sm font-semibold whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-burgundy_ink focus-visible:ring-offset-2 focus-visible:ring-offset-surface
               ${selectedTab === tab
-                ? 'tab-active !text-burgundy_ink font-bold '
-                : 'hover:border-burgundy hover:border-b-2 hover:opacity-100 opacity-80'}
+                ? 'bg-burgundy text-neutral-50 shadow-sm'
+                : 'text-ink_muted hover:bg-surface hover:text-burgundy_ink'}
             `}
           >
             {tab}
-          </li>
+          </button>
         ))}
-      </ul>
+      </div>
     </div>
   )
 }

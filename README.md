@@ -4,11 +4,12 @@ The public data catalogue of the [3D'omics](https://3domics.eu) EU project: anim
 trials, specimens, intestinal macrosamples, cryosections, laser-microdissected
 microsamples, MAG catalogues, microbial community composition and metabolomics.
 
-A static React single-page app — no backend, no runtime API. All content is compiled
-into the site at build time from a **pinned, checksummed catalogue release** —
+A static React single-page app — no backend or external runtime API. Catalogue records
+and genome data come from a **pinned, checksummed catalogue release** —
 `3domics-<YYYY.MM.DD>.sqlite`, built by
-[3d-omics/database-build](https://github.com/3d-omics/database-build) — plus committed
-Excel workbooks, and published to GitHub Pages under `/database/`.
+[3d-omics/database-build](https://github.com/3d-omics/database-build) — alongside
+committed Excel workbooks and a committed snapshot of public ENA run metadata. The site
+is published to GitHub Pages under `/database/`.
 
 The site holds no Airtable credentials. [catalog.json](catalog.json) names exactly which
 catalogue release a commit was built against, which is what makes a deploy reproducible
@@ -58,8 +59,8 @@ npm run dev               # http://localhost:5173/database/
 ```
 
 > **The generated data is not in the repository.** `src/assets/data/airtable/*.json`, the
-> CSV folders, their `_json` conversions and `public/experiment-hierarchy.json` are all
-> git-ignored, and 27 source files import them directly. Until you run
+> CSV folders and their `_json` conversions are all git-ignored, and 27 source
+> files import them directly. Until you run
 > `npm run generate-data`, `dev`, `build`, `test` and `tsc` all fail with
 > `Cannot find module 'assets/data/airtable/…'`.
 
@@ -69,8 +70,7 @@ released SQLite structure against a committed SQL schema and generates a
 normalized, compressed JSON export described by a separate JSON Schema.
 
 The [data model and downloads](https://3d-omics.github.io/database/database-schema)
-page provides those two schema files and the normalized export. The older
-`experiment-hierarchy.json` is a populated, name-keyed data export, not a schema.
+page provides those two schema files and the normalized export.
 
 To use independently curated records without Airtable, populate a copy of the
 normalized JSON export and import it into a compatible SQLite catalogue:
@@ -90,7 +90,7 @@ candidate; the website still pins the published schema-2 catalogue.
 
 ## Updating site data
 
-Site data changes by **bumping the pin**, not by re-fetching. The catalogue is built by
+Catalogue data changes by **bumping the pin**, not by re-fetching live Airtable. The catalogue is built by
 [database-build](https://github.com/3d-omics/database-build) and published to Zenodo as a
 citable, open-access record; the website chooses which version to build against.
 
@@ -125,6 +125,7 @@ different bytes, even when every row is identical.
 
 ```bash
 npm run generate-data
+npm run refresh-ena-metadata  # update the committed ENA snapshot for this catalogue
 npm run dev
 ```
 
@@ -134,8 +135,9 @@ floors at build time, in the other repo.
 
 ### 3. Open a PR
 
-The pin bump is the whole diff — one file, five lines, reviewable. Merging to `main`
-deploys it.
+Review the catalogue pin and the refreshed ENA metadata snapshot together. `npm run build`
+checks that every linked run in the catalogue has a snapshot record. Merging
+to `main` deploys them.
 
 **To change what the data *contains***, or to add a column the site needs but the
 catalogue does not carry, the change belongs in `database-build`: edit the column lists
@@ -148,7 +150,7 @@ bump the pin here.
 
 ```bash
 npm run test        # Vitest watch mode
-npx vitest run      # single pass — 63 files, 475 tests
+npx vitest run      # single pass — 76 files, 600 tests
 npx tsc --noEmit    # typecheck; not run by the build or by CI
 npm run build       # production build into dist/
 npm run preview     # serve the production build locally
@@ -167,7 +169,6 @@ git-ignored, and any manual change will be overwritten:
 - `src/assets/data/genome_metadata/` and `genome_metadata_json/`
 - `src/assets/data/macro_genome_counts/` and `macro_genome_counts_json/`
 - `src/assets/data/microsample_counts/` and `microsample_counts_json/`
-- `public/experiment-hierarchy.json`
 - `.catalog/` — the downloaded catalogue itself
 
 The CSVs used to be committed and drifted stale against Airtable; they now come from the
@@ -180,6 +181,7 @@ hand — the catalogue passes them through rather than parsing them.
 | Task | Command |
 |---|---|
 | Render the pinned data | `npm run generate-data` |
+| Refresh ENA run metadata | `npm run refresh-ena-metadata` |
 | Download the catalogue only | `npm run fetch-catalog` |
 | Run locally | `npm run dev` |
 | Tests | `npx vitest run` |

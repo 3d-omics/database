@@ -94,10 +94,12 @@ const ToolButton = ({ icon, label, onClick, active, disabled = false }: {
   </button>
 )
 
-const ImagePlot = ({ cryosection, setSelectedMicrosampleIds, microsampleIds, xcoord, ycoord, size, shape }: {
+const ImagePlot = ({ cryosection, setSelectedMicrosampleIds, microsampleIds, microsampleCodes, onOpenMicrosample, xcoord, ycoord, size, shape }: {
   cryosection: string
   setSelectedMicrosampleIds: Dispatch<SetStateAction<string[]>>
   microsampleIds: string[]
+  microsampleCodes?: string[]
+  onOpenMicrosample?: (code: string) => void
   xcoord: number[]
   ycoord: number[]
   size: number[]
@@ -137,7 +139,7 @@ const ImagePlot = ({ cryosection, setSelectedMicrosampleIds, microsampleIds, xco
       x: xcoord,
       y: ycoord,
       microsampleId: microsampleIds,
-      text: microsampleIds,
+      text: microsampleIds.map((id, i) => microsampleCodes?.[i] || id),
       customdata: xcoord.map((_, index) => [shape[index], size[index]]),
       marker: {
         size: 5,
@@ -151,7 +153,7 @@ const ImagePlot = ({ cryosection, setSelectedMicrosampleIds, microsampleIds, xco
         }
       }
     }]
-  }, [xcoord, ycoord, microsampleIds, shape, size, activeIndices]);
+  }, [xcoord, ycoord, microsampleIds, microsampleCodes, shape, size, activeIndices]);
 
   const imageUrl = new URL(`../../../assets/images/cryosection_images/${cryosection}.jpg`, import.meta.url).href;
 
@@ -220,6 +222,11 @@ const ImagePlot = ({ cryosection, setSelectedMicrosampleIds, microsampleIds, xco
   const handleClick = (event: PlotMouseEvent) => {
     if (event?.points?.length > 0) {
       const indices = event.points.map(p => p.pointIndex);
+      const code = microsampleCodes?.[indices[0]]
+      if (indices.length === 1 && code && onOpenMicrosample) {
+        onOpenMicrosample(code)
+        return
+      }
       setActiveIndices(indices);
       setSelectedMicrosampleIds(indices.map(i => microsampleIds[i]));
     } else {

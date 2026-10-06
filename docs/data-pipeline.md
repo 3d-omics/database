@@ -9,6 +9,7 @@ in [catalog.json](../catalog.json) and renders it at build time.
 Airtable ──(database-build, elsewhere)──▶ 3domics-<DV>.sqlite ──(render)──▶ JSON tree ──▶ bundle
                                               pinned by catalog.json │
                                                                      └──▶ normalized JSON export
+ENA public run reports ──(snapshot refresh)──▶ public/ena-run-metadata.json ──▶ sample detail pages
 ```
 
 `npm run generate-data` is three steps:
@@ -16,8 +17,24 @@ Airtable ──(database-build, elsewhere)──▶ 3domics-<DV>.sqlite ──(r
 | Step | Command | What it does |
 |---|---|---|
 | 1 | `npm run fetch-catalog` | Downloads `catalog.json`'s `source` into `.catalog/3domics.sqlite`, verifies its SHA-256 against `sha256`, exits non-zero on mismatch. Re-uses the cached file when it already matches. |
-| 2 | `3domics-db-build render .catalog/3domics.sqlite --into .` | Writes the nine record dumps, the CSVs and their `_json` conversions, and `public/experiment-hierarchy.json`. |
-| 3 | `python3 src/scripts/export-catalogue.py` | Verifies the versioned contracts against the catalogue and writes `public/catalogue-v<schema_version>.json.gz`. |
+| 2 | `3domics-db-build render .catalog/3domics.sqlite --into .` | Writes the nine record dumps, the CSVs and their `_json` conversions. The currently pinned public wheel also writes a retired hierarchy file. |
+| 3 | `python3 src/scripts/export-catalogue.py` | Verifies the versioned contracts against the catalogue, writes `public/catalogue-v<schema_version>.json.gz`, and removes the retired hierarchy file before the site build. |
+
+### ENA run metadata
+
+Macro- and microsample pages with an ENA run accession show the public run's study and sample
+accessions, biological sample metadata, sequencing method, instrument, read totals and
+FASTQ links. These fields come from the [ENA Portal API file report](https://ena-docs.readthedocs.io/en/latest/retrieval/programmatic-access/file-reports.html),
+not from the catalogue. The committed [ENA snapshot](../public/ena-run-metadata.json)
+records the retrieval date and the catalogue SHA-256. The browser loads this local file;
+it does not contact ENA at runtime.
+
+After changing the catalogue pin and running `npm run generate-data`, refresh the
+snapshot with `npm run refresh-ena-metadata`. It fetches each trial's ENA study report,
+checks the catalogue's run accessions, and fetches any remaining runs directly. It
+writes nothing if a run cannot be resolved. `npm run build` verifies that the snapshot
+matches the pinned catalogue and covers every linked run, without contacting ENA.
+Samples without an ENA accession retain their catalogue sample details.
 
 ## Prerequisites
 
@@ -137,7 +154,7 @@ To add data for a new cryosection or experiment, attach the CSV to the Airtable 
 and cut a new data release. Dropping a file into these folders does nothing — the next
 render overwrites it.
 
-## Stage 3 — normalized catalogue and the experiment hierarchy
+## Stage 3 — normalized catalogue
 
 The committed [`catalogue-v2.sql`](../public/catalogue-v2.sql) describes the SQL
 tables, views and indexes separately from their contents. The committed
@@ -157,39 +174,23 @@ labels the page as a preview and omits the pinned release DOI. An export removes
 the old generated JSON download of the other supported schema version, so a
 later site build cannot accidentally include stale local data.
 
-Rebuilds `public/experiment-hierarchy.json`, the nested JSON that the
-[Data model and downloads](../src/pages/DownloadDatabaseSchema.tsx) page hands to users
-for `jq` querying. Shape:
+The currently pinned public builder wheel predates removal of the old nested
+export. The exporter deletes that file after rendering, so it is absent from
+the production site. The next builder release removes its creation entirely.
 
-```
-Projects → Experiments → Individuals → Macrosamples → Microsamples
-                                     ↘ Cryosections ↗
-```
+### ID conventions used by the website
 
-Current content: 1 project, 8 experiments (C, F, G, H, I, J, K, M), 526 individuals,
-1 466 macrosamples, **85** cryosections, 5 334 microsamples.
-
-This file used to be tracked in git, which made it the one place a bad pipeline run left
-a committable artefact — and the committed copy had indeed gone stale, holding 107
-cryosections against its own inputs' 116. It is now rendered like everything else and
-git-ignored.
-
-The builder's hierarchy step is a port of this repo's `buildExperimentHierarchy`, and
-`database-build`'s `tests/test_hierarchy_parity.py` runs the original TypeScript over the
-same records and diffs the bytes, so the port is checked rather than trusted.
-
-### ID conventions the hierarchy relies on
-
-The linkage between levels is **positional string slicing**, not foreign keys:
+Some website views link records through positional string slicing rather than
+foreign keys:
 
 - a **cryosection** ID's first 6 characters identify its macrosample
   (`G103bI301A` → `G103bI`);
 - a **microsample** `Code`'s first 6 characters identify its macrosample the same way;
-- microsamples are attached to cryosections by matching those 6-character prefixes;
+- some views group microsamples with cryosections by matching those 6-character prefixes;
 - the **first character** of any ID is the experiment letter — used throughout the UI,
   e.g. `experimentId = cryosection.charAt(0)`.
 
-Any ID scheme change breaks the hierarchy silently. Preserve the 6-character prefix rule.
+Any ID scheme change can break those views silently. Preserve the 6-character prefix rule until the views use explicit relationships.
 
 ## Metabolomics workbooks
 
@@ -235,6 +236,6 @@ catalogue does not carry renders as blank rather than as an error. One is known 
 ```bash
 npm run generate-data                                # must exit 0; watch for the checksum line
 cat src/assets/data/airtable/_metadata.json          # every recordCount non-zero
-npx vitest run                                       # 63 files / 475 tests
+npx vitest run                                       # 76 files / 600 tests
 npx tsc --noEmit                                     # 4 known errors, no new ones
 ```

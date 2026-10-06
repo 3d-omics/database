@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import Macrosamples from './index'
 import useMetaboliteExcelFileData from 'hooks/useMetaboliteExcelFileData'
@@ -61,6 +61,19 @@ vi.mock('assets/data/airtable/intestinalsectionsample.json', () => ({
         'Metabolights link': 'https://example.com/metabolights',
       },
     },
+    {
+      id: '3',
+      createdTime: '2024-01-03',
+      fields: {
+        ID: 'M003',
+        Individual: 'AS003',
+        Code: 'CODE789',
+        'Sample type': 'Caecum right',
+        Description: 'Entire section with content',
+        Container: 'Cassette',
+        Preservative: 'Glycerol',
+      },
+    },
   ],
 }))
 
@@ -78,12 +91,14 @@ vi.mock('assets/data/airtable/animalspecimen.json', () => ({
 
 // Mock components
 vi.mock('components/TableView', () => ({
-  default: ({ data, columns, pageTitle, tableDescription }: any) => (
+  default: ({ data, columns, pageTitle, tableDescription, recordFilterControls }: any) => (
     <div data-testid='table-view'>
       <div data-testid='page-title'>{pageTitle}</div>
       <div data-testid='table-description'>{tableDescription}</div>
       <div data-testid='data-count'>{data.length}</div>
+      <div data-testid='data-ids'>{data.map((record: any) => record.fields.ID).join(',')}</div>
       <div data-testid='column-count'>{columns.length}</div>
+      {recordFilterControls}
     </div>
   ),
 }))
@@ -152,7 +167,35 @@ describe('Macrosamples', () => {
 
   it('displays all data by default', () => {
     renderComponent()
+    expect(screen.getByTestId('data-count')).toHaveTextContent('3')
+  })
+
+  it('filters by analysis scale and restores all records', () => {
+    renderComponent()
+
+    const all = screen.getByRole('button', { name: 'All' })
+    const macro = screen.getByRole('button', { name: 'Macro-scale analyses' })
+    const micro = screen.getByRole('button', { name: 'Micro-scale analyses' })
+    expect(all).toHaveAttribute('aria-pressed', 'true')
+
+    fireEvent.click(micro)
+    expect(micro).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByTestId('data-ids')).toHaveTextContent('M003')
+    expect(screen.getByTestId('data-count')).toHaveTextContent('1')
+
+    fireEvent.click(macro)
+    expect(macro).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByTestId('data-ids')).toHaveTextContent('M001,M002')
     expect(screen.getByTestId('data-count')).toHaveTextContent('2')
+
+    fireEvent.click(all)
+    expect(all).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByTestId('data-count')).toHaveTextContent('3')
+  })
+
+  it('keeps the analysis shortcuts off embedded macrosample tables', () => {
+    renderComponent({ displayPageHeader: false })
+    expect(screen.queryByRole('group', { name: 'Filter macrosamples by analysis scale' })).not.toBeInTheDocument()
   })
 
   it('creates default columns when no metabolite data', () => {
@@ -197,7 +240,7 @@ describe('Macrosamples', () => {
       filterWith: [{ id: 'ID', value: 'M00', condition: 'startsWith' }],
     })
 
-    expect(screen.getByTestId('data-count')).toHaveTextContent('2')
+    expect(screen.getByTestId('data-count')).toHaveTextContent('3')
   })
 
   it('filters data with equals condition', () => {
@@ -225,7 +268,7 @@ describe('Macrosamples', () => {
 
   it('handles empty filter array', () => {
     renderComponent({ filterWith: [] })
-    expect(screen.getByTestId('data-count')).toHaveTextContent('2')
+    expect(screen.getByTestId('data-count')).toHaveTextContent('3')
   })
 
   it('uses custom columns when provided', () => {

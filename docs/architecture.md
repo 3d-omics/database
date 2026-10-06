@@ -2,27 +2,30 @@
 
 ## Rendering model
 
-A client-rendered React SPA. There is no server, no API and no database at runtime.
+A client-rendered React SPA. There is no backend, external runtime API or database.
 
 ```
 Public, pinned SQLite catalogue ─► npm run generate-data ─► JSON in src/assets/data/** ─┐
                                                         ├─► downloadable JSON exports    ├─► npm run build ─► dist/ ─► GitHub Pages
 Committed XLSX workbooks ─────────────────────────────────────────────────────────────────┘
+Committed ENA run snapshot ──────────────────────────────────────────► static public file ─► sample detail pages
+```
 
 The SQLite catalogue is built from Airtable upstream, but this website reads the
 published release and needs no Airtable credentials. Its SQL schema and the
 normalized export's JSON Schema are committed separately from record content.
-```
 
-Two things are *not* inlined and are fetched over HTTP by the running page:
+Three things are *not* inlined and are fetched over HTTP by the running page:
 
 - the six metabolomics `.xlsx` workbooks, via `fetch()` in
   [useMetaboliteExcelFileData](../src/hooks/useMetaboliteExcelFileData.ts), parsed
   client-side with SheetJS;
-- `public/experiment-hierarchy.json` and the versioned
-  `public/catalogue-v<schema_version>.json.gz`, offered
-  as data downloads by the [Data model](../src/pages/DownloadDatabaseSchema.tsx)
-  page. The compressed export is generated from the pinned catalogue.
+- the versioned `public/catalogue-v<schema_version>.json.gz`, offered
+  as a data download by the [Data model](../src/pages/DownloadDatabaseSchema.tsx)
+  page. The compressed export is generated from the pinned catalogue;
+- the committed [ENA run snapshot](../public/ena-run-metadata.json), loaded from
+  the same site by macrosample detail pages. The build checks its catalogue pin
+  and run coverage. No visitor request goes to ENA.
 
 Everything else — Airtable records, genome metadata, count matrices — is a static
 `import` and therefore lands in the JS bundle. See
@@ -49,9 +52,10 @@ Everything else — Airtable records, genome metadata, count matrices — is a s
 | `/animal-specimens` | `pages/AnimalSpecimens` | `animalspecimen.json`, `animaltrialexperiment.json` |
 | `/animal-specimens/:specimenName` | `pages/AnimalSpecimenOverview` | `animalspecimen.json` |
 | `/macrosamples` | `pages/Macrosamples` | `intestinalsectionsample.json`, `animalspecimen.json`, metabolomics XLSX |
-| `/macrosamples/:macrosampleName` | `pages/MacrosampleOverview` | `intestinalsectionsample.json` |
+| `/macrosamples/:macrosampleName` | `pages/MacrosampleOverview` | `intestinalsectionsample.json`, `macrosample.json`, ENA snapshot and genome counts when linked |
 | `/cryosections` | `pages/Cryosections` | `cryosection.json`, `cryosectionimage.json` |
 | `/cryosections/:cryosectionName` | `pages/CryosectionOverview` | `cryosection.json`, `cryosectionimage.json` |
+| `/microsamples/:microsampleCode` | `pages/MicrosampleOverview` | `microsample.json`, `microsampleswithcoordination.json`, ENA snapshot and genome counts |
 | `/microsamples` | `pages/Microsamples` | `microsample.json`, `cryosection.json` |
 | `/mag-catalogues` | `pages/MAGCatalogueList` | `animaltrialexperiment.json`, `experimentswithgenomeinfo.json` |
 | `/mag-catalogues/:experimentName` | `pages/MAGCatalogue` | same + `genome_metadata_json/` |
@@ -62,7 +66,7 @@ Everything else — Airtable records, genome metadata, count matrices — is a s
 | `/metabolomics/volcano/:experimentName` | `pages/MetabolomicsVolcano` | metabolomics XLSX |
 | `/metabolomics/heatmap/:experimentName` | `pages/MetabolomicsHeatmap` | metabolomics XLSX |
 | `/microsample-compositions/:cryosection` | `pages/MicrosampleComposition` | **dead route** — see [known-issues.md](known-issues.md) |
-| `/database-schema` | `pages/DownloadDatabaseSchema` | SQL and JSON schemas, normalized catalogue, hierarchy export |
+| `/database-schema` | `pages/DownloadDatabaseSchema` | SQL and JSON schemas, normalized catalogue |
 | `/methods/:methodName` | `pages/Methods` | `pages/Methods/methodsContent.ts` (static text; unknown names render `NotFound`) |
 | `*` | `pages/NotFound` | — |
 

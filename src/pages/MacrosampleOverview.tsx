@@ -2,9 +2,16 @@ import { useState, useMemo } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import PageHeader from 'components/PageHeader'
 import SummaryStrip from 'components/SummaryStrip'
+import EnaRunMetadata from 'components/EnaRunMetadata'
+import SampleTaxonomyOverview from 'components/SampleTaxonomyOverview'
 import { TrailMark } from 'components/BreadCrumbs'
 import macrosampleData from 'assets/data/airtable/intestinalsectionsample.json'
 import specimenData from 'assets/data/airtable/animalspecimen.json'
+import trialData from 'assets/data/airtable/animaltrialexperiment.json'
+import cryosectionData from 'assets/data/airtable/cryosection.json'
+import microsampleData from 'assets/data/airtable/microsample.json'
+import macroSequencingData from 'assets/data/airtable/macrosample.json'
+import { hasRelatedRecords } from 'utils/hasRelatedRecords'
 import CryosectionTab from 'components/TabComponents/CryosectionTab'
 import MicrosampleTab from 'components/TabComponents/MicrosampleTab'
 import Tabs from 'components/Tabs'
@@ -32,11 +39,26 @@ const MacrosampleOverview = () => {
   }, [macrosampleName])
 
   const macrosample = data[0]
+  const tabs = useMemo(() => {
+    const id = macrosample?.fields.ID
+    if (!id) return []
+
+    return [
+      hasRelatedRecords(cryosectionData, 'ID', id) && 'Cryosections',
+      hasRelatedRecords(microsampleData, 'Code', id) && 'Microsamples',
+    ].filter((tab): tab is string => Boolean(tab))
+  }, [macrosample?.fields.ID])
+  const activeTab = tabs.includes(selectedTab) ? selectedTab : tabs[0]
   const specimen = specimenData.find((record) => record.fields.ID === macrosample?.fields.Individual)
   // The first character of a macrosample ID identifies its experiment, including
   // the few records whose parent specimen is absent from the catalogue.
   const experiment = specimen?.fields.Experiment_flat ?? macrosample?.fields.ID.charAt(0)
-  const enaAccession = macrosample?.fields['ENA accession']?.join(', ')
+  const trial = trialData.find((record) => record.fields.ID === experiment)
+  const enaAccessions = macrosample?.fields['ENA accession'] ?? []
+  const enaAccession = enaAccessions.join(', ')
+  const countSampleId = macroSequencingData.find((record) =>
+    record.fields.run_accession && enaAccessions.includes(record.fields.run_accession)
+  )?.fields.ID
 
   return (
     <ParamsValidator validating={validating} notFound={notFound}>
@@ -67,24 +89,54 @@ const MacrosampleOverview = () => {
             <SummaryStrip
               label='Macrosample summary'
               stats={[
-                { label: 'Experiment', value: experiment },
+                { label: 'Trial', value: experiment, to: trial && `/animal-trials/${encodeURIComponent(trial.fields.Name)}`, title: trial?.fields.Name },
                 { label: 'Sample type', value: macrosample.fields['Sample type'] },
                 { label: 'Destination', value: macrosample.fields['Data type'] },
                 { label: 'Preservation', value: macrosample.fields.Preservative },
               ]}
             />
 
-            <section className='page_padding'>
-              <Tabs
-                selectedTab={selectedTab}
-                setSelectedTab={setSelectedTab}
-                tabs={['Cryosections', 'Microsamples']}
-              />
-            </section>
+            <main>
+              <div className='page_padding grid gap-x-10 gap-y-9 pt-9 pb-3 xl:grid-cols-2 xl:[&>section:only-child]:col-span-2'>
+                {enaAccessions.length > 0
+                  ? <EnaRunMetadata accessions={enaAccessions} />
+                  : <section>
+                    <h2 id='sample-details-heading' className='main_header text-2xl text-ink'>Sample details</h2>
+                    <dl className='mt-5 grid max-w-5xl gap-4 sm:grid-cols-3'>
+                      <div className='rounded-xl border border-line bg-surface_subtle px-5 py-4'>
+                        <dt className='text-sm text-ink_muted'>Animal specimen</dt>
+                        <dd className='mt-1 font-jakarta text-lg font-semibold text-burgundy_ink'>
+                          {specimen
+                            ? <Link to={`/animal-specimens/${encodeURIComponent(specimen.fields.ID)}`} className='link'>{specimen.fields.ID}</Link>
+                            : macrosample.fields.Individual ?? '—'}
+                        </dd>
+                      </div>
+                      <div className='rounded-xl border border-line bg-surface_subtle px-5 py-4'>
+                        <dt className='text-sm text-ink_muted'>Material</dt>
+                        <dd className='mt-1 font-jakarta text-lg font-semibold text-ink'>{macrosample.fields.Description ?? '—'}</dd>
+                      </div>
+                      <div className='rounded-xl border border-line bg-surface_subtle px-5 py-4'>
+                        <dt className='text-sm text-ink_muted'>Container</dt>
+                        <dd className='mt-1 font-jakarta text-lg font-semibold text-ink'>{macrosample.fields.Container ?? '—'}</dd>
+                      </div>
+                    </dl>
+                  </section>}
+                {countSampleId && <SampleTaxonomyOverview kind='macro' experimentId={experiment ?? ''} sampleId={countSampleId} />}
+              </div>
 
-            <main className='-mt-7'>
-              {selectedTab === 'Cryosections' && <CryosectionTab id={macrosample.fields.ID} />}
-              {selectedTab === 'Microsamples' && <MicrosampleTab id={macrosample.fields.ID} />}
+              {tabs.length > 0 && <>
+                <section className='page_padding pt-8 pb-2'>
+                  <Tabs
+                    selectedTab={activeTab}
+                    setSelectedTab={setSelectedTab}
+                    tabs={tabs}
+                  />
+                </section>
+                <section id='related-data-panel' role='tabpanel' aria-label={activeTab} tabIndex={0} className='pt-4'>
+                  {activeTab === 'Cryosections' && <CryosectionTab id={macrosample.fields.ID} />}
+                  {activeTab === 'Microsamples' && <MicrosampleTab id={macrosample.fields.ID} />}
+                </section>
+              </>}
             </main>
           </>
         )}

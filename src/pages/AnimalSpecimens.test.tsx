@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { BrowserRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 import AnimalSpecimens from './AnimalSpecimens'
 
 // Mock data
@@ -12,7 +12,7 @@ vi.mock('assets/data/airtable/animalspecimen.json', () => ({
       fields: {
         ID: 'AS001',
         Experiment: 'EXP001',
-        Experiment_flat: 'Experiment G',
+        Experiment_flat: 'G',
         Treatment: 'T1',
         Treatment_flat: 'Treatment 1',
         TreatmentName: ['Control'],
@@ -30,7 +30,7 @@ vi.mock('assets/data/airtable/animalspecimen.json', () => ({
       fields: {
         ID: 'AS002',
         Experiment: 'EXP001',
-        Experiment_flat: 'Experiment G',
+        Experiment_flat: 'G',
         Treatment: 'T2',
         Treatment_flat: 'Treatment 2',
         TreatmentName: ['Test'],
@@ -48,8 +48,8 @@ vi.mock('assets/data/airtable/animaltrialexperiment.json', () => ({
     {
       id: '1',
       fields: {
-        ID: 'EXP001',
-        Name: 'Experiment G',
+        ID: 'G',
+        Name: 'G - Salmonella experiment (chicken)',
         Type: 'Poultry',
       },
     },
@@ -58,12 +58,14 @@ vi.mock('assets/data/airtable/animaltrialexperiment.json', () => ({
 
 // Mock TableView
 vi.mock('components/TableView', () => ({
-  default: ({ data, columns, pageTitle, tableDescription }: any) => (
+  default: ({ data, columns, pageTitle, tableDescription, initialColumnFilters }: any) => (
     <div data-testid='table-view'>
       <div data-testid='page-title'>{pageTitle}</div>
       <div data-testid='table-description'>{tableDescription}</div>
       <div data-testid='data-count'>{data.length}</div>
       <div data-testid='column-count'>{columns.length}</div>
+      <div data-testid='trial-column'>{columns.find((column: any) => column.id === 'Experiment_flat')?.header}</div>
+      <div data-testid='initial-filters'>{JSON.stringify(initialColumnFilters)}</div>
     </div>
   ),
 }))
@@ -78,16 +80,17 @@ describe('AnimalSpecimens', () => {
     vi.clearAllMocks()
   })
 
-  const renderComponent = (props = {}) => {
+  const renderComponent = (props = {}, url = '/animal-specimens') => {
     return render(
-      <BrowserRouter
+      <MemoryRouter
+        initialEntries={[url]}
         future={{
           v7_startTransition: true,
           v7_relativeSplatPath: true,
         }}
       >
         <AnimalSpecimens {...props} />
-      </BrowserRouter>
+      </MemoryRouter>
     )
   }
 
@@ -114,6 +117,23 @@ describe('AnimalSpecimens', () => {
   it('creates correct number of columns', () => {
     renderComponent()
     expect(screen.getByTestId('column-count')).toHaveTextContent('9')
+    expect(screen.getByTestId('trial-column')).toHaveTextContent('Trial')
+  })
+
+  it('initializes both list filters from a treatment link', () => {
+    renderComponent({}, '/animal-specimens?trial=G&treatment=Treatment+1')
+
+    expect(JSON.parse(screen.getByTestId('initial-filters').textContent || ''))
+      .toEqual([
+        { id: 'Experiment_flat', value: 'G' },
+        { id: 'Treatment_flat', value: 'Treatment 1' },
+      ])
+  })
+
+  it('ignores list query filters when embedded in a trial page', () => {
+    renderComponent({ displayPageHeader: false }, '/animal-specimens?trial=G&treatment=Treatment+1')
+
+    expect(screen.getByTestId('initial-filters')).toHaveTextContent('[]')
   })
 
   it('filters data with startsWith condition', () => {
@@ -135,7 +155,7 @@ describe('AnimalSpecimens', () => {
   it('handles multiple filters', () => {
     renderComponent({
       filterWith: [
-        { id: 'Experiment_flat', value: 'Experiment G', condition: 'equals' },
+        { id: 'Experiment_flat', value: 'G', condition: 'equals' },
         { id: 'Pen', value: 'P1', condition: 'equals' },
       ],
     })

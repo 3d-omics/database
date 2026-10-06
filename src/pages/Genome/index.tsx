@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import Tabs from 'components/Tabs'
 import type { GenomeData } from 'pages/MAGCatalogue/components/Table'
 import PageHeader from 'components/PageHeader'
+import ErrorBanner from 'components/ErrorBanner'
 import NotFound from 'pages/NotFound'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
@@ -13,8 +14,16 @@ import { processCounts } from './utils/genomeUtils'
 import type { SampleData } from './utils/genomeUtils'
 import macrosampleData from 'assets/data/airtable/macrosample.json'
 import microsamplesWithCoordinationDataImport from 'assets/data/airtable/microsampleswithcoordination.json'
+import biologicalMacrosamples from 'assets/data/airtable/intestinalsectionsample.json'
+import biologicalMicrosamples from 'assets/data/airtable/microsample.json'
 
 const microsamplesWithCoordinationData = microsamplesWithCoordinationDataImport as any[]
+const macroIdByRun = new Map(biologicalMacrosamples.flatMap(record =>
+  (record.fields['ENA accession'] ?? []).map(accession => [accession, record.fields.ID] as const)
+))
+const microCodeByRun = new Map(biologicalMicrosamples.flatMap(record =>
+  (record.fields['ENA accession'] ?? []).map(accession => [accession, record.fields.Code] as const)
+))
 
 const Genome = () => {
   const [selectedTab, setSelectedTab] = useState('Macrosamples')
@@ -89,7 +98,8 @@ const Genome = () => {
         ...item,
         experimentalUnitIndexedLibrary: airtabledata?.fields.ExperimentalUnitIndexedLibrary[0] || '',
         run_accession: airtabledata?.fields.run_accession || '',
-        enaLink: airtabledata?.fields['ENA link'] || ''
+        enaLink: airtabledata?.fields['ENA link'] || '',
+        macrosampleId: macroIdByRun.get(airtabledata?.fields.run_accession || '') || '',
       }
     })
   }, [macrosampleIds])
@@ -117,6 +127,7 @@ const Genome = () => {
         ...item,
         run_accession: airtabledata?.fields.run_accession || '',
         enaLink: airtabledata?.fields['ENA link'] || '',
+        microsampleCode: microCodeByRun.get(airtabledata?.fields.run_accession || '') || '',
       }
     })
   }, [microsampleIds])
@@ -124,6 +135,11 @@ const Genome = () => {
   // Check for errors (data not loaded)
   const macroError = !macroCounts ? 'Failed to load macrosample data' : null
   const microError = allMicrosampleCounts.length === 0 ? 'Failed to load microsample data' : null
+  const tabs = [
+    macrosampleIdsWithENALink.length > 0 && 'Macrosamples',
+    microsampleIdsWithENALink.length > 0 && 'Microsamples',
+  ].filter((tab): tab is string => Boolean(tab))
+  const activeTab = tabs.includes(selectedTab) ? selectedTab : tabs[0]
   // ============================================================
 
   if (!genomeMetadata) {
@@ -181,29 +197,34 @@ const Genome = () => {
           </div>
         </PageHeader>
 
-        <div className='page_padding'>
-          <Tabs
-            selectedTab={selectedTab}
+        <div className='page_padding pt-8'>
+          {macroError && <ErrorBanner>{macroError}</ErrorBanner>}
+          {microError && <ErrorBanner>{microError}</ErrorBanner>}
+          {tabs.length > 0 && <Tabs
+            selectedTab={activeTab}
             setSelectedTab={setSelectedTab}
-            tabs={['Macrosamples', 'Microsamples']}
-          />
-          <div className='h-6'></div>
-          {selectedTab === 'Macrosamples' && (
-            <MacrosampleTab
-              data={macrosampleIdsWithENALink}
-              genomeName={genomeName}
-              isLoading={false}
-              error={macroError}
-            />
-          )}
-          {selectedTab === 'Microsamples' && (
-            <MicrosampleTab
-              data={microsampleIdsWithENALink}
-              genomeName={genomeName}
-              isLoading={false}
-              error={microError}
-            />
-          )}
+            tabs={tabs}
+          />}
+          {tabs.length === 0 && !macroError && !microError &&
+            <p className='text-ink_muted'>No sample abundance data are available for this genome.</p>}
+          {activeTab && <div id='related-data-panel' role='tabpanel' aria-label={activeTab} tabIndex={0} className='pt-6'>
+            {activeTab === 'Macrosamples' && (
+              <MacrosampleTab
+                data={macrosampleIdsWithENALink}
+                genomeName={genomeName}
+                isLoading={false}
+                error={null}
+              />
+            )}
+            {activeTab === 'Microsamples' && (
+              <MicrosampleTab
+                data={microsampleIdsWithENALink}
+                genomeName={genomeName}
+                isLoading={false}
+                error={null}
+              />
+            )}
+          </div>}
         </div>
       </div>
     </ParamsValidator>
@@ -211,4 +232,3 @@ const Genome = () => {
 }
 
 export default Genome
-

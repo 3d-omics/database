@@ -13,10 +13,9 @@ The candidate **schema version 3** is specified by
 validated against a migration of the pinned release but is not yet the
 website's published data version.
 
-The `/database-schema` web page offers both schema files, the normalized JSON
-export and the older hierarchy. **The hierarchy is populated data, not a
-schema.** Its record names and IDs are object keys. The normalized export instead
-has fixed table keys and arrays of rows, with identifiers in named fields:
+The `/database-schema` web page offers both schema files and the normalized JSON
+export. The export has fixed table keys and arrays of rows, with identifiers in
+named fields:
 
 ```json
 {
@@ -77,9 +76,9 @@ must be curated before making that relationship mandatory. Furthermore,
 840 `microsamples.cryosection_id` values have no matching released cryosection.
 `microsamples.cryosection_id` and `microsample_sequencing.microsample_id` are
 not direct foreign keys to the same-named ID columns of the apparent parent
-tables. Do not join them by column name alone. The current website hierarchy
-uses the documented six-character macrosample prefix convention; see
-[the pipeline guide](data-pipeline.md#id-conventions-the-hierarchy-relies-on).
+tables. Do not join them by column name alone. Some website views use the
+six-character macrosample prefix convention documented in
+[the pipeline guide](data-pipeline.md#id-conventions-used-by-the-website).
 
 Sequencing **run** accessions (`ERR…`), BioSample accessions (`SAMEA…`) and ENA
 sample accessions (`ERS…`) are different entities. The current catalogue carries

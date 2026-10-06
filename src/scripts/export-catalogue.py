@@ -124,6 +124,9 @@ def main() -> None:
     os.replace(build_info_temp, BUILD_INFO)
     for other_version in SUPPORTED_VERSIONS - {version}:
         (ROOT / "public" / f"catalogue-v{other_version}.json.gz").unlink(missing_ok=True)
+    # Builder 0.1.0 still renders this retired export. Remove it before the
+    # site build while the portal remains pinned to that public wheel.
+    (ROOT / "public" / "experiment-hierarchy.json").unlink(missing_ok=True)
     print(f"Validated schema {version} and wrote {output.relative_to(ROOT)}")
 
 

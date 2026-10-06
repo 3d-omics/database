@@ -1,4 +1,4 @@
-import { useMemo, Dispatch, SetStateAction } from 'react'
+import { useMemo, useState, Dispatch, SetStateAction } from 'react'
 import CrossReferenceTooltip from 'components/CrossReferenceTooltip'
 import { ColumnDef } from '@tanstack/react-table'
 import TableView from 'components/TableView'
@@ -35,6 +35,14 @@ type TData = {
   }
 }
 
+type AnalysisScale = 'all' | 'macro' | 'micro'
+
+const analysisScaleOptions: { value: AnalysisScale; label: string }[] = [
+  { value: 'all', label: 'All' },
+  { value: 'macro', label: 'Macro-scale analyses' },
+  { value: 'micro', label: 'Micro-scale analyses' },
+]
+
 const Macrosample = (
   {
     displayPageHeader = true,
@@ -68,6 +76,8 @@ const Macrosample = (
 
 
   const data = intestinalSectionSampleData as unknown as TData[]
+  const [analysisScale, setAnalysisScale] = useState<AnalysisScale>('all')
+  const showAnalysisFilters = displayPageHeader && !macrosampleWithMetaboliteData
 
   // for cross reference tooltip
   const specimenLookup = useMemo(() => {
@@ -124,7 +134,33 @@ const Macrosample = (
     return sampleMetaDataSheet !== null && sampleMetaDataSheet !== undefined
   }, [macrosampleWithMetaboliteData, sampleMetaDataSheet])
 
-  const dataToUse = macrosampleWithMetaboliteData ? mergedData : filteredData
+  // Glycerol-preserved whole sections are collected for cryosection and
+  // microsample analyses, including sections not yet released as cryosections.
+  const dataToUse = useMemo(() => {
+    const source = macrosampleWithMetaboliteData ? mergedData : filteredData
+    if (!showAnalysisFilters || analysisScale === 'all') return source
+    return source.filter((record) =>
+      (record.fields.Preservative === 'Glycerol') === (analysisScale === 'micro')
+    )
+  }, [macrosampleWithMetaboliteData, mergedData, filteredData, showAnalysisFilters, analysisScale])
+
+  const recordFilterControls = showAnalysisFilters ? (
+    <div role='group' aria-label='Filter macrosamples by analysis scale' className='inline-flex flex-wrap gap-1 rounded-lg border border-line bg-surface_muted p-1'>
+      {analysisScaleOptions.map(({ value, label }) => (
+        <button
+          key={value}
+          type='button'
+          aria-pressed={analysisScale === value}
+          onClick={() => setAnalysisScale(value)}
+          className={`rounded-md px-3 py-1.5 font-jakarta font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-burgundy_ink ${analysisScale === value
+            ? 'bg-burgundy text-white shadow-sm'
+            : 'text-ink_muted hover:bg-surface hover:text-burgundy_ink'}`}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
+  ) : undefined
 
   const defaultColumns = useMemo<ColumnDef<TData>[]>(() => {
 
@@ -410,6 +446,7 @@ const Macrosample = (
       displayTableFilters={displayTableFilters}
       displayTableBody={displayTableBody}
       tableDescription={tableDescription}
+      recordFilterControls={recordFilterControls}
     />
   )
 }

@@ -134,6 +134,17 @@ describe('ImagePlot', () => {
     expect(mockSetSelectedMicrosampleIds).toHaveBeenCalledWith(['M001'])
   })
 
+  it('opens the microsample detail when a point has a catalogue code', async () => {
+    const user = userEvent.setup()
+    const onOpenMicrosample = vi.fn()
+    render(<ImagePlot {...mockProps} microsampleCodes={['G_CS1_001', '', '']} onOpenMicrosample={onOpenMicrosample} />)
+
+    await user.click(screen.getByTestId('mock-click'))
+
+    expect(onOpenMicrosample).toHaveBeenCalledWith('G_CS1_001')
+    expect(mockSetSelectedMicrosampleIds).not.toHaveBeenCalled()
+  })
+
   it('calls setSelectedMicrosampleIds when multiple points selected', async () => {
     const user = userEvent.setup()
     render(<ImagePlot {...mockProps} />)

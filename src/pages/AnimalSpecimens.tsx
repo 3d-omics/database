@@ -1,10 +1,10 @@
 import { useMemo } from 'react'
 import CrossReferenceTooltip from 'components/CrossReferenceTooltip'
-import { ColumnDef } from '@tanstack/react-table'
+import { ColumnDef, type ColumnFiltersState } from '@tanstack/react-table'
 import TableView from 'components/TableView'
 import animalSpecimenData from 'assets/data/airtable/animalspecimen.json'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
-import { Link } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 
 type TData = {
   id: string
@@ -40,8 +40,15 @@ const AnimalSpecimen = ({
 }) => {
 
   const data = animalSpecimenData as unknown as TData[]
+  const [searchParams] = useSearchParams()
+  const trial = displayPageHeader ? searchParams.get('trial') : null
+  const treatment = displayPageHeader ? searchParams.get('treatment') : null
+  const initialColumnFilters = useMemo<ColumnFiltersState>(() => [
+    ...(trial ? [{ id: 'Experiment_flat', value: trial }] : []),
+    ...(treatment ? [{ id: 'Treatment_flat', value: treatment }] : []),
+  ], [trial, treatment])
 
-  const tableDescription = "The experimental units of 3D'omics studies were the animal individuals from which performance analytics and molecular data were obtained. These animals were assigned to different treatments and housed in separate pens or isolators depending on the experiment. All the individual animals were euthanised at the end of the trial to obtain intestinal samples for microbiota analyses and the rest of samples for complementary analyses."
+  const tableDescription = "The experimental units of 3D'omics studies were the animal individuals from which performance analytics and molecular data were obtained. These animals were assigned to different treatments and housed in separate pens or isolators depending on the trial. All the individual animals were euthanised at the end of the trial to obtain intestinal samples for microbiota analyses and the rest of samples for complementary analyses."
 
   // for cross reference tooltip
   const experimentLookup = useMemo(() => {
@@ -94,8 +101,9 @@ const AnimalSpecimen = ({
       },
       {
         id: 'Experiment_flat',
-        header: 'Experiment',
+        header: 'Trial',
         accessorFn: (row) => row.fields.Experiment_flat,
+        filterFn: 'equalsString',
         meta: {
           filterVariant: 'select' as const,
           uniqueValues: Array.from(
@@ -120,6 +128,7 @@ const AnimalSpecimen = ({
         id: 'Treatment_flat',
         header: 'Treatment',
         accessorFn: (row) => row.fields.Treatment_flat,
+        filterFn: 'equalsString',
         meta: {
           filterVariant: 'select' as const,
           uniqueValues: Array.from(
@@ -195,9 +204,9 @@ const AnimalSpecimen = ({
       displayTableHeader={displayTableHeader}
       displayTableFilters={displayTableFilters}
       displayTableBody={displayTableBody}
+      initialColumnFilters={initialColumnFilters}
     />
   )
 }
 
 export default AnimalSpecimen
-

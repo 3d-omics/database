@@ -6,6 +6,10 @@ describe('formatIdForDisplay', () => {
     expect(formatIdForDisplay('ID')).toBe('ID')
   })
 
+  it('names the trial filter consistently with its column', () => {
+    expect(formatIdForDisplay('Experiment_flat')).toBe('Trial')
+  })
+
   it('removes _flat suffix', () => {
     expect(formatIdForDisplay('LMBatch_flat')).toBe('LMBatch')
     expect(formatIdForDisplay('sample_flat')).toBe('sample')

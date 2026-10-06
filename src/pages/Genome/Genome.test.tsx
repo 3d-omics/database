@@ -72,8 +72,14 @@ describe('Genome', () => {
       notFound: false,
     });
 
-    (useGenomeJsonFile as any).mockReturnValue(mockGenomeMetadata);
-    (useAllMicrosampleCounts as any).mockReturnValue([])
+    (useGenomeJsonFile as any).mockImplementation((folder: string) =>
+      folder === 'genome_metadata'
+        ? mockGenomeMetadata
+        : { genome: ['Genome1', 'Genome2'], Macro1: [4, 0] }
+    );
+    (useAllMicrosampleCounts as any).mockReturnValue([
+      { data: { genome: ['Genome1', 'Genome2'], Micro1: [3, 0] } },
+    ])
   })
 
   const renderGenome = (genomeName = 'Genome1', experimentName = 'Experiment G') => {
@@ -139,8 +145,39 @@ describe('Genome', () => {
     expect(screen.queryByTestId('macrosample-tab')).not.toBeInTheDocument()
   })
 
+  it('hides a genome sample tab when it has no matching counts', () => {
+    (useGenomeJsonFile as any).mockImplementation((folder: string) =>
+      folder === 'genome_metadata'
+        ? mockGenomeMetadata
+        : { genome: ['Genome1', 'Genome2'], Macro1: [0, 4] }
+    );
+
+    renderGenome('Genome1')
+
+    expect(screen.queryByRole('button', { name: 'Macrosamples' })).not.toBeInTheDocument()
+    expect(screen.getByTestId('microsample-tab')).toBeInTheDocument()
+  })
+
+  it('omits tabs when a genome has no sample counts', () => {
+    (useGenomeJsonFile as any).mockImplementation((folder: string) =>
+      folder === 'genome_metadata'
+        ? mockGenomeMetadata
+        : { genome: ['Genome1', 'Genome2'], Macro1: [0, 4] }
+    );
+    (useAllMicrosampleCounts as any).mockReturnValue([
+      { data: { genome: ['Genome1', 'Genome2'], Micro1: [0, 3] } },
+    ])
+
+    renderGenome('Genome1')
+
+    expect(screen.queryByTestId('tabs')).not.toBeInTheDocument()
+    expect(screen.getByText('No sample abundance data are available for this genome.')).toBeInTheDocument()
+  })
+
   it('shows NotFound when genome metadata not found', () => {
-    (useGenomeJsonFile as any).mockReturnValue(null)
+    (useGenomeJsonFile as any).mockImplementation((folder: string) =>
+      folder === 'genome_metadata' ? null : { genome: ['Genome1'], Macro1: [4] }
+    )
 
     renderGenome('Genome1')
 

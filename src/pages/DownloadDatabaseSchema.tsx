@@ -22,12 +22,6 @@ const resources = [
     href: `/database/catalogue-v${schemaVersion}.json.gz`,
     download: `catalogue-v${schemaVersion}.json.gz`,
   },
-  {
-    title: 'Hierarchy export',
-    description: 'The original populated, name-keyed JSON hierarchy for jq queries. This is data, not a schema.',
-    href: '/database/experiment-hierarchy.json',
-    download: 'experiment-hierarchy.json',
-  },
 ]
 
 const DownloadDatabaseSchema = () => (

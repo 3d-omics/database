@@ -63,6 +63,22 @@ describe('TableHeader', () => {
     expect(screen.getByText('records')).toBeInTheDocument()
   })
 
+  it('places optional record filters beside the record count', () => {
+    render(
+      <TableHeader
+        pageTitle='Macrosamples'
+        filteredDataLength={58}
+        filteredAndSortedData={mockData}
+        columns={mockColumns}
+        recordFilterControls={<button type='button'>Micro-scale analyses</button>}
+      />
+    )
+
+    expect(screen.getByText('58').parentElement?.parentElement).toContainElement(
+      screen.getByRole('button', { name: 'Micro-scale analyses' })
+    )
+  })
+
   it('renders download TSV button', () => {
     render(
       <TableHeader

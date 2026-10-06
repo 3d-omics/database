@@ -1,9 +1,10 @@
 import Table from 'components/Table'
-import { ColumnDef } from '@tanstack/react-table'
+import { ColumnDef, type ColumnFiltersState } from '@tanstack/react-table'
 import ErrorBanner from 'components/ErrorBanner'
 import PageHeader from 'components/PageHeader'
+import type { ReactNode } from 'react'
 
-const TableView = <TData,>({ columns, data, pageTitle, fetchMetaboliteError, displayPageHeader = false, displayTableHeader, displayTableDescription, displayTableFilters, displayTableBody, tableDescription}: {
+const TableView = <TData,>({ columns, data, pageTitle, fetchMetaboliteError, displayPageHeader = false, displayTableHeader, displayTableDescription, displayTableFilters, displayTableBody, tableDescription, initialColumnFilters = [], recordFilterControls }: {
   columns: ColumnDef<TData>[]
   data: TData[]
   pageTitle: string
@@ -16,6 +17,8 @@ const TableView = <TData,>({ columns, data, pageTitle, fetchMetaboliteError, dis
   displayTableFilters?: boolean
   displayTableBody?: boolean
   tableDescription?: string
+  initialColumnFilters?: ColumnFiltersState
+  recordFilterControls?: ReactNode
 }) => {
 
   return (
@@ -37,8 +40,9 @@ const TableView = <TData,>({ columns, data, pageTitle, fetchMetaboliteError, dis
           <ErrorBanner>Error fetching metabolite data, Please try again</ErrorBanner>
         }
 
-        {data.length !== 0 &&
+        {(data.length !== 0 || recordFilterControls) &&
           <Table<TData>
+            key={JSON.stringify(initialColumnFilters)}
             data={data}
             columns={columns}
             pageTitle={pageTitle}
@@ -48,10 +52,12 @@ const TableView = <TData,>({ columns, data, pageTitle, fetchMetaboliteError, dis
             displayTableFilters={displayTableFilters}
             displayTableBody={displayTableBody}
             tableDescription={tableDescription}
+            initialColumnFilters={initialColumnFilters}
+            recordFilterControls={recordFilterControls}
           />
         }
 
-        {data.length === 0 &&
+        {data.length === 0 && !recordFilterControls &&
           <div className='text-center text-ink_muted mt-32'>No <span className='lowercase'>{pageTitle}</span> data was found.</div>
         }
       </div>

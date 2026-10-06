@@ -8,6 +8,7 @@ type SampleData = Array<{
   count: number
   enaLink: string
   run_accession: string
+  microsampleCode?: string
 }>
 
 interface MicrosampleTabProps {
@@ -23,6 +24,12 @@ const MicrosampleTab = ({ data, genomeName, isLoading, error }: MicrosampleTabPr
       id: 'id',
       header: 'Microsample ID',
       accessorKey: 'id',
+      cell: ({ row }: CellContext<SampleData[number], string>) => row.original.microsampleCode
+        ? <div>
+          <Link to={`/microsamples/${encodeURIComponent(row.original.microsampleCode)}`} className='table_link'>{row.original.microsampleCode}</Link>
+          <span className='ml-2 text-xs text-ink_muted'>{row.original.id}</span>
+        </div>
+        : row.original.id,
     },
     {
       id: 'count',

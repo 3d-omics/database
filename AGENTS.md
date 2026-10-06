@@ -12,11 +12,13 @@ A **static, single-page React site** that publishes the data catalogue of the
 macrosamples, cryosections, laser-microdissected microsamples, metagenome-assembled
 genome (MAG) catalogues, community composition charts and metabolomics analyses.
 
-Key property: **there is no backend and no runtime API.** Everything the site shows is
-baked into the bundle at build time from two sources — a **pinned catalogue release**
+Key property: **there is no backend and no external runtime API.** The site uses a
+**pinned catalogue release**
 (`3domics-<YYYY.MM.DD>.sqlite`, built by
-[3d-omics/database-build](https://github.com/3d-omics/database-build)) and committed
-Excel workbooks. The site is deployed to GitHub Pages under the path `/database/`.
+[3d-omics/database-build](https://github.com/3d-omics/database-build)), committed
+Excel workbooks and a committed snapshot of public ENA run metadata. The browser
+fetches workbooks and ENA metadata as static files from the site itself. The site is
+deployed to GitHub Pages under the path `/database/`.
 
 **This repo holds no Airtable credentials and does not talk to Airtable.**
 [catalog.json](catalog.json) pins which catalogue release a commit builds against, so
@@ -25,14 +27,14 @@ rebuilding an old commit reproduces that commit's site rather than today's recor
 - Repo: `3d-omics/database` · Deployed under `…/database/`
 - Stack: Vite 6 · React 18 · TypeScript 5 · Tailwind 3 + daisyUI · React Router 6
 - Tables: TanStack Table v8 · Charts: Chart.js, Plotly, D3 · Excel: SheetJS (`xlsx`)
-- Tests: Vitest + React Testing Library — **72 test files, 567 tests, all passing**
+- Tests: Vitest + React Testing Library — **76 test files, 600 tests, all passing**
 
 ---
 
 ## 2. The golden rule: render the data before anything else
 
-Everything the app imports from `src/assets/data/` and `public/experiment-hierarchy.json`
-is **git-ignored and absent from a fresh clone**, yet many source files import it
+Everything the app imports from `src/assets/data/` is **git-ignored and absent
+from a fresh clone**, yet many source files import it
 statically. Without it, `npm run dev`, `npm run build`, `npm run test` and `tsc` all fail
 with `Cannot find module 'assets/data/airtable/…'`.
 
@@ -67,11 +69,12 @@ catalogue lacks will fail, which is why `catalog.json` pins both versions.
 |---|---|---|
 | Install | `npm ci` | |
 | Render all data | `npm run generate-data` | Needs the builder on `PATH`. Run after a `catalog.json` bump. |
+| Refresh ENA metadata | `npm run refresh-ena-metadata` | Run after rendering a new catalogue release; updates the committed public run snapshot. |
 | Download the catalogue only | `npm run fetch-catalog` | Verifies SHA-256 against the pin. |
 | Dev server | `npm run dev` | http://localhost:5173 |
 | Tests | `npm run test` | Watch mode. Use `npx vitest run` for a single pass. |
 | Single test file | `npx vitest run src/pages/Home.test.tsx` | |
-| Production build | `npm run build` | Output → `dist/` (~80 MB, see §6.2) |
+| Production build | `npm run build` | Checks the ENA snapshot against the catalogue; output → `dist/` (~80 MB, see §6.2). |
 | Preview build | `npm run preview` | |
 | Typecheck | `npx tsc --noEmit` | **Not wired into any npm script or CI.** Run it manually. |
 | Lint | *(none)* | `eslint-config-react-app` is declared but there is no lint script or config file. |
@@ -99,10 +102,10 @@ src/
                            + metabolomics XLSX (committed)
   assets/images/           Logos, animal silhouettes, 90 cryosection photos (9 MB)
 public/
-  experiment-hierarchy.json  Rendered from the catalogue; git-ignored
   catalogue-v*.sql          Tracked versioned SQLite contracts
   catalogue-v*.schema.json  Tracked normalized JSON Schema contracts
   catalogue-v*.json.gz      Rendered normalized exports; git-ignored
+  ena-run-metadata.json      Committed ENA run snapshot, tied to catalog.json's SHA-256
   404.html                   SPA deep-link redirect shim for GitHub Pages
 catalog.json                 THE PIN: data_version, schema_version, sha256, source (Zenodo), DOIs, builder
 .catalog/                    Downloaded catalogue (git-ignored)
@@ -234,7 +237,7 @@ without typechecking — but each is a genuine defect:
 
 ```bash
 npx tsc --noEmit          # 3 known errors (§6.7); no new ones
-npx vitest run            # 72 files / 567 tests must pass
+npx vitest run            # 76 files / 600 tests must pass
 npm run build             # must succeed
 git status                # both dist/ and the rendered data are git-ignored
 ```
@@ -243,8 +246,8 @@ git status                # both dist/ and the rendered data are git-ignored
   the pinned catalogue, renders it, and builds. A red test suite still deploys. You are
   the gate.
 - Pushing to `main` deploys to production immediately. Work on a branch.
-- Never hand-edit anything under `src/assets/data/` except `metabolomics/`, nor
-  `public/experiment-hierarchy.json` — everything else there is rendered output.
+- Never hand-edit anything under `src/assets/data/` except `metabolomics/`;
+  everything else there is rendered output.
 - Commit messages: this repo has no `Co-Authored-By` trailers. Keep it that way.
 - Record anything notable in [CHANGELOG.md](CHANGELOG.md) under `## [Unreleased]`, in the
   Keep a Changelog groups (Added / Changed / Deprecated / Removed / Fixed / Security), and

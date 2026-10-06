@@ -22,6 +22,12 @@ const MacrosampleTab = ({ data, genomeName, isLoading, error }: MacrosampleTabPr
       id: 'id',
       header: 'Macrosample ID',
       accessorKey: 'id',
+      cell: ({ row }: CellContext<SampleData[number], string>) => row.original.macrosampleId
+        ? <div>
+          <Link to={`/macrosamples/${encodeURIComponent(row.original.macrosampleId)}`} className='table_link'>{row.original.macrosampleId}</Link>
+          <span className='ml-2 text-xs text-ink_muted'>{row.original.id}</span>
+        </div>
+        : row.original.id,
     },
     {
       id: 'count',

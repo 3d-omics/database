@@ -10,6 +10,11 @@ import PageHeader from 'components/PageHeader'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
+import animalSpecimenData from 'assets/data/airtable/animalspecimen.json'
+import macrosampleData from 'assets/data/airtable/intestinalsectionsample.json'
+import cryosectionData from 'assets/data/airtable/cryosection.json'
+import microsampleData from 'assets/data/airtable/microsample.json'
+import { hasRelatedRecords } from 'utils/hasRelatedRecords'
 
 interface AnimalTrialExperiment {
   id: string
@@ -45,6 +50,18 @@ const AnimalTrialOverview = () => {
   }, [experimentName])
 
   const experiment = data[0] // Get the first (and should be only) match
+  const tabs = useMemo(() => {
+    const id = experiment?.fields.ID
+    if (!id) return []
+
+    return [
+      hasRelatedRecords(animalSpecimenData, 'Experiment_flat', id, 'equals') && 'Animal Specimens',
+      hasRelatedRecords(macrosampleData, 'ID', id) && 'Macrosamples',
+      hasRelatedRecords(cryosectionData, 'ID', id) && 'Cryosections',
+      hasRelatedRecords(microsampleData, 'Code', id) && 'Microsamples',
+    ].filter((tab): tab is string => Boolean(tab))
+  }, [experiment?.fields.ID])
+  const activeTab = tabs.includes(selectedTab) ? selectedTab : tabs[0]
 
   return (
     <ParamsValidator validating={validating} notFound={notFound}>
@@ -61,7 +78,7 @@ const AnimalTrialOverview = () => {
             >
               <div className='flex flex-wrap gap-x-4 gap-y-0.5 [&>span]:flex [&>span]:gap-1 max-lg:flex-col'>
                 <span>
-                  Experiment ID:&nbsp;
+                  Trial ID:&nbsp;
                   <b>{experiment.fields.ID}</b>
                 </span>
                 <span>
@@ -101,19 +118,21 @@ const AnimalTrialOverview = () => {
               </div>
             </PageHeader>
 
-            <section className='page_padding'>
+            {tabs.length > 0 && <section className='page_padding pt-8 pb-2'>
               <Tabs
-                selectedTab={selectedTab}
+                selectedTab={activeTab}
                 setSelectedTab={setSelectedTab}
-                tabs={['Animal Specimens', 'Macrosamples', 'Cryosections', 'Microsamples']}
+                tabs={tabs}
               />
-            </section>
+            </section>}
 
-            <main className='-mt-7'>
-              {selectedTab === 'Animal Specimens' && <AnimalSpecimenTab experimentId={experiment.fields.ID} />}
-              {selectedTab === 'Macrosamples' && <MacrosampleTab id={experiment.fields.ID} />}
-              {selectedTab === 'Cryosections' && <CryosectionTab id={experiment.fields.ID} />}
-              {selectedTab === 'Microsamples' && <MicrosampleTab id={experiment.fields.ID} />}
+            <main className='pt-4'>
+              {activeTab && <section id='related-data-panel' role='tabpanel' aria-label={activeTab} tabIndex={0}>
+                {activeTab === 'Animal Specimens' && <AnimalSpecimenTab experimentId={experiment.fields.ID} />}
+                {activeTab === 'Macrosamples' && <MacrosampleTab id={experiment.fields.ID} />}
+                {activeTab === 'Cryosections' && <CryosectionTab id={experiment.fields.ID} />}
+                {activeTab === 'Microsamples' && <MicrosampleTab id={experiment.fields.ID} />}
+              </section>}
             </main>
           </>
         )}
@@ -123,5 +142,3 @@ const AnimalTrialOverview = () => {
 }
 
 export default AnimalTrialOverview
-
-

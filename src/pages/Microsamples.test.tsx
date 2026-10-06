@@ -66,6 +66,8 @@ vi.mock('components/TableView', () => ({
       <div data-testid='table-description'>{tableDescription}</div>
       <div data-testid='data-count'>{data.length}</div>
       <div data-testid='column-count'>{columns.length}</div>
+      {typeof columns.find((column: any) => column.id === 'Code')?.cell === 'function' &&
+        columns.find((column: any) => column.id === 'Code').cell({ row: { original: data[0] } })}
     </div>
   ),
 }))
@@ -106,6 +108,11 @@ describe('Microsamples', () => {
   it('displays all data by default', () => {
     renderComponent()
     expect(screen.getByTestId('data-count')).toHaveTextContent('2')
+  })
+
+  it('links a microsample code to its detail page', () => {
+    renderComponent()
+    expect(screen.getByRole('link', { name: 'MS001' })).toHaveAttribute('href', '/microsamples/MS001')
   })
 
   it('creates correct number of columns', () => {

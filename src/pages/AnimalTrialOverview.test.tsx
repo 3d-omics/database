@@ -25,7 +25,22 @@ vi.mock('assets/data/airtable/animaltrialexperiment.json', () => ({
         'Trial description': 'Line 1\nLine 2\nLine 3',
       },
     },
+    { id: '2', fields: { ID: 'EXP002', Name: 'Experiment H' } },
+    { id: '3', fields: { ID: 'EXP003', Name: 'Experiment I' } },
   ],
+}))
+
+vi.mock('assets/data/airtable/animalspecimen.json', () => ({
+  default: [{ fields: { ID: 'EXP001a', Experiment_flat: 'EXP001' } }],
+}))
+vi.mock('assets/data/airtable/intestinalsectionsample.json', () => ({
+  default: [{ fields: { ID: 'EXP001aF' } }],
+}))
+vi.mock('assets/data/airtable/cryosection.json', () => ({
+  default: [{ fields: { ID: 'EXP001aFA' } }],
+}))
+vi.mock('assets/data/airtable/microsample.json', () => ({
+  default: [{ fields: { Code: 'EXP001aFA101' } }, { fields: { Code: 'EXP002aFA101' } }],
 }))
 
 // Mock components
@@ -125,6 +140,7 @@ describe('AnimalTrialOverview', () => {
   it('displays experiment details', () => {
     renderPage()
 
+    expect(screen.getByText(/Trial ID:/)).toBeInTheDocument()
     expect(screen.getByText('EXP001')).toBeInTheDocument()
     expect(screen.getByText('2024-01-01')).toBeInTheDocument()
     expect(screen.getByText('2024-03-31')).toBeInTheDocument()
@@ -182,6 +198,25 @@ describe('AnimalTrialOverview', () => {
 
     expect(screen.getByTestId('cryosection-tab')).toBeInTheDocument()
     expect(screen.queryByTestId('animal-specimen-tab')).not.toBeInTheDocument()
+  })
+
+  it('shows only the populated tab when a trial has one kind of linked data', () => {
+    renderPage('Experiment H')
+
+    expect(screen.getByTestId('tabs')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Microsamples' })).toBeInTheDocument()
+    expect(screen.getByTestId('microsample-tab')).toHaveTextContent('EXP002')
+    expect(screen.queryByRole('button', { name: 'Animal Specimens' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Macrosamples' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: 'Cryosections' })).not.toBeInTheDocument()
+  })
+
+  it('omits tabs when a trial has no linked data', () => {
+    renderPage('Experiment I')
+
+    expect(screen.queryByTestId('tabs')).not.toBeInTheDocument()
+    expect(screen.queryByTestId('animal-specimen-tab')).not.toBeInTheDocument()
+    expect(screen.getByRole('main')).toBeEmptyDOMElement()
   })
 
   it('shows not found when validation fails', () => {

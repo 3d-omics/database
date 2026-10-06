@@ -9,7 +9,7 @@ vi.mock('./components/Pagination', () => ({
 }))
 
 vi.mock('./components/TableHeader', () => ({
-  default: () => <div data-testid='table-header'>Table Header</div>,
+  default: ({ filteredDataLength }: any) => <div data-testid='table-header'>{filteredDataLength} records</div>,
 }))
 
 vi.mock('./components/TableFilters', () => ({
@@ -17,7 +17,7 @@ vi.mock('./components/TableFilters', () => ({
 }))
 
 vi.mock('./components/TableBody', () => ({
-  default: () => <div data-testid='table-body'>Table Body</div>,
+  default: ({ table }: any) => <div data-testid='table-body'>{table.getRowModel().rows.map((row: any) => row.original.id).join(',')}</div>,
 }))
 
 describe('Table', () => {
@@ -38,6 +38,31 @@ describe('Table', () => {
     expect(screen.getByTestId('table-filters')).toBeInTheDocument()
     expect(screen.getByTestId('table-body')).toBeInTheDocument()
     expect(screen.getByTestId('pagination')).toBeInTheDocument()
+  })
+
+  it('applies both initial column filters to the visible rows', () => {
+    const data = [
+      { id: '1', trial: 'G', treatment: 'TG1' },
+      { id: '2', trial: 'G', treatment: 'TG2' },
+      { id: '3', trial: 'F', treatment: 'TF1' },
+    ]
+    const columns: ColumnDef<typeof data[0]>[] = [
+      { accessorKey: 'id', header: 'ID' },
+      { accessorKey: 'trial', header: 'Trial', filterFn: 'equalsString' },
+      { accessorKey: 'treatment', header: 'Treatment', filterFn: 'equalsString' },
+    ]
+
+    render(<Table
+      data={data}
+      columns={columns}
+      pageTitle='Animal Specimens'
+      initialColumnFilters={[{ id: 'trial', value: 'G' }, { id: 'treatment', value: 'TG1' }]}
+    />)
+
+    expect(screen.getByTestId('table-header')).toHaveTextContent('1 records')
+    expect(screen.getByTestId('table-body')).toHaveTextContent('1')
+    expect(screen.getByTestId('table-body')).not.toHaveTextContent('2')
+    expect(screen.getByTestId('table-body')).not.toHaveTextContent('3')
   })
 
   it('hides TableHeader when displayTableHeader is false', () => {

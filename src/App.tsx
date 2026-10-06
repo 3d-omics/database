@@ -29,6 +29,7 @@ import MacrosampleComposition from 'pages/MacrosampleComposition'
 import AnimalTrialOverview from 'pages/AnimalTrialOverview'
 import AnimalSpecimenOverview from 'pages/AnimalSpecimenOverview'
 import MacrosampleOverview from 'pages/MacrosampleOverview'
+import MicrosampleOverview from 'pages/MicrosampleOverview'
 import CryosectionOverview from 'pages/CryosectionOverview'
 
 import DownloadDatabaseSchema from 'pages/DownloadDatabaseSchema'
@@ -72,6 +73,7 @@ function App() {
           <Route path="/animal-trials/:experimentName" element={<AnimalTrialOverview />} />
           <Route path="/animal-specimens/:specimenName" element={<AnimalSpecimenOverview />} />
           <Route path="/macrosamples/:macrosampleName" element={<MacrosampleOverview />} />
+          <Route path="/microsamples/:microsampleCode" element={<MicrosampleOverview />} />
           <Route path="/cryosections/:cryosectionName" element={<CryosectionOverview />} />
 
           <Route path="/mag-catalogues" element={<MAGCatalogueList />} />

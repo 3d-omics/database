@@ -79,7 +79,7 @@ agree:
 | [vite.config.js](../vite.config.js) | `base: '/database/'` |
 | [src/main.tsx](../src/main.tsx) | `<BrowserRouter basename='/database/'>` |
 | [public/404.html](../public/404.html) | `window.location.replace('/database/')` |
-| [DownloadDatabaseSchema.tsx](../src/pages/DownloadDatabaseSchema.tsx) | `link.href = '/database/experiment-hierarchy.json'` |
+| [DownloadDatabaseSchema.tsx](../src/pages/DownloadDatabaseSchema.tsx) | download links under `/database/` |
 
 ## Deep links on GitHub Pages
 
@@ -107,7 +107,7 @@ npm run build && npm run preview
 ## Build output
 
 `dist/` is roughly 80 MB: a single ~17 MB JS chunk (3.8 MB gzipped), 33 MB of XLSX
-workbooks, 9 MB of cryosection JPEGs, and the hierarchy JSON. This is within
+workbooks and 9 MB of cryosection JPEGs. This is within
 GitHub Pages' 1 GB site limit but is a poor experience for visitors — see
 [known-issues.md](known-issues.md).
 

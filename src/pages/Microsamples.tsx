@@ -23,7 +23,7 @@ export type TData = {
     Size: number
     IntestinalSection?: string
     Number?: string
-    'ENA accession'?: string
+    'ENA accession'?: string[]
     'ENA link'?: string
   }
 }
@@ -74,6 +74,7 @@ const Microsample = ({ displayPageHeader = true, displayTableHeader, displayTabl
       id: 'Code',
       header: 'Code',
       accessorFn: (row) => row.fields.Code,
+      cell: ({ row }) => <Link to={`/microsamples/${encodeURIComponent(row.original.fields.Code)}`} className='table_link'>{row.original.fields.Code}</Link>,
     },
     {
       id: 'LMBatch_flat',

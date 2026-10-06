@@ -1,5 +1,6 @@
 export const formatIdForDisplay = (id: string) => {
   if (id === 'ID') return 'ID'
+  if (id === 'Experiment_flat') return 'Trial'
   if (id === 'LMBatch_flat') return 'LMBatch'
   if (id === 'Individual') return 'Experimental Unit Series'
   if (id === 'Metabolite') return 'Metabolite Data'

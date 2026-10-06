@@ -1,21 +1,16 @@
-import { useState } from 'react'
-import { getCoreRowModel, useReactTable, getSortedRowModel, getFilteredRowModel, getPaginationRowModel, ColumnDef } from '@tanstack/react-table'
+import { useState, type ReactNode } from 'react'
+import { getCoreRowModel, useReactTable, getSortedRowModel, getFilteredRowModel, getPaginationRowModel, ColumnDef, type ColumnFiltersState } from '@tanstack/react-table'
 import Pagination from 'components/Table/components/Pagination'
 import TableHeader from './components/TableHeader'
 import TableFilters from './components/TableFilters'
 import TableBody from './components/TableBody'
-
-type ColumnFiltersState = {
-  id: string
-  value: unknown
-}[]
 
 type SortingState = {
   id: string
   desc: boolean
 }[]
 
-const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, displayTableTitle = true, displayTableDescription = true, displayTableFilters = true, displayTableBody = true, tableDescription }: {
+const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, displayTableTitle = true, displayTableDescription = true, displayTableFilters = true, displayTableBody = true, tableDescription, initialColumnFilters = [], recordFilterControls }: {
   data: TData[],
   columns: ColumnDef<TData>[],
   pageTitle: string,
@@ -25,6 +20,8 @@ const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, di
   displayTableFilters?: boolean
   displayTableBody?: boolean
   tableDescription?: string
+  initialColumnFilters?: ColumnFiltersState
+  recordFilterControls?: ReactNode
 }) => {
   const [pagination, setPagination] = useState({ pageIndex: 0, pageSize: 100, })
   const [globalFilter, setGlobalFilter] = useState<string | undefined>(undefined)
@@ -37,6 +34,7 @@ const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, di
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     onPaginationChange: setPagination,
+    initialState: { columnFilters: initialColumnFilters },
     state: { pagination, globalFilter },
     onGlobalFilterChange: setGlobalFilter,
   })
@@ -55,6 +53,7 @@ const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, di
           filteredDataLength={filteredData.length}
           filteredAndSortedData={filteredAndSortedData}
           columns={columns}
+          recordFilterControls={recordFilterControls}
         />
       }
 
@@ -91,5 +90,3 @@ const Table = <TData,>({ data, columns, pageTitle, displayTableHeader = true, di
 }
 
 export default Table
-
-

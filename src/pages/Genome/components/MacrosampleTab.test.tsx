@@ -1,11 +1,15 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
+import { flexRender } from '@tanstack/react-table'
 import MacrosampleTab from './MacrosampleTab'
 
 // Mock components
 vi.mock('components/Table/components/TableBody', () => ({
-  default: () => <div data-testid='table-body'>Table Body</div>,
+  default: ({ table }: any) => <div data-testid='table-body'>{table.getRowModel().rows.map((row: any) =>
+    <div key={row.id}>{row.getVisibleCells().filter((cell: any) => cell.column.id === 'id').map((cell: any) =>
+      <div key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</div>)}</div>
+  )}</div>,
 }))
 
 vi.mock('components/ErrorBanner', () => ({
@@ -19,6 +23,7 @@ describe('MacrosampleTab', () => {
       count: 0.65,
       enaLink: 'https://www.ebi.ac.uk/ena/browser/view/SRR123',
       run_accession: 'SRR123',
+      macrosampleId: 'G121eI',
     },
     {
       id: 'S002',
@@ -87,6 +92,7 @@ describe('MacrosampleTab', () => {
     })
 
     expect(screen.getByTestId('table-body')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'G121eI' })).toHaveAttribute('href', '/macrosamples/G121eI')
   })
 
   it('displays count with plural form', () => {
@@ -97,7 +103,7 @@ describe('MacrosampleTab', () => {
       error: null,
     })
 
-    expect(screen.getByText(/2/)).toBeInTheDocument()
+    expect(screen.getByText('2')).toBeInTheDocument()
     expect(screen.getByText(/macrosamples containing/)).toBeInTheDocument()
   })
 

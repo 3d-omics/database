@@ -70,7 +70,7 @@ const CryosectionOverview = () => {
             <SummaryStrip
               label='Cryosection summary'
               stats={[
-                { label: 'Trial', value: trial?.fields.Name, to: trial && `/animal-trials/${encodeURIComponent(trial.fields.Name)}` },
+                { label: 'Trial', value: trial?.fields.ID, to: trial && `/animal-trials/${encodeURIComponent(trial.fields.Name)}`, title: trial?.fields.Name },
                 { label: 'Specimen', value: specimen?.fields.ID, to: specimen && `/animal-specimens/${encodeURIComponent(specimen.fields.ID)}` },
                 { label: 'Macrosample', value: cryosection.fields.Macrosample, to: `/macrosamples/${encodeURIComponent(cryosection.fields.Macrosample)}` },
                 { label: 'Number of microsamples', value: cryosection.fields['Microsample number'] },
