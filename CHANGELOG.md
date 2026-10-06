@@ -20,6 +20,14 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Added
 
+- Separate SQL and JSON Schema files for the pinned catalogue's schema 2, a
+  normalized gzip-compressed JSON export with fixed field names, and a
+  no-Airtable importer that rebuilds a compatible SQLite catalogue from that
+  export. `generate-data` verifies both structural contracts and declared
+  relationships before publishing the export. The new schema guide documents
+  field meanings, supported links and unresolved source identifiers.
+- A Data model link on the home page and a download page offering both schema
+  files, the normalized catalogue and the older hierarchy separately.
 - Trial C's MAG catalogue (*Proof-of-principle swine trial*) on the MAG Catalogues
   pages: 439 genomes, their counts across 15 sequencing libraries, the catalogue's
   Zenodo DOI and description, and its summary figures (1,981 MAGs, 88.2% average
@@ -71,6 +79,9 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- The old "Download Database Schema" page now identifies the populated
+  name-keyed hierarchy as a data export. The README installs the public,
+  checksummed builder wheel and documents the source-independent import route.
 - A cryosection's image carries its tools in a rail down the left of the frame, standing
   in the open, instead of in plotly's mode bar, which appeared at the top right on hover:
   moving the image and selecting microsamples, zooming in and out, fitting the whole

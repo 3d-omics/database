@@ -134,6 +134,7 @@ describe('Home', () => {
     expect(within(toolkit).getByText('pip install 3dtk')).toBeInTheDocument()
     expect(within(toolkit).getByRole('link', { name: 'GitHub' })).toHaveAttribute('href', 'https://github.com/3d-omics/3dtk')
     expect(within(toolkit).getByRole('link', { name: 'Documentation' })).toHaveAttribute('href', 'https://3dtk.readthedocs.io/')
+    expect(within(toolkit).getByRole('link', { name: 'Data model' })).toHaveAttribute('href', '/database-schema')
     expect(screen.queryByRole('link', { name: /Download Database Schema/i })).not.toBeInTheDocument()
   })
 

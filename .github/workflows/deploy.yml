@@ -71,6 +71,9 @@ jobs:
       - name: Render the site data
         run: 3domics-db-build render .catalog/3domics.sqlite --into .
 
+      - name: Validate and export the normalized catalogue
+        run: npm run export-catalogue
+
       - run: npm run build
 
       - uses: actions/configure-pages@v4

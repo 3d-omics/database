@@ -26,6 +26,7 @@ Plotly · D3**
 | [AGENTS.md](AGENTS.md) | **Start here** — working agreement, commands, conventions, gotchas |
 | [docs/architecture.md](docs/architecture.md) | Routes, page-to-data map, components, hooks |
 | [docs/data-pipeline.md](docs/data-pipeline.md) | The catalogue pin, rendering, the hierarchy file, ID conventions |
+| [docs/catalogue-schema.md](docs/catalogue-schema.md) | Formal SQL and JSON schemas, normalized export, relationships and limits |
 | [docs/deployment.md](docs/deployment.md) | GitHub Pages, base path, deep-link redirects |
 | [docs/known-issues.md](docs/known-issues.md) | Current assessment and prioritised backlog |
 | [CHANGELOG.md](CHANGELOG.md) | What changed and when, every entry linked to its commit |
@@ -39,9 +40,17 @@ git clone https://github.com/3d-omics/database.git
 cd database
 npm ci
 
-# The renderer that turns the catalogue into the site's JSON tree.
-# Use the version catalog.json pins.
-pip install "git+https://github.com/3d-omics/database-build.git@$(node -p "require('./catalog.json').builder")"
+# The renderer is a public, checksummed wheel pinned in catalog.json.
+wheel="3domics_db_build-$(node -p "require('./catalog.json').builder.slice(1)")-py3-none-any.whl"
+curl -fsSL "$(node -p "require('./catalog.json').builder_wheel")" -o "$wheel"
+python3 - "$wheel" <<'PY'
+import hashlib, json, pathlib, sys
+pin = json.loads(pathlib.Path('catalog.json').read_text())
+actual = hashlib.sha256(pathlib.Path(sys.argv[1]).read_bytes()).hexdigest()
+if actual != pin['builder_sha256']:
+    raise SystemExit('Builder wheel checksum mismatch')
+PY
+python3 -m pip install --no-deps --no-index "./$wheel"
 
 npm run generate-data     # MUST run before anything else — see note below
 npm run dev               # http://localhost:5173/database/
@@ -54,7 +63,25 @@ npm run dev               # http://localhost:5173/database/
 > `Cannot find module 'assets/data/airtable/…'`.
 
 No Airtable token is needed, or accepted. `generate-data` downloads the pinned release
-over HTTPS and verifies its SHA-256 before rendering.
+over HTTPS and verifies its SHA-256 before rendering. It also validates the
+released SQLite structure against a committed SQL schema and generates a
+normalized, compressed JSON export described by a separate JSON Schema.
+
+The [data model and downloads](https://3d-omics.github.io/database/database-schema)
+page provides those two schema files and the normalized export. The older
+`experiment-hierarchy.json` is a populated, name-keyed data export, not a schema.
+
+To use independently curated records without Airtable, populate a copy of the
+normalized JSON export and import it into a compatible SQLite catalogue:
+
+```bash
+npm run import-catalogue -- my-catalogue.json --output my-catalogue.sqlite
+CATALOG_FILE=./my-catalogue.sqlite npm run generate-data
+```
+
+The importer validates every table, field and scalar type against the JSON
+Schema and checks SQLite integrity. See [the schema guide](docs/catalogue-schema.md)
+for relationship limits in schema 2.
 
 ---
 

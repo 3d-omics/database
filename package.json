@@ -29,7 +29,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "generate-data": "npm run fetch-catalog && 3domics-db-build render .catalog/3domics.sqlite --into .",
+    "generate-data": "npm run fetch-catalog && 3domics-db-build render .catalog/3domics.sqlite --into . && python3 src/scripts/export-catalogue.py",
+    "export-catalogue": "python3 src/scripts/export-catalogue.py",
+    "import-catalogue": "python3 src/scripts/import-catalogue.py",
     "fetch-catalog": "tsx src/scripts/fetch-catalog.ts"
   },
   "eslintConfig": {

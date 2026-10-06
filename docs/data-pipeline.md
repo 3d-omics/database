@@ -7,20 +7,22 @@ in [catalog.json](../catalog.json) and renders it at build time.
 
 ```
 Airtable ──(database-build, elsewhere)──▶ 3domics-<DV>.sqlite ──(render)──▶ JSON tree ──▶ bundle
-                                              pinned by catalog.json
+                                              pinned by catalog.json │
+                                                                     └──▶ normalized JSON export
 ```
 
-`npm run generate-data` is two steps:
+`npm run generate-data` is three steps:
 
 | Step | Command | What it does |
 |---|---|---|
 | 1 | `npm run fetch-catalog` | Downloads `catalog.json`'s `source` into `.catalog/3domics.sqlite`, verifies its SHA-256 against `sha256`, exits non-zero on mismatch. Re-uses the cached file when it already matches. |
-| 2 | `3domics-db-build render .catalog/3domics.sqlite --into .` | Writes all 187 files: the nine record dumps, the CSVs and their `_json` conversions, and `public/experiment-hierarchy.json`. |
+| 2 | `3domics-db-build render .catalog/3domics.sqlite --into .` | Writes the nine record dumps, the CSVs and their `_json` conversions, and `public/experiment-hierarchy.json`. |
+| 3 | `python3 src/scripts/export-catalogue.py` | Verifies the committed schema against the catalogue and writes `public/catalogue-v2.json.gz`. |
 
 ## Prerequisites
 
 ```bash
-pip install "git+https://github.com/3d-omics/database-build.git@$(node -p "require('./catalog.json').builder")"
+Follow the checksummed wheel installation in the [README](../README.md#first-time-setup).
 ```
 
 **No Airtable token.** This repo has none and needs none.
@@ -137,10 +139,20 @@ To add data for a new cryosection or experiment, attach the CSV to the Airtable 
 and cut a new data release. Dropping a file into these folders does nothing — the next
 render overwrites it.
 
-## Stage 3 — the experiment hierarchy
+## Stage 3 — normalized catalogue and the experiment hierarchy
+
+The committed [`catalogue-v2.sql`](../public/catalogue-v2.sql) describes the SQL
+tables, views and indexes separately from their contents. The committed
+[`catalogue-v2.schema.json`](../public/catalogue-v2.schema.json) describes the
+normalized JSON export. The exporter checks the pinned SQLite structure against
+both contracts before writing `public/catalogue-v2.json.gz`. Its fixed table
+names contain arrays of records; record IDs are values in named fields. The
+compressed export is git-ignored and downloaded only on request. See
+[the schema guide](catalogue-schema.md) for the relationship inventory and the
+no-Airtable import route.
 
 Rebuilds `public/experiment-hierarchy.json`, the nested JSON that the
-[Download Database Schema](../src/pages/DownloadDatabaseSchema.tsx) page hands to users
+[Data model and downloads](../src/pages/DownloadDatabaseSchema.tsx) page hands to users
 for `jq` querying. Shape:
 
 ```

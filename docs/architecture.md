@@ -5,13 +5,13 @@
 A client-rendered React SPA. There is no server, no API and no database at runtime.
 
 ```
-Airtable (3 bases)  ─┐
-CSV files (committed)├─►  npm run generate-data  ─►  JSON in src/assets/data/**  ─┐
-                     │                                                            ├─► npm run build ─► dist/ ─► GitHub Pages
-XLSX files (committed)─────────────────────────────────────────────────────────────┘
-                                                     (XLSX + experiment-hierarchy.json
-                                                      are fetched by the browser at runtime;
-                                                      everything else is inlined in the JS bundle)
+Public, pinned SQLite catalogue ─► npm run generate-data ─► JSON in src/assets/data/** ─┐
+                                                        ├─► downloadable JSON exports    ├─► npm run build ─► dist/ ─► GitHub Pages
+Committed XLSX workbooks ─────────────────────────────────────────────────────────────────┘
+
+The SQLite catalogue is built from Airtable upstream, but this website reads the
+published release and needs no Airtable credentials. Its SQL schema and the
+normalized export's JSON Schema are committed separately from record content.
 ```
 
 Two things are *not* inlined and are fetched over HTTP by the running page:
@@ -19,8 +19,9 @@ Two things are *not* inlined and are fetched over HTTP by the running page:
 - the six metabolomics `.xlsx` workbooks, via `fetch()` in
   [useMetaboliteExcelFileData](../src/hooks/useMetaboliteExcelFileData.ts), parsed
   client-side with SheetJS;
-- `public/experiment-hierarchy.json`, offered as a download by the
-  [Download Database Schema](../src/pages/DownloadDatabaseSchema.tsx) page.
+- `public/experiment-hierarchy.json` and `public/catalogue-v2.json.gz`, offered
+  as data downloads by the [Data model](../src/pages/DownloadDatabaseSchema.tsx)
+  page. The compressed export is generated from the pinned catalogue.
 
 Everything else — Airtable records, genome metadata, count matrices — is a static
 `import` and therefore lands in the JS bundle. See
@@ -60,7 +61,7 @@ Everything else — Airtable records, genome metadata, count matrices — is a s
 | `/metabolomics/volcano/:experimentName` | `pages/MetabolomicsVolcano` | metabolomics XLSX |
 | `/metabolomics/heatmap/:experimentName` | `pages/MetabolomicsHeatmap` | metabolomics XLSX |
 | `/microsample-compositions/:cryosection` | `pages/MicrosampleComposition` | **dead route** — see [known-issues.md](known-issues.md) |
-| `/database-schema` | `pages/DownloadDatabaseSchema` | `public/experiment-hierarchy.json` |
+| `/database-schema` | `pages/DownloadDatabaseSchema` | SQL and JSON schemas, normalized catalogue, hierarchy export |
 | `/methods/:methodName` | `pages/Methods` | `pages/Methods/methodsContent.ts` (static text; unknown names render `NotFound`) |
 | `*` | `pages/NotFound` | — |
 

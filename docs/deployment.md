@@ -13,8 +13,10 @@
 6. Download `builder_wheel`, check it against `builder_sha256`, `pip install --no-deps --no-index`
 7. `npm run fetch-catalog` — download the pinned release, verify its SHA-256
 8. `3domics-db-build render .catalog/3domics.sqlite --into .`
-9. `npm run build`
-10. `actions/upload-pages-artifact@v3` on `dist/`, then `actions/deploy-pages@v4`
+9. `npm run export-catalogue` — validate the SQL and JSON Schema contracts and
+   generate the normalized download
+10. `npm run build`
+11. `actions/upload-pages-artifact@v3` on `dist/`, then `actions/deploy-pages@v4`
 
 **No Airtable credentials are involved** — those live in `database-build`, and step 7
 reads an open-access Zenodo record over anonymous HTTPS.

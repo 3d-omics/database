@@ -1,0 +1,1282 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://3d-omics.github.io/database/catalogue-v2.schema.json",
+  "title": "3D'omics normalized catalogue export, schema 2",
+  "description": "Instance-independent contract for the normalized JSON export of the released SQLite catalogue. Identifiers are values in rows, never object keys.",
+  "type": "object",
+  "properties": {
+    "data_version": {
+      "type": "string",
+      "description": "Catalogue release version."
+    },
+    "schema_version": {
+      "const": "2"
+    },
+    "tables": {
+      "type": "object",
+      "properties": {
+        "catalog_meta": {
+          "type": "array",
+          "description": "Catalogue data version, schema version, and build provenance.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "x-sqlite-type": "TEXT",
+                "description": "Part of the SQLite primary key."
+              },
+              "value": {
+                "type": "string",
+                "x-sqlite-type": "TEXT"
+              }
+            },
+            "required": [
+              "key",
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "cryosections": {
+          "type": "array",
+          "description": "Cryosections with the attachments required by the catalogue.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "airtable_record_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "airtable_created_time": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "cryosection_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "macrosample_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "microsample_count": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "x-sqlite-type": "INTEGER"
+              },
+              "position": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "slide_date": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "slide": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "has_image": {
+                "type": "integer",
+                "x-sqlite-type": "INTEGER"
+              }
+            },
+            "required": [
+              "airtable_record_id",
+              "airtable_created_time",
+              "cryosection_id",
+              "macrosample_id",
+              "microsample_count",
+              "position",
+              "slide_date",
+              "slide",
+              "has_image"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "experiments": {
+          "type": "array",
+          "description": "Animal trials and experiment-level metadata.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "airtable_record_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "airtable_created_time": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "experiment_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "name": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "type": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "start_date": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "end_date": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "bioproject_accession": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "bioproject_link": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "mag_description": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "mag_completeness_avg": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "x-sqlite-type": "REAL"
+              },
+              "mag_contamination_avg": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "x-sqlite-type": "REAL"
+              },
+              "mag_new_species_pct": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "x-sqlite-type": "REAL"
+              },
+              "mag_count": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "x-sqlite-type": "INTEGER"
+              },
+              "doi": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "link": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "has_genome_catalogue": {
+                "type": "integer",
+                "x-sqlite-type": "INTEGER"
+              }
+            },
+            "required": [
+              "airtable_record_id",
+              "airtable_created_time",
+              "experiment_id",
+              "name",
+              "type",
+              "start_date",
+              "end_date",
+              "description",
+              "bioproject_accession",
+              "bioproject_link",
+              "mag_description",
+              "mag_completeness_avg",
+              "mag_contamination_avg",
+              "mag_new_species_pct",
+              "mag_count",
+              "doi",
+              "link",
+              "has_genome_catalogue"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "genome_metadata": {
+          "type": "array",
+          "description": "MAG taxonomy and quality metadata.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "experiment_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "source_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "genome": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "domain": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "phylum": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "class": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "order": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "family": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "genus": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "species": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "completeness": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "x-sqlite-type": "REAL"
+              },
+              "contamination": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "x-sqlite-type": "REAL"
+              },
+              "length": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "x-sqlite-type": "INTEGER"
+              }
+            },
+            "required": [
+              "experiment_id",
+              "source_id",
+              "genome",
+              "domain",
+              "phylum",
+              "class",
+              "order",
+              "family",
+              "genus",
+              "species",
+              "completeness",
+              "contamination",
+              "length"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "macro_genome_counts": {
+          "type": "array",
+          "description": "Sparse genome counts for macrosample libraries.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "experiment_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "source_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "genome": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "macrosample": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "count": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "x-sqlite-type": "REAL"
+              }
+            },
+            "required": [
+              "experiment_id",
+              "source_id",
+              "genome",
+              "macrosample",
+              "count"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "macrosample_sequencing": {
+          "type": "array",
+          "description": "Sequencing-library records for macrosamples; library IDs are distinct from macrosample IDs.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "airtable_record_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "airtable_created_time": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "library_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "ena_link": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "run_accession": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "experimental_unit": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              }
+            },
+            "required": [
+              "airtable_record_id",
+              "airtable_created_time",
+              "library_id",
+              "ena_link",
+              "run_accession",
+              "experimental_unit"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "macrosamples": {
+          "type": "array",
+          "description": "Intestinal macrosamples and their published accessions.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "airtable_record_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "airtable_created_time": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "macrosample_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "code": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "container": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "data_type": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "description": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "ena_accession": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "ena_link": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "specimen_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "preservative": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "sample_type": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "metabolights_accession": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "metabolights_link": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              }
+            },
+            "required": [
+              "airtable_record_id",
+              "airtable_created_time",
+              "macrosample_id",
+              "code",
+              "container",
+              "data_type",
+              "description",
+              "ena_accession",
+              "ena_link",
+              "specimen_id",
+              "preservative",
+              "sample_type",
+              "metabolights_accession",
+              "metabolights_link"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "matrix_axes": {
+          "type": "array",
+          "description": "Original matrix row and column order, including all-zero rows.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "source_id": {
+                "type": "string",
+                "x-sqlite-type": "TEXT",
+                "description": "Part of the SQLite primary key."
+              },
+              "axis": {
+                "type": "string",
+                "x-sqlite-type": "TEXT",
+                "description": "Part of the SQLite primary key."
+              },
+              "position": {
+                "type": "integer",
+                "x-sqlite-type": "INTEGER",
+                "description": "Part of the SQLite primary key."
+              },
+              "key": {
+                "type": "string",
+                "x-sqlite-type": "TEXT"
+              }
+            },
+            "required": [
+              "source_id",
+              "axis",
+              "position",
+              "key"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "microsample_counts": {
+          "type": "array",
+          "description": "Sparse genome counts for microsample libraries.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "cryosection_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "source_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "genome": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "microsample": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "count": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "x-sqlite-type": "REAL"
+              }
+            },
+            "required": [
+              "cryosection_id",
+              "source_id",
+              "genome",
+              "microsample",
+              "count"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "microsample_sequencing": {
+          "type": "array",
+          "description": "Sequencing-library and image-coordinate records for microsamples; IDs are distinct from source microsample IDs.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "airtable_record_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "airtable_created_time": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "microsample_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "cryosection_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "shape": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "size": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "x-sqlite-type": "REAL"
+              },
+              "pixel_x": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "x-sqlite-type": "INTEGER"
+              },
+              "pixel_y": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "x-sqlite-type": "INTEGER"
+              },
+              "ena_link": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "run_accession": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              }
+            },
+            "required": [
+              "airtable_record_id",
+              "airtable_created_time",
+              "microsample_id",
+              "cryosection_id",
+              "shape",
+              "size",
+              "pixel_x",
+              "pixel_y",
+              "ena_link",
+              "run_accession"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "microsamples": {
+          "type": "array",
+          "description": "Laser-microdissected source microsamples.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "airtable_record_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "airtable_created_time": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "microsample_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "collection_method": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "cryosection_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "date": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "ena_accession": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "ena_link": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "lm_batch": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "size": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "x-sqlite-type": "REAL"
+              },
+              "x_coord": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "x-sqlite-type": "REAL"
+              },
+              "y_coord": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "x-sqlite-type": "REAL"
+              },
+              "sample_type": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              }
+            },
+            "required": [
+              "airtable_record_id",
+              "airtable_created_time",
+              "microsample_id",
+              "collection_method",
+              "cryosection_id",
+              "date",
+              "ena_accession",
+              "ena_link",
+              "lm_batch",
+              "size",
+              "x_coord",
+              "y_coord",
+              "sample_type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "source_files": {
+          "type": "array",
+          "description": "Manifest of source attachments and checksums.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "source_id": {
+                "type": "string",
+                "x-sqlite-type": "TEXT",
+                "description": "Part of the SQLite primary key."
+              },
+              "table_name": {
+                "type": "string",
+                "x-sqlite-type": "TEXT"
+              },
+              "attachment_key": {
+                "type": "string",
+                "x-sqlite-type": "TEXT"
+              },
+              "target_table": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "owner_column": {
+                "type": "string",
+                "x-sqlite-type": "TEXT"
+              },
+              "owner_value": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "filename": {
+                "type": "string",
+                "x-sqlite-type": "TEXT"
+              },
+              "sha256": {
+                "type": "string",
+                "x-sqlite-type": "TEXT"
+              },
+              "size_bytes": {
+                "type": "integer",
+                "x-sqlite-type": "INTEGER"
+              },
+              "row_count": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "x-sqlite-type": "INTEGER"
+              },
+              "kind": {
+                "type": "string",
+                "x-sqlite-type": "TEXT"
+              },
+              "airtable_record_id": {
+                "type": "string",
+                "x-sqlite-type": "TEXT"
+              }
+            },
+            "required": [
+              "source_id",
+              "table_name",
+              "attachment_key",
+              "target_table",
+              "owner_column",
+              "owner_value",
+              "filename",
+              "sha256",
+              "size_bytes",
+              "row_count",
+              "kind",
+              "airtable_record_id"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "specimens": {
+          "type": "array",
+          "description": "Individual animal specimens.",
+          "items": {
+            "type": "object",
+            "properties": {
+              "airtable_record_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "airtable_created_time": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "specimen_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "biosample_accession": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "biosample_link": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "experiment_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "experiment_record_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "pen": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "slaughtering_date": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "slaughtering_day_count": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "x-sqlite-type": "INTEGER"
+              },
+              "treatment_name": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "treatment": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "weight": {
+                "type": [
+                  "number",
+                  "null"
+                ],
+                "x-sqlite-type": "REAL"
+              },
+              "dpi": {
+                "type": [
+                  "integer",
+                  "null"
+                ],
+                "x-sqlite-type": "INTEGER"
+              },
+              "treatment_group": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "sex": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "species_scientific": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "species_common": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "taxid": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
+              "lifestage": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              }
+            },
+            "required": [
+              "airtable_record_id",
+              "airtable_created_time",
+              "specimen_id",
+              "biosample_accession",
+              "biosample_link",
+              "experiment_id",
+              "experiment_record_id",
+              "pen",
+              "slaughtering_date",
+              "slaughtering_day_count",
+              "treatment_name",
+              "treatment",
+              "weight",
+              "dpi",
+              "treatment_group",
+              "sex",
+              "species_scientific",
+              "species_common",
+              "taxid",
+              "lifestage"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "catalog_meta",
+        "cryosections",
+        "experiments",
+        "genome_metadata",
+        "macro_genome_counts",
+        "macrosample_sequencing",
+        "macrosamples",
+        "matrix_axes",
+        "microsample_counts",
+        "microsample_sequencing",
+        "microsamples",
+        "source_files",
+        "specimens"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "data_version",
+    "schema_version",
+    "tables"
+  ],
+  "additionalProperties": false,
+  "x-relations": [
+    {
+      "from_table": "specimens",
+      "from_column": "experiment_id",
+      "to_table": "experiments",
+      "to_column": "experiment_id",
+      "enforced": true
+    },
+    {
+      "from_table": "cryosections",
+      "from_column": "macrosample_id",
+      "to_table": "macrosamples",
+      "to_column": "macrosample_id",
+      "enforced": true
+    },
+    {
+      "from_table": "genome_metadata",
+      "from_column": "experiment_id",
+      "to_table": "experiments",
+      "to_column": "experiment_id",
+      "enforced": true
+    },
+    {
+      "from_table": "macro_genome_counts",
+      "from_column": "experiment_id",
+      "to_table": "experiments",
+      "to_column": "experiment_id",
+      "enforced": true
+    },
+    {
+      "from_table": "microsample_counts",
+      "from_column": "cryosection_id",
+      "to_table": "cryosections",
+      "to_column": "cryosection_id",
+      "enforced": true
+    },
+    {
+      "from_table": "matrix_axes",
+      "from_column": "source_id",
+      "to_table": "source_files",
+      "to_column": "source_id",
+      "enforced": true
+    },
+    {
+      "from_table": "genome_metadata",
+      "from_column": "source_id",
+      "to_table": "source_files",
+      "to_column": "source_id",
+      "enforced": true
+    },
+    {
+      "from_table": "macro_genome_counts",
+      "from_column": "source_id",
+      "to_table": "source_files",
+      "to_column": "source_id",
+      "enforced": true
+    },
+    {
+      "from_table": "microsample_counts",
+      "from_column": "source_id",
+      "to_table": "source_files",
+      "to_column": "source_id",
+      "enforced": true
+    },
+    {
+      "from_table": "macrosamples",
+      "from_column": "specimen_id",
+      "to_table": "specimens",
+      "to_column": "specimen_id",
+      "enforced": false,
+      "note": "Eight parent specimens are absent from the 2026.09.22 release."
+    },
+    {
+      "from_table": "microsamples",
+      "from_column": "cryosection_id",
+      "to_table": "cryosections",
+      "to_column": "cryosection_id",
+      "enforced": false,
+      "note": "Source identifiers do not consistently name a catalogued cryosection."
+    }
+  ]
+}

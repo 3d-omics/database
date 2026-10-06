@@ -349,6 +349,9 @@ const Home = () => {
               <Link to='https://3dtk.readthedocs.io/' target='_blank' rel='noopener noreferrer'>
                 <FontAwesomeIcon icon={faBook} /> Documentation
               </Link>
+              <Link to='/database-schema'>
+                <FontAwesomeIcon icon={faBook} /> Data model
+              </Link>
             </div>
           </div>
         </div>

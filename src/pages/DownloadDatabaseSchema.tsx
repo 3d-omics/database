@@ -1,91 +1,85 @@
 import PageHeader from 'components/PageHeader'
 
-const DownloadDatabaseSchema = () => {
+const resources = [
+  {
+    title: 'SQL schema',
+    description: 'The tables, columns, indexes and views of catalogue schema version 2. This file contains no records.',
+    href: '/database/catalogue-v2.sql',
+    download: 'catalogue-v2.sql',
+  },
+  {
+    title: 'JSON Schema',
+    description: 'A machine-readable contract for the normalized JSON export, with fixed field names and types.',
+    href: '/database/catalogue-v2.schema.json',
+    download: 'catalogue-v2.schema.json',
+  },
+  {
+    title: 'Normalized catalogue',
+    description: 'The records as arrays of objects, with IDs in fields. Gzip-compressed JSON from the pinned catalogue release.',
+    href: '/database/catalogue-v2.json.gz',
+    download: 'catalogue-v2.json.gz',
+  },
+  {
+    title: 'Hierarchy export',
+    description: 'The original populated, name-keyed JSON hierarchy for jq queries. This is data, not a schema.',
+    href: '/database/experiment-hierarchy.json',
+    download: 'experiment-hierarchy.json',
+  },
+]
 
-  return (
-    <>
-      <PageHeader
-        title='Download Database Schema'
-        breadcrumbs={[
-          { label: 'Data Portal Home', link: '/' },
-          { label: 'Download Database Schema' },
-        ]}
-      >
-        <p>
-          The database schema provides means to programmatically access the information stored in the 3D'omics data portal. Every ID, accession code and metadata field displayed on the website is hierarchically organised in a JSON format, which makes it possible to fetch the required information using ‘jq’, a lightweight and flexible command-line utility to parse, filter, transform, and process JSON data.
-        </p>
-        <p>
-          In the following, you can find some examples of how to fetch relevant information from the Database schema file, once downloaded to your local environment.
-        </p>
-      </PageHeader>
+const DownloadDatabaseSchema = () => (
+  <>
+    <PageHeader
+      title='Data model and downloads'
+      breadcrumbs={[
+        { label: 'Data Portal Home', link: '/' },
+        { label: 'Data model and downloads' },
+      ]}
+    >
+      <p>
+        The portal is built from a versioned SQLite catalogue. Its SQL schema describes
+        the stored structure; the JSON Schema describes the normalized JSON export.
+        Both are separate from the records they describe.
+      </p>
+    </PageHeader>
 
-      <div className='page_padding flex flex-col'>
-        <div className='flex items-center justify-center my-16'>
-          <button
-            className='px-12 py-4 bg-texture hover:text-mustard main_header text-3xl bg-surface_muted hover:bg-surface_strong'
-            onClick={() => {
-              const link = document.createElement('a')
-              link.href = '/database/experiment-hierarchy.json'
-              link.download = '3domics_data_schema.json'
-              link.click()
-            }}
-          >
-            Download JSON file
-          </button>
-        </div>
-
-        <p className='page_description'>
-          <span className='font-bold text-xl'>Examples</span>
-          <br /><br />
-          <span className='font-bold text-base'>List all individual animal IDs from Experiment G:</span>
-          <br />
-          jq '.Experiments.G["Individual IDs"][]' 3domics_data_schema.json
-          <br /><br /><br />
-          <span className='font-bold text-base'>List all Biosample accession codes of animals from Experiment F:</span>
-          <br />
-          jq -r '<br />
-          . as $root<br />
-          | $root.Experiments.F["Individual IDs"][]<br />
-          | $root.Individuals[.]["Biosample accession"]<br />
-          ' 3domics_data_schema.json
-          <br /><br /><br />
-          <span className='font-bold text-base'>List all Individual ID's (first column) and their Biosample accession codes (second column) of animals from Experiment J:</span>
-          <br />
-          jq -r '<br />
-          . as $root<br />
-          | $root.Experiments.J["Individual IDs"][]<br />
-          | . as $id<br />
-          | [$id, $root.Individuals[$id]["Biosample accession"]]<br />
-          | @tsv<br />
-          ' 3domics_data_schema.json
-          <br /><br /><br />
-          <span className='font-bold text-base'>List ENA accession codes of all macrosamples from Experiment H:</span>
-          <br />
-          jq -r '<br />
-          . as $root<br />
-          | $root.Experiments.H["Individual IDs"][]<br />
-          | $root.Individuals[.]["Macrosample IDs"][]<br />
-          | . as $ms<br />
-          | $root.Macrosamples[$ms]["ENA accession"]<br />
-          | select(. != null)<br />
-          ' 3domics_data_schema.json
-          <br /><br /><br />
-          <span className='font-bold text-base'>List ENA accession codes of all microsamples from Experiment G:</span>
-          <br />
-          jq -r '
-          . as $root<br />
-          | $root.Experiments.G["Individual IDs"][] as $ind<br />
-          | ($root.Individuals[$ind]["Macrosample IDs"] // [])[] as $macro<br />
-          | $root.Microsamples<br />
-          | to_entries[]<br />
-          | select(.value["Macrosample ID"] == $macro)<br />
-          | .value["ENA accession"]<br />
-          | select(. != null)<br />
-          ' 3domics_data_schema.json
-        </p>
+    <main className='page_padding py-12'>
+      <div className='grid gap-5 md:grid-cols-2'>
+        {resources.map(resource => (
+          <section key={resource.title} className='border border-line bg-surface_muted p-6'>
+            <h2 className='main_header text-xl'>{resource.title}</h2>
+            <p className='mt-3 text-ink_muted'>{resource.description}</p>
+            <a className='link mt-5 inline-block' href={resource.href} download={resource.download}>
+              Download {resource.title.toLowerCase()}
+            </a>
+          </section>
+        ))}
       </div>
-    </>
-  )
-}
+
+      <section className='mt-12 max-w-4xl'>
+        <h2 className='main_header text-2xl'>How the records relate</h2>
+        <p className='mt-4'>
+          Experiments contain animal specimens; specimens yield macrosamples;
+          macrosamples can have cryosections and microsamples. Sequencing libraries,
+          genome metadata and count matrices form additional layers. Some source
+          identifiers do not yet match a released parent record, so the schema guide
+          documents those relationships and their current limits.
+        </p>
+        <p className='mt-4'>
+          See the <a className='link' href='https://github.com/3d-omics/database/blob/main/docs/catalogue-schema.md'>
+            field and relationship guide
+          </a> for meanings, known gaps and examples.
+        </p>
+        <h3 className='main_header mt-10 text-xl'>Query the normalized export</h3>
+        <pre className='mt-4 overflow-x-auto bg-surface_muted p-5 text-sm'><code>{`gzip -dc catalogue-v2.json.gz | jq '.tables.experiments[] | {experiment_id, name}'`}</code></pre>
+        <p className='mt-4 text-ink_muted'>
+          Use the <a className='link' href='https://zenodo.org/records/22894102'>
+            published SQLite catalogue
+          </a> or the 3dtk toolkit for larger queries.
+        </p>
+      </section>
+    </main>
+  </>
+)
 
 export default DownloadDatabaseSchema
