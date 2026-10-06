@@ -18,8 +18,30 @@ moved it. If the project starts tagging releases, these headings become
 
 ## [Unreleased]
 
+### Changed
+
+- Microsample details sit directly above taxonomic relative abundance, beside
+  ENA metadata on wide screens ([`28ff614`][28ff614]).
+- Detail-page highlights show only the trial letter, with the full trial name on
+  hover, and display links without underlines ([`28ff614`][28ff614]).
+- ENA run metadata and taxonomic relative abundance share equal columns on
+  wide sample detail pages, with a single available section using the full width
+  ([`28ff614`][28ff614]).
+- Detail pages hide optional ENA, genome profile and related sample sections
+  when those data are absent, instead of treating each sample's intended use
+  as a missing link ([`28ff614`][28ff614]).
+
 ### Added
 
+- Microsample detail pages link back to their cryosection, macrosample, specimen
+  and trial, show the pinned ENA run report, and provide a single-sample
+  taxonomic relative-abundance overview when genome counts are linked.
+  Microsample codes in tables and points on cryosection maps open those pages.
+  MAG detail tables link their count-matrix IDs to the corresponding biological
+  sample pages when an ENA run connects them.
+  Macrosample detail pages now provide the same abundance overview for linked
+  sequencing libraries. The committed ENA snapshot covers all 5,986 macro-
+  and microsample runs in the pinned catalogue ([`28ff614`][28ff614]).
 - Schema-3 SQL and JSON Schema candidate contracts. The normalized exporter
   and no-Airtable importer now select schema 2 or 3 from the catalogue's
   version stamp, and the download page exposes the candidate contracts while
@@ -33,7 +55,7 @@ moved it. If the project starts tagging releases, these headings become
   field meanings, supported links and unresolved source identifiers
   ([`2f0f552`][2f0f552]).
 - A Data model link on the home page and a download page offering both schema
-  files, the normalized catalogue and the older hierarchy separately
+  files and the normalized catalogue
   ([`2f0f552`][2f0f552]).
 - Trial C's MAG catalogue (*Proof-of-principle swine trial*) on the MAG Catalogues
   pages: 439 genomes, their counts across 15 sequencing libraries, the catalogue's
@@ -86,6 +108,25 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- The Macrosamples overview now has quick filters beside the record count for
+  conventional macro-scale samples and glycerol-preserved whole sections collected
+  for micro-scale analysis. The displayed count and TSV download follow the selection
+  ([`28ff614`][28ff614]).
+- Macrosample detail pages with an ENA accession now show a pinned ENA run report:
+  study and sample identifiers, biological material, collection site and date,
+  sequencing method and instrument, read totals, and FASTQ links. The public metadata
+  snapshot covers every run in the pinned catalogue and is checked during the build;
+  macrosamples without a run keep their catalogue details ([`28ff614`][28ff614]).
+- Detail pages show a related-data tab only when its table has matching records.
+  The tabs use a compact, scrollable control with keyboard navigation, and pages
+  with no related records omit the tab bar. Macrosample pages retain their source
+  specimen, material and container details; pages without linked data explain its absence
+  ([`28ff614`][28ff614]).
+- Specimen and macrosample highlights now label the experiment letter “Trial” and
+  link it to the trial page when that page exists. Specimen weights show kilograms,
+  and treatment links open the specimen list with trial and treatment filters set.
+  GitHub Pages retains those filters when a linked page is reloaded
+  ([`28ff614`][28ff614]).
 - Macrosample pages now show experiment, sample type, destination and preservation
   in the four-item highlight strip, with the ENA accession beside the page title
   when available ([`79933ae`][79933ae]).
@@ -96,9 +137,8 @@ moved it. If the project starts tagging releases, these headings become
 - Cryosection highlights now identify the parent trial and specimen with links to
   their pages, replacing slide and position; the macrosample value also links to
   its page ([`8994d79`][8994d79]).
-- The old "Download Database Schema" page now identifies the populated
-  name-keyed hierarchy as a data export. The README installs the public,
-  checksummed builder wheel and documents the source-independent import route
+- The README installs the public, checksummed builder wheel and documents the
+  source-independent import route
   ([`2f0f552`][2f0f552]).
 - A cryosection's image carries its tools in a rail down the left of the frame, standing
   in the open, instead of in plotly's mode bar, which appeared at the top right on hover:
@@ -273,8 +313,18 @@ moved it. If the project starts tagging releases, these headings become
   a reader anything the column had not already. Links in prose are unchanged
   ([`43b367e`][43b367e]).
 
+### Removed
+
+- The old experiment hierarchy download has been retired. The portal offers the
+  normalized, schema-described catalogue instead; its export step removes any
+  legacy file produced by the currently pinned builder wheel
+  ([`28ff614`][28ff614]).
+
 ### Fixed
 
+- The catalogue fetch script uses Node's `--import` loader, avoiding a local
+  IPC socket that prevented data generation in restricted development setups
+  ([`28ff614`][28ff614]).
 - OS dark-mode preferences no longer make daisyUI form controls dark while the page
   surface remains light ([`09d837e`][09d837e]).
 - The deploy's catalogue download names itself with a User-Agent. Zenodo began answering
@@ -580,3 +630,4 @@ pinned, rather than against today's Airtable.
 [8994d79]: https://github.com/3d-omics/database/commit/8994d79eb198f239e7717319b9bc223e07bdfc38
 [531bad2]: https://github.com/3d-omics/database/commit/531bad2dc140784c9d663e10aef391023013c55a
 [79933ae]: https://github.com/3d-omics/database/commit/79933aee28a8f809ee8d1e48e2021d2b34b98b62
+[28ff614]: https://github.com/3d-omics/database/commit/28ff6146df766922f95699020a808a6ded15b69e
