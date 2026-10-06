@@ -8,19 +8,22 @@ import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
 import MicrosampleComposition from './MicrosampleComposition'
 import cryosectionImageData from 'assets/data/airtable/cryosectionimage.json'
+import macrosampleData from 'assets/data/airtable/intestinalsectionsample.json'
+import specimenData from 'assets/data/airtable/animalspecimen.json'
+import trialData from 'assets/data/airtable/animaltrialexperiment.json'
 
 const CryosectionOverview = () => {
 
   const { cryosectionName = '' } = useParams()
 
-  // Validate that the macrosample exists
+  // Validate that the cryosection exists
   const { validating, notFound } = useValidateParams({
     tableType: 'cryosection',
     filterId: 'ID',
     filterValue: cryosectionName
   })
 
-  // Filter data to find the specific macrosample
+  // Filter data to find the specific cryosection
   const data = useMemo(() => {
     return (cryosectionData).filter((record) => {
       const name = record.fields.ID
@@ -38,6 +41,9 @@ const CryosectionOverview = () => {
   }, [cryosectionName])
 
   const cryosection = data[0]
+  const macrosample = macrosampleData.find((record) => record.fields.ID === cryosection?.fields.Macrosample)
+  const specimen = specimenData.find((record) => record.fields.ID === macrosample?.fields.Individual)
+  const trial = trialData.find((record) => record.fields.ID === specimen?.fields.Experiment_flat)
 
   return (
     <ParamsValidator validating={validating} notFound={notFound}>
@@ -64,9 +70,9 @@ const CryosectionOverview = () => {
             <SummaryStrip
               label='Cryosection summary'
               stats={[
-                { label: 'Slide', value: cryosection.fields.Slide_flat },
-                { label: 'Position', value: cryosection.fields.Position },
-                { label: 'Macrosample', value: cryosection.fields.Macrosample },
+                { label: 'Trial', value: trial?.fields.Name, to: trial && `/animal-trials/${encodeURIComponent(trial.fields.Name)}` },
+                { label: 'Specimen', value: specimen?.fields.ID, to: specimen && `/animal-specimens/${encodeURIComponent(specimen.fields.ID)}` },
+                { label: 'Macrosample', value: cryosection.fields.Macrosample, to: `/macrosamples/${encodeURIComponent(cryosection.fields.Macrosample)}` },
                 { label: 'Number of microsamples', value: cryosection.fields['Microsample number'] },
               ]}
             />

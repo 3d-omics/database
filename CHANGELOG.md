@@ -86,6 +86,9 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- Cryosection highlights now identify the parent trial and specimen with links to
+  their pages, replacing slide and position; the macrosample value also links to
+  its page.
 - The old "Download Database Schema" page now identifies the populated
   name-keyed hierarchy as a data export. The README installs the public,
   checksummed builder wheel and documents the source-independent import route

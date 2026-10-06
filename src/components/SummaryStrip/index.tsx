@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 // A page's headline figures in a strip flush against its header, on the textured
 // background of the home page's section blocks. The texture sits on the strip rather
 // than on each block so its dots run on unbroken across the separators. A figure
@@ -5,11 +7,11 @@
 const SummaryStrip = ({ label, stats }: {
   // Names the strip's region for assistive technology
   label: string
-  stats: { label: string, value?: string | number }[]
+  stats: { label: string, value?: string | number, to?: string }[]
 }) => (
   <section aria-label={label} className='bg-surface_muted bg-texture'>
     <dl className='grid grid-cols-4 max-lg:grid-cols-2'>
-      {stats.map(({ label, value }, index) => (
+      {stats.map(({ label, value, to }, index) => (
         <div
           key={label}
           className={[
@@ -21,7 +23,9 @@ const SummaryStrip = ({ label, stats }: {
           ].filter(Boolean).join(' ')}
         >
           <dt className='text-base text-ink max-lg:text-sm'>{label}</dt>
-          <dd className='main_header mt-1 text-3xl text-burgundy_ink max-lg:text-2xl'>{value ?? '—'}</dd>
+          <dd className='main_header mt-1 text-3xl text-burgundy_ink max-lg:text-2xl'>
+            {to && value != null ? <Link to={to} className='link'>{value}</Link> : value ?? '—'}
+          </dd>
         </div>
       ))}
     </dl>

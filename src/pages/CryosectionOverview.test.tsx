@@ -48,6 +48,18 @@ vi.mock('assets/data/airtable/cryosectionimage.json', () => ({
   ],
 }))
 
+vi.mock('assets/data/airtable/intestinalsectionsample.json', () => ({
+  default: [{ fields: { ID: 'M001', Individual: 'G121' } }],
+}))
+
+vi.mock('assets/data/airtable/animalspecimen.json', () => ({
+  default: [{ fields: { ID: 'G121', Experiment_flat: 'G' } }],
+}))
+
+vi.mock('assets/data/airtable/animaltrialexperiment.json', () => ({
+  default: [{ fields: { ID: 'G', Name: 'G - Salmonella experiment (chicken)' } }],
+}))
+
 // Mock components
 vi.mock('components/BreadCrumbs', () => ({
   default: ({ items }: any) => (
@@ -121,14 +133,19 @@ describe('CryosectionOverview', () => {
     const summary = screen.getByRole('region', { name: 'Cryosection summary' })
     expect(screen.getByRole('banner')).not.toContainElement(summary)
 
-    expect(within(summary).getByText('Slide')).toBeInTheDocument()
-    expect(within(summary).getByText('Slide 1')).toBeInTheDocument()
-    expect(within(summary).getByText('Position')).toBeInTheDocument()
-    expect(within(summary).getByText('A1')).toBeInTheDocument()
+    expect(within(summary).getByText('Trial')).toBeInTheDocument()
+    expect(within(summary).getByRole('link', { name: 'G - Salmonella experiment (chicken)' }))
+      .toHaveAttribute('href', '/animal-trials/G%20-%20Salmonella%20experiment%20(chicken)')
+    expect(within(summary).getByText('Specimen')).toBeInTheDocument()
+    expect(within(summary).getByRole('link', { name: 'G121' }))
+      .toHaveAttribute('href', '/animal-specimens/G121')
     expect(within(summary).getByText('Macrosample')).toBeInTheDocument()
-    expect(within(summary).getByText('M001')).toBeInTheDocument()
+    expect(within(summary).getByRole('link', { name: 'M001' }))
+      .toHaveAttribute('href', '/macrosamples/M001')
     expect(within(summary).getByText('Number of microsamples')).toBeInTheDocument()
     expect(within(summary).getByText('100')).toBeInTheDocument()
+    expect(within(summary).queryByText('Slide')).not.toBeInTheDocument()
+    expect(within(summary).queryByText('Position')).not.toBeInTheDocument()
   })
 
   it('does not show the slide date', () => {
