@@ -1,7 +1,8 @@
 import { useState, useMemo } from 'react'
-import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import PageHeader from 'components/PageHeader'
+import SummaryStrip from 'components/SummaryStrip'
+import { TrailMark } from 'components/BreadCrumbs'
 import animalSpecimenData from 'assets/data/airtable/animalspecimen.json'
 import MacrosampleTab from 'components/TabComponents/MacrosampleTab'
 import CryosectionTab from 'components/TabComponents/CryosectionTab'
@@ -44,54 +45,29 @@ const AnimalSpecimenOverview = () => {
                 { label: 'Animal Specimens', link: '/animal-specimens' },
                 { label: specimenName }
               ]}
-            >
-              <div className='flex gap-7 max-lg:flex-col max-lg:gap-0.5'>
-                <div className='flex flex-col gap-0.5'>
-                  <span>
-                    Experiment ID:&nbsp;
-                    <b>{specimen.fields.ID}</b>
-                  </span>
-                  <span>
-                    Experiment:&nbsp;
-                    <b>{specimen.fields.Experiment_flat}</b>
-                  </span>
-                  <span>
-                    Treatment:&nbsp;
-                    <b>{specimen.fields.Treatment_flat}</b>
-                  </span>
-                </div>
+              aside={specimen.fields['Biosample accession'] &&
+                <dl className='grid grid-cols-[auto_1fr] gap-x-2 gap-y-0.5 rounded-md bg-black/20 px-3 py-1.5 text-sm text-neutral-50/85 backdrop-blur-sm [&_dt]:flex [&_dt]:items-center [&_dt]:gap-2 [&_a]:font-bold [&_a]:transition-colors hover:[&_a]:text-light_mustard'>
+                  <dt><TrailMark />Biosample accession:</dt>
+                  <dd>
+                    {specimen.fields['Biosample link']
+                      ? <Link to={specimen.fields['Biosample link']} target='_blank' rel='noopener noreferrer'>
+                        {specimen.fields['Biosample accession']}
+                      </Link>
+                      : specimen.fields['Biosample accession']}
+                  </dd>
+                </dl>
+              }
+            />
 
-                <div className='flex flex-col gap-0.5'>
-                  <span>
-                    Treatment Name:&nbsp;
-                    <b>{specimen.fields.TreatmentName}</b>
-                  </span>
-                  <span>
-                    Pen:&nbsp;
-                    <b>{specimen.fields.Pen}</b>
-                  </span>
-                  <span>
-                    Slaughtering Day Count:&nbsp;
-                    <b>{specimen.fields.SlaughteringDayCount}</b>
-                  </span>
-                </div>
-
-                <div className='flex flex-col gap-0.5'>
-                  <span>
-                    SlaughteringDate:&nbsp;
-                    <b>{specimen.fields.SlaughteringDate}</b>
-                  </span>
-                  <span>
-                    Weight:&nbsp;
-                    <b>{specimen.fields.Weight}</b>
-                  </span>
-                  <span>
-                    Biosample Accession:&nbsp;
-                    <Link to={specimen.fields['Biosample link']} target='_blank' rel='noopener noreferrer' className='link'><b>{specimen.fields['Biosample accession']}</b></Link>
-                  </span>
-                </div>
-              </div>
-            </PageHeader>
+            <SummaryStrip
+              label='Animal specimen summary'
+              stats={[
+                { label: 'Experiment', value: specimen.fields.Experiment_flat },
+                { label: 'Treatment', value: specimen.fields.Treatment_flat },
+                { label: 'Age', value: specimen.fields.SlaughteringDayCount != null ? `${specimen.fields.SlaughteringDayCount} days` : undefined },
+                { label: 'Weight', value: specimen.fields.Weight },
+              ]}
+            />
 
             <section className='page_padding'>
               <Tabs

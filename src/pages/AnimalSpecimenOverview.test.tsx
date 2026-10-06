@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import AnimalSpecimenOverview from './AnimalSpecimenOverview'
@@ -27,11 +27,24 @@ vi.mock('assets/data/airtable/animalspecimen.json', () => ({
         'Biosample link': 'https://example.com/biosample',
       },
     },
+    {
+      id: '2',
+      createdTime: '2024-01-01',
+      fields: {
+        ID: 'AS002',
+        Experiment_flat: 'Experiment G',
+        Treatment_flat: 'Treatment 2',
+        SlaughteringDayCount: 0,
+        Weight: 0,
+        'Biosample accession': 'SAMN67890',
+      },
+    },
   ],
 }))
 
 // Mock components
 vi.mock('components/BreadCrumbs', () => ({
+  TrailMark: () => <span aria-hidden='true' />,
   default: ({ items }: any) => (
     <div data-testid='breadcrumbs'>
       {items.map((item: any) => <span key={item.label}>{item.label}</span>)}
@@ -113,20 +126,45 @@ describe('AnimalSpecimenOverview', () => {
     expect(headers.length).toBeGreaterThan(0)
   })
 
-  it('displays specimen details', () => {
+  it('shows four highlights below the header', () => {
     renderPage()
 
-    expect(screen.getByText(/Experiment G/i)).toBeInTheDocument()
-    expect(screen.getByText(/Treatment 1/i)).toBeInTheDocument()
-    expect(screen.getByText(/Control/i)).toBeInTheDocument()
-    expect(screen.getByText(/P1/i)).toBeInTheDocument()
+    const summary = screen.getByRole('region', { name: 'Animal specimen summary' })
+    expect(screen.getByRole('banner')).not.toContainElement(summary)
+
+    expect(within(summary).getByText('Experiment')).toBeInTheDocument()
+    expect(within(summary).getByText('Experiment G')).toBeInTheDocument()
+    expect(within(summary).getByText('Treatment')).toBeInTheDocument()
+    expect(within(summary).getByText('Treatment 1')).toBeInTheDocument()
+    expect(within(summary).getByText('Age')).toBeInTheDocument()
+    expect(within(summary).getByText('35 days')).toBeInTheDocument()
+    expect(within(summary).getByText('Weight')).toBeInTheDocument()
+    expect(within(summary).getByText('2.5')).toBeInTheDocument()
+    expect(screen.queryByText('Control')).not.toBeInTheDocument()
+    expect(screen.queryByText('P1')).not.toBeInTheDocument()
   })
 
-  it('displays biosample accession link', () => {
+  it('displays biosample accession beside the title like catalogue links', () => {
     renderPage()
 
-    const link = screen.getByRole('link', { name: 'SAMN12345' })
+    const header = screen.getByRole('banner')
+    expect(within(header).getByText('Biosample accession:')).toBeInTheDocument()
+    const link = within(header).getByRole('link', { name: 'SAMN12345' })
     expect(link).toHaveAttribute('href', 'https://example.com/biosample')
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+  })
+
+  it('shows an unlinked accession and zero values when the link is missing', () => {
+    renderPage('AS002')
+
+    const header = screen.getByRole('banner')
+    expect(within(header).getByText('SAMN67890')).toBeInTheDocument()
+    expect(within(header).queryByRole('link', { name: 'SAMN67890' })).not.toBeInTheDocument()
+
+    const summary = screen.getByRole('region', { name: 'Animal specimen summary' })
+    expect(within(summary).getByText('0 days')).toBeInTheDocument()
+    expect(within(summary).getByText('0')).toBeInTheDocument()
   })
 
   it('renders tabs', () => {
@@ -179,6 +217,7 @@ describe('AnimalSpecimenOverview', () => {
 
   it('handles case-insensitive specimen name', () => {
     renderPage('as001') // lowercase
-    expect(screen.getByText('AS001')).toBeInTheDocument()
+    expect(screen.getByRole('region', { name: 'Animal specimen summary' })).toBeInTheDocument()
+    expect(screen.getByTestId('macrosample-tab')).toHaveTextContent('AS001')
   })
 })
