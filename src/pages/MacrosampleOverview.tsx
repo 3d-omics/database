@@ -1,8 +1,10 @@
 import { useState, useMemo } from 'react'
-import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import PageHeader from 'components/PageHeader'
+import SummaryStrip from 'components/SummaryStrip'
+import { TrailMark } from 'components/BreadCrumbs'
 import macrosampleData from 'assets/data/airtable/intestinalsectionsample.json'
+import specimenData from 'assets/data/airtable/animalspecimen.json'
 import CryosectionTab from 'components/TabComponents/CryosectionTab'
 import MicrosampleTab from 'components/TabComponents/MicrosampleTab'
 import Tabs from 'components/Tabs'
@@ -30,6 +32,11 @@ const MacrosampleOverview = () => {
   }, [macrosampleName])
 
   const macrosample = data[0]
+  const specimen = specimenData.find((record) => record.fields.ID === macrosample?.fields.Individual)
+  // The first character of a macrosample ID identifies its experiment, including
+  // the few records whose parent specimen is absent from the catalogue.
+  const experiment = specimen?.fields.Experiment_flat ?? macrosample?.fields.ID.charAt(0)
+  const enaAccession = macrosample?.fields['ENA accession']?.join(', ')
 
   return (
     <ParamsValidator validating={validating} notFound={notFound}>
@@ -43,54 +50,29 @@ const MacrosampleOverview = () => {
                 { label: 'Macrosamples', link: '/macrosamples' },
                 { label: macrosampleName }
               ]}
-            >
-              <div className='flex gap-7 max-lg:flex-col max-lg:gap-0.5'>
-                <div className='flex flex-col gap-0.5'>
-                  <span>
-                    Animal Specimen:&nbsp;
-                    <b>{macrosample.fields.Individual}</b>
-                  </span>
-                  <span>
-                    Code:&nbsp;
-                    <b>{macrosample.fields.Code}</b>
-                  </span>
-                  <span>
-                    Sample type:&nbsp;
-                    <b>{macrosample.fields['Sample type']}</b>
-                  </span>
-                </div>
+              aside={enaAccession &&
+                <dl className='grid grid-cols-[auto_1fr] gap-x-2 gap-y-0.5 rounded-md bg-black/20 px-3 py-1.5 text-sm text-neutral-50/85 backdrop-blur-sm [&_dt]:flex [&_dt]:items-center [&_dt]:gap-2 [&_a]:font-bold [&_a]:transition-colors hover:[&_a]:text-light_mustard'>
+                  <dt><TrailMark />ENA accession:</dt>
+                  <dd>
+                    {macrosample.fields['ENA link']
+                      ? <Link to={macrosample.fields['ENA link']} target='_blank' rel='noopener noreferrer'>
+                        {enaAccession}
+                      </Link>
+                      : enaAccession}
+                  </dd>
+                </dl>
+              }
+            />
 
-                <div className='flex flex-col gap-0.5'>
-                  <span>
-                    Data type:&nbsp;
-                    <b>{macrosample.fields['Data type']}</b>
-                  </span>
-                  <span>
-                    Description:&nbsp;
-                    <b>{macrosample.fields.Description}</b>
-                  </span>
-                  <span>
-                    Container:&nbsp;
-                    <b>{macrosample.fields.Container}</b>
-                  </span>
-                </div>
-
-                <div className='flex flex-col gap-0.5'>
-                  <span>
-                    Preservative:&nbsp;
-                    <b>{macrosample.fields.Preservative}</b>
-                  </span>
-                  <span>
-                    Weight:&nbsp;
-                    <b>{macrosample.fields.Weight}</b>
-                  </span>
-                  <span>
-                    ENA Accession:&nbsp;
-                    <Link to={macrosample.fields['ENA link']} target='_blank' rel='noopener noreferrer' className='link'><b>{macrosample.fields['ENA accession']}</b></Link>
-                  </span>
-                </div>
-              </div>
-            </PageHeader>
+            <SummaryStrip
+              label='Macrosample summary'
+              stats={[
+                { label: 'Experiment', value: experiment },
+                { label: 'Sample type', value: macrosample.fields['Sample type'] },
+                { label: 'Destination', value: macrosample.fields['Data type'] },
+                { label: 'Preservation', value: macrosample.fields.Preservative },
+              ]}
+            />
 
             <section className='page_padding'>
               <Tabs

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
 import { MemoryRouter, Routes, Route } from 'react-router-dom'
 import MacrosampleOverview from './MacrosampleOverview'
@@ -24,15 +24,31 @@ vi.mock('assets/data/airtable/intestinalsectionsample.json', () => ({
         Container: 'Tube',
         Preservative: 'Ethanol',
         Weight: 0.5,
-        'ENA accession': 'ERS12345',
+        'ENA accession': ['ERS12345'],
         'ENA link': 'https://example.com/ena',
+      },
+    },
+    {
+      id: '2',
+      createdTime: '2024-01-01',
+      fields: {
+        ID: 'M002',
+        Individual: 'AS999',
+        'Sample type': 'Caecum',
+        'Data type': 'Metabolomics',
+        Preservative: 'None',
       },
     },
   ],
 }))
 
+vi.mock('assets/data/airtable/animalspecimen.json', () => ({
+  default: [{ fields: { ID: 'AS001', Experiment_flat: 'G' } }],
+}))
+
 // Mock components
 vi.mock('components/BreadCrumbs', () => ({
+  TrailMark: () => <span aria-hidden='true' />,
   default: ({ items }: any) => (
     <div data-testid='breadcrumbs'>
       {items.map((item: any) => <span key={item.label}>{item.label}</span>)}
@@ -109,24 +125,43 @@ describe('MacrosampleOverview', () => {
     expect(headers.length).toBeGreaterThan(0)
   })
 
-  it('displays macrosample details', () => {
+  it('shows four highlights below the header', () => {
     renderPage()
 
-    expect(screen.getByText('AS001')).toBeInTheDocument()
-    expect(screen.getByText('CODE123')).toBeInTheDocument()
-    expect(screen.getByText('Tissue')).toBeInTheDocument()
-    expect(screen.getByText('Metagenomics')).toBeInTheDocument()
-    expect(screen.getByText('Ileum sample')).toBeInTheDocument()
-    expect(screen.getByText('Tube')).toBeInTheDocument()
-    expect(screen.getByText('Ethanol')).toBeInTheDocument()
-    expect(screen.getByText('0.5')).toBeInTheDocument()
+    const summary = screen.getByRole('region', { name: 'Macrosample summary' })
+    expect(screen.getByRole('banner')).not.toContainElement(summary)
+
+    expect(within(summary).getByText('Experiment')).toBeInTheDocument()
+    expect(within(summary).getByText('G')).toBeInTheDocument()
+    expect(within(summary).getByText('Sample type')).toBeInTheDocument()
+    expect(within(summary).getByText('Tissue')).toBeInTheDocument()
+    expect(within(summary).getByText('Destination')).toBeInTheDocument()
+    expect(within(summary).getByText('Metagenomics')).toBeInTheDocument()
+    expect(within(summary).getByText('Preservation')).toBeInTheDocument()
+    expect(within(summary).getByText('Ethanol')).toBeInTheDocument()
+    expect(screen.queryByText('CODE123')).not.toBeInTheDocument()
+    expect(screen.queryByText('Ileum sample')).not.toBeInTheDocument()
   })
 
-  it('displays ENA accession link', () => {
+  it('displays ENA accession beside the title', () => {
     renderPage()
 
-    const link = screen.getByRole('link', { name: 'ERS12345' })
+    const header = screen.getByRole('banner')
+    expect(within(header).getByText('ENA accession:')).toBeInTheDocument()
+    const link = within(header).getByRole('link', { name: 'ERS12345' })
     expect(link).toHaveAttribute('href', 'https://example.com/ena')
+    expect(link).toHaveAttribute('target', '_blank')
+    expect(link).toHaveAttribute('rel', 'noopener noreferrer')
+  })
+
+  it('shows metabolomics destination and falls back to the ID for an unlinked specimen', () => {
+    renderPage('M002')
+
+    const summary = screen.getByRole('region', { name: 'Macrosample summary' })
+    expect(within(summary).getByText('M')).toBeInTheDocument()
+    expect(within(summary).getByText('Metabolomics')).toBeInTheDocument()
+    expect(within(summary).getByText('None')).toBeInTheDocument()
+    expect(within(screen.getByRole('banner')).queryByText('ENA accession:')).not.toBeInTheDocument()
   })
 
   it('renders tabs', () => {
