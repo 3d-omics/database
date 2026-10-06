@@ -86,6 +86,9 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- Macrosample pages now show experiment, sample type, destination and preservation
+  in the four-item highlight strip, with the ENA accession beside the page title
+  when available ([`79933ae`][79933ae]).
 - Animal specimen pages now show experiment, treatment, slaughter age in days and
   weight in the four-item highlight strip. BioSample accessions sit beside the
   page title as linked external identifiers when a source link is available
@@ -576,3 +579,4 @@ pinned, rather than against today's Airtable.
 [44c4109]: https://github.com/3d-omics/database/commit/44c4109a41931392f5d5a2532da99aacba9142e3
 [8994d79]: https://github.com/3d-omics/database/commit/8994d79eb198f239e7717319b9bc223e07bdfc38
 [531bad2]: https://github.com/3d-omics/database/commit/531bad2dc140784c9d663e10aef391023013c55a
+[79933ae]: https://github.com/3d-omics/database/commit/79933aee28a8f809ee8d1e48e2021d2b34b98b62
