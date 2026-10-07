@@ -91,10 +91,11 @@ const CryosectionOverview = () => {
             >
               <p>
                 A cryosection is a thin cross-cut of the intestine, holding both the host's
-                tissue and the intestinal contents. Its microsamples are cut from it by laser
-                capture microdissection: each covers about 50,000 µm³, usually 100 to 2,000
-                bacterial cells, and keeps its position on the section, so the microbial
-                community can be mapped across it.
+                tissue and the intestinal contents. Up to three cryosections are mounted on
+                each slide; A, B, and C identify their positions on that slide. Microsamples
+                are cut from each cryosection by laser capture microdissection: each covers
+                about 50,000 µm³, usually 100 to 2,000 bacterial cells, and keeps its position
+                on the section, so the microbial community can be mapped across it.
               </p>
             </PageHeader>
 

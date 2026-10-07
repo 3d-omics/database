@@ -161,10 +161,11 @@ describe('CryosectionOverview', () => {
     expect(screen.getByRole('banner')).not.toContainElement(summary)
 
     expect(within(summary).getByText('Trial')).toBeInTheDocument()
-    const trialLink = within(summary).getByRole('link', { name: 'G' })
+    const trialLink = within(summary).getByRole('link', { name: 'G chicken' })
     expect(trialLink).toHaveAttribute('href', '/animal-trials/G%20-%20Salmonella%20experiment%20(chicken)')
     expect(trialLink).toHaveAttribute('title', 'G - Salmonella experiment (chicken)')
     expect(trialLink).toHaveClass('no-underline')
+    expect(within(trialLink).getByRole('img', { name: 'chicken' })).toBeInTheDocument()
     expect(within(summary).getByText('Specimen')).toBeInTheDocument()
     const specimenLink = within(summary).getByRole('link', { name: 'G121' })
     expect(specimenLink).toHaveAttribute('href', '/animal-specimens/G121')

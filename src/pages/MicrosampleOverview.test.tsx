@@ -33,10 +33,11 @@ describe('MicrosampleOverview', () => {
   it('links its parents, ENA run and count profile', () => {
     renderPage('G121eI104C001')
     const summary = screen.getByRole('region', { name: 'Microsample summary' })
-    const trialLink = within(summary).getByRole('link', { name: 'G' })
+    const trialLink = within(summary).getByRole('link', { name: 'G chicken' })
     expect(trialLink).toHaveAttribute('href', '/animal-trials/G%20-%20Salmonella%20experiment%20(chicken)')
     expect(trialLink).toHaveAttribute('title', 'G - Salmonella experiment (chicken)')
     expect(trialLink).toHaveClass('no-underline')
+    expect(within(trialLink).getByRole('img', { name: 'chicken' })).toBeInTheDocument()
     expect(within(summary).getByRole('link', { name: 'G121eI104C' })).toHaveAttribute('href', '/cryosections/G121eI104C')
     expect(within(summary).getByRole('link', { name: 'G121eI' })).toHaveAttribute('href', '/macrosamples/G121eI')
     expect(screen.getByText('ENA runs: ERR1')).toBeInTheDocument()

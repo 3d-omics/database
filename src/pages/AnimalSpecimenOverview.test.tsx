@@ -148,10 +148,11 @@ describe('AnimalSpecimenOverview', () => {
     expect(screen.getByRole('banner')).not.toContainElement(summary)
 
     expect(within(summary).getByText('Trial')).toBeInTheDocument()
-    const trialLink = within(summary).getByRole('link', { name: 'G' })
+    const trialLink = within(summary).getByRole('link', { name: 'G chicken' })
     expect(trialLink).toHaveAttribute('href', '/animal-trials/G%20-%20Salmonella%20experiment%20(chicken)')
     expect(trialLink).toHaveAttribute('title', 'G - Salmonella experiment (chicken)')
     expect(trialLink).toHaveClass('no-underline')
+    expect(within(trialLink).getByRole('img', { name: 'chicken' })).toBeInTheDocument()
     expect(within(summary).getByText('Treatment')).toBeInTheDocument()
     const treatmentLink = within(summary).getByRole('link', { name: 'Treatment 1' })
     expect(treatmentLink).toHaveAttribute('href', '/animal-specimens?trial=G&treatment=Treatment+1')

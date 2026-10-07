@@ -20,6 +20,10 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- Trial links in sample detail summaries now show the trial animal silhouette.
+- Cryosection detail text explains how A, B, and C identify positions on a slide.
+- Macro and micro metagenomics methods now state that a MAG is detected in a
+  sample when reads cover at least 30% of its nucleotide positions.
 - Cryosection detail pages now link between sections on the same slide, with the
   current section highlighted in a compact switcher beside Metagenomics and above
   the taxonomy selector when a composition chart is available
@@ -37,6 +41,8 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Added
 
+- A publication audit of the pinned catalogue and public ENA and BioSamples
+  records, with findings and CSVs for accession and cross-reference gaps.
 - Site-wide search on the landing page and in every list-page header finds trials,
   specimens, samples, cryosections, MAGs and portal pages. A static index is
   generated from the pinned catalogue and loaded only when a visitor searches

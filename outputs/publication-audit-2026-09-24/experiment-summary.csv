@@ -1,0 +1,9 @@
+experiment,name,bioproject_accession,specimens,public_biosamples,correct_biosample_mapping,portal_macro_runs,portal_micro_runs,total_portal_runs,external_public_runs,public_runs_not_in_portal,micro_matrix_crossref_gaps,macro_matrix_columns_without_public_run
+C,"C - Proof-of-principle swine trial",PRJEB100724,12,12,0,30,0,30,54,24,0,0
+F,"F - Adenovirus experiment (chicken)",PRJEB86255,148,148,148,144,576,720,720,0,19,2
+G,"G - Salmonella experiment (chicken)",PRJEB86258,114,114,114,112,2070,2182,2723,541,96,2
+H,"H - Histomonas experiment (chicken)",PRJEB86259,100,100,100,100,0,100,100,0,0,2
+I,"I - Protein efficiency experiment (swine) trial A",PRJEB86262,24,24,24,24,384,408,408,0,1,0
+J,"J - Mannan fibre experimen (swine)",PRJEB86261,24,24,24,144,960,1104,1128,24,170,0
+K,"K - Protein efficiency experiment (swine) trial B",PRJEB86262,24,24,24,24,0,24,24,0,0,0
+M,"M - Histomonas experiment (turkey)",PRJEB86260,80,80,80,74,1344,1418,1418,0,115,1

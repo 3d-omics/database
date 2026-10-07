@@ -185,10 +185,11 @@ describe('MacrosampleOverview', () => {
     expect(screen.getByRole('banner')).not.toContainElement(summary)
 
     expect(within(summary).getByText('Trial')).toBeInTheDocument()
-    const trialLink = within(summary).getByRole('link', { name: 'G' })
+    const trialLink = within(summary).getByRole('link', { name: 'G chicken' })
     expect(trialLink).toHaveAttribute('href', '/animal-trials/G%20-%20Salmonella%20experiment%20(chicken)')
     expect(trialLink).toHaveAttribute('title', 'G - Salmonella experiment (chicken)')
     expect(trialLink).toHaveClass('no-underline')
+    expect(within(trialLink).getByRole('img', { name: 'chicken' })).toBeInTheDocument()
     expect(within(summary).getByText('Sample type')).toBeInTheDocument()
     expect(within(summary).getByText('Tissue')).toBeInTheDocument()
     expect(within(summary).getByText('Destination')).toBeInTheDocument()
@@ -214,7 +215,7 @@ describe('MacrosampleOverview', () => {
     renderPage('M002')
 
     const summary = screen.getByRole('region', { name: 'Macrosample summary' })
-    expect(within(summary).getByRole('link', { name: 'M' }))
+    expect(within(summary).getByRole('link', { name: 'M turkey' }))
       .toHaveAttribute('href', '/animal-trials/M%20-%20Turkey%20trial')
     expect(within(summary).getByText('Metabolomics')).toBeInTheDocument()
     expect(within(summary).getByText('None')).toBeInTheDocument()

@@ -125,7 +125,7 @@ export const methods: Method[] = [
     ],
     bioinformatics: [
       'Paired-end reads were trimmed and quality-controlled with fastp v0.20.1 (Chen et al., 2018). Processed reads were then mapped to the concatenated reference genome assemblies using Bowtie2 (Langmead & Salzberg, 2012) and samtools (Li et al., 2009).',
-      'Metagenomic quantification, both for macro-scale and micro-scale datasets, was performed with mg_quant, a pipeline developed in-house. This workflow maps the quality-filtered sequencing reads that did not map to the host, contamination and pathogen reference genomes to the MAG catalogue of the corresponding trial using Bowtie2. The resulting BAM files were profiled with CoverM (Aroney et al., 2025) to generate the final sample count table. All downstream statistical analyses were performed with R version 4.4.1.',
+      'Metagenomic quantification, both for macro-scale and micro-scale datasets, was performed with mg_quant, a pipeline developed in-house. This workflow maps the quality-filtered sequencing reads that did not map to the host, contamination and pathogen reference genomes to the MAG catalogue of the corresponding trial using Bowtie2. The resulting BAM files were profiled with CoverM (Aroney et al., 2025) to generate the final sample count table. A MAG was considered detected in a sample when at least 30% of its nucleotide positions were covered by one or more reads (covered fraction ≥ 0.3). All downstream statistical analyses were performed with R version 4.4.1.',
     ],
     references: [
       {
@@ -180,7 +180,7 @@ export const methods: Method[] = [
     ],
     bioinformatics: [
       'Paired-end reads were trimmed and quality-controlled with fastp v0.20.1 (Chen et al., 2018). Processed reads were then mapped to the concatenated reference genome assemblies using Bowtie2 (Langmead & Salzberg, 2012) and samtools (Li et al., 2009).',
-      'Metagenomic quantification, both for macro-scale and micro-scale datasets, was performed with mg_quant, a pipeline developed in-house. This workflow maps the quality-filtered sequencing reads that did not map to the host, contamination and pathogen reference genomes to the MAG catalogue of the corresponding trial using Bowtie2. The resulting BAM files were profiled with CoverM (Aroney et al., 2025) to generate the final sample count table. All downstream statistical analyses were performed with R version 4.4.1.',
+      'Metagenomic quantification, both for macro-scale and micro-scale datasets, was performed with mg_quant, a pipeline developed in-house. This workflow maps the quality-filtered sequencing reads that did not map to the host, contamination and pathogen reference genomes to the MAG catalogue of the corresponding trial using Bowtie2. The resulting BAM files were profiled with CoverM (Aroney et al., 2025) to generate the final sample count table. A MAG was considered detected in a sample when at least 30% of its nucleotide positions were covered by one or more reads (covered fraction ≥ 0.3). All downstream statistical analyses were performed with R version 4.4.1.',
     ],
     references: [
       {
