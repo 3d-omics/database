@@ -20,10 +20,13 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
-- Trial links in sample detail summaries now show the trial animal silhouette.
-- Cryosection detail text explains how A, B, and C identify positions on a slide.
+- Trial links in sample detail summaries now show the trial animal silhouette
+  ([`6d714c7`][6d714c7]).
+- Cryosection detail text explains how A, B, and C identify positions on a slide
+  ([`6d714c7`][6d714c7]).
 - Macro and micro metagenomics methods now state that a MAG is detected in a
-  sample when reads cover at least 30% of its nucleotide positions.
+  sample when reads cover at least 30% of its nucleotide positions
+  ([`6d714c7`][6d714c7]).
 - Cryosection detail pages now link between sections on the same slide, with the
   current section highlighted in a compact switcher beside Metagenomics and above
   the taxonomy selector when a composition chart is available
@@ -42,7 +45,8 @@ moved it. If the project starts tagging releases, these headings become
 ### Added
 
 - A publication audit of the pinned catalogue and public ENA and BioSamples
-  records, with findings and CSVs for accession and cross-reference gaps.
+  records, with findings and CSVs for accession and cross-reference gaps
+  ([`6d714c7`][6d714c7]).
 - Site-wide search on the landing page and in every list-page header finds trials,
   specimens, samples, cryosections, MAGs and portal pages. A static index is
   generated from the pinned catalogue and loaded only when a visitor searches
@@ -648,3 +652,4 @@ pinned, rather than against today's Airtable.
 [28ff614]: https://github.com/3d-omics/database/commit/28ff6146df766922f95699020a808a6ded15b69e
 [df6cc7c]: https://github.com/3d-omics/database/commit/df6cc7c063a3c404a5c0b4bdbdf81d3a719e64be
 [6cf4982]: https://github.com/3d-omics/database/commit/6cf4982d7b3a934637e57fa39bd60470029f186d
+[6d714c7]: https://github.com/3d-omics/database/commit/6d714c767d28f3937e64aa5a8c1948fad75daa76
