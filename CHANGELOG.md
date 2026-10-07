@@ -20,6 +20,9 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- Macrosample composition pages now place the full-width barplot above a wrapping
+  taxonomy legend and list every macrosample in the trial below
+  ([`9fde882`][9fde882]).
 - Trial links in sample detail summaries now show the trial animal silhouette
   ([`6d714c7`][6d714c7]).
 - Cryosection detail text explains how A, B, and C identify positions on a slide
@@ -584,6 +587,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[9fde882]: https://github.com/3d-omics/database/commit/9fde882c0454dc87b17a6daafbb10a51c66a17a2
 [4ef8f79]: https://github.com/3d-omics/database/commit/4ef8f79ba145fb3a927fe166a090461abc349a39
 [d7c08a9]: https://github.com/3d-omics/database/commit/d7c08a99a3973e7836cb57ca3fb04389f5f0ba96
 [5d7efad]: https://github.com/3d-omics/database/commit/5d7efad88ce47c8cd4feec025ce650f8ccc0cd44
