@@ -37,6 +37,11 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Added
 
+- Site-wide search on the landing page and in every list-page header finds trials,
+  specimens, samples, cryosections, MAGs and portal pages. A static index is
+  generated from the pinned catalogue and loaded only when a visitor searches
+  ([`6cf4982`][6cf4982]).
+
 - Microsample detail pages link back to their cryosection, macrosample, specimen
   and trial, show the pinned ENA run report, and provide a single-sample
   taxonomic relative-abundance overview when genome counts are linked.
@@ -636,3 +641,4 @@ pinned, rather than against today's Airtable.
 [79933ae]: https://github.com/3d-omics/database/commit/79933aee28a8f809ee8d1e48e2021d2b34b98b62
 [28ff614]: https://github.com/3d-omics/database/commit/28ff6146df766922f95699020a808a6ded15b69e
 [df6cc7c]: https://github.com/3d-omics/database/commit/df6cc7c063a3c404a5c0b4bdbdf81d3a719e64be
+[6cf4982]: https://github.com/3d-omics/database/commit/6cf4982d7b3a934637e57fa39bd60470029f186d
