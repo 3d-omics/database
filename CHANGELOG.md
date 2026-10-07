@@ -48,7 +48,7 @@ moved it. If the project starts tagging releases, these headings become
   microsample count matrices: `G121eI117A`, `G121eI118B`, `G121eO306A`,
   `G121eO307A`, and `G121eO308A`. The site now pins the published
   [version DOI](https://doi.org/10.5281/zenodo.23201823) and builder 0.2.0;
-  the catalogue remains on schema 2.
+  the catalogue remains on schema 2 ([`2252a76`][2252a76]).
 - A publication audit of the pinned catalogue and public ENA and BioSamples
   records, with findings and CSVs for accession and cross-reference gaps
   ([`6d714c7`][6d714c7]).
@@ -658,3 +658,4 @@ pinned, rather than against today's Airtable.
 [df6cc7c]: https://github.com/3d-omics/database/commit/df6cc7c063a3c404a5c0b4bdbdf81d3a719e64be
 [6cf4982]: https://github.com/3d-omics/database/commit/6cf4982d7b3a934637e57fa39bd60470029f186d
 [6d714c7]: https://github.com/3d-omics/database/commit/6d714c767d28f3937e64aa5a8c1948fad75daa76
+[2252a76]: https://github.com/3d-omics/database/commit/2252a7678112965c91790f3b68b1355e28a1ae83
