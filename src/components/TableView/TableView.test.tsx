@@ -119,6 +119,7 @@ describe('TableView', () => {
     )
 
     expect(screen.queryByRole('heading', { level: 1 })).not.toBeInTheDocument()
+    expect(screen.queryByRole('searchbox')).not.toBeInTheDocument()
     expect(screen.getByTestId('table')).toHaveAttribute('data-display-title', 'true')
   })
 
@@ -138,6 +139,7 @@ describe('TableView', () => {
     expect(screen.getByRole('heading', { level: 1, name: 'Animal Trials' })).toBeInTheDocument()
     expect(screen.getByRole('navigation', { name: 'Breadcrumb' })).toHaveTextContent('Data Portal Home')
     expect(screen.getByRole('banner')).toHaveTextContent('About the trials')
+    expect(screen.getByRole('banner')).toContainElement(screen.getByRole('searchbox', { name: 'Search the data portal' }))
 
     const table = screen.getByTestId('table')
     expect(table).toHaveAttribute('data-display-title', 'false')

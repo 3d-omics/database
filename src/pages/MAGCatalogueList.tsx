@@ -4,6 +4,7 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 import experimentsWithGenomeInfo from 'assets/data/airtable/experimentswithgenomeinfo.json'
 import PageHeader from 'components/PageHeader'
+import GlobalSearch from 'components/GlobalSearch'
 import TrialBlock from 'components/TrialBlock'
 import { getSummaryStats } from 'pages/MAGCatalogue/utils/summaryStats'
 
@@ -14,6 +15,7 @@ const MAGCatalogueList = () => {
 
       <PageHeader
         title='MAG Catalogues'
+        aside={<GlobalSearch />}
         breadcrumbs={[
           { label: 'Data Portal Home', link: '/' },
           { label: 'MAG Catalogues' },

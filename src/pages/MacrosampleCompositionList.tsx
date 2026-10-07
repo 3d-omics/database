@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 import PageHeader from 'components/PageHeader'
+import GlobalSearch from 'components/GlobalSearch'
 import TrialBlock from 'components/TrialBlock'
 import { useGenomeJsonFile } from 'hooks/useJsonData'
 import { getCompositionStats } from 'pages/MacrosampleComposition/utils/compositionStats'
@@ -26,6 +27,7 @@ const MacrosampleCompositionList = () => {
     <div className='min-h-[calc(100dvh-(var(--navbar-height)+var(--footer-height)))]'>
       <PageHeader
         title='Metagenomics'
+        aside={<GlobalSearch />}
         breadcrumbs={[
           { label: 'Data Portal Home', link: '/' },
           { label: 'Macrosamples', link: '/macrosamples' },

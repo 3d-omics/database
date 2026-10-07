@@ -8,6 +8,7 @@ import pigImage from 'assets/images/pig.png'
 import chickenImage from 'assets/images/chicken.png'
 import turkeyImage from 'assets/images/turkey.png'
 import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
+import GlobalSearch from 'components/GlobalSearch'
 
 // Fisher-Yates: a fresh order of the experiments on every visit
 const shuffle = <T,>(items: T[]): T[] => {
@@ -193,6 +194,7 @@ const Home = () => {
           The Data Portal contains hierarchically organised information, from experimental trials to
           microsamples.
         </p>
+        <GlobalSearch />
       </section>
 
       <main className='mb-16 bg-surface_subtle bg-texture'>

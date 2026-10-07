@@ -2,6 +2,7 @@ import Table from 'components/Table'
 import { ColumnDef, type ColumnFiltersState } from '@tanstack/react-table'
 import ErrorBanner from 'components/ErrorBanner'
 import PageHeader from 'components/PageHeader'
+import GlobalSearch from 'components/GlobalSearch'
 import type { ReactNode } from 'react'
 
 const TableView = <TData,>({ columns, data, pageTitle, fetchMetaboliteError, displayPageHeader = false, displayTableHeader, displayTableDescription, displayTableFilters, displayTableBody, tableDescription, initialColumnFilters = [], recordFilterControls }: {
@@ -26,6 +27,7 @@ const TableView = <TData,>({ columns, data, pageTitle, fetchMetaboliteError, dis
       {displayPageHeader &&
         <PageHeader
           title={pageTitle}
+          aside={<GlobalSearch />}
           breadcrumbs={[
             { label: 'Data Portal Home', link: '/' },
             { label: pageTitle },

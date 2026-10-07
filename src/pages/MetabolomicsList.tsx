@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faFileArrowDown } from '@fortawesome/free-solid-svg-icons'
 import experimentsWithGenomeInfo from 'assets/data/airtable/experimentswithgenomeinfo.json'
 import PageHeader from 'components/PageHeader'
+import GlobalSearch from 'components/GlobalSearch'
 import experimentG from 'assets/data/metabolomics/metabolomics_G.xlsx'
 import experimentH from 'assets/data/metabolomics/metabolomics_H.xlsx'
 import experimentI from 'assets/data/metabolomics/metabolomics_I.xlsx'
@@ -40,6 +41,7 @@ const MetabolomicsList = () => {
     <div className='min-h-[calc(100dvh-(var(--navbar-height)+var(--footer-height)))]'>
       <PageHeader
         title='Metabolomics'
+        aside={<GlobalSearch />}
         breadcrumbs={[
           { label: 'Data Portal Home', link: '/' },
           { label: 'Macrosamples', link: '/macrosamples' },

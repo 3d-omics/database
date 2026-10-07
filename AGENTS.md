@@ -27,7 +27,7 @@ rebuilding an old commit reproduces that commit's site rather than today's recor
 - Repo: `3d-omics/database` · Deployed under `…/database/`
 - Stack: Vite 6 · React 18 · TypeScript 5 · Tailwind 3 + daisyUI · React Router 6
 - Tables: TanStack Table v8 · Charts: Chart.js, Plotly, D3 · Excel: SheetJS (`xlsx`)
-- Tests: Vitest + React Testing Library — **76 test files, 600 tests, all passing**
+- Tests: Vitest + React Testing Library
 
 ---
 
@@ -47,10 +47,11 @@ pip install --no-deps --no-index ./3domics_db_build-0.1.0-py3-none-any.whl
 npm run generate-data        # downloads the pinned catalogue, verifies it, renders it
 ```
 
-`generate-data` has three steps: `fetch-catalog` downloads the Zenodo deposit named in
+`generate-data` has four steps: `fetch-catalog` downloads the Zenodo deposit named in
 `catalog.json` into `.catalog/` and checks its SHA-256; `3domics-db-build render`
 writes the JSON tree; `export-catalogue` validates the versioned SQL and JSON Schema
-contracts and writes the normalized download and build metadata. No token, and no
+contracts and writes the normalized download and build metadata; `build-search-index`
+writes the static search index. No token, and no
 partial-success path — a checksum mismatch or a missing release exits non-zero.
 
 Set `CATALOG_FILE=/path/to/local.sqlite` to render a catalogue you built yourself. The
@@ -71,6 +72,7 @@ catalogue lacks will fail, which is why `catalog.json` pins both versions.
 | Render all data | `npm run generate-data` | Needs the builder on `PATH`. Run after a `catalog.json` bump. |
 | Refresh ENA metadata | `npm run refresh-ena-metadata` | Run after rendering a new catalogue release; updates the committed public run snapshot. |
 | Download the catalogue only | `npm run fetch-catalog` | Verifies SHA-256 against the pin. |
+| Build the search index | `npm run build-search-index` | Runs automatically before dev and production builds. |
 | Dev server | `npm run dev` | http://localhost:5173 |
 | Tests | `npm run test` | Watch mode. Use `npx vitest run` for a single pass. |
 | Single test file | `npx vitest run src/pages/Home.test.tsx` | |
@@ -96,6 +98,7 @@ src/
                            useMetaboliteExcelFileData
   config/                  Taxonomy colours, metabolite labels
   scripts/fetch-catalog.ts Downloads the pinned catalogue and verifies its checksum
+  scripts/build-search-index.py Builds the on-demand static search index
   scripts/*-catalogue.py Exports/imports normalized, versioned catalogue JSON
   utils/chartUtils.ts      Chart.js helpers
   assets/data/             Rendered CSV/JSON and catalogue-build.json (git-ignored)
@@ -105,6 +108,7 @@ public/
   catalogue-v*.sql          Tracked versioned SQLite contracts
   catalogue-v*.schema.json  Tracked normalized JSON Schema contracts
   catalogue-v*.json.gz      Rendered normalized exports; git-ignored
+  search-index.json          Generated search index; git-ignored
   ena-run-metadata.json      Committed ENA run snapshot, tied to catalog.json's SHA-256
   404.html                   SPA deep-link redirect shim for GitHub Pages
 catalog.json                 THE PIN: data_version, schema_version, sha256, source (Zenodo), DOIs, builder
@@ -237,7 +241,7 @@ without typechecking — but each is a genuine defect:
 
 ```bash
 npx tsc --noEmit          # 3 known errors (§6.7); no new ones
-npx vitest run            # 76 files / 600 tests must pass
+npx vitest run            # the full suite must pass
 npm run build             # must succeed
 git status                # both dist/ and the rendered data are git-ignored
 ```

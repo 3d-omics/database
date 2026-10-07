@@ -6,6 +6,7 @@ import Nav from 'components/Navbar'
 import Footer from 'components/Footer'
 import NotFound from 'pages/NotFound'
 import Home from 'pages/Home'
+import SearchResults from 'pages/SearchResults'
 
 import AnimalTrial from 'pages/AnimalTrials'
 import AnimalSpecimen from 'pages/AnimalSpecimens'
@@ -63,6 +64,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/search" element={<SearchResults />} />
 
           <Route path="/animal-trials" element={<AnimalTrial />} />
           <Route path="/animal-specimens" element={<AnimalSpecimen />} />

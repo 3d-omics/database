@@ -63,6 +63,8 @@ describe('Home', () => {
 
     expect(screen.getByText("3D'omics Data Portal")).toBeInTheDocument()
     expect(screen.getByText(/Welcome to the 3D'omics Data Portal/i)).toBeInTheDocument()
+    const search = screen.getByRole('searchbox', { name: 'Search the data portal' })
+    expect(search.closest('section')).toContainElement(screen.getByText(/Welcome to the 3D'omics Data Portal/i))
   })
 
   it('renders animal trials menu', () => {

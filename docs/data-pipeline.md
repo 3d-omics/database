@@ -12,13 +12,14 @@ Airtable ──(database-build, elsewhere)──▶ 3domics-<DV>.sqlite ──(r
 ENA public run reports ──(snapshot refresh)──▶ public/ena-run-metadata.json ──▶ sample detail pages
 ```
 
-`npm run generate-data` is three steps:
+`npm run generate-data` is four steps:
 
 | Step | Command | What it does |
 |---|---|---|
 | 1 | `npm run fetch-catalog` | Downloads `catalog.json`'s `source` into `.catalog/3domics.sqlite`, verifies its SHA-256 against `sha256`, exits non-zero on mismatch. Re-uses the cached file when it already matches. |
 | 2 | `3domics-db-build render .catalog/3domics.sqlite --into .` | Writes the nine record dumps, the CSVs and their `_json` conversions. The currently pinned public wheel also writes a retired hierarchy file. |
 | 3 | `python3 src/scripts/export-catalogue.py` | Verifies the versioned contracts against the catalogue, writes `public/catalogue-v<schema_version>.json.gz`, and removes the retired hierarchy file before the site build. |
+| 4 | `npm run build-search-index` | Writes the ignored `public/search-index.json` from the rendered records and MAG metadata. Dev and production builds regenerate it automatically. The browser fetches it only when search is used. |
 
 ### ENA run metadata
 

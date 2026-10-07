@@ -26,6 +26,9 @@ Three things are *not* inlined and are fetched over HTTP by the running page:
 - the committed [ENA run snapshot](../public/ena-run-metadata.json), loaded from
   the same site by macrosample detail pages. The build checks its catalogue pin
   and run coverage. No visitor request goes to ENA.
+- the generated `public/search-index.json`, loaded on demand when a visitor uses
+  global search. The index is built from the pinned catalogue render before dev
+  and production builds, and is not committed.
 
 Everything else — Airtable records, genome metadata, count matrices — is a static
 `import` and therefore lands in the JS bundle. See
@@ -47,6 +50,7 @@ Everything else — Airtable records, genome metadata, count matrices — is a s
 | Path | Component | Data it reads |
 |---|---|---|
 | `/` | `pages/Home` | `_metadata.json`, `animaltrialexperiment.json` |
+| `/search?q=...` | `pages/SearchResults` | on-demand static search index |
 | `/animal-trials` | `pages/AnimalTrials` | `animaltrialexperiment.json` |
 | `/animal-trials/:experimentName` | `pages/AnimalTrialOverview` | `animaltrialexperiment.json` + all four tab components |
 | `/animal-specimens` | `pages/AnimalSpecimens` | `animalspecimen.json`, `animaltrialexperiment.json` |
