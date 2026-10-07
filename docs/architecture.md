@@ -65,7 +65,7 @@ Everything else — Airtable records, genome metadata, count matrices — is a s
 | `/mag-catalogues/:experimentName` | `pages/MAGCatalogue` | same + `genome_metadata_json/` |
 | `/mag-catalogues/:experimentName/:genomeName` | `pages/Genome` | `macrosample.json`, `microsampleswithcoordination.json`, all count JSON |
 | `/macrosample-compositions` | `pages/MacrosampleCompositionList` | `animaltrialexperiment.json` |
-| `/macrosample-compositions/:experimentName` | `pages/MacrosampleComposition` | `genome_metadata_json/`, `macro_genome_counts_json/` |
+| `/macrosample-compositions/:experimentName` | `pages/MacrosampleComposition` | `animaltrialexperiment.json`, `intestinalsectionsample.json`, `animalspecimen.json`, `genome_metadata_json/`, `macro_genome_counts_json/` |
 | `/metabolomics` | `pages/MetabolomicsList` | `experimentswithgenomeinfo.json` |
 | `/metabolomics/volcano/:experimentName` | `pages/MetabolomicsVolcano` | metabolomics XLSX |
 | `/metabolomics/heatmap/:experimentName` | `pages/MetabolomicsHeatmap` | metabolomics XLSX |

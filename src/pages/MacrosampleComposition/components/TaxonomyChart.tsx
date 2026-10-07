@@ -121,7 +121,7 @@ const MacrosampleComposition = ({ selectedTaxonomicLevel, setSelectedTaxonomicLe
   // Show full loading skeleton during initialization
   if (isInitializing || !isDataReady) {
     return (
-      <div className='grow max-xl:min-w-full'>
+      <div className='w-full'>
         <div className='animate-pulse flex flex-col mb-16' data-testid='loading-skeleton'>
           <div className='h-6 bg-surface_strong rounded w-[30%] mb-4'></div>
           <div className='h-[70vh] bg-surface_strong rounded w-full'></div>
@@ -131,7 +131,7 @@ const MacrosampleComposition = ({ selectedTaxonomicLevel, setSelectedTaxonomicLe
   }
 
   return (
-    <div className='grow max-xl:min-w-full'>
+    <div className='w-full'>
       <div>
         <div className='flex items-center mb-3 px-3 taxonomic-level-buttons'>
           <p className='text-sm font-bold mr-1.5 whitespace-nowrap'>Taxonomic Level:</p>

@@ -7,6 +7,13 @@ import useValidateParams from 'hooks/useValidateParams'
 // Mock hooks
 vi.mock('hooks/useValidateParams')
 
+vi.mock('assets/data/airtable/animaltrialexperiment.json', () => ({
+  default: [
+    { fields: { ID: 'G', Name: 'Experiment G' } },
+    { fields: { ID: 'M', Name: 'M - Histomonas experiment (turkey)' } },
+  ],
+}))
+
 // Mock components
 vi.mock('components/BreadCrumbs', () => ({
   default: ({ items }: any) => (
@@ -35,11 +42,15 @@ vi.mock('./components/TaxonomyChart', () => ({
 }))
 
 vi.mock('components/TaxonomyChartLegend', () => ({
-  default: ({ experimentId, selectedTaxonomicLevel }: any) => (
-    <div data-testid='taxonomy-legend'>
+  default: ({ experimentId, selectedTaxonomicLevel, layout }: any) => (
+    <div data-testid='taxonomy-legend' data-layout={layout}>
       Legend-{experimentId}-{selectedTaxonomicLevel}
     </div>
   ),
+}))
+
+vi.mock('components/TabComponents/MacrosampleTab', () => ({
+  default: ({ id }: { id: string }) => <div data-testid='macrosample-tab'>Macrosamples for {id}</div>,
 }))
 
 
@@ -56,7 +67,7 @@ describe('MacrosampleComposition', () => {
   const renderPage = (experimentName = 'Experiment G') => {
     return render(
       <MemoryRouter
-        initialEntries={[`/macrosample-compositions/${experimentName}`]}
+        initialEntries={[`/macrosample-compositions/${encodeURIComponent(experimentName)}`]}
         future={{
           v7_startTransition: true,
           v7_relativeSplatPath: true
@@ -90,8 +101,7 @@ describe('MacrosampleComposition', () => {
 
     const chart = screen.getByTestId('taxonomy-chart')
     expect(chart).toBeInTheDocument()
-    // experimentId = 'E' (first char of 'Experiment G')
-    expect(chart).toHaveTextContent('Chart-E-phylum')
+    expect(chart).toHaveTextContent('Chart-G-phylum')
   })
 
   it('renders TaxonomyChartLegend with experimentId', () => {
@@ -99,15 +109,30 @@ describe('MacrosampleComposition', () => {
 
     const legend = screen.getByTestId('taxonomy-legend')
     expect(legend).toBeInTheDocument()
-    // experimentId = 'E' (first char of 'Experiment G')
-    expect(legend).toHaveTextContent('Legend-E-phylum')
+    expect(legend).toHaveTextContent('Legend-G-phylum')
   })
 
   it('passes phylum as default selectedTaxonomicLevel', () => {
     renderPage('Experiment G')
 
-    expect(screen.getByText('Chart-E-phylum')).toBeInTheDocument()
-    expect(screen.getByText('Legend-E-phylum')).toBeInTheDocument()
+    expect(screen.getByText('Chart-G-phylum')).toBeInTheDocument()
+    expect(screen.getByText('Legend-G-phylum')).toBeInTheDocument()
+  })
+
+  it('stacks the full-width chart, taxonomy legend, and trial macrosamples in that order', () => {
+    renderPage()
+
+    const section = screen.getByRole('region', { name: 'Community composition' })
+    const chart = screen.getByTestId('taxonomy-chart')
+    const legend = screen.getByTestId('taxonomy-legend')
+    const macrosamples = screen.getByTestId('macrosample-tab')
+    expect(section).toContainElement(chart)
+    expect(section).toContainElement(legend)
+    expect(section).toHaveClass('page_padding')
+    expect(legend).toHaveAttribute('data-layout', 'row')
+    expect(chart.compareDocumentPosition(legend) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(legend.compareDocumentPosition(macrosamples) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy()
+    expect(macrosamples).toHaveTextContent('Macrosamples for G')
   })
 
   it('shows validating state', () => {
@@ -132,11 +157,11 @@ describe('MacrosampleComposition', () => {
     expect(screen.getByTestId('not-found')).toBeInTheDocument()
   })
 
-  it('extracts experimentId from experimentName', () => {
-    renderPage('Hello World')
+  it('uses the matched trial ID for another composition page and its macrosamples', () => {
+    renderPage('M - Histomonas experiment (turkey)')
 
-    // experimentId should be 'H' (first character of full string)
-    expect(screen.getByText('Chart-H-phylum')).toBeInTheDocument()
-    expect(screen.getByText('Legend-H-phylum')).toBeInTheDocument()
+    expect(screen.getByText('Chart-M-phylum')).toBeInTheDocument()
+    expect(screen.getByText('Legend-M-phylum')).toBeInTheDocument()
+    expect(screen.getByText('Macrosamples for M')).toBeInTheDocument()
   })
 })

@@ -5,11 +5,16 @@ import PageHeader from 'components/PageHeader'
 import { useParams } from 'react-router-dom'
 import useValidateParams from 'hooks/useValidateParams'
 import ParamsValidator from 'components/ParamsValidator'
+import MacrosampleTab from 'components/TabComponents/MacrosampleTab'
+import animalTrialExperimentData from 'assets/data/airtable/animaltrialexperiment.json'
 
 const MacrosampleComposition = () => {
 
   const { experimentName = '' } = useParams()
-  const experimentId = experimentName.charAt(0)
+  const experiment = animalTrialExperimentData.find(
+    (record) => record.fields.Name.toLowerCase() === experimentName.toLowerCase()
+  )
+  const experimentId = experiment?.fields.ID ?? ''
 
   const [selectedTaxonomicLevel, setSelectedTaxonomicLevel] = useState('phylum')
 
@@ -21,8 +26,7 @@ const MacrosampleComposition = () => {
 
   return (
     <ParamsValidator validating={validating} notFound={notFound} >
-      <div className='max-w-screen'>
-
+      {experiment && <div className='min-h-screen'>
         <PageHeader
           title={experimentName}
           breadcrumbs={[
@@ -33,20 +37,25 @@ const MacrosampleComposition = () => {
           ]}
         />
 
-        <div className='page_padding flex min-h-[calc(100vh-300px)] justify-between gap-10 items-start
-              max-xl:flex-col max-xl:items-start max-xl:gap-12 max-xl:h-fit max-xl:mb-12'>
-          <TaxonomyChart
-            experimentId={experimentId}
-            selectedTaxonomicLevel={selectedTaxonomicLevel}
-            setSelectedTaxonomicLevel={setSelectedTaxonomicLevel}
-          />
-          <TaxonomyChartLegend
-            selectedTaxonomicLevel={selectedTaxonomicLevel}
-            experimentId={experimentId}
-          />
-        </div>
-
-      </div>
+        <main>
+          <section aria-labelledby='composition-heading' className='page_padding pt-8'>
+            <h2 id='composition-heading' className='main_header mb-5'>Community composition</h2>
+            <TaxonomyChart
+              experimentId={experimentId}
+              selectedTaxonomicLevel={selectedTaxonomicLevel}
+              setSelectedTaxonomicLevel={setSelectedTaxonomicLevel}
+            />
+            <div className='mt-4'>
+              <TaxonomyChartLegend
+                selectedTaxonomicLevel={selectedTaxonomicLevel}
+                experimentId={experimentId}
+                layout='row'
+              />
+            </div>
+          </section>
+          <MacrosampleTab id={experimentId} />
+        </main>
+      </div>}
     </ParamsValidator>
   )
 }
