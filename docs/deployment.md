@@ -39,7 +39,7 @@ catalogue's record would mean a new version DOI and a repin of the data.
 | | |
 |---|---|
 | Builder concept DOI | [10.5281/zenodo.22159536](https://doi.org/10.5281/zenodo.22159536) |
-| Installed here | 0.1.0 — [10.5281/zenodo.22159537](https://doi.org/10.5281/zenodo.22159537) |
+| Installed here | 0.2.0 — [10.5281/zenodo.22894359](https://doi.org/10.5281/zenodo.22894359) |
 
 To move to a new builder, release it from `database-build`
 (`scripts/release_builder_wheel.py`, see its `RELEASING.md`), then set `builder`,

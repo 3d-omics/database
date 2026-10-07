@@ -44,6 +44,11 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Added
 
+- Catalogue `2026.10.07` adds five Experiment G cryosections and their
+  microsample count matrices: `G121eI117A`, `G121eI118B`, `G121eO306A`,
+  `G121eO307A`, and `G121eO308A`. The site now pins the published
+  [version DOI](https://doi.org/10.5281/zenodo.23201823) and builder 0.2.0;
+  the catalogue remains on schema 2.
 - A publication audit of the pinned catalogue and public ENA and BioSamples
   records, with findings and CSVs for accession and cross-reference gaps
   ([`6d714c7`][6d714c7]).

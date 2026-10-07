@@ -1,6 +1,6 @@
 {
-  "catalog_sha256": "368cbd4869878c7583e569aa8a94845ccd4c79b33f361ace521e369ce46fb6fb",
-  "retrieved_at": "2026-10-06",
+  "catalog_sha256": "9b0f5a308bcb8cfaca922aac2e906fa339d2d8c8a7bd870a5c2dee5b6edb1588",
+  "retrieved_at": "2026-10-07",
   "source": "https://www.ebi.ac.uk/ena/portal/api/filereport",
   "runs": {
     "ERR14747883": {

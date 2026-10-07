@@ -42,8 +42,9 @@ with `Cannot find module 'assets/data/airtable/…'`.
 npm ci
 # The builder is a checksummed wheel pinned in catalog.json, not a git clone:
 # the repo is private and CI cannot read it. See docs/deployment.md.
-curl -fsSL "$(node -p "require('./catalog.json').builder_wheel")" -o 3domics_db_build-0.1.0-py3-none-any.whl
-pip install --no-deps --no-index ./3domics_db_build-0.1.0-py3-none-any.whl
+wheel="3domics_db_build-$(node -p "require('./catalog.json').builder.slice(1)")-py3-none-any.whl"
+curl -fsSL "$(node -p "require('./catalog.json').builder_wheel")" -o "$wheel"
+pip install --no-deps --no-index "./$wheel"
 npm run generate-data        # downloads the pinned catalogue, verifies it, renders it
 ```
 

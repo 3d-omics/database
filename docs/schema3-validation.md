@@ -65,4 +65,4 @@ the matching schema-3 download.
 
 Publishing requires a tagged builder 0.3.0 wheel and a Zenodo catalogue
 deposit, followed by new checksum and DOI pins in `catalog.json`. Until then,
-the current production site and `3dtk` release continue using schema 2.
+the production site and `3dtk` release continue using schema 2.
