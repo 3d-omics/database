@@ -349,6 +349,11 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Fixed
 
+- Experiment C's 12 public specimen BioSamples now have the correct specimen
+  names and levels, with their self-links removed. The accession mappings are
+  unchanged. The publication audit records the verified repair and identifies
+  the 15 source rows for excluded C013–C015 samples that must leave the next
+  catalogue release ([`a04ccd6`][a04ccd6]).
 - The catalogue fetch script uses Node's `--import` loader, avoiding a local
   IPC socket that prevented data generation in restricted development setups
   ([`28ff614`][28ff614]).
@@ -587,6 +592,7 @@ pinned, rather than against today's Airtable.
 <!-- Commit links -->
 
 [Unreleased]: https://github.com/3d-omics/database/compare/f901710...main
+[a04ccd6]: https://github.com/3d-omics/database/commit/a04ccd6941a6dbb167eaaea150b02cf811b33a8e
 [9fde882]: https://github.com/3d-omics/database/commit/9fde882c0454dc87b17a6daafbb10a51c66a17a2
 [4ef8f79]: https://github.com/3d-omics/database/commit/4ef8f79ba145fb3a927fe166a090461abc349a39
 [d7c08a9]: https://github.com/3d-omics/database/commit/d7c08a99a3973e7836cb57ca3fb04389f5f0ba96
