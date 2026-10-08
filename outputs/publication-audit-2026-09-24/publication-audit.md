@@ -6,6 +6,12 @@ Portal catalogue: `2026.09.22` / schema `2`
 
 Catalogue release: <https://doi.org/10.5281/zenodo.22894102>
 
+Post-audit update (2026-10-08): the 12 Experiment C specimen BioSamples were
+corrected and verified in EBI; their catalogue accessions remain valid. The
+curator confirmed that C013–C015 were excluded and their sample rows should
+leave the next catalogue release. The counts below describe the original
+2026-09-24 snapshot.
+
 ## Executive conclusion
 
 Publication itself is largely complete. Every accession already shown in the portal is public: all 526 specimen BioSample accessions resolve, and all 5,986 macro/microsample run accessions occur in the official ENA project reports with FASTQ locations. The main gaps are incorrect assignments and incomplete synchronization between ENA, the Airtable-derived source tables, and the rendered portal.
@@ -39,6 +45,8 @@ Do not bulk-fill blank fields before resolving the two P0 correctness issues:
 `SAMEA120503842`–`SAMEA120503853` are public, but their public names are `C001aK`–`C012aK` and all report `level=macrosample`. The portal assigns them to specimens `C001`–`C012`. The first record also contains a self-referential “derived from” relationship, which is consistent with a record having been reused or overwritten, but that cause must be confirmed by the submitter.
 
 Action: determine whether the original specimen records were overwritten. Either correct the records in BioSamples or replace the portal values with distinct specimen-level accessions.
+
+Resolved 2026-10-08: all 12 records now have names `C001`–`C012`, `level=specimen`, and no self-link. The correction retained their existing accessions and structured data; see the [repair plan and verification record](../experiment-c-repair-2026-10-08/README.md). The structured `sample` blocks remain duplicated on the `aK` child records and should be checked against the original submission sheet.
 
 Exact records: [`biosample-semantic-mismatches.csv`](biosample-semantic-mismatches.csv)
 
@@ -110,19 +118,19 @@ Exact triage list: [`macrosample-library-no-public-run.csv`](macrosample-library
 
 Six published Experiment C macrosamples (`C013aF/H`, `C014aF/H`, `C015aF/H`) point to specimen IDs that are absent from the portal. Two legacy Experiment D macrosamples are also orphaned even though D is not a catalogued experiment.
 
-Action: add/identify specimen BioSamples for C013–C015 or classify those records as controls. Decide whether the two D records belong in the current portal scope.
+Curator resolution (2026-10-08): C013–C015 were excluded from the trial and must not be included in the portal catalogue. Do not create specimen BioSamples for them. Exclude the six macrosample rows and their nine sequencing-library rows from the next source snapshot; see [`excluded-records.csv`](../experiment-c-repair-2026-10-08/excluded-records.csv). The public ENA runs remain archived. Decide separately whether the two D records belong in the current portal scope.
 
 Exact records: [`hierarchy-orphans.csv`](hierarchy-orphans.csv)
 
 ## Recommended execution order
 
-1. Resolve the 12 Experiment C BioSample semantics and validate the 96 proposed Experiment G run remappings.
+1. The 12 Experiment C BioSample semantics were corrected on 2026-10-08. Validate the 96 proposed Experiment G run remappings.
 2. Import the 401 recoverable micro cross-references; this repairs existing genome-detail links without new publication.
 3. Decide the portal's data model for multiple sequencing runs per macro/microsample, then add the 113 additional macro runs and review the two `b`-suffixed micro runs.
 4. Complete or intentionally exclude the 16 Experiment G cryosections represented by 474 already-public runs.
 5. Triage the 23 unpublished/blank macro library rows, prioritizing the seven used in count matrices.
 6. Add sequencing-level SAMEA and ERS fields if biosample discovery is a goal.
-7. Cut a new catalogue release, bump `catalog.json`, rerender, and repeat this audit against ENA.
+7. Exclude the C013–C015 source rows, cut a new catalogue release, bump `catalog.json`, rerender, and repeat this audit against ENA.
 
 ## Files in this audit
 

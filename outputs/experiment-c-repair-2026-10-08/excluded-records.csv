@@ -1,0 +1,16 @@
+table,airtable_record_id,identifier,excluded_specimen,run_accession
+macrosamples,recf6daK8RKObkkSc,C013aF,C013,ERR15738660
+macrosamples,recJ07djNfB6cFOv1,C013aH,C013,ERR15738631
+macrosamples,recGyrmr48F2gXHOm,C014aF,C014,ERR15738654
+macrosamples,rec2ca6Dq83iDBp0J,C014aH,C014,ERR15738641
+macrosamples,recX3zIkojyfWKZao,C015aF,C015,ERR15738656
+macrosamples,recBGg1m1f8QFRDZc,C015aH,C015,ERR15738634
+macrosample_sequencing,recOdvigjx870lTzN,D300063,C013,ERR15738660
+macrosample_sequencing,rec2V4x1OVYfnQXbN,D300064,C013,ERR15738631
+macrosample_sequencing,recp6cmymEyNMnFrD,D300065,C014,ERR15738654
+macrosample_sequencing,recbTMS6ZhqPMse1H,D300066,C014,ERR15738641
+macrosample_sequencing,recJ6llkMcZzJyDzJ,D300068,C015,ERR15738656
+macrosample_sequencing,recVagcjZjrQbRd24,D300069,C015,ERR15738634
+macrosample_sequencing,rec8j7ocDbfsYeOGy,D300071,C014,
+macrosample_sequencing,recwDrRFar0Nqt15e,D300072,C014,
+macrosample_sequencing,recCye4770EBsZADt,D300073,C015,

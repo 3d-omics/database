@@ -1,0 +1,458 @@
+{
+  "sample": {
+    "name": "C006aK",
+    "accession": "SAMEA120503847",
+    "sraAccession": "ERS27204534",
+    "webinSubmissionAccountId": "Webin-69627",
+    "taxId": 9823,
+    "status": "PUBLIC",
+    "release": "2025-06-01T00:00:00Z",
+    "update": "2025-11-12T09:29:42.472Z",
+    "submitted": "2025-11-07T04:19:38.498Z",
+    "characteristics": {
+      "SRA accession": [
+        {
+          "text": "ERS27204534"
+        }
+      ],
+      "level": [
+        {
+          "text": "macrosample"
+        }
+      ],
+      "organism": [
+        {
+          "text": "Sus scrofa"
+        }
+      ],
+      "species": [
+        {
+          "text": "pig"
+        }
+      ]
+    },
+    "relationships": [
+      {
+        "source": "SAMEA120503847",
+        "type": "derived from",
+        "target": "SAMEA120503847"
+      },
+      {
+        "source": "SAMEA120503864",
+        "type": "derived from",
+        "target": "SAMEA120503847"
+      },
+      {
+        "source": "SAMEA120503865",
+        "type": "derived from",
+        "target": "SAMEA120503847"
+      }
+    ],
+    "submittedVia": "JSON_API",
+    "create": "2025-11-07T04:19:38.498Z",
+    "structuredData": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "project",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "bioproject",
+              "iri": null
+            },
+            "value": {
+              "value": "PRJEB86267",
+              "iri": "https://www.ebi.ac.uk/ena/browser/view/PRJEB86267"
+            }
+          },
+          {
+            "metric": {
+              "value": "name",
+              "iri": null
+            },
+            "value": {
+              "value": "3D'omics",
+              "iri": "https://cordis.europa.eu/project/id/101000309"
+            }
+          }
+        ]
+      },
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "data",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "Metabolomics",
+              "iri": null
+            },
+            "value": {
+              "value": "https://www.ebi.ac.uk/metabolights/editor/MTBLS13210",
+              "iri": "https://www.ebi.ac.uk/metabolights/editor/MTBLS13210"
+            }
+          }
+        ]
+      },
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum",
+              "iri": null
+            }
+          }
+        ]
+      },
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "study",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "bioproject",
+              "iri": null
+            },
+            "value": {
+              "value": "PRJEB100724",
+              "iri": "https://www.ebi.ac.uk/ena/browser/view/PRJEB100724"
+            }
+          },
+          {
+            "metric": {
+              "value": "name",
+              "iri": null
+            },
+            "value": {
+              "value": "C - Proof-of-principle swine trial",
+              "iri": null
+            }
+          }
+        ]
+      },
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "treatment",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "code",
+              "iri": null
+            },
+            "value": {
+              "value": "TC2",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "description",
+              "iri": null
+            },
+            "value": {
+              "value": "ControlDiet+LateMannan",
+              "iri": null
+            }
+          }
+        ]
+      },
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "animal",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "age (days from birth)",
+              "iri": null
+            },
+            "value": {
+              "value": "40",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "weight (kg)",
+              "iri": null
+            },
+            "value": {
+              "value": "18.3",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "sex",
+              "iri": null
+            },
+            "value": {
+              "value": "male",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ],
+    "_links": {
+      "self": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA120503847"
+      },
+      "applyCurations": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA120503847{?applyCurations}",
+        "templated": true
+      },
+      "curationLinks": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA120503847/curationlinks"
+      },
+      "curationLink": {
+        "href": "https://www.ebi.ac.uk/biosamples/samples/SAMEA120503847/curationlinks/{hash}",
+        "templated": true
+      },
+      "structuredData": {
+        "href": "https://www.ebi.ac.uk/biosamples/structureddata/SAMEA120503847"
+      }
+    }
+  },
+  "structured": {
+    "accession": "SAMEA120503847",
+    "create": "2025-11-07T04:19:39.085Z",
+    "update": "2025-11-12T09:29:42.685Z",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "project",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "bioproject",
+              "iri": null
+            },
+            "value": {
+              "value": "PRJEB86267",
+              "iri": "https://www.ebi.ac.uk/ena/browser/view/PRJEB86267"
+            }
+          },
+          {
+            "metric": {
+              "value": "name",
+              "iri": null
+            },
+            "value": {
+              "value": "3D'omics",
+              "iri": "https://cordis.europa.eu/project/id/101000309"
+            }
+          }
+        ]
+      },
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "data",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "Metabolomics",
+              "iri": null
+            },
+            "value": {
+              "value": "https://www.ebi.ac.uk/metabolights/editor/MTBLS13210",
+              "iri": "https://www.ebi.ac.uk/metabolights/editor/MTBLS13210"
+            }
+          }
+        ]
+      },
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum",
+              "iri": null
+            }
+          }
+        ]
+      },
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "study",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "bioproject",
+              "iri": null
+            },
+            "value": {
+              "value": "PRJEB100724",
+              "iri": "https://www.ebi.ac.uk/ena/browser/view/PRJEB100724"
+            }
+          },
+          {
+            "metric": {
+              "value": "name",
+              "iri": null
+            },
+            "value": {
+              "value": "C - Proof-of-principle swine trial",
+              "iri": null
+            }
+          }
+        ]
+      },
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "treatment",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "code",
+              "iri": null
+            },
+            "value": {
+              "value": "TC2",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "description",
+              "iri": null
+            },
+            "value": {
+              "value": "ControlDiet+LateMannan",
+              "iri": null
+            }
+          }
+        ]
+      },
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "animal",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "age (days from birth)",
+              "iri": null
+            },
+            "value": {
+              "value": "40",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "weight (kg)",
+              "iri": null
+            },
+            "value": {
+              "value": "18.3",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "sex",
+              "iri": null
+            },
+            "value": {
+              "value": "male",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
