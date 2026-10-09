@@ -22,12 +22,13 @@ moved it. If the project starts tagging releases, these headings become
 
 - Cryosection images can now be fetched as a checked ZIP from the same Zenodo
   release as the catalogue and staged for GitHub Pages at build time. The
-  current catalogue pin uses the committed JPGs until an image-backed release
-  is published; the new path validates every cryosection ID and image checksum.
+  `2026.10.09` pin provides all 90 images; the old committed JPGs were removed.
+  The build validates every cryosection ID and image checksum
+  ([`c43530d`][c43530d], [`6ca08f5`][6ca08f5]).
 - Macro- and microsample tables, details and search now expose available
   BioSamples and INSDC sample identifiers from checked public metadata
-  snapshots. The schema-3 contract is prepared to publish the
-  Airtable material accession field; the pinned release remains schema 2.
+  snapshots. Schema 3 publishes the Airtable material accession field
+  ([`c43530d`][c43530d], [`6ca08f5`][6ca08f5]).
 - Macrosample composition pages now place the full-width barplot above a wrapping
   taxonomy legend and list every macrosample in the trial below
   ([`9fde882`][9fde882]).
@@ -55,6 +56,13 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Added
 
+- Catalogue `2026.10.09` and builder `0.3.0` are pinned to their
+  [dataset](https://doi.org/10.5281/zenodo.23255175) and
+  [software](https://doi.org/10.5281/zenodo.23255074) Zenodo versions. The
+  catalogue includes 510 F/H/M and 24 C material BioSamples accessions and
+  excludes the 300 deferred F D/E rows and 15 C013–C015 source rows. The
+  refreshed ENA and BioSamples snapshots resolve the reviewer examples
+  ([`6ca08f5`][6ca08f5]).
 - An [Experiment F/H/M BioSamples relationship audit and repair](outputs/experiment-fhm-biosamples-2026-10-08/README.md)
   verifies the G hierarchy model and records the 698 F/H/M catalogue
   macrosamples. The 360 H/M metabolomics, 150 F biological, and 296 F D/E
@@ -700,3 +708,5 @@ pinned, rather than against today's Airtable.
 [6cf4982]: https://github.com/3d-omics/database/commit/6cf4982d7b3a934637e57fa39bd60470029f186d
 [6d714c7]: https://github.com/3d-omics/database/commit/6d714c767d28f3937e64aa5a8c1948fad75daa76
 [2252a76]: https://github.com/3d-omics/database/commit/2252a7678112965c91790f3b68b1355e28a1ae83
+[c43530d]: https://github.com/3d-omics/database/commit/c43530d9903d42081cb57b834275e97313aecf04
+[6ca08f5]: https://github.com/3d-omics/database/commit/6ca08f5bdc1a5e9e8e74dae18f0b6783e2b0c1c8

@@ -120,7 +120,7 @@ application code changed in the migration:
 | `animalspecimen.json` | table `specimens` | `tbldS5LFsxJ9KHZzm` | |
 | `intestinalsectionsample.json` | table `macrosamples` | `tbl0X0ElXWistmHa4` | surfaced in the UI as "Macrosamples" |
 | `experimentswithgenomeinfo.json` | view `experiments_with_genomes` | `tblIv5AygbJtitB14` | same table as trials, different view |
-| `cryosection.json` | table `cryosections` | `tblC7ttwMXX9aOFNQ` | ~85 records; complete cryosections only, see below |
+| `cryosection.json` | table `cryosections` | `tblC7ttwMXX9aOFNQ` | 90 records in `2026.10.09`; complete cryosections only, see below |
 | `cryosectionimage.json` | view `cryosections_with_image` | `tblC7ttwMXX9aOFNQ` | same table, image view, ~78 records |
 | `microsample.json` | table `microsamples` | `tblCkV1GWTGEaiUBC` | ~5 300 records |
 | `microsampleswithcoordination.json` | table `microsample_sequencing` | `tbl6uGSGiUXIp0K3z` | ~4 090 records, X/Y pixel coordinates |
@@ -171,7 +171,7 @@ All six directories are git-ignored.
 |---|---|---|
 | `src/assets/data/genome_metadata/` | `genome_metadata_json/` | 8 — one per experiment C, F, G, H, I, J, K, M |
 | `src/assets/data/macro_genome_counts/` | `macro_genome_counts_json/` | 8 |
-| `src/assets/data/microsample_counts/` | `microsample_counts_json/` | **85**, one per cryosection |
+| `src/assets/data/microsample_counts/` | `microsample_counts_json/` | **90**, one per cryosection |
 
 Genome metadata columns: `genome, domain, phylum, class, order, family, genus, species,
 completeness, contamination, length`.
@@ -191,14 +191,14 @@ render overwrites it.
 
 ## Stage 3 — normalized catalogue
 
-The committed [`catalogue-v2.sql`](../public/catalogue-v2.sql) describes the SQL
+The committed [`catalogue-v3.sql`](../public/catalogue-v3.sql) describes the SQL
 tables, views and indexes separately from their contents. The committed
-[`catalogue-v2.schema.json`](../public/catalogue-v2.schema.json) describes the
+[`catalogue-v3.schema.json`](../public/catalogue-v3.schema.json) describes the
 normalized JSON export. The exporter checks the pinned SQLite structure against
 both contracts before writing `public/catalogue-v<schema_version>.json.gz`.
-Version 3 has [its own SQL](../public/catalogue-v3.sql) and
-[JSON Schema](../public/catalogue-v3.schema.json); the current production pin
-still selects version 2. The export's fixed table
+Version 2 remains documented by [SQL](../public/catalogue-v2.sql) and
+[JSON Schema](../public/catalogue-v2.schema.json); the current production pin
+selects version 3. The export's fixed table
 names contain arrays of records; record IDs are values in named fields. The
 compressed export is git-ignored and downloaded only on request. See
 [the schema guide](catalogue-schema.md) for the relationship inventory and the

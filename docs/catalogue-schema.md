@@ -1,17 +1,15 @@
 # Catalogue schema and exports
 
 The released SQLite catalogue is the source of the portal's data. Its **schema
-version 2** is specified separately from the records by
-[`catalogue-v2.sql`](../public/catalogue-v2.sql). The equivalent normalized JSON
-export is described by [`catalogue-v2.schema.json`](../public/catalogue-v2.schema.json),
+version 3** is specified separately from the records by
+[`catalogue-v3.sql`](../public/catalogue-v3.sql). The equivalent normalized JSON
+export is described by [`catalogue-v3.schema.json`](../public/catalogue-v3.schema.json),
 using [JSON Schema 2020-12](https://json-schema.org/draft/2020-12). Both contracts are
 committed and checked against the pinned catalogue when the website data is rendered.
 The current pinned data version is in [`catalog.json`](../catalog.json).
-The candidate **schema version 3** is specified by
-[`catalogue-v3.sql`](../public/catalogue-v3.sql) and
-[`catalogue-v3.schema.json`](../public/catalogue-v3.schema.json). It has been
-validated against a migration of the pinned release but is not yet the
-website's published data version.
+The earlier schema version 2 remains specified by
+[`catalogue-v2.sql`](../public/catalogue-v2.sql) and
+[`catalogue-v2.schema.json`](../public/catalogue-v2.schema.json).
 
 The `/database-schema` web page offers both schema files and the normalized JSON
 export. The export has fixed table keys and arrays of rows, with identifiers in
@@ -19,8 +17,8 @@ named fields:
 
 ```json
 {
-  "data_version": "2026.09.22",
-  "schema_version": "2",
+  "data_version": "2026.10.09",
+  "schema_version": "3",
   "tables": {
     "experiments": [{"experiment_id": "G", "name": "..."}],
     "specimens": [{"specimen_id": "G001", "experiment_id": "G"}]
@@ -30,10 +28,10 @@ named fields:
 
 The example omits other fields and tables; the actual export follows the JSON
 Schema. It is generated from the pinned catalogue, never hand-edited. Download
-it as `catalogue-v2.json.gz` and decompress before validating or querying:
+it as `catalogue-v3.json.gz` and decompress before validating or querying:
 
 ```bash
-gzip -dc catalogue-v2.json.gz | jq '.tables.experiments[] | {experiment_id, name}'
+gzip -dc catalogue-v3.json.gz | jq '.tables.experiments[] | {experiment_id, name}'
 ```
 
 ## Tables and identifiers
@@ -53,7 +51,7 @@ gzip -dc catalogue-v2.json.gz | jq '.tables.experiments[] | {experiment_id, name
 | `source_files` | Source attachment manifest with checksums and row counts |
 | `catalog_meta` | Data version, schema version, builder and source snapshot |
 
-The SQL file is the exact structural contract of catalogue schema 2: table and
+The SQL file is the exact structural contract of catalogue schema 3: table and
 view declarations and indexes. The JSON Schema specifies each table's columns,
 scalar types, nullability and fixed row shape. It cannot check relationships
 between rows by itself. Its `x-relations` annotation lists cross-row links;
@@ -133,7 +131,7 @@ The builder migrated the 2026.09.22 release without Airtable. All rows in its
 13 tables, the 107 source-file manifest entries, and both supported foreign
 keys passed validation. Its normalized JSON export also passes JSON Schema
 2020-12 validation and round-trips through the importer without changing any
-table row. Schema 3 has not replaced the schema-2 release pinned by this
-website; publishing and pinning it requires a separate release.
+table row. The Airtable-sourced `2026.10.09` release replaced that migration
+candidate and populates the material BioSamples accession column.
 The [schema-3 validation record](schema3-validation.md) lists the checks and
 candidate checksum.
