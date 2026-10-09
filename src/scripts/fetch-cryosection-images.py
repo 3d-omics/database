@@ -102,15 +102,6 @@ def stage_archive(archive_path: Path, version: str, expected_ids: set[str], dest
     return manifest
 
 
-def stage_legacy(source: Path, destination: Path) -> dict[str, str]:
-    files = sorted(source.glob("*.jpg"))
-    if not files:
-        raise ValueError(f"No legacy cryosection JPGs found in {source}")
-    for path in files:
-        shutil.copyfile(path, destination / path.name)
-    return {path.stem: path.name for path in files}
-
-
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--catalog-json", type=Path, default=ROOT / "catalog.json")
@@ -118,36 +109,29 @@ def main() -> None:
     parser.add_argument("--archive-file", type=Path, help="Local archive for offline verification")
     parser.add_argument("--output", type=Path, default=ROOT / "public/cryosection-images")
     parser.add_argument("--manifest-output", type=Path, default=ROOT / "src/assets/data/cryosection-image-manifest.json")
-    parser.add_argument("--legacy-dir", type=Path, default=ROOT / "src/assets/images/cryosection_images")
     args = parser.parse_args()
     pin = json.loads(args.catalog_json.read_text())
     image_pin = pin.get("cryosection_images")
-    expected_ids, shown_ids = catalogue_ids(args.catalogue)
+    expected_ids, _ = catalogue_ids(args.catalogue)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(dir=args.output.parent) as temp:
         staged = Path(temp) / "images"
         staged.mkdir()
-        if image_pin is None:
-            mapping = stage_legacy(args.legacy_dir, staged)
-            missing = shown_ids - mapping.keys()
-            if missing:
-                print(f"Legacy image set misses {len(missing)} image-enabled sections: {', '.join(sorted(missing))}")
-        else:
-            if not isinstance(image_pin, dict) or not image_pin.get("url") or not image_pin.get("sha256"):
-                raise ValueError("cryosection_images needs a Zenodo URL and SHA-256")
-            catalogue_record = re.search(r"/api/records/(\d+)/files/", pin.get("source", ""))
-            image_record = re.search(r"/api/records/(\d+)/files/", image_pin["url"])
-            if not catalogue_record or not image_record:
-                raise ValueError("Catalogue and image archive need version-specific Zenodo file URLs")
-            if image_record.group(1) != catalogue_record.group(1):
-                raise ValueError("Image archive and catalogue must use the same Zenodo record version")
-            archive = args.archive_file or fetch_archive(
-                image_pin["url"], image_pin["sha256"],
-                ROOT / ".catalog/cryosection-images.zip",
-            )
-            if digest(archive) != image_pin["sha256"]:
-                raise ValueError("Cryosection image archive SHA-256 mismatch")
-            mapping = stage_archive(archive, pin["data_version"], expected_ids, staged)
+        if not isinstance(image_pin, dict) or not image_pin.get("url") or not image_pin.get("sha256"):
+            raise ValueError("cryosection_images needs a Zenodo URL and SHA-256")
+        catalogue_record = re.search(r"/api/records/(\d+)/files/", pin.get("source", ""))
+        image_record = re.search(r"/api/records/(\d+)/files/", image_pin["url"])
+        if not catalogue_record or not image_record:
+            raise ValueError("Catalogue and image archive need version-specific Zenodo file URLs")
+        if image_record.group(1) != catalogue_record.group(1):
+            raise ValueError("Image archive and catalogue must use the same Zenodo record version")
+        archive = args.archive_file or fetch_archive(
+            image_pin["url"], image_pin["sha256"],
+            ROOT / ".catalog/cryosection-images.zip",
+        )
+        if digest(archive) != image_pin["sha256"]:
+            raise ValueError("Cryosection image archive SHA-256 mismatch")
+        mapping = stage_archive(archive, pin["data_version"], expected_ids, staged)
         if args.output.exists():
             shutil.rmtree(args.output)
         shutil.move(str(staged), args.output)

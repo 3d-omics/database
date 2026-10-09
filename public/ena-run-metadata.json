@@ -1,5 +1,5 @@
 {
-  "catalog_sha256": "9b0f5a308bcb8cfaca922aac2e906fa339d2d8c8a7bd870a5c2dee5b6edb1588",
+  "catalog_sha256": "da4ee2289f7eef08e2558fb1f945c58dba54b8bfa3cd5789b60191bff8baacaa",
   "retrieved_at": "2026-10-09",
   "source": "https://www.ebi.ac.uk/ena/portal/api/filereport",
   "runs": {
@@ -7681,28 +7681,6 @@
         "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/030/ERR15738630/ERR15738630_2.fastq.gz"
       ]
     },
-    "ERR15738631": {
-      "run_accession": "ERR15738631",
-      "study_accession": "PRJEB100724",
-      "study_title": "3D'omics: proof-of-concept mannan fibre swine trial",
-      "sample_accession": "SAMEA120395595",
-      "secondary_sample_accession": "ERS27096281",
-      "sample_description": "Tissue",
-      "host_body_site": "Caecum",
-      "collection_date": "2022-05-02",
-      "experiment_accession": "ERX15143738",
-      "library_strategy": "WGS",
-      "library_source": "GENOMIC",
-      "library_layout": "PAIRED",
-      "instrument_model": "Illumina NovaSeq X",
-      "read_count": 122831934,
-      "base_count": 18424790100,
-      "first_public": "2025-11-01",
-      "fastq_urls": [
-        "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/031/ERR15738631/ERR15738631_1.fastq.gz",
-        "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/031/ERR15738631/ERR15738631_2.fastq.gz"
-      ]
-    },
     "ERR15738632": {
       "run_accession": "ERR15738632",
       "study_accession": "PRJEB100724",
@@ -7745,28 +7723,6 @@
       "fastq_urls": [
         "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/033/ERR15738633/ERR15738633_1.fastq.gz",
         "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/033/ERR15738633/ERR15738633_2.fastq.gz"
-      ]
-    },
-    "ERR15738634": {
-      "run_accession": "ERR15738634",
-      "study_accession": "PRJEB100724",
-      "study_title": "3D'omics: proof-of-concept mannan fibre swine trial",
-      "sample_accession": "SAMEA120395598",
-      "secondary_sample_accession": "ERS27096284",
-      "sample_description": "Tissue",
-      "host_body_site": "Caecum",
-      "collection_date": "2022-05-02",
-      "experiment_accession": "ERX15143741",
-      "library_strategy": "WGS",
-      "library_source": "GENOMIC",
-      "library_layout": "PAIRED",
-      "instrument_model": "Illumina NovaSeq X",
-      "read_count": 121784868,
-      "base_count": 18267730200,
-      "first_public": "2025-11-01",
-      "fastq_urls": [
-        "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/034/ERR15738634/ERR15738634_1.fastq.gz",
-        "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/034/ERR15738634/ERR15738634_2.fastq.gz"
       ]
     },
     "ERR15738635": {
@@ -7879,28 +7835,6 @@
         "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/040/ERR15738640/ERR15738640_2.fastq.gz"
       ]
     },
-    "ERR15738641": {
-      "run_accession": "ERR15738641",
-      "study_accession": "PRJEB100724",
-      "study_title": "3D'omics: proof-of-concept mannan fibre swine trial",
-      "sample_accession": "SAMEA120395604",
-      "secondary_sample_accession": "ERS27096290",
-      "sample_description": "Tissue",
-      "host_body_site": "Caecum",
-      "collection_date": "2022-05-02",
-      "experiment_accession": "ERX15143748",
-      "library_strategy": "WGS",
-      "library_source": "GENOMIC",
-      "library_layout": "PAIRED",
-      "instrument_model": "Illumina NovaSeq X",
-      "read_count": 130980486,
-      "base_count": 19647072900,
-      "first_public": "2025-11-01",
-      "fastq_urls": [
-        "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/041/ERR15738641/ERR15738641_1.fastq.gz",
-        "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/041/ERR15738641/ERR15738641_2.fastq.gz"
-      ]
-    },
     "ERR15738650": {
       "run_accession": "ERR15738650",
       "study_accession": "PRJEB100724",
@@ -7989,28 +7923,6 @@
         "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/053/ERR15738653/ERR15738653_2.fastq.gz"
       ]
     },
-    "ERR15738654": {
-      "run_accession": "ERR15738654",
-      "study_accession": "PRJEB100724",
-      "study_title": "3D'omics: proof-of-concept mannan fibre swine trial",
-      "sample_accession": "SAMEA120395656",
-      "secondary_sample_accession": "ERS27096342",
-      "sample_description": "Digesta",
-      "host_body_site": "Caecum",
-      "collection_date": "2022-05-02",
-      "experiment_accession": "ERX15143761",
-      "library_strategy": "WGS",
-      "library_source": "METAGENOMIC",
-      "library_layout": "PAIRED",
-      "instrument_model": "Illumina NovaSeq X",
-      "read_count": 96732920,
-      "base_count": 14509938000,
-      "first_public": "2025-11-01",
-      "fastq_urls": [
-        "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/054/ERR15738654/ERR15738654_1.fastq.gz",
-        "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/054/ERR15738654/ERR15738654_2.fastq.gz"
-      ]
-    },
     "ERR15738655": {
       "run_accession": "ERR15738655",
       "study_accession": "PRJEB100724",
@@ -8031,28 +7943,6 @@
       "fastq_urls": [
         "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/055/ERR15738655/ERR15738655_1.fastq.gz",
         "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/055/ERR15738655/ERR15738655_2.fastq.gz"
-      ]
-    },
-    "ERR15738656": {
-      "run_accession": "ERR15738656",
-      "study_accession": "PRJEB100724",
-      "study_title": "3D'omics: proof-of-concept mannan fibre swine trial",
-      "sample_accession": "SAMEA120395658",
-      "secondary_sample_accession": "ERS27096344",
-      "sample_description": "Digesta",
-      "host_body_site": "Caecum",
-      "collection_date": "2022-05-02",
-      "experiment_accession": "ERX15143763",
-      "library_strategy": "WGS",
-      "library_source": "METAGENOMIC",
-      "library_layout": "PAIRED",
-      "instrument_model": "Illumina NovaSeq X",
-      "read_count": 108077450,
-      "base_count": 16211617500,
-      "first_public": "2025-11-01",
-      "fastq_urls": [
-        "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/056/ERR15738656/ERR15738656_1.fastq.gz",
-        "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/056/ERR15738656/ERR15738656_2.fastq.gz"
       ]
     },
     "ERR15738657": {
@@ -8119,28 +8009,6 @@
       "fastq_urls": [
         "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/059/ERR15738659/ERR15738659_1.fastq.gz",
         "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/059/ERR15738659/ERR15738659_2.fastq.gz"
-      ]
-    },
-    "ERR15738660": {
-      "run_accession": "ERR15738660",
-      "study_accession": "PRJEB100724",
-      "study_title": "3D'omics: proof-of-concept mannan fibre swine trial",
-      "sample_accession": "SAMEA120395662",
-      "secondary_sample_accession": "ERS27096348",
-      "sample_description": "Digesta",
-      "host_body_site": "Caecum",
-      "collection_date": "2022-05-02",
-      "experiment_accession": "ERX15143767",
-      "library_strategy": "WGS",
-      "library_source": "METAGENOMIC",
-      "library_layout": "PAIRED",
-      "instrument_model": "Illumina NovaSeq X",
-      "read_count": 116894236,
-      "base_count": 17534135400,
-      "first_public": "2025-11-01",
-      "fastq_urls": [
-        "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/060/ERR15738660/ERR15738660_1.fastq.gz",
-        "https://ftp.sra.ebi.ac.uk/vol1/fastq/ERR157/060/ERR15738660/ERR15738660_2.fastq.gz"
       ]
     },
     "ERR15738661": {

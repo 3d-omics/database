@@ -19,10 +19,10 @@ import biologicalMicrosamples from 'assets/data/airtable/microsample.json'
 
 const microsamplesWithCoordinationData = microsamplesWithCoordinationDataImport as any[]
 const macroIdByRun = new Map(biologicalMacrosamples.flatMap(record =>
-  (record.fields['ENA accession'] ?? []).map(accession => [accession, record.fields.ID] as const)
+  (record.fields['ENA accession'] ?? []).map((accession: string) => [accession, record.fields.ID] as const)
 ))
 const microCodeByRun = new Map(biologicalMicrosamples.flatMap(record =>
-  (record.fields['ENA accession'] ?? []).map(accession => [accession, record.fields.Code] as const)
+  (record.fields['ENA accession'] ?? []).map((accession: string) => [accession, record.fields.Code] as const)
 ))
 
 const Genome = () => {

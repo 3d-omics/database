@@ -3,16 +3,17 @@
 This record describes the **2026-10-06 draft**. On 2026-10-09, schema 3 was
 extended with nullable `macrosamples.biosample_accession`. The checksum below
 therefore identifies the old candidate, not a catalogue matching the current
-schema-3 contract. The updated builder migrated the currently pinned
+schema-3 contract. The updated builder migrated the then-pinned
 2026.10.07 schema-2 catalogue to schema 3 locally and validated its structure,
 integrity and relationships. Its 1,466 macrosample rows have null material
 accessions because migration cannot recover Airtable fields absent from the
-source release. A new live-source build and full release checks remain pending.
+source release. The later live-source build was published as catalogue
+`2026.10.09`; see [catalog.json](../catalog.json) for its checksum and DOI.
 
 Schema 3 was tested as a **schema-only migration** of the public
 [2026.09.22 catalogue](https://doi.org/10.5281/zenodo.22894102). The portal
-still pins a schema-2 release. No schema-3 catalogue or builder 0.3.0 wheel
-has been published.
+now pins an Airtable-sourced schema-3 release and builder 0.3.0 wheel. The
+checks below describe only the earlier migration candidate.
 
 The input SQLite file matched the SHA-256 in [`catalog.json`](../catalog.json).
 The migration stamped `data_version=2026.10.06`, `schema_version=3`, and
@@ -72,6 +73,6 @@ finishing. To test a portal build with this local candidate, set
 `npm run generate-data`. The page labels local output as a preview and selects
 the matching schema-3 download.
 
-Publishing requires a tagged builder 0.3.0 wheel and a Zenodo catalogue
-deposit, followed by new checksum and DOI pins in `catalog.json`. Until then,
-the production site and `3dtk` release continue using schema 2.
+The migration candidate was superseded by the Airtable-sourced `2026.10.09`
+catalogue. Its distinct validation and BioSamples scope are recorded in the
+[F/H/M release audit](../outputs/experiment-fhm-biosamples-2026-10-08/README.md).

@@ -53,7 +53,7 @@ npm run generate-data        # downloads the pinned catalogue, verifies it, rend
 writes the JSON tree; `export-catalogue` validates the versioned SQL and JSON Schema
 contracts and writes the normalized download and build metadata; `build-search-index`
 writes the static search index; `fetch-cryosection-images` checks and stages the pinned
-image ZIP, or the legacy JPGs for the current release. No token, and no
+image ZIP. No token, and no
 partial-success path — a checksum mismatch or a missing release exits non-zero.
 
 Set `CATALOG_FILE=/path/to/local.sqlite` to render a catalogue you built yourself. The
@@ -105,7 +105,7 @@ src/
   utils/chartUtils.ts      Chart.js helpers
   assets/data/             Rendered CSV/JSON and catalogue-build.json (git-ignored)
                            + metabolomics XLSX (committed)
-  assets/images/           Logos, animal silhouettes, 90 cryosection photos (9 MB)
+  assets/images/           Logos and animal silhouettes
 public/
   catalogue-v*.sql          Tracked versioned SQLite contracts
   catalogue-v*.schema.json  Tracked normalized JSON Schema contracts
@@ -203,8 +203,9 @@ of output. `/dist` is now ignored alongside `/build`.
 ### 6.3 The bundle is enormous
 
 Because all data is statically imported, the production bundle is a **single 38 MB JS
-chunk (5.2 MB gzipped)**, plus 33 MB of XLSX and 9 MB of JPEG. Every visitor downloads
-the whole catalogue before the first paint. Any change that adds a static
+chunk (5.2 MB gzipped)**, plus 33 MB of XLSX. Cryosection PNGs are copied
+from the pinned Zenodo image archive into site assets and loaded on demand.
+Every visitor downloads the whole catalogue before the first paint. Any change that adds a static
 `import … from 'assets/data/…'` makes this worse. Prefer `fetch` from `public/` for new
 bulk data.
 

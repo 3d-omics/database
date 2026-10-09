@@ -36,9 +36,9 @@ Pin its version-specific URL and SHA-256 in `catalog.json` as:
 `prebuild` verifies that checksum, the ZIP's per-image checksums, its data
 version, and its exact set of cryosection IDs against the pinned SQLite
 catalogue. It extracts images into git-ignored `public/cryosection-images/`;
-GitHub Pages receives them in `dist/`, while the repository retains only the
-release pin and the legacy JPGs until the first image-backed release is live.
-The current `2026.10.07` pin has no image ZIP and uses those legacy JPGs.
+GitHub Pages receives them in `dist/`; the repository retains the release pin.
+The current `2026.10.09` catalogue includes all 90 cryosection images in its
+checked archive, including `G103bI309A` and `G103bI309B`.
 
 Step 6 used to clone `3d-omics/database-build` directly, which cannot work: the repository
 is **private**, and the workflow's `GITHUB_TOKEN` is scoped to this repository alone. It
@@ -47,7 +47,7 @@ personal token.
 
 It now installs a **checksummed wheel** instead, pinned in `catalog.json` exactly the way
 the catalogue is — a URL plus a SHA-256. The builder is pure stdlib with no dependencies,
-so `pip` never contacts an index and resolves nothing; the wheel is 48 KB and installs
+so `pip` never contacts an index and resolves nothing; the wheel installs
 offline.
 
 The builder has its own Zenodo record, deposited as **software** rather than as a fourth
@@ -58,7 +58,7 @@ catalogue's record would mean a new version DOI and a repin of the data.
 | | |
 |---|---|
 | Builder concept DOI | [10.5281/zenodo.22159536](https://doi.org/10.5281/zenodo.22159536) |
-| Installed here | 0.2.0 — [10.5281/zenodo.22894359](https://doi.org/10.5281/zenodo.22894359) |
+| Installed here | 0.3.0 — [10.5281/zenodo.23255074](https://doi.org/10.5281/zenodo.23255074) |
 
 To move to a new builder, release it from `database-build`
 (`scripts/release_builder_wheel.py`, see its `RELEASING.md`), then set `builder`,
@@ -125,9 +125,9 @@ npm run build && npm run preview
 
 ## Build output
 
-`dist/` is roughly 80 MB: a single ~17 MB JS chunk (3.8 MB gzipped), 33 MB of XLSX
-workbooks and 9 MB of cryosection JPEGs. This is within
-GitHub Pages' 1 GB site limit but is a poor experience for visitors — see
+`dist/` is roughly 190 MB: a single ~19 MB JS chunk (4.2 MB gzipped), 33 MB of XLSX
+workbooks and 128 MB of cryosection PNGs copied from the pinned archive. The images
+load on demand. The large JavaScript chunk remains a poor experience for visitors — see
 [known-issues.md](known-issues.md).
 
 `dist/` is git-ignored, alongside the CRA leftover `/build`.

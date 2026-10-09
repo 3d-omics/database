@@ -152,10 +152,11 @@ treatment labels into an Airtable table or a committed CSV.
 
 ### P2-6 · Repository weight
 
-`.git` is 112 MB, the working tree 47 MB, largely because 33 MB of XLSX workbooks and
-9 MB of JPEGs are versioned — and a workbook rewrite adds a whole new copy each time.
+The committed XLSX workbooks still occupy about 33 MB and a workbook rewrite adds
+a whole new copy to Git history. Cryosection images are now downloaded from the
+pinned Zenodo release during the site build instead of being committed here.
 
-*Fix (only if it becomes painful):* Git LFS for `*.xlsx` and the cryosection images.
+*Fix (only if it becomes painful):* Git LFS for `*.xlsx`.
 History rewriting is disruptive; consider it a deliberate one-off, not routine work.
 
 ### P2-7 · Small cleanups

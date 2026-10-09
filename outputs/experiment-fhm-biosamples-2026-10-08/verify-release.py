@@ -15,7 +15,20 @@ PUBLIC_LEDGERS = (
     ("f-airtable-accession-update.csv", "name", "child_biosample_accession", "portal_airtable_record_id"),
     ("hm-airtable-accession-update.csv", "macrosample_id", "child_biosample_accession", "airtable_record_id"),
 )
-REVIEWER_MATERIAL = {"C002aI": "SAMEA120503856", "C008aK": "SAMEA120503869"}
+C_EXCLUDED_MACROSAMPLES = {f"C{number:03d}a{suffix}" for number in (13, 14, 15) for suffix in ("F", "H")}
+C_EXCLUDED_LIBRARIES = {"D300063", "D300064", "D300065", "D300066", "D300068", "D300069", "D300071", "D300072", "D300073"}
+
+
+def c_child_accessions() -> dict[str, str]:
+    with (HERE.parent / "experiment-c-repair-2026-10-08/child-evidence.csv").open(newline="") as handle:
+        rows = list(csv.DictReader(handle))
+    if len(rows) != 12:
+        raise ValueError("Expected 12 Experiment C child-evidence rows")
+    return {
+        row["specimen"] + suffix: row[field]
+        for row in rows
+        for suffix, field in (("aI", "aI_accession"), ("aK", "aK_accession"))
+    }
 
 
 def ledger_names(filename: str) -> set[str]:
@@ -67,9 +80,15 @@ def check_catalogue(path: Path) -> list[str]:
     for name, target in expected.items():
         if actual.get(name) != target:
             errors.append(f"{name}: expected accession and source record {target}, got {actual.get(name)}")
-    for name, accession in REVIEWER_MATERIAL.items():
+    for name, accession in c_child_accessions().items():
         if actual.get(name, (None,))[0] != accession:
-            errors.append(f"{name}: expected {accession}, got {actual.get(name)}")
+            errors.append(f"{name}: expected C child accession {accession}, got {actual.get(name)}")
+    for name in sorted(C_EXCLUDED_MACROSAMPLES & actual.keys()):
+        errors.append(f"Excluded Experiment C macrosample present: {name}")
+    with sqlite3.connect(f"file:{path}?mode=ro", uri=True) as connection:
+        library_ids = {row[0] for row in connection.execute("SELECT library_id FROM macrosample_sequencing")}
+    for name in sorted(C_EXCLUDED_LIBRARIES & library_ids):
+        errors.append(f"Excluded Experiment C sequencing library present: {name}")
     for name in sorted(excluded_rows() & actual.keys()):
         errors.append(f"Deferred or excluded F D/E row present: {name}")
     return errors
@@ -107,4 +126,4 @@ if __name__ == "__main__":
         for problem in problems[:20]:
             print(problem)
         raise SystemExit(f"FAILED: {len(problems)} accession or inclusion checks")
-    print("Verified 510 F A/B and H/M accessions, C reviewer examples, and all 300 F D/E exclusions")
+    print("Verified 510 F A/B and H/M accessions, 24 C child accessions, 15 C exclusions, and 300 F D/E exclusions")

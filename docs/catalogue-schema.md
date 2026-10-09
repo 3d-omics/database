@@ -85,11 +85,11 @@ sample accessions (`ERS…`) are different entities. The current catalogue carri
 the run accession in the macro- and microsample sequencing records; it does not
 yet model all run-to-sample relationships. A future schema change should give
 multiple runs per library their own rows rather than overwrite a single field.
-The schema-3 draft adds nullable `macrosamples.biosample_accession` for the
+Schema 3 adds nullable `macrosamples.biosample_accession` for the
 material BioSample sourced from Airtable `accession`. Separate committed ENA
 and BioSamples metadata snapshots supply sequencing BioSample and INSDC sample
 identifiers to the portal. A schema-only migration leaves the new material
-column null; a fresh Airtable build must populate it.
+column null; the `2026.10.09` Airtable build populates it for published material samples.
 The portal publishes these cross-references separately as
 `macrosample-identifiers.json`, with material and sequencing roles identified.
 

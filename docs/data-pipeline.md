@@ -18,10 +18,10 @@ BioSamples records ──(snapshot refresh)──▶ public/biosample-metadata.j
 | Step | Command | What it does |
 |---|---|---|
 | 1 | `npm run fetch-catalog` | Downloads `catalog.json`'s `source` into `.catalog/3domics.sqlite`, verifies its SHA-256 against `sha256`, exits non-zero on mismatch. Re-uses the cached file when it already matches. |
-| 2 | `3domics-db-build render .catalog/3domics.sqlite --into .` | Writes the nine record dumps, the CSVs and their `_json` conversions. The currently pinned public wheel also writes a retired hierarchy file. |
+| 2 | `3domics-db-build render .catalog/3domics.sqlite --into .` | Writes the nine record dumps and the CSVs and their `_json` conversions. |
 | 3 | `python3 src/scripts/export-catalogue.py` | Verifies the versioned contracts against the catalogue, writes `public/catalogue-v<schema_version>.json.gz`, and removes the retired hierarchy file before the site build. |
 | 4 | `npm run build-search-index` | Writes the ignored `public/search-index.json` from the rendered records and MAG metadata. Dev and production builds regenerate it automatically. The browser fetches it only when search is used. |
-| 5 | `npm run fetch-cryosection-images` | Checks the pinned image archive against the catalogue and stages the extracted images under the ignored `public/cryosection-images/`. The current catalogue has no image archive, so this step stages the legacy JPGs. Dev and production builds repeat this step. |
+| 5 | `npm run fetch-cryosection-images` | Checks the pinned image archive against the catalogue and stages the extracted images under the ignored `public/cryosection-images/`. Dev and production builds repeat this step. |
 
 ### ENA run metadata
 
@@ -54,9 +54,9 @@ After a catalogue bump, run `npm run refresh-biosample-metadata` as well. It rea
 the rendered material accessions, snapshots their public BioSamples SRA/ERS
 cross-references, checks that each accession names its macrosample, and ties
 the result to the catalogue SHA-256. The production
-build checks both snapshots before bundling. A schema-only migration from schema
-2 leaves the new material accession column empty, so publishing the repaired
-source accessions requires a fresh Airtable build.
+build checks both snapshots before bundling. The `2026.10.09` catalogue was
+freshly built from Airtable and carries the repaired material accessions under
+schema 3.
 
 ## Prerequisites
 
@@ -72,7 +72,7 @@ Follow the checksummed wheel installation in the [README](../README.md#first-tim
 | `schema_version` | The catalogue's schema generation, as recorded in its `catalog_meta` |
 | `sha256` | The artefact's checksum, enforced on download |
 | `source` | Where to get it — a Zenodo file-content URL |
-| `cryosection_images` | Optional image ZIP URL and SHA-256 from the same Zenodo record version; required when adopting an image-backed catalogue release |
+| `cryosection_images` | Image ZIP URL and SHA-256 from the same Zenodo record version |
 | `concept_doi` | Cite this: always resolves to the latest version |
 | `version_doi` | The immutable deposit this commit builds against |
 | `license` | The catalogue's licence (CC-BY-4.0) |
@@ -152,9 +152,8 @@ and packages a checked image ZIP alongside the catalogue on Zenodo. When
 its files under `public/cryosection-images/`; the site serves those files from
 GitHub Pages and overlays pixel coordinates from
 `microsampleswithcoordination.json`. The build fails if an image or its checksum
-is missing. The current pinned catalogue predates the ZIP, so the script uses
-the committed JPGs as a temporary fallback until the next Airtable-sourced
-release is published.
+is missing. The `2026.10.09` release has 90 image files in the ZIP, including
+the two `G103bI309` sections previously missing from the site.
 
 **The catalogue carries 73 of Airtable's 496 columns**, only what the site reads. A dump
 rendered from it is therefore a subset of an Airtable dump, and adding a column is a
@@ -210,9 +209,8 @@ labels the page as a preview and omits the pinned release DOI. An export removes
 the old generated JSON download of the other supported schema version, so a
 later site build cannot accidentally include stale local data.
 
-The currently pinned public builder wheel predates removal of the old nested
-export. The exporter deletes that file after rendering, so it is absent from
-the production site. The next builder release removes its creation entirely.
+Builder 0.3.0 no longer creates the old nested hierarchy export. The portal
+exports the normalized, schema-described catalogue instead.
 
 ### ID conventions used by the website
 

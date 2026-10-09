@@ -2,7 +2,8 @@
 
 Prepared 2026-10-08 against the public BioSamples API and the portal's pinned
 catalogue `2026.10.07`. The C001–C012 BioSamples correction was submitted and
-verified on 2026-10-08. The catalogue exclusion for C013–C015 is still pending.
+verified on 2026-10-08. The C013–C015 exclusion and the 24 child accession
+links were included in the [2026.10.09 catalogue](https://doi.org/10.5281/zenodo.23255175).
 
 ## C001–C012
 
@@ -37,6 +38,13 @@ Experiment C submission sheet was not available locally, so the plan deliberatel
 preserved all structured data. The duplicated blocks and the metabolomics link
 on each corrected specimen should be reconciled against that sheet.
 
+On 2026-10-09, the 24 verified `aI` and `aK` child accessions were written to
+the matching portal Airtable macrosample `accession` fields. The
+[source readback ledger](airtable-child-accessions.csv) records each name,
+Airtable record ID, assigned BioSamples accession, and previous blank value.
+All 24 public children were checked for their exact name and `derived from`
+link before the update, and all 24 Airtable rows were checked after it.
+
 ## C013–C015
 
 The trial curator confirmed that `C013`–`C015` were excluded. Do not create
@@ -46,11 +54,11 @@ library rows assigned to these IDs. Their Airtable record IDs are in
 [excluded-records.csv](excluded-records.csv). None of their IDs occur in the
 released cryosection, microsample, or MAG count tables.
 
-The next catalogue release should leave these 15 source rows out of its
-in-scope views. Then bump `catalog.json`, render the site, refresh the ENA
-snapshot, and verify that the six macrosamples are absent from the portal,
-search index, and normalized export. The public ENA runs remain archived; this
-scope decision does not require changing those run records.
+The trial curator authorized excluding these 15 source rows. The builder
+mapping applies the exclusion explicitly in release `2026.10.09`. Its six
+macrosamples and nine sequencing rows are absent from the new catalogue and
+the generated search index and normalized export. The public ENA runs remain
+archived; this scope decision did not change those run records.
 
 ## Sources
 

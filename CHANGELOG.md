@@ -375,7 +375,7 @@ moved it. If the project starts tagging releases, these headings become
 
 - The old experiment hierarchy download has been retired. The portal offers the
   normalized, schema-described catalogue instead; its export step removes any
-  legacy file produced by the currently pinned builder wheel
+  legacy file produced by the builder wheel pinned at the time
   ([`28ff614`][28ff614]).
 
 ### Fixed

@@ -312,51 +312,27 @@ nonblank value, and the site renders that URL as a link. A status such as
 "Coming soon" belongs in a separate field or display label. Keep all F D/E
 rows out of the Website view until a real study accession is recorded.
 
-On 2026-10-09, the local `database-build` schema-3 draft and mapping were
-updated to carry Airtable `accession` as
+On 2026-10-09, `database-build` 0.3.0 was published as
+[software](https://doi.org/10.5281/zenodo.23255074), and a fresh Airtable build
+was published as [catalogue 2026.10.09](https://doi.org/10.5281/zenodo.23255175).
+Schema 3 carries Airtable `accession` as
 `macrosamples.biosample_accession`, rendered as `BioSamples accession` in
-portal JSON. The portal now has table, detail, search, and snapshot code for
-material and sequencing sample identifiers. These are local code changes;
-the pinned public catalogue remains schema 2 and contains none of the 510
-F A/B and H/M child accessions in the next release scope. A schema-only
-migration would leave the new column empty.
+portal JSON. The release contains all 510 publication-scope F A/B and H/M
+child accessions and all 24 C `aI`/`aK` child accessions. It excludes the
+300 F D/E rows, six C013–C015 macrosamples and nine linked sequencing rows.
+The release also contains a checked archive of 90 cryosection PNGs.
 
-The source Website view already includes the 510 publication-scope F/H/M rows
-and excludes all 300 F D/E rows. Preserve this distinction when rebuilding
-the catalogue from Airtable. The next builder release must pass the source and
-BioSamples snapshot checks before it is published and pinned by the portal.
-No new public catalogue or site deployment has happened in this repair.
+The portal's ENA and BioSamples snapshots were refreshed against the new
+catalogue, and the generated identifier map passed
+`verify-release.py --identifiers public/macrosample-identifiers.json`, including
+the reviewer examples `SAMEA120395596`, `SAMEA120503856`, `SAMEA120503869`,
+and `ERS27204543`.
 
-### Remaining release sequence
-
-1. Confirm that portal Airtable **Sample** Website view
-   `viwfyjXFn1AHSpWdk` still includes all 150 F A/B and 360 H/M rows and
-   excludes all 300 F D/E rows. The
-   [296-row accession crosswalk](f-metabolomics-airtable-accession-update.csv)
-   identifies deferred rows that must stay out of this release; the other
-   four are `F149`/`F150` D/E.
-2. In the `MTBLS13488` editor, upload the prepared
-   [sample sheet](metabolights-upload/s_MTBLS13488.txt) after checking that the
-   public source still matches the [manifest](metabolights-upload/manifest.json).
-   Re-read all 346 rows after the study update.
-3. Release the updated `database-build` code and build a **new Airtable-sourced**
-   schema-3 catalogue. A schema-only migration cannot fill the BioSamples
-   column. Validate the 510 publication-scope F/H/M accessions, exclusion of
-   all 300 F D/E rows, the C reviewer examples, and one `cropped_image` per
-   included cryosection before depositing the catalogue and image ZIP together.
-   Run
-   `python3 outputs/experiment-fhm-biosamples-2026-10-08/verify-release.py <candidate.sqlite>`;
-   the script compares accessions and Airtable record IDs against the 510
-   publication-scope ledger rows and rejects any F D/E row.
-4. Pin the published catalogue, image ZIP URL and SHA-256, and builder in
-   portal `catalog.json`, run
-   `npm run generate-data`, `npm run refresh-ena-metadata`, and
-   `npm run refresh-biosample-metadata`, then run typecheck, tests and build.
-   Check the public `macrosample-identifiers.json` download and search results
-   for `SAMEA120395596`, `SAMEA120503856`, `SAMEA120503869`, and
-   `ERS27204543` before deploying. Re-run `verify-release.py` with
-   `--identifiers public/macrosample-identifiers.json` after regenerating the
-   site to check the reviewer examples end to end.
+The [prepared MetaboLights sample sheet](metabolights-upload/s_MTBLS13488.txt)
+has not been uploaded to the `MTBLS13488` editor. Check the public source
+against the [manifest](metabolights-upload/manifest.json), upload the sheet,
+and re-read all 346 rows when that separate study update is ready. F D/E rows
+remain outside the portal until they have a real MetaboLights study accession.
 
 The 296 accessioned F D/E rows are a separate future release. Once their
 MetaboLights study entry exists, record its real accession in Airtable, verify

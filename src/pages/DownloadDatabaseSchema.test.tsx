@@ -18,13 +18,12 @@ describe('Data model downloads', () => {
 
   it('offers the SQL schema, JSON Schema and normalized export at the site base path', () => {
     renderPage()
-    expect(screen.getByRole('link', { name: 'Download sql schema' })).toHaveAttribute('href', '/database/catalogue-v2.sql')
-    expect(screen.getByRole('link', { name: 'Download json schema' })).toHaveAttribute('href', '/database/catalogue-v2.schema.json')
-    expect(screen.getByRole('link', { name: 'Download normalized catalogue' })).toHaveAttribute('href', '/database/catalogue-v2.json.gz')
+    expect(screen.getByRole('link', { name: 'Download sql schema' })).toHaveAttribute('href', '/database/catalogue-v3.sql')
+    expect(screen.getByRole('link', { name: 'Download json schema' })).toHaveAttribute('href', '/database/catalogue-v3.schema.json')
+    expect(screen.getByRole('link', { name: 'Download normalized catalogue' })).toHaveAttribute('href', '/database/catalogue-v3.json.gz')
     expect(screen.getByRole('link', { name: 'Download macrosample identifiers' })).toHaveAttribute('href', '/database/macrosample-identifiers.json')
     expect(screen.getByRole('link', { name: 'Download microsample identifiers' })).toHaveAttribute('href', '/database/microsample-identifiers.json')
     expect(screen.queryByRole('link', { name: 'Download hierarchy export' })).not.toBeInTheDocument()
-    expect(screen.getByRole('link', { name: 'schema-3 SQL' })).toHaveAttribute('href', '/database/catalogue-v3.sql')
-    expect(screen.getByRole('link', { name: 'schema-3 JSON Schema' })).toHaveAttribute('href', '/database/catalogue-v3.schema.json')
+    expect(screen.queryByRole('link', { name: 'schema-3 SQL' })).not.toBeInTheDocument()
   })
 })

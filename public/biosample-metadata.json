@@ -1,6 +1,3211 @@
 {
-  "catalog_sha256": "9b0f5a308bcb8cfaca922aac2e906fa339d2d8c8a7bd870a5c2dee5b6edb1588",
+  "catalog_sha256": "da4ee2289f7eef08e2558fb1f945c58dba54b8bfa3cd5789b60191bff8baacaa",
   "retrieved_at": "2026-10-09",
   "source": "https://www.ebi.ac.uk/biosamples/samples/",
-  "samples": {}
+  "samples": {
+    "SAMEA120503854": {
+      "name": "C001aI",
+      "insdc_sample_accessions": [
+        "ERS27204541"
+      ]
+    },
+    "SAMEA120503855": {
+      "name": "C001aK",
+      "insdc_sample_accessions": [
+        "ERS27204542"
+      ]
+    },
+    "SAMEA120503856": {
+      "name": "C002aI",
+      "insdc_sample_accessions": [
+        "ERS27204543"
+      ]
+    },
+    "SAMEA120503857": {
+      "name": "C002aK",
+      "insdc_sample_accessions": [
+        "ERS27204544"
+      ]
+    },
+    "SAMEA120503858": {
+      "name": "C003aI",
+      "insdc_sample_accessions": [
+        "ERS27204545"
+      ]
+    },
+    "SAMEA120503859": {
+      "name": "C003aK",
+      "insdc_sample_accessions": [
+        "ERS27204546"
+      ]
+    },
+    "SAMEA120503860": {
+      "name": "C004aI",
+      "insdc_sample_accessions": [
+        "ERS27204547"
+      ]
+    },
+    "SAMEA120503861": {
+      "name": "C004aK",
+      "insdc_sample_accessions": [
+        "ERS27204548"
+      ]
+    },
+    "SAMEA120503862": {
+      "name": "C005aI",
+      "insdc_sample_accessions": [
+        "ERS27204549"
+      ]
+    },
+    "SAMEA120503863": {
+      "name": "C005aK",
+      "insdc_sample_accessions": [
+        "ERS27204550"
+      ]
+    },
+    "SAMEA120503864": {
+      "name": "C006aI",
+      "insdc_sample_accessions": [
+        "ERS27204551"
+      ]
+    },
+    "SAMEA120503865": {
+      "name": "C006aK",
+      "insdc_sample_accessions": [
+        "ERS27204552"
+      ]
+    },
+    "SAMEA120503866": {
+      "name": "C007aI",
+      "insdc_sample_accessions": [
+        "ERS27204553"
+      ]
+    },
+    "SAMEA120503867": {
+      "name": "C007aK",
+      "insdc_sample_accessions": [
+        "ERS27204554"
+      ]
+    },
+    "SAMEA120503868": {
+      "name": "C008aI",
+      "insdc_sample_accessions": [
+        "ERS27204555"
+      ]
+    },
+    "SAMEA120503869": {
+      "name": "C008aK",
+      "insdc_sample_accessions": [
+        "ERS27204556"
+      ]
+    },
+    "SAMEA120503870": {
+      "name": "C009aI",
+      "insdc_sample_accessions": [
+        "ERS27204557"
+      ]
+    },
+    "SAMEA120503871": {
+      "name": "C009aK",
+      "insdc_sample_accessions": [
+        "ERS27204558"
+      ]
+    },
+    "SAMEA120503872": {
+      "name": "C010aI",
+      "insdc_sample_accessions": [
+        "ERS27204559"
+      ]
+    },
+    "SAMEA120503873": {
+      "name": "C010aK",
+      "insdc_sample_accessions": [
+        "ERS27204560"
+      ]
+    },
+    "SAMEA120503874": {
+      "name": "C011aI",
+      "insdc_sample_accessions": [
+        "ERS27204561"
+      ]
+    },
+    "SAMEA120503875": {
+      "name": "C011aK",
+      "insdc_sample_accessions": [
+        "ERS27204562"
+      ]
+    },
+    "SAMEA120503876": {
+      "name": "C012aI",
+      "insdc_sample_accessions": [
+        "ERS27204563"
+      ]
+    },
+    "SAMEA120503877": {
+      "name": "C012aK",
+      "insdc_sample_accessions": [
+        "ERS27204564"
+      ]
+    },
+    "SAMEA123916595": {
+      "name": "H001aM",
+      "insdc_sample_accessions": [
+        "ERS31801966"
+      ]
+    },
+    "SAMEA123916596": {
+      "name": "H001aN",
+      "insdc_sample_accessions": [
+        "ERS31801967"
+      ]
+    },
+    "SAMEA123916597": {
+      "name": "H002aM",
+      "insdc_sample_accessions": [
+        "ERS31801968"
+      ]
+    },
+    "SAMEA123916598": {
+      "name": "H002aN",
+      "insdc_sample_accessions": [
+        "ERS31801969"
+      ]
+    },
+    "SAMEA123916599": {
+      "name": "H003aM",
+      "insdc_sample_accessions": [
+        "ERS31801970"
+      ]
+    },
+    "SAMEA123916600": {
+      "name": "H003aN",
+      "insdc_sample_accessions": [
+        "ERS31801971"
+      ]
+    },
+    "SAMEA123916601": {
+      "name": "H004aM",
+      "insdc_sample_accessions": [
+        "ERS31801972"
+      ]
+    },
+    "SAMEA123916602": {
+      "name": "H004aN",
+      "insdc_sample_accessions": [
+        "ERS31801973"
+      ]
+    },
+    "SAMEA123916603": {
+      "name": "H005aM",
+      "insdc_sample_accessions": [
+        "ERS31801974"
+      ]
+    },
+    "SAMEA123916604": {
+      "name": "H005aN",
+      "insdc_sample_accessions": [
+        "ERS31801975"
+      ]
+    },
+    "SAMEA123916605": {
+      "name": "H006bM",
+      "insdc_sample_accessions": [
+        "ERS31801976"
+      ]
+    },
+    "SAMEA123916606": {
+      "name": "H006bN",
+      "insdc_sample_accessions": [
+        "ERS31801977"
+      ]
+    },
+    "SAMEA123916607": {
+      "name": "H007bM",
+      "insdc_sample_accessions": [
+        "ERS31801978"
+      ]
+    },
+    "SAMEA123916608": {
+      "name": "H007bN",
+      "insdc_sample_accessions": [
+        "ERS31801979"
+      ]
+    },
+    "SAMEA123916609": {
+      "name": "H008bM",
+      "insdc_sample_accessions": [
+        "ERS31801980"
+      ]
+    },
+    "SAMEA123916610": {
+      "name": "H008bN",
+      "insdc_sample_accessions": [
+        "ERS31801981"
+      ]
+    },
+    "SAMEA123916611": {
+      "name": "H009bM",
+      "insdc_sample_accessions": [
+        "ERS31801982"
+      ]
+    },
+    "SAMEA123916612": {
+      "name": "H009bN",
+      "insdc_sample_accessions": [
+        "ERS31801983"
+      ]
+    },
+    "SAMEA123916613": {
+      "name": "H010bM",
+      "insdc_sample_accessions": [
+        "ERS31801984"
+      ]
+    },
+    "SAMEA123916614": {
+      "name": "H010bN",
+      "insdc_sample_accessions": [
+        "ERS31801985"
+      ]
+    },
+    "SAMEA123916615": {
+      "name": "H011cM",
+      "insdc_sample_accessions": [
+        "ERS31801986"
+      ]
+    },
+    "SAMEA123916616": {
+      "name": "H011cN",
+      "insdc_sample_accessions": [
+        "ERS31801987"
+      ]
+    },
+    "SAMEA123916617": {
+      "name": "H012cM",
+      "insdc_sample_accessions": [
+        "ERS31801988"
+      ]
+    },
+    "SAMEA123916618": {
+      "name": "H012cN",
+      "insdc_sample_accessions": [
+        "ERS31801989"
+      ]
+    },
+    "SAMEA123916619": {
+      "name": "H013cM",
+      "insdc_sample_accessions": [
+        "ERS31801990"
+      ]
+    },
+    "SAMEA123916620": {
+      "name": "H013cN",
+      "insdc_sample_accessions": [
+        "ERS31801991"
+      ]
+    },
+    "SAMEA123916621": {
+      "name": "H014cM",
+      "insdc_sample_accessions": [
+        "ERS31801992"
+      ]
+    },
+    "SAMEA123916622": {
+      "name": "H014cN",
+      "insdc_sample_accessions": [
+        "ERS31801993"
+      ]
+    },
+    "SAMEA123916623": {
+      "name": "H015cM",
+      "insdc_sample_accessions": [
+        "ERS31801994"
+      ]
+    },
+    "SAMEA123916624": {
+      "name": "H015cN",
+      "insdc_sample_accessions": [
+        "ERS31801995"
+      ]
+    },
+    "SAMEA123916625": {
+      "name": "H016dM",
+      "insdc_sample_accessions": [
+        "ERS31801996"
+      ]
+    },
+    "SAMEA123916626": {
+      "name": "H016dN",
+      "insdc_sample_accessions": [
+        "ERS31801997"
+      ]
+    },
+    "SAMEA123916627": {
+      "name": "H017dM",
+      "insdc_sample_accessions": [
+        "ERS31801998"
+      ]
+    },
+    "SAMEA123916628": {
+      "name": "H017dN",
+      "insdc_sample_accessions": [
+        "ERS31801999"
+      ]
+    },
+    "SAMEA123916629": {
+      "name": "H018dM",
+      "insdc_sample_accessions": [
+        "ERS31802000"
+      ]
+    },
+    "SAMEA123916630": {
+      "name": "H018dN",
+      "insdc_sample_accessions": [
+        "ERS31802001"
+      ]
+    },
+    "SAMEA123916631": {
+      "name": "H019dM",
+      "insdc_sample_accessions": [
+        "ERS31802002"
+      ]
+    },
+    "SAMEA123916632": {
+      "name": "H019dN",
+      "insdc_sample_accessions": [
+        "ERS31802003"
+      ]
+    },
+    "SAMEA123916633": {
+      "name": "H020dM",
+      "insdc_sample_accessions": [
+        "ERS31802004"
+      ]
+    },
+    "SAMEA123916634": {
+      "name": "H020dN",
+      "insdc_sample_accessions": [
+        "ERS31802005"
+      ]
+    },
+    "SAMEA123916635": {
+      "name": "H021eM",
+      "insdc_sample_accessions": [
+        "ERS31802006"
+      ]
+    },
+    "SAMEA123916636": {
+      "name": "H021eN",
+      "insdc_sample_accessions": [
+        "ERS31802007"
+      ]
+    },
+    "SAMEA123916637": {
+      "name": "H022eM",
+      "insdc_sample_accessions": [
+        "ERS31802008"
+      ]
+    },
+    "SAMEA123916638": {
+      "name": "H022eN",
+      "insdc_sample_accessions": [
+        "ERS31802009"
+      ]
+    },
+    "SAMEA123916639": {
+      "name": "H023eM",
+      "insdc_sample_accessions": [
+        "ERS31802010"
+      ]
+    },
+    "SAMEA123916640": {
+      "name": "H023eN",
+      "insdc_sample_accessions": [
+        "ERS31802011"
+      ]
+    },
+    "SAMEA123916641": {
+      "name": "H024eM",
+      "insdc_sample_accessions": [
+        "ERS31802012"
+      ]
+    },
+    "SAMEA123916642": {
+      "name": "H024eN",
+      "insdc_sample_accessions": [
+        "ERS31802013"
+      ]
+    },
+    "SAMEA123916643": {
+      "name": "H025eM",
+      "insdc_sample_accessions": [
+        "ERS31802014"
+      ]
+    },
+    "SAMEA123916644": {
+      "name": "H025eN",
+      "insdc_sample_accessions": [
+        "ERS31802015"
+      ]
+    },
+    "SAMEA123916645": {
+      "name": "H026aM",
+      "insdc_sample_accessions": [
+        "ERS31802016"
+      ]
+    },
+    "SAMEA123916646": {
+      "name": "H026aN",
+      "insdc_sample_accessions": [
+        "ERS31802017"
+      ]
+    },
+    "SAMEA123916647": {
+      "name": "H027aM",
+      "insdc_sample_accessions": [
+        "ERS31802018"
+      ]
+    },
+    "SAMEA123916648": {
+      "name": "H027aN",
+      "insdc_sample_accessions": [
+        "ERS31802019"
+      ]
+    },
+    "SAMEA123916649": {
+      "name": "H028aM",
+      "insdc_sample_accessions": [
+        "ERS31802020"
+      ]
+    },
+    "SAMEA123916650": {
+      "name": "H028aN",
+      "insdc_sample_accessions": [
+        "ERS31802021"
+      ]
+    },
+    "SAMEA123916651": {
+      "name": "H029aM",
+      "insdc_sample_accessions": [
+        "ERS31802022"
+      ]
+    },
+    "SAMEA123916652": {
+      "name": "H029aN",
+      "insdc_sample_accessions": [
+        "ERS31802023"
+      ]
+    },
+    "SAMEA123916653": {
+      "name": "H030aM",
+      "insdc_sample_accessions": [
+        "ERS31802024"
+      ]
+    },
+    "SAMEA123916654": {
+      "name": "H030aN",
+      "insdc_sample_accessions": [
+        "ERS31802025"
+      ]
+    },
+    "SAMEA123916655": {
+      "name": "H031bM",
+      "insdc_sample_accessions": [
+        "ERS31802026"
+      ]
+    },
+    "SAMEA123916656": {
+      "name": "H031bN",
+      "insdc_sample_accessions": [
+        "ERS31802027"
+      ]
+    },
+    "SAMEA123916657": {
+      "name": "H032bM",
+      "insdc_sample_accessions": [
+        "ERS31802028"
+      ]
+    },
+    "SAMEA123916658": {
+      "name": "H032bN",
+      "insdc_sample_accessions": [
+        "ERS31802029"
+      ]
+    },
+    "SAMEA123916659": {
+      "name": "H033bM",
+      "insdc_sample_accessions": [
+        "ERS31802030"
+      ]
+    },
+    "SAMEA123916660": {
+      "name": "H033bN",
+      "insdc_sample_accessions": [
+        "ERS31802031"
+      ]
+    },
+    "SAMEA123916661": {
+      "name": "H034bM",
+      "insdc_sample_accessions": [
+        "ERS31802032"
+      ]
+    },
+    "SAMEA123916662": {
+      "name": "H034bN",
+      "insdc_sample_accessions": [
+        "ERS31802033"
+      ]
+    },
+    "SAMEA123916663": {
+      "name": "H035bM",
+      "insdc_sample_accessions": [
+        "ERS31802034"
+      ]
+    },
+    "SAMEA123916664": {
+      "name": "H035bN",
+      "insdc_sample_accessions": [
+        "ERS31802035"
+      ]
+    },
+    "SAMEA123916665": {
+      "name": "H036cM",
+      "insdc_sample_accessions": [
+        "ERS31802036"
+      ]
+    },
+    "SAMEA123916666": {
+      "name": "H036cN",
+      "insdc_sample_accessions": [
+        "ERS31802037"
+      ]
+    },
+    "SAMEA123916667": {
+      "name": "H037cM",
+      "insdc_sample_accessions": [
+        "ERS31802038"
+      ]
+    },
+    "SAMEA123916668": {
+      "name": "H037cN",
+      "insdc_sample_accessions": [
+        "ERS31802039"
+      ]
+    },
+    "SAMEA123916669": {
+      "name": "H038cM",
+      "insdc_sample_accessions": [
+        "ERS31802040"
+      ]
+    },
+    "SAMEA123916670": {
+      "name": "H038cN",
+      "insdc_sample_accessions": [
+        "ERS31802041"
+      ]
+    },
+    "SAMEA123916671": {
+      "name": "H039cM",
+      "insdc_sample_accessions": [
+        "ERS31802042"
+      ]
+    },
+    "SAMEA123916672": {
+      "name": "H039cN",
+      "insdc_sample_accessions": [
+        "ERS31802043"
+      ]
+    },
+    "SAMEA123916673": {
+      "name": "H040cM",
+      "insdc_sample_accessions": [
+        "ERS31802044"
+      ]
+    },
+    "SAMEA123916674": {
+      "name": "H040cN",
+      "insdc_sample_accessions": [
+        "ERS31802045"
+      ]
+    },
+    "SAMEA123916675": {
+      "name": "H041dM",
+      "insdc_sample_accessions": [
+        "ERS31802046"
+      ]
+    },
+    "SAMEA123916676": {
+      "name": "H041dN",
+      "insdc_sample_accessions": [
+        "ERS31802047"
+      ]
+    },
+    "SAMEA123916677": {
+      "name": "H042dM",
+      "insdc_sample_accessions": [
+        "ERS31802048"
+      ]
+    },
+    "SAMEA123916678": {
+      "name": "H042dN",
+      "insdc_sample_accessions": [
+        "ERS31802049"
+      ]
+    },
+    "SAMEA123916679": {
+      "name": "H043dM",
+      "insdc_sample_accessions": [
+        "ERS31802050"
+      ]
+    },
+    "SAMEA123916680": {
+      "name": "H043dN",
+      "insdc_sample_accessions": [
+        "ERS31802051"
+      ]
+    },
+    "SAMEA123916681": {
+      "name": "H044dM",
+      "insdc_sample_accessions": [
+        "ERS31802052"
+      ]
+    },
+    "SAMEA123916682": {
+      "name": "H044dN",
+      "insdc_sample_accessions": [
+        "ERS31802053"
+      ]
+    },
+    "SAMEA123916683": {
+      "name": "H045dM",
+      "insdc_sample_accessions": [
+        "ERS31802054"
+      ]
+    },
+    "SAMEA123916684": {
+      "name": "H045dN",
+      "insdc_sample_accessions": [
+        "ERS31802055"
+      ]
+    },
+    "SAMEA123916685": {
+      "name": "H046eM",
+      "insdc_sample_accessions": [
+        "ERS31802056"
+      ]
+    },
+    "SAMEA123916686": {
+      "name": "H046eN",
+      "insdc_sample_accessions": [
+        "ERS31802057"
+      ]
+    },
+    "SAMEA123916687": {
+      "name": "H047eM",
+      "insdc_sample_accessions": [
+        "ERS31802058"
+      ]
+    },
+    "SAMEA123916688": {
+      "name": "H047eN",
+      "insdc_sample_accessions": [
+        "ERS31802059"
+      ]
+    },
+    "SAMEA123916689": {
+      "name": "H048eM",
+      "insdc_sample_accessions": [
+        "ERS31802060"
+      ]
+    },
+    "SAMEA123916690": {
+      "name": "H048eN",
+      "insdc_sample_accessions": [
+        "ERS31802061"
+      ]
+    },
+    "SAMEA123916691": {
+      "name": "H049eM",
+      "insdc_sample_accessions": [
+        "ERS31802062"
+      ]
+    },
+    "SAMEA123916692": {
+      "name": "H049eN",
+      "insdc_sample_accessions": [
+        "ERS31802063"
+      ]
+    },
+    "SAMEA123916693": {
+      "name": "H050eM",
+      "insdc_sample_accessions": [
+        "ERS31802064"
+      ]
+    },
+    "SAMEA123916694": {
+      "name": "H050eN",
+      "insdc_sample_accessions": [
+        "ERS31802065"
+      ]
+    },
+    "SAMEA123916695": {
+      "name": "H051aM",
+      "insdc_sample_accessions": [
+        "ERS31802066"
+      ]
+    },
+    "SAMEA123916696": {
+      "name": "H051aN",
+      "insdc_sample_accessions": [
+        "ERS31802067"
+      ]
+    },
+    "SAMEA123916697": {
+      "name": "H052aM",
+      "insdc_sample_accessions": [
+        "ERS31802068"
+      ]
+    },
+    "SAMEA123916698": {
+      "name": "H052aN",
+      "insdc_sample_accessions": [
+        "ERS31802069"
+      ]
+    },
+    "SAMEA123916699": {
+      "name": "H053aM",
+      "insdc_sample_accessions": [
+        "ERS31802070"
+      ]
+    },
+    "SAMEA123916700": {
+      "name": "H053aN",
+      "insdc_sample_accessions": [
+        "ERS31802071"
+      ]
+    },
+    "SAMEA123916701": {
+      "name": "H054aM",
+      "insdc_sample_accessions": [
+        "ERS31802072"
+      ]
+    },
+    "SAMEA123916702": {
+      "name": "H054aN",
+      "insdc_sample_accessions": [
+        "ERS31802073"
+      ]
+    },
+    "SAMEA123916703": {
+      "name": "H055aM",
+      "insdc_sample_accessions": [
+        "ERS31802074"
+      ]
+    },
+    "SAMEA123916704": {
+      "name": "H055aN",
+      "insdc_sample_accessions": [
+        "ERS31802075"
+      ]
+    },
+    "SAMEA123916705": {
+      "name": "H056bM",
+      "insdc_sample_accessions": [
+        "ERS31802076"
+      ]
+    },
+    "SAMEA123916706": {
+      "name": "H056bN",
+      "insdc_sample_accessions": [
+        "ERS31802077"
+      ]
+    },
+    "SAMEA123916707": {
+      "name": "H057bM",
+      "insdc_sample_accessions": [
+        "ERS31802078"
+      ]
+    },
+    "SAMEA123916708": {
+      "name": "H057bN",
+      "insdc_sample_accessions": [
+        "ERS31802079"
+      ]
+    },
+    "SAMEA123916709": {
+      "name": "H058bM",
+      "insdc_sample_accessions": [
+        "ERS31802080"
+      ]
+    },
+    "SAMEA123916710": {
+      "name": "H058bN",
+      "insdc_sample_accessions": [
+        "ERS31802081"
+      ]
+    },
+    "SAMEA123916711": {
+      "name": "H059bM",
+      "insdc_sample_accessions": [
+        "ERS31802082"
+      ]
+    },
+    "SAMEA123916712": {
+      "name": "H059bN",
+      "insdc_sample_accessions": [
+        "ERS31802083"
+      ]
+    },
+    "SAMEA123916713": {
+      "name": "H060bM",
+      "insdc_sample_accessions": [
+        "ERS31802084"
+      ]
+    },
+    "SAMEA123916714": {
+      "name": "H060bN",
+      "insdc_sample_accessions": [
+        "ERS31802085"
+      ]
+    },
+    "SAMEA123916715": {
+      "name": "H061cM",
+      "insdc_sample_accessions": [
+        "ERS31802086"
+      ]
+    },
+    "SAMEA123916716": {
+      "name": "H061cN",
+      "insdc_sample_accessions": [
+        "ERS31802087"
+      ]
+    },
+    "SAMEA123916717": {
+      "name": "H062cM",
+      "insdc_sample_accessions": [
+        "ERS31802088"
+      ]
+    },
+    "SAMEA123916718": {
+      "name": "H062cN",
+      "insdc_sample_accessions": [
+        "ERS31802089"
+      ]
+    },
+    "SAMEA123916719": {
+      "name": "H063cM",
+      "insdc_sample_accessions": [
+        "ERS31802090"
+      ]
+    },
+    "SAMEA123916720": {
+      "name": "H063cN",
+      "insdc_sample_accessions": [
+        "ERS31802091"
+      ]
+    },
+    "SAMEA123916721": {
+      "name": "H064cM",
+      "insdc_sample_accessions": [
+        "ERS31802092"
+      ]
+    },
+    "SAMEA123916722": {
+      "name": "H064cN",
+      "insdc_sample_accessions": [
+        "ERS31802093"
+      ]
+    },
+    "SAMEA123916723": {
+      "name": "H065cM",
+      "insdc_sample_accessions": [
+        "ERS31802094"
+      ]
+    },
+    "SAMEA123916724": {
+      "name": "H065cN",
+      "insdc_sample_accessions": [
+        "ERS31802095"
+      ]
+    },
+    "SAMEA123916725": {
+      "name": "H066dM",
+      "insdc_sample_accessions": [
+        "ERS31802096"
+      ]
+    },
+    "SAMEA123916726": {
+      "name": "H066dN",
+      "insdc_sample_accessions": [
+        "ERS31802097"
+      ]
+    },
+    "SAMEA123916727": {
+      "name": "H067dM",
+      "insdc_sample_accessions": [
+        "ERS31802098"
+      ]
+    },
+    "SAMEA123916728": {
+      "name": "H067dN",
+      "insdc_sample_accessions": [
+        "ERS31802099"
+      ]
+    },
+    "SAMEA123916729": {
+      "name": "H068dM",
+      "insdc_sample_accessions": [
+        "ERS31802100"
+      ]
+    },
+    "SAMEA123916730": {
+      "name": "H068dN",
+      "insdc_sample_accessions": [
+        "ERS31802101"
+      ]
+    },
+    "SAMEA123916731": {
+      "name": "H069dM",
+      "insdc_sample_accessions": [
+        "ERS31802102"
+      ]
+    },
+    "SAMEA123916732": {
+      "name": "H069dN",
+      "insdc_sample_accessions": [
+        "ERS31802103"
+      ]
+    },
+    "SAMEA123916733": {
+      "name": "H070dM",
+      "insdc_sample_accessions": [
+        "ERS31802104"
+      ]
+    },
+    "SAMEA123916734": {
+      "name": "H070dN",
+      "insdc_sample_accessions": [
+        "ERS31802105"
+      ]
+    },
+    "SAMEA123916735": {
+      "name": "H071eM",
+      "insdc_sample_accessions": [
+        "ERS31802106"
+      ]
+    },
+    "SAMEA123916736": {
+      "name": "H071eN",
+      "insdc_sample_accessions": [
+        "ERS31802107"
+      ]
+    },
+    "SAMEA123916737": {
+      "name": "H072eM",
+      "insdc_sample_accessions": [
+        "ERS31802108"
+      ]
+    },
+    "SAMEA123916738": {
+      "name": "H072eN",
+      "insdc_sample_accessions": [
+        "ERS31802109"
+      ]
+    },
+    "SAMEA123916739": {
+      "name": "H073eM",
+      "insdc_sample_accessions": [
+        "ERS31802110"
+      ]
+    },
+    "SAMEA123916740": {
+      "name": "H073eN",
+      "insdc_sample_accessions": [
+        "ERS31802111"
+      ]
+    },
+    "SAMEA123916741": {
+      "name": "H074eM",
+      "insdc_sample_accessions": [
+        "ERS31802112"
+      ]
+    },
+    "SAMEA123916742": {
+      "name": "H074eN",
+      "insdc_sample_accessions": [
+        "ERS31802113"
+      ]
+    },
+    "SAMEA123916743": {
+      "name": "H075eM",
+      "insdc_sample_accessions": [
+        "ERS31802114"
+      ]
+    },
+    "SAMEA123916744": {
+      "name": "H075eN",
+      "insdc_sample_accessions": [
+        "ERS31802115"
+      ]
+    },
+    "SAMEA123916745": {
+      "name": "H076aM",
+      "insdc_sample_accessions": [
+        "ERS31802116"
+      ]
+    },
+    "SAMEA123916746": {
+      "name": "H076aN",
+      "insdc_sample_accessions": [
+        "ERS31802117"
+      ]
+    },
+    "SAMEA123916747": {
+      "name": "H077aM",
+      "insdc_sample_accessions": [
+        "ERS31802118"
+      ]
+    },
+    "SAMEA123916748": {
+      "name": "H077aN",
+      "insdc_sample_accessions": [
+        "ERS31802119"
+      ]
+    },
+    "SAMEA123916749": {
+      "name": "H078aM",
+      "insdc_sample_accessions": [
+        "ERS31802120"
+      ]
+    },
+    "SAMEA123916750": {
+      "name": "H078aN",
+      "insdc_sample_accessions": [
+        "ERS31802121"
+      ]
+    },
+    "SAMEA123916751": {
+      "name": "H079aM",
+      "insdc_sample_accessions": [
+        "ERS31802122"
+      ]
+    },
+    "SAMEA123916752": {
+      "name": "H079aN",
+      "insdc_sample_accessions": [
+        "ERS31802123"
+      ]
+    },
+    "SAMEA123916753": {
+      "name": "H080aM",
+      "insdc_sample_accessions": [
+        "ERS31802124"
+      ]
+    },
+    "SAMEA123916754": {
+      "name": "H080aN",
+      "insdc_sample_accessions": [
+        "ERS31802125"
+      ]
+    },
+    "SAMEA123916755": {
+      "name": "H081bM",
+      "insdc_sample_accessions": [
+        "ERS31802126"
+      ]
+    },
+    "SAMEA123916756": {
+      "name": "H081bN",
+      "insdc_sample_accessions": [
+        "ERS31802127"
+      ]
+    },
+    "SAMEA123916757": {
+      "name": "H082bM",
+      "insdc_sample_accessions": [
+        "ERS31802128"
+      ]
+    },
+    "SAMEA123916758": {
+      "name": "H082bN",
+      "insdc_sample_accessions": [
+        "ERS31802129"
+      ]
+    },
+    "SAMEA123916759": {
+      "name": "H083bM",
+      "insdc_sample_accessions": [
+        "ERS31802130"
+      ]
+    },
+    "SAMEA123916760": {
+      "name": "H083bN",
+      "insdc_sample_accessions": [
+        "ERS31802131"
+      ]
+    },
+    "SAMEA123916761": {
+      "name": "H084bM",
+      "insdc_sample_accessions": [
+        "ERS31802132"
+      ]
+    },
+    "SAMEA123916762": {
+      "name": "H084bN",
+      "insdc_sample_accessions": [
+        "ERS31802133"
+      ]
+    },
+    "SAMEA123916763": {
+      "name": "H085bM",
+      "insdc_sample_accessions": [
+        "ERS31802134"
+      ]
+    },
+    "SAMEA123916764": {
+      "name": "H085bN",
+      "insdc_sample_accessions": [
+        "ERS31802135"
+      ]
+    },
+    "SAMEA123916765": {
+      "name": "H086cM",
+      "insdc_sample_accessions": [
+        "ERS31802136"
+      ]
+    },
+    "SAMEA123916766": {
+      "name": "H086cN",
+      "insdc_sample_accessions": [
+        "ERS31802137"
+      ]
+    },
+    "SAMEA123916767": {
+      "name": "H087cM",
+      "insdc_sample_accessions": [
+        "ERS31802138"
+      ]
+    },
+    "SAMEA123916768": {
+      "name": "H087cN",
+      "insdc_sample_accessions": [
+        "ERS31802139"
+      ]
+    },
+    "SAMEA123916769": {
+      "name": "H088cM",
+      "insdc_sample_accessions": [
+        "ERS31802140"
+      ]
+    },
+    "SAMEA123916770": {
+      "name": "H088cN",
+      "insdc_sample_accessions": [
+        "ERS31802141"
+      ]
+    },
+    "SAMEA123916771": {
+      "name": "H089cM",
+      "insdc_sample_accessions": [
+        "ERS31802142"
+      ]
+    },
+    "SAMEA123916772": {
+      "name": "H089cN",
+      "insdc_sample_accessions": [
+        "ERS31802143"
+      ]
+    },
+    "SAMEA123916773": {
+      "name": "H090cM",
+      "insdc_sample_accessions": [
+        "ERS31802144"
+      ]
+    },
+    "SAMEA123916774": {
+      "name": "H090cN",
+      "insdc_sample_accessions": [
+        "ERS31802145"
+      ]
+    },
+    "SAMEA123916775": {
+      "name": "H091dM",
+      "insdc_sample_accessions": [
+        "ERS31802146"
+      ]
+    },
+    "SAMEA123916776": {
+      "name": "H091dN",
+      "insdc_sample_accessions": [
+        "ERS31802147"
+      ]
+    },
+    "SAMEA123916777": {
+      "name": "H092dM",
+      "insdc_sample_accessions": [
+        "ERS31802148"
+      ]
+    },
+    "SAMEA123916778": {
+      "name": "H092dN",
+      "insdc_sample_accessions": [
+        "ERS31802149"
+      ]
+    },
+    "SAMEA123916779": {
+      "name": "H093dM",
+      "insdc_sample_accessions": [
+        "ERS31802150"
+      ]
+    },
+    "SAMEA123916780": {
+      "name": "H093dN",
+      "insdc_sample_accessions": [
+        "ERS31802151"
+      ]
+    },
+    "SAMEA123916781": {
+      "name": "H094dM",
+      "insdc_sample_accessions": [
+        "ERS31802152"
+      ]
+    },
+    "SAMEA123916782": {
+      "name": "H094dN",
+      "insdc_sample_accessions": [
+        "ERS31802153"
+      ]
+    },
+    "SAMEA123916783": {
+      "name": "H095dM",
+      "insdc_sample_accessions": [
+        "ERS31802154"
+      ]
+    },
+    "SAMEA123916784": {
+      "name": "H095dN",
+      "insdc_sample_accessions": [
+        "ERS31802155"
+      ]
+    },
+    "SAMEA123916785": {
+      "name": "H096eM",
+      "insdc_sample_accessions": [
+        "ERS31802156"
+      ]
+    },
+    "SAMEA123916786": {
+      "name": "H096eN",
+      "insdc_sample_accessions": [
+        "ERS31802157"
+      ]
+    },
+    "SAMEA123916787": {
+      "name": "H097eM",
+      "insdc_sample_accessions": [
+        "ERS31802158"
+      ]
+    },
+    "SAMEA123916788": {
+      "name": "H097eN",
+      "insdc_sample_accessions": [
+        "ERS31802159"
+      ]
+    },
+    "SAMEA123916789": {
+      "name": "H098eM",
+      "insdc_sample_accessions": [
+        "ERS31802160"
+      ]
+    },
+    "SAMEA123916790": {
+      "name": "H098eN",
+      "insdc_sample_accessions": [
+        "ERS31802161"
+      ]
+    },
+    "SAMEA123916791": {
+      "name": "H099eM",
+      "insdc_sample_accessions": [
+        "ERS31802162"
+      ]
+    },
+    "SAMEA123916792": {
+      "name": "H099eN",
+      "insdc_sample_accessions": [
+        "ERS31802163"
+      ]
+    },
+    "SAMEA123916793": {
+      "name": "H100eM",
+      "insdc_sample_accessions": [
+        "ERS31802164"
+      ]
+    },
+    "SAMEA123916794": {
+      "name": "H100eN",
+      "insdc_sample_accessions": [
+        "ERS31802165"
+      ]
+    },
+    "SAMEA123916796": {
+      "name": "M001aM",
+      "insdc_sample_accessions": [
+        "ERS31802167"
+      ]
+    },
+    "SAMEA123916797": {
+      "name": "M001aN",
+      "insdc_sample_accessions": [
+        "ERS31802168"
+      ]
+    },
+    "SAMEA123916798": {
+      "name": "M002aM",
+      "insdc_sample_accessions": [
+        "ERS31802169"
+      ]
+    },
+    "SAMEA123916799": {
+      "name": "M002aN",
+      "insdc_sample_accessions": [
+        "ERS31802170"
+      ]
+    },
+    "SAMEA123916800": {
+      "name": "M003aM",
+      "insdc_sample_accessions": [
+        "ERS31802171"
+      ]
+    },
+    "SAMEA123916801": {
+      "name": "M003aN",
+      "insdc_sample_accessions": [
+        "ERS31802172"
+      ]
+    },
+    "SAMEA123916802": {
+      "name": "M004aM",
+      "insdc_sample_accessions": [
+        "ERS31802173"
+      ]
+    },
+    "SAMEA123916803": {
+      "name": "M004aN",
+      "insdc_sample_accessions": [
+        "ERS31802174"
+      ]
+    },
+    "SAMEA123916804": {
+      "name": "M005aM",
+      "insdc_sample_accessions": [
+        "ERS31802175"
+      ]
+    },
+    "SAMEA123916805": {
+      "name": "M005aN",
+      "insdc_sample_accessions": [
+        "ERS31802176"
+      ]
+    },
+    "SAMEA123916806": {
+      "name": "M006bM",
+      "insdc_sample_accessions": [
+        "ERS31802177"
+      ]
+    },
+    "SAMEA123916807": {
+      "name": "M006bN",
+      "insdc_sample_accessions": [
+        "ERS31802178"
+      ]
+    },
+    "SAMEA123916808": {
+      "name": "M007bM",
+      "insdc_sample_accessions": [
+        "ERS31802179"
+      ]
+    },
+    "SAMEA123916809": {
+      "name": "M007bN",
+      "insdc_sample_accessions": [
+        "ERS31802180"
+      ]
+    },
+    "SAMEA123916810": {
+      "name": "M008bM",
+      "insdc_sample_accessions": [
+        "ERS31802181"
+      ]
+    },
+    "SAMEA123916811": {
+      "name": "M008bN",
+      "insdc_sample_accessions": [
+        "ERS31802182"
+      ]
+    },
+    "SAMEA123916812": {
+      "name": "M009bM",
+      "insdc_sample_accessions": [
+        "ERS31802183"
+      ]
+    },
+    "SAMEA123916813": {
+      "name": "M009bN",
+      "insdc_sample_accessions": [
+        "ERS31802184"
+      ]
+    },
+    "SAMEA123916814": {
+      "name": "M010bM",
+      "insdc_sample_accessions": [
+        "ERS31802185"
+      ]
+    },
+    "SAMEA123916815": {
+      "name": "M010bN",
+      "insdc_sample_accessions": [
+        "ERS31802186"
+      ]
+    },
+    "SAMEA123916816": {
+      "name": "M011cM",
+      "insdc_sample_accessions": [
+        "ERS31802187"
+      ]
+    },
+    "SAMEA123916817": {
+      "name": "M011cN",
+      "insdc_sample_accessions": [
+        "ERS31802188"
+      ]
+    },
+    "SAMEA123916818": {
+      "name": "M012cM",
+      "insdc_sample_accessions": [
+        "ERS31802189"
+      ]
+    },
+    "SAMEA123916819": {
+      "name": "M012cN",
+      "insdc_sample_accessions": [
+        "ERS31802190"
+      ]
+    },
+    "SAMEA123916820": {
+      "name": "M013cM",
+      "insdc_sample_accessions": [
+        "ERS31802191"
+      ]
+    },
+    "SAMEA123916821": {
+      "name": "M013cN",
+      "insdc_sample_accessions": [
+        "ERS31802192"
+      ]
+    },
+    "SAMEA123916822": {
+      "name": "M014cM",
+      "insdc_sample_accessions": [
+        "ERS31802193"
+      ]
+    },
+    "SAMEA123916823": {
+      "name": "M014cN",
+      "insdc_sample_accessions": [
+        "ERS31802194"
+      ]
+    },
+    "SAMEA123916824": {
+      "name": "M015cM",
+      "insdc_sample_accessions": [
+        "ERS31802195"
+      ]
+    },
+    "SAMEA123916825": {
+      "name": "M015cN",
+      "insdc_sample_accessions": [
+        "ERS31802196"
+      ]
+    },
+    "SAMEA123916826": {
+      "name": "M016dM",
+      "insdc_sample_accessions": [
+        "ERS31802197"
+      ]
+    },
+    "SAMEA123916827": {
+      "name": "M016dN",
+      "insdc_sample_accessions": [
+        "ERS31802198"
+      ]
+    },
+    "SAMEA123916828": {
+      "name": "M017dM",
+      "insdc_sample_accessions": [
+        "ERS31802199"
+      ]
+    },
+    "SAMEA123916829": {
+      "name": "M017dN",
+      "insdc_sample_accessions": [
+        "ERS31802200"
+      ]
+    },
+    "SAMEA123916830": {
+      "name": "M018dM",
+      "insdc_sample_accessions": [
+        "ERS31802201"
+      ]
+    },
+    "SAMEA123916831": {
+      "name": "M018dN",
+      "insdc_sample_accessions": [
+        "ERS31802202"
+      ]
+    },
+    "SAMEA123916832": {
+      "name": "M019dM",
+      "insdc_sample_accessions": [
+        "ERS31802203"
+      ]
+    },
+    "SAMEA123916833": {
+      "name": "M019dN",
+      "insdc_sample_accessions": [
+        "ERS31802204"
+      ]
+    },
+    "SAMEA123916834": {
+      "name": "M020dM",
+      "insdc_sample_accessions": [
+        "ERS31802205"
+      ]
+    },
+    "SAMEA123916835": {
+      "name": "M020dN",
+      "insdc_sample_accessions": [
+        "ERS31802206"
+      ]
+    },
+    "SAMEA123916836": {
+      "name": "M021aM",
+      "insdc_sample_accessions": [
+        "ERS31802207"
+      ]
+    },
+    "SAMEA123916837": {
+      "name": "M021aN",
+      "insdc_sample_accessions": [
+        "ERS31802208"
+      ]
+    },
+    "SAMEA123916838": {
+      "name": "M022aM",
+      "insdc_sample_accessions": [
+        "ERS31802209"
+      ]
+    },
+    "SAMEA123916839": {
+      "name": "M022aN",
+      "insdc_sample_accessions": [
+        "ERS31802210"
+      ]
+    },
+    "SAMEA123916840": {
+      "name": "M023aM",
+      "insdc_sample_accessions": [
+        "ERS31802211"
+      ]
+    },
+    "SAMEA123916841": {
+      "name": "M023aN",
+      "insdc_sample_accessions": [
+        "ERS31802212"
+      ]
+    },
+    "SAMEA123916842": {
+      "name": "M024aM",
+      "insdc_sample_accessions": [
+        "ERS31802213"
+      ]
+    },
+    "SAMEA123916843": {
+      "name": "M024aN",
+      "insdc_sample_accessions": [
+        "ERS31802214"
+      ]
+    },
+    "SAMEA123916844": {
+      "name": "M025aM",
+      "insdc_sample_accessions": [
+        "ERS31802215"
+      ]
+    },
+    "SAMEA123916845": {
+      "name": "M025aN",
+      "insdc_sample_accessions": [
+        "ERS31802216"
+      ]
+    },
+    "SAMEA123916846": {
+      "name": "M026bM",
+      "insdc_sample_accessions": [
+        "ERS31802217"
+      ]
+    },
+    "SAMEA123916847": {
+      "name": "M026bN",
+      "insdc_sample_accessions": [
+        "ERS31802218"
+      ]
+    },
+    "SAMEA123916848": {
+      "name": "M027bM",
+      "insdc_sample_accessions": [
+        "ERS31802219"
+      ]
+    },
+    "SAMEA123916849": {
+      "name": "M027bN",
+      "insdc_sample_accessions": [
+        "ERS31802220"
+      ]
+    },
+    "SAMEA123916850": {
+      "name": "M028bM",
+      "insdc_sample_accessions": [
+        "ERS31802221"
+      ]
+    },
+    "SAMEA123916851": {
+      "name": "M028bN",
+      "insdc_sample_accessions": [
+        "ERS31802222"
+      ]
+    },
+    "SAMEA123916852": {
+      "name": "M029bM",
+      "insdc_sample_accessions": [
+        "ERS31802223"
+      ]
+    },
+    "SAMEA123916853": {
+      "name": "M029bN",
+      "insdc_sample_accessions": [
+        "ERS31802224"
+      ]
+    },
+    "SAMEA123916854": {
+      "name": "M030bM",
+      "insdc_sample_accessions": [
+        "ERS31802225"
+      ]
+    },
+    "SAMEA123916855": {
+      "name": "M030bN",
+      "insdc_sample_accessions": [
+        "ERS31802226"
+      ]
+    },
+    "SAMEA123916856": {
+      "name": "M031cM",
+      "insdc_sample_accessions": [
+        "ERS31802227"
+      ]
+    },
+    "SAMEA123916857": {
+      "name": "M031cN",
+      "insdc_sample_accessions": [
+        "ERS31802228"
+      ]
+    },
+    "SAMEA123916858": {
+      "name": "M032cM",
+      "insdc_sample_accessions": [
+        "ERS31802229"
+      ]
+    },
+    "SAMEA123916859": {
+      "name": "M032cN",
+      "insdc_sample_accessions": [
+        "ERS31802230"
+      ]
+    },
+    "SAMEA123916860": {
+      "name": "M033cM",
+      "insdc_sample_accessions": [
+        "ERS31802231"
+      ]
+    },
+    "SAMEA123916861": {
+      "name": "M033cN",
+      "insdc_sample_accessions": [
+        "ERS31802232"
+      ]
+    },
+    "SAMEA123916862": {
+      "name": "M034cM",
+      "insdc_sample_accessions": [
+        "ERS31802233"
+      ]
+    },
+    "SAMEA123916863": {
+      "name": "M034cN",
+      "insdc_sample_accessions": [
+        "ERS31802234"
+      ]
+    },
+    "SAMEA123916864": {
+      "name": "M035cM",
+      "insdc_sample_accessions": [
+        "ERS31802235"
+      ]
+    },
+    "SAMEA123916865": {
+      "name": "M035cN",
+      "insdc_sample_accessions": [
+        "ERS31802236"
+      ]
+    },
+    "SAMEA123916866": {
+      "name": "M036dM",
+      "insdc_sample_accessions": [
+        "ERS31802237"
+      ]
+    },
+    "SAMEA123916867": {
+      "name": "M036dN",
+      "insdc_sample_accessions": [
+        "ERS31802238"
+      ]
+    },
+    "SAMEA123916868": {
+      "name": "M037dM",
+      "insdc_sample_accessions": [
+        "ERS31802239"
+      ]
+    },
+    "SAMEA123916869": {
+      "name": "M037dN",
+      "insdc_sample_accessions": [
+        "ERS31802240"
+      ]
+    },
+    "SAMEA123916870": {
+      "name": "M038dM",
+      "insdc_sample_accessions": [
+        "ERS31802241"
+      ]
+    },
+    "SAMEA123916871": {
+      "name": "M038dN",
+      "insdc_sample_accessions": [
+        "ERS31802242"
+      ]
+    },
+    "SAMEA123916872": {
+      "name": "M039dM",
+      "insdc_sample_accessions": [
+        "ERS31802243"
+      ]
+    },
+    "SAMEA123916873": {
+      "name": "M039dN",
+      "insdc_sample_accessions": [
+        "ERS31802244"
+      ]
+    },
+    "SAMEA123916874": {
+      "name": "M040dM",
+      "insdc_sample_accessions": [
+        "ERS31802245"
+      ]
+    },
+    "SAMEA123916875": {
+      "name": "M040dN",
+      "insdc_sample_accessions": [
+        "ERS31802246"
+      ]
+    },
+    "SAMEA123916876": {
+      "name": "M041aM",
+      "insdc_sample_accessions": [
+        "ERS31802247"
+      ]
+    },
+    "SAMEA123916877": {
+      "name": "M041aN",
+      "insdc_sample_accessions": [
+        "ERS31802248"
+      ]
+    },
+    "SAMEA123916878": {
+      "name": "M042aM",
+      "insdc_sample_accessions": [
+        "ERS31802249"
+      ]
+    },
+    "SAMEA123916879": {
+      "name": "M042aN",
+      "insdc_sample_accessions": [
+        "ERS31802250"
+      ]
+    },
+    "SAMEA123916880": {
+      "name": "M043aM",
+      "insdc_sample_accessions": [
+        "ERS31802251"
+      ]
+    },
+    "SAMEA123916881": {
+      "name": "M043aN",
+      "insdc_sample_accessions": [
+        "ERS31802252"
+      ]
+    },
+    "SAMEA123916882": {
+      "name": "M044aM",
+      "insdc_sample_accessions": [
+        "ERS31802253"
+      ]
+    },
+    "SAMEA123916883": {
+      "name": "M044aN",
+      "insdc_sample_accessions": [
+        "ERS31802254"
+      ]
+    },
+    "SAMEA123916884": {
+      "name": "M045aM",
+      "insdc_sample_accessions": [
+        "ERS31802255"
+      ]
+    },
+    "SAMEA123916885": {
+      "name": "M045aN",
+      "insdc_sample_accessions": [
+        "ERS31802256"
+      ]
+    },
+    "SAMEA123916886": {
+      "name": "M046bM",
+      "insdc_sample_accessions": [
+        "ERS31802257"
+      ]
+    },
+    "SAMEA123916887": {
+      "name": "M046bN",
+      "insdc_sample_accessions": [
+        "ERS31802258"
+      ]
+    },
+    "SAMEA123916888": {
+      "name": "M047bM",
+      "insdc_sample_accessions": [
+        "ERS31802259"
+      ]
+    },
+    "SAMEA123916889": {
+      "name": "M047bN",
+      "insdc_sample_accessions": [
+        "ERS31802260"
+      ]
+    },
+    "SAMEA123916890": {
+      "name": "M048bM",
+      "insdc_sample_accessions": [
+        "ERS31802261"
+      ]
+    },
+    "SAMEA123916891": {
+      "name": "M048bN",
+      "insdc_sample_accessions": [
+        "ERS31802262"
+      ]
+    },
+    "SAMEA123916892": {
+      "name": "M049bM",
+      "insdc_sample_accessions": [
+        "ERS31802263"
+      ]
+    },
+    "SAMEA123916893": {
+      "name": "M049bN",
+      "insdc_sample_accessions": [
+        "ERS31802264"
+      ]
+    },
+    "SAMEA123916894": {
+      "name": "M050bM",
+      "insdc_sample_accessions": [
+        "ERS31802265"
+      ]
+    },
+    "SAMEA123916895": {
+      "name": "M050bN",
+      "insdc_sample_accessions": [
+        "ERS31802266"
+      ]
+    },
+    "SAMEA123916896": {
+      "name": "M051cM",
+      "insdc_sample_accessions": [
+        "ERS31802267"
+      ]
+    },
+    "SAMEA123916897": {
+      "name": "M051cN",
+      "insdc_sample_accessions": [
+        "ERS31802268"
+      ]
+    },
+    "SAMEA123916898": {
+      "name": "M052cM",
+      "insdc_sample_accessions": [
+        "ERS31802269"
+      ]
+    },
+    "SAMEA123916899": {
+      "name": "M052cN",
+      "insdc_sample_accessions": [
+        "ERS31802270"
+      ]
+    },
+    "SAMEA123916900": {
+      "name": "M053cM",
+      "insdc_sample_accessions": [
+        "ERS31802271"
+      ]
+    },
+    "SAMEA123916901": {
+      "name": "M053cN",
+      "insdc_sample_accessions": [
+        "ERS31802272"
+      ]
+    },
+    "SAMEA123916902": {
+      "name": "M054cM",
+      "insdc_sample_accessions": [
+        "ERS31802273"
+      ]
+    },
+    "SAMEA123916903": {
+      "name": "M054cN",
+      "insdc_sample_accessions": [
+        "ERS31802274"
+      ]
+    },
+    "SAMEA123916904": {
+      "name": "M055cM",
+      "insdc_sample_accessions": [
+        "ERS31802275"
+      ]
+    },
+    "SAMEA123916905": {
+      "name": "M055cN",
+      "insdc_sample_accessions": [
+        "ERS31802276"
+      ]
+    },
+    "SAMEA123916906": {
+      "name": "M056dM",
+      "insdc_sample_accessions": [
+        "ERS31802277"
+      ]
+    },
+    "SAMEA123916907": {
+      "name": "M056dN",
+      "insdc_sample_accessions": [
+        "ERS31802278"
+      ]
+    },
+    "SAMEA123916908": {
+      "name": "M057dM",
+      "insdc_sample_accessions": [
+        "ERS31802279"
+      ]
+    },
+    "SAMEA123916909": {
+      "name": "M057dN",
+      "insdc_sample_accessions": [
+        "ERS31802280"
+      ]
+    },
+    "SAMEA123916910": {
+      "name": "M058dM",
+      "insdc_sample_accessions": [
+        "ERS31802281"
+      ]
+    },
+    "SAMEA123916911": {
+      "name": "M058dN",
+      "insdc_sample_accessions": [
+        "ERS31802282"
+      ]
+    },
+    "SAMEA123916912": {
+      "name": "M059dM",
+      "insdc_sample_accessions": [
+        "ERS31802283"
+      ]
+    },
+    "SAMEA123916913": {
+      "name": "M059dN",
+      "insdc_sample_accessions": [
+        "ERS31802284"
+      ]
+    },
+    "SAMEA123916914": {
+      "name": "M060dM",
+      "insdc_sample_accessions": [
+        "ERS31802285"
+      ]
+    },
+    "SAMEA123916915": {
+      "name": "M060dN",
+      "insdc_sample_accessions": [
+        "ERS31802286"
+      ]
+    },
+    "SAMEA123916916": {
+      "name": "M061aM",
+      "insdc_sample_accessions": [
+        "ERS31802287"
+      ]
+    },
+    "SAMEA123916917": {
+      "name": "M061aN",
+      "insdc_sample_accessions": [
+        "ERS31802288"
+      ]
+    },
+    "SAMEA123916918": {
+      "name": "M062aM",
+      "insdc_sample_accessions": [
+        "ERS31802289"
+      ]
+    },
+    "SAMEA123916919": {
+      "name": "M062aN",
+      "insdc_sample_accessions": [
+        "ERS31802290"
+      ]
+    },
+    "SAMEA123916920": {
+      "name": "M063aM",
+      "insdc_sample_accessions": [
+        "ERS31802291"
+      ]
+    },
+    "SAMEA123916921": {
+      "name": "M063aN",
+      "insdc_sample_accessions": [
+        "ERS31802292"
+      ]
+    },
+    "SAMEA123916922": {
+      "name": "M064aM",
+      "insdc_sample_accessions": [
+        "ERS31802293"
+      ]
+    },
+    "SAMEA123916923": {
+      "name": "M064aN",
+      "insdc_sample_accessions": [
+        "ERS31802294"
+      ]
+    },
+    "SAMEA123916924": {
+      "name": "M065aM",
+      "insdc_sample_accessions": [
+        "ERS31802295"
+      ]
+    },
+    "SAMEA123916925": {
+      "name": "M065aN",
+      "insdc_sample_accessions": [
+        "ERS31802296"
+      ]
+    },
+    "SAMEA123916926": {
+      "name": "M066bM",
+      "insdc_sample_accessions": [
+        "ERS31802297"
+      ]
+    },
+    "SAMEA123916927": {
+      "name": "M066bN",
+      "insdc_sample_accessions": [
+        "ERS31802298"
+      ]
+    },
+    "SAMEA123916928": {
+      "name": "M067bM",
+      "insdc_sample_accessions": [
+        "ERS31802299"
+      ]
+    },
+    "SAMEA123916929": {
+      "name": "M067bN",
+      "insdc_sample_accessions": [
+        "ERS31802300"
+      ]
+    },
+    "SAMEA123916930": {
+      "name": "M068bM",
+      "insdc_sample_accessions": [
+        "ERS31802301"
+      ]
+    },
+    "SAMEA123916931": {
+      "name": "M068bN",
+      "insdc_sample_accessions": [
+        "ERS31802302"
+      ]
+    },
+    "SAMEA123916932": {
+      "name": "M069bM",
+      "insdc_sample_accessions": [
+        "ERS31802303"
+      ]
+    },
+    "SAMEA123916933": {
+      "name": "M069bN",
+      "insdc_sample_accessions": [
+        "ERS31802304"
+      ]
+    },
+    "SAMEA123916934": {
+      "name": "M070bM",
+      "insdc_sample_accessions": [
+        "ERS31802305"
+      ]
+    },
+    "SAMEA123916935": {
+      "name": "M070bN",
+      "insdc_sample_accessions": [
+        "ERS31802306"
+      ]
+    },
+    "SAMEA123916936": {
+      "name": "M071cM",
+      "insdc_sample_accessions": [
+        "ERS31802307"
+      ]
+    },
+    "SAMEA123916937": {
+      "name": "M071cN",
+      "insdc_sample_accessions": [
+        "ERS31802308"
+      ]
+    },
+    "SAMEA123916938": {
+      "name": "M072cM",
+      "insdc_sample_accessions": [
+        "ERS31802309"
+      ]
+    },
+    "SAMEA123916939": {
+      "name": "M072cN",
+      "insdc_sample_accessions": [
+        "ERS31802310"
+      ]
+    },
+    "SAMEA123916940": {
+      "name": "M073cM",
+      "insdc_sample_accessions": [
+        "ERS31802311"
+      ]
+    },
+    "SAMEA123916941": {
+      "name": "M073cN",
+      "insdc_sample_accessions": [
+        "ERS31802312"
+      ]
+    },
+    "SAMEA123916942": {
+      "name": "M074cM",
+      "insdc_sample_accessions": [
+        "ERS31802313"
+      ]
+    },
+    "SAMEA123916943": {
+      "name": "M074cN",
+      "insdc_sample_accessions": [
+        "ERS31802314"
+      ]
+    },
+    "SAMEA123916944": {
+      "name": "M075cM",
+      "insdc_sample_accessions": [
+        "ERS31802315"
+      ]
+    },
+    "SAMEA123916945": {
+      "name": "M075cN",
+      "insdc_sample_accessions": [
+        "ERS31802316"
+      ]
+    },
+    "SAMEA123916946": {
+      "name": "M076dM",
+      "insdc_sample_accessions": [
+        "ERS31802317"
+      ]
+    },
+    "SAMEA123916947": {
+      "name": "M076dN",
+      "insdc_sample_accessions": [
+        "ERS31802318"
+      ]
+    },
+    "SAMEA123916948": {
+      "name": "M077dM",
+      "insdc_sample_accessions": [
+        "ERS31802319"
+      ]
+    },
+    "SAMEA123916949": {
+      "name": "M077dN",
+      "insdc_sample_accessions": [
+        "ERS31802320"
+      ]
+    },
+    "SAMEA123916950": {
+      "name": "M078dM",
+      "insdc_sample_accessions": [
+        "ERS31802321"
+      ]
+    },
+    "SAMEA123916951": {
+      "name": "M078dN",
+      "insdc_sample_accessions": [
+        "ERS31802322"
+      ]
+    },
+    "SAMEA123916952": {
+      "name": "M079dM",
+      "insdc_sample_accessions": [
+        "ERS31802323"
+      ]
+    },
+    "SAMEA123916953": {
+      "name": "M079dN",
+      "insdc_sample_accessions": [
+        "ERS31802324"
+      ]
+    },
+    "SAMEA123916954": {
+      "name": "M080dM",
+      "insdc_sample_accessions": [
+        "ERS31802325"
+      ]
+    },
+    "SAMEA123916955": {
+      "name": "M080dN",
+      "insdc_sample_accessions": [
+        "ERS31802326"
+      ]
+    },
+    "SAMEA123916957": {
+      "name": "F001aB",
+      "insdc_sample_accessions": [
+        "ERS31802328"
+      ]
+    },
+    "SAMEA123916958": {
+      "name": "F002aB",
+      "insdc_sample_accessions": [
+        "ERS31802329"
+      ]
+    },
+    "SAMEA123916959": {
+      "name": "F003aB",
+      "insdc_sample_accessions": [
+        "ERS31802330"
+      ]
+    },
+    "SAMEA123916960": {
+      "name": "F004aB",
+      "insdc_sample_accessions": [
+        "ERS31802331"
+      ]
+    },
+    "SAMEA123916961": {
+      "name": "F005aB",
+      "insdc_sample_accessions": [
+        "ERS31802332"
+      ]
+    },
+    "SAMEA123916962": {
+      "name": "F006bB",
+      "insdc_sample_accessions": [
+        "ERS31802333"
+      ]
+    },
+    "SAMEA123916963": {
+      "name": "F007bB",
+      "insdc_sample_accessions": [
+        "ERS31802334"
+      ]
+    },
+    "SAMEA123916964": {
+      "name": "F008bB",
+      "insdc_sample_accessions": [
+        "ERS31802335"
+      ]
+    },
+    "SAMEA123916965": {
+      "name": "F009bB",
+      "insdc_sample_accessions": [
+        "ERS31802336"
+      ]
+    },
+    "SAMEA123916966": {
+      "name": "F010bB",
+      "insdc_sample_accessions": [
+        "ERS31802337"
+      ]
+    },
+    "SAMEA123916967": {
+      "name": "F011cB",
+      "insdc_sample_accessions": [
+        "ERS31802338"
+      ]
+    },
+    "SAMEA123916968": {
+      "name": "F012cB",
+      "insdc_sample_accessions": [
+        "ERS31802339"
+      ]
+    },
+    "SAMEA123916969": {
+      "name": "F013cB",
+      "insdc_sample_accessions": [
+        "ERS31802340"
+      ]
+    },
+    "SAMEA123916970": {
+      "name": "F014cB",
+      "insdc_sample_accessions": [
+        "ERS31802341"
+      ]
+    },
+    "SAMEA123916971": {
+      "name": "F015cB",
+      "insdc_sample_accessions": [
+        "ERS31802342"
+      ]
+    },
+    "SAMEA123916972": {
+      "name": "F016dA",
+      "insdc_sample_accessions": [
+        "ERS31802343"
+      ]
+    },
+    "SAMEA123916973": {
+      "name": "F016dB",
+      "insdc_sample_accessions": [
+        "ERS31802344"
+      ]
+    },
+    "SAMEA123916974": {
+      "name": "F017dA",
+      "insdc_sample_accessions": [
+        "ERS31802345"
+      ]
+    },
+    "SAMEA123916975": {
+      "name": "F017dB",
+      "insdc_sample_accessions": [
+        "ERS31802346"
+      ]
+    },
+    "SAMEA123916976": {
+      "name": "F018dB",
+      "insdc_sample_accessions": [
+        "ERS31802347"
+      ]
+    },
+    "SAMEA123916977": {
+      "name": "F019dB",
+      "insdc_sample_accessions": [
+        "ERS31802348"
+      ]
+    },
+    "SAMEA123916978": {
+      "name": "F020dB",
+      "insdc_sample_accessions": [
+        "ERS31802349"
+      ]
+    },
+    "SAMEA123916979": {
+      "name": "F021eB",
+      "insdc_sample_accessions": [
+        "ERS31802350"
+      ]
+    },
+    "SAMEA123916980": {
+      "name": "F022eB",
+      "insdc_sample_accessions": [
+        "ERS31802351"
+      ]
+    },
+    "SAMEA123916981": {
+      "name": "F023eB",
+      "insdc_sample_accessions": [
+        "ERS31802352"
+      ]
+    },
+    "SAMEA123916982": {
+      "name": "F024eB",
+      "insdc_sample_accessions": [
+        "ERS31802353"
+      ]
+    },
+    "SAMEA123916983": {
+      "name": "F025eB",
+      "insdc_sample_accessions": [
+        "ERS31802354"
+      ]
+    },
+    "SAMEA123916984": {
+      "name": "F026aB",
+      "insdc_sample_accessions": [
+        "ERS31802355"
+      ]
+    },
+    "SAMEA123916985": {
+      "name": "F027aB",
+      "insdc_sample_accessions": [
+        "ERS31802356"
+      ]
+    },
+    "SAMEA123916986": {
+      "name": "F028aB",
+      "insdc_sample_accessions": [
+        "ERS31802357"
+      ]
+    },
+    "SAMEA123916987": {
+      "name": "F029aB",
+      "insdc_sample_accessions": [
+        "ERS31802358"
+      ]
+    },
+    "SAMEA123916988": {
+      "name": "F030aB",
+      "insdc_sample_accessions": [
+        "ERS31802359"
+      ]
+    },
+    "SAMEA123916989": {
+      "name": "F031bB",
+      "insdc_sample_accessions": [
+        "ERS31802360"
+      ]
+    },
+    "SAMEA123916990": {
+      "name": "F032bB",
+      "insdc_sample_accessions": [
+        "ERS31802361"
+      ]
+    },
+    "SAMEA123916991": {
+      "name": "F033bB",
+      "insdc_sample_accessions": [
+        "ERS31802362"
+      ]
+    },
+    "SAMEA123916992": {
+      "name": "F034bB",
+      "insdc_sample_accessions": [
+        "ERS31802363"
+      ]
+    },
+    "SAMEA123916993": {
+      "name": "F035bB",
+      "insdc_sample_accessions": [
+        "ERS31802364"
+      ]
+    },
+    "SAMEA123916994": {
+      "name": "F036cB",
+      "insdc_sample_accessions": [
+        "ERS31802365"
+      ]
+    },
+    "SAMEA123916995": {
+      "name": "F037cB",
+      "insdc_sample_accessions": [
+        "ERS31802366"
+      ]
+    },
+    "SAMEA123916996": {
+      "name": "F038cB",
+      "insdc_sample_accessions": [
+        "ERS31802367"
+      ]
+    },
+    "SAMEA123916997": {
+      "name": "F039cB",
+      "insdc_sample_accessions": [
+        "ERS31802368"
+      ]
+    },
+    "SAMEA123916998": {
+      "name": "F040cB",
+      "insdc_sample_accessions": [
+        "ERS31802369"
+      ]
+    },
+    "SAMEA123916999": {
+      "name": "F041dB",
+      "insdc_sample_accessions": [
+        "ERS31802370"
+      ]
+    },
+    "SAMEA123917000": {
+      "name": "F042dB",
+      "insdc_sample_accessions": [
+        "ERS31802371"
+      ]
+    },
+    "SAMEA123917001": {
+      "name": "F043dA",
+      "insdc_sample_accessions": [
+        "ERS31802372"
+      ]
+    },
+    "SAMEA123917002": {
+      "name": "F043dB",
+      "insdc_sample_accessions": [
+        "ERS31802373"
+      ]
+    },
+    "SAMEA123917003": {
+      "name": "F044dB",
+      "insdc_sample_accessions": [
+        "ERS31802374"
+      ]
+    },
+    "SAMEA123917004": {
+      "name": "F045dA",
+      "insdc_sample_accessions": [
+        "ERS31802375"
+      ]
+    },
+    "SAMEA123917005": {
+      "name": "F045dB",
+      "insdc_sample_accessions": [
+        "ERS31802376"
+      ]
+    },
+    "SAMEA123917006": {
+      "name": "F046eB",
+      "insdc_sample_accessions": [
+        "ERS31802377"
+      ]
+    },
+    "SAMEA123917007": {
+      "name": "F047eB",
+      "insdc_sample_accessions": [
+        "ERS31802378"
+      ]
+    },
+    "SAMEA123917008": {
+      "name": "F048eB",
+      "insdc_sample_accessions": [
+        "ERS31802379"
+      ]
+    },
+    "SAMEA123917009": {
+      "name": "F049eB",
+      "insdc_sample_accessions": [
+        "ERS31802380"
+      ]
+    },
+    "SAMEA123917010": {
+      "name": "F050eB",
+      "insdc_sample_accessions": [
+        "ERS31802381"
+      ]
+    },
+    "SAMEA123917011": {
+      "name": "F051aB",
+      "insdc_sample_accessions": [
+        "ERS31802382"
+      ]
+    },
+    "SAMEA123917012": {
+      "name": "F052aB",
+      "insdc_sample_accessions": [
+        "ERS31802383"
+      ]
+    },
+    "SAMEA123917013": {
+      "name": "F053aB",
+      "insdc_sample_accessions": [
+        "ERS31802384"
+      ]
+    },
+    "SAMEA123917014": {
+      "name": "F054aB",
+      "insdc_sample_accessions": [
+        "ERS31802385"
+      ]
+    },
+    "SAMEA123917015": {
+      "name": "F055aB",
+      "insdc_sample_accessions": [
+        "ERS31802386"
+      ]
+    },
+    "SAMEA123917016": {
+      "name": "F056bB",
+      "insdc_sample_accessions": [
+        "ERS31802387"
+      ]
+    },
+    "SAMEA123917017": {
+      "name": "F057bB",
+      "insdc_sample_accessions": [
+        "ERS31802388"
+      ]
+    },
+    "SAMEA123917018": {
+      "name": "F058bB",
+      "insdc_sample_accessions": [
+        "ERS31802389"
+      ]
+    },
+    "SAMEA123917019": {
+      "name": "F059bB",
+      "insdc_sample_accessions": [
+        "ERS31802390"
+      ]
+    },
+    "SAMEA123917020": {
+      "name": "F060bB",
+      "insdc_sample_accessions": [
+        "ERS31802391"
+      ]
+    },
+    "SAMEA123917021": {
+      "name": "F061cB",
+      "insdc_sample_accessions": [
+        "ERS31802392"
+      ]
+    },
+    "SAMEA123917022": {
+      "name": "F062cB",
+      "insdc_sample_accessions": [
+        "ERS31802393"
+      ]
+    },
+    "SAMEA123917023": {
+      "name": "F063cB",
+      "insdc_sample_accessions": [
+        "ERS31802394"
+      ]
+    },
+    "SAMEA123917024": {
+      "name": "F064cB",
+      "insdc_sample_accessions": [
+        "ERS31802395"
+      ]
+    },
+    "SAMEA123917025": {
+      "name": "F065cB",
+      "insdc_sample_accessions": [
+        "ERS31802396"
+      ]
+    },
+    "SAMEA123917026": {
+      "name": "F066dA",
+      "insdc_sample_accessions": [
+        "ERS31802397"
+      ]
+    },
+    "SAMEA123917027": {
+      "name": "F066dB",
+      "insdc_sample_accessions": [
+        "ERS31802398"
+      ]
+    },
+    "SAMEA123917028": {
+      "name": "F067dB",
+      "insdc_sample_accessions": [
+        "ERS31802399"
+      ]
+    },
+    "SAMEA123917029": {
+      "name": "F068dA",
+      "insdc_sample_accessions": [
+        "ERS31802400"
+      ]
+    },
+    "SAMEA123917030": {
+      "name": "F068dB",
+      "insdc_sample_accessions": [
+        "ERS31802401"
+      ]
+    },
+    "SAMEA123917031": {
+      "name": "F069dB",
+      "insdc_sample_accessions": [
+        "ERS31802402"
+      ]
+    },
+    "SAMEA123917032": {
+      "name": "F070dB",
+      "insdc_sample_accessions": [
+        "ERS31802403"
+      ]
+    },
+    "SAMEA123917033": {
+      "name": "F071eB",
+      "insdc_sample_accessions": [
+        "ERS31802404"
+      ]
+    },
+    "SAMEA123917034": {
+      "name": "F072eB",
+      "insdc_sample_accessions": [
+        "ERS31802405"
+      ]
+    },
+    "SAMEA123917035": {
+      "name": "F073eB",
+      "insdc_sample_accessions": [
+        "ERS31802406"
+      ]
+    },
+    "SAMEA123917036": {
+      "name": "F074eB",
+      "insdc_sample_accessions": [
+        "ERS31802407"
+      ]
+    },
+    "SAMEA123917037": {
+      "name": "F075eB",
+      "insdc_sample_accessions": [
+        "ERS31802408"
+      ]
+    },
+    "SAMEA123917038": {
+      "name": "F076aB",
+      "insdc_sample_accessions": [
+        "ERS31802409"
+      ]
+    },
+    "SAMEA123917039": {
+      "name": "F077aB",
+      "insdc_sample_accessions": [
+        "ERS31802410"
+      ]
+    },
+    "SAMEA123917040": {
+      "name": "F078aB",
+      "insdc_sample_accessions": [
+        "ERS31802411"
+      ]
+    },
+    "SAMEA123917041": {
+      "name": "F079aB",
+      "insdc_sample_accessions": [
+        "ERS31802412"
+      ]
+    },
+    "SAMEA123917042": {
+      "name": "F080aB",
+      "insdc_sample_accessions": [
+        "ERS31802413"
+      ]
+    },
+    "SAMEA123917043": {
+      "name": "F081bB",
+      "insdc_sample_accessions": [
+        "ERS31802414"
+      ]
+    },
+    "SAMEA123917044": {
+      "name": "F082bB",
+      "insdc_sample_accessions": [
+        "ERS31802415"
+      ]
+    },
+    "SAMEA123917045": {
+      "name": "F083bB",
+      "insdc_sample_accessions": [
+        "ERS31802416"
+      ]
+    },
+    "SAMEA123917046": {
+      "name": "F084bB",
+      "insdc_sample_accessions": [
+        "ERS31802417"
+      ]
+    },
+    "SAMEA123917047": {
+      "name": "F085bB",
+      "insdc_sample_accessions": [
+        "ERS31802418"
+      ]
+    },
+    "SAMEA123917048": {
+      "name": "F086cB",
+      "insdc_sample_accessions": [
+        "ERS31802419"
+      ]
+    },
+    "SAMEA123917049": {
+      "name": "F087cB",
+      "insdc_sample_accessions": [
+        "ERS31802420"
+      ]
+    },
+    "SAMEA123917050": {
+      "name": "F088cB",
+      "insdc_sample_accessions": [
+        "ERS31802421"
+      ]
+    },
+    "SAMEA123917051": {
+      "name": "F089cB",
+      "insdc_sample_accessions": [
+        "ERS31802422"
+      ]
+    },
+    "SAMEA123917052": {
+      "name": "F090cB",
+      "insdc_sample_accessions": [
+        "ERS31802423"
+      ]
+    },
+    "SAMEA123917053": {
+      "name": "F091dB",
+      "insdc_sample_accessions": [
+        "ERS31802424"
+      ]
+    },
+    "SAMEA123917054": {
+      "name": "F092dB",
+      "insdc_sample_accessions": [
+        "ERS31802425"
+      ]
+    },
+    "SAMEA123917055": {
+      "name": "F093dB",
+      "insdc_sample_accessions": [
+        "ERS31802426"
+      ]
+    },
+    "SAMEA123917056": {
+      "name": "F094dB",
+      "insdc_sample_accessions": [
+        "ERS31802427"
+      ]
+    },
+    "SAMEA123917057": {
+      "name": "F095dB",
+      "insdc_sample_accessions": [
+        "ERS31802428"
+      ]
+    },
+    "SAMEA123917058": {
+      "name": "F096eB",
+      "insdc_sample_accessions": [
+        "ERS31802429"
+      ]
+    },
+    "SAMEA123917059": {
+      "name": "F097eB",
+      "insdc_sample_accessions": [
+        "ERS31802430"
+      ]
+    },
+    "SAMEA123917060": {
+      "name": "F098eB",
+      "insdc_sample_accessions": [
+        "ERS31802431"
+      ]
+    },
+    "SAMEA123917061": {
+      "name": "F101aB",
+      "insdc_sample_accessions": [
+        "ERS31802432"
+      ]
+    },
+    "SAMEA123917062": {
+      "name": "F102aB",
+      "insdc_sample_accessions": [
+        "ERS31802433"
+      ]
+    },
+    "SAMEA123917063": {
+      "name": "F103aB",
+      "insdc_sample_accessions": [
+        "ERS31802434"
+      ]
+    },
+    "SAMEA123917064": {
+      "name": "F104aB",
+      "insdc_sample_accessions": [
+        "ERS31802435"
+      ]
+    },
+    "SAMEA123917065": {
+      "name": "F105aB",
+      "insdc_sample_accessions": [
+        "ERS31802436"
+      ]
+    },
+    "SAMEA123917066": {
+      "name": "F106bB",
+      "insdc_sample_accessions": [
+        "ERS31802437"
+      ]
+    },
+    "SAMEA123917067": {
+      "name": "F107bB",
+      "insdc_sample_accessions": [
+        "ERS31802438"
+      ]
+    },
+    "SAMEA123917068": {
+      "name": "F108bB",
+      "insdc_sample_accessions": [
+        "ERS31802439"
+      ]
+    },
+    "SAMEA123917069": {
+      "name": "F109bB",
+      "insdc_sample_accessions": [
+        "ERS31802440"
+      ]
+    },
+    "SAMEA123917070": {
+      "name": "F110bB",
+      "insdc_sample_accessions": [
+        "ERS31802441"
+      ]
+    },
+    "SAMEA123917071": {
+      "name": "F111cB",
+      "insdc_sample_accessions": [
+        "ERS31802442"
+      ]
+    },
+    "SAMEA123917072": {
+      "name": "F112cB",
+      "insdc_sample_accessions": [
+        "ERS31802443"
+      ]
+    },
+    "SAMEA123917073": {
+      "name": "F113cB",
+      "insdc_sample_accessions": [
+        "ERS31802444"
+      ]
+    },
+    "SAMEA123917074": {
+      "name": "F114cB",
+      "insdc_sample_accessions": [
+        "ERS31802445"
+      ]
+    },
+    "SAMEA123917075": {
+      "name": "F115cB",
+      "insdc_sample_accessions": [
+        "ERS31802446"
+      ]
+    },
+    "SAMEA123917076": {
+      "name": "F116dB",
+      "insdc_sample_accessions": [
+        "ERS31802447"
+      ]
+    },
+    "SAMEA123917077": {
+      "name": "F117dB",
+      "insdc_sample_accessions": [
+        "ERS31802448"
+      ]
+    },
+    "SAMEA123917078": {
+      "name": "F118dB",
+      "insdc_sample_accessions": [
+        "ERS31802449"
+      ]
+    },
+    "SAMEA123917079": {
+      "name": "F119dB",
+      "insdc_sample_accessions": [
+        "ERS31802450"
+      ]
+    },
+    "SAMEA123917080": {
+      "name": "F120dB",
+      "insdc_sample_accessions": [
+        "ERS31802451"
+      ]
+    },
+    "SAMEA123917081": {
+      "name": "F121eB",
+      "insdc_sample_accessions": [
+        "ERS31802452"
+      ]
+    },
+    "SAMEA123917082": {
+      "name": "F122eB",
+      "insdc_sample_accessions": [
+        "ERS31802453"
+      ]
+    },
+    "SAMEA123917083": {
+      "name": "F123eB",
+      "insdc_sample_accessions": [
+        "ERS31802454"
+      ]
+    },
+    "SAMEA123917084": {
+      "name": "F126aB",
+      "insdc_sample_accessions": [
+        "ERS31802455"
+      ]
+    },
+    "SAMEA123917085": {
+      "name": "F127aB",
+      "insdc_sample_accessions": [
+        "ERS31802456"
+      ]
+    },
+    "SAMEA123917086": {
+      "name": "F128aB",
+      "insdc_sample_accessions": [
+        "ERS31802457"
+      ]
+    },
+    "SAMEA123917087": {
+      "name": "F129aB",
+      "insdc_sample_accessions": [
+        "ERS31802458"
+      ]
+    },
+    "SAMEA123917088": {
+      "name": "F130aB",
+      "insdc_sample_accessions": [
+        "ERS31802459"
+      ]
+    },
+    "SAMEA123917089": {
+      "name": "F131bB",
+      "insdc_sample_accessions": [
+        "ERS31802460"
+      ]
+    },
+    "SAMEA123917090": {
+      "name": "F132bB",
+      "insdc_sample_accessions": [
+        "ERS31802461"
+      ]
+    },
+    "SAMEA123917091": {
+      "name": "F133bB",
+      "insdc_sample_accessions": [
+        "ERS31802462"
+      ]
+    },
+    "SAMEA123917092": {
+      "name": "F134bB",
+      "insdc_sample_accessions": [
+        "ERS31802463"
+      ]
+    },
+    "SAMEA123917093": {
+      "name": "F135bB",
+      "insdc_sample_accessions": [
+        "ERS31802464"
+      ]
+    },
+    "SAMEA123917094": {
+      "name": "F136cB",
+      "insdc_sample_accessions": [
+        "ERS31802465"
+      ]
+    },
+    "SAMEA123917095": {
+      "name": "F137cB",
+      "insdc_sample_accessions": [
+        "ERS31802466"
+      ]
+    },
+    "SAMEA123917096": {
+      "name": "F138cB",
+      "insdc_sample_accessions": [
+        "ERS31802467"
+      ]
+    },
+    "SAMEA123917097": {
+      "name": "F139cB",
+      "insdc_sample_accessions": [
+        "ERS31802468"
+      ]
+    },
+    "SAMEA123917098": {
+      "name": "F140cB",
+      "insdc_sample_accessions": [
+        "ERS31802469"
+      ]
+    },
+    "SAMEA123917099": {
+      "name": "F141dB",
+      "insdc_sample_accessions": [
+        "ERS31802470"
+      ]
+    },
+    "SAMEA123917100": {
+      "name": "F142dB",
+      "insdc_sample_accessions": [
+        "ERS31802471"
+      ]
+    },
+    "SAMEA123917101": {
+      "name": "F143dB",
+      "insdc_sample_accessions": [
+        "ERS31802472"
+      ]
+    },
+    "SAMEA123917102": {
+      "name": "F144dB",
+      "insdc_sample_accessions": [
+        "ERS31802473"
+      ]
+    },
+    "SAMEA123917103": {
+      "name": "F145dB",
+      "insdc_sample_accessions": [
+        "ERS31802474"
+      ]
+    },
+    "SAMEA123917104": {
+      "name": "F146eB",
+      "insdc_sample_accessions": [
+        "ERS31802475"
+      ]
+    },
+    "SAMEA123917105": {
+      "name": "F147eB",
+      "insdc_sample_accessions": [
+        "ERS31802476"
+      ]
+    },
+    "SAMEA123917106": {
+      "name": "F148eB",
+      "insdc_sample_accessions": [
+        "ERS31802477"
+      ]
+    }
+  }
 }
