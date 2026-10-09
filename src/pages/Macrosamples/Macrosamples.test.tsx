@@ -59,6 +59,7 @@ vi.mock('assets/data/airtable/intestinalsectionsample.json', () => ({
         Preservative: 'Frozen',
         'Metabolights accession': 'MTBLS12345',
         'Metabolights link': 'https://example.com/metabolights',
+        'BioSamples accession': 'SAMEA120503856',
       },
     },
     {
@@ -75,6 +76,12 @@ vi.mock('assets/data/airtable/intestinalsectionsample.json', () => ({
       },
     },
   ],
+}))
+
+vi.mock('hooks/useSampleIdentifiers', () => ({
+  default: () => ({
+    M001: { sequencing_biosample_accessions: ['SAMEA120395596'], sequencing_insdc_sample_accessions: ['ERS27096282'] },
+  }),
 }))
 
 vi.mock('assets/data/airtable/animalspecimen.json', () => ({
@@ -98,6 +105,7 @@ vi.mock('components/TableView', () => ({
       <div data-testid='data-count'>{data.length}</div>
       <div data-testid='data-ids'>{data.map((record: any) => record.fields.ID).join(',')}</div>
       <div data-testid='column-count'>{columns.length}</div>
+      <div data-testid='biosample-values'>{data.map((record: any) => columns.find((column: any) => column.id === 'BioSamples accession')?.accessorFn(record)).join(';')}</div>
       {recordFilterControls}
     </div>
   ),
@@ -200,8 +208,8 @@ describe('Macrosamples', () => {
 
   it('creates default columns when no metabolite data', () => {
     renderComponent()
-    // Without metabolite data: ID, Individual, Code, Sample type, Data type, Description, Container, Preservative, ENA, Metabolites = 10
-    expect(screen.getByTestId('column-count')).toHaveTextContent('10')
+    expect(screen.getByTestId('column-count')).toHaveTextContent('12')
+    expect(screen.getByTestId('biosample-values')).toHaveTextContent('SAMEA120395596;SAMEA120503856')
   })
 
   it('creates checkbox column when metabolite data provided', () => {
@@ -217,8 +225,7 @@ describe('Macrosamples', () => {
       experimentId: 'G',
     })
 
-    // With metabolite data: Metabolite (checkbox), ID, Individual, Description, Metabolights = 4
-    expect(screen.getByTestId('column-count')).toHaveTextContent('5')
+    expect(screen.getByTestId('column-count')).toHaveTextContent('7')
   })
 
   it('filters data by macrosampleWithMetaboliteData', () => {

@@ -45,6 +45,10 @@ src/assets/data/microsample_counts_json/
 src/assets/data/catalogue-build.json
 public/catalogue-v*.json.gz
 public/search-index.json
+public/macrosample-identifiers.json
+public/microsample-identifiers.json
+public/cryosection-images/
+src/assets/data/cryosection-image-manifest.json
 
 # Keep the airtable directory structure
 !src/assets/data/airtable/.gitkeep

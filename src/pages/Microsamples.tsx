@@ -3,6 +3,7 @@ import { ColumnDef } from '@tanstack/react-table'
 import { Link } from 'react-router-dom'
 import TableView from 'components/TableView'
 import microsampleData from 'assets/data/airtable/microsample.json'
+import useSampleIdentifiers, { MicrosampleIdentifiers } from 'hooks/useSampleIdentifiers'
 import cryosectionData from 'assets/data/airtable/cryosection.json'
 
 export type TData = {
@@ -38,6 +39,7 @@ const Microsample = ({ displayPageHeader = true, displayTableHeader, displayTabl
 }) => {
 
   const data = microsampleData as unknown as TData[]
+  const microsampleIdentifiers = useSampleIdentifiers<MicrosampleIdentifiers>('micro')
 
   const tableDescription = "Microsamples are microscopic tissue/digesta samples collected from thin intestinal cross-cuts (cryosections) using laser capture microdissection. Each microsample typically covers a volume of about 50,000 μm3, which usually encompass between 100 and 2000 bacterial cells. Microsamples are spatially referenced, enabling analysis of microbial community variation across space within the gut."
 
@@ -75,6 +77,22 @@ const Microsample = ({ displayPageHeader = true, displayTableHeader, displayTabl
       header: 'Code',
       accessorFn: (row) => row.fields.Code,
       cell: ({ row }) => <Link to={`/microsamples/${encodeURIComponent(row.original.fields.Code)}`} className='table_link'>{row.original.fields.Code}</Link>,
+    },
+    {
+      id: 'BioSamples accessions',
+      header: 'BioSamples',
+      accessorFn: (row) => (microsampleIdentifiers[row.fields.Code]?.sequencing_biosample_accessions ?? []).join(', '),
+      cell: ({ row }) => (microsampleIdentifiers[row.original.fields.Code]?.sequencing_biosample_accessions ?? []).map((accession) =>
+        <a key={accession} href={`https://www.ebi.ac.uk/biosamples/samples/${encodeURIComponent(accession)}`} target='_blank' rel='noopener noreferrer' className='table_link block'>{accession}</a>
+      ),
+    },
+    {
+      id: 'INSDC sample accessions',
+      header: 'INSDC samples',
+      accessorFn: (row) => (microsampleIdentifiers[row.fields.Code]?.sequencing_insdc_sample_accessions ?? []).join(', '),
+      cell: ({ row }) => (microsampleIdentifiers[row.original.fields.Code]?.sequencing_insdc_sample_accessions ?? []).map((accession) =>
+        <a key={accession} href={`https://www.ebi.ac.uk/ena/browser/view/${encodeURIComponent(accession)}`} target='_blank' rel='noopener noreferrer' className='table_link block'>{accession}</a>
+      ),
     },
     {
       id: 'LMBatch_flat',
@@ -143,7 +161,7 @@ const Microsample = ({ displayPageHeader = true, displayTableHeader, displayTabl
         )
       }
     },
-  ], [filteredData])
+  ], [filteredData, microsampleIdentifiers])
 
   return (
     <TableView<TData>

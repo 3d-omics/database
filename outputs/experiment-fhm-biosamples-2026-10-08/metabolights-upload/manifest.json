@@ -1,0 +1,8 @@
+{
+  "source_url": "https://ftp.ebi.ac.uk/pub/databases/metabolights/studies/public/MTBLS13488/s_MTBLS13488.txt",
+  "source_sha256": "ea61b560cd780c648096fc58e9b0bf8769b2eb2b7bdc7b74bb6aa7aafeea5d12",
+  "corrected_sha256": "bd8ec54149e9f89344e62fe16d1cbf1e7645020fb18f676c8f970fada7517f65",
+  "study_rows": 442,
+  "changed_accession_cells": 346,
+  "other_changed_cells": 0
+}

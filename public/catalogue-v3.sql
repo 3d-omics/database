@@ -14,7 +14,7 @@ CREATE TABLE "macro_genome_counts" ("experiment_id" TEXT, "source_id" TEXT, "gen
 
 CREATE TABLE "macrosample_sequencing" ("airtable_record_id" TEXT, "airtable_created_time" TEXT, "library_id" TEXT, "ena_link" TEXT, "run_accession" TEXT, "experimental_unit" TEXT);
 
-CREATE TABLE "macrosamples" ("airtable_record_id" TEXT, "airtable_created_time" TEXT, "macrosample_id" TEXT NOT NULL PRIMARY KEY, "code" TEXT, "container" TEXT, "data_type" TEXT, "description" TEXT, "ena_accession" TEXT, "ena_link" TEXT, "specimen_id" TEXT, "preservative" TEXT, "sample_type" TEXT, "metabolights_accession" TEXT, "metabolights_link" TEXT);
+CREATE TABLE "macrosamples" ("airtable_record_id" TEXT, "airtable_created_time" TEXT, "macrosample_id" TEXT NOT NULL PRIMARY KEY, "biosample_accession" TEXT, "code" TEXT, "container" TEXT, "data_type" TEXT, "description" TEXT, "ena_accession" TEXT, "ena_link" TEXT, "specimen_id" TEXT, "preservative" TEXT, "sample_type" TEXT, "metabolights_accession" TEXT, "metabolights_link" TEXT);
 
 CREATE TABLE "matrix_axes" (source_id TEXT NOT NULL, axis TEXT NOT NULL, position INTEGER NOT NULL, key TEXT NOT NULL, PRIMARY KEY (source_id, axis, position));
 

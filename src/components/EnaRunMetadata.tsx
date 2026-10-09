@@ -5,6 +5,7 @@ export interface EnaRun {
   study_accession?: string
   study_title?: string
   sample_accession?: string
+  secondary_sample_accession?: string
   sample_description?: string
   host_body_site?: string
   collection_date?: string
@@ -78,7 +79,8 @@ const EnaRunMetadata = ({ accessions }: { accessions: string[] }) => {
           <h3 className='font-jakarta text-lg font-bold text-burgundy_ink'>Run {accession}</h3>
           <dl className='mt-5 grid gap-x-8 gap-y-5 sm:grid-cols-2 2xl:grid-cols-3'>
             <MetadataField label='Study' value={run.study_accession} href={run.study_accession && `https://www.ebi.ac.uk/ena/browser/view/${encodeURIComponent(run.study_accession)}`} detail={run.study_title} />
-            <MetadataField label='ENA sample' value={run.sample_accession} href={run.sample_accession && `https://www.ebi.ac.uk/ena/browser/view/${encodeURIComponent(run.sample_accession)}`} />
+            <MetadataField label='BioSamples accession' value={run.sample_accession} href={run.sample_accession && `https://www.ebi.ac.uk/biosamples/samples/${encodeURIComponent(run.sample_accession)}`} />
+            <MetadataField label='INSDC sample accession' value={run.secondary_sample_accession} href={run.secondary_sample_accession && `https://www.ebi.ac.uk/ena/browser/view/${encodeURIComponent(run.secondary_sample_accession)}`} />
             <MetadataField label='Material' value={run.sample_description} />
             <MetadataField label='Body site' value={run.host_body_site} />
             <MetadataField label='Collected' value={run.collection_date} />

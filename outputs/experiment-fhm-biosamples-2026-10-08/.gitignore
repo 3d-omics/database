@@ -1,0 +1,4 @@
+# Operational responses can be regenerated from the accession ledgers and public records.
+biosamples-creation/created/
+biosamples-creation/*/created/
+biosamples-creation/*/applied/backups/

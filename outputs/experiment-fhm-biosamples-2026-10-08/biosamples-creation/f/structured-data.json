@@ -1,0 +1,7952 @@
+{
+  "SAMEA123916957": {
+    "accession": "SAMEA123916957",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916958": {
+    "accession": "SAMEA123916958",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916959": {
+    "accession": "SAMEA123916959",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916960": {
+    "accession": "SAMEA123916960",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916961": {
+    "accession": "SAMEA123916961",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916962": {
+    "accession": "SAMEA123916962",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916963": {
+    "accession": "SAMEA123916963",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916964": {
+    "accession": "SAMEA123916964",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916965": {
+    "accession": "SAMEA123916965",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916966": {
+    "accession": "SAMEA123916966",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916967": {
+    "accession": "SAMEA123916967",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916968": {
+    "accession": "SAMEA123916968",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916969": {
+    "accession": "SAMEA123916969",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916970": {
+    "accession": "SAMEA123916970",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916971": {
+    "accession": "SAMEA123916971",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916972": {
+    "accession": "SAMEA123916972",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Entire section with content",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "Glycerol",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "Super Mega Tissue cassette",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916973": {
+    "accession": "SAMEA123916973",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916974": {
+    "accession": "SAMEA123916974",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Entire section with content",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "Glycerol",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "Super Mega Tissue cassette",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916975": {
+    "accession": "SAMEA123916975",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916976": {
+    "accession": "SAMEA123916976",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916977": {
+    "accession": "SAMEA123916977",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916978": {
+    "accession": "SAMEA123916978",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916979": {
+    "accession": "SAMEA123916979",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916980": {
+    "accession": "SAMEA123916980",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916981": {
+    "accession": "SAMEA123916981",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916982": {
+    "accession": "SAMEA123916982",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916983": {
+    "accession": "SAMEA123916983",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916984": {
+    "accession": "SAMEA123916984",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916985": {
+    "accession": "SAMEA123916985",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916986": {
+    "accession": "SAMEA123916986",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916987": {
+    "accession": "SAMEA123916987",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916988": {
+    "accession": "SAMEA123916988",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916989": {
+    "accession": "SAMEA123916989",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916990": {
+    "accession": "SAMEA123916990",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916991": {
+    "accession": "SAMEA123916991",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916992": {
+    "accession": "SAMEA123916992",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916993": {
+    "accession": "SAMEA123916993",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916994": {
+    "accession": "SAMEA123916994",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916995": {
+    "accession": "SAMEA123916995",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916996": {
+    "accession": "SAMEA123916996",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916997": {
+    "accession": "SAMEA123916997",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916998": {
+    "accession": "SAMEA123916998",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916999": {
+    "accession": "SAMEA123916999",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917000": {
+    "accession": "SAMEA123917000",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917001": {
+    "accession": "SAMEA123917001",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Entire section with content",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "Glycerol",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "Super Mega Tissue cassette",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917002": {
+    "accession": "SAMEA123917002",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917003": {
+    "accession": "SAMEA123917003",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917004": {
+    "accession": "SAMEA123917004",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Entire section with content",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "Glycerol",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "Super Mega Tissue cassette",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917005": {
+    "accession": "SAMEA123917005",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917006": {
+    "accession": "SAMEA123917006",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917007": {
+    "accession": "SAMEA123917007",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917008": {
+    "accession": "SAMEA123917008",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917009": {
+    "accession": "SAMEA123917009",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917010": {
+    "accession": "SAMEA123917010",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917011": {
+    "accession": "SAMEA123917011",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917012": {
+    "accession": "SAMEA123917012",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917013": {
+    "accession": "SAMEA123917013",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917014": {
+    "accession": "SAMEA123917014",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917015": {
+    "accession": "SAMEA123917015",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917016": {
+    "accession": "SAMEA123917016",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917017": {
+    "accession": "SAMEA123917017",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917018": {
+    "accession": "SAMEA123917018",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917019": {
+    "accession": "SAMEA123917019",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917020": {
+    "accession": "SAMEA123917020",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917021": {
+    "accession": "SAMEA123917021",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917022": {
+    "accession": "SAMEA123917022",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917023": {
+    "accession": "SAMEA123917023",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917024": {
+    "accession": "SAMEA123917024",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917025": {
+    "accession": "SAMEA123917025",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917026": {
+    "accession": "SAMEA123917026",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Entire section with content",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "Glycerol",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "Super Mega Tissue cassette",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917027": {
+    "accession": "SAMEA123917027",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917028": {
+    "accession": "SAMEA123917028",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917029": {
+    "accession": "SAMEA123917029",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Entire section with content",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "Glycerol",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "Super Mega Tissue cassette",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917030": {
+    "accession": "SAMEA123917030",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917031": {
+    "accession": "SAMEA123917031",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917032": {
+    "accession": "SAMEA123917032",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917033": {
+    "accession": "SAMEA123917033",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917034": {
+    "accession": "SAMEA123917034",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917035": {
+    "accession": "SAMEA123917035",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917036": {
+    "accession": "SAMEA123917036",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917037": {
+    "accession": "SAMEA123917037",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917038": {
+    "accession": "SAMEA123917038",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917039": {
+    "accession": "SAMEA123917039",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917040": {
+    "accession": "SAMEA123917040",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917041": {
+    "accession": "SAMEA123917041",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917042": {
+    "accession": "SAMEA123917042",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917043": {
+    "accession": "SAMEA123917043",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917044": {
+    "accession": "SAMEA123917044",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917045": {
+    "accession": "SAMEA123917045",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917046": {
+    "accession": "SAMEA123917046",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917047": {
+    "accession": "SAMEA123917047",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917048": {
+    "accession": "SAMEA123917048",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917049": {
+    "accession": "SAMEA123917049",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917050": {
+    "accession": "SAMEA123917050",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917051": {
+    "accession": "SAMEA123917051",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917052": {
+    "accession": "SAMEA123917052",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917053": {
+    "accession": "SAMEA123917053",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917054": {
+    "accession": "SAMEA123917054",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917055": {
+    "accession": "SAMEA123917055",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917056": {
+    "accession": "SAMEA123917056",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917057": {
+    "accession": "SAMEA123917057",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917058": {
+    "accession": "SAMEA123917058",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917059": {
+    "accession": "SAMEA123917059",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917060": {
+    "accession": "SAMEA123917060",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917061": {
+    "accession": "SAMEA123917061",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917062": {
+    "accession": "SAMEA123917062",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917063": {
+    "accession": "SAMEA123917063",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917064": {
+    "accession": "SAMEA123917064",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917065": {
+    "accession": "SAMEA123917065",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917066": {
+    "accession": "SAMEA123917066",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917067": {
+    "accession": "SAMEA123917067",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917068": {
+    "accession": "SAMEA123917068",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917069": {
+    "accession": "SAMEA123917069",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917070": {
+    "accession": "SAMEA123917070",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917071": {
+    "accession": "SAMEA123917071",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917072": {
+    "accession": "SAMEA123917072",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917073": {
+    "accession": "SAMEA123917073",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917074": {
+    "accession": "SAMEA123917074",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917075": {
+    "accession": "SAMEA123917075",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917076": {
+    "accession": "SAMEA123917076",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917077": {
+    "accession": "SAMEA123917077",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917078": {
+    "accession": "SAMEA123917078",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917079": {
+    "accession": "SAMEA123917079",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917080": {
+    "accession": "SAMEA123917080",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917081": {
+    "accession": "SAMEA123917081",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917082": {
+    "accession": "SAMEA123917082",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917083": {
+    "accession": "SAMEA123917083",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917084": {
+    "accession": "SAMEA123917084",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917085": {
+    "accession": "SAMEA123917085",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917086": {
+    "accession": "SAMEA123917086",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917087": {
+    "accession": "SAMEA123917087",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917088": {
+    "accession": "SAMEA123917088",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917089": {
+    "accession": "SAMEA123917089",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917090": {
+    "accession": "SAMEA123917090",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917091": {
+    "accession": "SAMEA123917091",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917092": {
+    "accession": "SAMEA123917092",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917093": {
+    "accession": "SAMEA123917093",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917094": {
+    "accession": "SAMEA123917094",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917095": {
+    "accession": "SAMEA123917095",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917096": {
+    "accession": "SAMEA123917096",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917097": {
+    "accession": "SAMEA123917097",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917098": {
+    "accession": "SAMEA123917098",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917099": {
+    "accession": "SAMEA123917099",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917100": {
+    "accession": "SAMEA123917100",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917101": {
+    "accession": "SAMEA123917101",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917102": {
+    "accession": "SAMEA123917102",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917103": {
+    "accession": "SAMEA123917103",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917104": {
+    "accession": "SAMEA123917104",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917105": {
+    "accession": "SAMEA123917105",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123917106": {
+    "accession": "SAMEA123917106",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "intestinal section",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "preservative",
+              "iri": null
+            },
+            "value": {
+              "value": "DNA/RNA Shield",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "2 mL tube",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

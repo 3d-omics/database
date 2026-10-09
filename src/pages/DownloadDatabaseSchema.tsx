@@ -22,6 +22,18 @@ const resources = [
     href: `/database/catalogue-v${schemaVersion}.json.gz`,
     download: `catalogue-v${schemaVersion}.json.gz`,
   },
+  {
+    title: 'Macrosample identifiers',
+    description: 'Material and sequencing BioSamples accessions and INSDC sample accessions, keyed by macrosample ID. This JSON joins the catalogue to the checked public metadata snapshots.',
+    href: '/database/macrosample-identifiers.json',
+    download: 'macrosample-identifiers.json',
+  },
+  {
+    title: 'Microsample identifiers',
+    description: 'Sequencing BioSamples and INSDC sample accessions, keyed by microsample ID and derived from the checked ENA metadata snapshot.',
+    href: '/database/microsample-identifiers.json',
+    download: 'microsample-identifiers.json',
+  },
 ]
 
 const DownloadDatabaseSchema = () => (

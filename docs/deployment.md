@@ -15,11 +15,30 @@
 8. `3domics-db-build render .catalog/3domics.sqlite --into .`
 9. `npm run export-catalogue` — validate the SQL and JSON Schema contracts and
    generate the normalized download
-10. `npm run build`
+10. `npm run build` — its `prebuild` step checks and stages the pinned
+    cryosection image archive before Vite copies images into `dist/`
 11. `actions/upload-pages-artifact@v3` on `dist/`, then `actions/deploy-pages@v4`
 
 **No Airtable credentials are involved** — those live in `database-build`, and step 7
 reads an open-access Zenodo record over anonymous HTTPS.
+
+A new Airtable-sourced catalogue release can include
+`3domics-<data_version>-cryosection-images.zip` in the same Zenodo record.
+Pin its version-specific URL and SHA-256 in `catalog.json` as:
+
+```json
+"cryosection_images": {
+  "url": "https://zenodo.org/api/records/<version-record>/files/3domics-<data_version>-cryosection-images.zip/content",
+  "sha256": "<published ZIP SHA-256>"
+}
+```
+
+`prebuild` verifies that checksum, the ZIP's per-image checksums, its data
+version, and its exact set of cryosection IDs against the pinned SQLite
+catalogue. It extracts images into git-ignored `public/cryosection-images/`;
+GitHub Pages receives them in `dist/`, while the repository retains only the
+release pin and the legacy JPGs until the first image-backed release is live.
+The current `2026.10.07` pin has no image ZIP and uses those legacy JPGs.
 
 Step 6 used to clone `3d-omics/database-build` directly, which cannot work: the repository
 is **private**, and the workflow's `GITHUB_TOKEN` is scoped to this repository alone. It

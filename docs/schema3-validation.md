@@ -1,8 +1,17 @@
 # Schema-3 release candidate validation
 
+This record describes the **2026-10-06 draft**. On 2026-10-09, schema 3 was
+extended with nullable `macrosamples.biosample_accession`. The checksum below
+therefore identifies the old candidate, not a catalogue matching the current
+schema-3 contract. The updated builder migrated the currently pinned
+2026.10.07 schema-2 catalogue to schema 3 locally and validated its structure,
+integrity and relationships. Its 1,466 macrosample rows have null material
+accessions because migration cannot recover Airtable fields absent from the
+source release. A new live-source build and full release checks remain pending.
+
 Schema 3 was tested as a **schema-only migration** of the public
 [2026.09.22 catalogue](https://doi.org/10.5281/zenodo.22894102). The portal
-still pins that schema-2 release. No schema-3 catalogue or builder 0.3.0 wheel
+still pins a schema-2 release. No schema-3 catalogue or builder 0.3.0 wheel
 has been published.
 
 The input SQLite file matched the SHA-256 in [`catalog.json`](../catalog.json).

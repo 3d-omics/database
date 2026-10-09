@@ -1,0 +1,699 @@
+experiment,specimen_id,specimen_biosample_accession,macrosample_id,airtable_record_id,category,sample_type,description,container,preservative,metabolights_accession,run_accession,ena_sequencing_biosample_accession,ena_sample_accession
+F,F001,SAMEA120632660,F001aB,reclgF6CdSbKDJd8k,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887320,SAMEA120561002,ERS27329205
+F,F002,SAMEA120632661,F002aB,reca8yUUQHnoje5TY,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887290,SAMEA120560973,ERS27329166
+F,F003,SAMEA120632662,F003aB,recJ9ko5pJFHnT6mh,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887396,SAMEA120561077,ERS27329308
+F,F004,SAMEA120632663,F004aB,recq4gXCIBzyzOXha,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887348,SAMEA120561030,ERS27329261
+F,F005,SAMEA120632664,F005aB,recgzpRDoIhIejIxz,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887330,SAMEA120561012,ERS27329242
+F,F006,SAMEA120632665,F006bB,recvaNIHMRWTb4xzy,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887355,SAMEA120561037,ERS27329268
+F,F007,SAMEA120632666,F007bB,rece4PrKNtvtTARmk,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887346,SAMEA120561028,ERS27329259
+F,F008,SAMEA120632667,F008bB,receUHmJvrvDaonoU,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887268,SAMEA120560952,ERS27329145
+F,F009,SAMEA120632668,F009bB,recaXPOLWEqsryhjv,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887286,SAMEA120560969,ERS27329162
+F,F010,SAMEA120632669,F010bB,rec489MT383QjvbsJ,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887302,SAMEA120560985,ERS27329188
+F,F011,SAMEA120632670,F011cB,recKa16kMT1iOvhpa,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887269,SAMEA120560953,ERS27329146
+F,F012,SAMEA120632671,F012cB,recM8KMlsBEzhkZfK,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887406,SAMEA120561086,ERS27329317
+F,F013,SAMEA120632672,F013cB,recbz13GhYyuPXdbA,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887359,SAMEA120561040,ERS27329271
+F,F014,SAMEA120632673,F014cB,rec1t2XIl8fjjAJiO,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887292,SAMEA120560975,ERS27329168
+F,F015,SAMEA120632674,F015cB,recquD7quMGJzRrEe,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887351,SAMEA120561033,ERS27329264
+F,F016,SAMEA120632675,F016dA,recEQgYpkL0OedR8j,other; scope review,Caecum right,Entire section with content,Super Mega Tissue cassette,Glycerol,,,,
+F,F016,SAMEA120632675,F016dB,recxQQ8hpmT5gTVPD,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887400,SAMEA120561081,ERS27329312
+F,F017,SAMEA120632676,F017dA,recd4fkfVxerTfh55,other; scope review,Caecum right,Entire section with content,Super Mega Tissue cassette,Glycerol,,,,
+F,F017,SAMEA120632676,F017dB,recH3D4RGTsThyWtE,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887393,SAMEA120561074,ERS27329305
+F,F018,SAMEA120632677,F018dB,recw3vOMerPP6Y9V9,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887383,SAMEA120561064,ERS27329295
+F,F019,SAMEA120632678,F019dB,rec44PjiSoqDnnj03,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887296,SAMEA120560979,ERS27329172
+F,F020,SAMEA120632679,F020dB,reczO8fOsnRuBbQLX,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887405,SAMEA120561085,ERS27329316
+F,F021,SAMEA120632680,F021eB,recCY6SyYqHO6EwPy,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887334,SAMEA120561016,ERS27329246
+F,F022,SAMEA120632681,F022eB,rec2cwlArnzN3zP2W,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887270,SAMEA120560954,ERS27329147
+F,F023,SAMEA120632682,F023eB,recOvCKug7EP0Xn45,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887360,SAMEA120561041,ERS27329272
+F,F024,SAMEA120632683,F024eB,recg8TPewly2IP1K0,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887309,SAMEA120560991,ERS27329194
+F,F025,SAMEA120632684,F025eB,recP4ui8Ws3dKlpDC,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887285,SAMEA120560968,ERS27329161
+F,F026,SAMEA120632685,F026aB,recluBdYMrp4HYgjA,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887310,SAMEA120560992,ERS27329195
+F,F027,SAMEA120632686,F027aB,rectZVet66KWVeZEf,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887401,SAMEA120561082,ERS27329313
+F,F028,SAMEA120632687,F028aB,rec4wW31Y0DOtWqrd,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887371,SAMEA120561052,ERS27329283
+F,F029,SAMEA120632688,F029aB,reca8R6sIEHWA7prR,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887338,SAMEA120561020,ERS27329250
+F,F030,SAMEA120632689,F030aB,rec2LMlH6QP2KIjUh,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887358,SAMEA120561039,ERS27329270
+F,F031,SAMEA120632690,F031bB,recyPITI726YohF1U,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887272,SAMEA120560956,ERS27329149
+F,F032,SAMEA120632691,F032bB,reciD0D0PI5XEzPOj,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887382,SAMEA120561063,ERS27329294
+F,F033,SAMEA120632692,F033bB,reclmbcxcstTMfj7B,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887316,SAMEA120560998,ERS27329201
+F,F034,SAMEA120632693,F034bB,rec8GBk6s5CAGhG0S,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887366,SAMEA120561047,ERS27329278
+F,F035,SAMEA120632694,F035bB,recfAa6jZL8ccb7tV,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887341,SAMEA120561023,ERS27329254
+F,F036,SAMEA120632695,F036cB,recMyxcKBjFAPtLfP,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887372,SAMEA120561053,ERS27329284
+F,F037,SAMEA120632696,F037cB,rec00isNPeCdA3XrS,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887293,SAMEA120560976,ERS27329169
+F,F038,SAMEA120632697,F038cB,rec0AsRSI4YQ2CGG7,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887387,SAMEA120561068,ERS27329299
+F,F039,SAMEA120632698,F039cB,receJKQew39tucHbs,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887323,SAMEA120561005,ERS27329235
+F,F040,SAMEA120632699,F040cB,recqhMzbU9rgEwC34,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887328,SAMEA120561010,ERS27329240
+F,F041,SAMEA120632700,F041dB,recGcFzALtYZt3BmR,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887376,SAMEA120561057,ERS27329288
+F,F042,SAMEA120632701,F042dB,recRvb1CLMyMV9W2v,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887303,SAMEA120560986,ERS27329189
+F,F043,SAMEA120632702,F043dA,recc4PYF5igT9XOwq,other; scope review,Caecum right,Entire section with content,Super Mega Tissue cassette,Glycerol,,,,
+F,F043,SAMEA120632702,F043dB,recgonCfD8pKkrORF,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887402,SAMEA120561083,ERS27329314
+F,F044,SAMEA120632703,F044dB,reco0nzQxvYsHHxg5,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887347,SAMEA120561029,ERS27329260
+F,F045,SAMEA120632704,F045dA,recPFaTA4nM0HwFnK,other; scope review,Caecum right,Entire section with content,Super Mega Tissue cassette,Glycerol,,,,
+F,F045,SAMEA120632704,F045dB,recA18Y2lXJKDlv8b,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887274,SAMEA120560958,ERS27329151
+F,F046,SAMEA120632705,F046eB,rectInSrfdE7IfjwC,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887278,SAMEA120560962,ERS27329155
+F,F047,SAMEA120632706,F047eB,recVtOwGrzZcarycH,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887305,SAMEA120560988,ERS27329191
+F,F048,SAMEA120632707,F048eB,recPjHACv7dhAa912,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887318,SAMEA120561000,ERS27329203
+F,F049,SAMEA120632708,F049eB,recurKeKilkjrchfS,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887304,SAMEA120560987,ERS27329190
+F,F050,SAMEA120632709,F050eB,recGvAD9LlmwbZ0VC,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887349,SAMEA120561031,ERS27329262
+F,F051,SAMEA120632710,F051aB,recX175Uz7slGoiRj,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887306,SAMEA120560989,ERS27329192
+F,F052,SAMEA120632711,F052aB,recaSM1VEWK3L4U4R,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887364,SAMEA120561045,ERS27329276
+F,F053,SAMEA120632712,F053aB,recwIqAbnKNvyrWWd,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887369,SAMEA120561050,ERS27329281
+F,F054,SAMEA120632713,F054aB,recwnIsAms0OGXmgk,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887273,SAMEA120560957,ERS27329150
+F,F055,SAMEA120632714,F055aB,recDsawxh6tlmRJzK,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887398,SAMEA120561079,ERS27329310
+F,F056,SAMEA120632715,F056bB,recW1rHWGJExvK4HZ,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887301,SAMEA120560984,ERS27329183
+F,F057,SAMEA120632716,F057bB,recKE0CRq0JWj0xtF,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887289,SAMEA120560972,ERS27329165
+F,F058,SAMEA120632717,F058bB,recs821fqBCY2bJlh,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887340,SAMEA120561022,ERS27329252
+F,F059,SAMEA120632718,F059bB,recRAngJ9fnaKaJnU,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887259,SAMEA120560944,ERS27329137
+F,F060,SAMEA120632719,F060bB,rec1yKXySWWHEziUd,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887294,SAMEA120560978,ERS27329171
+F,F061,SAMEA120632720,F061cB,recaIOFSrqemGtxhK,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887385,SAMEA120561066,ERS27329297
+F,F062,SAMEA120632721,F062cB,recYEVpcmyoArN970,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887388,SAMEA120561069,ERS27329300
+F,F063,SAMEA120632722,F063cB,recVsuw6R7zDowva1,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887377,SAMEA120561058,ERS27329289
+F,F064,SAMEA120632723,F064cB,recfOz9m3XpRp0ZfV,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887375,SAMEA120561056,ERS27329287
+F,F065,SAMEA120632724,F065cB,recmtMp9HBlfI5vCu,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887331,SAMEA120561013,ERS27329243
+F,F066,SAMEA120632725,F066dA,recpIBk59WiYPVxBq,other; scope review,Caecum right,Entire section with content,Super Mega Tissue cassette,Glycerol,,,,
+F,F066,SAMEA120632725,F066dB,rec1UzbGttEzwzU5K,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887370,SAMEA120561051,ERS27329282
+F,F067,SAMEA120632726,F067dB,rec7sKj62ZBZlmUUs,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887350,SAMEA120561032,ERS27329263
+F,F068,SAMEA120632727,F068dA,recdPLGTw5D7ZzICM,other; scope review,Caecum right,Entire section with content,Super Mega Tissue cassette,Glycerol,,,,
+F,F068,SAMEA120632727,F068dB,recLegVVsb5PG9IEy,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887266,SAMEA120560950,ERS27329143
+F,F069,SAMEA120632728,F069dB,rec2HHo15KzyqnGtl,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887276,SAMEA120560960,ERS27329153
+F,F070,SAMEA120632729,F070dB,recczuIV7UTBI3phx,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887300,SAMEA120560983,ERS27329181
+F,F071,SAMEA120632730,F071eB,recaUEUhvNC6n6XHx,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887314,SAMEA120560996,ERS27329199
+F,F072,SAMEA120632731,F072eB,recxnKTq0iJ2umV1u,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887299,SAMEA120560982,ERS27329175
+F,F073,SAMEA120632732,F073eB,recbdRkswd6Jwj75y,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887391,SAMEA120561072,ERS27329303
+F,F074,SAMEA120632733,F074eB,recbMS8L1tkyN2PqC,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887354,SAMEA120561036,ERS27329267
+F,F075,SAMEA120632734,F075eB,rec3H01nuJ4W4tisw,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887353,SAMEA120561035,ERS27329266
+F,F076,SAMEA120632735,F076aB,recjtFpnGRAdYDqXj,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887397,SAMEA120561078,ERS27329309
+F,F077,SAMEA120632736,F077aB,recUMam0mEFOmN7J9,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887337,SAMEA120561019,ERS27329249
+F,F078,SAMEA120632737,F078aB,recruGSxmeloVso0B,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887380,SAMEA120561061,ERS27329292
+F,F079,SAMEA120632738,F079aB,recJPr8ekmHnCJ7a8,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887312,SAMEA120560994,ERS27329197
+F,F080,SAMEA120632739,F080aB,recUJ345Qjh64GP1G,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887368,SAMEA120561049,ERS27329280
+F,F081,SAMEA120632740,F081bB,recfg8hKdoDVhBRvR,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887374,SAMEA120561055,ERS27329286
+F,F082,SAMEA120632741,F082bB,recYRdVWXXZvYq6HO,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887261,SAMEA120560946,ERS27329139
+F,F083,SAMEA120632742,F083bB,rec4MWSU8VuzqPKmM,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887335,SAMEA120561017,ERS27329247
+F,F084,SAMEA120632743,F084bB,rec8tCAMQymSuTYLx,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887322,SAMEA120561004,ERS27329234
+F,F085,SAMEA120632744,F085bB,recwEBc2peATGNX8M,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887339,SAMEA120561021,ERS27329251
+F,F086,SAMEA120632745,F086cB,recipvLuI3jqIxAf6,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887390,SAMEA120561071,ERS27329302
+F,F087,SAMEA120632746,F087cB,rec2BFbRRfUAGt7M8,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887362,SAMEA120561043,ERS27329274
+F,F088,SAMEA120632747,F088cB,recXaEqqbusWOtt0N,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887325,SAMEA120561007,ERS27329237
+F,F089,SAMEA120632748,F089cB,recNqQWjpbrNo4EGo,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887329,SAMEA120561011,ERS27329241
+F,F090,SAMEA120632749,F090cB,recDPkqUO1tsICrTA,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887352,SAMEA120561034,ERS27329265
+F,F091,SAMEA120632750,F091dB,recF9Gp95wJ83hjEy,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887258,SAMEA120560943,ERS27329136
+F,F092,SAMEA120632751,F092dB,recmLrmTwDtbAtCXi,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887283,SAMEA120560966,ERS27329159
+F,F093,SAMEA120632752,F093dB,recMzgqPZZspCJwbV,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887295,SAMEA120560977,ERS27329170
+F,F094,SAMEA120632753,F094dB,recNJ3kfxmhsJ2cL7,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887386,SAMEA120561067,ERS27329298
+F,F095,SAMEA120632754,F095dB,rec6eBHBaaylJQcRP,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887367,SAMEA120561048,ERS27329279
+F,F096,SAMEA120632755,F096eB,rec2GAc16gk187bFk,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887263,SAMEA120560948,ERS27329141
+F,F097,SAMEA120632756,F097eB,recYGPrrzFZm7ML71,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887287,SAMEA120560970,ERS27329163
+F,F098,SAMEA120632757,F098eB,rec3gRNEbZ29ERE7n,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887326,SAMEA120561008,ERS27329238
+F,F101,SAMEA120632760,F101aB,recpIgzVNsJOYMJrT,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887275,SAMEA120560959,ERS27329152
+F,F102,SAMEA120632761,F102aB,recb7F0a3jTjwWp2K,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887392,SAMEA120561073,ERS27329304
+F,F103,SAMEA120632762,F103aB,recQW1Zia137e6gbz,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887378,SAMEA120561059,ERS27329290
+F,F104,SAMEA120632763,F104aB,recKLFlMhbZ9e2w79,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887324,SAMEA120561006,ERS27329236
+F,F105,SAMEA120632764,F105aB,rec9jKguxXSFXzU7R,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887344,SAMEA120561026,ERS27329257
+F,F106,SAMEA120632765,F106bB,reczkSfQRn0FexBYB,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887343,SAMEA120561025,ERS27329256
+F,F107,SAMEA120632766,F107bB,recrkXiJD0R3PP8C9,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887264,SAMEA120560949,ERS27329142
+F,F108,SAMEA120632767,F108bB,recfaTyMG9JTNqPoe,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887333,SAMEA120561015,ERS27329245
+F,F109,SAMEA120632768,F109bB,reckX6CSUHtYQagb3,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887315,SAMEA120560997,ERS27329200
+F,F110,SAMEA120632769,F110bB,recEN3rBdhMEsz97R,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887280,SAMEA120560964,ERS27329157
+F,F111,SAMEA120632770,F111cB,recqx4yw0Kp78VDco,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887394,SAMEA120561075,ERS27329306
+F,F112,SAMEA120632771,F112cB,recndgu2hjH1fJVnn,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887363,SAMEA120561044,ERS27329275
+F,F113,SAMEA120632772,F113cB,recce8EVjakHnKRb3,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887311,SAMEA120560993,ERS27329196
+F,F114,SAMEA120632773,F114cB,rec2h6LkfP2ZoKkoW,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887356,SAMEA120561038,ERS27329269
+F,F115,SAMEA120632774,F115cB,recZC0lSk48Km5ire,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887384,SAMEA120561065,ERS27329296
+F,F116,SAMEA120632775,F116dB,recAp8UWeB1MDgaPv,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887260,SAMEA120560945,ERS27329138
+F,F117,SAMEA120632776,F117dB,recXXXbLPzYlPeHtd,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887399,SAMEA120561080,ERS27329311
+F,F118,SAMEA120632777,F118dB,recDFdUJYp8kzYvsy,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887319,SAMEA120561001,ERS27329204
+F,F119,SAMEA120632778,F119dB,recOnW7KcwPY2pLGD,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887379,SAMEA120561060,ERS27329291
+F,F120,SAMEA120632779,F120dB,recZpdzXjc44NxAZu,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887332,SAMEA120561014,ERS27329244
+F,F121,SAMEA120632780,F121eB,recS9tciJXzHyyUEB,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887267,SAMEA120560951,ERS27329144
+F,F122,SAMEA120632781,F122eB,recNcpMFbxkOOYMVc,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887282,SAMEA120560965,ERS27329158
+F,F123,SAMEA120632782,F123eB,recsXrZC6s0pTlbkN,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887317,SAMEA120560999,ERS27329202
+F,F126,SAMEA120632785,F126aB,recXeylfbOu3LWSpe,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887395,SAMEA120561076,ERS27329307
+F,F127,SAMEA120632786,F127aB,recfKTLzeI5QAmmFk,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887403,SAMEA120561084,ERS27329315
+F,F128,SAMEA120632787,F128aB,rec6tNsCrmu3hNpsU,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887288,SAMEA120560971,ERS27329164
+F,F129,SAMEA120632788,F129aB,recYmAKWBwxcN4KMP,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887297,SAMEA120560980,ERS27329173
+F,F130,SAMEA120632789,F130aB,recEsJkrtEnAxo841,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887361,SAMEA120561042,ERS27329273
+F,F131,SAMEA120632790,F131bB,recUFpud3pgnLiIgH,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887345,SAMEA120561027,ERS27329258
+F,F132,SAMEA120632791,F132bB,recTtOnvNqi4svWUM,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887271,SAMEA120560955,ERS27329148
+F,F133,SAMEA120632792,F133bB,recARWyFFEQLkLN42,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887284,SAMEA120560967,ERS27329160
+F,F134,SAMEA120632793,F134bB,recp4riFBtOt9WHoj,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887307,SAMEA120560990,ERS27329193
+F,F135,SAMEA120632794,F135bB,recvlVOOhIHNlk8zF,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887321,SAMEA120561003,ERS27329226
+F,F136,SAMEA120632795,F136cB,rec89RUazV87j5Uu8,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887298,SAMEA120560981,ERS27329174
+F,F137,SAMEA120632796,F137cB,rectBbJIir2wzcG9G,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887373,SAMEA120561054,ERS27329285
+F,F138,SAMEA120632797,F138cB,recP98BnC7ZbE2mKY,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887291,SAMEA120560974,ERS27329167
+F,F139,SAMEA120632798,F139cB,recXZTMG2RgiNyAsf,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887342,SAMEA120561024,ERS27329255
+F,F140,SAMEA120632799,F140cB,rec0cD3fB0PKjkeMD,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887279,SAMEA120560963,ERS27329156
+F,F141,SAMEA120632800,F141dB,recSwPMe3rrmGQVN9,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887389,SAMEA120561070,ERS27329301
+F,F142,SAMEA120632801,F142dB,recucHPK0ItOGFv5e,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887381,SAMEA120561062,ERS27329293
+F,F143,SAMEA120632802,F143dB,recfWE1j8e6LOOBQb,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887327,SAMEA120561009,ERS27329239
+F,F144,SAMEA120632803,F144dB,recqSCuWJOEvNxbgB,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887365,SAMEA120561046,ERS27329277
+F,F145,SAMEA120632804,F145dB,recd2H5Ja0YMwRnss,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887336,SAMEA120561018,ERS27329248
+F,F146,SAMEA120632805,F146eB,recsqmnBqFaBrHnP4,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887262,SAMEA120560947,ERS27329140
+F,F147,SAMEA120632806,F147eB,recoL4O6iJIerdpEP,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887277,SAMEA120560961,ERS27329154
+F,F148,SAMEA120632807,F148eB,rectI3H2oIID8IhEm,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15887313,SAMEA120560995,ERS27329198
+H,H001,SAMEA120628721,H001aJ,rec0KtWPrP2cPu9Im,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966342,SAMEA120631906,ERS28127285
+H,H001,SAMEA120628721,H001aM,recsP90CogfPEIhlo,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H001,SAMEA120628721,H001aN,recmRu9d9noSqEW6q,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H002,SAMEA120628722,H002aJ,recp1SLFlJL12JeKV,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966371,SAMEA120631934,ERS28127418
+H,H002,SAMEA120628722,H002aM,recs7dnQyP19E56ax,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H002,SAMEA120628722,H002aN,recIAHoLI3pzSO3YQ,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H003,SAMEA120628723,H003aJ,recrx7uf8mc3BRzFQ,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966324,SAMEA120631891,ERS28127270
+H,H003,SAMEA120628723,H003aM,recZaXpUuAcUYfiCt,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H003,SAMEA120628723,H003aN,recX1HlhvLf4D44ye,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H004,SAMEA120628724,H004aJ,rec758XeQUcedd78D,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966351,SAMEA120631915,ERS28127335
+H,H004,SAMEA120628724,H004aM,recwrIhr1YOWMWgLL,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H004,SAMEA120628724,H004aN,recPT0Of1qzk14ziF,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H005,SAMEA120628725,H005aJ,recriEjmMPhUFQ6Bf,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966357,SAMEA120631920,ERS28127349
+H,H005,SAMEA120628725,H005aM,recA6SzCcFmfQbxFj,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H005,SAMEA120628725,H005aN,recktmC3MJ9S2p4Hp,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H006,SAMEA120628726,H006bJ,recTlpboNTOYKAQ2D,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966322,SAMEA120631889,ERS28127268
+H,H006,SAMEA120628726,H006bM,recsQIXxuAcdfxQA8,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H006,SAMEA120628726,H006bN,recnEDfLwzX8TUrk9,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H007,SAMEA120628727,H007bJ,recDCwlNglm12SsDJ,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966295,SAMEA120631863,ERS28127047
+H,H007,SAMEA120628727,H007bM,recG9blJMCJCPwfnR,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H007,SAMEA120628727,H007bN,recHPiYz0ymYFk8UQ,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H008,SAMEA120628728,H008bJ,recMYlr9kr1pTuw2T,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966383,SAMEA120631943,ERS28127655
+H,H008,SAMEA120628728,H008bM,reck2vKHY7KSfNzWZ,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H008,SAMEA120628728,H008bN,recyGtTxlPh7Cn4a2,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H009,SAMEA120628729,H009bJ,reciiZIdV0tqajb37,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966333,SAMEA120631898,ERS28127277
+H,H009,SAMEA120628729,H009bM,rec3uWGYmDO9nYSQ0,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H009,SAMEA120628729,H009bN,recggUfK9LPGPgqWc,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H010,SAMEA120628730,H010bJ,recq6k6xUjEAM9wIL,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966313,SAMEA120631880,ERS28127244
+H,H010,SAMEA120628730,H010bM,recpC2XsmqXinVis9,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H010,SAMEA120628730,H010bN,rec33L2Z8JWkkb9i9,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H011,SAMEA120628731,H011cJ,recP1TvCx9xewjuFt,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966377,SAMEA120631938,ERS28127463
+H,H011,SAMEA120628731,H011cM,rectDRCzZFqiOaAhI,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H011,SAMEA120628731,H011cN,recLczDJmWZJkZVAx,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H012,SAMEA120628732,H012cJ,recrgmJY23zmROe4Q,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966391,SAMEA120631951,ERS28127827
+H,H012,SAMEA120628732,H012cM,recwzA18WvJlQqadB,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H012,SAMEA120628732,H012cN,recnQOPxegBSBoPxU,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H013,SAMEA120628733,H013cJ,recvTQjSq1eQr0xoJ,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966368,SAMEA120631931,ERS28127407
+H,H013,SAMEA120628733,H013cM,recezZvXqYpiA9ys2,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H013,SAMEA120628733,H013cN,reczD1VGHrBa2a5hj,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H014,SAMEA120628734,H014cJ,recQTrHdfHkvMOGGI,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966298,SAMEA120631866,ERS28127051
+H,H014,SAMEA120628734,H014cM,recGThxXi1iWGztco,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H014,SAMEA120628734,H014cN,reci3cNyQ2NPkttY7,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H015,SAMEA120628735,H015cJ,rec9RzoLyC2o4QHHT,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966330,SAMEA120631895,ERS28127274
+H,H015,SAMEA120628735,H015cM,recVbDYUWahVtl5Nc,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H015,SAMEA120628735,H015cN,recq7SUVEfzIiOmoU,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H016,SAMEA120628736,H016dJ,recAV5W6a7HNzbPZK,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966381,SAMEA120631941,ERS28127606
+H,H016,SAMEA120628736,H016dM,rec1EPwkTMku0m3oc,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H016,SAMEA120628736,H016dN,recifDSXymiblkysP,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H017,SAMEA120628737,H017dJ,rectrjwR7CBIaelXt,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966358,SAMEA120631921,ERS28127354
+H,H017,SAMEA120628737,H017dM,recPTcDg8CrOYKyoj,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H017,SAMEA120628737,H017dN,recoL66UTHXaXtbVr,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H018,SAMEA120628738,H018dJ,recsNqeRbfI71cpjc,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966402,SAMEA120631960,ERS28128225
+H,H018,SAMEA120628738,H018dM,recJBhsJ8oCXL8Usv,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H018,SAMEA120628738,H018dN,recB4P2EiwRNIDOib,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H019,SAMEA120628739,H019dJ,recqEn2BdaTutVlBs,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966400,SAMEA120631958,ERS28128172
+H,H019,SAMEA120628739,H019dM,recfI5YFPYnzE01ge,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H019,SAMEA120628739,H019dN,recsehtcmhkaixYmO,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H020,SAMEA120628740,H020dJ,recpfW3THLsX5avik,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966362,SAMEA120631925,ERS28127379
+H,H020,SAMEA120628740,H020dM,rec4t6Kez9Twqev5K,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H020,SAMEA120628740,H020dN,rec95cIGXdjFYcsWw,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H021,SAMEA120628741,H021eJ,rec8rOVPUjjU7pgqc,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966299,SAMEA120631867,ERS28127057
+H,H021,SAMEA120628741,H021eM,recxYTWcagPlwhYKj,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H021,SAMEA120628741,H021eN,recwCIvnPTY0JOC8j,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H022,SAMEA120628742,H022eJ,recZvzpJHP66Kkxoz,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966323,SAMEA120631890,ERS28127269
+H,H022,SAMEA120628742,H022eM,recEMTsgKEcgm4shT,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H022,SAMEA120628742,H022eN,recm1xhEzLkmam38E,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H023,SAMEA120628743,H023eJ,reckkdKjGPEHgeg33,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966359,SAMEA120631922,ERS28127369
+H,H023,SAMEA120628743,H023eM,rect8kvyxUmFAG4xX,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H023,SAMEA120628743,H023eN,recMpnPm4BCvYRKOq,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H024,SAMEA120628744,H024eJ,recFlqnnQdPDPZIiL,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966385,SAMEA120631945,ERS28127692
+H,H024,SAMEA120628744,H024eM,recwkZPkg7DjSmRrn,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H024,SAMEA120628744,H024eN,recbLOhs96bt366Bp,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H025,SAMEA120628745,H025eJ,recrhx5m6rycAqWqU,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966376,SAMEA120631937,ERS28127458
+H,H025,SAMEA120628745,H025eM,recjilN6IGqqXtpjj,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H025,SAMEA120628745,H025eN,recJMrLEClDQP1Om8,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H026,SAMEA120628746,H026aJ,recRVFhpjZkq2f1h8,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966360,SAMEA120631923,ERS28127370
+H,H026,SAMEA120628746,H026aM,reciYCEpLkbptg2FG,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H026,SAMEA120628746,H026aN,reclj0Q0q4jnoiRGz,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H027,SAMEA120628747,H027aJ,recEWkAwCDkbm4N8x,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966363,SAMEA120631926,ERS28127383
+H,H027,SAMEA120628747,H027aM,recuyNjT0QRCQHELu,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H027,SAMEA120628747,H027aN,recgpadG1rNLwygi6,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H028,SAMEA120628748,H028aJ,rec8rtkV9v5FguFYS,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966294,SAMEA120631862,ERS28127042
+H,H028,SAMEA120628748,H028aM,recrr9ZmZ6G3lNCbU,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H028,SAMEA120628748,H028aN,recAK2dPgefsjYbmp,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H029,SAMEA120628749,H029aJ,recNQHdhRFAxYzIpA,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966387,SAMEA120631947,ERS28127711
+H,H029,SAMEA120628749,H029aM,recjnEGE4Stb60Jzr,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H029,SAMEA120628749,H029aN,recasGgPkrkmKitPy,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H030,SAMEA120628750,H030aJ,recYkutHd56vV9SY2,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966338,SAMEA120631903,ERS28127282
+H,H030,SAMEA120628750,H030aM,recwkJawteNsBOUM9,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H030,SAMEA120628750,H030aN,recG3B3DHuOjX1wh6,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H031,SAMEA120628751,H031bJ,recfdnZ67Rf3wV0Ae,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966337,SAMEA120631902,ERS28127281
+H,H031,SAMEA120628751,H031bM,recYmOs3Br2XT9UGk,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H031,SAMEA120628751,H031bN,rectRXc2YiuY0OPWi,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H032,SAMEA120628752,H032bJ,recnQj1lhXXVvxhFy,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966388,SAMEA120631948,ERS28127736
+H,H032,SAMEA120628752,H032bM,rec8YwVSKpKA0yflg,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H032,SAMEA120628752,H032bN,recQY3wHK1sAaro9h,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H033,SAMEA120628753,H033bJ,recBhKXA0OC3bPaCx,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966384,SAMEA120631944,ERS28127681
+H,H033,SAMEA120628753,H033bM,rec7WNmbnCXAmbRQj,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H033,SAMEA120628753,H033bN,recgEIjhdiO97HYkj,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H034,SAMEA120628754,H034bJ,recz0jx95jFSr9zfa,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966378,SAMEA120631939,ERS28127482
+H,H034,SAMEA120628754,H034bM,rec8rlif7vw2TyhHr,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H034,SAMEA120628754,H034bN,recdiWnJ0iUMQH6Zd,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H035,SAMEA120628755,H035bJ,recCIFwiaylQXZMtQ,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966305,SAMEA120631873,ERS28127116
+H,H035,SAMEA120628755,H035bM,recR0SLEvehqQ8irs,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H035,SAMEA120628755,H035bN,recfFdug3HTK447CW,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H036,SAMEA120628756,H036cJ,recIsLMcQ2u7QFDBk,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966319,SAMEA120631886,ERS28127265
+H,H036,SAMEA120628756,H036cM,rec18FzG52DLlP9cl,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H036,SAMEA120628756,H036cN,recXRkwxkUlaGA1H9,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H037,SAMEA120628757,H037cJ,reckxBwPcMdaLEpR5,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966349,SAMEA120631913,ERS28127306
+H,H037,SAMEA120628757,H037cM,rec4YsqCuINGVENGi,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H037,SAMEA120628757,H037cN,reccjimhFvts4tEXE,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H038,SAMEA120628758,H038cJ,recJ9PJrlrHm6VFtj,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966343,SAMEA120631907,ERS28127286
+H,H038,SAMEA120628758,H038cM,recSLLUmdVf4W20dJ,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H038,SAMEA120628758,H038cN,recsphELQbRjA09py,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H039,SAMEA120628759,H039cJ,recvG6s2BWs2UReSN,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966293,SAMEA120631861,ERS28127041
+H,H039,SAMEA120628759,H039cM,recKajlRBbJ0E9dli,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H039,SAMEA120628759,H039cN,recJs5hq3PI3gZoDa,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H040,SAMEA120628760,H040cJ,recKG63PV5vbXOfyA,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966367,SAMEA120631930,ERS28127402
+H,H040,SAMEA120628760,H040cM,recee6YTfNDWBROBD,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H040,SAMEA120628760,H040cN,rec5BImCVaWyUlUoe,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H041,SAMEA120628761,H041dJ,recMkEN0PyEPFPYkc,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966308,SAMEA120631876,ERS28127147
+H,H041,SAMEA120628761,H041dM,reczaOwTvBuNtSutZ,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H041,SAMEA120628761,H041dN,reco1boKltzBKQqQY,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H042,SAMEA120628762,H042dJ,recNq8VRA8gjehPId,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966302,SAMEA120631870,ERS28127073
+H,H042,SAMEA120628762,H042dM,rechAOOEe1SWstUOd,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H042,SAMEA120628762,H042dN,recAZMzniFp4jrtQ0,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H043,SAMEA120628763,H043dJ,reclCuhjbFSAWoxOx,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966390,SAMEA120631950,ERS28127746
+H,H043,SAMEA120628763,H043dM,recQkTxiGpP1Fs6yr,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H043,SAMEA120628763,H043dN,recoKRe7BMZqlUMB7,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H044,SAMEA120628764,H044dJ,recdQgTrXrWzgFczX,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966355,SAMEA120631918,ERS28127345
+H,H044,SAMEA120628764,H044dM,recX5kljHsZZLsrV8,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H044,SAMEA120628764,H044dN,recFRC7q06RdCwM5e,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H045,SAMEA120628765,H045dJ,recMTPkdtTRt2LwM5,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966325,SAMEA120631892,ERS28127271
+H,H045,SAMEA120628765,H045dM,reczkltrdfn3tfILY,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H045,SAMEA120628765,H045dN,recx8j6iIpYkbNQ6j,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H046,SAMEA120628766,H046eJ,recaXU5o9KksLSkKn,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966318,SAMEA120631885,ERS28127264
+H,H046,SAMEA120628766,H046eM,reccXC0xAgnSGCaxx,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H046,SAMEA120628766,H046eN,receaKiuw7YmiJc1s,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H047,SAMEA120628767,H047eJ,recBx6SoXZUpBlS13,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966339,SAMEA120631904,ERS28127283
+H,H047,SAMEA120628767,H047eM,recQbPWc1HP6pmngh,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H047,SAMEA120628767,H047eN,recizcmFFe5S3qqz7,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H048,SAMEA120628768,H048eJ,rec3WxlJKyBsbkTyF,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966314,SAMEA120631881,ERS28127259
+H,H048,SAMEA120628768,H048eM,recWaj9scKGK0Kul5,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H048,SAMEA120628768,H048eN,recyTPrPcW5a9AKWb,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H049,SAMEA120628769,H049eJ,recrmm9Mz18dSRweQ,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966303,SAMEA120631871,ERS28127090
+H,H049,SAMEA120628769,H049eM,recoNpTWrWbMytzKq,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H049,SAMEA120628769,H049eN,recgDfyOzldUdfJeL,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H050,SAMEA120628770,H050eJ,recAkgBvDgVEdisB8,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966356,SAMEA120631919,ERS28127347
+H,H050,SAMEA120628770,H050eM,rec3ZfEy3jgT5neC2,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H050,SAMEA120628770,H050eN,rec7tjbWxQSgv0sTs,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H051,SAMEA120628771,H051aJ,rec1fbExCfsfiFYdc,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966398,SAMEA120631957,ERS28128136
+H,H051,SAMEA120628771,H051aM,recLeiynJnJsUlqOG,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H051,SAMEA120628771,H051aN,recAutLxYQ6zzVD3O,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H052,SAMEA120628772,H052aJ,reco4gM2o3bHiZbKj,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966396,SAMEA120631955,ERS28128068
+H,H052,SAMEA120628772,H052aM,rec9gXzBKhrHdKX3h,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H052,SAMEA120628772,H052aN,rec6VobcVb3XiupRT,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H053,SAMEA120628773,H053aJ,recLjZXLIPq0WqwQX,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966300,SAMEA120631868,ERS28127060
+H,H053,SAMEA120628773,H053aM,recoOo89HmNu5u6St,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H053,SAMEA120628773,H053aN,recJuvt97XTxxykqq,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H054,SAMEA120628774,H054aJ,rec8Bj4Wn0ea7Xm5u,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966389,SAMEA120631949,ERS28127745
+H,H054,SAMEA120628774,H054aM,recf5ePPPRHcu6T4q,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H054,SAMEA120628774,H054aN,recYqSodJjLKVDL9C,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H055,SAMEA120628775,H055aJ,rec0FcpVPxVJelCE3,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966369,SAMEA120631932,ERS28127408
+H,H055,SAMEA120628775,H055aM,rec0x04ponHH13MV0,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H055,SAMEA120628775,H055aN,recwAo5bcEx6PK573,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H056,SAMEA120628776,H056bJ,reccgBHIXFBaJtBnz,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966320,SAMEA120631887,ERS28127266
+H,H056,SAMEA120628776,H056bM,rectWxOynO3KxU9yp,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H056,SAMEA120628776,H056bN,recT0Wk3jmThipaAT,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H057,SAMEA120628777,H057bJ,recc9jSjm9ie2XUL3,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966393,SAMEA120631953,ERS28127890
+H,H057,SAMEA120628777,H057bM,recNDitHczXSL8qY9,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H057,SAMEA120628777,H057bN,recR7Y9oHi80i0IYG,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H058,SAMEA120628778,H058bJ,recIYV3kLjaVTver5,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966346,SAMEA120631910,ERS28127289
+H,H058,SAMEA120628778,H058bM,recmfO0zeRO3gFKwt,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H058,SAMEA120628778,H058bN,rec8cSjx8D9hAvCLh,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H059,SAMEA120628779,H059bJ,recgtGiecgXt2JwyM,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966401,SAMEA120631959,ERS28128201
+H,H059,SAMEA120628779,H059bM,recBYQsqZ1SqLWPoG,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H059,SAMEA120628779,H059bN,rec6BOiKwNv8e8GXI,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H060,SAMEA120628780,H060bJ,recYGMXgHhgcpv4xd,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966304,SAMEA120631872,ERS28127111
+H,H060,SAMEA120628780,H060bM,recENsKGUhIaAYPT4,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H060,SAMEA120628780,H060bN,recDb8iXm17KxWDhD,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H061,SAMEA120628781,H061cJ,rec2SGfkn8quSO17U,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966336,SAMEA120631901,ERS28127280
+H,H061,SAMEA120628781,H061cM,rec5mv5ajceELSBK6,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H061,SAMEA120628781,H061cN,recOlhpUPTpzS8umL,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H062,SAMEA120628782,H062cJ,rect9pORzAP6NeSnl,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966380,SAMEA120631940,ERS28127524
+H,H062,SAMEA120628782,H062cM,rec938bMJeqK8DcSp,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H062,SAMEA120628782,H062cN,recKNJoIWnjy5Z82w,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H063,SAMEA120628783,H063cJ,rec7vqyNRIaw78R35,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966386,SAMEA120631946,ERS28127704
+H,H063,SAMEA120628783,H063cM,rec1B1NBgzoS0KTxQ,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H063,SAMEA120628783,H063cN,recPgzo5DBdEFJaCX,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H064,SAMEA120628784,H064cJ,recrF9JAYmjjvst5m,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966317,SAMEA120631884,ERS28127263
+H,H064,SAMEA120628784,H064cM,recR19w6yaekapIQy,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H064,SAMEA120628784,H064cN,recHB9RgTRIb7c6bt,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H065,SAMEA120628785,H065cJ,rec4aoFb7PB8QB8IB,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966382,SAMEA120631942,ERS28127647
+H,H065,SAMEA120628785,H065cM,recul1zq3TcfcFKiJ,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H065,SAMEA120628785,H065cN,recwyuR0Vilck6FtZ,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H066,SAMEA120628786,H066dJ,recEaK4PSrvADJGvx,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966374,SAMEA120631936,ERS28127429
+H,H066,SAMEA120628786,H066dM,rec96JhAIz4ySF4Lh,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H066,SAMEA120628786,H066dN,recDD7mxuP90UQfVL,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H067,SAMEA120628787,H067dJ,rec03MOWpW6Dzjj0v,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966301,SAMEA120631869,ERS28127067
+H,H067,SAMEA120628787,H067dM,recXlchLedhwkUGum,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H067,SAMEA120628787,H067dN,recZRYJAktxdnMYJi,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H068,SAMEA120628788,H068dJ,rec382rtRiZUaeArI,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966345,SAMEA120631909,ERS28127288
+H,H068,SAMEA120628788,H068dM,reciyFYBZ6Pzj0dre,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H068,SAMEA120628788,H068dN,rec03FvXogu3MFLJw,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H069,SAMEA120628789,H069dJ,recaD2qFzF2iAhhPh,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966348,SAMEA120631912,ERS28127303
+H,H069,SAMEA120628789,H069dM,recsaXaVAtO1gfX2z,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H069,SAMEA120628789,H069dN,recuH2qMIqwCm0cDU,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H070,SAMEA120628790,H070dJ,recVlDgbxihPzYx0t,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966311,SAMEA120631878,ERS28127233
+H,H070,SAMEA120628790,H070dM,recS4KVdo23rWcBBB,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H070,SAMEA120628790,H070dN,recrL86xhbJuFd57c,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H071,SAMEA120628791,H071eJ,recxTQS7oCMkm3C32,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966315,SAMEA120631882,ERS28127261
+H,H071,SAMEA120628791,H071eM,recrpEp3wKo20IKeu,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H071,SAMEA120628791,H071eN,recJa0zpM7gL2VPDq,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H072,SAMEA120628792,H072eJ,recWB9B7XyoMxFkZq,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966370,SAMEA120631933,ERS28127410
+H,H072,SAMEA120628792,H072eM,recR1ncqI8PL9hV2l,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H072,SAMEA120628792,H072eN,recumZXe6OYqdd1Ac,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H073,SAMEA120628793,H073eJ,recbkHketCIbhb1nk,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966353,SAMEA120631916,ERS28127342
+H,H073,SAMEA120628793,H073eM,recfkRfzRCVGxSdRH,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H073,SAMEA120628793,H073eN,rec40FqSsJSwUWsCT,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H074,SAMEA120628794,H074eJ,recyBCuautC03wLqa,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966312,SAMEA120631879,ERS28127242
+H,H074,SAMEA120628794,H074eM,rectzT5p4pzem2MXL,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H074,SAMEA120628794,H074eN,recpIRkHhs81Qhcf4,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H075,SAMEA120628795,H075eJ,recS5X9Y8OuKGV0xD,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966321,SAMEA120631888,ERS28127267
+H,H075,SAMEA120628795,H075eM,recq5tBSDPMyknX9z,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H075,SAMEA120628795,H075eN,rec7ObWVaCpzd2gec,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H076,SAMEA120628796,H076aJ,rec6CZxs2OydYJin6,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966364,SAMEA120631927,ERS28127390
+H,H076,SAMEA120628796,H076aM,reckk24gSmmTSMl2i,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H076,SAMEA120628796,H076aN,recMyGsqI4viIxdyM,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H077,SAMEA120628797,H077aJ,recCjb5PHqU6azZl2,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966354,SAMEA120631917,ERS28127344
+H,H077,SAMEA120628797,H077aM,recQcsfnT3yX5ouQC,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H077,SAMEA120628797,H077aN,recQCuf0ELQv1F3cA,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H078,SAMEA120628798,H078aJ,recvuRHc5ijnPv2dY,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966365,SAMEA120631928,ERS28127396
+H,H078,SAMEA120628798,H078aM,rec4oTVswixS2sJAD,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H078,SAMEA120628798,H078aN,recWIaxdBnYstlWIG,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H079,SAMEA120628799,H079aJ,receyBPCQybhJRJrn,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966309,SAMEA120631877,ERS28127163
+H,H079,SAMEA120628799,H079aM,recYbzxO0BdvOTm3U,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H079,SAMEA120628799,H079aN,recuyPnQoKmhtVxJL,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H080,SAMEA120628800,H080aJ,recMKi6IYgrRVvKYB,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966366,SAMEA120631929,ERS28127398
+H,H080,SAMEA120628800,H080aM,recIAr31QlO8bquvT,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H080,SAMEA120628800,H080aN,reczufVHByaTHzLmF,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H081,SAMEA120628801,H081bJ,recAsgiIf5kWVvPVm,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966306,SAMEA120631874,ERS28127118
+H,H081,SAMEA120628801,H081bM,rec2EXxIdKCdCePo0,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H081,SAMEA120628801,H081bN,recVr1tfucwz02npg,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H082,SAMEA120628802,H082bJ,recVOpYGC3IVdkufU,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966347,SAMEA120631911,ERS28127294
+H,H082,SAMEA120628802,H082bM,recwzpxLabm9EvEH5,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H082,SAMEA120628802,H082bN,recJBM034RQdSPnil,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H083,SAMEA120628803,H083bJ,recjNrTrAehFVExYN,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966350,SAMEA120631914,ERS28127328
+H,H083,SAMEA120628803,H083bM,recAr1fsCn2iMYL76,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H083,SAMEA120628803,H083bN,recCQYKwWFK7F35zR,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H084,SAMEA120628804,H084bJ,recTqy90q8wK7guyc,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966328,SAMEA120631894,ERS28127273
+H,H084,SAMEA120628804,H084bM,recCywP3IP4S6ELOC,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H084,SAMEA120628804,H084bN,recjH0g7YQE5RNPjW,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H085,SAMEA120628805,H085bJ,recvrY4qdTbK4MFWW,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966297,SAMEA120631865,ERS28127049
+H,H085,SAMEA120628805,H085bM,recY2WeNJuLBEXCgb,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H085,SAMEA120628805,H085bN,rechPQSFiOhvju1W6,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H086,SAMEA120628806,H086cJ,rec3cGps0zInnBntc,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966372,SAMEA120631935,ERS28127419
+H,H086,SAMEA120628806,H086cM,recumt5hnL8Wax7is,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H086,SAMEA120628806,H086cN,rec6DTGSfOIPWMwmU,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H087,SAMEA120628807,H087cJ,rechEvq2AJvJG0UX9,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966395,SAMEA120631954,ERS28127972
+H,H087,SAMEA120628807,H087cM,recZD2ebDoY9BRFqc,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H087,SAMEA120628807,H087cN,rec4Nqqau6b12FJoM,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H088,SAMEA120628808,H088cJ,recMAGSd0CMQWyTDr,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966307,SAMEA120631875,ERS28127135
+H,H088,SAMEA120628808,H088cM,recEOb6xcxUJcwBrQ,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H088,SAMEA120628808,H088cN,recMeRoT7sFM2DrsH,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H089,SAMEA120628809,H089cJ,rec0wuoroR7Tpwgm7,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966397,SAMEA120631956,ERS28128120
+H,H089,SAMEA120628809,H089cM,recAhNgrE5LdMSRmX,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H089,SAMEA120628809,H089cN,recACCsP9xFLa8AEb,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H090,SAMEA120628810,H090cJ,recr3EviJgM8ClTRl,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966335,SAMEA120631900,ERS28127279
+H,H090,SAMEA120628810,H090cM,recVS6GEPijqgMjDB,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H090,SAMEA120628810,H090cN,reccCozVnKHmxQouV,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H091,SAMEA120628811,H091dJ,recPPqgQpChYi3fmi,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966341,SAMEA120631905,ERS28127284
+H,H091,SAMEA120628811,H091dM,recd9WH9nTHvH3aTQ,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H091,SAMEA120628811,H091dN,reccAtRl4E1h5V18M,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H092,SAMEA120628812,H092dJ,recA7cU23Mx7iG6M0,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966327,SAMEA120631893,ERS28127272
+H,H092,SAMEA120628812,H092dM,recJnLejSxsVSg9d2,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H092,SAMEA120628812,H092dN,recgCg2eCF5PB2eyW,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H093,SAMEA120628813,H093dJ,recnWljAmWrOiuxZO,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966392,SAMEA120631952,ERS28127841
+H,H093,SAMEA120628813,H093dM,recB35Prrz4rh4MjR,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H093,SAMEA120628813,H093dN,recuXkqn9pmbSsPLV,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H094,SAMEA120628814,H094dJ,recBf28OliNF867s2,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966344,SAMEA120631908,ERS28127287
+H,H094,SAMEA120628814,H094dM,recp7FDFO19dXHGiD,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H094,SAMEA120628814,H094dN,reclyhyIHyWRw7UuM,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H095,SAMEA120628815,H095dJ,recDiRDN65rS0ZPee,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966316,SAMEA120631883,ERS28127262
+H,H095,SAMEA120628815,H095dM,recLhSMwBop6BcFT4,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H095,SAMEA120628815,H095dN,recaHFM2S58PAYQKv,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H096,SAMEA120628816,H096eJ,recR18hTlnAQtIS0T,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966334,SAMEA120631899,ERS28127278
+H,H096,SAMEA120628816,H096eM,recqz7ESImL4qk3ea,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H096,SAMEA120628816,H096eN,rec7I1fL4JdvyccOz,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H097,SAMEA120628817,H097eJ,recz2X13OsVNwYgCP,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966361,SAMEA120631924,ERS28127371
+H,H097,SAMEA120628817,H097eM,recNin1mlpyDtM6Uy,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H097,SAMEA120628817,H097eN,recwqGf320o6BArf9,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H098,SAMEA120628818,H098eJ,rec21g6FUNopWGEwY,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966332,SAMEA120631897,ERS28127276
+H,H098,SAMEA120628818,H098eM,rec6twRyATLMgs3GC,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H098,SAMEA120628818,H098eN,recedPTSoyLc6Cf4R,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H099,SAMEA120628819,H099eJ,recHMx5UaRa4d9m2Y,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966296,SAMEA120631864,ERS28127048
+H,H099,SAMEA120628819,H099eM,recQLNI2bhcOPRVbx,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H099,SAMEA120628819,H099eN,recIbAbitUwbmwI5S,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+H,H100,SAMEA120628820,H100eJ,recUjF6GiRs1iHb8u,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966331,SAMEA120631896,ERS28127275
+H,H100,SAMEA120628820,H100eM,recjyThxesgTxIqlb,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+H,H100,SAMEA120628820,H100eN,recXrCFDQxGRNS8se,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M001,SAMEA120628641,M001aJ,rec8nfMQmcUNiForw,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966042,SAMEA120631788,ERS28123747
+M,M001,SAMEA120628641,M001aM,recigA63eGKj70Udn,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M001,SAMEA120628641,M001aN,rec3Cjq3whMSzTBX2,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M002,SAMEA120628642,M002aI,recYvZeG8ogY2sQpf,other; scope review,Caecum right,Entire section with content,Mega Tissue cassette,Glycerol,,,,
+M,M002,SAMEA120628642,M002aJ,recwt1ebejUuJf2oe,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966007,SAMEA120631703,ERS28123403
+M,M002,SAMEA120628642,M002aM,recvUSyvm4lF0l413,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M002,SAMEA120628642,M002aN,recDuZdvb301JyKIa,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M003,SAMEA120628643,M003aI,recCpk3GXsjSBvNoS,other; scope review,Caecum right,Entire section with content,Mega Tissue cassette,Glycerol,,,,
+M,M003,SAMEA120628643,M003aJ,reciZeZkuhCBxmXsb,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966005,SAMEA120631701,ERS28123401
+M,M003,SAMEA120628643,M003aM,recSLQdEuye2ZIInP,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M003,SAMEA120628643,M003aN,rec5UZEENbKcwbSK3,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M004,SAMEA120628644,M004aJ,rec3hUtSiV5RFsipb,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966029,SAMEA120631775,ERS28123606
+M,M004,SAMEA120628644,M004aM,recqIx2ieZrVXujeB,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M004,SAMEA120628644,M004aN,recJME1MI1MvAygO4,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M005,SAMEA120628645,M005aJ,recXcb1VhLSKaTUmb,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15965996,SAMEA120631692,ERS28123392
+M,M005,SAMEA120628645,M005aM,recpMzbRNXwa035oD,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M005,SAMEA120628645,M005aN,recWhc7VhJ7DZ1ik4,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M006,SAMEA120628646,M006bJ,rec8u9LdpQ7TJmnJv,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966016,SAMEA120631712,ERS28123415
+M,M006,SAMEA120628646,M006bM,rec7M3lmCoUrjk5XV,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M006,SAMEA120628646,M006bN,recjHLgohsPFtsCoU,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M007,SAMEA120628647,M007bJ,recqK9RHC6UD2Tz7r,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966020,SAMEA120631766,ERS28123469
+M,M007,SAMEA120628647,M007bM,recEZythV7fl74phP,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M007,SAMEA120628647,M007bN,recr8b5MmD4fMcsbx,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M008,SAMEA120628648,M008bJ,recqbDnY8VJ2WiP2e,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966059,SAMEA120631804,ERS28123791
+M,M008,SAMEA120628648,M008bM,recs9yh6N3lmGOGGC,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M008,SAMEA120628648,M008bN,rec9Guzb9bueiUvPY,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M009,SAMEA120628649,M009bJ,reczRIS8SOQKvGhZs,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966036,SAMEA120631782,ERS28123679
+M,M009,SAMEA120628649,M009bM,recbvqSEGyPCWIo0i,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M009,SAMEA120628649,M009bN,rec9DuGUZ91Uko6R9,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M010,SAMEA120628650,M010bJ,recOSA73ba3hrRCp9,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966000,SAMEA120631696,ERS28123396
+M,M010,SAMEA120628650,M010bM,recdylZXwKrYggSFz,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M010,SAMEA120628650,M010bN,rectjcYsf2zOnirFM,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M011,SAMEA120628651,M011cJ,recJJaUKD1aofDzRY,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966022,SAMEA120631768,ERS28123471
+M,M011,SAMEA120628651,M011cM,reczrVquj7qfnZi8f,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M011,SAMEA120628651,M011cN,rec3IKnImuE0Pgv5h,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M012,SAMEA120628652,M012cJ,rec3AGVD0dT7YIHC9,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966056,SAMEA120631801,ERS28123785
+M,M012,SAMEA120628652,M012cM,recR1cY7pcZyh2v4x,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M012,SAMEA120628652,M012cN,rec4xquVecLDf2pde,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M013,SAMEA120628653,M013cJ,recY2FmdX31lX62Pu,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966037,SAMEA120631783,ERS28123691
+M,M013,SAMEA120628653,M013cM,recVWW86G3DUWq7Zu,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M013,SAMEA120628653,M013cN,recbbD1lUzz3kuhCH,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M014,SAMEA120628654,M014cM,recQ7OEbbvQvzcred,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M014,SAMEA120628654,M014cN,rec15VVRDk1fHRaNs,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M015,SAMEA120628655,M015cJ,rec5yUJ7Yav3cIcex,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966001,SAMEA120631697,ERS28123397
+M,M015,SAMEA120628655,M015cM,reca7FvnZzc59pcFb,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M015,SAMEA120628655,M015cN,rec3wbD2dfpxERmgD,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M016,SAMEA120628656,M016dM,recpwr8IMEgbfnARi,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M016,SAMEA120628656,M016dN,recJqKRAVDslIs22I,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M017,SAMEA120628657,M017dI,recocoucZH0D0SC3l,other; scope review,Caecum right,Entire section with content,Mega Tissue cassette,Glycerol,,,,
+M,M017,SAMEA120628657,M017dJ,recQoW3heYAMKBfPx,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966024,SAMEA120631770,ERS28123524
+M,M017,SAMEA120628657,M017dM,recb6gbaHqi7UJmsv,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M017,SAMEA120628657,M017dN,recvqC2dp6GS1W5Ix,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M018,SAMEA120628658,M018dI,recL3VL81pCx4ktRH,other; scope review,Caecum right,Entire section with content,Mega Tissue cassette,Glycerol,,,,
+M,M018,SAMEA120628658,M018dJ,rec74NgvZsZGokL3n,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966038,SAMEA120631784,ERS28123716
+M,M018,SAMEA120628658,M018dM,rec1ABVg3QExcF0g6,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M018,SAMEA120628658,M018dN,rec8scKkIhB615qBr,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M019,SAMEA120628659,M019dJ,recmlPThoxiSzlfio,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966050,SAMEA120631795,ERS28123779
+M,M019,SAMEA120628659,M019dM,recQnhkNz4PHibONl,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M019,SAMEA120628659,M019dN,recsGWiAyOy883mqs,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M020,SAMEA120628660,M020dJ,recvzfkgrY8eMrI2r,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15965993,SAMEA120631689,ERS28123389
+M,M020,SAMEA120628660,M020dM,recFzTdl5U5jmAULX,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M020,SAMEA120628660,M020dN,recQS6iFQ22CMVHp4,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M021,SAMEA120628661,M021aI,rec0rIdrQPRxiv7v5,other; scope review,Caecum right,Entire section with content,Mega Tissue cassette,Glycerol,,,,
+M,M021,SAMEA120628661,M021aJ,rec1JDF4yIjuFIB91,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966064,SAMEA120631809,ERS28123796
+M,M021,SAMEA120628661,M021aM,reckpBf6WW7mFRceK,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M021,SAMEA120628661,M021aN,recuYxJuyvcFXP40H,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M022,SAMEA120628662,M022aH,recFjjE05L9uvGSyn,other; scope review,Caecum right,Entire section with content,Mega Tissue cassette,Glycerol,,,,
+M,M022,SAMEA120628662,M022aJ,rectmsRGSN2sI9CuK,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966002,SAMEA120631698,ERS28123398
+M,M022,SAMEA120628662,M022aM,recK0OjJM1jV4NZq5,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M022,SAMEA120628662,M022aN,recWmlhc5AkUsBTvN,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M023,SAMEA120628663,M023aJ,recoFe92ZUcXkC6YM,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966030,SAMEA120631776,ERS28123607
+M,M023,SAMEA120628663,M023aM,recskv7ewUl7SHY65,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M023,SAMEA120628663,M023aN,reclrMQwTsRUtpzq1,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M024,SAMEA120628664,M024aJ,recYQ2M7D2OUY5RLq,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966010,SAMEA120631706,ERS28123409
+M,M024,SAMEA120628664,M024aM,rec6fyJl6JZSLf1Md,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M024,SAMEA120628664,M024aN,recfXLfZ4niW32iba,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M025,SAMEA120628665,M025aJ,recfYQ56jXJ2mhQYO,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966051,SAMEA120631796,ERS28123780
+M,M025,SAMEA120628665,M025aM,reclYdbSG5U2JEbC1,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M025,SAMEA120628665,M025aN,recYiiVGVI1ybEgsF,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M026,SAMEA120628666,M026bJ,recsgPQEGPjr5ZjMp,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966049,SAMEA120631794,ERS28123754
+M,M026,SAMEA120628666,M026bM,recWCKbZ4PVP6T5zi,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M026,SAMEA120628666,M026bN,recr0GlnSzZh9b93b,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M027,SAMEA120628667,M027bJ,recbF6vHIh45Yqo6P,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15965998,SAMEA120631694,ERS28123394
+M,M027,SAMEA120628667,M027bM,recapgIjmWXnK6hNb,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M027,SAMEA120628667,M027bN,recPGxIiFUMCfE12o,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M028,SAMEA120628668,M028bJ,recrSliDkSIhVwtLF,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966012,SAMEA120631708,ERS28123411
+M,M028,SAMEA120628668,M028bM,recZC6LR7i39ynUKx,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M028,SAMEA120628668,M028bN,recph8eMId2R1hGhv,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M029,SAMEA120628669,M029bM,recuWHt3DDYdeLj8N,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M029,SAMEA120628669,M029bN,reclc7yII4rhP1jOb,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M030,SAMEA120628670,M030bJ,rec2GElj0myiX5hGG,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966058,SAMEA120631803,ERS28123787
+M,M030,SAMEA120628670,M030bM,recEB1IK7UzbTia5F,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M030,SAMEA120628670,M030bN,recxsKSAre09nhS4y,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M031,SAMEA120628671,M031cJ,recFMUFJeJBFvRl8V,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966052,SAMEA120631797,ERS28123781
+M,M031,SAMEA120628671,M031cM,recEru51j4h1T9mHH,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M031,SAMEA120628671,M031cN,rec2n57BPYqI8mxd5,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M032,SAMEA120628672,M032cJ,recY539ZDncmuH5d7,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15965999,SAMEA120631695,ERS28123395
+M,M032,SAMEA120628672,M032cM,recTk5ziyrPwYNMDm,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M032,SAMEA120628672,M032cN,recttrcgHrRw4sT00,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M033,SAMEA120628673,M033cJ,recKOCoN0XjJ0nOcu,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966027,SAMEA120631773,ERS28123591
+M,M033,SAMEA120628673,M033cM,rec2vBOB63RDTcrSH,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M033,SAMEA120628673,M033cN,recM6HfsDl0DTyKzb,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M034,SAMEA120628674,M034cJ,recFnb7bzkhIVN0yD,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966041,SAMEA120631787,ERS28123722
+M,M034,SAMEA120628674,M034cM,recoAAn9Tllp786oe,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M034,SAMEA120628674,M034cN,recqq1VnAaL9Fpspq,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M035,SAMEA120628675,M035cJ,rec28NBCtexHfBDZB,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966033,SAMEA120631779,ERS28123660
+M,M035,SAMEA120628675,M035cM,recA8pp096usukcz4,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M035,SAMEA120628675,M035cN,rec5UT2RcpGiZJM5q,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M036,SAMEA120628676,M036dJ,reczdYujo1SUwjuLP,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15965992,SAMEA120631688,ERS28123388
+M,M036,SAMEA120628676,M036dM,recVsNvLLvjT16iLD,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M036,SAMEA120628676,M036dN,rec27HRtfslYf6ey3,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M037,SAMEA120628677,M037dJ,recNx9KF41ruZZe4e,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966063,SAMEA120631808,ERS28123795
+M,M037,SAMEA120628677,M037dM,recoJcQQX7SkY4uh0,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M037,SAMEA120628677,M037dN,recP99nV0Cw5RXQDG,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M038,SAMEA120628678,M038dI,recz0QAv8ZzIpcBe7,other; scope review,Caecum right,Entire section with content,Mega Tissue cassette,Glycerol,,,,
+M,M038,SAMEA120628678,M038dJ,recVShxpMfQoBq1BW,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966061,SAMEA120631806,ERS28123793
+M,M038,SAMEA120628678,M038dM,recURl1xSxOTxFuRl,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M038,SAMEA120628678,M038dN,recaDzSbxPl3IJfRs,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M039,SAMEA120628679,M039dI,recHS15EcDfDsXG2B,other; scope review,Caecum right,Entire section with content,Mega Tissue cassette,Glycerol,,,,
+M,M039,SAMEA120628679,M039dJ,recN1XMAzBU8KNVGp,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966013,SAMEA120631709,ERS28123412
+M,M039,SAMEA120628679,M039dM,recCH4BmKBid3DsKY,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M039,SAMEA120628679,M039dN,recbr1NM1L9eeCTT5,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M040,SAMEA120628680,M040dM,recrKzCx9DyvJfYKK,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M040,SAMEA120628680,M040dN,rec87FrU8mM8WsTev,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M041,SAMEA120628681,M041aI,recqRSBhdElGpzyGC,other; scope review,Caecum right,Entire section with content,Mega Tissue cassette,Glycerol,,,,
+M,M041,SAMEA120628681,M041aJ,recnPZ8SD31va7Sas,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966011,SAMEA120631707,ERS28123410
+M,M041,SAMEA120628681,M041aM,rec4Hs98aaEJjZMSn,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M041,SAMEA120628681,M041aN,recjJDtLxM05hBjii,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M042,SAMEA120628682,M042aI,recoVi2K7SIwIOYd8,other; scope review,Caecum right,Entire section with content,Mega Tissue cassette,Glycerol,,,,
+M,M042,SAMEA120628682,M042aJ,recUvZHQCt4C2WoWx,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966048,SAMEA120631793,ERS28123752
+M,M042,SAMEA120628682,M042aM,rec308dpxvlJubOKw,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M042,SAMEA120628682,M042aN,rec98i42wdXMDBW5c,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M043,SAMEA120628683,M043aJ,recVNcR5YT8XTACrf,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966054,SAMEA120631799,ERS28123783
+M,M043,SAMEA120628683,M043aM,rec6TcL6WE5rKmZk1,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M043,SAMEA120628683,M043aN,rec3Dpgo4NdpDZlYX,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M044,SAMEA120628684,M044aJ,recry2MPFyrpq4sbV,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966004,SAMEA120631700,ERS28123400
+M,M044,SAMEA120628684,M044aM,recAFCblU7CE3AUJE,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M044,SAMEA120628684,M044aN,recPSRzllxXRz2QFA,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M045,SAMEA120628685,M045aJ,recwRdpsalFKqj9yv,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966009,SAMEA120631705,ERS28123406
+M,M045,SAMEA120628685,M045aM,receZ5MmNZ4sEA9OI,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M045,SAMEA120628685,M045aN,recwBJ9NSgMDHjUze,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M046,SAMEA120628686,M046bJ,recZ8Vlujqexfm4a1,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966045,SAMEA120631791,ERS28123750
+M,M046,SAMEA120628686,M046bM,recjLgN9c3VxiSoXt,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M046,SAMEA120628686,M046bN,recbnTEQilA0av15n,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M047,SAMEA120628687,M047bJ,recI3dK3T1LV9Xh0e,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966032,SAMEA120631778,ERS28123655
+M,M047,SAMEA120628687,M047bM,recHIoRYGbGCQKoVi,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M047,SAMEA120628687,M047bN,recVs4A2HP4n8kzQl,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M048,SAMEA120628688,M048bJ,recMuARCJWl1uhqQW,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15965991,SAMEA120631687,ERS28123387
+M,M048,SAMEA120628688,M048bM,rec9ovrbHjPL4NLV5,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M048,SAMEA120628688,M048bN,recSrWZzNzWefVsEv,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M049,SAMEA120628689,M049bM,reclVrOgYAvn8ztkJ,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M049,SAMEA120628689,M049bN,rec247PGnx3iX5ABs,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M050,SAMEA120628690,M050bM,receKv4hX21lFJTwL,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M050,SAMEA120628690,M050bN,rec3TF01eDPwcZtAz,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M051,SAMEA120628691,M051cJ,recR5GfTaYtbHLC9a,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966017,SAMEA120631763,ERS28123466
+M,M051,SAMEA120628691,M051cM,recbbRxUqBJirPX7v,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M051,SAMEA120628691,M051cN,recau94gZVyELIY1D,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M052,SAMEA120628692,M052cJ,rec50BkT5t4NwuzEw,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966043,SAMEA120631789,ERS28123748
+M,M052,SAMEA120628692,M052cM,reczUPSyyXXBBmcaT,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M052,SAMEA120628692,M052cN,rec4QPR4Dlxw4gXWv,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M053,SAMEA120628693,M053cJ,rec0TiWOanS9ZmEAZ,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966021,SAMEA120631767,ERS28123470
+M,M053,SAMEA120628693,M053cM,rechoJomccZ7PbhZ6,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M053,SAMEA120628693,M053cN,recy5bJZ66dVtJn8m,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M054,SAMEA120628694,M054cJ,recWqPib6kqZ3BXQX,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966018,SAMEA120631764,ERS28123467
+M,M054,SAMEA120628694,M054cM,recbQFTP20FA54GR9,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M054,SAMEA120628694,M054cN,recgrTxb5wzPsIZwP,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M055,SAMEA120628695,M055cJ,rec4YeVDLuqb5vZAG,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966025,SAMEA120631771,ERS28123542
+M,M055,SAMEA120628695,M055cM,recxV6C35ewvd2lG1,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M055,SAMEA120628695,M055cN,reccsClqSCmiAWB2u,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M056,SAMEA120628696,M056dJ,rec8HZpZILWq8sQNW,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966060,SAMEA120631805,ERS28123792
+M,M056,SAMEA120628696,M056dM,recSAJfddMtBIaLNV,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M056,SAMEA120628696,M056dN,recrTmrskWAjesTbn,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M057,SAMEA120628697,M057dJ,recLoSoAeXXjP1jXm,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966014,SAMEA120631710,ERS28123413
+M,M057,SAMEA120628697,M057dM,rec0DswiP3mqeSWzT,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M057,SAMEA120628697,M057dN,reciJOeVDEQoSKVui,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M058,SAMEA120628698,M058dJ,recqRS0OQNL280Qc8,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966006,SAMEA120631702,ERS28123402
+M,M058,SAMEA120628698,M058dM,recegnOLxdRQ4p5O5,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M058,SAMEA120628698,M058dN,recorEaRC5V6MCwFb,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M059,SAMEA120628699,M059dJ,recDojETT4sM5w1eQ,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966057,SAMEA120631802,ERS28123786
+M,M059,SAMEA120628699,M059dM,recjCLsLrLFxqAcEO,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M059,SAMEA120628699,M059dN,recJCQDbXYcgDo0Kk,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M060,SAMEA120628700,M060dJ,recDgmXczdSIsjwPV,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966023,SAMEA120631769,ERS28123472
+M,M060,SAMEA120628700,M060dM,recjRqScRgm11UxMK,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M060,SAMEA120628700,M060dN,recWCYrXnw3XVpafk,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M061,SAMEA120628701,M061aH,recvcmq3sOISAy5UD,other; scope review,Caecum right,Entire section with content,Mega Tissue cassette,Glycerol,,,,
+M,M061,SAMEA120628701,M061aJ,recrQsqq0i3VFYOxF,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15965995,SAMEA120631691,ERS28123391
+M,M061,SAMEA120628701,M061aM,recZE7ahp63C8TqtK,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M061,SAMEA120628701,M061aN,rec2oLvszNmo3bqo0,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M062,SAMEA120628702,M062aJ,recLxX34hRhsz3puk,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966008,SAMEA120631704,ERS28123404
+M,M062,SAMEA120628702,M062aM,rec2Zl4wFG0kPEXyc,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M062,SAMEA120628702,M062aN,rec0SHlIl3pS3lFf5,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M063,SAMEA120628703,M063aJ,recjUefLxie5O2XqQ,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966046,SAMEA120631792,ERS28123751
+M,M063,SAMEA120628703,M063aM,recPbkAUOS1Idmb2i,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M063,SAMEA120628703,M063aN,recPJ25mnt4qnQTxE,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M064,SAMEA120628704,M064aJ,rec9V9NUClwhK5IDW,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966055,SAMEA120631800,ERS28123784
+M,M064,SAMEA120628704,M064aM,rechvKJRysgqFxlNy,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M064,SAMEA120628704,M064aN,recC8ZuM5r27bZg4T,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M065,SAMEA120628705,M065aI,recXO2W1e3tblRb8S,other; scope review,Caecum right,Entire section with content,Mega Tissue cassette,Glycerol,,,,
+M,M065,SAMEA120628705,M065aJ,recYiSleZ9iyWRO3T,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15965994,SAMEA120631690,ERS28123390
+M,M065,SAMEA120628705,M065aM,reci0VOpLpw67ohdb,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M065,SAMEA120628705,M065aN,recP8LnU1BxUc13ja,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M066,SAMEA120628706,M066bJ,recllYRvzYGQ22moE,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966028,SAMEA120631774,ERS28123605
+M,M066,SAMEA120628706,M066bM,recI825NKnwypTRAI,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M066,SAMEA120628706,M066bN,recLGazcXEiPGRGlf,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M067,SAMEA120628707,M067bJ,recJfQPH9jXFiQTg8,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966044,SAMEA120631790,ERS28123749
+M,M067,SAMEA120628707,M067bM,recfPsiGaj2cu7YPj,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M067,SAMEA120628707,M067bN,rec3XsdHyTzxNhxLE,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M068,SAMEA120628708,M068bJ,recI8rFkSYe0LBthA,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966031,SAMEA120631777,ERS28123654
+M,M068,SAMEA120628708,M068bM,recrmTdWFpBFb6s2O,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M068,SAMEA120628708,M068bN,recA2gNM1BP3uxC9n,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M069,SAMEA120628709,M069bJ,recUAxbkW9CVGv6XB,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966003,SAMEA120631699,ERS28123399
+M,M069,SAMEA120628709,M069bM,recl6tgAj1ok8EmeW,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M069,SAMEA120628709,M069bN,recW1J2L4myGt8Vfs,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M070,SAMEA120628710,M070bJ,recf9YOApkbj6x85S,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966039,SAMEA120631785,ERS28123717
+M,M070,SAMEA120628710,M070bM,reclKRB2w9Zg7YQx8,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M070,SAMEA120628710,M070bN,recwQ7wHPgeTkjq9T,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M071,SAMEA120628711,M071cJ,recAwjK5iSo2DCHdx,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966062,SAMEA120631807,ERS28123794
+M,M071,SAMEA120628711,M071cM,recaXFThqKWAJ23I4,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M071,SAMEA120628711,M071cN,recCYLXaI5DwIenBo,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M072,SAMEA120628712,M072cJ,recJzfbkR29OfuBoR,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966026,SAMEA120631772,ERS28123563
+M,M072,SAMEA120628712,M072cM,recSHpsAEzEEHZFz8,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M072,SAMEA120628712,M072cN,recgl7xAjO0ZwboSt,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M073,SAMEA120628713,M073cJ,recV313kKZg8giUgM,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966015,SAMEA120631711,ERS28123414
+M,M073,SAMEA120628713,M073cM,recOtTX296LXyb19A,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M073,SAMEA120628713,M073cN,recMCfqs1T82pg3Qv,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M074,SAMEA120628714,M074cJ,recrfkAmZrJ1H5BTo,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966035,SAMEA120631781,ERS28123678
+M,M074,SAMEA120628714,M074cM,recCf1ocwUeHmF419,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M074,SAMEA120628714,M074cN,reckZeoPTWfnpyDcw,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M075,SAMEA120628715,M075cJ,recfilAMDXPM2RLbv,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966040,SAMEA120631786,ERS28123721
+M,M075,SAMEA120628715,M075cM,recwoUYd4BHfxPnML,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M075,SAMEA120628715,M075cN,recUKHgUqwoNmGPCA,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M076,SAMEA120628716,M076dJ,recaRQFhpbkHb1dnV,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15965990,SAMEA120631686,ERS28123386
+M,M076,SAMEA120628716,M076dM,recec8ipqTq2QGmkG,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M076,SAMEA120628716,M076dN,recXutIp0BTHPeuML,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M077,SAMEA120628717,M077dJ,recEylFp271tmMFmp,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966019,SAMEA120631765,ERS28123468
+M,M077,SAMEA120628717,M077dM,recJvvXPwSeXiHrXY,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M077,SAMEA120628717,M077dN,reciXAzOrcGTpfMSR,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M078,SAMEA120628718,M078dI,recH4ZmF7hItOHNi3,other; scope review,Caecum right,Entire section with content,Mega Tissue cassette,Glycerol,,,,
+M,M078,SAMEA120628718,M078dJ,recZBHpqHPas1NX6Q,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966053,SAMEA120631798,ERS28123782
+M,M078,SAMEA120628718,M078dM,recpIAMHqmXqZehxv,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M078,SAMEA120628718,M078dN,recTkUOhHKZBGMNXe,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M079,SAMEA120628719,M079dJ,recCA16uhSvK0yfmt,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15966034,SAMEA120631780,ERS28123677
+M,M079,SAMEA120628719,M079dM,recftum99Runjk9Oa,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M079,SAMEA120628719,M079dN,rec4eet6XEREauDP6,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,
+M,M080,SAMEA120628720,M080dI,recH9zKo7D1rNeV85,other; scope review,Caecum right,Entire section with content,Mega Tissue cassette,Glycerol,,,,
+M,M080,SAMEA120628720,M080dJ,recgu5DKK4GSW8UCM,ENA sequencing sample exists,Caecum right,Digesta,2 mL tube,DNA/RNA Shield,,ERR15965997,SAMEA120631693,ERS28123393
+M,M080,SAMEA120628720,M080dM,recEIKolWoFr16RXb,MetaboLights-linked digesta/tissue candidate,Caecum right,Digesta,5 mL tube,None,MTBLS13488,,,
+M,M080,SAMEA120628720,M080dN,recsfRmZrWDZxwhKF,MetaboLights-linked digesta/tissue candidate,Caecum right,Tissue,5 mL tube,None,MTBLS13488,,,

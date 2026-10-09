@@ -6,6 +6,7 @@ import EnaRunMetadata from 'components/EnaRunMetadata'
 import SampleTaxonomyOverview from 'components/SampleTaxonomyOverview'
 import { TrailMark } from 'components/BreadCrumbs'
 import macrosampleData from 'assets/data/airtable/intestinalsectionsample.json'
+import useSampleIdentifiers, { MacrosampleIdentifiers } from 'hooks/useSampleIdentifiers'
 import specimenData from 'assets/data/airtable/animalspecimen.json'
 import trialData from 'assets/data/airtable/animaltrialexperiment.json'
 import cryosectionData from 'assets/data/airtable/cryosection.json'
@@ -55,6 +56,9 @@ const MacrosampleOverview = () => {
   const experiment = specimen?.fields.Experiment_flat ?? macrosample?.fields.ID.charAt(0)
   const trial = trialData.find((record) => record.fields.ID === experiment)
   const enaAccessions = macrosample?.fields['ENA accession'] ?? []
+  const biosampleAccession = (macrosample?.fields as { 'BioSamples accession'?: string } | undefined)?.['BioSamples accession']
+  const identifiers = useSampleIdentifiers<MacrosampleIdentifiers>('macro', Boolean(biosampleAccession))
+  const materialInsdc = identifiers[macrosampleName]?.material_insdc_sample_accessions ?? []
   const enaAccession = enaAccessions.join(', ')
   const countSampleId = macroSequencingData.find((record) =>
     record.fields.run_accession && enaAccessions.includes(record.fields.run_accession)
@@ -98,6 +102,11 @@ const MacrosampleOverview = () => {
 
             <main>
               <div className='page_padding grid gap-x-10 gap-y-9 pt-9 pb-3 xl:grid-cols-2 xl:[&>section:only-child]:col-span-2'>
+                {biosampleAccession && <section aria-label='Material BioSample'>
+                  <h2 className='main_header text-2xl text-ink'>Material BioSample</h2>
+                  <a href={`https://www.ebi.ac.uk/biosamples/samples/${encodeURIComponent(biosampleAccession)}`} target='_blank' rel='noopener noreferrer' className='link mt-5 inline-block font-jakarta text-lg font-semibold'>{biosampleAccession}</a>
+                  {materialInsdc.length > 0 && <p className='mt-2 text-sm text-ink_muted'>INSDC sample: {materialInsdc.map((accession) => <a key={accession} href={`https://www.ebi.ac.uk/ena/browser/view/${encodeURIComponent(accession)}`} target='_blank' rel='noopener noreferrer' className='link ml-1'>{accession}</a>)}</p>}
+                </section>}
                 {enaAccessions.length > 0
                   ? <EnaRunMetadata accessions={enaAccessions} />
                   : <section>

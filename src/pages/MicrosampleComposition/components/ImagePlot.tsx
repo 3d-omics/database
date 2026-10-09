@@ -12,6 +12,7 @@ import {
   faXmark,
 } from '@fortawesome/free-solid-svg-icons'
 import useChartTheme from 'hooks/useChartTheme'
+import cryosectionImageManifest from 'assets/data/cryosection-image-manifest.json'
 
 // The photograph is drawn over a square 1000 × 1000 of plot space, and the view is kept
 // inside those bounds, so the picture always fills the frame: zooming out stops at the
@@ -155,7 +156,8 @@ const ImagePlot = ({ cryosection, setSelectedMicrosampleIds, microsampleIds, mic
     }]
   }, [xcoord, ycoord, microsampleIds, microsampleCodes, shape, size, activeIndices]);
 
-  const imageUrl = new URL(`../../../assets/images/cryosection_images/${cryosection}.jpg`, import.meta.url).href;
+  const imageFile = (cryosectionImageManifest as Record<string, string>)[cryosection] ?? `${cryosection}.jpg`
+  const imageUrl = `${import.meta.env.BASE_URL}cryosection-images/${encodeURIComponent(imageFile)}`
 
   // The axes carry the view held in state, so rebuilding this layout — on a theme change,
   // or when a selection redraws the points — leaves the reader where they were rather

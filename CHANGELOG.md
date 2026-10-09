@@ -20,6 +20,14 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Changed
 
+- Cryosection images can now be fetched as a checked ZIP from the same Zenodo
+  release as the catalogue and staged for GitHub Pages at build time. The
+  current catalogue pin uses the committed JPGs until an image-backed release
+  is published; the new path validates every cryosection ID and image checksum.
+- Macro- and microsample tables, details and search now expose available
+  BioSamples and INSDC sample identifiers from checked public metadata
+  snapshots. The schema-3 contract is prepared to publish the
+  Airtable material accession field; the pinned release remains schema 2.
 - Macrosample composition pages now place the full-width barplot above a wrapping
   taxonomy legend and list every macrosample in the trial below
   ([`9fde882`][9fde882]).
@@ -47,6 +55,29 @@ moved it. If the project starts tagging releases, these headings become
 
 ### Added
 
+- An [Experiment F/H/M BioSamples relationship audit and repair](outputs/experiment-fhm-biosamples-2026-10-08/README.md)
+  verifies the G hierarchy model and records the 698 F/H/M catalogue
+  macrosamples. The 360 H/M metabolomics, 150 F biological, and 296 F D/E
+  metabolomics BioSamples were created and linked under all 328 specimens,
+  with source-backed structured details and public links independently checked.
+  F149/F150 are extra animals and their four D/E rows were excluded. Four F
+  specimens have D/E children but still no macrosample in the pinned catalogue.
+  All 806 child accessions are now present in portal Airtable, and the 150 F A/B
+  accessions are also in the dedicated Samples submission table. The separate
+  Metabolomics samples table has no accession field. A 346-row MetaboLights
+  correction is prepared; MetaboLights has not been edited.
+  The H/M and F D/E child release date predates their parents' date; the user
+  confirmed the F D/E source value.
+- A follow-up of the live F metabolomics submission table found 300 D/E rows
+  created on 2026-10-09. The user added `-70 ºC` storage and confirmed the
+  source release date for the 296 submitted rows; the four F149/F150 rows were
+  excluded. Their accessions and links are recorded in the
+  [public audit](outputs/experiment-fhm-biosamples-2026-10-08/f-metabolomics-biosamples-final-audit.csv).
+  D/E rows are not yet in the pinned catalogue or its source Airtable view,
+  and no MetaboLights accession is recorded for them. The 296 accessioned D/E
+  rows remain deferred from the portal release until a study accession exists;
+  the release check requires the 510 F A/B and H/M rows and excludes all 300
+  F D/E rows.
 - Catalogue `2026.10.07` adds five Experiment G cryosections and their
   microsample count matrices: `G121eI117A`, `G121eI118B`, `G121eO306A`,
   `G121eO307A`, and `G121eO308A`. The site now pins the published

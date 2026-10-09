@@ -515,6 +515,13 @@
                 "type": "string",
                 "x-sqlite-type": "TEXT"
               },
+              "biosample_accession": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "x-sqlite-type": "TEXT"
+              },
               "code": {
                 "type": [
                   "string",

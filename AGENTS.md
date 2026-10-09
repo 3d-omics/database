@@ -48,11 +48,12 @@ pip install --no-deps --no-index "./$wheel"
 npm run generate-data        # downloads the pinned catalogue, verifies it, renders it
 ```
 
-`generate-data` has four steps: `fetch-catalog` downloads the Zenodo deposit named in
+`generate-data` has five steps: `fetch-catalog` downloads the Zenodo deposit named in
 `catalog.json` into `.catalog/` and checks its SHA-256; `3domics-db-build render`
 writes the JSON tree; `export-catalogue` validates the versioned SQL and JSON Schema
 contracts and writes the normalized download and build metadata; `build-search-index`
-writes the static search index. No token, and no
+writes the static search index; `fetch-cryosection-images` checks and stages the pinned
+image ZIP, or the legacy JPGs for the current release. No token, and no
 partial-success path — a checksum mismatch or a missing release exits non-zero.
 
 Set `CATALOG_FILE=/path/to/local.sqlite` to render a catalogue you built yourself. The

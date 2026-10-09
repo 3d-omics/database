@@ -10,6 +10,7 @@ const snapshot = {
       study_accession: 'PRJEB86258',
       study_title: "3D'omics: Salmonella challenge chicken trial",
       sample_accession: 'SAMEA120395769',
+      secondary_sample_accession: 'ERS27096455',
       sample_description: 'Digesta',
       host_body_site: 'Caecum right',
       collection_date: '2023-07-10',
@@ -39,7 +40,9 @@ describe('EnaRunMetadata', () => {
     expect(screen.getByRole('link', { name: 'PRJEB86258' }))
       .toHaveAttribute('href', 'https://www.ebi.ac.uk/ena/browser/view/PRJEB86258')
     expect(screen.getByRole('link', { name: 'SAMEA120395769' }))
-      .toHaveAttribute('href', 'https://www.ebi.ac.uk/ena/browser/view/SAMEA120395769')
+      .toHaveAttribute('href', 'https://www.ebi.ac.uk/biosamples/samples/SAMEA120395769')
+    expect(screen.getByRole('link', { name: 'ERS27096455' }))
+      .toHaveAttribute('href', 'https://www.ebi.ac.uk/ena/browser/view/ERS27096455')
     expect(screen.getByText('Illumina NovaSeq X')).toBeInTheDocument()
     expect(screen.getByText('WGS · METAGENOMIC · PAIRED')).toBeInTheDocument()
     expect(screen.getByText('6,747,506,700')).toBeInTheDocument()

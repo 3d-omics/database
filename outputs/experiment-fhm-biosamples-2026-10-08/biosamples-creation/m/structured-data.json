@@ -1,0 +1,8482 @@
+{
+  "SAMEA123916796": {
+    "accession": "SAMEA123916796",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916797": {
+    "accession": "SAMEA123916797",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916798": {
+    "accession": "SAMEA123916798",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916799": {
+    "accession": "SAMEA123916799",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916800": {
+    "accession": "SAMEA123916800",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916801": {
+    "accession": "SAMEA123916801",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916802": {
+    "accession": "SAMEA123916802",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916803": {
+    "accession": "SAMEA123916803",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916804": {
+    "accession": "SAMEA123916804",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916805": {
+    "accession": "SAMEA123916805",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916806": {
+    "accession": "SAMEA123916806",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916807": {
+    "accession": "SAMEA123916807",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916808": {
+    "accession": "SAMEA123916808",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916809": {
+    "accession": "SAMEA123916809",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916810": {
+    "accession": "SAMEA123916810",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916811": {
+    "accession": "SAMEA123916811",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916812": {
+    "accession": "SAMEA123916812",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916813": {
+    "accession": "SAMEA123916813",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916814": {
+    "accession": "SAMEA123916814",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916815": {
+    "accession": "SAMEA123916815",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916816": {
+    "accession": "SAMEA123916816",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916817": {
+    "accession": "SAMEA123916817",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916818": {
+    "accession": "SAMEA123916818",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916819": {
+    "accession": "SAMEA123916819",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916820": {
+    "accession": "SAMEA123916820",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916821": {
+    "accession": "SAMEA123916821",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916822": {
+    "accession": "SAMEA123916822",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916823": {
+    "accession": "SAMEA123916823",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916824": {
+    "accession": "SAMEA123916824",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916825": {
+    "accession": "SAMEA123916825",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916826": {
+    "accession": "SAMEA123916826",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916827": {
+    "accession": "SAMEA123916827",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916828": {
+    "accession": "SAMEA123916828",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916829": {
+    "accession": "SAMEA123916829",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916830": {
+    "accession": "SAMEA123916830",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916831": {
+    "accession": "SAMEA123916831",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916832": {
+    "accession": "SAMEA123916832",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916833": {
+    "accession": "SAMEA123916833",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916834": {
+    "accession": "SAMEA123916834",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916835": {
+    "accession": "SAMEA123916835",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916836": {
+    "accession": "SAMEA123916836",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916837": {
+    "accession": "SAMEA123916837",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916838": {
+    "accession": "SAMEA123916838",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916839": {
+    "accession": "SAMEA123916839",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916840": {
+    "accession": "SAMEA123916840",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916841": {
+    "accession": "SAMEA123916841",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916842": {
+    "accession": "SAMEA123916842",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916843": {
+    "accession": "SAMEA123916843",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916844": {
+    "accession": "SAMEA123916844",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916845": {
+    "accession": "SAMEA123916845",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916846": {
+    "accession": "SAMEA123916846",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916847": {
+    "accession": "SAMEA123916847",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916848": {
+    "accession": "SAMEA123916848",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916849": {
+    "accession": "SAMEA123916849",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916850": {
+    "accession": "SAMEA123916850",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916851": {
+    "accession": "SAMEA123916851",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916852": {
+    "accession": "SAMEA123916852",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916853": {
+    "accession": "SAMEA123916853",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916854": {
+    "accession": "SAMEA123916854",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916855": {
+    "accession": "SAMEA123916855",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916856": {
+    "accession": "SAMEA123916856",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916857": {
+    "accession": "SAMEA123916857",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916858": {
+    "accession": "SAMEA123916858",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916859": {
+    "accession": "SAMEA123916859",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916860": {
+    "accession": "SAMEA123916860",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916861": {
+    "accession": "SAMEA123916861",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916862": {
+    "accession": "SAMEA123916862",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916863": {
+    "accession": "SAMEA123916863",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916864": {
+    "accession": "SAMEA123916864",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916865": {
+    "accession": "SAMEA123916865",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916866": {
+    "accession": "SAMEA123916866",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916867": {
+    "accession": "SAMEA123916867",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916868": {
+    "accession": "SAMEA123916868",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916869": {
+    "accession": "SAMEA123916869",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916870": {
+    "accession": "SAMEA123916870",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916871": {
+    "accession": "SAMEA123916871",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916872": {
+    "accession": "SAMEA123916872",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916873": {
+    "accession": "SAMEA123916873",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916874": {
+    "accession": "SAMEA123916874",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916875": {
+    "accession": "SAMEA123916875",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916876": {
+    "accession": "SAMEA123916876",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916877": {
+    "accession": "SAMEA123916877",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916878": {
+    "accession": "SAMEA123916878",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916879": {
+    "accession": "SAMEA123916879",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916880": {
+    "accession": "SAMEA123916880",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916881": {
+    "accession": "SAMEA123916881",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916882": {
+    "accession": "SAMEA123916882",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916883": {
+    "accession": "SAMEA123916883",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916884": {
+    "accession": "SAMEA123916884",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916885": {
+    "accession": "SAMEA123916885",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916886": {
+    "accession": "SAMEA123916886",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916887": {
+    "accession": "SAMEA123916887",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916888": {
+    "accession": "SAMEA123916888",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916889": {
+    "accession": "SAMEA123916889",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916890": {
+    "accession": "SAMEA123916890",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916891": {
+    "accession": "SAMEA123916891",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916892": {
+    "accession": "SAMEA123916892",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916893": {
+    "accession": "SAMEA123916893",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916894": {
+    "accession": "SAMEA123916894",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916895": {
+    "accession": "SAMEA123916895",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916896": {
+    "accession": "SAMEA123916896",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916897": {
+    "accession": "SAMEA123916897",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916898": {
+    "accession": "SAMEA123916898",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916899": {
+    "accession": "SAMEA123916899",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916900": {
+    "accession": "SAMEA123916900",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916901": {
+    "accession": "SAMEA123916901",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916902": {
+    "accession": "SAMEA123916902",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916903": {
+    "accession": "SAMEA123916903",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916904": {
+    "accession": "SAMEA123916904",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916905": {
+    "accession": "SAMEA123916905",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916906": {
+    "accession": "SAMEA123916906",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916907": {
+    "accession": "SAMEA123916907",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916908": {
+    "accession": "SAMEA123916908",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916909": {
+    "accession": "SAMEA123916909",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916910": {
+    "accession": "SAMEA123916910",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916911": {
+    "accession": "SAMEA123916911",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916912": {
+    "accession": "SAMEA123916912",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916913": {
+    "accession": "SAMEA123916913",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916914": {
+    "accession": "SAMEA123916914",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916915": {
+    "accession": "SAMEA123916915",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916916": {
+    "accession": "SAMEA123916916",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916917": {
+    "accession": "SAMEA123916917",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916918": {
+    "accession": "SAMEA123916918",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916919": {
+    "accession": "SAMEA123916919",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916920": {
+    "accession": "SAMEA123916920",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916921": {
+    "accession": "SAMEA123916921",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916922": {
+    "accession": "SAMEA123916922",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916923": {
+    "accession": "SAMEA123916923",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916924": {
+    "accession": "SAMEA123916924",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916925": {
+    "accession": "SAMEA123916925",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916926": {
+    "accession": "SAMEA123916926",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916927": {
+    "accession": "SAMEA123916927",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916928": {
+    "accession": "SAMEA123916928",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916929": {
+    "accession": "SAMEA123916929",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916930": {
+    "accession": "SAMEA123916930",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916931": {
+    "accession": "SAMEA123916931",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916932": {
+    "accession": "SAMEA123916932",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916933": {
+    "accession": "SAMEA123916933",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916934": {
+    "accession": "SAMEA123916934",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916935": {
+    "accession": "SAMEA123916935",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916936": {
+    "accession": "SAMEA123916936",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916937": {
+    "accession": "SAMEA123916937",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916938": {
+    "accession": "SAMEA123916938",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916939": {
+    "accession": "SAMEA123916939",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916940": {
+    "accession": "SAMEA123916940",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916941": {
+    "accession": "SAMEA123916941",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916942": {
+    "accession": "SAMEA123916942",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916943": {
+    "accession": "SAMEA123916943",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916944": {
+    "accession": "SAMEA123916944",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916945": {
+    "accession": "SAMEA123916945",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916946": {
+    "accession": "SAMEA123916946",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916947": {
+    "accession": "SAMEA123916947",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916948": {
+    "accession": "SAMEA123916948",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916949": {
+    "accession": "SAMEA123916949",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916950": {
+    "accession": "SAMEA123916950",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916951": {
+    "accession": "SAMEA123916951",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916952": {
+    "accession": "SAMEA123916952",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916953": {
+    "accession": "SAMEA123916953",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916954": {
+    "accession": "SAMEA123916954",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Digesta",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "SAMEA123916955": {
+    "accession": "SAMEA123916955",
+    "data": [
+      {
+        "domain": null,
+        "webinSubmissionAccountId": "Webin-69627",
+        "type": "sample",
+        "schema": null,
+        "content": [
+          {
+            "metric": {
+              "value": "container",
+              "iri": null
+            },
+            "value": {
+              "value": "5 mL tube",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "origin",
+              "iri": null
+            },
+            "value": {
+              "value": "Caecum right",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "type",
+              "iri": null
+            },
+            "value": {
+              "value": "Tissue",
+              "iri": null
+            }
+          },
+          {
+            "metric": {
+              "value": "storage",
+              "iri": null
+            },
+            "value": {
+              "value": "-70 ºC",
+              "iri": null
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

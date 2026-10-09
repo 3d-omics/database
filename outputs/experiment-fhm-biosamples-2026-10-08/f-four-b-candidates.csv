@@ -1,0 +1,5 @@
+macrosample_id,specimen_id,parent_biosample,airtable_record_id,description,container,preservative,current_data_release,proposed_release,reason_not_in_current_submission
+F099eB,F099,SAMEA120632758,recJF4USfIHODaiMe,Digesta,2 mL tube,DNA/RNA Shield,,2025-11-01T00:00:00.000Z,No dedicated submission row; no ENA run; source data_release blank
+F100eB,F100,SAMEA120632759,recHanFHABqj7Kz5S,Digesta,2 mL tube,DNA/RNA Shield,,2025-11-01T00:00:00.000Z,No dedicated submission row; no ENA run; source data_release blank
+F124eB,F124,SAMEA120632783,recxMpiNMrlhZ7lnJ,Digesta,2 mL tube,DNA/RNA Shield,,2025-11-01T00:00:00.000Z,No dedicated submission row; no ENA run; source data_release blank
+F125eB,F125,SAMEA120632784,rec9tgCKK3XRThbY7,Digesta,2 mL tube,DNA/RNA Shield,,2025-11-01T00:00:00.000Z,No dedicated submission row; no ENA run; source data_release blank

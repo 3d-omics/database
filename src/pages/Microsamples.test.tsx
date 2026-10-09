@@ -58,6 +58,10 @@ vi.mock('assets/data/airtable/cryosection.json', () => ({
   ],
 }))
 
+vi.mock('hooks/useSampleIdentifiers', () => ({
+  default: () => ({ MS001: { sequencing_biosample_accessions: ['SAMEA120135374'], sequencing_insdc_sample_accessions: ['ERS26792833'] } }),
+}))
+
 // Mock TableView
 vi.mock('components/TableView', () => ({
   default: ({ data, columns, pageTitle, tableDescription, displayTableDescription }: any) => (
@@ -66,6 +70,7 @@ vi.mock('components/TableView', () => ({
       <div data-testid='table-description'>{tableDescription}</div>
       <div data-testid='data-count'>{data.length}</div>
       <div data-testid='column-count'>{columns.length}</div>
+      <div data-testid='biosample-value'>{columns.find((column: any) => column.id === 'BioSamples accessions')?.accessorFn(data[0])}</div>
       {typeof columns.find((column: any) => column.id === 'Code')?.cell === 'function' &&
         columns.find((column: any) => column.id === 'Code').cell({ row: { original: data[0] } })}
     </div>
@@ -117,8 +122,8 @@ describe('Microsamples', () => {
 
   it('creates correct number of columns', () => {
     renderComponent()
-    // Code, Batch, Cryosection, Collection Method, Date, Xcoord, Ycoord, Size, ENA Accession = 9
-    expect(screen.getByTestId('column-count')).toHaveTextContent('9')
+    expect(screen.getByTestId('column-count')).toHaveTextContent('11')
+    expect(screen.getByTestId('biosample-value')).toHaveTextContent('SAMEA120135374')
   })
 
   it('filters data with startsWith condition', () => {

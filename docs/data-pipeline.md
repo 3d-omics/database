@@ -10,9 +10,10 @@ Airtable ──(database-build, elsewhere)──▶ 3domics-<DV>.sqlite ──(r
                                               pinned by catalog.json │
                                                                      └──▶ normalized JSON export
 ENA public run reports ──(snapshot refresh)──▶ public/ena-run-metadata.json ──▶ sample detail pages
+BioSamples records ──(snapshot refresh)──▶ public/biosample-metadata.json ──▶ material sample ERS IDs
 ```
 
-`npm run generate-data` is four steps:
+`npm run generate-data` is five steps:
 
 | Step | Command | What it does |
 |---|---|---|
@@ -20,6 +21,7 @@ ENA public run reports ──(snapshot refresh)──▶ public/ena-run-metadata
 | 2 | `3domics-db-build render .catalog/3domics.sqlite --into .` | Writes the nine record dumps, the CSVs and their `_json` conversions. The currently pinned public wheel also writes a retired hierarchy file. |
 | 3 | `python3 src/scripts/export-catalogue.py` | Verifies the versioned contracts against the catalogue, writes `public/catalogue-v<schema_version>.json.gz`, and removes the retired hierarchy file before the site build. |
 | 4 | `npm run build-search-index` | Writes the ignored `public/search-index.json` from the rendered records and MAG metadata. Dev and production builds regenerate it automatically. The browser fetches it only when search is used. |
+| 5 | `npm run fetch-cryosection-images` | Checks the pinned image archive against the catalogue and stages the extracted images under the ignored `public/cryosection-images/`. The current catalogue has no image archive, so this step stages the legacy JPGs. Dev and production builds repeat this step. |
 
 ### ENA run metadata
 
@@ -37,6 +39,25 @@ writes nothing if a run cannot be resolved. `npm run build` verifies that the sn
 matches the pinned catalogue and covers every linked run, without contacting ENA.
 Samples without an ENA accession retain their catalogue sample details.
 
+The ENA snapshot also carries each run's BioSamples accession (SAMEA) and
+secondary INSDC sample accession (ERS). The build search step joins these to
+macrosample IDs and publishes `public/macrosample-identifiers.json`, which the
+table loads on demand and visitors can download. The
+catalogue's material BioSamples accessions come
+from the Airtable `accession` field; schema 3 maps it to
+`macrosamples.biosample_accession` and renders it as `BioSamples accession`.
+These are kept separate from sequencing BioSamples where both exist.
+The same ENA snapshot also populates microsample table and search identifiers
+and the downloadable `public/microsample-identifiers.json` crosswalk.
+
+After a catalogue bump, run `npm run refresh-biosample-metadata` as well. It reads
+the rendered material accessions, snapshots their public BioSamples SRA/ERS
+cross-references, checks that each accession names its macrosample, and ties
+the result to the catalogue SHA-256. The production
+build checks both snapshots before bundling. A schema-only migration from schema
+2 leaves the new material accession column empty, so publishing the repaired
+source accessions requires a fresh Airtable build.
+
 ## Prerequisites
 
 Follow the checksummed wheel installation in the [README](../README.md#first-time-setup).
@@ -51,6 +72,7 @@ Follow the checksummed wheel installation in the [README](../README.md#first-tim
 | `schema_version` | The catalogue's schema generation, as recorded in its `catalog_meta` |
 | `sha256` | The artefact's checksum, enforced on download |
 | `source` | Where to get it — a Zenodo file-content URL |
+| `cryosection_images` | Optional image ZIP URL and SHA-256 from the same Zenodo record version; required when adopting an image-backed catalogue release |
 | `concept_doi` | Cite this: always resolves to the latest version |
 | `version_doi` | The immutable deposit this commit builds against |
 | `license` | The catalogue's licence (CC-BY-4.0) |
@@ -113,13 +135,26 @@ The two pairs that came from one Airtable table via different views
 are now SQL views over one stored table, distinguished by a flag column — one fetch
 instead of two.
 
-**Only complete cryosections are catalogued.** A cryosection is included when its
-Airtable record holds exactly one CSV in `microsample_counts_csv`, one CSV in
-`pixel_coordinates_csv` and one image in `cropped_image`. Any other cryosection is left
-out, and so are its microsamples in both `microsample.json` and
-`microsampleswithcoordination.json`. They appear in the first catalogue built after their
-attachments are complete. The rule is `require_attachments` and `left_out_with` in
-`database-build`'s `scripts/build_mapping.py`, not here.
+**The current builder requires complete cryosections.** It keeps a cryosection when
+its Airtable record holds exactly one CSV in `microsample_counts_csv` and one image in
+`cropped_image`. Any other cryosection is left out, along with its microsamples
+in both `microsample.json` and `microsampleswithcoordination.json`. They appear
+in the first catalogue built after their attachments are complete. The rule is
+`require_attachments` and `left_out_with` in `database-build`'s
+`scripts/build_mapping.py`, not here.
+
+The image attachment is `cropped_image` (field `flddr5QOjLO1V2jS1`) in the
+Cryosection table `tblC7ttwMXX9aOFNQ` of Airtable base `appKakM1bnKSekwuW`.
+The image-enabled JSON list comes from Airtable view `viwcoSwyCzinecGM6`.
+The builder now downloads each image, records its checksum in `source_files`,
+and packages a checked image ZIP alongside the catalogue on Zenodo. When
+`catalog.json` pins that ZIP, `fetch-cryosection-images.py` verifies and stages
+its files under `public/cryosection-images/`; the site serves those files from
+GitHub Pages and overlays pixel coordinates from
+`microsampleswithcoordination.json`. The build fails if an image or its checksum
+is missing. The current pinned catalogue predates the ZIP, so the script uses
+the committed JPGs as a temporary fallback until the next Airtable-sourced
+release is published.
 
 **The catalogue carries 73 of Airtable's 496 columns**, only what the site reads. A dump
 rendered from it is therefore a subset of an Airtable dump, and adding a column is a

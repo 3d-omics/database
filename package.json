@@ -26,16 +26,18 @@
   },
   "scripts": {
     "dev": "vite",
-    "predev": "npm run build-search-index",
-    "build": "python3 src/scripts/refresh-ena-runs.py --check && vite build",
-    "prebuild": "npm run build-search-index",
+    "predev": "npm run build-search-index && npm run fetch-cryosection-images",
+    "build": "python3 src/scripts/refresh-ena-runs.py --check && python3 src/scripts/refresh-biosample-metadata.py --check && vite build",
+    "prebuild": "npm run build-search-index && npm run fetch-cryosection-images",
     "preview": "vite preview",
     "test": "vitest",
-    "generate-data": "npm run fetch-catalog && 3domics-db-build render .catalog/3domics.sqlite --into . && python3 src/scripts/export-catalogue.py && npm run build-search-index",
+    "generate-data": "npm run fetch-catalog && 3domics-db-build render .catalog/3domics.sqlite --into . && python3 src/scripts/export-catalogue.py && npm run build-search-index && npm run fetch-cryosection-images",
+    "fetch-cryosection-images": "python3 src/scripts/fetch-cryosection-images.py",
     "build-search-index": "python3 src/scripts/build-search-index.py",
     "export-catalogue": "python3 src/scripts/export-catalogue.py",
     "import-catalogue": "python3 src/scripts/import-catalogue.py",
     "refresh-ena-metadata": "python3 src/scripts/refresh-ena-runs.py",
+    "refresh-biosample-metadata": "python3 src/scripts/refresh-biosample-metadata.py",
     "fetch-catalog": "node --import tsx src/scripts/fetch-catalog.ts"
   },
   "eslintConfig": {

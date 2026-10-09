@@ -27,6 +27,7 @@ FIELDS = (
     "study_accession",
     "study_title",
     "sample_accession",
+    "secondary_sample_accession",
     "sample_description",
     "host_body_site",
     "collection_date",

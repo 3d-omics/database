@@ -4,6 +4,7 @@ import { ColumnDef } from '@tanstack/react-table'
 import TableView from 'components/TableView'
 import intestinalSectionSampleData from 'assets/data/airtable/intestinalsectionsample.json'
 import animalSpecimenData from 'assets/data/airtable/animalspecimen.json'
+import useSampleIdentifiers, { MacrosampleIdentifiers } from 'hooks/useSampleIdentifiers'
 import { Link } from 'react-router-dom'
 import useMetaboliteExcelFileData from 'hooks/useMetaboliteExcelFileData'
 import { mergeExcelWithAirtableData } from 'pages/Macrosamples/utils/mergeMetaboliteData';
@@ -29,6 +30,7 @@ type TData = {
     'ENA link'?: string
     'Metabolights accession'?: string
     'Metabolights link'?: string
+    'BioSamples accession'?: string
     Group?: string
     DPI?: string
     Treatment?: string
@@ -76,6 +78,7 @@ const Macrosample = (
 
 
   const data = intestinalSectionSampleData as unknown as TData[]
+  const macrosampleIdentifiers = useSampleIdentifiers<MacrosampleIdentifiers>('macro')
   const [analysisScale, setAnalysisScale] = useState<AnalysisScale>('all')
   const showAnalysisFilters = displayPageHeader && !macrosampleWithMetaboliteData
 
@@ -177,6 +180,38 @@ const Macrosample = (
             {props.getValue()}
           </Link>
         )
+      },
+      {
+        id: 'BioSamples accession',
+        header: 'BioSamples',
+        accessorFn: (row) => [
+          row.fields['BioSamples accession'],
+          ...(macrosampleIdentifiers[row.fields.ID]?.sequencing_biosample_accessions ?? []),
+        ].filter(Boolean).join(', '),
+        cell: ({ row }) => {
+          const material = row.original.fields['BioSamples accession']
+          const sequencing = macrosampleIdentifiers[row.original.fields.ID]?.sequencing_biosample_accessions ?? []
+          const distinctSequencing = sequencing.filter((accession) => accession !== material)
+          if (!material && distinctSequencing.length === 0) return null
+          return <div className='flex flex-col gap-1'>
+            {material && <div><span className='mr-1 text-xs text-ink_muted'>{sequencing.includes(material) ? 'Material, sequencing' : 'Material'}</span><a href={`https://www.ebi.ac.uk/biosamples/samples/${encodeURIComponent(material)}`} target='_blank' rel='noopener noreferrer' className='table_link'>{material}</a></div>}
+            {distinctSequencing.map((accession) => <div key={accession}><span className='mr-1 text-xs text-ink_muted'>Sequencing</span><a href={`https://www.ebi.ac.uk/biosamples/samples/${encodeURIComponent(accession)}`} target='_blank' rel='noopener noreferrer' className='table_link'>{accession}</a></div>)}
+          </div>
+        },
+      },
+      {
+        id: 'INSDC sample accessions',
+        header: 'INSDC samples',
+        accessorFn: (row) => [...new Set([
+          ...(macrosampleIdentifiers[row.fields.ID]?.material_insdc_sample_accessions ?? []),
+          ...(macrosampleIdentifiers[row.fields.ID]?.sequencing_insdc_sample_accessions ?? []),
+        ])].join(', '),
+        cell: ({ row }) => [...new Set([
+          ...(macrosampleIdentifiers[row.original.fields.ID]?.material_insdc_sample_accessions ?? []),
+          ...(macrosampleIdentifiers[row.original.fields.ID]?.sequencing_insdc_sample_accessions ?? []),
+        ])].map((accession) =>
+          <a key={accession} href={`https://www.ebi.ac.uk/ena/browser/view/${encodeURIComponent(accession)}`} target='_blank' rel='noopener noreferrer' className='table_link block'>{accession}</a>
+        ),
       },
       {
         id: 'Individual',
@@ -415,7 +450,7 @@ const Macrosample = (
       })
     }
     return baseColumns
-  }, [filteredData, specimenLookup, macrosampleWithMetaboliteData, checkedMetaboliteIds, setCheckedMetaboliteIds, dataToUse, mergedData])
+  }, [filteredData, specimenLookup, macrosampleWithMetaboliteData, checkedMetaboliteIds, setCheckedMetaboliteIds, dataToUse, mergedData, macrosampleIdentifiers])
 
   const columns = customColumns ?? defaultColumns
 

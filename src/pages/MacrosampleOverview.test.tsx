@@ -7,6 +7,9 @@ import useValidateParams from 'hooks/useValidateParams'
 
 // Mock hooks
 vi.mock('hooks/useValidateParams')
+vi.mock('hooks/useSampleIdentifiers', () => ({
+  default: () => ({ M002: { material_insdc_sample_accessions: ['ERS27204543'] } }),
+}))
 
 // Mock data
 vi.mock('assets/data/airtable/intestinalsectionsample.json', () => ({
@@ -36,6 +39,7 @@ vi.mock('assets/data/airtable/intestinalsectionsample.json', () => ({
         Individual: 'AS999',
         'Sample type': 'Caecum',
         'Data type': 'Metabolomics',
+        'BioSamples accession': 'SAMEA120503856',
         Preservative: 'None',
       },
     },
@@ -219,6 +223,10 @@ describe('MacrosampleOverview', () => {
       .toHaveAttribute('href', '/animal-trials/M%20-%20Turkey%20trial')
     expect(within(summary).getByText('Metabolomics')).toBeInTheDocument()
     expect(within(summary).getByText('None')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'SAMEA120503856' }))
+      .toHaveAttribute('href', 'https://www.ebi.ac.uk/biosamples/samples/SAMEA120503856')
+    expect(screen.getByRole('link', { name: 'ERS27204543' }))
+      .toHaveAttribute('href', 'https://www.ebi.ac.uk/ena/browser/view/ERS27204543')
     expect(within(screen.getByRole('banner')).queryByText('ENA accession:')).not.toBeInTheDocument()
   })
 

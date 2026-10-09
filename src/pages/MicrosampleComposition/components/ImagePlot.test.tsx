@@ -41,9 +41,8 @@ vi.mock('react-plotly.js', () => ({
   ),
 }))
 
-// Mock image import
-vi.mock('../../../assets/images/cryosection_images/G_CS1.jpg', () => ({
-  default: 'mock-image-url',
+vi.mock('assets/data/cryosection-image-manifest.json', () => ({
+  default: { G_CS1: 'G_CS1.png' },
 }))
 
 const layoutOf = () => JSON.parse(screen.getByTestId('plot-layout').textContent || '{}')
@@ -106,6 +105,7 @@ describe('ImagePlot', () => {
 
   it('includes image layer in layout', () => {
     render(<ImagePlot {...mockProps} />)
+    expect(layoutOf().images[0].source).toBe('/database/cryosection-images/G_CS1.png')
 
     const layout = JSON.parse(screen.getByTestId('plot-layout').textContent || '{}')
 

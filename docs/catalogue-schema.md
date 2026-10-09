@@ -85,6 +85,13 @@ sample accessions (`ERS…`) are different entities. The current catalogue carri
 the run accession in the macro- and microsample sequencing records; it does not
 yet model all run-to-sample relationships. A future schema change should give
 multiple runs per library their own rows rather than overwrite a single field.
+The schema-3 draft adds nullable `macrosamples.biosample_accession` for the
+material BioSample sourced from Airtable `accession`. Separate committed ENA
+and BioSamples metadata snapshots supply sequencing BioSample and INSDC sample
+identifiers to the portal. A schema-only migration leaves the new material
+column null; a fresh Airtable build must populate it.
+The portal publishes these cross-references separately as
+`macrosample-identifiers.json`, with material and sequencing roles identified.
 
 ## Using a catalogue without Airtable
 
@@ -120,7 +127,8 @@ records alone changes the data version, not the schema version.
 
 Schema 3 adds primary keys for the five core
 entity tables, foreign keys for the specimen-to-experiment and
-cryosection-to-macrosample links, and real-valued sequencing pixel coordinates.
+cryosection-to-macrosample links, a nullable material BioSamples accession for
+macrosamples, and real-valued sequencing pixel coordinates.
 The builder migrated the 2026.09.22 release without Airtable. All rows in its
 13 tables, the 107 source-file manifest entries, and both supported foreign
 keys passed validation. Its normalized JSON export also passes JSON Schema
